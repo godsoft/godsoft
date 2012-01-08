@@ -5,29 +5,29 @@
 
 
 	<!-- 서버자원모니터링   -->
-    <bean id="serverResrceMntrng"
-        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetObject" ref="egovServerResrceMntrngScheduling" />
-        <property name="targetMethod" value="monitorServerResrce" />
-        <property name="concurrent" value="false" />
-    </bean>
+<!--     <bean id="serverResrceMntrng" -->
+<!--         class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> -->
+<!--         <property name="targetObject" ref="egovServerResrceMntrngScheduling" /> -->
+<!--         <property name="targetMethod" value="monitorServerResrce" /> -->
+<!--         <property name="concurrent" value="false" /> -->
+<!--     </bean> -->
 
     <!-- 서버자원모니터링  트리거-->
-    <bean id="serverResrceMntrngTrigger"
-        class="org.springframework.scheduling.quartz.SimpleTriggerBean">
-        <property name="jobDetail" ref="serverResrceMntrng" />
-        <property name="startDelay" value="60000" />
-        <property name="repeatInterval" value="600000" />
-    </bean>
+<!--     <bean id="serverResrceMntrngTrigger" -->
+<!--         class="org.springframework.scheduling.quartz.SimpleTriggerBean"> -->
+<!--         <property name="jobDetail" ref="serverResrceMntrng" /> -->
+<!--         <property name="startDelay" value="60000" /> -->
+<!--         <property name="repeatInterval" value="600000" /> -->
+<!--     </bean> -->
 
 	<!-- 모니터링 스케줄러 -->
-	<bean id="mntrngScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-		<property name="triggers">
-			<list>
+<!-- 	<bean id="mntrngScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> -->
+<!-- 		<property name="triggers"> -->
+<!-- 			<list> -->
 				
-                <ref bean="serverResrceMntrngTrigger" />
-			</list>
-		</property>
-	</bean>
+<!--                 <ref bean="serverResrceMntrngTrigger" /> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 
 </beans>
