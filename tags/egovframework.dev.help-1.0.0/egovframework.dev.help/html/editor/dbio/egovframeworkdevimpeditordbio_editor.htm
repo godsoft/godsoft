@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0102)http://192.168.100.16/wiki/doku.php -->
+<HTML dir=ltr lang=en xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>egovframework:dev:imp:editor:dbio_editor</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.18702">
+<META name=robots content=noindex,nofollow>
+<META name=date content=2009-05-11T13:42:32+0900>
+<META name=keywords content=egovframework,dev,imp,editor,dbio_editor><LINK 
+title=eGovFrame rel=search type=application/opensearchdescription+xml 
+href="/wiki/lib/exe/opensearch.php"><LINK rel=start href="/wiki/"><LINK 
+title=Index rel=contents 
+href="/wiki/doku.php?id=egovframework:dev:imp:editor:dbio_editor&amp;do=index"><LINK 
+title="Recent Changes" rel=alternate type=application/rss+xml 
+href="/wiki/feed.php"><LINK title="Current Namespace" rel=alternate 
+type=application/rss+xml 
+href="/wiki/feed.php?mode=list&amp;ns=egovframework:dev:imp:editor"><LINK 
+title="Plain HTML" rel=alternate type=text/html 
+href="/wiki/doku.php?do=export_xhtml&amp;id=egovframework:dev:imp:editor:dbio_editor"><LINK 
+title="Wiki Markup" rel=alternate type=text/plain 
+href="/wiki/doku.php?do=export_raw&amp;id=egovframework:dev:imp:editor:dbio_editor"><LINK 
+rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditordbio_editor_files/css.php" media=all><LINK 
+rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditordbio_editor_files/css(1).php" media=screen><LINK 
+rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditordbio_editor_files/css(2).php" media=print>
+<SCRIPT type=text/javascript charset=utf-8 
+src="egovframeworkdevimpeditordbio_editor_files/js.php"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV class="dokuwiki export"><!-- TOC START -->
+<DIV class=toc>
+<DIV id=toc__header class="tocheader toctoggle">Table of Contents</DIV>
+<DIV id=toc__inside>
+<UL class=toc>
+  <LI class=level1>
+  <DIV class=li><SPAN class=li><A class=toc 
+  href="#dbio_editor">DBIO 
+  Editor</A></SPAN></DIV>
+  <UL class=toc>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#개요">개요</A></SPAN></DIV></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#설명">설명</A></SPAN></DIV></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#환경설정">환경설정</A></SPAN></DIV></LI></UL></LI></UL></DIV></DIV><!-- TOC END -->
+<H1><A id=dbio_editor name=dbio_editor>DBIO Editor</A></H1>
+<DIV class=level1></DIV><!-- SECTION "DBIO Editor" [1-27] -->
+<H2><A id=개요 name=개요>개요</A></H2>
+<DIV class=level2>
+<P>DBIO는 DataBase Input/Output의 약자로 개발환경에서 제공하는 데이터베이스 접근에 관한 표준적인 방법이다. 데이터베이스를 
+쉽고 일관된 API로 접근할수 있도록 해주며 업무컴포넌트 개발시에 데이터베이스 벤더에 관계없이 코딩할수 있도록 해준다. eGovFrameWork 
+의 DBIO Editor 는 DBIO 를 쉽게 가공할 수 있도록 유용한 기능을 제공한다. </P></DIV><!-- SECTION "개요" [28-484] -->
+<H2><A id=설명 name=설명>설명</A></H2>
+<DIV class=level2>
+<P><A class=media title=egovframework:dev:imp:editor:dbio_editor:image001.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditordbio_editor_files/image001.gif"></A> 
+<BR><SUP>&lt;그림 1&gt; DBIO Editor의 구성 </SUP></P>
+<P>DBIO Editor는 <ACRONYM title="Structured Query Language">SQL</ACRONYM> 편집기, 
+<ACRONYM title="Structured Query Language">SQL</ACRONYM> Tester 도구 와 
+Configuration Editor로 구성되어 있고, 주요기능은 다음과 같다. </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li><ACRONYM title="Structured Query Language">SQL</ACRONYM> MAP 
+  Config File 편집 기능</DIV></LI>
+  <LI class=level1>
+  <DIV class=li><ACRONYM title="Structured Query Language">SQL</ACRONYM> MAP 
+  File 편집 기능 </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>데이터 베이스 접속 정보 설정</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>테이블 정보 조회</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>사용자 정의 Query 생성 기능</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Query 테스트 및 결과 조회 기능</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Query 목록 검색 및 조회</DIV></LI></UL></DIV><!-- SECTION "설명" [485-1019] -->
+<H2><A id=환경설정 name=환경설정>환경설정</A></H2>
+<DIV class=level2>
+<P>사용자가 DBIO Editor를 사용하기 위해서는 사용자의 eclipse 개발환경에 eGovFrameWork DBIO 를 업데이트해야 
+한다. 업데이트하는 방법은 다음과 같다. </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>사용자의 eclipse 개발환경에서 메뉴 &gt; Help &gt; Software Updates 를 클릭한다. 
+  (&lt;그림 2&gt; 참조)</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Software Updates and Add-ons” 다이얼로그 창에서 Available Software 탭을 
+  클릭한다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Available Software” 목록 우측에 있는 “Add Site…” 버튼을 클릭한다. (&lt;그림 
+  3&gt; 참조)</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Add Site” 다이얼로그 창에 있는 Location 입력 항목에 “<A class=urlextern 
+  title=http://192.168.100.16:8080/egovframework/update 
+  href="http://192.168.100.16:8080/egovframework/update" 
+  rel=nofollow>http://192.168.100.16:8080/egovframework/update</A>” 를 입력하고 “OK” 
+  버튼을 클릭한다. (&lt;그림 4&gt; 참조)</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Available Software” 목록에 입력한 Url 이 추가된다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>입력된 항목 또는 하위 트리의 모든 항목을 선택한다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Available Software” 목록 우측에 있는 “Install…” 버튼을 클릭한다. (&lt;그림 
+  5&gt; 참조)</DIV></LI></OL>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:sqlmapconfig2-1.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditordbio_editor_files/sqlmapconfig2-1.jpg"></A> 
+<BR><SUP>&lt;그림 2&gt; Software Updates </SUP></P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:sqlmapconfig2-2.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditordbio_editor_files/sqlmapconfig2-2.jpg"></A> 
+<BR><SUP>&lt;그림 3&gt; “Available Software” 목록 </SUP></P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:sqlmapconfig2-3.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditordbio_editor_files/sqlmapconfig2-3.jpg"></A> 
+<BR><SUP>&lt;그림 4&gt; Location 입력 </SUP></P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:sqlmapconfig2-4.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditordbio_editor_files/sqlmapconfig2-4.jpg"></A> 
+<BR><SUP>&lt;그림 5&gt; Install 
+</SUP></P></DIV><!-- SECTION "환경설정" [1020-] --></DIV></BODY></HTML>

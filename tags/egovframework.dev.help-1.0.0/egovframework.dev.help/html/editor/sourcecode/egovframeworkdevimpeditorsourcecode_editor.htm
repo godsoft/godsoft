@@ -1,0 +1,329 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0108)http://192.168.100.16/wiki/doku.php -->
+<HTML dir=ltr lang=en xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>egovframework:dev:imp:editor:sourcecode_editor</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.18702">
+<META name=robots content=noindex,nofollow>
+<META name=date content=2009-05-11T19:26:29+0900>
+<META name=keywords content=egovframework,dev,imp,editor,sourcecode_editor><LINK 
+title=eGovFrame rel=search type=application/opensearchdescription+xml 
+href="/wiki/lib/exe/opensearch.php"><LINK rel=start href="/wiki/"><LINK 
+title=Index rel=contents 
+href="/wiki/doku.php?id=egovframework:dev:imp:editor:sourcecode_editor&amp;do=index"><LINK 
+title="Recent Changes" rel=alternate type=application/rss+xml 
+href="/wiki/feed.php"><LINK title="Current Namespace" rel=alternate 
+type=application/rss+xml 
+href="/wiki/feed.php?mode=list&amp;ns=egovframework:dev:imp:editor"><LINK 
+title="Plain HTML" rel=alternate type=text/html 
+href="/wiki/doku.php?do=export_xhtml&amp;id=egovframework:dev:imp:editor:sourcecode_editor"><LINK 
+title="Wiki Markup" rel=alternate type=text/plain 
+href="/wiki/doku.php?do=export_raw&amp;id=egovframework:dev:imp:editor:sourcecode_editor"><LINK 
+rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditorsourcecode_editor_files/css.php" media=all><LINK 
+rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditorsourcecode_editor_files/css(1).php" 
+media=screen><LINK rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditorsourcecode_editor_files/css(2).php" media=print>
+<SCRIPT type=text/javascript charset=utf-8 
+src="egovframeworkdevimpeditorsourcecode_editor_files/js.php"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV class="dokuwiki export"><!-- TOC START -->
+<DIV class=toc>
+<DIV id=toc__header class="tocheader toctoggle">Table of Contents</DIV>
+<DIV id=toc__inside>
+<UL class=toc>
+  <LI class=level1>
+  <DIV class=li><SPAN class=li><A class=toc 
+  href="#sourcecode_editor">SourceCode 
+  Editor</A></SPAN></DIV>
+  <UL class=toc>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#개요">개요</A></SPAN></DIV></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#설명">설명</A></SPAN></DIV></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#사용법">사용법</A></SPAN></DIV>
+    <UL class=toc>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#code_assist_메서드">Code 
+      Assist 메서드</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#quick_fix1">Quick 
+      Fix</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#코드_스타일_적용">코드 
+      스타일 적용</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#코드_템플릿_처리">코드 
+      템플릿 처리</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#quick_type_hierarchy1">Quick 
+      Type Hierarchy</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#quick_outline1">Quick 
+      Outline</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#소스_코드_네비게이션1">소스 
+      코드 네비게이션</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#mark_occurrences1">Mark 
+      Occurrences</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#로컬_히스토리">로컬 
+      히스토리</A></SPAN></DIV></LI></UL></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#참고자료">참고자료</A></SPAN></DIV></LI></UL></LI></UL></DIV></DIV><!-- TOC END -->
+<H1><A id=sourcecode_editor name=sourcecode_editor>SourceCode Editor</A></H1>
+<DIV class=level1></DIV><!-- SECTION "SourceCode Editor" [1-33] -->
+<H2><A id=개요 name=개요>개요</A></H2>
+<DIV class=level2>
+<P>eGov Framework SourceCode Editor는 전자정부 개발 도구 통합을 위한 개방형 플랫폼으로, IDE(Integrated 
+Development Environment) 기반으로 Edit 기능을 제공한다. </P></DIV><!-- SECTION "개요" [34-244] -->
+<H2><A id=설명 name=설명>설명</A></H2>
+<DIV class=level2>
+<P><A class=media title=egovframework:dev:imp:editor:workbench.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/workbench.png" width=800 
+height=600></A> </P>
+<P>이클립스 워크벤치 사용자 인터페이스는 다양한 원도우의 모임으로 각 창의 메뉴 모음, 도구 모음, 바로 가기 모음과 하나 이상의 
+Perspective가 포함되어 있고 주요 구성 영역은 다음과 같다. </P>
+<TABLE class=inline>
+  <TBODY>
+  <TR class=row0>
+    <TH class="col0 leftalign">영역 </TH>
+    <TH class="col1 leftalign">설명 </TH></TR>
+  <TR class=row1>
+    <TD class="col0 leftalign">Workbench </TD>
+    <TD class=col1>WindowEditor, Menu Bar, toolbar, shortcut bar 등의 다양한 
+      Window와 하나 이상의 Perspective 로 구성 </TD></TR>
+  <TR class=row2>
+    <TD class="col0 leftalign">Perspective </TD>
+    <TD class=col1>View와 Content editor로 구성된 집합 </TD></TR>
+  <TR class=row3>
+    <TD class="col0 leftalign">Views </TD>
+    <TD class=col1>workbench 페이지 내에서 시각적 구성 요소로서 기본 작업을 위한 지원 역할에 사용 </TD></TR>
+  <TR class=row4>
+    <TD class="col0 leftalign">Editor </TD>
+    <TD class=col1>한 workbench 페이지 내에서 시각적 구성 요소로서 문서 또는 데이터 변경 등의 역할에 사용 
+  </TD></TR>
+  <TR class=row5>
+    <TD class="col0 leftalign">Menu bar </TD>
+    <TD class=col1>일반적으로 파일, 편집, 이동, 프로젝트, 창, 도움말 수준의 메뉴가 포함 </TD></TR>
+  <TR class=row6>
+    <TD class="col0 leftalign">Tool bar </TD>
+    <TD class=col1>툴 실행의 편의성 제공을 위해 제공된 아이콘 </TD></TR>
+  <TR class=row7>
+    <TD class=col0>Short cut bar</TD>
+    <TD class=col1>Perspective 또는 View의 바로가기 아이콘 </TD></TR>
+  <TR class=row8>
+    <TD class="col0 leftalign">Status line </TD>
+    <TD class=col1>개발자 지원을 위한 콘텐츠 정보로서 현재의 라인과 컬럼 번호 등의 글로벌 상태 표시 
+  </TD></TR></TBODY></TABLE></DIV>
+<H4><A id=code_assist name=code_assist>Code Assist</A></H4>
+<DIV class=level4>
+<P>Java Code 구현 중 현재 컨텍스트에 입력하던 내용을 완성하는 데 필요한 코드(메소드, 코드 템플릿 등)를 표시하여 개발을 지원하기 
+위한 도구이다. </P></DIV>
+<H4><A id=quick_fix name=quick_fix>Quick Fix</A></H4>
+<DIV class=level4>
+<P>구현 중 현재 컨텍스트의 문제 발생 시 문제에 대한 해결 가능한 방안을 제시해 주는 도구이다. </P></DIV>
+<H4><A id=코드_스타일 name=코드_스타일>코드 스타일</A></H4>
+<DIV class=level4>
+<P>프로그램의 가독성과 유지보수성을 향상하기 위해 표준화된 코드 스타일을 구성하도록 방안을 제시해 주는 도구이다. </P></DIV>
+<H4><A id=코드_템플릿 name=코드_템플릿>코드 템플릿</A></H4>
+<DIV class=level4>
+<P>프로그램의 생산성과 표준화를 지원하며 소스코드 작성을 지원해주는도구이다. </P></DIV>
+<H4><A id=quick_type_hierarchy name=quick_type_hierarchy>Quick Type 
+Hierarchy</A></H4>
+<DIV class=level4>
+<P>메서드나 타입, 패키지에 대한 상속 구조를 표시해 주는 도구이다. </P></DIV>
+<H4><A id=quick_outline name=quick_outline>Quick Outline</A></H4>
+<DIV class=level4>
+<P>기본적으로 Outline View와 같지만, 소스 코드를 편집하는 도중에 빠르게 볼 수 있도록 지원해 주는 도구이다. </P></DIV>
+<H4><A id=소스_코드_네비게이션 name=소스_코드_네비게이션>소스 코드 네비게이션</A></H4>
+<DIV class=level4>
+<P>구현 중 메서드나 클래스의 소스코드를 쉽게 찾을 수 있도록 지원해 주는 도구이다. </P></DIV>
+<H4><A id=mark_occurrences name=mark_occurrences>Mark Occurrences</A></H4>
+<DIV class=level4>
+<P>구현 중 특정 변수나 메소드 등을 가독성 있게 표현해 주는 도구이다. </P></DIV>
+<H4><A id=로컬_히스토리_기능 name=로컬_히스토리_기능>로컬 히스토리 기능</A></H4>
+<DIV class=level4>
+<P>파일을 수정 후 저장하면 내역이 로컬 히스토리에 저장되어 현재 상태와 비교 및 복구 등을 지원해 주는 도구이다. </P></DIV><!-- SECTION "설명" [245-2907] -->
+<H2><A id=사용법 name=사용법>사용법</A></H2>
+<DIV class=level2></DIV><!-- SECTION "사용법" [2908-2931] -->
+<H3><A id=code_assist_메서드 name=code_assist_메서드>Code Assist 메서드</A></H3>
+<DIV class=level3>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Ctrl + Space키를 눌러 Code Assist popup 창에서 선택</DIV></LI></OL>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:codeassistmethod.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/codeassistmethod.gif" 
+width=840></A> </P></DIV>
+<H4><A id=code_assist_템플릿 name=code_assist_템플릿>Code Assist 템플릿</A></H4>
+<DIV class=level4>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Ctrl + Space키를 눌러 자동 생성된 템플릿 코드 </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>템플릿 설정은 Preferences 다이얼로그의 Java&gt;Editor&gt;Templates 페이지에서 새로운 
+  템플릿을 정의하거나, 기존 템플릿을 편집, 제거할 수 있음</DIV></LI></OL>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:codeassisttemplate.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/codeassisttemplate.gif" 
+width=800></A> </P></DIV><!-- SECTION "Code Assist 메서드" [2932-3470] -->
+<H3><A id=quick_fix1 name=quick_fix1>Quick Fix</A></H3>
+<DIV class=level3>
+<P>코드에 에러가 발생한 경우 해당하는 에러 부분에 빨간색 밑줄과 왼쪽 마커바에 에러표시 아이콘인 빨간색 X 표시되어 Quick Fix 기능 
+사용이 지원됨을 알려준다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:quickfix.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/quickfix.gif"></A> </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>왼쪽 마커바의 에러표시 아이콘을 클릭하여 나타난 해결방법 지원</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>해당하는 에러 부분에 커서를 위치시켜 Ctrl + 1 키를 눌러 해결방법 지원</DIV></LI></OL>
+<P><STRONG>Bold Text</STRONG> </P></DIV><!-- SECTION "Quick Fix" [3471-3982] -->
+<H3><A id=코드_스타일_적용 name=코드_스타일_적용>코드 스타일 적용</A></H3>
+<DIV class=level3>
+<P>코드 스타일 기능을 통해 전자정부 프레임워크 코드 스타일 표준을 정의하여 표준화된 코드를 적용 가능하다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:codestyle1.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/codestyle1.gif"></A> </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Preferences 다이얼로그의 Java&gt;Code Style&gt;Formatter 화면에서 Active 
+  Profile를 선택한 다음 Edit 버튼을 누름</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Profile 다이얼로그에서 들여쓰기, 괄호, 공백, 제어문 구조, 주석 등의 코드 스타일을 지정 
+  가능</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Preview 패널을 통해 정의한 양식이 어떻게 보이는지 확인 가능</DIV></LI></OL>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:codestyle2.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/codestyle2.png" 
+width=840></A> </P></DIV><!-- SECTION "코드 스타일 적용" [3983-4657] -->
+<H3><A id=코드_템플릿_처리 name=코드_템플릿_처리>코드 템플릿 처리</A></H3>
+<DIV class=level3>
+<P>전자정부 프레임워크 코드 템플릿을 정의하여 표준화된 코드를 적용하고 개발 생산성및 유지보수성을 향상을 지원한다. </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Preferences 다이얼로그의 Java&gt; Editor &gt; Templates 화면에서 
+  Templates를 편집</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Preview 패널을 통해 정의한 양식이 어떻게 보이는지 확인 가능</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>try 문 입력 시 try까지만 입력하고 Ctrl + Space 를 눌러서 Template 를 적용 
+  가능하다.</DIV></LI></OL>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:codetemplatenew.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/codetemplatenew.png"></A> 
+</P></DIV><!-- SECTION "코드 템플릿 처리" [4658-5222] -->
+<H3><A id=quick_type_hierarchy1 name=quick_type_hierarchy1>Quick Type 
+Hierarchy</A></H3>
+<DIV class=level3>
+<P>타입을 선택한 경우 해당 타입에 해당하는 상속구조가 표시되고, 메서드를 선택한 경우 메서드를 구현한 타입의 상속 구조가 표시된다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:packagehierarchy.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/packagehierarchy.gif"></A> 
+</P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>에디터에서 메서드나 타입, 패키지를 선택하고 Ctrl + T를 누르면 Quick Type Hierarchy 팝업 
+  뷰가 보임</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>팝업 뷰에서 Ctrl + T를 누르면 슈퍼타입/서브타입 구조가 토글됨</DIV></LI></OL></DIV><!-- SECTION "Quick Type Hierarchy" [5223-5737] -->
+<H3><A id=quick_outline1 name=quick_outline1>Quick Outline</A></H3>
+<DIV class=level3>
+<P>Outline View와 같은 내용이 팝 업 창에 나타나며 찾고자 하는 메서드의 이름을 입력하면 입력하는 문자열에 해당하는 메서드들만이 
+팝업 창 목록에 나타나 빠르게 메서드로의 접근이 가능하다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:quickoutline.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/quickoutline.gif"></A> 
+</P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>에디터에서 Ctrl + O 를 누르면 Quick Outline 팝업 창이 보임</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>팝업 뷰에서 Ctrl + O를 누르면 Inherited member 변수가 
+토글됨</DIV></LI></OL></DIV><!-- SECTION "Quick Outline" [5738-6250] -->
+<H3><A id=소스_코드_네비게이션1 name=소스_코드_네비게이션1>소스 코드 네비게이션</A></H3>
+<DIV class=level3>
+<P>소스코드 구현 시 다른 메서드나 클래스의 소스를 확인하고 다시 원래 코드의 위치로 돌아오는 것을 쉽게 지원해 준다 </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>해당 클래스나 메소드에서 F3(Open Declaration)을 누름</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>원래 소스로 돌아가려면 Alt + 왼쪽 화살표 키(Back)</DIV></LI></OL></DIV><!-- SECTION "소스 코드 네비게이션" [6251-6596] -->
+<H3><A id=mark_occurrences1 name=mark_occurrences1>Mark Occurrences</A></H3>
+<DIV class=level3>
+<P>커서가 위치한 곳에 있는 지역변수, 상수, 필드, 메소드, 클래스 등의 코드 요소가 나타나는 곳이 모두 하이라이트된다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:markocccurrences.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/markocccurrences.gif"></A> 
+</P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>툴바에서 “Mark Occurrences” 버튼 클릭 또는 Alt + Shift + O 키를 동시에 
+  누름</DIV></LI></OL></DIV><!-- SECTION "Mark Occurrences" [6597-6960] -->
+<H3><A id=로컬_히스토리 name=로컬_히스토리>로컬 히스토리</A></H3>
+<DIV class=level3>
+<P>변경된 파일의 현재 상태와 수정하기 전의 상태를 비교하거나, 예전 상태로 복구를 지원한다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:sourcecode_editor:localhistory.gif 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditorsourcecode_editor_files/localhistory.gif" 
+width=840></A> </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Package Explorer의 컨텍스트 메뉴에서 Compare With&gt; Hisory 통해 이전 버전과 
+  비교</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Package Explorer의 컨텍스트 메뉴에서 Replace With &gt; Local History 통해 
+  이전 버전으로 복구</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Package Explorer의 컨텍스트 메뉴에서 Replace With &gt; Previous From 
+  Local History 통해 최종 버전으로 복구</DIV></LI></OL></DIV><!-- SECTION "로컬 히스토리" [6961-7537] -->
+<H2><A id=참고자료 name=참고자료>참고자료</A></H2>
+<DIV class=level2>
+<UL>
+  <LI class=level1>
+  <DIV class=li>Eclipse Help: <A class=urlextern 
+  title=http://help.eclipse.org/help32/topic/org.eclipse.jdt.doc.user/reference/ref-java-editor.htm 
+  href="http://help.eclipse.org/help32/topic/org.eclipse.jdt.doc.user/reference/ref-java-editor.htm" 
+  rel=nofollow>http://help.eclipse.org/help32/topic/org.eclipse.jdt.doc.user/reference/ref-java-editor.htm</A></DIV></LI></UL></DIV><!-- SECTION "참고자료" [7538-] --></DIV></BODY></HTML>
