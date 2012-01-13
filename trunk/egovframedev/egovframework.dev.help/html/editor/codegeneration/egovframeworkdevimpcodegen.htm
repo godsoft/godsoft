@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0092)http://www.egovframe.org/wiki/doku.php -->
+<HTML dir=ltr lang=en xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>egovframework:dev:imp:codegen</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.18812">
+<META name=robots content=index,follow>
+<META name=date content=2009-10-15T10:38:52+0900>
+<META name=keywords content=egovframework,dev,imp,codegen><LINK title=eGovFrame 
+rel=search type=application/opensearchdescription+xml 
+href="/wiki/lib/exe/opensearch.php"><LINK rel=start href="/wiki/"><LINK 
+title=Index rel=contents 
+href="/wiki/doku.php?id=egovframework:dev:imp:codegen&amp;do=index"><LINK 
+title="Recent Changes" rel=alternate type=application/rss+xml 
+href="/wiki/feed.php"><LINK title="Current Namespace" rel=alternate 
+type=application/rss+xml 
+href="/wiki/feed.php?mode=list&amp;ns=egovframework:dev:imp"><LINK 
+title="Plain HTML" rel=alternate type=text/html 
+href="/wiki/doku.php?do=export_xhtml&amp;id=egovframework:dev:imp:codegen"><LINK 
+title="Wiki Markup" rel=alternate type=text/plain 
+href="/wiki/doku.php?do=export_raw&amp;id=egovframework:dev:imp:codegen"><LINK 
+rel=stylesheet type=text/css href="egovframeworkdevimpcodegen_files/css.css" 
+media=all><LINK rel=stylesheet type=text/css 
+href="egovframeworkdevimpcodegen_files/css(1).css" media=screen><LINK 
+rel=stylesheet type=text/css href="egovframeworkdevimpcodegen_files/css(2).css" 
+media=print>
+<SCRIPT type=text/javascript charset=utf-8 
+src="egovframeworkdevimpcodegen_files/js.php"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV class="dokuwiki export"><!-- TOC START -->
+<DIV class=toc>
+<DIV id=toc__header class="tocheader toctoggle">Table of Contents</DIV>
+<DIV id=toc__inside>
+<UL class=toc>
+  <LI class=level1>
+  <DIV class=li><SPAN class=li><A class=toc 
+  href="#code_generation">Code 
+  Generation</A></SPAN></DIV>
+  <UL class=toc>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#개요">개요</A></SPAN></DIV>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#설명">설명</A></SPAN></DIV>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#사용법">사용법</A></SPAN></DIV>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#업데이트">업데이트</A></SPAN></DIV>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#업데이트_주의사항">업데이트 
+    주의사항</A></SPAN></DIV></LI></UL></LI></UL></DIV></DIV><!-- TOC END -->
+<H1><A id=code_generation name=code_generation>Code Generation</A></H1>
+<DIV class=level1></DIV><!-- SECTION "Code Generation" [1-31] -->
+<H2><A id=개요 name=개요>개요</A></H2>
+<DIV class=level2>
+<P>eGovFramework 의 개발환경 구현도구에서는 다음과 같은 Code Generation 기능을 제공한다. </P></DIV>
+<H5><A id=템플릿_기반_code_gen name=템플릿_기반_code_gen>템플릿 기반 Code Gen.</A></H5>
+<DIV class=level5>
+<P>미리 정의된 템플릿을 사용하여 eGovFramework을 기반으로 하는CRUD 프로그램을 생성하거나 필요한 
+Configuration/Property 파일을 쉽게 작성할 수 있다. </P></DIV>
+<H5><A id=모델_기반_code_gen name=모델_기반_code_gen>모델 기반 Code Gen.</A></H5>
+<DIV class=level5>
+<P>클래스 다이어그램에서 정의한 모델을 통해 eGovFramework에 기반한 자바 코드를 자동생성한다. </P></DIV><!-- SECTION "개요" [32-542] -->
+<H2><A id=설명 name=설명>설명</A></H2>
+<DIV class=level2>
+<P>eGovFramework 구현도구의 Code Generation 기능은 다음과 같은 편의성을 제공한다. </P>
+<TABLE class=inline>
+  <TBODY>
+  <TR class=row0>
+    <TD class=col0>설계자</TD>
+    <TD class=col1>응용 프로그램 설계 모형 집중과 Prototype 통해 위험 예방 가능 </TD></TR>
+  <TR class=row1>
+    <TD class=col0>개발자</TD>
+    <TD class=col1>Source Code 개발 집중과 빠른 테스트 수행 가능 </TD></TR>
+  <TR class=row2>
+    <TD class=col0>유지보수자</TD>
+    <TD class=col1>표준 템플릿 형태로 높은 이해 제공, 신뢰성 높은 유지보수 가능 
+</TD></TR></TBODY></TABLE></DIV><!-- SECTION "설명" [543-938] -->
+<H2><A id=사용법 name=사용법>사용법</A></H2>
+<DIV class=level2>
+<UL>
+  <LI class=level1>
+  <DIV class=li><A class=wikilink1 title=egovframework:dev:imp:codegen:template 
+  href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegentemplate.htm">Template 
+  기반 Code Gen.</A> </DIV>
+  <UL>
+    <LI class=level2>
+    <DIV class=li><A class=wikilink1 
+    title=egovframework:dev:imp:codegen:template:crud 
+    href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegentemplatecrud.htm">CRUD 
+    프로그램 자동 생성 기능</A> </DIV>
+    <LI class=level2>
+    <DIV class=li><A class=wikilink1 
+    title=egovframework:dev:imp:codegen:template:config 
+    href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegentemplateconfig.htm">Configuration 
+    자동 생성 기능</A></DIV>
+    <LI class=level2>
+    <DIV class=li><A class=wikilink1 
+    title=egovframework:dev:imp:codegen:template:custom 
+    href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegentemplatecustom.htm">사용자 
+    정의 템플릿 추가 기능</A> </DIV></LI></UL></LI></UL>
+<UL>
+  <LI class=level1>
+  <DIV class=li><A class=wikilink1 title=egovframework:dev:imp:codegen:model 
+  href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegenmodel.htm">Model 
+  기반 Code Gen.</A> </DIV>
+  <UL>
+    <LI class=level2>
+    <DIV class=li><A class=wikilink1 
+    title=egovframework:dev:imp:codegen:model:uml_codegen 
+    href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegenmodeluml_codegen.htm">구현도구의 
+    UML 클래스 다이어그램을 사용한 코드 자동 생성</A> </DIV>
+    <LI class=level2>
+    <DIV class=li><A class=wikilink1 
+    title=egovframework:dev:imp:codegen:model:xmi_codegen 
+    href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegenmodelxmi_codegen.htm">XMI 
+    파일을 이용한 코드 자동 생성</A></DIV>
+    <LI class=level2>
+    <DIV class=li><A class=wikilink1 
+    title=egovframework:dev:imp:codegen:model:xmi_export 
+    href="/help/topic/egovframework.dev.help/html/editor/codegeneration/egovframeworkdevimpcodegenmodelxmi_export.htm">구현도구의 
+    UML 클래스 다이어그램을 XMI 파일로 Export하는 기능</A> </DIV></LI></UL></LI></UL></DIV><!-- SECTION "사용법" [939-1772] -->
+<H2><A id=업데이트 name=업데이트>업데이트</A></H2>
+<DIV class=level2>
+<P>사용자가 Code Generation을 사용하기 위해서는 eGovFramework 구현도구를 포털에서 다운 받거나 구현도구를 업데이트해야 
+한다. <BR>구현도구를 새로 다운 받는 것을 권장하며 업데이트하는 방법은 다음과 같다. </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>사용자의 eclipse 개발환경에서 메뉴 &gt; Help &gt; Software Updates 를 클릭한다. 
+  (&lt;그림 1&gt; 참조)</DIV>
+  <LI class=level1>
+  <DIV class=li>“Software Updates and Add-ons” 다이얼로그 창에서 Available Software 탭을 
+  클릭한다. </DIV>
+  <LI class=level1>
+  <DIV class=li>“Available Software” 목록 우측에 있는 “Add Site…” 버튼을 클릭한다. (&lt;그림 
+  2&gt; 참조)</DIV>
+  <LI class=level1>
+  <DIV class=li>“Add Site” 다이얼로그 창에 있는 Location 입력 항목에 “<A class=urlextern 
+  title=http://www.egovframe.org/update href="http://www.egovframe.org/update" 
+  rel=nofollow>http://www.egovframe.org/update</A>” 를 입력하고 “OK” 버튼을 클릭한다. 
+  (&lt;그림 3&gt; 참조)</DIV>
+  <LI class=level1>
+  <DIV class=li>“Available Software” 목록에 입력한 Url 이 추가된다. </DIV>
+  <LI class=level1>
+  <DIV class=li>입력한 Url 의 하위 트리 항목을 확장하여 eGovFramework Development Environment의 
+  “eGovFramework Code Gen Feature”, “eGovFramework Code Gen Templates Feature”를 
+  설치한 뒤, “eGovFramework IDE Feature”를 추가로 설치한다.</DIV>
+  <LI class=level1>
+  <DIV class=li>“Available Software” 목록 우측에 있는 “Install…” 버튼을 클릭한다. (&lt;그림 
+  4&gt; 참조)</DIV></LI></OL>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:sqlmapconfig2-1.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/sqlmapconfig2-1.jpg"></A> <BR>&lt;그림 1&gt; 
+Software Updates </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:sqlmapconfig2-2.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/sqlmapconfig2-2.jpg"></A> <BR>&lt;그림 2&gt; 
+“Available Software” 목록 </P>
+<P><A class=media title=egovframework:dev:imp:editor:add_update_site.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/add_update_site.png"></A> <BR>&lt;그림 3&gt; 
+Location 입력 </P>
+<P><A class=media 
+title=egovframework:dev:imp:codegen:plugin_update_codegen_3.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/plugin_update_codegen_3.png"></A> 
+<BR>&lt;그림 4&gt; Install </P></DIV><!-- SECTION "업데이트" [1773-3382] -->
+<H2><A id=업데이트_주의사항 name=업데이트_주의사항>업데이트 주의사항</A></H2>
+<DIV class=level2>
+<UL>
+  <LI class=level1>
+  <DIV class=li>기존 개발환경에 Code Generation 기능을 업데이트하여 사용하시기 위해서는 인코딩을 UTF-8로 설정하셔야 
+  합니다. 개발환경 실행 폴더에 있는 eclipse.ini 파일에 다음과 같이 Encoding 설정 옵션을 추가하여 주시기 바랍니다. 
+  </DIV></LI></UL>
+<P><CODE>-Dfile.encoding=UTF-8</CODE> </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>Model Based Code Generation 기능은 기본적으로 Eclipse UML 2.0 라이브러리를 
+  사용합니다. eGovFrame CodeGen 플러그인을 업데이트한 후 IDE 를 업데이트하면 자동으로 해당 라이브러리를 업데이트받게 됩니다. 
+  IDE Update 를 추가적으로 수행한 후에도 메뉴가 보이지 않는 등 이상 동작을 보이면 Eclipse UML 2.0 이 제대로 설치되었는 
+  지 확인하시기 바랍니다. 다음은 Eclipse UML 2.0 설치 확인 방법입니다. </DIV></LI></UL>
+<P><A class=media 
+title=egovframework:dev:imp:codegen:plugin_update_codegen_11.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/plugin_update_codegen_11.png"></A> 
+<BR>&lt;그림 5&gt; 메뉴 &gt; Help &gt; About Eclipse Platform </P>
+<P><A class=media 
+title=egovframework:dev:imp:codegen:plugin_update_codegen_12.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/plugin_update_codegen_12.png"></A> 
+<BR>&lt;그림 6&gt; Plug-in Detail 버튼 클릭 </P>
+<P><A class=media 
+title=egovframework:dev:imp:codegen:plugin_update_codegen_13.png 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpcodegen_files/plugin_update_codegen_13.png"></A> 
+<BR>&lt;그림 7&gt; 플러그인 목록에서 Eclipse UML 2.0 설치 확인 </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>위에서 Eclipse UML 2.0 설치가 안되어 있는 경우 다음 플러그인을 수동으로 업데이트받으시기 바랍니다. 
+  <BR></DIV></LI></UL><PRE class=code>  Ganymede Update Site &gt; Models and Model Development &gt; UML 2 End-User Features 
+  Ganymede Update Site &gt; Models and Model Development &gt; UML 2 Extender SDK </PRE></DIV><!-- SECTION "업데이트 주의사항" [3383-] --></DIV></BODY></HTML>

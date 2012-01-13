@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0125)http://192.168.100.16/wiki/doku.php -->
+<HTML dir=ltr lang=en xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>egovframework:dev:imp:editor:dbio_editor:data_source_explorer</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.18702">
+<META name=robots content=index,follow>
+<META name=date content=2009-04-16T18:11:30+0900>
+<META name=keywords 
+content=egovframework,dev,imp,editor,dbio_editor,data_source_explorer><LINK 
+title=eGovFrame rel=search type=application/opensearchdescription+xml 
+href="/wiki/lib/exe/opensearch.php"><LINK rel=start href="/wiki/"><LINK 
+title=Index rel=contents 
+href="/wiki/doku.php?id=egovframework:dev:imp:editor:dbio_editor:data_source_explorer&amp;do=index"><LINK 
+title="Recent Changes" rel=alternate type=application/rss+xml 
+href="/wiki/feed.php"><LINK title="Current Namespace" rel=alternate 
+type=application/rss+xml 
+href="/wiki/feed.php?mode=list&amp;ns=egovframework:dev:imp:editor:dbio_editor"><LINK 
+title="Plain HTML" rel=alternate type=text/html 
+href="/wiki/doku.php?do=export_xhtml&amp;id=egovframework:dev:imp:editor:dbio_editor:data_source_explorer"><LINK 
+title="Wiki Markup" rel=alternate type=text/plain 
+href="/wiki/doku.php?do=export_raw&amp;id=egovframework:dev:imp:editor:dbio_editor:data_source_explorer"><LINK 
+rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditordbio_editordata_source_explorer_files/css.php" 
+media=all><LINK rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditordbio_editordata_source_explorer_files/css(1).php" 
+media=screen><LINK rel=stylesheet type=text/css 
+href="egovframeworkdevimpeditordbio_editordata_source_explorer_files/css(2).php" 
+media=print>
+<SCRIPT type=text/javascript charset=utf-8 
+src="egovframeworkdevimpeditordbio_editordata_source_explorer_files/js.php"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV class="dokuwiki export"><!-- TOC START -->
+<DIV class=toc>
+<DIV id=toc__header class="tocheader toctoggle">Table of Contents</DIV>
+<DIV id=toc__inside>
+<UL class=toc>
+  <LI class=level1>
+  <DIV class=li><SPAN class=li><A class=toc 
+  href="#data_source_explorer">Data 
+  Source Explorer</A></SPAN></DIV>
+  <UL class=toc>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#개요">개요</A></SPAN></DIV></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#설명">설명</A></SPAN></DIV>
+    <UL class=toc>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#화면">화면</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#주요_기능">주요 
+      기능</A></SPAN></DIV></LI></UL></LI>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="#사용법">사용법</A></SPAN></DIV>
+    <UL class=toc>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#새_database_connection_생성하기">새 
+      Database Connection 생성하기</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#database_schema_조회하기">Database 
+      Schema 조회하기</A></SPAN></DIV></LI>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="#테이블_데이타_추출하기">테이블 
+      데이타 추출하기</A></SPAN></DIV></LI></UL></LI></UL></LI></UL></DIV></DIV><!-- TOC END -->
+<H1><A id=data_source_explorer name=data_source_explorer>Data Source 
+Explorer</A></H1>
+<DIV class=level1></DIV><!-- SECTION "Data Source Explorer" [1-36] -->
+<H2><A id=개요 name=개요>개요</A></H2>
+<DIV class=level2>
+<P>Data Source Explorer 는 Database Source 를 설정하고, Data Source 내의 하위 객체를 조회할 수 
+있도록 지원한다. 주요기능은 다음과 같다. </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Database Connection 설정</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Database 스키마 조회 및 기타 작업 </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>ODA DataSource 설정</DIV></LI></OL></DIV><!-- SECTION "개요" [37-334] -->
+<H2><A id=설명 name=설명>설명</A></H2>
+<DIV class=level2></DIV><!-- SECTION "설명" [335-354] -->
+<H3><A id=화면 name=화면>화면</A></H3>
+<DIV class=level3>
+<P>Data Source Explorer View 의 메인 화면은 다음과 같다(&lt;그림&gt; 참조). Data Source 를 
+Category별로 분류하여 사용자의 이해를 돕고 있다. 상단에는 주로 사용되는 기능에 대해서 버튼이 생성되어 있는 데, 사용자는 이 버튼을 
+사용하여 새로운 Connection Profile 을 생성하거나, Connection Profile 에 대한 Import/Export와 같은 
+작업을 할 수 있다. </P>
+<P><A class=media 
+title=egovframework:dev:imp:editor:dbio_editor:datasource1-1.jpg 
+><IMG 
+class=media alt="" 
+src="egovframeworkdevimpeditordbio_editordata_source_explorer_files/datasource1-1.jpg"></A> 
+<BR>&lt;그림&gt; Database Source Explorer View </P></DIV><!-- SECTION "화면" [355-904] -->
+<H3><A id=주요_기능 name=주요_기능>주요 기능</A></H3>
+<DIV class=level3></DIV>
+<H4><A id=database_connection_설정 name=database_connection_설정>Database Connection 
+설정</A></H4>
+<DIV class=level4>
+<P>Data Source Explorer는 사용자의 Database Connection 을 생성, 추가, 수정, 삭제하는 등의 작업을 
+지원한다. 사용자는 하나 이상의 데이타베이스 연결을 생성할 수 있으며, 생성된 데이타베이스 연결은 작업환경 내의 모든 프로젝트에서 공유하여 
+사용할 수 있다. </P></DIV>
+<H4><A id=database_schema_조회_및_기타_작업 name=database_schema_조회_및_기타_작업>Database 
+Schema 조회 및 기타 작업</A></H4>
+<DIV class=level4>
+<P>Database Source Explorer는 Database Connection에 대한 설정 뿐 아니라 사용자가 생성한 Database 
+Source에 대해서 schema 를 조회하고 일련의 작업을 수행할 수 있도록 지원한다. 테이블을 정의하는 DDL 또는 테이블 데이타를 추출할 
+수 있고, 권한이 주어진 경우 테이블을 삭제할 수도 있다. 권한에 따라 USER, ROLE, TABLE, IDNEX, SEQUENCE 등 
+데이타베이스 내에 정의된 스키마를 조회하고 조작할 수 있다. </P></DIV>
+<H4><A id=oda_datasource_설정 name=oda_datasource_설정>ODA DataSource 설정</A></H4>
+<DIV class=level4>
+<P>ODA(Open Data Access) 구성 요소는 유연한 개방형 데이터 액세스 프레임워크이며, 이 구성 요소를 사용하는 애플리케이션에서는 
+표준 데이터 소스뿐 아니라 사용자 정의 데이터 소스의 데이터에도 액세스할 수 있다. </P></DIV><!-- SECTION "주요 기능" [905-2168] -->
+<H2><A id=사용법 name=사용법>사용법</A></H2>
+<DIV class=level2></DIV><!-- SECTION "사용법" [2169-2193] -->
+<H3><A id=새_database_connection_생성하기 name=새_database_connection_생성하기>새 Database 
+Connection 생성하기</A></H3>
+<DIV class=level3>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Data Source Explorer에 있는 “Database Connections” 위에서 마우스 오른쪽 키를 
+  누른다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>context menu에서 “New” 를 선택하면 “New Connection Profile” 다이얼로그 창이 
+  오픈된다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>사용자는 “type filter text” 라고 제시되어 있는 Filter Text 입력항목을 사용하여 
+  Connection Profile Type를 필터링할 수 있다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Connection Profile Type을 선택하고, 목록 하단에 있는 “Next” 버튼을 누른다. 
+  </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Drivers” 선택항목에서 적절한 Driver를 선택한다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>선택한 Driver 에 대한 Driver Definition을 지정해야 하는 데, “Drivers” 선택항목 우측에 
+  있는 <A class=media 
+  title=egovframework:dev:imp:editor:dbio_editor:new_driver_def_btn.jpg 
+  ><IMG 
+  class=media alt="" 
+  src="egovframeworkdevimpeditordbio_editordata_source_explorer_files/new_driver_def_btn.jpg"></A> 
+  (New Driver Definition) 버튼과 <A class=media 
+  title=egovframework:dev:imp:editor:dbio_editor:edit_driver_def_btn.jpg 
+  ><IMG 
+  class=media alt="" 
+  src="egovframeworkdevimpeditordbio_editordata_source_explorer_files/edit_driver_def_btn.jpg"></A> 
+  (Edit Driver Definition) 버튼을 상요하여 Driver Definition 을 입력한다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Driver Definition 에 대한 입력을 마친 후 Properties 그룹의 “General” 탭에서 필요한 
+  Property 값을 입력한다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Property 를 입력한 후 Property 그룹 하단에 있는 “Test Connection” 버튼을 사용하여 
+  연결 테스트를 할 수 있다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Finish”버튼을 눌러 Database Connection 을 완료하면 Database Source 
+  Explorer 뷰에 작성한 Database Connection 이 추가된다. </DIV></LI></OL></DIV><!-- SECTION "새 Database Connection 생성하기" [2194-3585] -->
+<H3><A id=database_schema_조회하기 name=database_schema_조회하기>Database Schema 
+조회하기</A></H3>
+<DIV class=level3>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Data Source Explorer에 있는 “Database Connections” 을 확장하면 Database 
+  Connection 항목이 나타난다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Database Connection 항목을 선택하고 확장하면 하위 Database Schema 가 조회된다. 
+  </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>사용자는 테이블 및 컬럼, 인덱스 정보 등을 조회할 수 있다.</DIV></LI></OL></DIV><!-- SECTION "Database Schema 조회하기" [3586-3933] -->
+<H3><A id=테이블_데이타_추출하기 name=테이블_데이타_추출하기>테이블 데이타 추출하기</A></H3>
+<DIV class=level3>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Data Source Explorer 에서 “Database Connections” Tree 를 확장하여 
+  데이타베이스 테이블을 조회한다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>데이타베이스 테이블을 선택하고 마우스 오른쪽 키를 누르면 context menu 가 나타난다.</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>context menu 에서 Data&gt;Extract 를 선택하면 “Extract Data” 다이얼로그 창이 
+  오픈된다. </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>Output File 입력항목 우측에 있는 “Browse…” 버튼을 사용하여 파일 경로 및 파일명을 입력한다. 
+  </DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“File format” 그룹에 있는 “Column delimiter”와 Charater string 
+  delimiter를 선택한다.</DIV></LI>
+  <LI class=level1>
+  <DIV class=li>“Finish” 버튼을 누르면 데이타가 추출되어 file로 저장된다. </DIV></LI></OL></DIV><!-- SECTION "테이블 데이타 추출하기" [3934-] --></DIV></BODY></HTML>
