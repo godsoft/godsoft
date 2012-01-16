@@ -6,6 +6,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
-	<bean id="helloService"	class="egov.sample.service.HelloServiceImpl" />
+	<bean id="helloService"	class="egovframework.rte.sample.service.impl.EgovSampleServiceImpl" />
 
 </beans>
