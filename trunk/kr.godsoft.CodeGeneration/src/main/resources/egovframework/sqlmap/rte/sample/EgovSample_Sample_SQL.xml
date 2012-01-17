@@ -86,4 +86,12 @@
 			</isEqual>
 	</select>
 
+	<select id="sampleDAO.selectTablesList_D" parameterClass="searchVO" resultClass="egovMap">
+		SELECT
+			*
+		FROM information_schema.tables
+		WHERE 1 = 1
+		AND table_schema = 'egovfrm'
+	</select>
+
 </sqlMap>

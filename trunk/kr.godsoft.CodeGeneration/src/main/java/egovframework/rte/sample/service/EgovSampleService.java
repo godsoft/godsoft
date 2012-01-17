@@ -84,4 +84,6 @@ public interface EgovSampleService {
 	 */
     int selectSampleListTotCnt(SampleDefaultVO searchVO);
     
+    List selectTablesList(SampleDefaultVO searchVO) throws Exception;
+    
 }

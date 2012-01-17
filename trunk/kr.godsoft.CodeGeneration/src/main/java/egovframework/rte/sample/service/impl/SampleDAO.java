@@ -104,4 +104,8 @@ public class SampleDAO extends EgovAbstractDAO {
         return (Integer)getSqlMapClientTemplate().queryForObject("sampleDAO.selectSampleListTotCnt_S", searchVO);
     }
 
+    public List selectTablesList(SampleDefaultVO searchVO) throws Exception {
+        return list("sampleDAO.selectTablesList_D", searchVO);
+    }
+    
 }

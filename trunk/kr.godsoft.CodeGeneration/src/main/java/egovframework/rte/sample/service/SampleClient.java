@@ -55,6 +55,22 @@ public class SampleClient {
 					log.debug("id=" + egovMap.get("id"));
 				}
 			}
+			
+			List tables = egovSampleService.selectTablesList(searchVO);
+			
+			for (int i = 0, size = tables.size(); i < size; i++) {
+				EgovMap egovMap = (EgovMap) tables.get(i);
+
+				if (log.isDebugEnabled()) {
+//					log.debug("TABLE_SCHEMA=" + egovMap.get("TABLE_SCHEMA"));
+//					log.debug("TABLE_NAME=" + egovMap.get("TABLE_NAME"));
+//					log.debug("TABLE_COMMENT=" + egovMap.get("TABLE_COMMENT"));
+					
+					log.debug("TABLE_SCHEMA=" + egovMap.get("tableSchema"));
+					log.debug("TABLE_NAME=" + egovMap.get("tableName"));
+					log.debug("TABLE_COMMENT=" + egovMap.get("tableComment"));
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
