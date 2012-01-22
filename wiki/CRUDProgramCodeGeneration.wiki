@@ -1,3 +1,5 @@
+<img src="http://godsoft.googlecode.com/svn/wiki/CRUD%20Program%20Code%20Generation-120114.png"/>
+
 #summary One-sentence summary of this page.
 
 = Introduction =
