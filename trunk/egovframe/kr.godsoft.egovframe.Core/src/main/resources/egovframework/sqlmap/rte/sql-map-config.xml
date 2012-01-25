@@ -6,4 +6,7 @@
 <!-- 	<sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL.xml"/> -->
     <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_mysql.xml"/>
     <!-- <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_oracle.xml"/> -->
+    
+    <sqlMap resource="kr/godsoft/egovframework/sqlmap/generator/tables/Tables_SQL.xml"/>
+    
 </sqlMapConfig>

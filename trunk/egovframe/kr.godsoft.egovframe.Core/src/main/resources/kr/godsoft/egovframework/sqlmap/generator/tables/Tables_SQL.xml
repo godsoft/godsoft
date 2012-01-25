@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Tables">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="tablesSerarchVO" type="egovframework.rte.tables.service.TablesDefaultVO"/>
+	
+	<resultMap id="tables" class="kr.godsoft.egovframework.generator.tables.service.TablesVO">
+		<result property="tableCatalog" column="TABLE_CATALOG" columnIndex="1"/>
+		<result property="tableSchema" column="TABLE_SCHEMA" columnIndex="2"/>
+		<result property="tableName" column="TABLE_NAME" columnIndex="3"/>
+		<result property="tableType" column="TABLE_TYPE" columnIndex="4"/>
+		<result property="engine" column="ENGINE" columnIndex="5"/>
+		<result property="version" column="VERSION" columnIndex="6"/>
+		<result property="rowFormat" column="ROW_FORMAT" columnIndex="7"/>
+		<result property="tableRows" column="TABLE_ROWS" columnIndex="8"/>
+		<result property="avgRowLength" column="AVG_ROW_LENGTH" columnIndex="9"/>
+		<result property="dataLength" column="DATA_LENGTH" columnIndex="10"/>
+		<result property="maxDataLength" column="MAX_DATA_LENGTH" columnIndex="11"/>
+		<result property="indexLength" column="INDEX_LENGTH" columnIndex="12"/>
+		<result property="dataFree" column="DATA_FREE" columnIndex="13"/>
+		<result property="autoIncrement" column="AUTO_INCREMENT" columnIndex="14"/>
+		<result property="createTime" column="CREATE_TIME" columnIndex="15"/>
+		<result property="updateTime" column="UPDATE_TIME" columnIndex="16"/>
+		<result property="checkTime" column="CHECK_TIME" columnIndex="17"/>
+		<result property="tableCollation" column="TABLE_COLLATION" columnIndex="18"/>
+		<result property="checksum" column="CHECKSUM" columnIndex="19"/>
+		<result property="createOptions" column="CREATE_OPTIONS" columnIndex="20"/>
+		<result property="tableComment" column="TABLE_COMMENT" columnIndex="21"/>
+	</resultMap>
+	
+	<insert id="tablesDAO.insertTables_S">
+		<![CDATA[
+			INSERT INTO TABLES 
+				( TABLE_CATALOG
+				  , TABLE_SCHEMA
+				  , TABLE_NAME
+				  , TABLE_TYPE
+				  , ENGINE
+				  , VERSION
+				  , ROW_FORMAT
+				  , TABLE_ROWS
+				  , AVG_ROW_LENGTH
+				  , DATA_LENGTH
+				  , MAX_DATA_LENGTH
+				  , INDEX_LENGTH
+				  , DATA_FREE
+				  , AUTO_INCREMENT
+				  , CREATE_TIME
+				  , UPDATE_TIME
+				  , CHECK_TIME
+				  , TABLE_COLLATION
+				  , CHECKSUM
+				  , CREATE_OPTIONS
+				  , TABLE_COMMENT )
+			VALUES ( #tableCatalog#
+				  , #tableSchema#
+				  , #tableName#
+				  , #tableType#
+				  , #engine#
+				  , #version#
+				  , #rowFormat#
+				  , #tableRows#
+				  , #avgRowLength#
+				  , #dataLength#
+				  , #maxDataLength#
+				  , #indexLength#
+				  , #dataFree#
+				  , #autoIncrement#
+				  , #createTime#
+				  , #updateTime#
+				  , #checkTime#
+				  , #tableCollation#
+				  , #checksum#
+				  , #createOptions#
+				  , #tableComment# )
+		]]>
+	</insert>
+	
+	<update id="tablesDAO.updateTables_S">
+		<![CDATA[
+			UPDATE TABLES
+			SET TABLE_CATALOG=#tableCatalog#
+				, TABLE_SCHEMA=#tableSchema#
+				, TABLE_NAME=#tableName#
+				, TABLE_TYPE=#tableType#
+				, ENGINE=#engine#
+				, VERSION=#version#
+				, ROW_FORMAT=#rowFormat#
+				, TABLE_ROWS=#tableRows#
+				, AVG_ROW_LENGTH=#avgRowLength#
+				, DATA_LENGTH=#dataLength#
+				, MAX_DATA_LENGTH=#maxDataLength#
+				, INDEX_LENGTH=#indexLength#
+				, DATA_FREE=#dataFree#
+				, AUTO_INCREMENT=#autoIncrement#
+				, CREATE_TIME=#createTime#
+				, UPDATE_TIME=#updateTime#
+				, CHECK_TIME=#checkTime#
+				, TABLE_COLLATION=#tableCollation#
+				, CHECKSUM=#checksum#
+				, CREATE_OPTIONS=#createOptions#
+				, TABLE_COMMENT=#tableComment#
+			]]>
+	</update>
+	
+	<delete id="tablesDAO.deleteTables_S">
+		<![CDATA[
+			DELETE FROM TABLES 
+			]]>
+	</delete>
+	
+	<select id="tablesDAO.selectTables_S" resultMap="tables">
+		<![CDATA[
+			SELECT
+				TABLE_CATALOG
+				, TABLE_SCHEMA
+				, TABLE_NAME
+				, TABLE_TYPE
+				, ENGINE
+				, VERSION
+				, ROW_FORMAT
+				, TABLE_ROWS
+				, AVG_ROW_LENGTH
+				, DATA_LENGTH
+				, MAX_DATA_LENGTH
+				, INDEX_LENGTH
+				, DATA_FREE
+				, AUTO_INCREMENT
+				, CREATE_TIME
+				, UPDATE_TIME
+				, CHECK_TIME
+				, TABLE_COLLATION
+				, CHECKSUM
+				, CREATE_OPTIONS
+				, TABLE_COMMENT
+			FROM TABLES
+			]]>
+	</select>
+	
+	<select id="tablesDAO.selectTablesList_D" parameterClass="tablesSerarchVO" resultClass="egovMap">
+			SELECT
+								TABLE_CATALOG
+								, TABLE_SCHEMA
+								, TABLE_NAME
+								, TABLE_TYPE
+								, ENGINE
+								, VERSION
+								, ROW_FORMAT
+								, TABLE_ROWS
+								, AVG_ROW_LENGTH
+								, DATA_LENGTH
+								, MAX_DATA_LENGTH
+								, INDEX_LENGTH
+								, DATA_FREE
+								, AUTO_INCREMENT
+								, CREATE_TIME
+								, UPDATE_TIME
+								, CHECK_TIME
+								, TABLE_COLLATION
+								, CHECKSUM
+								, CREATE_OPTIONS
+								, TABLE_COMMENT
+					FROM information_schema.TABLES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TABLE_CATALOG = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+				limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="tablesDAO.selectTablesListTotCnt_S" parameterClass="tablesSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM TABLES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TABLE_CATALOG = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+	</select>
+
+</sqlMap>
