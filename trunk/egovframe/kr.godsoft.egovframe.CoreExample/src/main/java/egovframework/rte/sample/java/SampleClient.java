@@ -57,25 +57,25 @@ public class SampleClient {
 
 			// sampleService.insertSample(vo);
 
-			// selectSample
-			// vo.setId("SAMPLE-00010");
-			vo.setId("SAMPLE-00020");
-
-			SampleVO sampleVO = sampleService.selectSample(vo);
-
-			if (log.isDebugEnabled()) {
-				log.debug("id=" + sampleVO.getId());
-				log.debug("name" + sampleVO.getName());
-				log.debug("description=" + sampleVO.getDescription());
-				log.debug("useYn=" + sampleVO.getUseYn());
-				log.debug("regUser=" + sampleVO.getRegUser());
-			}
+//			// selectSample
+//			// vo.setId("SAMPLE-00010");
+//			vo.setId("SAMPLE-00020");
+//
+//			SampleVO sampleVO = sampleService.selectSample(vo);
+//
+//			if (log.isDebugEnabled()) {
+//				log.debug("id=" + sampleVO.getId());
+//				log.debug("name" + sampleVO.getName());
+//				log.debug("description=" + sampleVO.getDescription());
+//				log.debug("useYn=" + sampleVO.getUseYn());
+//				log.debug("regUser=" + sampleVO.getRegUser());
+//			}
 
 			// selectSampleList
 			SampleDefaultVO searchVO = new SampleDefaultVO();
 
 			searchVO.setFirstIndex(0);
-			searchVO.setPageSize(10);
+			searchVO.setPageSize(1000);
 
 			@SuppressWarnings("rawtypes")
 			List samples = sampleService.selectSampleList(searchVO);

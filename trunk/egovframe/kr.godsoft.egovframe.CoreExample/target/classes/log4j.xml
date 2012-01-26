@@ -19,6 +19,11 @@
         <level value="DEBUG"/>
         <appender-ref ref="console"/>
     </logger>
+    
+    <logger name="kr.godsoft" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="console"/>
+    </logger>
 
 	<!-- log SQL with timing information, post execution -->
 	<logger name="jdbc.sqltiming" additivity="false">

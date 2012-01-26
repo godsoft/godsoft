@@ -162,7 +162,7 @@
 								, CHECKSUM
 								, CREATE_OPTIONS
 								, TABLE_COMMENT
-					FROM TABLES
+					FROM information_schema.TABLES
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				TABLE_CATALOG = #searchKeyword#
@@ -170,7 +170,6 @@
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
 				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
-				ORDER BY 
 				limit #firstIndex#, #recordCountPerPage#	
 	</select>	
 	<select id="tablesDAO.selectTablesListTotCnt_S" parameterClass="tablesSerarchVO" resultClass="int">
