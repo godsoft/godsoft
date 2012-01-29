@@ -20,6 +20,11 @@
         <appender-ref ref="console"/>
     </logger>
 
+    <logger name="kr.godsoft.egovframe.generator" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="console"/>
+    </logger>
+
 	<!-- log SQL with timing information, post execution -->
 	<logger name="jdbc.sqltiming" additivity="false">
 		<level value="ERROR" />
