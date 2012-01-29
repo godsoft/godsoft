@@ -57,10 +57,10 @@ public class ColumnsClientImpl implements ColumnsClient {
 			searchVO.setRecordCountPerPage(1000);
 
 			@SuppressWarnings("unchecked")
-			List<EgovMap> tables = columnsService.selectColumnsList(searchVO);
+			List<EgovMap> columns = columnsService.selectColumnsList(searchVO);
 
-			for (int i = 0, size = tables.size(); i < size; i++) {
-				EgovMap egovMap = tables.get(i);
+			for (int i = 0, size = columns.size(); i < size; i++) {
+				EgovMap egovMap = columns.get(i);
 
 				if (log.isDebugEnabled()) {
 					// log.debug("tableCatalog=" + egovMap.get("tableCatalog"));
@@ -82,4 +82,38 @@ public class ColumnsClientImpl implements ColumnsClient {
 		}
 	}
 
+	public List<EgovMap> selectColumnsList(ColumnsDefaultVO searchVO) {
+		List<EgovMap> columns = null;
+
+		try {
+			// searchVO.setSearchCondition("1");
+			// searchVO.setSearchKeyword("egovfrm");
+			// searchVO.setRecordCountPerPage(1000);
+
+			columns = columnsService.selectColumnsList(searchVO);
+
+			for (int i = 0, size = columns.size(); i < size; i++) {
+				EgovMap egovMap = columns.get(i);
+
+				if (log.isDebugEnabled()) {
+					// log.debug("tableCatalog=" + egovMap.get("tableCatalog"));
+					log.debug("tableSchema=" + egovMap.get("tableSchema"));
+					log.debug("tableName=" + egovMap.get("tableName"));
+					log.debug("columnName=" + egovMap.get("columnName"));
+					log.debug("ordinalPosition="
+							+ egovMap.get("ordinalPosition"));
+					log.debug("columnDefault=" + egovMap.get("columnDefault"));
+					log.debug("dataType=" + egovMap.get("dataType"));
+					log.debug("characterMaximumLength="
+							+ egovMap.get("characterMaximumLength"));
+					log.debug("columnKey=" + egovMap.get("columnKey"));
+					log.debug("columnComment=" + egovMap.get("columnComment"));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return columns;
+	}
 }

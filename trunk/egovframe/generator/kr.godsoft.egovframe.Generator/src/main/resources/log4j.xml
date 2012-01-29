@@ -16,12 +16,12 @@
     </logger>
 
     <logger name="egovframework" additivity="false">
-        <level value="DEBUG"/>
+        <level value="ERROR"/>
         <appender-ref ref="console"/>
     </logger>
 
     <logger name="kr.godsoft.egovframe.generator" additivity="false">
-        <level value="DEBUG"/>
+        <level value="ERROR"/>
         <appender-ref ref="console"/>
     </logger>
 
