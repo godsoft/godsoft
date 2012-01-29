@@ -15,15 +15,15 @@ public class SampleClient {
 
 	private static Log log = LogFactory.getLog(SampleClient.class);
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		if (log.isInfoEnabled()) {
-			log.info("시작");
-		}
+	private static String[] configLocations;
 
-		String[] configLocations = { "egovframework/spring/context-aspect.xml",
+	private static ApplicationContext context;
+
+	private static EgovSampleService sampleService;
+
+	static {
+		configLocations = new String[] {
+				"egovframework/spring/context-aspect.xml",
 				"egovframework/spring/context-common.xml",
 				"egovframework/spring/context-datasource.xml",
 				"egovframework/spring/context-idgen.xml",
@@ -32,12 +32,21 @@ public class SampleClient {
 				"egovframework/spring/context-transaction.xml",
 				"egovframework/spring/sample-beans.xml" };
 
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				configLocations);
+		context = new ClassPathXmlApplicationContext(configLocations);
 
-		EgovSampleService sampleService = (EgovSampleService) context
-				.getBean("sampleService");
+		sampleService = (EgovSampleService) context.getBean("sampleService");
+	}
 
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		SampleClient sampleClient = new SampleClient();
+
+		sampleClient.selectSampleList();
+	}
+
+	public void selectSampleList() {
 		// selectSampleList
 		try {
 			SampleDefaultVO searchVO = new SampleDefaultVO();
@@ -58,10 +67,6 @@ public class SampleClient {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-
-		if (log.isInfoEnabled()) {
-			log.info("끝");
 		}
 	}
 
