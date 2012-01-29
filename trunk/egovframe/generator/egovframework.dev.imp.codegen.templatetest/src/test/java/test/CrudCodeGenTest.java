@@ -9,6 +9,9 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.godsoft.egovframe.generator.columns.java.ColumnsClient;
+import kr.godsoft.egovframe.generator.columns.java.impl.ColumnsClientImpl;
+import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
 import model.Attribute;
 import model.DataModelContext;
 import model.Entity;
@@ -19,8 +22,8 @@ import org.incava.util.diff.Difference;
 import org.junit.Before;
 import org.junit.Test;
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.sample.java.SampleClient;
-import egovframework.rte.sample.java.impl.SampleClientImpl;
 
 /**
  * 
@@ -62,9 +65,36 @@ public class CrudCodeGenTest {
 	@Before
 	public void setUp() throws Exception {
 
-		sampleClient = new SampleClientImpl();
+		// sampleClient = new SampleClientImpl();
+		//
+		// sampleClient.selectSampleList();
 
-		sampleClient.selectSampleList();
+		ColumnsClient columnsClient = new ColumnsClientImpl();
+
+		ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
+		searchVO.setSearchCondition("1");
+		searchVO.setSearchKeyword("egovfrm");
+		searchVO.setRecordCountPerPage(1000);
+
+		List<EgovMap> columns = columnsClient.selectColumnsList(searchVO);
+
+		// for (int i = 0, size = columns.size(); i < size; i++) {
+		// EgovMap egovMap = columns.get(i);
+		//
+		// // System.out.println("tableCatalog=" +
+		// // egovMap.get("tableCatalog"));
+		// System.out.println("tableSchema=" + egovMap.get("tableSchema"));
+		// System.out.println("tableName=" + egovMap.get("tableName"));
+		// System.out.println("columnName=" + egovMap.get("columnName"));
+		// System.out.println("ordinalPosition="
+		// + egovMap.get("ordinalPosition"));
+		// System.out.println("columnDefault=" + egovMap.get("columnDefault"));
+		// System.out.println("dataType=" + egovMap.get("dataType"));
+		// System.out.println("characterMaximumLength="
+		// + egovMap.get("characterMaximumLength"));
+		// System.out.println("columnKey=" + egovMap.get("columnKey"));
+		// System.out.println("columnComment=" + egovMap.get("columnComment"));
+		// }
 
 		crudCodeGen = new CrudCodeGen();
 
@@ -82,27 +112,37 @@ public class CrudCodeGenTest {
 		List<Attribute> attributes = new ArrayList<Attribute>();
 		List<Attribute> primaryKeys = new ArrayList<Attribute>();
 
-		Attribute attr = new Attribute("ID");
-		attr.setJavaType("String");
-		attributes.add(attr);
-		primaryKeys.add(attr);
-
-		attr = new Attribute("NAME");
-		attr.setJavaType("String");
-		attributes.add(attr);
+		// Attribute attr = new Attribute("ID");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
 		// primaryKeys.add(attr);
+		//
+		// attr = new Attribute("NAME");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		// // primaryKeys.add(attr);
+		//
+		// attr = new Attribute("DESCRIPTION");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		//
+		// attr = new Attribute("USE_YN");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		//
+		// attr = new Attribute("REG_USER");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
 
-		attr = new Attribute("DESCRIPTION");
-		attr.setJavaType("String");
-		attributes.add(attr);
+		for (int i = 0, size = columns.size(); i < size; i++) {
+			EgovMap egovMap = columns.get(i);
 
-		attr = new Attribute("USE_YN");
-		attr.setJavaType("String");
-		attributes.add(attr);
-
-		attr = new Attribute("REG_USER");
-		attr.setJavaType("String");
-		attributes.add(attr);
+			Attribute attr = new Attribute(egovMap.get("columnName").toString());
+			// attr.setJavaType("String");
+			attr.setType(egovMap.get("dataType").toString());
+			attributes.add(attr);
+			// primaryKeys.add(attr);
+		}
 
 		dataModel.setAttributes(attributes);
 		dataModel.setPrimaryKeys(primaryKeys);

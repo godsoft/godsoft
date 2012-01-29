@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="lib/oro-2.0.8.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-1.6.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/kr.godsoft.egovframe.Generator"/>
+	<classpathentry kind="lib" path="D:/eGovFrameSvr/m2/repository/egovframework/rte/egovframework.rte.psl.dataaccess/2.0.0/egovframework.rte.psl.dataaccess-2.0.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
