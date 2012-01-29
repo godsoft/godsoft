@@ -20,6 +20,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import egovframework.rte.sample.java.SampleClient;
+import egovframework.rte.sample.java.impl.SampleClientImpl;
 
 /**
  * 
@@ -51,6 +52,8 @@ public class CrudCodeGenTest {
 	 */
 	private DataModelContext dataModel;
 
+	private SampleClient sampleClient;
+
 	/**
 	 * 설정
 	 * 
@@ -58,7 +61,8 @@ public class CrudCodeGenTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		SampleClient sampleClient = new SampleClient();
+
+		sampleClient = new SampleClientImpl();
 
 		sampleClient.selectSampleList();
 
