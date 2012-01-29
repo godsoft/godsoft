@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/oro-2.0.8.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-1.6.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/kr.godsoft.egovframe.Generator"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
