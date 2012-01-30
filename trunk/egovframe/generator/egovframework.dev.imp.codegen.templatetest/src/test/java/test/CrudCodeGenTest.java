@@ -62,10 +62,6 @@ public class CrudCodeGenTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		// sampleClient = new SampleClientImpl();
-		//
-		// sampleClient.selectSampleList();
-
 		ColumnsClient columnsClient = new ColumnsClientImpl();
 
 		ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
@@ -92,7 +88,15 @@ public class CrudCodeGenTest {
 		// System.out.println("columnKey=" + egovMap.get("columnKey"));
 		// System.out.println("columnComment=" + egovMap.get("columnComment"));
 		// }
+	}
 
+	/**
+	 * 설정
+	 * 
+	 * @throws Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
 		crudCodeGen = new CrudCodeGen();
 
 		dataModel = new DataModelContext();
@@ -147,15 +151,6 @@ public class CrudCodeGenTest {
 
 		dataModel.setAttributes(attributes);
 		dataModel.setPrimaryKeys(primaryKeys);
-	}
-
-	/**
-	 * 설정
-	 * 
-	 * @throws Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
 	}
 
 	/**
