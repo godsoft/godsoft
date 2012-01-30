@@ -20,10 +20,10 @@ import operation.CrudCodeGen;
 import org.incava.util.diff.Diff;
 import org.incava.util.diff.Difference;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import egovframework.rte.sample.java.SampleClient;
 
 /**
  * 
@@ -49,22 +49,18 @@ public class CrudCodeGenTest {
 	/**
 	 * 코드생성 인스턴스
 	 */
-	private CrudCodeGen crudCodeGen;
+	private static CrudCodeGen crudCodeGen;
 	/**
 	 * 데이타모델
 	 */
-	private DataModelContext dataModel;
+	private static DataModelContext dataModel;
 
-	private SampleClient sampleClient;
+	// private SampleClient sampleClient;
 
-	/**
-	 * 설정
-	 * 
-	 * @throws Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
+	private static List<EgovMap> columns;
 
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
 		// sampleClient = new SampleClientImpl();
 		//
 		// sampleClient.selectSampleList();
@@ -76,7 +72,7 @@ public class CrudCodeGenTest {
 		searchVO.setSearchKeyword("egovfrm");
 		searchVO.setRecordCountPerPage(1000);
 
-		List<EgovMap> columns = columnsClient.selectColumnsList(searchVO);
+		columns = columnsClient.selectColumnsList(searchVO);
 
 		// for (int i = 0, size = columns.size(); i < size; i++) {
 		// EgovMap egovMap = columns.get(i);
@@ -146,7 +142,15 @@ public class CrudCodeGenTest {
 
 		dataModel.setAttributes(attributes);
 		dataModel.setPrimaryKeys(primaryKeys);
+	}
 
+	/**
+	 * 설정
+	 * 
+	 * @throws Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
 	}
 
 	/**
