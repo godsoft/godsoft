@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
@@ -96,9 +97,13 @@ public class CrudCodeGenTest {
 
 		dataModel = new DataModelContext();
 
-		dataModel.setPackageName("pkg");
-		dataModel.setAuthor("홍길동");
+		dataModel.setPackageName("kr.godsoft.egovframe.test.sqlmap");
+		dataModel.setAuthor("이백행");
 		dataModel.setTeam("실행환경 개발팀");
+
+		String currentDate = EgovDateUtil.getCurrentDate(null);
+		System.out.println("currentDate=" + currentDate);
+
 		dataModel.setCreateDate("2009.02.01");
 
 		Entity entity = new Entity("SAMPLE2");
