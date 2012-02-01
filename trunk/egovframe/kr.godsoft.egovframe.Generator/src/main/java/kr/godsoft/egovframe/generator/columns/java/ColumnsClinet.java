@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class ColumnsClinet {
@@ -65,10 +66,27 @@ public class ColumnsClinet {
 
 			dataModel = new DataModelContext();
 
+			for (int i = 0, size = columns.size(); i < size; i++) {
+				EgovMap egovMap = columns.get(i);
+
+				if (log.isDebugEnabled()) {
+					log.debug("tableName=" + egovMap.get("tableName"));
+				}
+
+				if (i > 1) {
+					break;
+				}
+			}
+
 			dataModel.setPackageName("kr.godsoft.egovframe.generator");
 			dataModel.setAuthor("이백행");
 			dataModel.setTeam("갓소프트");
-			dataModel.setCreateDate("2009.02.01");
+			// dataModel.setCreateDate(EgovDateUtil.getCurrentDate("yyyy.MM.dd"));
+			dataModel.setCreateDate(EgovDateUtil.getToday());
+
+			if (log.isDebugEnabled()) {
+				log.debug("createDate=" + dataModel.getCreateDate());
+			}
 
 			Entity entity = new Entity("SAMPLE2");
 
@@ -121,9 +139,9 @@ public class ColumnsClinet {
 
 			String result = crudCodeGen.generate(dataModel, templateFile);
 
-			if (log.isDebugEnabled()) {
-				log.debug(result);
-			}
+			// if (log.isDebugEnabled()) {
+			// log.debug(result);
+			// }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
