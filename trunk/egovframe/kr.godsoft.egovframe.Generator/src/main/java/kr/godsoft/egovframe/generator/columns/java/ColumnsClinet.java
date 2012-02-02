@@ -180,13 +180,25 @@ public class ColumnsClinet {
 			log.info("시작");
 		}
 
-		dataModel.setPackageName("kr.godsoft.egovframe.generator."
+		dataModel.setPackageName("kr.godsoft.egovframe.crud."
 				+ dataModel.getEntity().getName());
 
 		try {
 			String templateFile = "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
 
-			String result = crudCodeGen.generate(dataModel, templateFile);
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// // src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+			//
+			// // 문자열을 해당 파일에 카피
+			// // File file = new File(dir, "file1.txt");
+			// File file = new File(
+			// "target/classes/resources/kr/godsoft/egovframe/crud/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getName() + ".xml");
+			// // String data = file.getAbsolutePath();
+			// // File file, String data, String encoding
+			// FileUtils.writeStringToFile(file, data, "UTF-8");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
