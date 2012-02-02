@@ -25,20 +25,15 @@ public class ColumnsClinet {
 	/**
 	 * 코드생성 인스턴스
 	 */
-	private static CrudCodeGen crudCodeGen;
+	private CrudCodeGen crudCodeGen;
 	/**
 	 * 데이타모델
 	 */
-	private static DataModelContext dataModel;
+	private DataModelContext dataModel;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		if (log.isInfoEnabled()) {
-			log.info("시작");
-		}
+	List<EgovMap> columns;
 
+	public ColumnsClinet() {
 		String[] configLocations = { "egovframework/spring/context-aspect.xml",
 				"egovframework/spring/context-common.xml",
 				"egovframework/spring/context-datasource.xml",
@@ -60,66 +55,78 @@ public class ColumnsClinet {
 			searchVO.setFirstIndex(0);
 			searchVO.setRecordCountPerPage(1000);
 
-			List<EgovMap> columns = columnsService.selectColumnsList(searchVO);
+			columns = columnsService.selectColumnsList(searchVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-			crudCodeGen = new CrudCodeGen();
+		String name = "";
 
-			dataModel = new DataModelContext();
-
+		if (columns != null) {
 			for (int i = 0, size = columns.size(); i < size; i++) {
 				EgovMap egovMap = columns.get(i);
 
 				if (log.isDebugEnabled()) {
-					log.debug("tableName=" + egovMap.get("tableName"));
+					log.debug("tableName[" + i + "]="
+							+ egovMap.get("tableName"));
 				}
 
-				if (i > 1) {
+				name = (String) egovMap.get("tableName");
+
+				if (i == 0) {
 					break;
 				}
 			}
+		}
 
-			dataModel.setPackageName("kr.godsoft.egovframe.generator");
-			dataModel.setAuthor("이백행");
-			dataModel.setTeam("갓소프트");
-			// dataModel.setCreateDate(EgovDateUtil.getCurrentDate("yyyy.MM.dd"));
-			dataModel.setCreateDate(EgovDateUtil.getToday());
+		crudCodeGen = new CrudCodeGen();
 
-			if (log.isDebugEnabled()) {
-				log.debug("createDate=" + dataModel.getCreateDate());
-			}
+		dataModel = new DataModelContext();
 
-			Entity entity = new Entity("SAMPLE2");
+		dataModel.setPackageName("pkg");
+		dataModel.setAuthor("이백행");
+		dataModel.setTeam("갓소프트");
 
-			dataModel.setEntity(entity);
+		if (log.isDebugEnabled()) {
+			log.debug(EgovDateUtil.getToday());
+			log.debug(EgovDateUtil.getCurrentDate(""));
+			// log.debug(EgovDateUtil.getCurrentDate("yyyy-mm-dd"));
+			log.debug(EgovDateUtil.formatDate(EgovDateUtil.getToday(), "."));
+		}
 
-			List<Attribute> attributes = new ArrayList<Attribute>();
-			List<Attribute> primaryKeys = new ArrayList<Attribute>();
+		dataModel.setCreateDate(EgovDateUtil.formatDate(
+				EgovDateUtil.getToday(), "."));
 
-			Attribute attr = new Attribute("ID");
-			attr.setJavaType("String");
-			attributes.add(attr);
-			primaryKeys.add(attr);
+		Entity entity = new Entity(name);
 
-			attr = new Attribute("NAME");
-			attr.setJavaType("String");
-			attributes.add(attr);
-			// primaryKeys.add(attr);
+		dataModel.setEntity(entity);
 
-			attr = new Attribute("DESCRIPTION");
-			attr.setJavaType("String");
-			attributes.add(attr);
+		List<Attribute> attributes = new ArrayList<Attribute>();
+		List<Attribute> primaryKeys = new ArrayList<Attribute>();
 
-			attr = new Attribute("USE_YN");
-			attr.setJavaType("String");
-			attributes.add(attr);
+		// Attribute attr = new Attribute("ID");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		// primaryKeys.add(attr);
+		//
+		// attr = new Attribute("NAME");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		// // primaryKeys.add(attr);
+		//
+		// attr = new Attribute("DESCRIPTION");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		//
+		// attr = new Attribute("USE_YN");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
+		//
+		// attr = new Attribute("REG_USER");
+		// attr.setJavaType("String");
+		// attributes.add(attr);
 
-			attr = new Attribute("REG_USER");
-			attr.setJavaType("String");
-			attributes.add(attr);
-
-			dataModel.setAttributes(attributes);
-			dataModel.setPrimaryKeys(primaryKeys);
-
+		if (columns != null) {
 			for (int i = 0, size = columns.size(); i < size; i++) {
 				EgovMap egovMap = columns.get(i);
 
@@ -133,15 +140,50 @@ public class ColumnsClinet {
 					log.debug("columnKey=" + egovMap.get("columnKey"));
 					log.debug("columnComment=" + egovMap.get("columnComment"));
 				}
-			}
 
+				String columnName = (String) egovMap.get("columnName");
+				String dataType = (String) egovMap.get("dataType");
+				String columnKey = (String) egovMap.get("columnKey");
+
+				Attribute attr = new Attribute(columnName);
+
+				if ("char".equals(dataType) || "varchar".equals(dataType)) {
+					attr.setJavaType("String");
+				}
+
+				attributes.add(attr);
+
+				if ("PRI".equals(columnKey)) {
+					primaryKeys.add(attr);
+				}
+			}
+		}
+
+		dataModel.setAttributes(attributes);
+		dataModel.setPrimaryKeys(primaryKeys);
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ColumnsClinet columnsClinet = new ColumnsClinet();
+
+		columnsClinet.generatorSQLMap();
+	}
+
+	public void generatorSQLMap() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName("kr.godsoft.egovframe.generator."
+				+ dataModel.getEntity().getName() + ".servlce");
+
+		try {
 			String templateFile = "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
 
 			String result = crudCodeGen.generate(dataModel, templateFile);
-
-			// if (log.isDebugEnabled()) {
-			// log.debug(result);
-			// }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
