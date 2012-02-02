@@ -144,12 +144,15 @@ public class ColumnsClinet {
 				String columnName = (String) egovMap.get("columnName");
 				String dataType = (String) egovMap.get("dataType");
 				String columnKey = (String) egovMap.get("columnKey");
+				String columnComment = (String) egovMap.get("columnComment");
 
 				Attribute attr = new Attribute(columnName);
 
 				if ("char".equals(dataType) || "varchar".equals(dataType)) {
 					attr.setJavaType("String");
 				}
+
+				attr.setColumnComment(columnComment);
 
 				attributes.add(attr);
 
@@ -178,7 +181,7 @@ public class ColumnsClinet {
 		}
 
 		dataModel.setPackageName("kr.godsoft.egovframe.generator."
-				+ dataModel.getEntity().getName() + ".servlce");
+				+ dataModel.getEntity().getName());
 
 		try {
 			String templateFile = "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
@@ -192,5 +195,4 @@ public class ColumnsClinet {
 			log.info("끝");
 		}
 	}
-
 }
