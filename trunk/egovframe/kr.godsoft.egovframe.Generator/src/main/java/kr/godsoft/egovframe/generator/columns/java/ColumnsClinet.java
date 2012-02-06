@@ -10,6 +10,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 public class ColumnsClinet {
 
 	private static Log log = LogFactory.getLog(ColumnsClinet.class);
@@ -36,7 +38,8 @@ public class ColumnsClinet {
 		columnsService = (ColumnsService) context.getBean("columnsService");
 	}
 
-	public List selectColumnsList(ColumnsDefaultVO searchVO) throws Exception {
+	public List<EgovMap> selectColumnsList(ColumnsDefaultVO searchVO)
+			throws Exception {
 		return columnsService.selectColumnsList(searchVO);
 	}
 
