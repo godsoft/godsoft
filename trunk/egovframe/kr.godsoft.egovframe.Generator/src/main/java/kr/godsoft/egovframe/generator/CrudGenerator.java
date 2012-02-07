@@ -3,8 +3,8 @@ package kr.godsoft.egovframe.generator;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.godsoft.egovframe.generator.columns.java.ColumnsClinet;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
-import kr.godsoft.egovframe.generator.columns.service.ColumnsService;
 import model.Attribute;
 import model.DataModelContext;
 import model.Entity;
@@ -12,8 +12,6 @@ import operation.CrudCodeGen;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -21,6 +19,8 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public class CrudGenerator {
 
 	private static Log log = LogFactory.getLog(CrudGenerator.class);
+
+	ColumnsClinet columnsClinet = new ColumnsClinet();
 
 	/**
 	 * 코드생성 인스턴스
@@ -34,28 +34,13 @@ public class CrudGenerator {
 	List<EgovMap> columns;
 
 	public CrudGenerator() {
-		String[] configLocations = { "egovframework/spring/context-aspect.xml",
-				"egovframework/spring/context-common.xml",
-				"egovframework/spring/context-datasource.xml",
-				"egovframework/spring/context-idgen.xml",
-				"egovframework/spring/context-properties.xml",
-				"egovframework/spring/context-sqlMap.xml",
-				"egovframework/spring/context-transaction.xml",
-				"kr/godsoft/egovframe/generator/spring/columns-beans.xml" };
-
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				configLocations);
-
-		ColumnsService columnsService = (ColumnsService) context
-				.getBean("columnsService");
-
 		try {
 			ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
 
 			searchVO.setFirstIndex(0);
 			searchVO.setRecordCountPerPage(1000);
 
-			columns = columnsService.selectColumnsList(searchVO);
+			columns = columnsClinet.selectColumnsList(searchVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -170,9 +155,9 @@ public class CrudGenerator {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CrudGenerator columnsClinet = new CrudGenerator();
+		CrudGenerator crudGenerator = new CrudGenerator();
 
-		columnsClinet.generatorSQLMap();
+		crudGenerator.generatorSQLMap();
 	}
 
 	public void generatorSQLMap() {
@@ -184,7 +169,9 @@ public class CrudGenerator {
 				+ dataModel.getEntity().getName());
 
 		try {
-			String templateFile = "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
+			// String templateFile =
+			// "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
+			String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
 
 			String data = crudCodeGen.generate(dataModel, templateFile);
 

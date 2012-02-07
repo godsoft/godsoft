@@ -5,8 +5,6 @@ import java.util.List;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsService;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,7 +12,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class ColumnsClinet {
 
-	private static Log log = LogFactory.getLog(ColumnsClinet.class);
+	// private static Log log = LogFactory.getLog(ColumnsClinet.class);
 
 	private static String[] configLocations;
 
