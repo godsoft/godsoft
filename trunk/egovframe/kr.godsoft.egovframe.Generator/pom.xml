@@ -353,6 +353,25 @@
 			<version>1.2.1</version>
 		</dependency>
 
+		<dependency>
+		    <groupId>org.incava</groupId>
+		    <artifactId>java-diff</artifactId>
+		    <version>1.1</version>
+		</dependency>
+
+		<!-- 우편번호를 위한 라이브러리 -->
+		<dependency>
+			<groupId>oro</groupId>
+			<artifactId>oro</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.velocity</groupId>
+		    <artifactId>velocity</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+
 		</dependencies>
 		
 		<build>
