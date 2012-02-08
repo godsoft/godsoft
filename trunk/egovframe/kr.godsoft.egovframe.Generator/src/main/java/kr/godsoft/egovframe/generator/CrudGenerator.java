@@ -71,6 +71,7 @@ public class CrudGenerator {
 		dataModel.setPackageName("pkg");
 		dataModel.setAuthor("이백행");
 		dataModel.setTeam("갓소프트");
+		dataModel.setVender("MySql");
 
 		if (log.isDebugEnabled()) {
 			log.debug(EgovDateUtil.getToday());
