@@ -1,5 +1,6 @@
 package kr.godsoft.egovframe.generator;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import model.DataModelContext;
 import model.Entity;
 import operation.CrudCodeGen;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -33,7 +35,18 @@ public class CrudGenerator {
 
 	List<EgovMap> columns;
 
+	/**
+	 * 패키지명
+	 */
+	private String packageName;
+
+	private boolean isWriteStringToFile;
+
 	public CrudGenerator() {
+		packageName = "kr.godsoft.crud";
+
+		isWriteStringToFile = false;
+
 		try {
 			ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
 
@@ -166,8 +179,8 @@ public class CrudGenerator {
 			log.info("시작");
 		}
 
-		dataModel.setPackageName("kr.godsoft.egovframe.crud."
-				+ dataModel.getEntity().getName());
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
 
 		try {
 			// String templateFile =
@@ -176,17 +189,32 @@ public class CrudGenerator {
 
 			String data = crudCodeGen.generate(dataModel, templateFile);
 
-			// // src/main/resources/kr/godsoft/egovframe/crud/sqlmap
-			//
-			// // 문자열을 해당 파일에 카피
-			// // File file = new File(dir, "file1.txt");
-			// File file = new File(
-			// "target/classes/resources/kr/godsoft/egovframe/crud/sqlmap/"
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
 			// + dataModel.getEntity().getName() + "/"
-			// + dataModel.getEntity().getName() + ".xml");
-			// // String data = file.getAbsolutePath();
-			// // File file, String data, String encoding
-			// FileUtils.writeStringToFile(file, data, "UTF-8");
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/resources/"
+					+ packageName.replaceAll("\\.", "/") + "/sqlmap/"
+					+ dataModel.getEntity().getName() + "/"
+					+ dataModel.getEntity().getPcName() + "Columns_SQL.xml";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
