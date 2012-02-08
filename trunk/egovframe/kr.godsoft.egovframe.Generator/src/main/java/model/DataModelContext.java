@@ -191,4 +191,35 @@ public class DataModelContext {
 	public void setVender(String vender) {
 		this.vender = vender;
 	}
+
+	private String voPackage;
+
+	private String servicePackage;
+
+	private String implPackage;
+
+	public String getVoPackage() {
+		return voPackage;
+	}
+
+	public void setVoPackage(String voPackage) {
+		this.voPackage = voPackage;
+	}
+
+	public String getServicePackage() {
+		return servicePackage;
+	}
+
+	public void setServicePackage(String servicePackage) {
+		this.servicePackage = servicePackage;
+	}
+
+	public String getImplPackage() {
+		return implPackage;
+	}
+
+	public void setImplPackage(String implPackage) {
+		this.implPackage = implPackage;
+	}
+
 }

@@ -171,7 +171,11 @@ public class CrudGenerator {
 	public static void main(String[] args) {
 		CrudGenerator crudGenerator = new CrudGenerator();
 
-		crudGenerator.generatorSQLMap();
+		// crudGenerator.generatorSQLMap();
+		// crudGenerator.generatorService();
+		// crudGenerator.generatorDefaultVO();
+		// crudGenerator.generatorVO();
+		crudGenerator.generatorServiceImpl();
 	}
 
 	public void generatorSQLMap() {
@@ -182,10 +186,53 @@ public class CrudGenerator {
 		dataModel.setPackageName(packageName + "."
 				+ dataModel.getEntity().getName() + ".service");
 
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
 		try {
-			// String templateFile =
-			// "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
 			String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			String pathname = "src/main/resources/"
+					+ packageName.replaceAll("\\.", "/") + "/sqlmap/"
+					+ dataModel.getEntity().getName() + "/"
+					+ dataModel.getEntity().getPcName() + "_SQL.xml";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorService() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
 
 			String data = crudCodeGen.generate(dataModel, templateFile);
 
@@ -199,10 +246,10 @@ public class CrudGenerator {
 			// + dataModel.getEntity().getName() + "/"
 			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
 
-			String pathname = "src/main/resources/"
-					+ packageName.replaceAll("\\.", "/") + "/sqlmap/"
-					+ dataModel.getEntity().getName() + "/"
-					+ dataModel.getEntity().getPcName() + "Columns_SQL.xml";
+			String pathname = "src/main/java/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/service/"
+					+ dataModel.getEntity().getPcName() + ".java";
 
 			if (log.isDebugEnabled()) {
 				log.debug("pathname=" + pathname);
@@ -223,4 +270,170 @@ public class CrudGenerator {
 			log.info("끝");
 		}
 	}
+
+	public void generatorDefaultVO() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/java/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/"
+					+ dataModel.getEntity().getPcName() + "DefaultVO.java";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorVO() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/java/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/"
+					+ dataModel.getEntity().getPcName() + "VO.java";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorServiceImpl() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setImplPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/java/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/service/impl/"
+					+ dataModel.getEntity().getPcName() + "ServiceImpl.java";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
 }

@@ -88,7 +88,12 @@ public class CrudCodeGen {
 
 		// context.put("voPackage",
 		// "kr.godsoft.egovframe.generator.crud.service");
-		context.put("voPackage", dataModel.getPackageName());
+		context.put("voPackage", dataModel.getVoPackage());
+		context.put("servicePackage", dataModel.getServicePackage());
+		context.put("implPackage", dataModel.getImplPackage());
+
+		context.put("author", dataModel.getAuthor());
+		context.put("createDate", dataModel.getCreateDate());
 
 		Template template = null;
 
