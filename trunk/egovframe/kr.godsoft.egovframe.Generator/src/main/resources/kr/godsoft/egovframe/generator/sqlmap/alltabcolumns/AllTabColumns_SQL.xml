@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Columns">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="columnsSerarchVO" type="kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO"/>
+	
+	<resultMap id="columns" class="kr.godsoft.egovframe.generator.columns.service.ColumnsVO">
+		<result property="tableCatalog" column="TABLE_CATALOG" columnIndex="1"/>
+		<result property="tableSchema" column="TABLE_SCHEMA" columnIndex="2"/>
+		<result property="tableName" column="TABLE_NAME" columnIndex="3"/>
+		<result property="columnName" column="COLUMN_NAME" columnIndex="4"/>
+		<result property="ordinalPosition" column="ORDINAL_POSITION" columnIndex="5"/>
+		<result property="columnDefault" column="COLUMN_DEFAULT" columnIndex="6"/>
+		<result property="isNullable" column="IS_NULLABLE" columnIndex="7"/>
+		<result property="dataType" column="DATA_TYPE" columnIndex="8"/>
+		<result property="characterMaximumLength" column="CHARACTER_MAXIMUM_LENGTH" columnIndex="9"/>
+		<result property="characterOctetLength" column="CHARACTER_OCTET_LENGTH" columnIndex="10"/>
+		<result property="numericPrecision" column="NUMERIC_PRECISION" columnIndex="11"/>
+		<result property="numericScale" column="NUMERIC_SCALE" columnIndex="12"/>
+		<result property="characterSetName" column="CHARACTER_SET_NAME" columnIndex="13"/>
+		<result property="collationName" column="COLLATION_NAME" columnIndex="14"/>
+		<result property="columnType" column="COLUMN_TYPE" columnIndex="15"/>
+		<result property="columnKey" column="COLUMN_KEY" columnIndex="16"/>
+		<result property="extra" column="EXTRA" columnIndex="17"/>
+		<result property="privileges" column="PRIVILEGES" columnIndex="18"/>
+		<result property="columnComment" column="COLUMN_COMMENT" columnIndex="19"/>
+	</resultMap>
+	
+	<insert id="columnsDAO.insertColumns_S">
+		<![CDATA[
+			INSERT INTO COLUMNS 
+				( TABLE_CATALOG
+				  , TABLE_SCHEMA
+				  , TABLE_NAME
+				  , COLUMN_NAME
+				  , ORDINAL_POSITION
+				  , COLUMN_DEFAULT
+				  , IS_NULLABLE
+				  , DATA_TYPE
+				  , CHARACTER_MAXIMUM_LENGTH
+				  , CHARACTER_OCTET_LENGTH
+				  , NUMERIC_PRECISION
+				  , NUMERIC_SCALE
+				  , CHARACTER_SET_NAME
+				  , COLLATION_NAME
+				  , COLUMN_TYPE
+				  , COLUMN_KEY
+				  , EXTRA
+				  , PRIVILEGES
+				  , COLUMN_COMMENT )
+			VALUES ( #tableCatalog#
+				  , #tableSchema#
+				  , #tableName#
+				  , #columnName#
+				  , #ordinalPosition#
+				  , #columnDefault#
+				  , #isNullable#
+				  , #dataType#
+				  , #characterMaximumLength#
+				  , #characterOctetLength#
+				  , #numericPrecision#
+				  , #numericScale#
+				  , #characterSetName#
+				  , #collationName#
+				  , #columnType#
+				  , #columnKey#
+				  , #extra#
+				  , #privileges#
+				  , #columnComment# )
+		]]>
+	</insert>
+	
+	<update id="columnsDAO.updateColumns_S">
+		<![CDATA[
+			UPDATE COLUMNS
+			SET TABLE_CATALOG=#tableCatalog#
+				, TABLE_SCHEMA=#tableSchema#
+				, TABLE_NAME=#tableName#
+				, COLUMN_NAME=#columnName#
+				, ORDINAL_POSITION=#ordinalPosition#
+				, COLUMN_DEFAULT=#columnDefault#
+				, IS_NULLABLE=#isNullable#
+				, DATA_TYPE=#dataType#
+				, CHARACTER_MAXIMUM_LENGTH=#characterMaximumLength#
+				, CHARACTER_OCTET_LENGTH=#characterOctetLength#
+				, NUMERIC_PRECISION=#numericPrecision#
+				, NUMERIC_SCALE=#numericScale#
+				, CHARACTER_SET_NAME=#characterSetName#
+				, COLLATION_NAME=#collationName#
+				, COLUMN_TYPE=#columnType#
+				, COLUMN_KEY=#columnKey#
+				, EXTRA=#extra#
+				, PRIVILEGES=#privileges#
+				, COLUMN_COMMENT=#columnComment#
+			]]>
+	</update>
+	
+	<delete id="columnsDAO.deleteColumns_S">
+		<![CDATA[
+			DELETE FROM COLUMNS 
+			]]>
+	</delete>
+	
+	<select id="columnsDAO.selectColumns_S" resultMap="columns">
+		<![CDATA[
+			SELECT
+				TABLE_CATALOG
+				, TABLE_SCHEMA
+				, TABLE_NAME
+				, COLUMN_NAME
+				, ORDINAL_POSITION
+				, COLUMN_DEFAULT
+				, IS_NULLABLE
+				, DATA_TYPE
+				, CHARACTER_MAXIMUM_LENGTH
+				, CHARACTER_OCTET_LENGTH
+				, NUMERIC_PRECISION
+				, NUMERIC_SCALE
+				, CHARACTER_SET_NAME
+				, COLLATION_NAME
+				, COLUMN_TYPE
+				, COLUMN_KEY
+				, EXTRA
+				, PRIVILEGES
+				, COLUMN_COMMENT
+			FROM COLUMNS
+			]]>
+	</select>
+	
+	<select id="columnsDAO.selectAllTabColumnsList_D" resultClass="egovMap">
+		SELECT
+		    all_tab_columns.owner
+		    , all_tab_columns.table_name
+		    , all_tab_columns.column_name
+		    , all_tab_columns.data_type
+		    , all_tab_columns.data_length
+		    , all_tab_columns.column_id
+			-- all_col_comments
+		    , all_col_comments.comments AS col_comments
+			-- all_tab_comments
+		    , all_tab_comments.comments AS tab_comments
+		FROM all_tab_columns
+		LEFT OUTER JOIN all_col_comments ON 1 = 1
+		    AND all_col_comments.owner = all_tab_columns.owner
+		    AND all_col_comments.table_name =  all_tab_columns.table_name
+		    AND all_col_comments.column_name = all_tab_columns.column_name
+		LEFT OUTER JOIN all_tab_comments ON 1 = 1
+		    AND all_tab_comments.owner = all_tab_columns.owner
+		    AND all_tab_comments.table_name =  all_tab_columns.table_name
+		WHERE 1 = 1
+		AND all_tab_columns.owner = 'KUT_MAG'
+		AND all_tab_columns.table_name = 'DF_HRS_HR_MASTER'
+	</select>
+
+	<select id="columnsDAO.selectColumnsListTotCnt_S" parameterClass="columnsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COLUMNS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TABLE_CATALOG = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+	</select>
+
+</sqlMap>
