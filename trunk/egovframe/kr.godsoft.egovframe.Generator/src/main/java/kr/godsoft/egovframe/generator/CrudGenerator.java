@@ -175,7 +175,11 @@ public class CrudGenerator {
 		// crudGenerator.generatorService();
 		// crudGenerator.generatorDefaultVO();
 		// crudGenerator.generatorVO();
-		crudGenerator.generatorServiceImpl();
+		// crudGenerator.generatorServiceImpl();
+		// crudGenerator.generatorDAO();
+		// crudGenerator.generatorController();
+		// crudGenerator.generatorListView();
+		crudGenerator.generatorRegisterView();
 	}
 
 	public void generatorSQLMap() {
@@ -396,6 +400,9 @@ public class CrudGenerator {
 		dataModel.setImplPackage(packageName + "."
 				+ dataModel.getEntity().getName() + ".service.impl");
 
+		dataModel.setDaoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
 		try {
 			String templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
 
@@ -415,6 +422,255 @@ public class CrudGenerator {
 					+ packageName.replaceAll("\\.", "/") + "/"
 					+ dataModel.getEntity().getName() + "/service/impl/"
 					+ dataModel.getEntity().getPcName() + "ServiceImpl.java";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorDAO() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setImplPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setDaoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/java/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/service/impl/"
+					+ dataModel.getEntity().getPcName() + "DAO.java";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorController() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".web");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setImplPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setDaoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setControllerPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".web");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/java/pkg/web/EgovSample2Controller.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/java/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/web/"
+					+ dataModel.getEntity().getPcName() + "Controller.java";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorListView() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".web");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setImplPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setDaoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setControllerPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".web");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/webapp/WEB-INF/jsp/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/web/"
+					+ dataModel.getEntity().getPcName() + "List.jsp";
+
+			if (log.isDebugEnabled()) {
+				log.debug("pathname=" + pathname);
+			}
+
+			File file = new File(pathname);
+			// String data = file.getAbsolutePath();
+			// File file, String data, String encoding
+
+			if (isWriteStringToFile) {
+				FileUtils.writeStringToFile(file, data, "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void generatorRegisterView() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		dataModel.setPackageName(packageName + "."
+				+ dataModel.getEntity().getName() + ".web");
+
+		dataModel.setVoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setServicePackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service");
+
+		dataModel.setImplPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setDaoPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".service.impl");
+
+		dataModel.setControllerPackage(packageName + "."
+				+ dataModel.getEntity().getName() + ".web");
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+
+			String data = crudCodeGen.generate(dataModel, templateFile);
+
+			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+
+			// 문자열을 해당 파일에 카피
+			// File file = new File(dir, "file1.txt");
+
+			// String pathname = "src/main/resources/"
+			// + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// + dataModel.getEntity().getName() + "/"
+			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+
+			String pathname = "src/main/webapp/WEB-INF/jsp/"
+					+ packageName.replaceAll("\\.", "/") + "/"
+					+ dataModel.getEntity().getName() + "/web/"
+					+ dataModel.getEntity().getPcName() + "Register.jsp";
 
 			if (log.isDebugEnabled()) {
 				log.debug("pathname=" + pathname);

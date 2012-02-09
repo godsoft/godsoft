@@ -91,6 +91,8 @@ public class CrudCodeGen {
 		context.put("voPackage", dataModel.getVoPackage());
 		context.put("servicePackage", dataModel.getServicePackage());
 		context.put("implPackage", dataModel.getImplPackage());
+		context.put("daoPackage", dataModel.getDaoPackage());
+		context.put("controllerPackage", dataModel.getControllerPackage());
 
 		context.put("author", dataModel.getAuthor());
 		context.put("createDate", dataModel.getCreateDate());

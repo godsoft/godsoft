@@ -198,6 +198,10 @@ public class DataModelContext {
 
 	private String implPackage;
 
+	private String daoPackage;
+
+	private String controllerPackage;
+
 	public String getVoPackage() {
 		return voPackage;
 	}
@@ -220,6 +224,22 @@ public class DataModelContext {
 
 	public void setImplPackage(String implPackage) {
 		this.implPackage = implPackage;
+	}
+
+	public String getDaoPackage() {
+		return daoPackage;
+	}
+
+	public void setDaoPackage(String daoPackage) {
+		this.daoPackage = daoPackage;
+	}
+
+	public String getControllerPackage() {
+		return controllerPackage;
+	}
+
+	public void setControllerPackage(String controllerPackage) {
+		this.controllerPackage = controllerPackage;
 	}
 
 }
