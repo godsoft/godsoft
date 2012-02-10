@@ -32,7 +32,7 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public String insertColumns(AllTabColumnsVO vo) throws Exception {
-		return (String) insert("columnsDAO.insertColumns_S", vo);
+		return (String) insert("allTabColumnsDAO.insertColumns_S", vo);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public void updateColumns(AllTabColumnsVO vo) throws Exception {
-		update("columnsDAO.updateColumns_S", vo);
+		update("allTabColumnsDAO.updateColumns_S", vo);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public void deleteColumns(AllTabColumnsVO vo) throws Exception {
-		delete("columnsDAO.deleteColumns_S", vo);
+		delete("allTabColumnsDAO.deleteColumns_S", vo);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public AllTabColumnsVO selectColumns(AllTabColumnsVO vo) throws Exception {
-		return (AllTabColumnsVO) selectByPk("columnsDAO.selectColumns_S", vo);
+		return (AllTabColumnsVO) selectByPk("allTabColumnsDAO.selectColumns_S", vo);
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public List selectColumnsList(AllTabColumnsDefaultVO searchVO) throws Exception {
-		return list("columnsDAO.selectColumnsList_D", searchVO);
+		return list("allTabColumnsDAO.selectAllTabColumnsList_D", searchVO);
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 */
 	public int selectColumnsListTotCnt(AllTabColumnsDefaultVO searchVO) {
 		return (Integer) getSqlMapClientTemplate().queryForObject(
-				"columnsDAO.selectColumnsListTotCnt_S", searchVO);
+				"allTabColumnsDAO.selectColumnsListTotCnt_S", searchVO);
 	}
 
 }

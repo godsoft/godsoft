@@ -8,4 +8,5 @@
     <!-- <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_oracle.xml"/> -->
     
     <sqlMap resource="kr/godsoft/egovframe/generator/sqlmap/columns/Columns_SQL.xml"/>
+    <sqlMap resource="kr/godsoft/egovframe/generator/sqlmap/alltabcolumns/AllTabColumns_SQL.xml"/>
 </sqlMapConfig>
