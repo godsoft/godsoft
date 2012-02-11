@@ -150,8 +150,8 @@
 		    AND all_tab_comments.owner = all_tab_columns.owner
 		    AND all_tab_comments.table_name =  all_tab_columns.table_name
 		WHERE 1 = 1
-		AND all_tab_columns.owner = '사용자'
-		AND all_tab_columns.table_name = '테이블'
+		AND all_tab_columns.owner = 'HR'
+		AND all_tab_columns.table_name = 'REGIONS'
 	</select>
 
 	<select id="allTabColumnsDAO.selectColumnsListTotCnt_S" parameterClass="columnsSerarchVO" resultClass="int">
