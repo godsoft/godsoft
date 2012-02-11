@@ -27,12 +27,12 @@ import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 @Repository("allTabColumnsDAO")
 public class AllTabColumnsDAO extends EgovAbstractDAO {
 
-    @Resource(name = "sqlMapClientOracle")
-    @Override
-    public void setSuperSqlMapClient(SqlMapClient sqlMapClient) {
-        super.setSqlMapClient(sqlMapClient);
-    }
-	
+	@Override
+	@Resource(name = "sqlMapClientOracle")
+	public void setSuperSqlMapClient(SqlMapClient sqlMapClient) {
+		super.setSqlMapClient(sqlMapClient);
+	}
+
 	/**
 	 * COLUMNS을 등록한다.
 	 * 
@@ -78,7 +78,8 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @exception Exception
 	 */
 	public AllTabColumnsVO selectColumns(AllTabColumnsVO vo) throws Exception {
-		return (AllTabColumnsVO) selectByPk("allTabColumnsDAO.selectColumns_S", vo);
+		return (AllTabColumnsVO) selectByPk("allTabColumnsDAO.selectColumns_S",
+				vo);
 	}
 
 	/**
@@ -89,7 +90,8 @@ public class AllTabColumnsDAO extends EgovAbstractDAO {
 	 * @return COLUMNS 목록
 	 * @exception Exception
 	 */
-	public List selectColumnsList(AllTabColumnsDefaultVO searchVO) throws Exception {
+	public List selectColumnsList(AllTabColumnsDefaultVO searchVO)
+			throws Exception {
 		return list("allTabColumnsDAO.selectAllTabColumnsList_D", searchVO);
 	}
 
