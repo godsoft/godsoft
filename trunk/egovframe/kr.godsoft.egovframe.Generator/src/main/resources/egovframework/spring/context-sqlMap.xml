@@ -14,5 +14,10 @@
 		<property name="configLocation" value="classpath:/egovframework/sqlmap/rte/sql-map-config.xml"/>
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+
+	<bean id="sqlMapClientOracle" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="classpath:/egovframework/sqlmap/rte/sql-map-config.xml"/>
+		<property name="dataSource" ref="dataSourceOracle"/>
+	</bean>
 			
 </beans>	

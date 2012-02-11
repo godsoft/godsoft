@@ -2,10 +2,14 @@ package kr.godsoft.egovframe.generator.alltabcolumns.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import kr.godsoft.egovframe.generator.alltabcolumns.service.AllTabColumnsDefaultVO;
 import kr.godsoft.egovframe.generator.alltabcolumns.service.AllTabColumnsVO;
 
 import org.springframework.stereotype.Repository;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
@@ -23,6 +27,12 @@ import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 @Repository("allTabColumnsDAO")
 public class AllTabColumnsDAO extends EgovAbstractDAO {
 
+    @Resource(name = "sqlMapClientOracle")
+    @Override
+    public void setSuperSqlMapClient(SqlMapClient sqlMapClient) {
+        super.setSqlMapClient(sqlMapClient);
+    }
+	
 	/**
 	 * COLUMNS을 등록한다.
 	 * 
