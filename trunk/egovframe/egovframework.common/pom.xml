@@ -593,25 +593,25 @@
 		-->
 
 		<!--  M-Gov (SMS Service API) -->
-		<dependency>
-			<groupId>smeapi</groupId>
-			<artifactId>smeapi</artifactId>
-			<version>2.5</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>smeapi</groupId> -->
+<!-- 			<artifactId>smeapi</artifactId> -->
+<!-- 			<version>2.5</version> -->
+<!-- 		</dependency> -->
 		<!--
 		</dependency>
 		 -->
 		<!-- GPKI인증서 로그인처리 라이브러리 -->
-		<dependency>
-			<groupId>egovframework.com.cmm.uat</groupId>
-			<artifactId>gpkisecureweb</artifactId>
-			<version>1.0.4.9</version>
-		</dependency>
-		<dependency>
-			<groupId>egovframework.com.cmm.uat</groupId>
-			<artifactId>libgpkiapi_jni</artifactId>
-			<version>1.4.0.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>egovframework.com.cmm.uat</groupId> -->
+<!-- 			<artifactId>gpkisecureweb</artifactId> -->
+<!-- 			<version>1.0.4.9</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>egovframework.com.cmm.uat</groupId> -->
+<!-- 			<artifactId>libgpkiapi_jni</artifactId> -->
+<!-- 			<version>1.4.0.0</version> -->
+<!-- 		</dependency> -->
 		<!--
  		-->
 		<!-- 3rd party 라이브러리로 별도의 설치 필요 끝 -->
