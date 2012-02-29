@@ -1,6 +1,10 @@
 package kr.godsoft.egovframe.generator;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +18,11 @@ import operation.CrudCodeGen;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -179,7 +188,9 @@ public class CrudGenerator {
 		// crudGenerator.generatorDAO();
 		// crudGenerator.generatorController();
 		// crudGenerator.generatorListView();
-		crudGenerator.generatorRegisterView();
+		// crudGenerator.generatorRegisterView();
+
+		crudGenerator.excel();
 	}
 
 	public void generatorSQLMap() {
@@ -685,6 +696,75 @@ public class CrudGenerator {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void excel() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		try {
+			// InputStream inp = new FileInputStream(
+			// "D:/eGovFrameDev-2.0.0-FullVer/workspace/kr.godsoft.egovframe.Generator/doc/COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream("D:/temp/행정표준용어.xls");
+			// InputStream inp = new
+			// FileInputStream("D:/temp/COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream(
+			// "D:/temp/사본 - COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream(
+			// "D:/temp/사본 - COM_테이블정의서_1단계.xlsx");
+
+			// InputStream inp = new FileInputStream("D:/temp/test.xlsx");
+
+			InputStream inp = new FileInputStream("D:/temp/Book1.xls");
+
+			// InputStream inp = new FileInputStream("workbook.xlsx");
+
+			HSSFWorkbook wb = new HSSFWorkbook();
+
+			POIFSFileSystem fs = new POIFSFileSystem(inp);
+			wb = new HSSFWorkbook(fs);
+
+			int numberOfSheets = wb.getNumberOfSheets();
+
+			if (log.isDebugEnabled()) {
+				log.debug("numberOfSheets=" + numberOfSheets);
+			}
+
+			// Workbook wb = WorkbookFactory.create(inp);
+			HSSFSheet sheet = wb.getSheetAt(0);
+
+			int physicalNumberOfRows = sheet.getPhysicalNumberOfRows(); // 행개수
+
+			if (log.isDebugEnabled()) {
+				log.debug("physicalNumberOfRows=" + physicalNumberOfRows);
+			}
+
+			HSSFRow row = sheet.getRow(1);
+
+			int physicalNumberOfCells = row.getPhysicalNumberOfCells(); // 셀 개수
+																		// 가져오기
+
+			if (log.isDebugEnabled()) {
+				log.debug("physicalNumberOfCells=" + physicalNumberOfCells);
+			}
+
+			HSSFCell cell = row.getCell(0);
+
+			// if (cell == null) {
+			if (log.isDebugEnabled()) {
+				log.debug("cell=" + cell);
+				log.debug("cell=" + cell.getStringCellValue());
+			}
+			// }
+
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 		}
 
 		if (log.isInfoEnabled()) {
