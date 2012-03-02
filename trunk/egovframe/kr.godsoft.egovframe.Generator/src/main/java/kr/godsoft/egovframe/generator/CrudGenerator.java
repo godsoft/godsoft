@@ -16,6 +16,7 @@ import model.Entity;
 import operation.CrudCodeGen;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -23,6 +24,12 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellReference;
 
 import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -190,7 +197,15 @@ public class CrudGenerator {
 		// crudGenerator.generatorListView();
 		// crudGenerator.generatorRegisterView();
 
-		crudGenerator.excel();
+		// crudGenerator.excel();
+
+		// crudGenerator.readingWorkbooks2();
+
+		// crudGenerator.gettingTheCellContents();
+
+		// crudGenerator.test();
+
+		crudGenerator.setTableComment();
 	}
 
 	public void generatorSQLMap() {
@@ -703,25 +718,14 @@ public class CrudGenerator {
 		}
 	}
 
+	@Deprecated
 	public void excel() {
 		if (log.isInfoEnabled()) {
 			log.info("시작");
 		}
 
 		try {
-			// InputStream inp = new FileInputStream(
-			// "D:/eGovFrameDev-2.0.0-FullVer/workspace/kr.godsoft.egovframe.Generator/doc/COM_테이블정의서_1단계.xls");
-			// InputStream inp = new FileInputStream("D:/temp/행정표준용어.xls");
-			// InputStream inp = new
-			// FileInputStream("D:/temp/COM_테이블정의서_1단계.xls");
-			// InputStream inp = new FileInputStream(
-			// "D:/temp/사본 - COM_테이블정의서_1단계.xls");
-			// InputStream inp = new FileInputStream(
-			// "D:/temp/사본 - COM_테이블정의서_1단계.xlsx");
-
-			// InputStream inp = new FileInputStream("D:/temp/test.xlsx");
-
-			InputStream inp = new FileInputStream("D:/temp/Book1.xls");
+			InputStream inp = new FileInputStream("doc/COM_테이블정의서_1단계.xls");
 
 			// InputStream inp = new FileInputStream("workbook.xlsx");
 
@@ -737,7 +741,7 @@ public class CrudGenerator {
 			}
 
 			// Workbook wb = WorkbookFactory.create(inp);
-			HSSFSheet sheet = wb.getSheetAt(0);
+			HSSFSheet sheet = wb.getSheetAt(3);
 
 			int physicalNumberOfRows = sheet.getPhysicalNumberOfRows(); // 행개수
 
@@ -769,6 +773,415 @@ public class CrudGenerator {
 
 		if (log.isInfoEnabled()) {
 			log.info("끝");
+		}
+	}
+
+	@Deprecated
+	public void readingWorkbooks() {
+		try {
+			InputStream inp = new FileInputStream("doc/COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream("workbook.xlsx");
+
+			Workbook wb = new HSSFWorkbook(inp);
+
+			int numberOfSheets = wb.getNumberOfSheets();
+
+			if (log.isDebugEnabled()) {
+				log.debug("numberOfSheets=" + numberOfSheets);
+			}
+
+			Sheet sheet = wb.getSheetAt(2);
+
+			StringBuffer stringBuffer = new StringBuffer();
+
+			// 테이블ID, 테이블명
+			Row row = sheet.getRow(2);
+			Cell cell = row.getCell(2);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블ID=" + cell.getRichStringCellValue().getString());
+			}
+
+			stringBuffer.append("ALTER TABLE ");
+			stringBuffer.append(cell.getRichStringCellValue().getString()
+					.toLowerCase());
+
+			cell = row.getCell(5);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블명=" + cell.getRichStringCellValue().getString());
+			}
+
+			stringBuffer.append(" COMMENT='");
+			stringBuffer.append(cell.getRichStringCellValue().getString()
+					.toLowerCase());
+			stringBuffer.append("';\n");
+
+			// 테이블설명
+			row = sheet.getRow(3);
+			cell = row.getCell(2);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블설명=" + cell.getRichStringCellValue().getString());
+			}
+
+			int physicalNumberOfRows = sheet.getPhysicalNumberOfRows();
+
+			if (log.isDebugEnabled()) {
+				log.debug("physicalNumberOfRows=" + physicalNumberOfRows);
+			}
+
+			for (int i = 5; i < physicalNumberOfRows; i++) {
+				row = sheet.getRow(i);
+
+				// 컬럼ID
+				Cell cell2 = row.getCell(1);
+
+				// 컬럼명
+				Cell cell3 = row.getCell(2);
+
+				// 타입
+				Cell cell4 = row.getCell(3);
+
+				// // 길이
+				// Cell cell5 = row.getCell(4);
+				//
+				// // NULL
+				// Cell cell6 = row.getCell(5);
+				//
+				// // DEFAULT
+				// Cell cell8 = row.getCell(7);
+
+				stringBuffer.append("ALTER TABLE ");
+				stringBuffer.append(cell2.getRichStringCellValue().getString()
+						.toLowerCase());
+				stringBuffer.append(" CHANGE ");
+				stringBuffer.append(cell2.getRichStringCellValue().getString()
+						.toLowerCase());
+				stringBuffer.append(" ");
+				stringBuffer.append(cell2.getRichStringCellValue().getString()
+						.toLowerCase());
+
+				stringBuffer.append(" CHAR(3) NOT NULL COMMENT '분류코드'");
+
+				stringBuffer.append("\n");
+
+				if ("".equals(cell2.getRichStringCellValue().getString())) {
+					break;
+				}
+
+				if (log.isDebugEnabled()) {
+					log.debug("컬럼ID="
+							+ cell2.getRichStringCellValue().getString());
+					log.debug("컬럼명="
+							+ cell3.getRichStringCellValue().getString());
+					log.debug("타입="
+							+ cell4.getRichStringCellValue().getString());
+					// log.debug("길이="
+					// + cell5.getRichStringCellValue().getString());
+					// log.debug("NULL="
+					// + cell6.getRichStringCellValue().getString());
+					// log.debug("DEFAULT="
+					// + cell8.getRichStringCellValue().getString());
+				}
+			}
+
+			if (log.isDebugEnabled()) {
+				log.debug(stringBuffer.toString());
+			}
+		} catch (Exception e) {
+		}
+	}
+
+	@Deprecated
+	public void readingWorkbooks2() {
+		try {
+			InputStream inp = new FileInputStream("doc/COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream("workbook.xlsx");
+
+			Workbook wb = new HSSFWorkbook(inp);
+
+			int numberOfSheets = wb.getNumberOfSheets();
+
+			if (log.isDebugEnabled()) {
+				log.debug("numberOfSheets=" + numberOfSheets);
+			}
+
+			Sheet sheet = wb.getSheetAt(2);
+
+			StringBuffer stringBuffer = new StringBuffer();
+
+			// 테이블ID, 테이블명
+			Row row = sheet.getRow(2);
+			Cell cell = row.getCell(2);
+
+			String tableName = cell.getRichStringCellValue().getString();
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블ID=" + cell.getRichStringCellValue().getString());
+			}
+
+			stringBuffer.append("ALTER TABLE ");
+			stringBuffer.append(cell.getRichStringCellValue().getString()
+					.toLowerCase());
+
+			cell = row.getCell(5);
+
+			String tableComment = cell.getRichStringCellValue().getString();
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블명=" + cell.getRichStringCellValue().getString());
+			}
+
+			stringBuffer.append(" COMMENT='");
+			stringBuffer.append(cell.getRichStringCellValue().getString()
+					.toLowerCase());
+			stringBuffer.append("';\n");
+
+			// 테이블설명
+			row = sheet.getRow(3);
+			cell = row.getCell(2);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블설명=" + cell.getRichStringCellValue().getString());
+			}
+
+			int physicalNumberOfRows = sheet.getPhysicalNumberOfRows();
+
+			if (log.isDebugEnabled()) {
+				log.debug("physicalNumberOfRows=" + physicalNumberOfRows);
+			}
+
+			for (int i = 5; i < physicalNumberOfRows; i++) {
+				row = sheet.getRow(i);
+
+				// 컬럼ID
+				Cell cell2 = row.getCell(1);
+
+				// 컬럼명
+				Cell cell3 = row.getCell(2);
+
+				// 타입
+				Cell cell4 = row.getCell(3);
+
+				// // 길이
+				// Cell cell5 = row.getCell(4);
+				//
+				// // NULL
+				// Cell cell6 = row.getCell(5);
+				//
+				// // DEFAULT
+				// Cell cell8 = row.getCell(7);
+
+				stringBuffer.append("ALTER TABLE ");
+				stringBuffer.append(cell2.getRichStringCellValue().getString()
+						.toLowerCase());
+				stringBuffer.append(" CHANGE ");
+				stringBuffer.append(cell2.getRichStringCellValue().getString()
+						.toLowerCase());
+				stringBuffer.append(" ");
+				stringBuffer.append(cell2.getRichStringCellValue().getString()
+						.toLowerCase());
+
+				stringBuffer.append(" CHAR(3) NOT NULL COMMENT '분류코드'");
+
+				stringBuffer.append("\n");
+
+				if ("".equals(cell2.getRichStringCellValue().getString())) {
+					break;
+				}
+
+				if (log.isDebugEnabled()) {
+					log.debug("컬럼ID="
+							+ cell2.getRichStringCellValue().getString());
+					log.debug("컬럼명="
+							+ cell3.getRichStringCellValue().getString());
+					log.debug("타입="
+							+ cell4.getRichStringCellValue().getString());
+					// log.debug("길이="
+					// + cell5.getRichStringCellValue().getString());
+					// log.debug("NULL="
+					// + cell6.getRichStringCellValue().getString());
+					// log.debug("DEFAULT="
+					// + cell8.getRichStringCellValue().getString());
+				}
+			}
+
+			if (log.isDebugEnabled()) {
+				// log.debug(stringBuffer.toString());
+			}
+
+			// Line iterator
+			File file = new File(
+					"doc/전체_테이블_생성_스크립트-2.0.0/mysql/ddl/com4_DDL_Mysql.sql");
+
+			LineIterator it = FileUtils.lineIterator(file, "UTF-8");
+			// LineIterator it = FileUtils.lineIterator(file);
+			try {
+				while (it.hasNext()) {
+					String line = it.nextLine();
+					// / do something with line
+
+					if (log.isDebugEnabled()) {
+						if (("CREATE TABLE " + tableName).equals(line)) {
+							log.debug("line=" + line);
+						}
+					}
+				}
+			} finally {
+				LineIterator.closeQuietly(it);
+			}
+		} catch (Exception e) {
+		}
+	}
+
+	@Deprecated
+	public void gettingTheCellContents() {
+		try {
+			InputStream inp = new FileInputStream("doc/COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream("workbook.xlsx");
+
+			Workbook wb = new HSSFWorkbook(inp);
+
+			int numberOfSheets = wb.getNumberOfSheets();
+
+			if (log.isDebugEnabled()) {
+				log.debug("numberOfSheets=" + numberOfSheets);
+			}
+
+			Sheet sheet1 = wb.getSheetAt(2);
+			for (Row row : sheet1) {
+				for (Cell cell : row) {
+					CellReference cellRef = new CellReference(row.getRowNum(),
+							cell.getColumnIndex());
+					System.out.print(cellRef.formatAsString());
+					System.out.print(" - ");
+
+					switch (cell.getCellType()) {
+					case Cell.CELL_TYPE_STRING:
+						System.out.println(cell.getRichStringCellValue()
+								.getString());
+						break;
+					case Cell.CELL_TYPE_NUMERIC:
+						if (DateUtil.isCellDateFormatted(cell)) {
+							System.out.println(cell.getDateCellValue());
+						} else {
+							System.out.println(cell.getNumericCellValue());
+						}
+						break;
+					case Cell.CELL_TYPE_BOOLEAN:
+						System.out.println(cell.getBooleanCellValue());
+						break;
+					case Cell.CELL_TYPE_FORMULA:
+						System.out.println(cell.getCellFormula());
+						break;
+					default:
+						System.out.println();
+					}
+				}
+			}
+		} catch (Exception e) {
+		}
+	}
+
+	@Deprecated
+	public void test() {
+		try {
+			File file = new File(
+					"doc/전체_테이블_생성_스크립트-2.0.0/mysql/ddl/com4_DDL_Mysql.sql");
+			List lines = FileUtils.readLines(file, "UTF-8");
+
+			if (log.isDebugEnabled()) {
+				log.debug("lines=" + lines);
+
+				log.debug(lines.indexOf("CREATE TABLE COMTCCMMNCLCODE"));
+			}
+
+			int i = 0;
+
+			// for (int i = 0, size = lines.size(); i < size; i++) {
+			for (int index = lines.indexOf("CREATE TABLE COMTCCMMNCLCODE") + 2, size = index + 1000; index < size; index++) {
+				String line = (String) lines.get(index);
+
+				if (log.isDebugEnabled()) {
+					log.debug("line=" + line);
+				}
+
+				// if (";".equals(line)) {
+				if (line.indexOf("PRIMARY KEY") > -1) {
+					break;
+				}
+
+				i++;
+			}
+		} catch (Exception e) {
+		}
+	}
+
+	@Deprecated
+	public void setTableComment() {
+		try {
+			// String pathname = "";
+
+			InputStream inp = new FileInputStream("doc/COM_테이블정의서_1단계.xls");
+			// InputStream inp = new FileInputStream("workbook.xlsx");
+
+			Workbook wb = new HSSFWorkbook(inp);
+
+			int numberOfSheets = wb.getNumberOfSheets();
+
+			if (log.isDebugEnabled()) {
+				log.debug("numberOfSheets=" + numberOfSheets);
+			}
+
+			Sheet sheet = wb.getSheetAt(2);
+
+			StringBuffer stringBuffer = new StringBuffer();
+
+			// 테이블ID, 테이블명
+			Row row = sheet.getRow(2);
+			Cell cell = row.getCell(2);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블ID=" + cell.getRichStringCellValue().getString());
+			}
+
+			stringBuffer.append("ALTER TABLE ");
+			stringBuffer.append(cell.getRichStringCellValue().getString()
+					.toLowerCase());
+
+			cell = row.getCell(5);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블명=" + cell.getRichStringCellValue().getString());
+			}
+
+			stringBuffer.append(" COMMENT='");
+			stringBuffer.append(cell.getRichStringCellValue().getString()
+					.toLowerCase());
+			stringBuffer.append("';\n");
+
+			// 테이블설명
+			row = sheet.getRow(3);
+			cell = row.getCell(2);
+
+			if (log.isDebugEnabled()) {
+				// log.debug("cell=" + cell);
+				log.debug("테이블설명=" + cell.getRichStringCellValue().getString());
+			}
+
+			if (log.isDebugEnabled()) {
+				log.debug(stringBuffer.toString());
+			}
+		} catch (Exception e) {
 		}
 	}
 
