@@ -159,9 +159,9 @@
 				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				AND columns.table_schema = 'egovfrm'
-				AND columns.table_name = 'comtcadministcode'
-				limit #firstIndex#, #recordCountPerPage#	
-	</select>	
+				AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog')
+	</select>
+
 	<select id="columnsDAO.selectColumnsListTotCnt_S" parameterClass="columnsSerarchVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM COLUMNS
