@@ -187,7 +187,7 @@ public class CrudGenerator {
 	public static void main(String[] args) {
 		CrudGenerator crudGenerator = new CrudGenerator();
 
-		// crudGenerator.generatorSQLMap();
+		crudGenerator.generatorSQLMap();
 		// crudGenerator.generatorService();
 		// crudGenerator.generatorDefaultVO();
 		// crudGenerator.generatorVO();
@@ -205,7 +205,7 @@ public class CrudGenerator {
 
 		// crudGenerator.test();
 
-		crudGenerator.setTableComment();
+		// crudGenerator.setTableComment();
 	}
 
 	public void generatorSQLMap() {
