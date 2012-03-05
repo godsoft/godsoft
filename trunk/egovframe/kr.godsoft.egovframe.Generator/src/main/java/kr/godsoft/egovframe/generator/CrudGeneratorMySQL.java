@@ -2,6 +2,7 @@ package kr.godsoft.egovframe.generator;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import kr.godsoft.egovframe.generator.columns.java.ColumnsClinet;
@@ -141,11 +142,20 @@ public class CrudGeneratorMySQL {
 		}
 
 		if (log.isDebugEnabled()) {
-			log.debug(columns);
-			// log.debug(columns.indexOf("comtcadministcode"));
+			// if (columns != null) {
+			// for (int i = 0, size = columns.size(); i < size; i++) {
+			// EgovMap egovMap = columns.get(i);
+			//
+			// if (log.isDebugEnabled()) {
+			// log.debug("tableName=" + egovMap.get("tableName"));
+			// }
+			// }
+			// }
 
-			// EgovMap egovMap2 = new HashMap<String, String>();
-			log.debug(columns.indexOf("comtcadministcode"));
+			List<EgovMap> uniqueItems = new ArrayList<EgovMap>(
+					new HashSet<EgovMap>(columns));
+
+			log.debug(uniqueItems);
 		}
 
 		dataModel.setAttributes(attributes);
