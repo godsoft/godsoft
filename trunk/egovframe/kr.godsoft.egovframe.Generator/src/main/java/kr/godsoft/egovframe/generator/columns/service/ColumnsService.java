@@ -2,6 +2,8 @@ package kr.godsoft.egovframe.generator.columns.service;
 
 import java.util.List;
 
+import model.DataModelContext;
+
 /**
  * @Class Name : ColumnsService.java
  * @Description : Columns Business class
@@ -73,5 +75,8 @@ public interface ColumnsService {
 	 * @exception
 	 */
 	int selectColumnsListTotCnt(ColumnsDefaultVO searchVO);
+
+	List<DataModelContext> getDataModelContexts(
+			DataModelContext dataModelContextVO) throws Exception;
 
 }

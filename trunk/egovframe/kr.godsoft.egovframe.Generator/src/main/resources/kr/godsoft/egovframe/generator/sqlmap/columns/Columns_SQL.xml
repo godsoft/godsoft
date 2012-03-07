@@ -159,7 +159,7 @@
 				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				AND columns.table_schema = 'egovfrm'
-				AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog')
+				AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog', 'comtccmmnclcode')
 	</select>
 
 	<select id="columnsDAO.selectColumnsListTotCnt_S" parameterClass="columnsSerarchVO" resultClass="int">

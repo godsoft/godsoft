@@ -1,22 +1,16 @@
 package kr.godsoft.egovframe.generator;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import kr.godsoft.egovframe.generator.columns.java.ColumnsClinet;
-import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
-import model.Attribute;
 import model.DataModelContext;
-import model.Entity;
 import operation.CrudCodeGen;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class CrudGeneratorMySQL {
@@ -44,122 +38,15 @@ public class CrudGeneratorMySQL {
 	private boolean isWriteStringToFile;
 
 	public CrudGeneratorMySQL() {
-		packageName = "kr.godsoft.crud";
-
-		isWriteStringToFile = false;
-
 		try {
-			ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
+			DataModelContext dataModelContextVO = new DataModelContext();
 
-			searchVO.setFirstIndex(0);
-			searchVO.setRecordCountPerPage(1000);
+			dataModelContextVO.setAuthor("이백행");
 
-			columns = columnsClinet.selectColumnsList(searchVO);
+			columnsClinet.getDataModelContexts(dataModelContextVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		String name = "";
-
-		if (columns != null) {
-			for (int i = 0, size = columns.size(); i < size; i++) {
-				EgovMap egovMap = columns.get(i);
-
-				if (log.isDebugEnabled()) {
-					log.debug("tableName[" + i + "]="
-							+ egovMap.get("tableName"));
-				}
-
-				name = (String) egovMap.get("tableName");
-
-				if (i == 0) {
-					break;
-				}
-			}
-		}
-
-		crudCodeGen = new CrudCodeGen();
-
-		dataModel = new DataModelContext();
-
-		dataModel.setPackageName("pkg");
-		dataModel.setAuthor("이백행");
-		dataModel.setTeam("갓소프트");
-		dataModel.setVender("MySql");
-
-		if (log.isDebugEnabled()) {
-			log.debug(EgovDateUtil.getToday());
-			log.debug(EgovDateUtil.getCurrentDate(""));
-			// log.debug(EgovDateUtil.getCurrentDate("yyyy-mm-dd"));
-			log.debug(EgovDateUtil.formatDate(EgovDateUtil.getToday(), "."));
-		}
-
-		dataModel.setCreateDate(EgovDateUtil.formatDate(
-				EgovDateUtil.getToday(), "."));
-
-		Entity entity = new Entity(name);
-
-		dataModel.setEntity(entity);
-
-		List<Attribute> attributes = new ArrayList<Attribute>();
-		List<Attribute> primaryKeys = new ArrayList<Attribute>();
-
-		if (columns != null) {
-			for (int i = 0, size = columns.size(); i < size; i++) {
-				EgovMap egovMap = columns.get(i);
-
-				if (log.isDebugEnabled()) {
-					log.debug("tableSchema=" + egovMap.get("tableSchema"));
-					log.debug("tableName=" + egovMap.get("tableName"));
-					log.debug("columnName=" + egovMap.get("columnName"));
-					log.debug("columnDefault=" + egovMap.get("columnDefault"));
-					log.debug("dataType=" + egovMap.get("dataType"));
-					log.debug("characterMaximumLength="
-							+ egovMap.get("characterMaximumLength"));
-					log.debug("columnKey=" + egovMap.get("columnKey"));
-					log.debug("columnComment=" + egovMap.get("columnComment"));
-				}
-
-				String columnName = (String) egovMap.get("columnName");
-				String dataType = (String) egovMap.get("dataType");
-				String columnKey = (String) egovMap.get("columnKey");
-				String columnComment = (String) egovMap.get("columnComment");
-
-				Attribute attr = new Attribute(columnName);
-
-				if ("char".equals(dataType) || "varchar".equals(dataType)) {
-					attr.setJavaType("String");
-				}
-
-				attr.setColumnComment(columnComment);
-
-				attributes.add(attr);
-
-				if ("PRI".equals(columnKey)) {
-					primaryKeys.add(attr);
-				}
-			}
-		}
-
-		if (log.isDebugEnabled()) {
-			// if (columns != null) {
-			// for (int i = 0, size = columns.size(); i < size; i++) {
-			// EgovMap egovMap = columns.get(i);
-			//
-			// if (log.isDebugEnabled()) {
-			// log.debug("tableName=" + egovMap.get("tableName"));
-			// }
-			// }
-			// }
-
-			List<EgovMap> uniqueItems = new ArrayList<EgovMap>(
-					new HashSet<EgovMap>(columns));
-
-			log.debug(uniqueItems);
-		}
-
-		dataModel.setAttributes(attributes);
-		dataModel.setPrimaryKeys(primaryKeys);
 	}
 
 	/**
@@ -177,16 +64,6 @@ public class CrudGeneratorMySQL {
 		// crudGenerator.generatorController();
 		// crudGenerator.generatorListView();
 		// crudGenerator.generatorRegisterView();
-
-		// crudGenerator.excel();
-
-		// crudGenerator.readingWorkbooks2();
-
-		// crudGenerator.gettingTheCellContents();
-
-		// crudGenerator.test();
-
-		// crudGenerator.setTableComment();
 	}
 
 	public void generatorSQLMap() {

@@ -1,5 +1,6 @@
 package kr.godsoft.egovframe.generator.columns.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,10 +8,17 @@ import javax.annotation.Resource;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsService;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsVO;
+import model.Attribute;
+import model.DataModelContext;
+import model.Entity;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ColumnsServiceImpl.java
@@ -33,6 +41,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 	/** ID Generation */
 	// @Resource(name="{egovColumnsIdGnrService}")
 	// private EgovIdGnrService egovIdGnrService;
+
+	private static Log log = LogFactory.getLog(ColumnsServiceImpl.class);
 
 	/**
 	 * COLUMNS을 등록한다.
@@ -117,6 +127,155 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 	 */
 	public int selectColumnsListTotCnt(ColumnsDefaultVO searchVO) {
 		return columnsDAO.selectColumnsListTotCnt(searchVO);
+	}
+
+	public List<DataModelContext> getDataModelContexts(
+			DataModelContext dataModelContextVO) throws Exception {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
+
+		List<EgovMap> egovMaps = columnsDAO.selectColumnsList(searchVO);
+
+		if (egovMaps != null) {
+			String tableNameTemp = "";
+
+			List<Attribute> attributes = null;
+			List<Attribute> primaryKeys = null;
+
+			List<DataModelContext> dataModelContexts = new ArrayList<DataModelContext>();
+
+			for (int i = 0; i < egovMaps.size(); i++) {
+				EgovMap egovMap = egovMaps.get(i);
+
+				String tableName = (String) egovMap.get("tableName");
+				// String columnName = (String) egovMap.get("columnName");
+				// String dataType = (String) egovMap.get("dataType");
+				String columnKey = (String) egovMap.get("columnKey");
+				// String columnComment = (String) egovMap.get("columnComment");
+
+				if (log.isDebugEnabled()) {
+					// log.debug("tableName=" + egovMap.get("tableName"));
+					// log.debug("columnName=" + egovMap.get("columnName"));
+
+					// if (tableName.equals(tableNameTemp) == false) {
+					// log.debug("i=" + i + ", tableName=" + tableName
+					// + ", tableNameTemp=" + tableNameTemp);
+					// }
+					//
+					// tableNameTemp = tableName;
+				}
+
+				if (tableName.equals(tableNameTemp) == false) {
+					if (i > 0) {
+						DataModelContext dataModelContext = (DataModelContext) BeanUtils
+								.cloneBean(dataModelContextVO);
+
+						dataModelContext.setEntity(new Entity(tableNameTemp));
+
+						if (log.isDebugEnabled()) {
+							log.debug(dataModelContext.getEntity().getName());
+						}
+
+						dataModelContext.setAttributes(attributes);
+						dataModelContext.setPrimaryKeys(primaryKeys);
+						dataModelContexts.add(dataModelContext);
+					}
+
+					attributes = new ArrayList<Attribute>();
+					primaryKeys = new ArrayList<Attribute>();
+				}
+
+				Attribute attribute = getAttribute(egovMap);
+
+				attributes.add(attribute);
+
+				if (columnKey.equals("PRI")) {
+					primaryKeys.add(attribute);
+				}
+
+				tableNameTemp = tableName;
+			}
+
+			DataModelContext dataModelContext = (DataModelContext) BeanUtils
+					.cloneBean(dataModelContextVO);
+
+			dataModelContext.setEntity(new Entity(tableNameTemp));
+
+			if (log.isDebugEnabled()) {
+				log.debug(dataModelContext.getEntity().getName());
+			}
+
+			dataModelContext.setAttributes(attributes);
+			dataModelContext.setPrimaryKeys(primaryKeys);
+			dataModelContexts.add(dataModelContext);
+
+			dataModelContextsPrint(dataModelContexts);
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+
+		return null;
+	}
+
+	private Attribute getAttribute(EgovMap egovMap) {
+		// String tableName = (String) egovMap.get("tableName");
+		String columnName = (String) egovMap.get("columnName");
+		String dataType = (String) egovMap.get("dataType");
+		// String columnKey = (String) egovMap.get("columnKey");
+		String columnComment = (String) egovMap.get("columnComment");
+
+		Attribute attribute = new Attribute(columnName);
+
+		if ("char".equals(dataType) || "varchar".equals(dataType)) {
+			attribute.setJavaType("String");
+		}
+
+		attribute.setColumnComment(columnComment);
+
+		return attribute;
+	}
+
+	private void dataModelContextsPrint(List<DataModelContext> dataModelContexts) {
+		if (dataModelContexts != null) {
+			for (int i = 0; i < dataModelContexts.size(); i++) {
+				DataModelContext dataModelContext = dataModelContexts.get(i);
+
+				if (log.isDebugEnabled()) {
+					log.debug("dataModelContexts[" + i + "]="
+							+ dataModelContext.getAuthor());
+
+					log.debug("dataModelContexts[" + i + "]="
+							+ dataModelContext.getEntity().getName());
+
+					List<Attribute> attributes = dataModelContext
+							.getAttributes();
+
+					for (int j = 0; j < attributes.size(); j++) {
+						Attribute attribute = attributes.get(j);
+
+						log.debug("attributes[" + j + "]="
+								+ attribute.getName());
+
+						if (j == 0) {
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private boolean isFirst() {
+		return true;
+	}
+
+	private boolean isLast() {
+		return true;
 	}
 
 }

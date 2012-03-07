@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
 import kr.godsoft.egovframe.generator.columns.service.ColumnsService;
+import model.DataModelContext;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -39,6 +40,11 @@ public class ColumnsClinet {
 	public List<EgovMap> selectColumnsList(ColumnsDefaultVO searchVO)
 			throws Exception {
 		return columnsService.selectColumnsList(searchVO);
+	}
+
+	public List<DataModelContext> getDataModelContexts(
+			DataModelContext dataModelContextVO) throws Exception {
+		return columnsService.getDataModelContexts(dataModelContextVO);
 	}
 
 }
