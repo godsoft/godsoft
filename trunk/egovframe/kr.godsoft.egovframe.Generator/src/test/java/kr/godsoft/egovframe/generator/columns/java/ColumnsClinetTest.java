@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import kr.godsoft.egovframe.generator.columns.service.ColumnsDefaultVO;
 import model.DataModelContext;
@@ -106,6 +109,44 @@ public class ColumnsClinetTest {
 				.getEntity().getName());
 		assertEquals("comtccmmnclcode", dataModelContexts.get(2).getEntity()
 				.getName());
+	}
+
+	@Test
+	public void testHashSet() throws Exception {
+		List<DataModelContext> dataModelContexts = new ArrayList<DataModelContext>();
+
+		DataModelContext dataModelContextVO = new DataModelContext();
+		dataModelContextVO.setAuthor("이백행");
+
+		DataModelContext dataModelContext = (DataModelContext) BeanUtils
+				.cloneBean(dataModelContextVO);
+		dataModelContext.setEntity(new Entity("comtcadministcode"));
+		dataModelContexts.add(dataModelContext);
+
+		dataModelContext = (DataModelContext) BeanUtils
+				.cloneBean(dataModelContextVO);
+		dataModelContext.setEntity(new Entity("comtcadministcoderecptnlog"));
+		dataModelContexts.add(dataModelContext);
+
+		dataModelContext = (DataModelContext) BeanUtils
+				.cloneBean(dataModelContextVO);
+		dataModelContext.setEntity(new Entity("comtccmmnclcode"));
+		dataModelContexts.add(dataModelContext);
+
+		Set<DataModelContext> set = new HashSet<DataModelContext>(
+				dataModelContexts);
+
+		System.out.println(set);
+
+		Iterator iterator = set.iterator();
+
+		while (iterator.hasNext()) {
+			dataModelContext = (DataModelContext) iterator.next();
+
+			System.out.println(dataModelContext.getAuthor());
+			System.out.println(dataModelContext.getEntity().getName());
+		}
+
 	}
 
 }
