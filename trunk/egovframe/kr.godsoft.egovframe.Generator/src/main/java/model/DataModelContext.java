@@ -2,6 +2,8 @@ package model;
 
 import java.util.List;
 
+import utils.NamingUtils;
+
 /**
  * 
  * 데이터베이스 Context 클래스
@@ -210,6 +212,19 @@ public class DataModelContext {
 		this.voPackage = voPackage;
 	}
 
+	public void setVoPackage(Entity entity) {
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append(packageName);
+		stringBuffer.append(".");
+		stringBuffer.append(entity.getLcName());
+		stringBuffer.append(".service");
+
+		this.voPackage = stringBuffer.toString();
+
+		this.servicePackage = this.voPackage;
+	}
+
 	public String getServicePackage() {
 		return servicePackage;
 	}
@@ -234,12 +249,229 @@ public class DataModelContext {
 		this.daoPackage = daoPackage;
 	}
 
+	public void setDaoPackage(Entity entity) {
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append(packageName);
+		stringBuffer.append(".");
+		stringBuffer.append(entity.getLcName());
+		stringBuffer.append(".service.impl");
+
+		this.daoPackage = stringBuffer.toString();
+
+		this.implPackage = this.daoPackage;
+	}
+
 	public String getControllerPackage() {
 		return controllerPackage;
 	}
 
 	public void setControllerPackage(String controllerPackage) {
 		this.controllerPackage = controllerPackage;
+	}
+
+	private String projectPath;
+
+	public String getProjectPath() {
+		return projectPath;
+	}
+
+	public void setProjectPath(String projectPath) {
+		this.projectPath = projectPath;
+	}
+
+	private boolean isWriteStringToFile;
+
+	public boolean getIsWriteStringToFile() {
+		return isWriteStringToFile;
+	}
+
+	public void setIsWriteStringToFile(boolean isWriteStringToFile) {
+		this.isWriteStringToFile = isWriteStringToFile;
+	}
+
+	private String pathnameSqlMap;
+
+	public String getPathnameSqlMap() {
+		return pathnameSqlMap;
+	}
+
+	/**
+	 * SqlMap 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameSqlMap
+	 */
+	public void setPathnameSqlMap(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/resources/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/sqlmap/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("_SQL_");
+		pathname.append(NamingUtils
+				.convertUppercaseFirstLetter(dataModelContext.getVender()));
+		pathname.append(".xml");
+
+		this.pathnameSqlMap = pathname.toString();
+	}
+
+	private String pathnameService;
+
+	public String getPathnameService() {
+		return pathnameService;
+	}
+
+	/**
+	 * Service 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameService
+	 */
+	public void setPathnameService(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/java/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/service/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append(".java");
+
+		this.pathnameService = pathname.toString();
+	}
+
+	private String pathnameDefaultVO;
+
+	public String getPathnameDefaultVO() {
+		return pathnameDefaultVO;
+	}
+
+	/**
+	 * DefaultVO 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameDefaultVO
+	 */
+	public void setPathnameDefaultVO(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/java/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/service/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("DefaultVO.java");
+
+		this.pathnameDefaultVO = pathname.toString();
+	}
+
+	private String pathnameVO;
+
+	public String getPathnameVO() {
+		return pathnameVO;
+	}
+
+	/**
+	 * DefaultVO 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameVO
+	 */
+	public void setPathnameVO(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/java/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/service/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("VO.java");
+
+		this.pathnameVO = pathname.toString();
+	}
+
+	private String pathnameServiceImpl;
+
+	public String getPathnameServiceImpl() {
+		return pathnameServiceImpl;
+	}
+
+	/**
+	 * ServiceImpl 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameServiceImpl
+	 */
+	public void setPathnameServiceImpl(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/java/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/service/impl/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("ServiceImpl.java");
+
+		this.pathnameServiceImpl = pathname.toString();
+	}
+
+	private String pathnameDAO;
+
+	public String getPathnameDAO() {
+		return pathnameDAO;
+	}
+
+	/**
+	 * DAO 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameDAO
+	 */
+	public void setPathnameDAO(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/java/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/service/impl/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("DAO.java");
+
+		this.pathnameDAO = pathname.toString();
+	}
+
+	@Override
+	public String toString() {
+		return "DataModelContext [author=" + author + ", createDate="
+				+ createDate + ", team=" + team + ", packageName="
+				+ packageName + ", entity=" + entity + ", attributes="
+				+ attributes + ", primaryKeys=" + primaryKeys + ", vender="
+				+ vender + ", voPackage=" + voPackage + ", servicePackage="
+				+ servicePackage + ", implPackage=" + implPackage
+				+ ", daoPackage=" + daoPackage + ", controllerPackage="
+				+ controllerPackage + ", projectPath=" + projectPath
+				+ ", isWriteStringToFile=" + isWriteStringToFile + "]";
 	}
 
 }

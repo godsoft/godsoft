@@ -135,6 +135,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			log.info("시작");
 		}
 
+		List<DataModelContext> dataModelContexts = new ArrayList<DataModelContext>();
+
 		ColumnsDefaultVO searchVO = new ColumnsDefaultVO();
 
 		List<EgovMap> egovMaps = columnsDAO.selectColumnsList(searchVO);
@@ -145,7 +147,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			List<Attribute> attributes = null;
 			List<Attribute> primaryKeys = null;
 
-			List<DataModelContext> dataModelContexts = new ArrayList<DataModelContext>();
+			// List<DataModelContext> dataModelContexts = new
+			// ArrayList<DataModelContext>();
 
 			for (int i = 0; i < egovMaps.size(); i++) {
 				EgovMap egovMap = egovMaps.get(i);
@@ -170,8 +173,20 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 
 				if (tableName.equals(tableNameTemp) == false) {
 					if (i > 0) {
+						if (log.isDebugEnabled()) {
+							log.debug("isWriteStringToFile="
+									+ dataModelContextVO
+											.getIsWriteStringToFile());
+						}
+
 						DataModelContext dataModelContext = (DataModelContext) BeanUtils
 								.cloneBean(dataModelContextVO);
+
+						if (log.isDebugEnabled()) {
+							log.debug("isWriteStringToFile="
+									+ dataModelContextVO
+											.getIsWriteStringToFile());
+						}
 
 						dataModelContext.setEntity(new Entity(tableNameTemp));
 
@@ -199,8 +214,18 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 				tableNameTemp = tableName;
 			}
 
+			if (log.isDebugEnabled()) {
+				log.debug("isWriteStringToFile="
+						+ dataModelContextVO.getIsWriteStringToFile());
+			}
+
 			DataModelContext dataModelContext = (DataModelContext) BeanUtils
 					.cloneBean(dataModelContextVO);
+
+			if (log.isDebugEnabled()) {
+				log.debug("isWriteStringToFile="
+						+ dataModelContextVO.getIsWriteStringToFile());
+			}
 
 			dataModelContext.setEntity(new Entity(tableNameTemp));
 
@@ -212,14 +237,14 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			dataModelContext.setPrimaryKeys(primaryKeys);
 			dataModelContexts.add(dataModelContext);
 
-			dataModelContextsPrint(dataModelContexts);
+			// dataModelContextsPrint(dataModelContexts);
 		}
 
 		if (log.isInfoEnabled()) {
 			log.info("끝");
 		}
 
-		return null;
+		return dataModelContexts;
 	}
 
 	private Attribute getAttribute(EgovMap egovMap) {
@@ -231,7 +256,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 
 		Attribute attribute = new Attribute(columnName);
 
-		if ("char".equals(dataType) || "varchar".equals(dataType)) {
+		if ("char".equals(dataType) || "varchar".equals(dataType)
+				|| "datetime".equals(dataType)) {
 			attribute.setJavaType("String");
 		}
 
