@@ -209,6 +209,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 
 				if (columnKey.equals("PRI")) {
 					primaryKeys.add(attribute);
+
+					attribute.setPrimaryKey(true);
 				}
 
 				tableNameTemp = tableName;
@@ -255,6 +257,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 		String columnComment = (String) egovMap.get("columnComment");
 
 		Attribute attribute = new Attribute(columnName);
+
+		attribute.setType(dataType);
 
 		if ("char".equals(dataType) || "varchar".equals(dataType)
 				|| "datetime".equals(dataType)) {

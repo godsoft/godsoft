@@ -116,17 +116,44 @@ public class CrudGeneratorMySQL {
 			CrudGeneratorMySQL crudGeneratorMySQL = new CrudGeneratorMySQL(
 					dataModelContext);
 
+			crudGeneratorMySQL.deleteDirectory(dataModelContext);
+
 			crudGeneratorMySQL.generatorSQLMap();
 			crudGeneratorMySQL.generatorService();
 			crudGeneratorMySQL.generatorDefaultVO();
 			crudGeneratorMySQL.generatorVO();
 			crudGeneratorMySQL.generatorServiceImpl();
 			crudGeneratorMySQL.generatorDAO();
-
-			// crudGeneratorMySQL.generatorController();
-			// crudGeneratorMySQL.generatorListView();
-			// crudGeneratorMySQL.generatorRegisterView();
+			crudGeneratorMySQL.generatorController();
+			crudGeneratorMySQL.generatorListView();
+			crudGeneratorMySQL.generatorRegisterView();
 		} catch (Exception e) {
+		}
+	}
+
+	private void deleteDirectory(DataModelContext dataModelContext)
+			throws Exception {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		if (log.isDebugEnabled()) {
+			log.debug("projectSrcMainJavaPath="
+					+ dataModelContext.getProjectSrcMainJavaPath());
+			log.debug("projectSrcMainResourcesPath="
+					+ dataModelContext.getProjectSrcMainResourcesPath());
+			log.debug("projectJspPath=" + dataModelContext.getProjectJspPath());
+		}
+
+		FileUtils.deleteDirectory(new File(dataModelContext
+				.getProjectSrcMainJavaPath()));
+		FileUtils.deleteDirectory(new File(dataModelContext
+				.getProjectSrcMainResourcesPath()));
+		FileUtils
+				.deleteDirectory(new File(dataModelContext.getProjectJspPath()));
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
 		}
 	}
 
@@ -373,54 +400,34 @@ public class CrudGeneratorMySQL {
 			log.info("시작");
 		}
 
-		dataModel.setPackageName(packageName + "."
-				+ dataModel.getEntity().getName() + ".web");
-
-		dataModel.setVoPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service");
-
-		dataModel.setServicePackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service");
-
-		dataModel.setImplPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service.impl");
-
-		dataModel.setDaoPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service.impl");
-
-		dataModel.setControllerPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".web");
-
 		try {
 			String templateFile = "eGovFrameTemplates/crud/java/pkg/web/EgovSample2Controller.vm";
 
-			String data = crudCodeGen.generate(dataModel, templateFile);
+			if (dataModelContexts != null) {
+				for (int i = 0; i < dataModelContexts.size(); i++) {
+					DataModelContext dataModelContext = dataModelContexts
+							.get(i);
 
-			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+					if (log.isDebugEnabled()) {
+						log.debug("dataModelContexts[" + i + "]="
+								+ dataModelContext);
+					}
 
-			// 문자열을 해당 파일에 카피
-			// File file = new File(dir, "file1.txt");
+					dataModelContext.setVoPackage(dataModelContext.getEntity());
+					dataModelContext
+							.setDaoPackage(dataModelContext.getEntity());
+					dataModelContext.setControllerPackage(dataModelContext
+							.getEntity());
 
-			// String pathname = "src/main/resources/"
-			// + packageName.replaceAll(".", "/") + "/sqlmap/"
-			// + dataModel.getEntity().getName() + "/"
-			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+					dataModelContext.setPathnameController(dataModelContext);
 
-			String pathname = "src/main/java/"
-					+ packageName.replaceAll("\\.", "/") + "/"
-					+ dataModel.getEntity().getName() + "/web/"
-					+ dataModel.getEntity().getPcName() + "Controller.java";
+					String data = crudCodeGen.generate(dataModelContext,
+							templateFile);
 
-			if (log.isDebugEnabled()) {
-				log.debug("pathname=" + pathname);
-			}
-
-			File file = new File(pathname);
-			// String data = file.getAbsolutePath();
-			// File file, String data, String encoding
-
-			if (isWriteStringToFile) {
-				FileUtils.writeStringToFile(file, data, "UTF-8");
+					writeStringToFile(
+							dataModelContext.getIsWriteStringToFile(),
+							dataModelContext.getPathnameController(), data);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -436,54 +443,34 @@ public class CrudGeneratorMySQL {
 			log.info("시작");
 		}
 
-		dataModel.setPackageName(packageName + "."
-				+ dataModel.getEntity().getName() + ".web");
-
-		dataModel.setVoPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service");
-
-		dataModel.setServicePackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service");
-
-		dataModel.setImplPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service.impl");
-
-		dataModel.setDaoPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service.impl");
-
-		dataModel.setControllerPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".web");
-
 		try {
 			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
 
-			String data = crudCodeGen.generate(dataModel, templateFile);
+			if (dataModelContexts != null) {
+				for (int i = 0; i < dataModelContexts.size(); i++) {
+					DataModelContext dataModelContext = dataModelContexts
+							.get(i);
 
-			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+					if (log.isDebugEnabled()) {
+						log.debug("dataModelContexts[" + i + "]="
+								+ dataModelContext);
+					}
 
-			// 문자열을 해당 파일에 카피
-			// File file = new File(dir, "file1.txt");
+					dataModelContext.setVoPackage(dataModelContext.getEntity());
+					dataModelContext
+							.setDaoPackage(dataModelContext.getEntity());
+					dataModelContext.setControllerPackage(dataModelContext
+							.getEntity());
 
-			// String pathname = "src/main/resources/"
-			// + packageName.replaceAll(".", "/") + "/sqlmap/"
-			// + dataModel.getEntity().getName() + "/"
-			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+					dataModelContext.setPathnameListView(dataModelContext);
 
-			String pathname = "src/main/webapp/WEB-INF/jsp/"
-					+ packageName.replaceAll("\\.", "/") + "/"
-					+ dataModel.getEntity().getName() + "/web/"
-					+ dataModel.getEntity().getPcName() + "List.jsp";
+					String data = crudCodeGen.generate(dataModelContext,
+							templateFile);
 
-			if (log.isDebugEnabled()) {
-				log.debug("pathname=" + pathname);
-			}
-
-			File file = new File(pathname);
-			// String data = file.getAbsolutePath();
-			// File file, String data, String encoding
-
-			if (isWriteStringToFile) {
-				FileUtils.writeStringToFile(file, data, "UTF-8");
+					writeStringToFile(
+							dataModelContext.getIsWriteStringToFile(),
+							dataModelContext.getPathnameListView(), data);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -499,55 +486,82 @@ public class CrudGeneratorMySQL {
 			log.info("시작");
 		}
 
-		dataModel.setPackageName(packageName + "."
-				+ dataModel.getEntity().getName() + ".web");
-
-		dataModel.setVoPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service");
-
-		dataModel.setServicePackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service");
-
-		dataModel.setImplPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service.impl");
-
-		dataModel.setDaoPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".service.impl");
-
-		dataModel.setControllerPackage(packageName + "."
-				+ dataModel.getEntity().getName() + ".web");
+		// dataModel.setPackageName(packageName + "."
+		// + dataModel.getEntity().getName() + ".web");
+		//
+		// dataModel.setVoPackage(packageName + "."
+		// + dataModel.getEntity().getName() + ".service");
+		//
+		// dataModel.setServicePackage(packageName + "."
+		// + dataModel.getEntity().getName() + ".service");
+		//
+		// dataModel.setImplPackage(packageName + "."
+		// + dataModel.getEntity().getName() + ".service.impl");
+		//
+		// dataModel.setDaoPackage(packageName + "."
+		// + dataModel.getEntity().getName() + ".service.impl");
+		//
+		// dataModel.setControllerPackage(packageName + "."
+		// + dataModel.getEntity().getName() + ".web");
 
 		try {
 			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
 
-			String data = crudCodeGen.generate(dataModel, templateFile);
+			if (dataModelContexts != null) {
+				for (int i = 0; i < dataModelContexts.size(); i++) {
+					DataModelContext dataModelContext = dataModelContexts
+							.get(i);
 
-			// src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+					if (log.isDebugEnabled()) {
+						log.debug("dataModelContexts[" + i + "]="
+								+ dataModelContext);
+					}
 
-			// 문자열을 해당 파일에 카피
-			// File file = new File(dir, "file1.txt");
+					dataModelContext.setVoPackage(dataModelContext.getEntity());
+					dataModelContext
+							.setDaoPackage(dataModelContext.getEntity());
+					dataModelContext.setControllerPackage(dataModelContext
+							.getEntity());
 
-			// String pathname = "src/main/resources/"
-			// + packageName.replaceAll(".", "/") + "/sqlmap/"
-			// + dataModel.getEntity().getName() + "/"
-			// + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+					dataModelContext.setPathnameRegisterView(dataModelContext);
 
-			String pathname = "src/main/webapp/WEB-INF/jsp/"
-					+ packageName.replaceAll("\\.", "/") + "/"
-					+ dataModel.getEntity().getName() + "/web/"
-					+ dataModel.getEntity().getPcName() + "Register.jsp";
+					String data = crudCodeGen.generate(dataModelContext,
+							templateFile);
 
-			if (log.isDebugEnabled()) {
-				log.debug("pathname=" + pathname);
+					writeStringToFile(
+							dataModelContext.getIsWriteStringToFile(),
+							dataModelContext.getPathnameRegisterView(), data);
+				}
 			}
 
-			File file = new File(pathname);
-			// String data = file.getAbsolutePath();
-			// File file, String data, String encoding
-
-			if (isWriteStringToFile) {
-				FileUtils.writeStringToFile(file, data, "UTF-8");
-			}
+			// String data = crudCodeGen.generate(dataModel, templateFile);
+			//
+			// // src/main/resources/kr/godsoft/egovframe/crud/sqlmap
+			//
+			// // 문자열을 해당 파일에 카피
+			// // File file = new File(dir, "file1.txt");
+			//
+			// // String pathname = "src/main/resources/"
+			// // + packageName.replaceAll(".", "/") + "/sqlmap/"
+			// // + dataModel.getEntity().getName() + "/"
+			// // + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
+			//
+			// String pathname = "src/main/webapp/WEB-INF/jsp/"
+			// + packageName.replaceAll("\\.", "/") + "/"
+			// + dataModel.getEntity().getName() + "/web/"
+			// + dataModel.getEntity().getPcName() + "Register.jsp";
+			//
+			// if (log.isDebugEnabled()) {
+			// log.debug("pathname=" + pathname);
+			// }
+			//
+			// File file = new File(pathname);
+			// // String data = file.getAbsolutePath();
+			// // File file, String data, String encoding
+			//
+			// if (isWriteStringToFile) {
+			// FileUtils.writeStringToFile(file, data, "UTF-8");
+			// }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

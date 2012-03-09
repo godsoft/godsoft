@@ -42,6 +42,8 @@ public class Attribute extends NameCasing {
 
 	private String columnComment;
 
+	private boolean primaryKey;
+
 	/**
 	 * 자바 타입 정보 가져오기
 	 * 
@@ -84,5 +86,20 @@ public class Attribute extends NameCasing {
 
 	public void setColumnComment(String columnComment) {
 		this.columnComment = columnComment;
+	}
+
+	public boolean getPrimaryKey() {
+		return primaryKey;
+	}
+
+	public void setPrimaryKey(boolean primaryKey) {
+		this.primaryKey = primaryKey;
+	}
+
+	@Override
+	public String toString() {
+		return "Attribute [type=" + type + ", javaType=" + javaType
+				+ ", columnComment=" + columnComment + ", primaryKey="
+				+ primaryKey + "]";
 	}
 }

@@ -107,6 +107,10 @@ public class DataModelContext {
 		return packageName;
 	}
 
+	public String getPackageNamePath() {
+		return packageName.replaceAll("\\.", "/");
+	}
+
 	/**
 	 * 패키지명 세팅하기
 	 * 
@@ -270,6 +274,17 @@ public class DataModelContext {
 		this.controllerPackage = controllerPackage;
 	}
 
+	public void setControllerPackage(Entity entity) {
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append(packageName);
+		stringBuffer.append(".");
+		stringBuffer.append(entity.getLcName());
+		stringBuffer.append(".web");
+
+		this.controllerPackage = stringBuffer.toString();
+	}
+
 	private String projectPath;
 
 	public String getProjectPath() {
@@ -344,7 +359,7 @@ public class DataModelContext {
 		pathname.append(dataModelContext.getEntity().getLcName());
 		pathname.append("/service/");
 		pathname.append(dataModelContext.getEntity().getPcName());
-		pathname.append(".java");
+		pathname.append("Service.java");
 
 		this.pathnameService = pathname.toString();
 	}
@@ -459,6 +474,122 @@ public class DataModelContext {
 		pathname.append("DAO.java");
 
 		this.pathnameDAO = pathname.toString();
+	}
+
+	private String pathnameController;
+
+	public String getPathnameController() {
+		return pathnameController;
+	}
+
+	/**
+	 * Controller 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameController
+	 */
+	public void setPathnameController(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/java/");
+		pathname.append(dataModelContext.getPackageName()
+				.replaceAll("\\.", "/"));
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/web/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("Controller.java");
+
+		this.pathnameController = pathname.toString();
+	}
+
+	private String pathnameListView;
+
+	public String getPathnameListView() {
+		return pathnameListView;
+	}
+
+	/**
+	 * ListView 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameListView
+	 */
+	public void setPathnameListView(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/webapp/WEB-INF/jsp/");
+		// pathname.append(dataModelContext.getPackageName()
+		// .replaceAll("\\.", "/"));
+		// pathname.append("/");
+		pathname.append("egovframework/rte/");
+		pathname.append(dataModelContext.getEntity().getCcName());
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("List.jsp");
+
+		this.pathnameListView = pathname.toString();
+	}
+
+	private String pathnameRegisterView;
+
+	public String getPathnameRegisterView() {
+		return pathnameRegisterView;
+	}
+
+	/**
+	 * RegisterView 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameRegisterView
+	 */
+	public void setPathnameRegisterView(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/webapp/WEB-INF/jsp/");
+		// pathname.append(dataModelContext.getPackageName()
+		// .replaceAll("\\.", "/"));
+		// pathname.append("/");
+		pathname.append("egovframework/rte/");
+		pathname.append(dataModelContext.getEntity().getCcName());
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("Register.jsp");
+
+		this.pathnameRegisterView = pathname.toString();
+	}
+
+	public String getProjectSrcMainJavaPath() {
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append(projectPath);
+		stringBuffer.append("src/main/java/");
+		stringBuffer.append(getPackageNamePath());
+
+		return stringBuffer.toString();
+	}
+
+	public String getProjectSrcMainResourcesPath() {
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append(projectPath);
+		stringBuffer.append("src/main/resources/");
+		stringBuffer.append(getPackageNamePath());
+
+		return stringBuffer.toString();
+	}
+
+	public String getProjectJspPath() {
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append(projectPath);
+		stringBuffer.append("src/main/webapp/WEB-INF/jsp/");
+		stringBuffer.append(getPackageNamePath());
+
+		return stringBuffer.toString();
 	}
 
 	@Override

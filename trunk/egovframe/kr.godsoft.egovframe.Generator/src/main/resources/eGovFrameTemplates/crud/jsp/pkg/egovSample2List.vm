@@ -83,7 +83,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 #foreach($attribute in $model.primaryKeys)
 	<input type="hidden" name="${attribute.ccName}" />
 #end

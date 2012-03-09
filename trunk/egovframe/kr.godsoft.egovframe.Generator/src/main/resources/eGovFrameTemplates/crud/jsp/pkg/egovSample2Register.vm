@@ -41,7 +41,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.id ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${model.attributes.get(0).ccName} ? '등록' : '수정'}"/>
 <title> <c:out value="${D}{registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -79,7 +79,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="${voInstanceName}" name="detailForm">
+<form:form commandName="${voInstanceName}" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -121,7 +121,16 @@ function fn_egov_save() {
 		<tr>
 			<th>${attribute.name}</th>
 			<td>
+#if($attribute.lcName == "use_at")
+
+				<form:input path="${attribute.ccName}" cssClass="txt" value="Y"/>
+
+#else
+	
 				<form:input path="${attribute.ccName}" cssClass="txt"/>
+
+#end
+
 				&nbsp;<form:errors path="${attribute.ccName}" />
 			</td>
 		</tr>	
