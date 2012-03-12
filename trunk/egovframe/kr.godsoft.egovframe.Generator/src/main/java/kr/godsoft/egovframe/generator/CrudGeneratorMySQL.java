@@ -127,6 +127,8 @@ public class CrudGeneratorMySQL {
 			crudGeneratorMySQL.generatorController();
 			crudGeneratorMySQL.generatorListView();
 			crudGeneratorMySQL.generatorRegisterView();
+
+			crudGeneratorMySQL.sqlMapConfigGenerator();
 		} catch (Exception e) {
 		}
 	}
@@ -486,24 +488,6 @@ public class CrudGeneratorMySQL {
 			log.info("시작");
 		}
 
-		// dataModel.setPackageName(packageName + "."
-		// + dataModel.getEntity().getName() + ".web");
-		//
-		// dataModel.setVoPackage(packageName + "."
-		// + dataModel.getEntity().getName() + ".service");
-		//
-		// dataModel.setServicePackage(packageName + "."
-		// + dataModel.getEntity().getName() + ".service");
-		//
-		// dataModel.setImplPackage(packageName + "."
-		// + dataModel.getEntity().getName() + ".service.impl");
-		//
-		// dataModel.setDaoPackage(packageName + "."
-		// + dataModel.getEntity().getName() + ".service.impl");
-		//
-		// dataModel.setControllerPackage(packageName + "."
-		// + dataModel.getEntity().getName() + ".web");
-
 		try {
 			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
 
@@ -533,35 +517,91 @@ public class CrudGeneratorMySQL {
 							dataModelContext.getPathnameRegisterView(), data);
 				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-			// String data = crudCodeGen.generate(dataModel, templateFile);
-			//
-			// // src/main/resources/kr/godsoft/egovframe/crud/sqlmap
-			//
-			// // 문자열을 해당 파일에 카피
-			// // File file = new File(dir, "file1.txt");
-			//
-			// // String pathname = "src/main/resources/"
-			// // + packageName.replaceAll(".", "/") + "/sqlmap/"
-			// // + dataModel.getEntity().getName() + "/"
-			// // + dataModel.getEntity().getCcName() + "Columns_SQL.xml";
-			//
-			// String pathname = "src/main/webapp/WEB-INF/jsp/"
-			// + packageName.replaceAll("\\.", "/") + "/"
-			// + dataModel.getEntity().getName() + "/web/"
-			// + dataModel.getEntity().getPcName() + "Register.jsp";
-			//
-			// if (log.isDebugEnabled()) {
-			// log.debug("pathname=" + pathname);
-			// }
-			//
-			// File file = new File(pathname);
-			// // String data = file.getAbsolutePath();
-			// // File file, String data, String encoding
-			//
-			// if (isWriteStringToFile) {
-			// FileUtils.writeStringToFile(file, data, "UTF-8");
-			// }
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void sqlMapConfigGenerator() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/resource/pkg/sqlMapConfig.vm";
+
+			if (dataModelContexts != null) {
+				StringBuilder stringBuilder = new StringBuilder();
+
+				DataModelContext dataModelContext2 = new DataModelContext();
+
+				for (int i = 0; i < dataModelContexts.size(); i++) {
+					DataModelContext dataModelContext = dataModelContexts
+							.get(i);
+
+					dataModelContext.setVoPackage(dataModelContext.getEntity());
+
+					dataModelContext.setSqlMapResource(dataModelContext);
+
+					stringBuilder.append(dataModelContext.getSqlMapResource());
+					stringBuilder.append("\n");
+
+					// dataModelContext2 = dataModelContext;
+
+					if (log.isDebugEnabled()) {
+						// log.debug("dataModelContexts[" + i + "]="
+						// + dataModelContext);
+
+						// log.debug("dataModelContexts[" + i + "]="
+						// + dataModelContext.getEntity().getLcName());
+						//
+						// log.debug("dataModelContexts[" + i + "]="
+						// + dataModelContext.getEntity().getPcName());
+						//
+						// log.debug("dataModelContexts["
+						// + i
+						// + "]="
+						// + dataModelContext.getEntity()
+						// .getTableComment());
+
+						log.debug(dataModelContext.getSqlMapResource());
+					}
+
+					// stringBuilder.append("    <sqlMap resource=\"kr/godsoft/egovframe/generatorwebapp/sqlmap/comtcadministcode/Comtcadministcode_SQL_Mysql.xml\"/>");
+
+					// dataModelContext.setVoPackage(dataModelContext.getEntity());
+					// dataModelContext
+					// .setDaoPackage(dataModelContext.getEntity());
+					// dataModelContext.setControllerPackage(dataModelContext
+					// .getEntity());
+
+					// dataModelContext.setSqlMapConfigPathname(dataModelContext);
+
+					// String data = crudCodeGen.generate(dataModelContext,
+					// templateFile);
+
+					// writeStringToFile(
+					// dataModelContext.getIsWriteStringToFile(),
+					// dataModelContext.getSqlMapConfigPathname(), data);
+				}
+
+				if (log.isDebugEnabled()) {
+					log.debug(stringBuilder.toString());
+				}
+
+				dataModelContext2.setSqlMap(stringBuilder.toString());
+
+				String data = crudCodeGen.generate(dataModelContext2,
+						templateFile);
+
+				writeStringToFile(dataModelContext2.getIsWriteStringToFile(),
+						dataModelContext2.getSqlMapConfigPathname(), data);
+
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

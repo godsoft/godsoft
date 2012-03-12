@@ -14,6 +14,8 @@ import model.DataModelContext;
 import model.Entity;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,11 +23,13 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class ColumnsClinetTest {
 
+	private static Log log = LogFactory.getLog(ColumnsClinetTest.class);
+
 	@Before
 	public void setUp() throws Exception {
 	}
 
-	// @Test
+	@Test
 	public void testSelectColumnsList() {
 		ColumnsClinet columnsClinet = new ColumnsClinet();
 
@@ -36,6 +40,22 @@ public class ColumnsClinetTest {
 			searchVO.setRecordCountPerPage(1000);
 
 			List<EgovMap> columns = columnsClinet.selectColumnsList(searchVO);
+
+			if (columns != null) {
+				for (int i = 0; i < columns.size(); i++) {
+					EgovMap egovMap = columns.get(i);
+
+					String tableName = (String) egovMap.get("tableName");
+					String tableComment = (String) egovMap.get("tableComment");
+
+					if (log.isDebugEnabled()) {
+						log.debug("egovMap=" + egovMap);
+
+						log.debug("tableName=" + tableName);
+						log.debug("tableComment=" + tableComment);
+					}
+				}
+			}
 
 			List<Integer> value1 = Arrays.asList(3, 2, 1);
 			List<Integer> value2 = Arrays.asList(3, 2, 1);

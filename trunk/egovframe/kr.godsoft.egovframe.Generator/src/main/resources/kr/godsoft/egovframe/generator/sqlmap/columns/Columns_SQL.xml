@@ -130,37 +130,42 @@
 	</select>
 	
 	<select id="columnsDAO.selectColumnsList_D" parameterClass="columnsSerarchVO" resultClass="egovMap">
-			SELECT
-								TABLE_CATALOG
-								, TABLE_SCHEMA
-								, TABLE_NAME
-								, COLUMN_NAME
-								, ORDINAL_POSITION
-								, COLUMN_DEFAULT
-								, IS_NULLABLE
-								, DATA_TYPE
-								, CHARACTER_MAXIMUM_LENGTH
-								, CHARACTER_OCTET_LENGTH
-								, NUMERIC_PRECISION
-								, NUMERIC_SCALE
-								, CHARACTER_SET_NAME
-								, COLLATION_NAME
-								, COLUMN_TYPE
-								, COLUMN_KEY
-								, EXTRA
-								, PRIVILEGES
-								, COLUMN_COMMENT
-					FROM information_schema.COLUMNS
-			WHERE 1=1
-			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				TABLE_CATALOG = #searchKeyword#
-			</isEqual>
-			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
-			</isEqual>
-				AND columns.table_schema = 'egovfrm'
-				/* AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog', 'comtccmmnclcode') */
-				AND columns.table_name IN ('comtcadministcode')
+		SELECT
+			columns.table_catalog
+			, columns.table_schema
+			, columns.table_name
+			, tables.table_comment
+			, column_name
+			, ordinal_position
+			, column_default
+			, is_nullable
+			, data_type
+			, character_maximum_length
+			, character_octet_length
+			, numeric_precision
+			, numeric_scale
+			, character_set_name
+			, collation_name
+			, column_type
+			, column_key
+			, extra
+			, privileges
+			, column_comment
+		FROM information_schema.columns
+		LEFT OUTER JOIN information_schema.tables ON 1 = 1
+		    AND tables.table_catalog = columns.table_catalog
+		    AND tables.table_schema = columns.table_schema
+		    AND tables.table_name = columns.table_name
+		WHERE 1 = 1
+		<isEqual prepend="AND" property="searchCondition" compareValue="0">
+			TABLE_CATALOG = #searchKeyword#
+		</isEqual>
+		<isEqual prepend="AND" property="searchCondition" compareValue="1">
+			TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
+		</isEqual>
+			AND columns.table_schema = 'egovfrm'
+			AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog', 'comtccmmnclcode')
+			/* AND columns.table_name IN ('comtcadministcode') */
 	</select>
 
 	<select id="columnsDAO.selectColumnsListTotCnt_S" parameterClass="columnsSerarchVO" resultClass="int">

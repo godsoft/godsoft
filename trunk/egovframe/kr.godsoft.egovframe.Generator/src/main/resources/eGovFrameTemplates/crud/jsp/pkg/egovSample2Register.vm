@@ -42,7 +42,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${model.attributes.get(0).ccName} ? '등록' : '수정'}"/>
-<title> <c:out value="${D}{registerFlag}"/> </title>
+<title>${model.entity.tableComment} <c:out value="${D}{registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -84,7 +84,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${D}{registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" />${model.entity.tableComment} <c:out value="${D}{registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -98,7 +98,7 @@ function fn_egov_save() {
 		<c:if test="${D}{registerFlag == '수정'}">
 #foreach($attribute in $model.primaryKeys)
 		<tr>
-			<th>${attribute.name} *</th>
+			<th>${attribute.columnComment} *</th>
 			<td>
 				<form:input path="${attribute.ccName}" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -108,7 +108,7 @@ function fn_egov_save() {
 		<c:if test="${D}{registerFlag == '등록'}">
 #foreach($attribute in $model.primaryKeys)
 		<tr>
-			<th>${attribute.name} *</th>
+			<th>${attribute.columnComment} *</th>
 			<td>
 				<form:input path="${attribute.ccName}" cssClass="txt" readonly="false" />
 			</td>			
@@ -119,7 +119,7 @@ function fn_egov_save() {
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == false)
 		<tr>
-			<th>${attribute.name}</th>
+			<th>${attribute.columnComment}</th>
 			<td>
 #if($attribute.lcName == "use_at")
 

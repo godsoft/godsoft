@@ -562,6 +562,56 @@ public class DataModelContext {
 		this.pathnameRegisterView = pathname.toString();
 	}
 
+	private String sqlMapConfigPathname;
+
+	public String getSqlMapConfigPathname() {
+		return sqlMapConfigPathname;
+	}
+
+	/**
+	 * sqlMapConfigPathname 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String pathnameRegisterView
+	 */
+	public void setSqlMapConfigPathname(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append(dataModelContext.getProjectPath());
+		pathname.append("src/main/resources/egovframework/sqlmap/rte/sql-map-config.xml");
+
+		this.sqlMapConfigPathname = pathname.toString();
+	}
+
+	private String sqlMapResource;
+
+	public String getSqlMapResource() {
+		return sqlMapResource;
+	}
+
+	/**
+	 * sqlMapResource 경로
+	 * 
+	 * @param dataModelContext
+	 * @return String sqlMapResource
+	 */
+	public void setSqlMapResource(DataModelContext dataModelContext) {
+		StringBuffer pathname = new StringBuffer();
+
+		pathname.append("    <sqlMap resource=\"");
+		pathname.append(dataModelContext.getPackageNamePath());
+		pathname.append("/sqlmap/");
+		pathname.append(dataModelContext.getEntity().getLcName());
+		pathname.append("/");
+		pathname.append(dataModelContext.getEntity().getPcName());
+		pathname.append("_SQL_");
+		pathname.append(NamingUtils
+				.convertUppercaseFirstLetter(dataModelContext.getVender()));
+		pathname.append(".xml\"/>");
+
+		this.sqlMapResource = pathname.toString();
+	}
+
 	public String getProjectSrcMainJavaPath() {
 		StringBuffer stringBuffer = new StringBuffer();
 
@@ -590,6 +640,16 @@ public class DataModelContext {
 		stringBuffer.append(getPackageNamePath());
 
 		return stringBuffer.toString();
+	}
+
+	private String sqlMap;
+
+	public String getSqlMap() {
+		return sqlMap;
+	}
+
+	public void setSqlMap(String sqlMap) {
+		this.sqlMap = sqlMap;
 	}
 
 	@Override

@@ -143,6 +143,7 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 
 		if (egovMaps != null) {
 			String tableNameTemp = "";
+			String tableCommentTemp = "";
 
 			List<Attribute> attributes = null;
 			List<Attribute> primaryKeys = null;
@@ -150,25 +151,20 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			// List<DataModelContext> dataModelContexts = new
 			// ArrayList<DataModelContext>();
 
+			EgovMap egovMap = null;
+
 			for (int i = 0; i < egovMaps.size(); i++) {
-				EgovMap egovMap = egovMaps.get(i);
+				egovMap = egovMaps.get(i);
 
 				String tableName = (String) egovMap.get("tableName");
+				String tableComment = (String) egovMap.get("tableComment");
 				// String columnName = (String) egovMap.get("columnName");
 				// String dataType = (String) egovMap.get("dataType");
 				String columnKey = (String) egovMap.get("columnKey");
 				// String columnComment = (String) egovMap.get("columnComment");
 
 				if (log.isDebugEnabled()) {
-					// log.debug("tableName=" + egovMap.get("tableName"));
-					// log.debug("columnName=" + egovMap.get("columnName"));
-
-					// if (tableName.equals(tableNameTemp) == false) {
-					// log.debug("i=" + i + ", tableName=" + tableName
-					// + ", tableNameTemp=" + tableNameTemp);
-					// }
-					//
-					// tableNameTemp = tableName;
+					log.debug("egovMap=" + egovMap);
 				}
 
 				if (tableName.equals(tableNameTemp) == false) {
@@ -186,9 +182,17 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 							log.debug("isWriteStringToFile="
 									+ dataModelContextVO
 											.getIsWriteStringToFile());
+
+							log.debug("isWriteStringToFile="
+									+ dataModelContextVO
+											.getIsWriteStringToFile());
 						}
 
-						dataModelContext.setEntity(new Entity(tableNameTemp));
+						// dataModelContext.setEntity(new
+						// Entity(tableNameTemp));
+						// setEntity(dataModelContext, egovMap);
+						setEntity(dataModelContext, tableNameTemp,
+								tableCommentTemp);
 
 						if (log.isDebugEnabled()) {
 							log.debug(dataModelContext.getEntity().getName());
@@ -214,6 +218,7 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 				}
 
 				tableNameTemp = tableName;
+				tableCommentTemp = tableComment;
 			}
 
 			if (log.isDebugEnabled()) {
@@ -229,7 +234,9 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 						+ dataModelContextVO.getIsWriteStringToFile());
 			}
 
-			dataModelContext.setEntity(new Entity(tableNameTemp));
+			// dataModelContext.setEntity(new Entity(tableNameTemp));
+			// setEntity(dataModelContext, egovMap);
+			setEntity(dataModelContext, tableNameTemp, tableCommentTemp);
 
 			if (log.isDebugEnabled()) {
 				log.debug(dataModelContext.getEntity().getName());
@@ -263,11 +270,67 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 		if ("char".equals(dataType) || "varchar".equals(dataType)
 				|| "datetime".equals(dataType)) {
 			attribute.setJavaType("String");
+		} else {
+			attribute.setJavaType("int");
 		}
 
 		attribute.setColumnComment(columnComment);
 
 		return attribute;
+	}
+
+	// private void setEntity(DataModelContext dataModelContext, EgovMap
+	// egovMap) {
+	// if (log.isInfoEnabled()) {
+	// log.info("시작");
+	// }
+	//
+	// String tableName = (String) egovMap.get("tableName");
+	// String tableComment = (String) egovMap.get("tableComment");
+	//
+	// if (log.isDebugEnabled()) {
+	// log.debug("egovMap=" + egovMap);
+	//
+	// log.debug("tableName=" + tableName);
+	// log.debug("tableComment=" + tableComment);
+	// }
+	//
+	// Entity entity = new Entity(tableName);
+	//
+	// entity.setTableComment(tableComment);
+	//
+	// dataModelContext.setEntity(entity);
+	//
+	// if (log.isInfoEnabled()) {
+	// log.info("끝");
+	// }
+	// }
+
+	private void setEntity(DataModelContext dataModelContext, String tableName,
+			String tableComment) {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		// String tableName = (String) egovMap.get("tableName");
+		// String tableComment = (String) egovMap.get("tableComment");
+
+		if (log.isDebugEnabled()) {
+			// log.debug("egovMap=" + egovMap);
+
+			log.debug("tableName=" + tableName);
+			log.debug("tableComment=" + tableComment);
+		}
+
+		Entity entity = new Entity(tableName);
+
+		entity.setTableComment(tableComment);
+
+		dataModelContext.setEntity(entity);
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
 	}
 
 	private void dataModelContextsPrint(List<DataModelContext> dataModelContexts) {
