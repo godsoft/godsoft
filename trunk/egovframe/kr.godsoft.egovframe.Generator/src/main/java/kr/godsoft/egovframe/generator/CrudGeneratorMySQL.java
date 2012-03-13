@@ -119,17 +119,19 @@ public class CrudGeneratorMySQL {
 
 			// crudGeneratorMySQL.deleteDirectory(dataModelContext);
 
-			crudGeneratorMySQL.generatorSQLMap();
-			crudGeneratorMySQL.generatorService();
-			crudGeneratorMySQL.generatorDefaultVO();
-			crudGeneratorMySQL.generatorVO();
-			crudGeneratorMySQL.generatorServiceImpl();
-			crudGeneratorMySQL.generatorDAO();
-			crudGeneratorMySQL.generatorController();
-			crudGeneratorMySQL.generatorListView();
-			crudGeneratorMySQL.generatorRegisterView();
+			// crudGeneratorMySQL.generatorSQLMap();
+			// crudGeneratorMySQL.generatorService();
+			// crudGeneratorMySQL.generatorDefaultVO();
+			// crudGeneratorMySQL.generatorVO();
+			// crudGeneratorMySQL.generatorServiceImpl();
+			// crudGeneratorMySQL.generatorDAO();
+			// crudGeneratorMySQL.generatorController();
+			// crudGeneratorMySQL.generatorListView();
+			// crudGeneratorMySQL.generatorRegisterView();
+			//
+			// crudGeneratorMySQL.sqlMapConfigGenerator();
 
-			crudGeneratorMySQL.sqlMapConfigGenerator();
+			crudGeneratorMySQL.indexJspGenerator();
 		} catch (Exception e) {
 		}
 	}
@@ -579,6 +581,72 @@ public class CrudGeneratorMySQL {
 
 				writeStringToFile(dataModelContext2.getIsWriteStringToFile(),
 						dataModelContext2.getSqlMapConfigPathname(), data);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (log.isInfoEnabled()) {
+			log.info("끝");
+		}
+	}
+
+	public void indexJspGenerator() {
+		if (log.isInfoEnabled()) {
+			log.info("시작");
+		}
+
+		try {
+			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/index.jsp.vm";
+
+			if (dataModelContexts != null) {
+				StringBuilder tempStringBuilder = new StringBuilder();
+
+				DataModelContext dataModelContext2 = new DataModelContext();
+
+				for (int i = 0; i < dataModelContexts.size(); i++) {
+					DataModelContext dataModelContext = dataModelContexts
+							.get(i);
+
+					if (log.isDebugEnabled()) {
+						log.debug("dataModelContexts[" + i + "]="
+								+ dataModelContext);
+					}
+
+					if (i == 0) {
+						dataModelContext2 = (DataModelContext) BeanUtils
+								.cloneBean(dataModelContext);
+
+						dataModelContext2.setIndexJsp(dataModelContext2);
+					}
+
+					tempStringBuilder.append("<a href=\"");
+					tempStringBuilder.append(dataModelContext.getEntity()
+							.getCcName());
+					tempStringBuilder.append("/");
+					tempStringBuilder.append(dataModelContext.getEntity()
+							.getPcName());
+					tempStringBuilder.append("List.do\">");
+					tempStringBuilder.append(dataModelContext.getEntity()
+							.getPcName());
+					tempStringBuilder.append("</a>");
+					tempStringBuilder.append("<br/>\n");
+				}
+
+				if (log.isDebugEnabled()) {
+					log.debug("indexJspPathname="
+							+ dataModelContext2.getIndexJspPathname());
+
+					// log.debug("tempStringBuilder=" + tempStringBuilder);
+				}
+
+				dataModelContext2.setTemp(tempStringBuilder.toString());
+
+				String data = crudCodeGen.generate(dataModelContext2,
+						templateFile);
+
+				writeStringToFile(dataModelContext2.getIsWriteStringToFile(),
+						dataModelContext2.getIndexJspPathname(), data);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

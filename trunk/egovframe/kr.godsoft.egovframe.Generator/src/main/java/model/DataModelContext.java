@@ -652,6 +652,32 @@ public class DataModelContext {
 		this.sqlMap = sqlMap;
 	}
 
+	private String temp;
+
+	public String getTemp() {
+		return temp;
+	}
+
+	public void setTemp(String temp) {
+		this.temp = temp;
+	}
+
+	private String indexJspPathname;
+
+	public String getIndexJspPathname() {
+		return indexJspPathname;
+	}
+
+	public void setIndexJsp(DataModelContext dataModelContext) {
+		// indexJspPathname
+		StringBuilder indexJspPathnameStringBuilder = new StringBuilder();
+
+		indexJspPathnameStringBuilder.append(dataModelContext.getProjectPath());
+		indexJspPathnameStringBuilder.append("src/main/webapp/index.jsp");
+
+		this.indexJspPathname = indexJspPathnameStringBuilder.toString();
+	}
+
 	@Override
 	public String toString() {
 		return "DataModelContext [author=" + author + ", createDate="
