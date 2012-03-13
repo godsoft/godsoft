@@ -8,6 +8,7 @@ import kr.godsoft.egovframe.generator.columns.java.ColumnsClinet;
 import model.DataModelContext;
 import operation.CrudCodeGen;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -535,7 +536,9 @@ public class CrudGeneratorMySQL {
 			String templateFile = "eGovFrameTemplates/crud/resource/pkg/sqlMapConfig.vm";
 
 			if (dataModelContexts != null) {
-				StringBuilder stringBuilder = new StringBuilder();
+				StringBuilder sqlMapStringBuilder = new StringBuilder();
+
+				String sqlMapConfigPathname = "";
 
 				DataModelContext dataModelContext2 = new DataModelContext();
 
@@ -543,64 +546,39 @@ public class CrudGeneratorMySQL {
 					DataModelContext dataModelContext = dataModelContexts
 							.get(i);
 
-					dataModelContext.setVoPackage(dataModelContext.getEntity());
+					if (log.isDebugEnabled()) {
+						log.debug("dataModelContexts[" + i + "]="
+								+ dataModelContext);
+					}
 
 					dataModelContext.setSqlMapResource(dataModelContext);
 
-					stringBuilder.append(dataModelContext.getSqlMapResource());
-					stringBuilder.append("\n");
+					if (i == 0) {
+						dataModelContext2 = (DataModelContext) BeanUtils
+								.cloneBean(dataModelContext);
 
-					// dataModelContext2 = dataModelContext;
-
-					if (log.isDebugEnabled()) {
-						// log.debug("dataModelContexts[" + i + "]="
-						// + dataModelContext);
-
-						// log.debug("dataModelContexts[" + i + "]="
-						// + dataModelContext.getEntity().getLcName());
-						//
-						// log.debug("dataModelContexts[" + i + "]="
-						// + dataModelContext.getEntity().getPcName());
-						//
-						// log.debug("dataModelContexts["
-						// + i
-						// + "]="
-						// + dataModelContext.getEntity()
-						// .getTableComment());
-
-						log.debug(dataModelContext.getSqlMapResource());
+						dataModelContext2
+								.setSqlMapConfigPathname(dataModelContext2);
 					}
 
-					// stringBuilder.append("    <sqlMap resource=\"kr/godsoft/egovframe/generatorwebapp/sqlmap/comtcadministcode/Comtcadministcode_SQL_Mysql.xml\"/>");
-
-					// dataModelContext.setVoPackage(dataModelContext.getEntity());
-					// dataModelContext
-					// .setDaoPackage(dataModelContext.getEntity());
-					// dataModelContext.setControllerPackage(dataModelContext
-					// .getEntity());
-
-					// dataModelContext.setSqlMapConfigPathname(dataModelContext);
-
-					// String data = crudCodeGen.generate(dataModelContext,
-					// templateFile);
-
-					// writeStringToFile(
-					// dataModelContext.getIsWriteStringToFile(),
-					// dataModelContext.getSqlMapConfigPathname(), data);
+					sqlMapStringBuilder.append(dataModelContext
+							.getSqlMapResource());
+					sqlMapStringBuilder.append("\n");
 				}
 
 				if (log.isDebugEnabled()) {
-					log.debug(stringBuilder.toString());
+					log.debug("sqlMap=" + sqlMapStringBuilder);
+
+					log.debug("sqlMapConfigPathname=" + sqlMapConfigPathname);
 				}
 
-				dataModelContext2.setSqlMap(stringBuilder.toString());
+				dataModelContext2.setSqlMap(sqlMapStringBuilder.toString());
 
 				String data = crudCodeGen.generate(dataModelContext2,
 						templateFile);
 
 				writeStringToFile(dataModelContext2.getIsWriteStringToFile(),
 						dataModelContext2.getSqlMapConfigPathname(), data);
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

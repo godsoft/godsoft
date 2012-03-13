@@ -164,7 +164,7 @@
 			TABLE_SCHEMA LIKE CONCAT('%',#searchKeyword#,'%')
 		</isEqual>
 			AND columns.table_schema = 'egovfrm'
-			AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog', 'comtccmmnclcode')
+			/* AND columns.table_name IN ('comtcadministcode', 'comtcadministcoderecptnlog', 'comtccmmnclcode') */
 			/* AND columns.table_name IN ('comtcadministcode') */
 	</select>
 
