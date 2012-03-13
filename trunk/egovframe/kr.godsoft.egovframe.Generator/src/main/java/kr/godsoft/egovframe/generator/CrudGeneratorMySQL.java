@@ -117,7 +117,7 @@ public class CrudGeneratorMySQL {
 			CrudGeneratorMySQL crudGeneratorMySQL = new CrudGeneratorMySQL(
 					dataModelContext);
 
-			crudGeneratorMySQL.deleteDirectory(dataModelContext);
+			// crudGeneratorMySQL.deleteDirectory(dataModelContext);
 
 			crudGeneratorMySQL.generatorSQLMap();
 			crudGeneratorMySQL.generatorService();
