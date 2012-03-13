@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtncnsltlist">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtncnsltlistSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service.ComtncnsltlistDefaultVO"/>
+	
+	<resultMap id="comtncnsltlist" class="kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service.ComtncnsltlistVO">
+		<result property="cnsltId" column="CNSLT_ID" columnIndex="1"/> <!--  -->
+		<result property="cnsltSj" column="CNSLT_SJ" columnIndex="2"/> <!--  -->
+		<result property="othbcAt" column="OTHBC_AT" columnIndex="3"/> <!--  -->
+		<result property="emailAdres" column="EMAIL_ADRES" columnIndex="4"/> <!--  -->
+		<result property="cnsltCn" column="CNSLT_CN" columnIndex="5"/> <!--  -->
+		<result property="managtCn" column="MANAGT_CN" columnIndex="6"/> <!--  -->
+		<result property="managtDe" column="MANAGT_DE" columnIndex="7"/> <!--  -->
+		<result property="rdcnt" column="RDCNT" columnIndex="8"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="9"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="11"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="12"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="13"/> <!--  -->
+		<result property="areaNo" column="AREA_NO" columnIndex="14"/> <!--  -->
+		<result property="middleTelno" column="MIDDLE_TELNO" columnIndex="15"/> <!--  -->
+		<result property="endTelno" column="END_TELNO" columnIndex="16"/> <!--  -->
+		<result property="frstMbtlnum" column="FRST_MBTLNUM" columnIndex="17"/> <!--  -->
+		<result property="middleMbtlnum" column="MIDDLE_MBTLNUM" columnIndex="18"/> <!--  -->
+		<result property="endMbtlnum" column="END_MBTLNUM" columnIndex="19"/> <!--  -->
+		<result property="writngDe" column="WRITNG_DE" columnIndex="20"/> <!--  -->
+		<result property="wrterNm" column="WRTER_NM" columnIndex="21"/> <!--  -->
+		<result property="emailAnswerAt" column="EMAIL_ANSWER_AT" columnIndex="22"/> <!--  -->
+		<result property="qnaProcessSttusCode" column="QNA_PROCESS_STTUS_CODE" columnIndex="23"/> <!--  -->
+		<result property="writngPassword" column="WRITNG_PASSWORD" columnIndex="24"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtncnsltlistDAO.insertComtncnsltlist_S">
+		<![CDATA[
+			INSERT INTO comtncnsltlist 
+				( CNSLT_ID /*  */
+				  , CNSLT_SJ /*  */
+				  , OTHBC_AT /*  */
+				  , EMAIL_ADRES /*  */
+				  , CNSLT_CN /*  */
+				  , MANAGT_CN /*  */
+				  , MANAGT_DE /*  */
+				  , RDCNT /*  */
+				  , ATCH_FILE_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , AREA_NO /*  */
+				  , MIDDLE_TELNO /*  */
+				  , END_TELNO /*  */
+				  , FRST_MBTLNUM /*  */
+				  , MIDDLE_MBTLNUM /*  */
+				  , END_MBTLNUM /*  */
+				  , WRITNG_DE /*  */
+				  , WRTER_NM /*  */
+				  , EMAIL_ANSWER_AT /*  */
+				  , QNA_PROCESS_STTUS_CODE /*  */
+				  , WRITNG_PASSWORD /*  */ )
+			VALUES ( #cnsltId# /*  */
+					  , #cnsltSj# /*  */
+						  , #othbcAt# /*  */
+						  , #emailAdres# /*  */
+						  , #cnsltCn# /*  */
+						  , #managtCn# /*  */
+						  , #managtDe# /*  */
+						  , #rdcnt# /*  */
+						  , #atchFileId# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , #areaNo# /*  */
+						  , #middleTelno# /*  */
+						  , #endTelno# /*  */
+						  , #frstMbtlnum# /*  */
+						  , #middleMbtlnum# /*  */
+						  , #endMbtlnum# /*  */
+						  , #writngDe# /*  */
+						  , #wrterNm# /*  */
+						  , #emailAnswerAt# /*  */
+						  , #qnaProcessSttusCode# /*  */
+					  , #writngPassword# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtncnsltlistDAO.updateComtncnsltlist_S">
+		<![CDATA[
+			UPDATE comtncnsltlist
+			SET CNSLT_ID=#cnsltId# /*  */
+				, CNSLT_SJ=#cnsltSj# /*  */
+				, OTHBC_AT=#othbcAt# /*  */
+				, EMAIL_ADRES=#emailAdres# /*  */
+				, CNSLT_CN=#cnsltCn# /*  */
+				, MANAGT_CN=#managtCn# /*  */
+				, MANAGT_DE=#managtDe# /*  */
+				, RDCNT=#rdcnt# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, AREA_NO=#areaNo# /*  */
+				, MIDDLE_TELNO=#middleTelno# /*  */
+				, END_TELNO=#endTelno# /*  */
+				, FRST_MBTLNUM=#frstMbtlnum# /*  */
+				, MIDDLE_MBTLNUM=#middleMbtlnum# /*  */
+				, END_MBTLNUM=#endMbtlnum# /*  */
+				, WRITNG_DE=#writngDe# /*  */
+				, WRTER_NM=#wrterNm# /*  */
+				, EMAIL_ANSWER_AT=#emailAnswerAt# /*  */
+				, QNA_PROCESS_STTUS_CODE=#qnaProcessSttusCode# /*  */
+				, WRITNG_PASSWORD=#writngPassword# /*  */
+			WHERE CNSLT_ID=#cnsltId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtncnsltlistDAO.deleteComtncnsltlist_S">
+		<![CDATA[
+			DELETE FROM comtncnsltlist 
+			WHERE CNSLT_ID=#cnsltId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtncnsltlistDAO.selectComtncnsltlist_S" resultMap="comtncnsltlist">
+		<![CDATA[
+			SELECT
+				CNSLT_ID /*  */
+				, CNSLT_SJ /*  */
+				, OTHBC_AT /*  */
+				, EMAIL_ADRES /*  */
+				, CNSLT_CN /*  */
+				, MANAGT_CN /*  */
+				, MANAGT_DE /*  */
+				, RDCNT /*  */
+				, ATCH_FILE_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, AREA_NO /*  */
+				, MIDDLE_TELNO /*  */
+				, END_TELNO /*  */
+				, FRST_MBTLNUM /*  */
+				, MIDDLE_MBTLNUM /*  */
+				, END_MBTLNUM /*  */
+				, WRITNG_DE /*  */
+				, WRTER_NM /*  */
+				, EMAIL_ANSWER_AT /*  */
+				, QNA_PROCESS_STTUS_CODE /*  */
+				, WRITNG_PASSWORD /*  */
+			FROM comtncnsltlist
+			WHERE CNSLT_ID=#cnsltId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtncnsltlistDAO.selectComtncnsltlistList_D" parameterClass="comtncnsltlistSerarchVO" resultClass="egovMap">
+			SELECT
+								CNSLT_ID /*  */
+								, CNSLT_SJ /*  */
+								, OTHBC_AT /*  */
+								, EMAIL_ADRES /*  */
+								, CNSLT_CN /*  */
+								, MANAGT_CN /*  */
+								, MANAGT_DE /*  */
+								, RDCNT /*  */
+								, ATCH_FILE_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, AREA_NO /*  */
+								, MIDDLE_TELNO /*  */
+								, END_TELNO /*  */
+								, FRST_MBTLNUM /*  */
+								, MIDDLE_MBTLNUM /*  */
+								, END_MBTLNUM /*  */
+								, WRITNG_DE /*  */
+								, WRTER_NM /*  */
+								, EMAIL_ANSWER_AT /*  */
+								, QNA_PROCESS_STTUS_CODE /*  */
+								, WRITNG_PASSWORD /*  */
+					FROM comtncnsltlist
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNSLT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNSLT_SJ LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							CNSLT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtncnsltlistDAO.selectComtncnsltlistListTotCnt_S" parameterClass="comtncnsltlistSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtncnsltlist
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNSLT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNSLT_SJ LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

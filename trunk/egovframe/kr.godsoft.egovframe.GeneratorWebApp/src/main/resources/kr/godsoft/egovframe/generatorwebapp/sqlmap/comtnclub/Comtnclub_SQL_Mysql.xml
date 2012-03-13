@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnclub">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnclubSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubDefaultVO"/>
+	
+	<resultMap id="comtnclub" class="kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubVO">
+		<result property="clbId" column="CLB_ID" columnIndex="1"/> <!--  -->
+		<result property="cmmntyId" column="CMMNTY_ID" columnIndex="2"/> <!--  -->
+		<result property="clbNm" column="CLB_NM" columnIndex="3"/> <!--  -->
+		<result property="clbIntrcn" column="CLB_INTRCN" columnIndex="4"/> <!--  -->
+		<result property="useAt" column="USE_AT" columnIndex="5"/> <!--  -->
+		<result property="registSeCode" column="REGIST_SE_CODE" columnIndex="6"/> <!--  -->
+		<result property="tmplatId" column="TMPLAT_ID" columnIndex="7"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnclubDAO.insertComtnclub_S">
+		<![CDATA[
+			INSERT INTO comtnclub 
+				( CLB_ID /*  */
+				  , CMMNTY_ID /*  */
+				  , CLB_NM /*  */
+				  , CLB_INTRCN /*  */
+				  , USE_AT /*  */
+				  , REGIST_SE_CODE /*  */
+				  , TMPLAT_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #clbId# /*  */
+					  , #cmmntyId# /*  */
+						  , #clbNm# /*  */
+						  , #clbIntrcn# /*  */
+						  , #useAt# /*  */
+						  , #registSeCode# /*  */
+						  , #tmplatId# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnclubDAO.updateComtnclub_S">
+		<![CDATA[
+			UPDATE comtnclub
+			SET CLB_ID=#clbId# /*  */
+				, CMMNTY_ID=#cmmntyId# /*  */
+				, CLB_NM=#clbNm# /*  */
+				, CLB_INTRCN=#clbIntrcn# /*  */
+				, USE_AT=#useAt# /*  */
+				, REGIST_SE_CODE=#registSeCode# /*  */
+				, TMPLAT_ID=#tmplatId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE CLB_ID=#clbId# /*  */
+				AND CMMNTY_ID=#cmmntyId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnclubDAO.deleteComtnclub_S">
+		<![CDATA[
+			DELETE FROM comtnclub 
+			WHERE CLB_ID=#clbId# /*  */
+				AND CMMNTY_ID=#cmmntyId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnclubDAO.selectComtnclub_S" resultMap="comtnclub">
+		<![CDATA[
+			SELECT
+				CLB_ID /*  */
+				, CMMNTY_ID /*  */
+				, CLB_NM /*  */
+				, CLB_INTRCN /*  */
+				, USE_AT /*  */
+				, REGIST_SE_CODE /*  */
+				, TMPLAT_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnclub
+			WHERE CLB_ID=#clbId# /*  */
+				AND CMMNTY_ID=#cmmntyId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnclubDAO.selectComtnclubList_D" parameterClass="comtnclubSerarchVO" resultClass="egovMap">
+			SELECT
+								CLB_ID /*  */
+								, CMMNTY_ID /*  */
+								, CLB_NM /*  */
+								, CLB_INTRCN /*  */
+								, USE_AT /*  */
+								, REGIST_SE_CODE /*  */
+								, TMPLAT_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnclub
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CLB_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CMMNTY_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							CLB_ID DESC /*  */
+							, CMMNTY_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnclubDAO.selectComtnclubListTotCnt_S" parameterClass="comtnclubSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnclub
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CLB_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CMMNTY_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbndtdiary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnbndtdiarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryDefaultVO"/>
+	
+	<resultMap id="comtnbndtdiary" class="kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryVO">
+		<result property="bndtId" column="BNDT_ID" columnIndex="1"/> <!--  -->
+		<result property="bndtDe" column="BNDT_DE" columnIndex="2"/> <!--  -->
+		<result property="bndtCeckSe" column="BNDT_CECK_SE" columnIndex="3"/> <!--  -->
+		<result property="bndtCeckCode" column="BNDT_CECK_CODE" columnIndex="4"/> <!--  -->
+		<result property="chckSttus" column="CHCK_STTUS" columnIndex="5"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="6"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="8"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnbndtdiaryDAO.insertComtnbndtdiary_S">
+		<![CDATA[
+			INSERT INTO comtnbndtdiary 
+				( BNDT_ID /*  */
+				  , BNDT_DE /*  */
+				  , BNDT_CECK_SE /*  */
+				  , BNDT_CECK_CODE /*  */
+				  , CHCK_STTUS /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #bndtId# /*  */
+					  , #bndtDe# /*  */
+						  , #bndtCeckSe# /*  */
+						  , #bndtCeckCode# /*  */
+						  , #chckSttus# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnbndtdiaryDAO.updateComtnbndtdiary_S">
+		<![CDATA[
+			UPDATE comtnbndtdiary
+			SET BNDT_ID=#bndtId# /*  */
+				, BNDT_DE=#bndtDe# /*  */
+				, BNDT_CECK_SE=#bndtCeckSe# /*  */
+				, BNDT_CECK_CODE=#bndtCeckCode# /*  */
+				, CHCK_STTUS=#chckSttus# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE BNDT_ID=#bndtId# /*  */
+				AND BNDT_DE=#bndtDe# /*  */
+				AND BNDT_CECK_SE=#bndtCeckSe# /*  */
+				AND BNDT_CECK_CODE=#bndtCeckCode# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnbndtdiaryDAO.deleteComtnbndtdiary_S">
+		<![CDATA[
+			DELETE FROM comtnbndtdiary 
+			WHERE BNDT_ID=#bndtId# /*  */
+				AND BNDT_DE=#bndtDe# /*  */
+				AND BNDT_CECK_SE=#bndtCeckSe# /*  */
+				AND BNDT_CECK_CODE=#bndtCeckCode# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnbndtdiaryDAO.selectComtnbndtdiary_S" resultMap="comtnbndtdiary">
+		<![CDATA[
+			SELECT
+				BNDT_ID /*  */
+				, BNDT_DE /*  */
+				, BNDT_CECK_SE /*  */
+				, BNDT_CECK_CODE /*  */
+				, CHCK_STTUS /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnbndtdiary
+			WHERE BNDT_ID=#bndtId# /*  */
+				AND BNDT_DE=#bndtDe# /*  */
+				AND BNDT_CECK_SE=#bndtCeckSe# /*  */
+				AND BNDT_CECK_CODE=#bndtCeckCode# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnbndtdiaryDAO.selectComtnbndtdiaryList_D" parameterClass="comtnbndtdiarySerarchVO" resultClass="egovMap">
+			SELECT
+								BNDT_ID /*  */
+								, BNDT_DE /*  */
+								, BNDT_CECK_SE /*  */
+								, BNDT_CECK_CODE /*  */
+								, CHCK_STTUS /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnbndtdiary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BNDT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BNDT_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							BNDT_ID DESC /*  */
+							, BNDT_DE DESC /*  */
+							, BNDT_CECK_SE DESC /*  */
+							, BNDT_CECK_CODE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnbndtdiaryDAO.selectComtnbndtdiaryListTotCnt_S" parameterClass="comtnbndtdiarySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnbndtdiary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BNDT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BNDT_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnindvdlpgecntnts">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnindvdlpgecntntsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgecntnts.service.ComtnindvdlpgecntntsDefaultVO"/>
+	
+	<resultMap id="comtnindvdlpgecntnts" class="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgecntnts.service.ComtnindvdlpgecntntsVO">
+		<result property="cntntsId" column="CNTNTS_ID" columnIndex="1"/> <!--  -->
+		<result property="cntntsNm" column="CNTNTS_NM" columnIndex="2"/> <!--  -->
+		<result property="cntcUrl" column="CNTC_URL" columnIndex="3"/> <!--  -->
+		<result property="cntntsUseAt" column="CNTNTS_USE_AT" columnIndex="4"/> <!--  -->
+		<result property="cntntsLinkUrl" column="CNTNTS_LINK_URL" columnIndex="5"/> <!--  -->
+		<result property="cntntsDc" column="CNTNTS_DC" columnIndex="6"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnindvdlpgecntntsDAO.insertComtnindvdlpgecntnts_S">
+		<![CDATA[
+			INSERT INTO comtnindvdlpgecntnts 
+				( CNTNTS_ID /*  */
+				  , CNTNTS_NM /*  */
+				  , CNTC_URL /*  */
+				  , CNTNTS_USE_AT /*  */
+				  , CNTNTS_LINK_URL /*  */
+				  , CNTNTS_DC /*  */ )
+			VALUES ( #cntntsId# /*  */
+					  , #cntntsNm# /*  */
+						  , #cntcUrl# /*  */
+						  , #cntntsUseAt# /*  */
+						  , #cntntsLinkUrl# /*  */
+					  , #cntntsDc# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnindvdlpgecntntsDAO.updateComtnindvdlpgecntnts_S">
+		<![CDATA[
+			UPDATE comtnindvdlpgecntnts
+			SET CNTNTS_ID=#cntntsId# /*  */
+				, CNTNTS_NM=#cntntsNm# /*  */
+				, CNTC_URL=#cntcUrl# /*  */
+				, CNTNTS_USE_AT=#cntntsUseAt# /*  */
+				, CNTNTS_LINK_URL=#cntntsLinkUrl# /*  */
+				, CNTNTS_DC=#cntntsDc# /*  */
+			WHERE CNTNTS_ID=#cntntsId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnindvdlpgecntntsDAO.deleteComtnindvdlpgecntnts_S">
+		<![CDATA[
+			DELETE FROM comtnindvdlpgecntnts 
+			WHERE CNTNTS_ID=#cntntsId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnindvdlpgecntntsDAO.selectComtnindvdlpgecntnts_S" resultMap="comtnindvdlpgecntnts">
+		<![CDATA[
+			SELECT
+				CNTNTS_ID /*  */
+				, CNTNTS_NM /*  */
+				, CNTC_URL /*  */
+				, CNTNTS_USE_AT /*  */
+				, CNTNTS_LINK_URL /*  */
+				, CNTNTS_DC /*  */
+			FROM comtnindvdlpgecntnts
+			WHERE CNTNTS_ID=#cntntsId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnindvdlpgecntntsDAO.selectComtnindvdlpgecntntsList_D" parameterClass="comtnindvdlpgecntntsSerarchVO" resultClass="egovMap">
+			SELECT
+								CNTNTS_ID /*  */
+								, CNTNTS_NM /*  */
+								, CNTC_URL /*  */
+								, CNTNTS_USE_AT /*  */
+								, CNTNTS_LINK_URL /*  */
+								, CNTNTS_DC /*  */
+					FROM comtnindvdlpgecntnts
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTNTS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNTNTS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							CNTNTS_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnindvdlpgecntntsDAO.selectComtnindvdlpgecntntsListTotCnt_S" parameterClass="comtnindvdlpgecntntsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnindvdlpgecntnts
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTNTS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNTNTS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

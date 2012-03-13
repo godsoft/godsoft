@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnfxtrsmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnfxtrsmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageDefaultVO"/>
+	
+	<resultMap id="comtnfxtrsmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO">
+		<result property="fxtrsCode" column="FXTRS_CODE" columnIndex="1"/> <!--  -->
+		<result property="fxtrsNm" column="FXTRS_NM" columnIndex="2"/> <!--  -->
+		<result property="makrNm" column="MAKR_NM" columnIndex="3"/> <!--  -->
+		<result property="price" column="PRICE" columnIndex="4"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnfxtrsmanageDAO.insertComtnfxtrsmanage_S">
+		<![CDATA[
+			INSERT INTO comtnfxtrsmanage 
+				( FXTRS_CODE /*  */
+				  , FXTRS_NM /*  */
+				  , MAKR_NM /*  */
+				  , PRICE /*  */ )
+			VALUES ( #fxtrsCode# /*  */
+					  , #fxtrsNm# /*  */
+						  , #makrNm# /*  */
+					  , #price# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnfxtrsmanageDAO.updateComtnfxtrsmanage_S">
+		<![CDATA[
+			UPDATE comtnfxtrsmanage
+			SET FXTRS_CODE=#fxtrsCode# /*  */
+				, FXTRS_NM=#fxtrsNm# /*  */
+				, MAKR_NM=#makrNm# /*  */
+				, PRICE=#price# /*  */
+			WHERE FXTRS_CODE=#fxtrsCode# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnfxtrsmanageDAO.deleteComtnfxtrsmanage_S">
+		<![CDATA[
+			DELETE FROM comtnfxtrsmanage 
+			WHERE FXTRS_CODE=#fxtrsCode# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanage_S" resultMap="comtnfxtrsmanage">
+		<![CDATA[
+			SELECT
+				FXTRS_CODE /*  */
+				, FXTRS_NM /*  */
+				, MAKR_NM /*  */
+				, PRICE /*  */
+			FROM comtnfxtrsmanage
+			WHERE FXTRS_CODE=#fxtrsCode# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanageList_D" parameterClass="comtnfxtrsmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								FXTRS_CODE /*  */
+								, FXTRS_NM /*  */
+								, MAKR_NM /*  */
+								, PRICE /*  */
+					FROM comtnfxtrsmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FXTRS_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FXTRS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							FXTRS_CODE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanageListTotCnt_S" parameterClass="comtnfxtrsmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnfxtrsmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FXTRS_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FXTRS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

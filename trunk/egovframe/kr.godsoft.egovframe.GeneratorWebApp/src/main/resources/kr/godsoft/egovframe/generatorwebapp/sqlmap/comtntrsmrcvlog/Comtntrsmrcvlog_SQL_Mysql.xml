@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtntrsmrcvlog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtntrsmrcvlogSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogDefaultVO"/>
+	
+	<resultMap id="comtntrsmrcvlog" class="kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogVO">
+		<result property="requstId" column="REQUST_ID" columnIndex="1"/> <!--  -->
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="2"/> <!--  -->
+		<result property="trsmrcvSeCode" column="TRSMRCV_SE_CODE" columnIndex="3"/> <!--  -->
+		<result property="cntcId" column="CNTC_ID" columnIndex="4"/> <!--  -->
+		<result property="provdInsttId" column="PROVD_INSTT_ID" columnIndex="5"/> <!--  -->
+		<result property="provdSysId" column="PROVD_SYS_ID" columnIndex="6"/> <!--  -->
+		<result property="provdSvcId" column="PROVD_SVC_ID" columnIndex="7"/> <!--  -->
+		<result property="requstInsttId" column="REQUST_INSTT_ID" columnIndex="8"/> <!--  -->
+		<result property="requstSysId" column="REQUST_SYS_ID" columnIndex="9"/> <!--  -->
+		<result property="requstTrnsmitTm" column="REQUST_TRNSMIT_TM" columnIndex="10"/> <!--  -->
+		<result property="requstRecptnTm" column="REQUST_RECPTN_TM" columnIndex="11"/> <!--  -->
+		<result property="rspnsTrnsmitTm" column="RSPNS_TRNSMIT_TM" columnIndex="12"/> <!--  -->
+		<result property="rspnsRecptnTm" column="RSPNS_RECPTN_TM" columnIndex="13"/> <!--  -->
+		<result property="resultCode" column="RESULT_CODE" columnIndex="14"/> <!--  -->
+		<result property="resultMssage" column="RESULT_MSSAGE" columnIndex="15"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="16"/> <!--  -->
+		<result property="rqesterId" column="RQESTER_ID" columnIndex="17"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtntrsmrcvlogDAO.insertComtntrsmrcvlog_S">
+		<![CDATA[
+			INSERT INTO comtntrsmrcvlog 
+				( REQUST_ID /*  */
+				  , OCCRRNC_DE /*  */
+				  , TRSMRCV_SE_CODE /*  */
+				  , CNTC_ID /*  */
+				  , PROVD_INSTT_ID /*  */
+				  , PROVD_SYS_ID /*  */
+				  , PROVD_SVC_ID /*  */
+				  , REQUST_INSTT_ID /*  */
+				  , REQUST_SYS_ID /*  */
+				  , REQUST_TRNSMIT_TM /*  */
+				  , REQUST_RECPTN_TM /*  */
+				  , RSPNS_TRNSMIT_TM /*  */
+				  , RSPNS_RECPTN_TM /*  */
+				  , RESULT_CODE /*  */
+				  , RESULT_MSSAGE /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , RQESTER_ID /*  */ )
+			VALUES ( #requstId# /*  */
+					  , #occrrncDe# /*  */
+						  , #trsmrcvSeCode# /*  */
+						  , #cntcId# /*  */
+						  , #provdInsttId# /*  */
+						  , #provdSysId# /*  */
+						  , #provdSvcId# /*  */
+						  , #requstInsttId# /*  */
+						  , #requstSysId# /*  */
+						  , #requstTrnsmitTm# /*  */
+						  , #requstRecptnTm# /*  */
+						  , #rspnsTrnsmitTm# /*  */
+						  , #rspnsRecptnTm# /*  */
+						  , #resultCode# /*  */
+						  , #resultMssage# /*  */
+						  , SYSDATE() /*  */
+					  , #rqesterId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtntrsmrcvlogDAO.updateComtntrsmrcvlog_S">
+		<![CDATA[
+			UPDATE comtntrsmrcvlog
+			SET REQUST_ID=#requstId# /*  */
+				, OCCRRNC_DE=#occrrncDe# /*  */
+				, TRSMRCV_SE_CODE=#trsmrcvSeCode# /*  */
+				, CNTC_ID=#cntcId# /*  */
+				, PROVD_INSTT_ID=#provdInsttId# /*  */
+				, PROVD_SYS_ID=#provdSysId# /*  */
+				, PROVD_SVC_ID=#provdSvcId# /*  */
+				, REQUST_INSTT_ID=#requstInsttId# /*  */
+				, REQUST_SYS_ID=#requstSysId# /*  */
+				, REQUST_TRNSMIT_TM=#requstTrnsmitTm# /*  */
+				, REQUST_RECPTN_TM=#requstRecptnTm# /*  */
+				, RSPNS_TRNSMIT_TM=#rspnsTrnsmitTm# /*  */
+				, RSPNS_RECPTN_TM=#rspnsRecptnTm# /*  */
+				, RESULT_CODE=#resultCode# /*  */
+				, RESULT_MSSAGE=#resultMssage# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, RQESTER_ID=#rqesterId# /*  */
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtntrsmrcvlogDAO.deleteComtntrsmrcvlog_S">
+		<![CDATA[
+			DELETE FROM comtntrsmrcvlog 
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtntrsmrcvlogDAO.selectComtntrsmrcvlog_S" resultMap="comtntrsmrcvlog">
+		<![CDATA[
+			SELECT
+				REQUST_ID /*  */
+				, OCCRRNC_DE /*  */
+				, TRSMRCV_SE_CODE /*  */
+				, CNTC_ID /*  */
+				, PROVD_INSTT_ID /*  */
+				, PROVD_SYS_ID /*  */
+				, PROVD_SVC_ID /*  */
+				, REQUST_INSTT_ID /*  */
+				, REQUST_SYS_ID /*  */
+				, REQUST_TRNSMIT_TM /*  */
+				, REQUST_RECPTN_TM /*  */
+				, RSPNS_TRNSMIT_TM /*  */
+				, RSPNS_RECPTN_TM /*  */
+				, RESULT_CODE /*  */
+				, RESULT_MSSAGE /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, RQESTER_ID /*  */
+			FROM comtntrsmrcvlog
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtntrsmrcvlogDAO.selectComtntrsmrcvlogList_D" parameterClass="comtntrsmrcvlogSerarchVO" resultClass="egovMap">
+			SELECT
+								REQUST_ID /*  */
+								, OCCRRNC_DE /*  */
+								, TRSMRCV_SE_CODE /*  */
+								, CNTC_ID /*  */
+								, PROVD_INSTT_ID /*  */
+								, PROVD_SYS_ID /*  */
+								, PROVD_SVC_ID /*  */
+								, REQUST_INSTT_ID /*  */
+								, REQUST_SYS_ID /*  */
+								, REQUST_TRNSMIT_TM /*  */
+								, REQUST_RECPTN_TM /*  */
+								, RSPNS_TRNSMIT_TM /*  */
+								, RSPNS_RECPTN_TM /*  */
+								, RESULT_CODE /*  */
+								, RESULT_MSSAGE /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, RQESTER_ID /*  */
+					FROM comtntrsmrcvlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REQUST_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OCCRRNC_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							REQUST_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtntrsmrcvlogDAO.selectComtntrsmrcvlogListTotCnt_S" parameterClass="comtntrsmrcvlogSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtntrsmrcvlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REQUST_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OCCRRNC_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnrecentsrchwrdmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnrecentsrchwrdmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageDefaultVO"/>
+	
+	<resultMap id="comtnrecentsrchwrdmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageVO">
+		<result property="srchwrdManageId" column="SRCHWRD_MANAGE_ID" columnIndex="1"/> <!--  -->
+		<result property="srchwrdManageNm" column="SRCHWRD_MANAGE_NM" columnIndex="2"/> <!--  -->
+		<result property="srchwrdConectUrl" column="SRCHWRD_CONECT_URL" columnIndex="3"/> <!--  -->
+		<result property="userSearchAt" column="USER_SEARCH_AT" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnrecentsrchwrdmanageDAO.insertComtnrecentsrchwrdmanage_S">
+		<![CDATA[
+			INSERT INTO comtnrecentsrchwrdmanage 
+				( SRCHWRD_MANAGE_ID /*  */
+				  , SRCHWRD_MANAGE_NM /*  */
+				  , SRCHWRD_CONECT_URL /*  */
+				  , USER_SEARCH_AT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #srchwrdManageId# /*  */
+					  , #srchwrdManageNm# /*  */
+						  , #srchwrdConectUrl# /*  */
+						  , #userSearchAt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnrecentsrchwrdmanageDAO.updateComtnrecentsrchwrdmanage_S">
+		<![CDATA[
+			UPDATE comtnrecentsrchwrdmanage
+			SET SRCHWRD_MANAGE_ID=#srchwrdManageId# /*  */
+				, SRCHWRD_MANAGE_NM=#srchwrdManageNm# /*  */
+				, SRCHWRD_CONECT_URL=#srchwrdConectUrl# /*  */
+				, USER_SEARCH_AT=#userSearchAt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE SRCHWRD_MANAGE_ID=#srchwrdManageId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnrecentsrchwrdmanageDAO.deleteComtnrecentsrchwrdmanage_S">
+		<![CDATA[
+			DELETE FROM comtnrecentsrchwrdmanage 
+			WHERE SRCHWRD_MANAGE_ID=#srchwrdManageId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnrecentsrchwrdmanageDAO.selectComtnrecentsrchwrdmanage_S" resultMap="comtnrecentsrchwrdmanage">
+		<![CDATA[
+			SELECT
+				SRCHWRD_MANAGE_ID /*  */
+				, SRCHWRD_MANAGE_NM /*  */
+				, SRCHWRD_CONECT_URL /*  */
+				, USER_SEARCH_AT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnrecentsrchwrdmanage
+			WHERE SRCHWRD_MANAGE_ID=#srchwrdManageId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnrecentsrchwrdmanageDAO.selectComtnrecentsrchwrdmanageList_D" parameterClass="comtnrecentsrchwrdmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								SRCHWRD_MANAGE_ID /*  */
+								, SRCHWRD_MANAGE_NM /*  */
+								, SRCHWRD_CONECT_URL /*  */
+								, USER_SEARCH_AT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnrecentsrchwrdmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SRCHWRD_MANAGE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SRCHWRD_MANAGE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SRCHWRD_MANAGE_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnrecentsrchwrdmanageDAO.selectComtnrecentsrchwrdmanageListTotCnt_S" parameterClass="comtnrecentsrchwrdmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnrecentsrchwrdmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SRCHWRD_MANAGE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SRCHWRD_MANAGE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

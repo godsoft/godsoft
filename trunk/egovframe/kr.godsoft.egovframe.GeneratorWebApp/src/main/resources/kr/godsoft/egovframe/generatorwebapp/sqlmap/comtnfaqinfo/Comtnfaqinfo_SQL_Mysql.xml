@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnfaqinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnfaqinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoDefaultVO"/>
+	
+	<resultMap id="comtnfaqinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoVO">
+		<result property="faqId" column="FAQ_ID" columnIndex="1"/> <!--  -->
+		<result property="qestnSj" column="QESTN_SJ" columnIndex="2"/> <!--  -->
+		<result property="qestnCn" column="QESTN_CN" columnIndex="3"/> <!--  -->
+		<result property="answerCn" column="ANSWER_CN" columnIndex="4"/> <!--  -->
+		<result property="rdcnt" column="RDCNT" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="10"/> <!--  -->
+		<result property="qnaProcessSttusCode" column="QNA_PROCESS_STTUS_CODE" columnIndex="11"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnfaqinfoDAO.insertComtnfaqinfo_S">
+		<![CDATA[
+			INSERT INTO comtnfaqinfo 
+				( FAQ_ID /*  */
+				  , QESTN_SJ /*  */
+				  , QESTN_CN /*  */
+				  , ANSWER_CN /*  */
+				  , RDCNT /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , ATCH_FILE_ID /*  */
+				  , QNA_PROCESS_STTUS_CODE /*  */ )
+			VALUES ( #faqId# /*  */
+					  , #qestnSj# /*  */
+						  , #qestnCn# /*  */
+						  , #answerCn# /*  */
+						  , #rdcnt# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , #atchFileId# /*  */
+					  , #qnaProcessSttusCode# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnfaqinfoDAO.updateComtnfaqinfo_S">
+		<![CDATA[
+			UPDATE comtnfaqinfo
+			SET FAQ_ID=#faqId# /*  */
+				, QESTN_SJ=#qestnSj# /*  */
+				, QESTN_CN=#qestnCn# /*  */
+				, ANSWER_CN=#answerCn# /*  */
+				, RDCNT=#rdcnt# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, QNA_PROCESS_STTUS_CODE=#qnaProcessSttusCode# /*  */
+			WHERE FAQ_ID=#faqId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnfaqinfoDAO.deleteComtnfaqinfo_S">
+		<![CDATA[
+			DELETE FROM comtnfaqinfo 
+			WHERE FAQ_ID=#faqId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnfaqinfoDAO.selectComtnfaqinfo_S" resultMap="comtnfaqinfo">
+		<![CDATA[
+			SELECT
+				FAQ_ID /*  */
+				, QESTN_SJ /*  */
+				, QESTN_CN /*  */
+				, ANSWER_CN /*  */
+				, RDCNT /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, ATCH_FILE_ID /*  */
+				, QNA_PROCESS_STTUS_CODE /*  */
+			FROM comtnfaqinfo
+			WHERE FAQ_ID=#faqId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnfaqinfoDAO.selectComtnfaqinfoList_D" parameterClass="comtnfaqinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								FAQ_ID /*  */
+								, QESTN_SJ /*  */
+								, QESTN_CN /*  */
+								, ANSWER_CN /*  */
+								, RDCNT /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, ATCH_FILE_ID /*  */
+								, QNA_PROCESS_STTUS_CODE /*  */
+					FROM comtnfaqinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FAQ_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTN_SJ LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							FAQ_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnfaqinfoDAO.selectComtnfaqinfoListTotCnt_S" parameterClass="comtnfaqinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnfaqinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FAQ_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTN_SJ LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

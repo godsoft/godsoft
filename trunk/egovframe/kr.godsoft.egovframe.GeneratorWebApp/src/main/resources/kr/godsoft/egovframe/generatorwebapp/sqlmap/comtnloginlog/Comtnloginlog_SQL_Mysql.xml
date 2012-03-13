@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnloginlog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnloginlogSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogDefaultVO"/>
+	
+	<resultMap id="comtnloginlog" class="kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogVO">
+		<result property="logId" column="LOG_ID" columnIndex="1"/> <!--  -->
+		<result property="conectId" column="CONECT_ID" columnIndex="2"/> <!--  -->
+		<result property="conectIp" column="CONECT_IP" columnIndex="3"/> <!--  -->
+		<result property="conectMthd" column="CONECT_MTHD" columnIndex="4"/> <!--  -->
+		<result property="errorOccrrncAt" column="ERROR_OCCRRNC_AT" columnIndex="5"/> <!--  -->
+		<result property="errorCode" column="ERROR_CODE" columnIndex="6"/> <!--  -->
+		<result property="creatDt" column="CREAT_DT" columnIndex="7"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnloginlogDAO.insertComtnloginlog_S">
+		<![CDATA[
+			INSERT INTO comtnloginlog 
+				( LOG_ID /*  */
+				  , CONECT_ID /*  */
+				  , CONECT_IP /*  */
+				  , CONECT_MTHD /*  */
+				  , ERROR_OCCRRNC_AT /*  */
+				  , ERROR_CODE /*  */
+				  , CREAT_DT /*  */ )
+			VALUES ( #logId# /*  */
+					  , #conectId# /*  */
+						  , #conectIp# /*  */
+						  , #conectMthd# /*  */
+						  , #errorOccrrncAt# /*  */
+						  , #errorCode# /*  */
+					  , #creatDt# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnloginlogDAO.updateComtnloginlog_S">
+		<![CDATA[
+			UPDATE comtnloginlog
+			SET LOG_ID=#logId# /*  */
+				, CONECT_ID=#conectId# /*  */
+				, CONECT_IP=#conectIp# /*  */
+				, CONECT_MTHD=#conectMthd# /*  */
+				, ERROR_OCCRRNC_AT=#errorOccrrncAt# /*  */
+				, ERROR_CODE=#errorCode# /*  */
+				, CREAT_DT=#creatDt# /*  */
+			WHERE LOG_ID=#logId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnloginlogDAO.deleteComtnloginlog_S">
+		<![CDATA[
+			DELETE FROM comtnloginlog 
+			WHERE LOG_ID=#logId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnloginlogDAO.selectComtnloginlog_S" resultMap="comtnloginlog">
+		<![CDATA[
+			SELECT
+				LOG_ID /*  */
+				, CONECT_ID /*  */
+				, CONECT_IP /*  */
+				, CONECT_MTHD /*  */
+				, ERROR_OCCRRNC_AT /*  */
+				, ERROR_CODE /*  */
+				, CREAT_DT /*  */
+			FROM comtnloginlog
+			WHERE LOG_ID=#logId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnloginlogDAO.selectComtnloginlogList_D" parameterClass="comtnloginlogSerarchVO" resultClass="egovMap">
+			SELECT
+								LOG_ID /*  */
+								, CONECT_ID /*  */
+								, CONECT_IP /*  */
+								, CONECT_MTHD /*  */
+								, ERROR_OCCRRNC_AT /*  */
+								, ERROR_CODE /*  */
+								, CREAT_DT /*  */
+					FROM comtnloginlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				LOG_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CONECT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							LOG_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnloginlogDAO.selectComtnloginlogListTotCnt_S" parameterClass="comtnloginlogSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnloginlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				LOG_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CONECT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmemoreprt">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnmemoreprtSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtDefaultVO"/>
+	
+	<resultMap id="comtnmemoreprt" class="kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtVO">
+		<result property="reprtSj" column="REPRT_SJ" columnIndex="1"/> <!--  -->
+		<result property="reportDe" column="REPORT_DE" columnIndex="2"/> <!--  -->
+		<result property="wrterId" column="WRTER_ID" columnIndex="3"/> <!--  -->
+		<result property="reportrId" column="REPORTR_ID" columnIndex="4"/> <!--  -->
+		<result property="reportCn" column="REPORT_CN" columnIndex="5"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="6"/> <!--  -->
+		<result property="drctMatter" column="DRCT_MATTER" columnIndex="7"/> <!--  -->
+		<result property="drctMatterRegistDt" column="DRCT_MATTER_REGIST_DT" columnIndex="8"/> <!--  -->
+		<result property="reportrInqireDt" column="REPORTR_INQIRE_DT" columnIndex="9"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="reprtId" column="REPRT_ID" columnIndex="14"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnmemoreprtDAO.insertComtnmemoreprt_S">
+		<![CDATA[
+			INSERT INTO comtnmemoreprt 
+				( REPRT_SJ /*  */
+				  , REPORT_DE /*  */
+				  , WRTER_ID /*  */
+				  , REPORTR_ID /*  */
+				  , REPORT_CN /*  */
+				  , ATCH_FILE_ID /*  */
+				  , DRCT_MATTER /*  */
+				  , DRCT_MATTER_REGIST_DT /*  */
+				  , REPORTR_INQIRE_DT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , REPRT_ID /*  */ )
+			VALUES ( #reprtSj# /*  */
+					  , #reportDe# /*  */
+						  , #wrterId# /*  */
+						  , #reportrId# /*  */
+						  , #reportCn# /*  */
+						  , #atchFileId# /*  */
+						  , #drctMatter# /*  */
+						  , #drctMatterRegistDt# /*  */
+						  , #reportrInqireDt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #reprtId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnmemoreprtDAO.updateComtnmemoreprt_S">
+		<![CDATA[
+			UPDATE comtnmemoreprt
+			SET REPRT_SJ=#reprtSj# /*  */
+				, REPORT_DE=#reportDe# /*  */
+				, WRTER_ID=#wrterId# /*  */
+				, REPORTR_ID=#reportrId# /*  */
+				, REPORT_CN=#reportCn# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, DRCT_MATTER=#drctMatter# /*  */
+				, DRCT_MATTER_REGIST_DT=#drctMatterRegistDt# /*  */
+				, REPORTR_INQIRE_DT=#reportrInqireDt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, REPRT_ID=#reprtId# /*  */
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnmemoreprtDAO.deleteComtnmemoreprt_S">
+		<![CDATA[
+			DELETE FROM comtnmemoreprt 
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnmemoreprtDAO.selectComtnmemoreprt_S" resultMap="comtnmemoreprt">
+		<![CDATA[
+			SELECT
+				REPRT_SJ /*  */
+				, REPORT_DE /*  */
+				, WRTER_ID /*  */
+				, REPORTR_ID /*  */
+				, REPORT_CN /*  */
+				, ATCH_FILE_ID /*  */
+				, DRCT_MATTER /*  */
+				, DRCT_MATTER_REGIST_DT /*  */
+				, REPORTR_INQIRE_DT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, REPRT_ID /*  */
+			FROM comtnmemoreprt
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnmemoreprtDAO.selectComtnmemoreprtList_D" parameterClass="comtnmemoreprtSerarchVO" resultClass="egovMap">
+			SELECT
+								REPRT_SJ /*  */
+								, REPORT_DE /*  */
+								, WRTER_ID /*  */
+								, REPORTR_ID /*  */
+								, REPORT_CN /*  */
+								, ATCH_FILE_ID /*  */
+								, DRCT_MATTER /*  */
+								, DRCT_MATTER_REGIST_DT /*  */
+								, REPORTR_INQIRE_DT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, REPRT_ID /*  */
+					FROM comtnmemoreprt
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_SJ = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPORT_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							REPRT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnmemoreprtDAO.selectComtnmemoreprtListTotCnt_S" parameterClass="comtnmemoreprtSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnmemoreprt
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_SJ = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPORT_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

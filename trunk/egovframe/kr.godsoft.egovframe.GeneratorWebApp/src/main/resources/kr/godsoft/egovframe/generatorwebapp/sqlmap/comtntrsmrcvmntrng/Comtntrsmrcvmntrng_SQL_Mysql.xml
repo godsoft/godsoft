@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtntrsmrcvmntrng">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtntrsmrcvmntrngSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvmntrng.service.ComtntrsmrcvmntrngDefaultVO"/>
+	
+	<resultMap id="comtntrsmrcvmntrng" class="kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvmntrng.service.ComtntrsmrcvmntrngVO">
+		<result property="cntcId" column="CNTC_ID" columnIndex="1"/> <!--  -->
+		<result property="testClassNm" column="TEST_CLASS_NM" columnIndex="2"/> <!--  -->
+		<result property="mngrNm" column="MNGR_NM" columnIndex="3"/> <!--  -->
+		<result property="mngrEmailAdres" column="MNGR_EMAIL_ADRES" columnIndex="4"/> <!--  -->
+		<result property="mntrngSttus" column="MNTRNG_STTUS" columnIndex="5"/> <!--  -->
+		<result property="creatDt" column="CREAT_DT" columnIndex="6"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtntrsmrcvmntrngDAO.insertComtntrsmrcvmntrng_S">
+		<![CDATA[
+			INSERT INTO comtntrsmrcvmntrng 
+				( CNTC_ID /*  */
+				  , TEST_CLASS_NM /*  */
+				  , MNGR_NM /*  */
+				  , MNGR_EMAIL_ADRES /*  */
+				  , MNTRNG_STTUS /*  */
+				  , CREAT_DT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #cntcId# /*  */
+					  , #testClassNm# /*  */
+						  , #mngrNm# /*  */
+						  , #mngrEmailAdres# /*  */
+						  , #mntrngSttus# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtntrsmrcvmntrngDAO.updateComtntrsmrcvmntrng_S">
+		<![CDATA[
+			UPDATE comtntrsmrcvmntrng
+			SET CNTC_ID=#cntcId# /*  */
+				, TEST_CLASS_NM=#testClassNm# /*  */
+				, MNGR_NM=#mngrNm# /*  */
+				, MNGR_EMAIL_ADRES=#mngrEmailAdres# /*  */
+				, MNTRNG_STTUS=#mntrngSttus# /*  */
+				, CREAT_DT=#creatDt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE CNTC_ID=#cntcId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtntrsmrcvmntrngDAO.deleteComtntrsmrcvmntrng_S">
+		<![CDATA[
+			DELETE FROM comtntrsmrcvmntrng 
+			WHERE CNTC_ID=#cntcId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtntrsmrcvmntrngDAO.selectComtntrsmrcvmntrng_S" resultMap="comtntrsmrcvmntrng">
+		<![CDATA[
+			SELECT
+				CNTC_ID /*  */
+				, TEST_CLASS_NM /*  */
+				, MNGR_NM /*  */
+				, MNGR_EMAIL_ADRES /*  */
+				, MNTRNG_STTUS /*  */
+				, CREAT_DT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtntrsmrcvmntrng
+			WHERE CNTC_ID=#cntcId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtntrsmrcvmntrngDAO.selectComtntrsmrcvmntrngList_D" parameterClass="comtntrsmrcvmntrngSerarchVO" resultClass="egovMap">
+			SELECT
+								CNTC_ID /*  */
+								, TEST_CLASS_NM /*  */
+								, MNGR_NM /*  */
+								, MNGR_EMAIL_ADRES /*  */
+								, MNTRNG_STTUS /*  */
+								, CREAT_DT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtntrsmrcvmntrng
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTC_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TEST_CLASS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							CNTC_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtntrsmrcvmntrngDAO.selectComtntrsmrcvmntrngListTotCnt_S" parameterClass="comtntrsmrcvmntrngSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtntrsmrcvmntrng
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTC_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TEST_CLASS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

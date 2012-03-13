@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtntroblinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtntroblinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoDefaultVO"/>
+	
+	<resultMap id="comtntroblinfo" class="kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoVO">
+		<result property="troblId" column="TROBL_ID" columnIndex="1"/> <!--  -->
+		<result property="troblNm" column="TROBL_NM" columnIndex="2"/> <!--  -->
+		<result property="troblKnd" column="TROBL_KND" columnIndex="3"/> <!--  -->
+		<result property="troblDc" column="TROBL_DC" columnIndex="4"/> <!--  -->
+		<result property="troblOccrrncTime" column="TROBL_OCCRRNC_TIME" columnIndex="5"/> <!--  -->
+		<result property="troblRqesterNm" column="TROBL_RQESTER_NM" columnIndex="6"/> <!--  -->
+		<result property="troblRequstTime" column="TROBL_REQUST_TIME" columnIndex="7"/> <!--  -->
+		<result property="troblProcessResult" column="TROBL_PROCESS_RESULT" columnIndex="8"/> <!--  -->
+		<result property="troblOpetrNm" column="TROBL_OPETR_NM" columnIndex="9"/> <!--  -->
+		<result property="troblProcessTime" column="TROBL_PROCESS_TIME" columnIndex="10"/> <!--  -->
+		<result property="processSttus" column="PROCESS_STTUS" columnIndex="11"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="12"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="14"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="15"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtntroblinfoDAO.insertComtntroblinfo_S">
+		<![CDATA[
+			INSERT INTO comtntroblinfo 
+				( TROBL_ID /*  */
+				  , TROBL_NM /*  */
+				  , TROBL_KND /*  */
+				  , TROBL_DC /*  */
+				  , TROBL_OCCRRNC_TIME /*  */
+				  , TROBL_RQESTER_NM /*  */
+				  , TROBL_REQUST_TIME /*  */
+				  , TROBL_PROCESS_RESULT /*  */
+				  , TROBL_OPETR_NM /*  */
+				  , TROBL_PROCESS_TIME /*  */
+				  , PROCESS_STTUS /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #troblId# /*  */
+					  , #troblNm# /*  */
+						  , #troblKnd# /*  */
+						  , #troblDc# /*  */
+						  , #troblOccrrncTime# /*  */
+						  , #troblRqesterNm# /*  */
+						  , #troblRequstTime# /*  */
+						  , #troblProcessResult# /*  */
+						  , #troblOpetrNm# /*  */
+						  , #troblProcessTime# /*  */
+						  , #processSttus# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtntroblinfoDAO.updateComtntroblinfo_S">
+		<![CDATA[
+			UPDATE comtntroblinfo
+			SET TROBL_ID=#troblId# /*  */
+				, TROBL_NM=#troblNm# /*  */
+				, TROBL_KND=#troblKnd# /*  */
+				, TROBL_DC=#troblDc# /*  */
+				, TROBL_OCCRRNC_TIME=#troblOccrrncTime# /*  */
+				, TROBL_RQESTER_NM=#troblRqesterNm# /*  */
+				, TROBL_REQUST_TIME=#troblRequstTime# /*  */
+				, TROBL_PROCESS_RESULT=#troblProcessResult# /*  */
+				, TROBL_OPETR_NM=#troblOpetrNm# /*  */
+				, TROBL_PROCESS_TIME=#troblProcessTime# /*  */
+				, PROCESS_STTUS=#processSttus# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE TROBL_ID=#troblId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtntroblinfoDAO.deleteComtntroblinfo_S">
+		<![CDATA[
+			DELETE FROM comtntroblinfo 
+			WHERE TROBL_ID=#troblId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtntroblinfoDAO.selectComtntroblinfo_S" resultMap="comtntroblinfo">
+		<![CDATA[
+			SELECT
+				TROBL_ID /*  */
+				, TROBL_NM /*  */
+				, TROBL_KND /*  */
+				, TROBL_DC /*  */
+				, TROBL_OCCRRNC_TIME /*  */
+				, TROBL_RQESTER_NM /*  */
+				, TROBL_REQUST_TIME /*  */
+				, TROBL_PROCESS_RESULT /*  */
+				, TROBL_OPETR_NM /*  */
+				, TROBL_PROCESS_TIME /*  */
+				, PROCESS_STTUS /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtntroblinfo
+			WHERE TROBL_ID=#troblId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtntroblinfoDAO.selectComtntroblinfoList_D" parameterClass="comtntroblinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								TROBL_ID /*  */
+								, TROBL_NM /*  */
+								, TROBL_KND /*  */
+								, TROBL_DC /*  */
+								, TROBL_OCCRRNC_TIME /*  */
+								, TROBL_RQESTER_NM /*  */
+								, TROBL_REQUST_TIME /*  */
+								, TROBL_PROCESS_RESULT /*  */
+								, TROBL_OPETR_NM /*  */
+								, TROBL_PROCESS_TIME /*  */
+								, PROCESS_STTUS /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtntroblinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TROBL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TROBL_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							TROBL_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtntroblinfoDAO.selectComtntroblinfoListTotCnt_S" parameterClass="comtntroblinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtntroblinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TROBL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TROBL_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

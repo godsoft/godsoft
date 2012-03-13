@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnqustnrqesitm">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnqustnrqesitmSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmDefaultVO"/>
+	
+	<resultMap id="comtnqustnrqesitm" class="kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmVO">
+		<result property="qestnrId" column="QESTNR_ID" columnIndex="1"/> <!--  -->
+		<result property="qustnrQesitmId" column="QUSTNR_QESITM_ID" columnIndex="2"/> <!--  -->
+		<result property="qustnrTmplatId" column="QUSTNR_TMPLAT_ID" columnIndex="3"/> <!--  -->
+		<result property="qestnSn" column="QESTN_SN" columnIndex="4"/> <!--  -->
+		<result property="qestnTyCode" column="QESTN_TY_CODE" columnIndex="5"/> <!--  -->
+		<result property="qestnCn" column="QESTN_CN" columnIndex="6"/> <!--  -->
+		<result property="mxmmChoiseCo" column="MXMM_CHOISE_CO" columnIndex="7"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnqustnrqesitmDAO.insertComtnqustnrqesitm_S">
+		<![CDATA[
+			INSERT INTO comtnqustnrqesitm 
+				( QESTNR_ID /*  */
+				  , QUSTNR_QESITM_ID /*  */
+				  , QUSTNR_TMPLAT_ID /*  */
+				  , QESTN_SN /*  */
+				  , QESTN_TY_CODE /*  */
+				  , QESTN_CN /*  */
+				  , MXMM_CHOISE_CO /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #qestnrId# /*  */
+					  , #qustnrQesitmId# /*  */
+						  , #qustnrTmplatId# /*  */
+						  , #qestnSn# /*  */
+						  , #qestnTyCode# /*  */
+						  , #qestnCn# /*  */
+						  , #mxmmChoiseCo# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnqustnrqesitmDAO.updateComtnqustnrqesitm_S">
+		<![CDATA[
+			UPDATE comtnqustnrqesitm
+			SET QESTNR_ID=#qestnrId# /*  */
+				, QUSTNR_QESITM_ID=#qustnrQesitmId# /*  */
+				, QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+				, QESTN_SN=#qestnSn# /*  */
+				, QESTN_TY_CODE=#qestnTyCode# /*  */
+				, QESTN_CN=#qestnCn# /*  */
+				, MXMM_CHOISE_CO=#mxmmChoiseCo# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE QESTNR_ID=#qestnrId# /*  */
+				AND QUSTNR_QESITM_ID=#qustnrQesitmId# /*  */
+				AND QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnqustnrqesitmDAO.deleteComtnqustnrqesitm_S">
+		<![CDATA[
+			DELETE FROM comtnqustnrqesitm 
+			WHERE QESTNR_ID=#qestnrId# /*  */
+				AND QUSTNR_QESITM_ID=#qustnrQesitmId# /*  */
+				AND QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnqustnrqesitmDAO.selectComtnqustnrqesitm_S" resultMap="comtnqustnrqesitm">
+		<![CDATA[
+			SELECT
+				QESTNR_ID /*  */
+				, QUSTNR_QESITM_ID /*  */
+				, QUSTNR_TMPLAT_ID /*  */
+				, QESTN_SN /*  */
+				, QESTN_TY_CODE /*  */
+				, QESTN_CN /*  */
+				, MXMM_CHOISE_CO /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnqustnrqesitm
+			WHERE QESTNR_ID=#qestnrId# /*  */
+				AND QUSTNR_QESITM_ID=#qustnrQesitmId# /*  */
+				AND QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnqustnrqesitmDAO.selectComtnqustnrqesitmList_D" parameterClass="comtnqustnrqesitmSerarchVO" resultClass="egovMap">
+			SELECT
+								QESTNR_ID /*  */
+								, QUSTNR_QESITM_ID /*  */
+								, QUSTNR_TMPLAT_ID /*  */
+								, QESTN_SN /*  */
+								, QESTN_TY_CODE /*  */
+								, QESTN_CN /*  */
+								, MXMM_CHOISE_CO /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnqustnrqesitm
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QESTNR_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QUSTNR_QESITM_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							QESTNR_ID DESC /*  */
+							, QUSTNR_QESITM_ID DESC /*  */
+							, QUSTNR_TMPLAT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnqustnrqesitmDAO.selectComtnqustnrqesitmListTotCnt_S" parameterClass="comtnqustnrqesitmSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnqustnrqesitm
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QESTNR_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QUSTNR_QESITM_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

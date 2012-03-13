@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnservereqpmnrelate">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnservereqpmnrelateSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service.ComtnservereqpmnrelateDefaultVO"/>
+	
+	<resultMap id="comtnservereqpmnrelate" class="kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service.ComtnservereqpmnrelateVO">
+		<result property="serverEqpmnId" column="SERVER_EQPMN_ID" columnIndex="1"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="2"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="3"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="4"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="serverId" column="SERVER_ID" columnIndex="6"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnservereqpmnrelateDAO.insertComtnservereqpmnrelate_S">
+		<![CDATA[
+			INSERT INTO comtnservereqpmnrelate 
+				( SERVER_EQPMN_ID /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , SERVER_ID /*  */ )
+			VALUES ( #serverEqpmnId# /*  */
+					  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #serverId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnservereqpmnrelateDAO.updateComtnservereqpmnrelate_S">
+		<![CDATA[
+			UPDATE comtnservereqpmnrelate
+			SET SERVER_EQPMN_ID=#serverEqpmnId# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, SERVER_ID=#serverId# /*  */
+			WHERE SERVER_EQPMN_ID=#serverEqpmnId# /*  */
+				AND SERVER_ID=#serverId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnservereqpmnrelateDAO.deleteComtnservereqpmnrelate_S">
+		<![CDATA[
+			DELETE FROM comtnservereqpmnrelate 
+			WHERE SERVER_EQPMN_ID=#serverEqpmnId# /*  */
+				AND SERVER_ID=#serverId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnservereqpmnrelateDAO.selectComtnservereqpmnrelate_S" resultMap="comtnservereqpmnrelate">
+		<![CDATA[
+			SELECT
+				SERVER_EQPMN_ID /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, SERVER_ID /*  */
+			FROM comtnservereqpmnrelate
+			WHERE SERVER_EQPMN_ID=#serverEqpmnId# /*  */
+				AND SERVER_ID=#serverId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnservereqpmnrelateDAO.selectComtnservereqpmnrelateList_D" parameterClass="comtnservereqpmnrelateSerarchVO" resultClass="egovMap">
+			SELECT
+								SERVER_EQPMN_ID /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, SERVER_ID /*  */
+					FROM comtnservereqpmnrelate
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SERVER_EQPMN_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FRST_REGISTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SERVER_EQPMN_ID DESC /*  */
+							, SERVER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnservereqpmnrelateDAO.selectComtnservereqpmnrelateListTotCnt_S" parameterClass="comtnservereqpmnrelateSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnservereqpmnrelate
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SERVER_EQPMN_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FRST_REGISTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

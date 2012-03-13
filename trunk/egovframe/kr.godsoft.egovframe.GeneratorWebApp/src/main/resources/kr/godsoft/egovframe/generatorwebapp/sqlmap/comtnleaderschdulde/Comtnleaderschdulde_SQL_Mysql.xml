@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnleaderschdulde">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnleaderschduldeSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdulde.service.ComtnleaderschduldeDefaultVO"/>
+	
+	<resultMap id="comtnleaderschdulde" class="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdulde.service.ComtnleaderschduldeVO">
+		<result property="schdulId" column="SCHDUL_ID" columnIndex="1"/> <!--  -->
+		<result property="schdulDe" column="SCHDUL_DE" columnIndex="2"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnleaderschduldeDAO.insertComtnleaderschdulde_S">
+		<![CDATA[
+			INSERT INTO comtnleaderschdulde 
+				( SCHDUL_ID /*  */
+				  , SCHDUL_DE /*  */ )
+			VALUES ( #schdulId# /*  */
+				  , #schdulDe# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnleaderschduldeDAO.updateComtnleaderschdulde_S">
+		<![CDATA[
+			UPDATE comtnleaderschdulde
+			SET SCHDUL_ID=#schdulId# /*  */
+				, SCHDUL_DE=#schdulDe# /*  */
+			WHERE SCHDUL_ID=#schdulId# /*  */
+				AND SCHDUL_DE=#schdulDe# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnleaderschduldeDAO.deleteComtnleaderschdulde_S">
+		<![CDATA[
+			DELETE FROM comtnleaderschdulde 
+			WHERE SCHDUL_ID=#schdulId# /*  */
+				AND SCHDUL_DE=#schdulDe# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnleaderschduldeDAO.selectComtnleaderschdulde_S" resultMap="comtnleaderschdulde">
+		<![CDATA[
+			SELECT
+				SCHDUL_ID /*  */
+				, SCHDUL_DE /*  */
+			FROM comtnleaderschdulde
+			WHERE SCHDUL_ID=#schdulId# /*  */
+				AND SCHDUL_DE=#schdulDe# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnleaderschduldeDAO.selectComtnleaderschduldeList_D" parameterClass="comtnleaderschduldeSerarchVO" resultClass="egovMap">
+			SELECT
+								SCHDUL_ID /*  */
+								, SCHDUL_DE /*  */
+					FROM comtnleaderschdulde
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHDUL_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SCHDUL_ID DESC /*  */
+							, SCHDUL_DE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnleaderschduldeDAO.selectComtnleaderschduldeListTotCnt_S" parameterClass="comtnleaderschduldeSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnleaderschdulde
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHDUL_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ComtnrolesHierarchy">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnrolesHierarchySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO"/>
+	
+	<resultMap id="comtnrolesHierarchy" class="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO">
+		<result property="parntsRole" column="PARNTS_ROLE" columnIndex="1"/> <!--  -->
+		<result property="chldrnRole" column="CHLDRN_ROLE" columnIndex="2"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnrolesHierarchyDAO.insertComtnrolesHierarchy_S">
+		<![CDATA[
+			INSERT INTO comtnroles_hierarchy 
+				( PARNTS_ROLE /*  */
+				  , CHLDRN_ROLE /*  */ )
+			VALUES ( #parntsRole# /*  */
+				  , #chldrnRole# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnrolesHierarchyDAO.updateComtnrolesHierarchy_S">
+		<![CDATA[
+			UPDATE comtnroles_hierarchy
+			SET PARNTS_ROLE=#parntsRole# /*  */
+				, CHLDRN_ROLE=#chldrnRole# /*  */
+			WHERE PARNTS_ROLE=#parntsRole# /*  */
+				AND CHLDRN_ROLE=#chldrnRole# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnrolesHierarchyDAO.deleteComtnrolesHierarchy_S">
+		<![CDATA[
+			DELETE FROM comtnroles_hierarchy 
+			WHERE PARNTS_ROLE=#parntsRole# /*  */
+				AND CHLDRN_ROLE=#chldrnRole# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchy_S" resultMap="comtnrolesHierarchy">
+		<![CDATA[
+			SELECT
+				PARNTS_ROLE /*  */
+				, CHLDRN_ROLE /*  */
+			FROM comtnroles_hierarchy
+			WHERE PARNTS_ROLE=#parntsRole# /*  */
+				AND CHLDRN_ROLE=#chldrnRole# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyList_D" parameterClass="comtnrolesHierarchySerarchVO" resultClass="egovMap">
+			SELECT
+								PARNTS_ROLE /*  */
+								, CHLDRN_ROLE /*  */
+					FROM comtnroles_hierarchy
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PARNTS_ROLE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CHLDRN_ROLE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							PARNTS_ROLE DESC /*  */
+							, CHLDRN_ROLE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt_S" parameterClass="comtnrolesHierarchySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnroles_hierarchy
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PARNTS_ROLE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CHLDRN_ROLE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

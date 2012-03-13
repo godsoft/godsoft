@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnsynchrnserverinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnsynchrnserverinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoDefaultVO"/>
+	
+	<resultMap id="comtnsynchrnserverinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoVO">
+		<result property="serverId" column="SERVER_ID" columnIndex="1"/> <!--  -->
+		<result property="serverNm" column="SERVER_NM" columnIndex="2"/> <!--  -->
+		<result property="serverIp" column="SERVER_IP" columnIndex="3"/> <!--  -->
+		<result property="serverPort" column="SERVER_PORT" columnIndex="4"/> <!--  -->
+		<result property="ftpId" column="FTP_ID" columnIndex="5"/> <!--  -->
+		<result property="ftpPassword" column="FTP_PASSWORD" columnIndex="6"/> <!--  -->
+		<result property="synchrnLc" column="SYNCHRN_LC" columnIndex="7"/> <!--  -->
+		<result property="reflctAt" column="REFLCT_AT" columnIndex="8"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="12"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnsynchrnserverinfoDAO.insertComtnsynchrnserverinfo_S">
+		<![CDATA[
+			INSERT INTO comtnsynchrnserverinfo 
+				( SERVER_ID /*  */
+				  , SERVER_NM /*  */
+				  , SERVER_IP /*  */
+				  , SERVER_PORT /*  */
+				  , FTP_ID /*  */
+				  , FTP_PASSWORD /*  */
+				  , SYNCHRN_LC /*  */
+				  , REFLCT_AT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #serverId# /*  */
+					  , #serverNm# /*  */
+						  , #serverIp# /*  */
+						  , #serverPort# /*  */
+						  , #ftpId# /*  */
+						  , #ftpPassword# /*  */
+						  , #synchrnLc# /*  */
+						  , #reflctAt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnsynchrnserverinfoDAO.updateComtnsynchrnserverinfo_S">
+		<![CDATA[
+			UPDATE comtnsynchrnserverinfo
+			SET SERVER_ID=#serverId# /*  */
+				, SERVER_NM=#serverNm# /*  */
+				, SERVER_IP=#serverIp# /*  */
+				, SERVER_PORT=#serverPort# /*  */
+				, FTP_ID=#ftpId# /*  */
+				, FTP_PASSWORD=#ftpPassword# /*  */
+				, SYNCHRN_LC=#synchrnLc# /*  */
+				, REFLCT_AT=#reflctAt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE SERVER_ID=#serverId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnsynchrnserverinfoDAO.deleteComtnsynchrnserverinfo_S">
+		<![CDATA[
+			DELETE FROM comtnsynchrnserverinfo 
+			WHERE SERVER_ID=#serverId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfo_S" resultMap="comtnsynchrnserverinfo">
+		<![CDATA[
+			SELECT
+				SERVER_ID /*  */
+				, SERVER_NM /*  */
+				, SERVER_IP /*  */
+				, SERVER_PORT /*  */
+				, FTP_ID /*  */
+				, FTP_PASSWORD /*  */
+				, SYNCHRN_LC /*  */
+				, REFLCT_AT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnsynchrnserverinfo
+			WHERE SERVER_ID=#serverId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfoList_D" parameterClass="comtnsynchrnserverinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								SERVER_ID /*  */
+								, SERVER_NM /*  */
+								, SERVER_IP /*  */
+								, SERVER_PORT /*  */
+								, FTP_ID /*  */
+								, FTP_PASSWORD /*  */
+								, SYNCHRN_LC /*  */
+								, REFLCT_AT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnsynchrnserverinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SERVER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SERVER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SERVER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfoListTotCnt_S" parameterClass="comtnsynchrnserverinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnsynchrnserverinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SERVER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SERVER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

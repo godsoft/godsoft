@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnproxyloginfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnproxyloginfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoDefaultVO"/>
+	
+	<resultMap id="comtnproxyloginfo" class="kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoVO">
+		<result property="proxyId" column="PROXY_ID" columnIndex="1"/> <!--  -->
+		<result property="clntIp" column="CLNT_IP" columnIndex="2"/> <!--  -->
+		<result property="clntPort" column="CLNT_PORT" columnIndex="3"/> <!--  -->
+		<result property="conectTime" column="CONECT_TIME" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="logId" column="LOG_ID" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnproxyloginfoDAO.insertComtnproxyloginfo_S">
+		<![CDATA[
+			INSERT INTO comtnproxyloginfo 
+				( PROXY_ID /*  */
+				  , CLNT_IP /*  */
+				  , CLNT_PORT /*  */
+				  , CONECT_TIME /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LOG_ID /*  */ )
+			VALUES ( #proxyId# /*  */
+					  , #clntIp# /*  */
+						  , #clntPort# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #logId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnproxyloginfoDAO.updateComtnproxyloginfo_S">
+		<![CDATA[
+			UPDATE comtnproxyloginfo
+			SET PROXY_ID=#proxyId# /*  */
+				, CLNT_IP=#clntIp# /*  */
+				, CLNT_PORT=#clntPort# /*  */
+				, CONECT_TIME=#conectTime# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LOG_ID=#logId# /*  */
+			WHERE PROXY_ID=#proxyId# /*  */
+				AND LOG_ID=#logId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnproxyloginfoDAO.deleteComtnproxyloginfo_S">
+		<![CDATA[
+			DELETE FROM comtnproxyloginfo 
+			WHERE PROXY_ID=#proxyId# /*  */
+				AND LOG_ID=#logId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnproxyloginfoDAO.selectComtnproxyloginfo_S" resultMap="comtnproxyloginfo">
+		<![CDATA[
+			SELECT
+				PROXY_ID /*  */
+				, CLNT_IP /*  */
+				, CLNT_PORT /*  */
+				, CONECT_TIME /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LOG_ID /*  */
+			FROM comtnproxyloginfo
+			WHERE PROXY_ID=#proxyId# /*  */
+				AND LOG_ID=#logId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnproxyloginfoDAO.selectComtnproxyloginfoList_D" parameterClass="comtnproxyloginfoSerarchVO" resultClass="egovMap">
+			SELECT
+								PROXY_ID /*  */
+								, CLNT_IP /*  */
+								, CLNT_PORT /*  */
+								, CONECT_TIME /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LOG_ID /*  */
+					FROM comtnproxyloginfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROXY_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CLNT_IP LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							PROXY_ID DESC /*  */
+							, LOG_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnproxyloginfoDAO.selectComtnproxyloginfoListTotCnt_S" parameterClass="comtnproxyloginfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnproxyloginfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROXY_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CLNT_IP LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

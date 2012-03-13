@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmenuinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnmenuinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoDefaultVO"/>
+	
+	<resultMap id="comtnmenuinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO">
+		<result property="menuNm" column="MENU_NM" columnIndex="1"/> <!--  -->
+		<result property="progrmFileNm" column="PROGRM_FILE_NM" columnIndex="2"/> <!--  -->
+		<result property="menuNo" column="MENU_NO" columnIndex="3"/> <!--  -->
+		<result property="upperMenuNo" column="UPPER_MENU_NO" columnIndex="4"/> <!--  -->
+		<result property="menuOrdr" column="MENU_ORDR" columnIndex="5"/> <!--  -->
+		<result property="menuDc" column="MENU_DC" columnIndex="6"/> <!--  -->
+		<result property="relateImagePath" column="RELATE_IMAGE_PATH" columnIndex="7"/> <!--  -->
+		<result property="relateImageNm" column="RELATE_IMAGE_NM" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnmenuinfoDAO.insertComtnmenuinfo_S">
+		<![CDATA[
+			INSERT INTO comtnmenuinfo 
+				( MENU_NM /*  */
+				  , PROGRM_FILE_NM /*  */
+				  , MENU_NO /*  */
+				  , UPPER_MENU_NO /*  */
+				  , MENU_ORDR /*  */
+				  , MENU_DC /*  */
+				  , RELATE_IMAGE_PATH /*  */
+				  , RELATE_IMAGE_NM /*  */ )
+			VALUES ( #menuNm# /*  */
+					  , #progrmFileNm# /*  */
+						  , #menuNo# /*  */
+						  , #upperMenuNo# /*  */
+						  , #menuOrdr# /*  */
+						  , #menuDc# /*  */
+						  , #relateImagePath# /*  */
+					  , #relateImageNm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnmenuinfoDAO.updateComtnmenuinfo_S">
+		<![CDATA[
+			UPDATE comtnmenuinfo
+			SET MENU_NM=#menuNm# /*  */
+				, PROGRM_FILE_NM=#progrmFileNm# /*  */
+				, MENU_NO=#menuNo# /*  */
+				, UPPER_MENU_NO=#upperMenuNo# /*  */
+				, MENU_ORDR=#menuOrdr# /*  */
+				, MENU_DC=#menuDc# /*  */
+				, RELATE_IMAGE_PATH=#relateImagePath# /*  */
+				, RELATE_IMAGE_NM=#relateImageNm# /*  */
+			WHERE MENU_NO=#menuNo# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnmenuinfoDAO.deleteComtnmenuinfo_S">
+		<![CDATA[
+			DELETE FROM comtnmenuinfo 
+			WHERE MENU_NO=#menuNo# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnmenuinfoDAO.selectComtnmenuinfo_S" resultMap="comtnmenuinfo">
+		<![CDATA[
+			SELECT
+				MENU_NM /*  */
+				, PROGRM_FILE_NM /*  */
+				, MENU_NO /*  */
+				, UPPER_MENU_NO /*  */
+				, MENU_ORDR /*  */
+				, MENU_DC /*  */
+				, RELATE_IMAGE_PATH /*  */
+				, RELATE_IMAGE_NM /*  */
+			FROM comtnmenuinfo
+			WHERE MENU_NO=#menuNo# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnmenuinfoDAO.selectComtnmenuinfoList_D" parameterClass="comtnmenuinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								MENU_NM /*  */
+								, PROGRM_FILE_NM /*  */
+								, MENU_NO /*  */
+								, UPPER_MENU_NO /*  */
+								, MENU_ORDR /*  */
+								, MENU_DC /*  */
+								, RELATE_IMAGE_PATH /*  */
+								, RELATE_IMAGE_NM /*  */
+					FROM comtnmenuinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_NM = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROGRM_FILE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MENU_NO DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnmenuinfoDAO.selectComtnmenuinfoListTotCnt_S" parameterClass="comtnmenuinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnmenuinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_NM = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROGRM_FILE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnindvdlpgeestbs">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnindvdlpgeestbsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsDefaultVO"/>
+	
+	<resultMap id="comtnindvdlpgeestbs" class="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsVO">
+		<result property="emplyrId" column="EMPLYR_ID" columnIndex="1"/> <!--  -->
+		<result property="upendImage" column="UPEND_IMAGE" columnIndex="2"/> <!--  -->
+		<result property="titlebarColor" column="TITLEBAR_COLOR" columnIndex="3"/> <!--  -->
+		<result property="algnMthd" column="ALGN_MTHD" columnIndex="4"/> <!--  -->
+		<result property="algnCo" column="ALGN_CO" columnIndex="5"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnindvdlpgeestbsDAO.insertComtnindvdlpgeestbs_S">
+		<![CDATA[
+			INSERT INTO comtnindvdlpgeestbs 
+				( EMPLYR_ID /*  */
+				  , UPEND_IMAGE /*  */
+				  , TITLEBAR_COLOR /*  */
+				  , ALGN_MTHD /*  */
+				  , ALGN_CO /*  */ )
+			VALUES ( #emplyrId# /*  */
+					  , #upendImage# /*  */
+						  , #titlebarColor# /*  */
+						  , #algnMthd# /*  */
+					  , #algnCo# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnindvdlpgeestbsDAO.updateComtnindvdlpgeestbs_S">
+		<![CDATA[
+			UPDATE comtnindvdlpgeestbs
+			SET EMPLYR_ID=#emplyrId# /*  */
+				, UPEND_IMAGE=#upendImage# /*  */
+				, TITLEBAR_COLOR=#titlebarColor# /*  */
+				, ALGN_MTHD=#algnMthd# /*  */
+				, ALGN_CO=#algnCo# /*  */
+			WHERE EMPLYR_ID=#emplyrId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnindvdlpgeestbsDAO.deleteComtnindvdlpgeestbs_S">
+		<![CDATA[
+			DELETE FROM comtnindvdlpgeestbs 
+			WHERE EMPLYR_ID=#emplyrId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbs_S" resultMap="comtnindvdlpgeestbs">
+		<![CDATA[
+			SELECT
+				EMPLYR_ID /*  */
+				, UPEND_IMAGE /*  */
+				, TITLEBAR_COLOR /*  */
+				, ALGN_MTHD /*  */
+				, ALGN_CO /*  */
+			FROM comtnindvdlpgeestbs
+			WHERE EMPLYR_ID=#emplyrId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsList_D" parameterClass="comtnindvdlpgeestbsSerarchVO" resultClass="egovMap">
+			SELECT
+								EMPLYR_ID /*  */
+								, UPEND_IMAGE /*  */
+								, TITLEBAR_COLOR /*  */
+								, ALGN_MTHD /*  */
+								, ALGN_CO /*  */
+					FROM comtnindvdlpgeestbs
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EMPLYR_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				UPEND_IMAGE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							EMPLYR_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsListTotCnt_S" parameterClass="comtnindvdlpgeestbsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnindvdlpgeestbs
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EMPLYR_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				UPEND_IMAGE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

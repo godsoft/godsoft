@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comthemplyrinfochangedtls">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comthemplyrinfochangedtlsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsDefaultVO"/>
+	
+	<resultMap id="comthemplyrinfochangedtls" class="kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsVO">
+		<result property="emplyrId" column="EMPLYR_ID" columnIndex="1"/> <!--  -->
+		<result property="changeDe" column="CHANGE_DE" columnIndex="2"/> <!--  -->
+		<result property="orgnztId" column="ORGNZT_ID" columnIndex="3"/> <!--  -->
+		<result property="groupId" column="GROUP_ID" columnIndex="4"/> <!--  -->
+		<result property="emplNo" column="EMPL_NO" columnIndex="5"/> <!--  -->
+		<result property="sexdstnCode" column="SEXDSTN_CODE" columnIndex="6"/> <!--  -->
+		<result property="brthdy" column="BRTHDY" columnIndex="7"/> <!--  -->
+		<result property="fxnum" column="FXNUM" columnIndex="8"/> <!--  -->
+		<result property="houseAdres" column="HOUSE_ADRES" columnIndex="9"/> <!--  -->
+		<result property="houseEndTelno" column="HOUSE_END_TELNO" columnIndex="10"/> <!--  -->
+		<result property="areaNo" column="AREA_NO" columnIndex="11"/> <!--  -->
+		<result property="detailAdres" column="DETAIL_ADRES" columnIndex="12"/> <!--  -->
+		<result property="zip" column="ZIP" columnIndex="13"/> <!--  -->
+		<result property="offmTelno" column="OFFM_TELNO" columnIndex="14"/> <!--  -->
+		<result property="mbtlnum" column="MBTLNUM" columnIndex="15"/> <!--  -->
+		<result property="emailAdres" column="EMAIL_ADRES" columnIndex="16"/> <!--  -->
+		<result property="houseMiddleTelno" column="HOUSE_MIDDLE_TELNO" columnIndex="17"/> <!--  -->
+		<result property="pstinstCode" column="PSTINST_CODE" columnIndex="18"/> <!--  -->
+		<result property="emplyrSttusCode" column="EMPLYR_STTUS_CODE" columnIndex="19"/> <!--  -->
+		<result property="esntlId" column="ESNTL_ID" columnIndex="20"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comthemplyrinfochangedtlsDAO.insertComthemplyrinfochangedtls_S">
+		<![CDATA[
+			INSERT INTO comthemplyrinfochangedtls 
+				( EMPLYR_ID /*  */
+				  , CHANGE_DE /*  */
+				  , ORGNZT_ID /*  */
+				  , GROUP_ID /*  */
+				  , EMPL_NO /*  */
+				  , SEXDSTN_CODE /*  */
+				  , BRTHDY /*  */
+				  , FXNUM /*  */
+				  , HOUSE_ADRES /*  */
+				  , HOUSE_END_TELNO /*  */
+				  , AREA_NO /*  */
+				  , DETAIL_ADRES /*  */
+				  , ZIP /*  */
+				  , OFFM_TELNO /*  */
+				  , MBTLNUM /*  */
+				  , EMAIL_ADRES /*  */
+				  , HOUSE_MIDDLE_TELNO /*  */
+				  , PSTINST_CODE /*  */
+				  , EMPLYR_STTUS_CODE /*  */
+				  , ESNTL_ID /*  */ )
+			VALUES ( #emplyrId# /*  */
+					  , #changeDe# /*  */
+						  , #orgnztId# /*  */
+						  , #groupId# /*  */
+						  , #emplNo# /*  */
+						  , #sexdstnCode# /*  */
+						  , #brthdy# /*  */
+						  , #fxnum# /*  */
+						  , #houseAdres# /*  */
+						  , #houseEndTelno# /*  */
+						  , #areaNo# /*  */
+						  , #detailAdres# /*  */
+						  , #zip# /*  */
+						  , #offmTelno# /*  */
+						  , #mbtlnum# /*  */
+						  , #emailAdres# /*  */
+						  , #houseMiddleTelno# /*  */
+						  , #pstinstCode# /*  */
+						  , #emplyrSttusCode# /*  */
+					  , #esntlId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comthemplyrinfochangedtlsDAO.updateComthemplyrinfochangedtls_S">
+		<![CDATA[
+			UPDATE comthemplyrinfochangedtls
+			SET EMPLYR_ID=#emplyrId# /*  */
+				, CHANGE_DE=#changeDe# /*  */
+				, ORGNZT_ID=#orgnztId# /*  */
+				, GROUP_ID=#groupId# /*  */
+				, EMPL_NO=#emplNo# /*  */
+				, SEXDSTN_CODE=#sexdstnCode# /*  */
+				, BRTHDY=#brthdy# /*  */
+				, FXNUM=#fxnum# /*  */
+				, HOUSE_ADRES=#houseAdres# /*  */
+				, HOUSE_END_TELNO=#houseEndTelno# /*  */
+				, AREA_NO=#areaNo# /*  */
+				, DETAIL_ADRES=#detailAdres# /*  */
+				, ZIP=#zip# /*  */
+				, OFFM_TELNO=#offmTelno# /*  */
+				, MBTLNUM=#mbtlnum# /*  */
+				, EMAIL_ADRES=#emailAdres# /*  */
+				, HOUSE_MIDDLE_TELNO=#houseMiddleTelno# /*  */
+				, PSTINST_CODE=#pstinstCode# /*  */
+				, EMPLYR_STTUS_CODE=#emplyrSttusCode# /*  */
+				, ESNTL_ID=#esntlId# /*  */
+			WHERE EMPLYR_ID=#emplyrId# /*  */
+				AND CHANGE_DE=#changeDe# /*  */
+		]]>
+	</update>
+	
+	<delete id="comthemplyrinfochangedtlsDAO.deleteComthemplyrinfochangedtls_S">
+		<![CDATA[
+			DELETE FROM comthemplyrinfochangedtls 
+			WHERE EMPLYR_ID=#emplyrId# /*  */
+				AND CHANGE_DE=#changeDe# /*  */
+		]]>
+	</delete>
+	
+	<select id="comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtls_S" resultMap="comthemplyrinfochangedtls">
+		<![CDATA[
+			SELECT
+				EMPLYR_ID /*  */
+				, CHANGE_DE /*  */
+				, ORGNZT_ID /*  */
+				, GROUP_ID /*  */
+				, EMPL_NO /*  */
+				, SEXDSTN_CODE /*  */
+				, BRTHDY /*  */
+				, FXNUM /*  */
+				, HOUSE_ADRES /*  */
+				, HOUSE_END_TELNO /*  */
+				, AREA_NO /*  */
+				, DETAIL_ADRES /*  */
+				, ZIP /*  */
+				, OFFM_TELNO /*  */
+				, MBTLNUM /*  */
+				, EMAIL_ADRES /*  */
+				, HOUSE_MIDDLE_TELNO /*  */
+				, PSTINST_CODE /*  */
+				, EMPLYR_STTUS_CODE /*  */
+				, ESNTL_ID /*  */
+			FROM comthemplyrinfochangedtls
+			WHERE EMPLYR_ID=#emplyrId# /*  */
+				AND CHANGE_DE=#changeDe# /*  */
+		]]>
+	</select>
+	
+	<select id="comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtlsList_D" parameterClass="comthemplyrinfochangedtlsSerarchVO" resultClass="egovMap">
+			SELECT
+								EMPLYR_ID /*  */
+								, CHANGE_DE /*  */
+								, ORGNZT_ID /*  */
+								, GROUP_ID /*  */
+								, EMPL_NO /*  */
+								, SEXDSTN_CODE /*  */
+								, BRTHDY /*  */
+								, FXNUM /*  */
+								, HOUSE_ADRES /*  */
+								, HOUSE_END_TELNO /*  */
+								, AREA_NO /*  */
+								, DETAIL_ADRES /*  */
+								, ZIP /*  */
+								, OFFM_TELNO /*  */
+								, MBTLNUM /*  */
+								, EMAIL_ADRES /*  */
+								, HOUSE_MIDDLE_TELNO /*  */
+								, PSTINST_CODE /*  */
+								, EMPLYR_STTUS_CODE /*  */
+								, ESNTL_ID /*  */
+					FROM comthemplyrinfochangedtls
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EMPLYR_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CHANGE_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							EMPLYR_ID DESC /*  */
+							, CHANGE_DE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtlsListTotCnt_S" parameterClass="comthemplyrinfochangedtlsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comthemplyrinfochangedtls
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EMPLYR_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CHANGE_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnintnetsvc">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnintnetsvcSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.ComtnintnetsvcDefaultVO"/>
+	
+	<resultMap id="comtnintnetsvc" class="kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.ComtnintnetsvcVO">
+		<result property="intnetSvcId" column="INTNET_SVC_ID" columnIndex="1"/> <!--  -->
+		<result property="intnetSvcNm" column="INTNET_SVC_NM" columnIndex="2"/> <!--  -->
+		<result property="intnetSvcDc" column="INTNET_SVC_DC" columnIndex="3"/> <!--  -->
+		<result property="reflctAt" column="REFLCT_AT" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnintnetsvcDAO.insertComtnintnetsvc_S">
+		<![CDATA[
+			INSERT INTO comtnintnetsvc 
+				( INTNET_SVC_ID /*  */
+				  , INTNET_SVC_NM /*  */
+				  , INTNET_SVC_DC /*  */
+				  , REFLCT_AT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #intnetSvcId# /*  */
+					  , #intnetSvcNm# /*  */
+						  , #intnetSvcDc# /*  */
+						  , #reflctAt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnintnetsvcDAO.updateComtnintnetsvc_S">
+		<![CDATA[
+			UPDATE comtnintnetsvc
+			SET INTNET_SVC_ID=#intnetSvcId# /*  */
+				, INTNET_SVC_NM=#intnetSvcNm# /*  */
+				, INTNET_SVC_DC=#intnetSvcDc# /*  */
+				, REFLCT_AT=#reflctAt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE INTNET_SVC_ID=#intnetSvcId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnintnetsvcDAO.deleteComtnintnetsvc_S">
+		<![CDATA[
+			DELETE FROM comtnintnetsvc 
+			WHERE INTNET_SVC_ID=#intnetSvcId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnintnetsvcDAO.selectComtnintnetsvc_S" resultMap="comtnintnetsvc">
+		<![CDATA[
+			SELECT
+				INTNET_SVC_ID /*  */
+				, INTNET_SVC_NM /*  */
+				, INTNET_SVC_DC /*  */
+				, REFLCT_AT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnintnetsvc
+			WHERE INTNET_SVC_ID=#intnetSvcId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnintnetsvcDAO.selectComtnintnetsvcList_D" parameterClass="comtnintnetsvcSerarchVO" resultClass="egovMap">
+			SELECT
+								INTNET_SVC_ID /*  */
+								, INTNET_SVC_NM /*  */
+								, INTNET_SVC_DC /*  */
+								, REFLCT_AT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnintnetsvc
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INTNET_SVC_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				INTNET_SVC_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							INTNET_SVC_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnintnetsvcDAO.selectComtnintnetsvcListTotCnt_S" parameterClass="comtnintnetsvcSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnintnetsvc
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INTNET_SVC_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				INTNET_SVC_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

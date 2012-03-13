@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndamcalres">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtndamcalresSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresDefaultVO"/>
+	
+	<resultMap id="comtndamcalres" class="kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresVO">
+		<result property="orgnztId" column="ORGNZT_ID" columnIndex="1"/> <!--  -->
+		<result property="expertId" column="EXPERT_ID" columnIndex="2"/> <!--  -->
+		<result property="knwldgTyCode" column="KNWLDG_TY_CODE" columnIndex="3"/> <!--  -->
+		<result property="emplyrId" column="EMPLYR_ID" columnIndex="4"/> <!--  -->
+		<result property="knwldgNm" column="KNWLDG_NM" columnIndex="5"/> <!--  -->
+		<result property="knwldgCn" column="KNWLDG_CN" columnIndex="6"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="7"/> <!--  -->
+		<result property="parntsKnwldgId" column="PARNTS_KNWLDG_ID" columnIndex="8"/> <!--  -->
+		<result property="answerDp" column="ANSWER_DP" columnIndex="9"/> <!--  -->
+		<result property="answerOrdr" column="ANSWER_ORDR" columnIndex="10"/> <!--  -->
+		<result property="answerGroupNo" column="ANSWER_GROUP_NO" columnIndex="11"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="12"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="14"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="15"/> <!--  -->
+		<result property="knwldgId" column="KNWLDG_ID" columnIndex="16"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtndamcalresDAO.insertComtndamcalres_S">
+		<![CDATA[
+			INSERT INTO comtndamcalres 
+				( ORGNZT_ID /*  */
+				  , EXPERT_ID /*  */
+				  , KNWLDG_TY_CODE /*  */
+				  , EMPLYR_ID /*  */
+				  , KNWLDG_NM /*  */
+				  , KNWLDG_CN /*  */
+				  , ATCH_FILE_ID /*  */
+				  , PARNTS_KNWLDG_ID /*  */
+				  , ANSWER_DP /*  */
+				  , ANSWER_ORDR /*  */
+				  , ANSWER_GROUP_NO /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , KNWLDG_ID /*  */ )
+			VALUES ( #orgnztId# /*  */
+					  , #expertId# /*  */
+						  , #knwldgTyCode# /*  */
+						  , #emplyrId# /*  */
+						  , #knwldgNm# /*  */
+						  , #knwldgCn# /*  */
+						  , #atchFileId# /*  */
+						  , #parntsKnwldgId# /*  */
+						  , #answerDp# /*  */
+						  , #answerOrdr# /*  */
+						  , #answerGroupNo# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #knwldgId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtndamcalresDAO.updateComtndamcalres_S">
+		<![CDATA[
+			UPDATE comtndamcalres
+			SET ORGNZT_ID=#orgnztId# /*  */
+				, EXPERT_ID=#expertId# /*  */
+				, KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+				, EMPLYR_ID=#emplyrId# /*  */
+				, KNWLDG_NM=#knwldgNm# /*  */
+				, KNWLDG_CN=#knwldgCn# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, PARNTS_KNWLDG_ID=#parntsKnwldgId# /*  */
+				, ANSWER_DP=#answerDp# /*  */
+				, ANSWER_ORDR=#answerOrdr# /*  */
+				, ANSWER_GROUP_NO=#answerGroupNo# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, KNWLDG_ID=#knwldgId# /*  */
+			WHERE KNWLDG_ID=#knwldgId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtndamcalresDAO.deleteComtndamcalres_S">
+		<![CDATA[
+			DELETE FROM comtndamcalres 
+			WHERE KNWLDG_ID=#knwldgId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtndamcalresDAO.selectComtndamcalres_S" resultMap="comtndamcalres">
+		<![CDATA[
+			SELECT
+				ORGNZT_ID /*  */
+				, EXPERT_ID /*  */
+				, KNWLDG_TY_CODE /*  */
+				, EMPLYR_ID /*  */
+				, KNWLDG_NM /*  */
+				, KNWLDG_CN /*  */
+				, ATCH_FILE_ID /*  */
+				, PARNTS_KNWLDG_ID /*  */
+				, ANSWER_DP /*  */
+				, ANSWER_ORDR /*  */
+				, ANSWER_GROUP_NO /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, KNWLDG_ID /*  */
+			FROM comtndamcalres
+			WHERE KNWLDG_ID=#knwldgId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtndamcalresDAO.selectComtndamcalresList_D" parameterClass="comtndamcalresSerarchVO" resultClass="egovMap">
+			SELECT
+								ORGNZT_ID /*  */
+								, EXPERT_ID /*  */
+								, KNWLDG_TY_CODE /*  */
+								, EMPLYR_ID /*  */
+								, KNWLDG_NM /*  */
+								, KNWLDG_CN /*  */
+								, ATCH_FILE_ID /*  */
+								, PARNTS_KNWLDG_ID /*  */
+								, ANSWER_DP /*  */
+								, ANSWER_ORDR /*  */
+								, ANSWER_GROUP_NO /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, KNWLDG_ID /*  */
+					FROM comtndamcalres
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EXPERT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							KNWLDG_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtndamcalresDAO.selectComtndamcalresListTotCnt_S" parameterClass="comtndamcalresSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtndamcalres
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EXPERT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

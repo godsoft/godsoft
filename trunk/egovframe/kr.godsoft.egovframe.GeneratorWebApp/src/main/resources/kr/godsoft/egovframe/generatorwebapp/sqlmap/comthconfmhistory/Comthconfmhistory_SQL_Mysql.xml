@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comthconfmhistory">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comthconfmhistorySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryDefaultVO"/>
+	
+	<resultMap id="comthconfmhistory" class="kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryVO">
+		<result property="confmNo" column="CONFM_NO" columnIndex="1"/> <!--  -->
+		<result property="confmRqesterId" column="CONFM_RQESTER_ID" columnIndex="2"/> <!--  -->
+		<result property="confmerId" column="CONFMER_ID" columnIndex="3"/> <!--  -->
+		<result property="confmDe" column="CONFM_DE" columnIndex="4"/> <!--  -->
+		<result property="confmTyCode" column="CONFM_TY_CODE" columnIndex="5"/> <!--  -->
+		<result property="confmSttusCode" column="CONFM_STTUS_CODE" columnIndex="6"/> <!--  -->
+		<result property="opertTyCode" column="OPERT_TY_CODE" columnIndex="7"/> <!--  -->
+		<result property="opertId" column="OPERT_ID" columnIndex="8"/> <!--  -->
+		<result property="trgetJobTyCode" column="TRGET_JOB_TY_CODE" columnIndex="9"/> <!--  -->
+		<result property="trgetJobId" column="TRGET_JOB_ID" columnIndex="10"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comthconfmhistoryDAO.insertComthconfmhistory_S">
+		<![CDATA[
+			INSERT INTO comthconfmhistory 
+				( CONFM_NO /*  */
+				  , CONFM_RQESTER_ID /*  */
+				  , CONFMER_ID /*  */
+				  , CONFM_DE /*  */
+				  , CONFM_TY_CODE /*  */
+				  , CONFM_STTUS_CODE /*  */
+				  , OPERT_TY_CODE /*  */
+				  , OPERT_ID /*  */
+				  , TRGET_JOB_TY_CODE /*  */
+				  , TRGET_JOB_ID /*  */ )
+			VALUES ( #confmNo# /*  */
+					  , #confmRqesterId# /*  */
+						  , #confmerId# /*  */
+						  , #confmDe# /*  */
+						  , #confmTyCode# /*  */
+						  , #confmSttusCode# /*  */
+						  , #opertTyCode# /*  */
+						  , #opertId# /*  */
+						  , #trgetJobTyCode# /*  */
+					  , #trgetJobId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comthconfmhistoryDAO.updateComthconfmhistory_S">
+		<![CDATA[
+			UPDATE comthconfmhistory
+			SET CONFM_NO=#confmNo# /*  */
+				, CONFM_RQESTER_ID=#confmRqesterId# /*  */
+				, CONFMER_ID=#confmerId# /*  */
+				, CONFM_DE=#confmDe# /*  */
+				, CONFM_TY_CODE=#confmTyCode# /*  */
+				, CONFM_STTUS_CODE=#confmSttusCode# /*  */
+				, OPERT_TY_CODE=#opertTyCode# /*  */
+				, OPERT_ID=#opertId# /*  */
+				, TRGET_JOB_TY_CODE=#trgetJobTyCode# /*  */
+				, TRGET_JOB_ID=#trgetJobId# /*  */
+			WHERE CONFM_NO=#confmNo# /*  */
+		]]>
+	</update>
+	
+	<delete id="comthconfmhistoryDAO.deleteComthconfmhistory_S">
+		<![CDATA[
+			DELETE FROM comthconfmhistory 
+			WHERE CONFM_NO=#confmNo# /*  */
+		]]>
+	</delete>
+	
+	<select id="comthconfmhistoryDAO.selectComthconfmhistory_S" resultMap="comthconfmhistory">
+		<![CDATA[
+			SELECT
+				CONFM_NO /*  */
+				, CONFM_RQESTER_ID /*  */
+				, CONFMER_ID /*  */
+				, CONFM_DE /*  */
+				, CONFM_TY_CODE /*  */
+				, CONFM_STTUS_CODE /*  */
+				, OPERT_TY_CODE /*  */
+				, OPERT_ID /*  */
+				, TRGET_JOB_TY_CODE /*  */
+				, TRGET_JOB_ID /*  */
+			FROM comthconfmhistory
+			WHERE CONFM_NO=#confmNo# /*  */
+		]]>
+	</select>
+	
+	<select id="comthconfmhistoryDAO.selectComthconfmhistoryList_D" parameterClass="comthconfmhistorySerarchVO" resultClass="egovMap">
+			SELECT
+								CONFM_NO /*  */
+								, CONFM_RQESTER_ID /*  */
+								, CONFMER_ID /*  */
+								, CONFM_DE /*  */
+								, CONFM_TY_CODE /*  */
+								, CONFM_STTUS_CODE /*  */
+								, OPERT_TY_CODE /*  */
+								, OPERT_ID /*  */
+								, TRGET_JOB_TY_CODE /*  */
+								, TRGET_JOB_ID /*  */
+					FROM comthconfmhistory
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CONFM_NO = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CONFM_RQESTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							CONFM_NO DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt_S" parameterClass="comthconfmhistorySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comthconfmhistory
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CONFM_NO = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CONFM_RQESTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

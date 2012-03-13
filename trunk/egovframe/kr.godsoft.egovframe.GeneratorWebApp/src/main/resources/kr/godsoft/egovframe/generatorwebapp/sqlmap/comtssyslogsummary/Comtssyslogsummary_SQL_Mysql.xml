@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtssyslogsummary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtssyslogsummarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryDefaultVO"/>
+	
+	<resultMap id="comtssyslogsummary" class="kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryVO">
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
+		<result property="svcNm" column="SVC_NM" columnIndex="2"/> <!--  -->
+		<result property="methodNm" column="METHOD_NM" columnIndex="3"/> <!--  -->
+		<result property="creatCo" column="CREAT_CO" columnIndex="4"/> <!--  -->
+		<result property="updtCo" column="UPDT_CO" columnIndex="5"/> <!--  -->
+		<result property="rdcnt" column="RDCNT" columnIndex="6"/> <!--  -->
+		<result property="deleteCo" column="DELETE_CO" columnIndex="7"/> <!--  -->
+		<result property="outptCo" column="OUTPT_CO" columnIndex="8"/> <!--  -->
+		<result property="errorCo" column="ERROR_CO" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtssyslogsummaryDAO.insertComtssyslogsummary_S">
+		<![CDATA[
+			INSERT INTO comtssyslogsummary 
+				( OCCRRNC_DE /*  */
+				  , SVC_NM /*  */
+				  , METHOD_NM /*  */
+				  , CREAT_CO /*  */
+				  , UPDT_CO /*  */
+				  , RDCNT /*  */
+				  , DELETE_CO /*  */
+				  , OUTPT_CO /*  */
+				  , ERROR_CO /*  */ )
+			VALUES ( #occrrncDe# /*  */
+					  , #svcNm# /*  */
+						  , #methodNm# /*  */
+						  , #creatCo# /*  */
+						  , #updtCo# /*  */
+						  , #rdcnt# /*  */
+						  , #deleteCo# /*  */
+						  , #outptCo# /*  */
+					  , #errorCo# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtssyslogsummaryDAO.updateComtssyslogsummary_S">
+		<![CDATA[
+			UPDATE comtssyslogsummary
+			SET OCCRRNC_DE=#occrrncDe# /*  */
+				, SVC_NM=#svcNm# /*  */
+				, METHOD_NM=#methodNm# /*  */
+				, CREAT_CO=#creatCo# /*  */
+				, UPDT_CO=#updtCo# /*  */
+				, RDCNT=#rdcnt# /*  */
+				, DELETE_CO=#deleteCo# /*  */
+				, OUTPT_CO=#outptCo# /*  */
+				, ERROR_CO=#errorCo# /*  */
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND SVC_NM=#svcNm# /*  */
+				AND METHOD_NM=#methodNm# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtssyslogsummaryDAO.deleteComtssyslogsummary_S">
+		<![CDATA[
+			DELETE FROM comtssyslogsummary 
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND SVC_NM=#svcNm# /*  */
+				AND METHOD_NM=#methodNm# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtssyslogsummaryDAO.selectComtssyslogsummary_S" resultMap="comtssyslogsummary">
+		<![CDATA[
+			SELECT
+				OCCRRNC_DE /*  */
+				, SVC_NM /*  */
+				, METHOD_NM /*  */
+				, CREAT_CO /*  */
+				, UPDT_CO /*  */
+				, RDCNT /*  */
+				, DELETE_CO /*  */
+				, OUTPT_CO /*  */
+				, ERROR_CO /*  */
+			FROM comtssyslogsummary
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND SVC_NM=#svcNm# /*  */
+				AND METHOD_NM=#methodNm# /*  */
+		]]>
+	</select>
+	
+	<select id="comtssyslogsummaryDAO.selectComtssyslogsummaryList_D" parameterClass="comtssyslogsummarySerarchVO" resultClass="egovMap">
+			SELECT
+								OCCRRNC_DE /*  */
+								, SVC_NM /*  */
+								, METHOD_NM /*  */
+								, CREAT_CO /*  */
+								, UPDT_CO /*  */
+								, RDCNT /*  */
+								, DELETE_CO /*  */
+								, OUTPT_CO /*  */
+								, ERROR_CO /*  */
+					FROM comtssyslogsummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SVC_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							OCCRRNC_DE DESC /*  */
+							, SVC_NM DESC /*  */
+							, METHOD_NM DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtssyslogsummaryDAO.selectComtssyslogsummaryListTotCnt_S" parameterClass="comtssyslogsummarySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtssyslogsummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SVC_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

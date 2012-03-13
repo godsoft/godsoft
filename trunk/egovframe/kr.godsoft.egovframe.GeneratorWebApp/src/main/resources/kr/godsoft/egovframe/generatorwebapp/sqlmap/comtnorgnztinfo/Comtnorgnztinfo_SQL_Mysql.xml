@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnorgnztinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnorgnztinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoDefaultVO"/>
+	
+	<resultMap id="comtnorgnztinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO">
+		<result property="orgnztId" column="ORGNZT_ID" columnIndex="1"/> <!--  -->
+		<result property="orgnztNm" column="ORGNZT_NM" columnIndex="2"/> <!--  -->
+		<result property="orgnztDc" column="ORGNZT_DC" columnIndex="3"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnorgnztinfoDAO.insertComtnorgnztinfo_S">
+		<![CDATA[
+			INSERT INTO comtnorgnztinfo 
+				( ORGNZT_ID /*  */
+				  , ORGNZT_NM /*  */
+				  , ORGNZT_DC /*  */ )
+			VALUES ( #orgnztId# /*  */
+					  , #orgnztNm# /*  */
+					  , #orgnztDc# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnorgnztinfoDAO.updateComtnorgnztinfo_S">
+		<![CDATA[
+			UPDATE comtnorgnztinfo
+			SET ORGNZT_ID=#orgnztId# /*  */
+				, ORGNZT_NM=#orgnztNm# /*  */
+				, ORGNZT_DC=#orgnztDc# /*  */
+			WHERE ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnorgnztinfoDAO.deleteComtnorgnztinfo_S">
+		<![CDATA[
+			DELETE FROM comtnorgnztinfo 
+			WHERE ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfo_S" resultMap="comtnorgnztinfo">
+		<![CDATA[
+			SELECT
+				ORGNZT_ID /*  */
+				, ORGNZT_NM /*  */
+				, ORGNZT_DC /*  */
+			FROM comtnorgnztinfo
+			WHERE ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfoList_D" parameterClass="comtnorgnztinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								ORGNZT_ID /*  */
+								, ORGNZT_NM /*  */
+								, ORGNZT_DC /*  */
+					FROM comtnorgnztinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ORGNZT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ORGNZT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfoListTotCnt_S" parameterClass="comtnorgnztinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnorgnztinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ORGNZT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

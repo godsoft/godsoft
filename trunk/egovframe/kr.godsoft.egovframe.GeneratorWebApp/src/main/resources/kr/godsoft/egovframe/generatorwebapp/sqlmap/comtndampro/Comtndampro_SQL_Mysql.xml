@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndampro">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtndamproSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproDefaultVO"/>
+	
+	<resultMap id="comtndampro" class="kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproVO">
+		<result property="expertId" column="EXPERT_ID" columnIndex="1"/> <!--  -->
+		<result property="knwldgTyCode" column="KNWLDG_TY_CODE" columnIndex="2"/> <!--  -->
+		<result property="expertGrad" column="EXPERT_GRAD" columnIndex="3"/> <!--  -->
+		<result property="expertConfmDe" column="EXPERT_CONFM_DE" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="expertDc" column="EXPERT_DC" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtndamproDAO.insertComtndampro_S">
+		<![CDATA[
+			INSERT INTO comtndampro 
+				( EXPERT_ID /*  */
+				  , KNWLDG_TY_CODE /*  */
+				  , EXPERT_GRAD /*  */
+				  , EXPERT_CONFM_DE /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , EXPERT_DC /*  */ )
+			VALUES ( #expertId# /*  */
+					  , #knwldgTyCode# /*  */
+						  , #expertGrad# /*  */
+						  , #expertConfmDe# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #expertDc# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtndamproDAO.updateComtndampro_S">
+		<![CDATA[
+			UPDATE comtndampro
+			SET EXPERT_ID=#expertId# /*  */
+				, KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+				, EXPERT_GRAD=#expertGrad# /*  */
+				, EXPERT_CONFM_DE=#expertConfmDe# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, EXPERT_DC=#expertDc# /*  */
+			WHERE EXPERT_ID=#expertId# /*  */
+				AND KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+				AND EXPERT_GRAD=#expertGrad# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtndamproDAO.deleteComtndampro_S">
+		<![CDATA[
+			DELETE FROM comtndampro 
+			WHERE EXPERT_ID=#expertId# /*  */
+				AND KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+				AND EXPERT_GRAD=#expertGrad# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtndamproDAO.selectComtndampro_S" resultMap="comtndampro">
+		<![CDATA[
+			SELECT
+				EXPERT_ID /*  */
+				, KNWLDG_TY_CODE /*  */
+				, EXPERT_GRAD /*  */
+				, EXPERT_CONFM_DE /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, EXPERT_DC /*  */
+			FROM comtndampro
+			WHERE EXPERT_ID=#expertId# /*  */
+				AND KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+				AND EXPERT_GRAD=#expertGrad# /*  */
+		]]>
+	</select>
+	
+	<select id="comtndamproDAO.selectComtndamproList_D" parameterClass="comtndamproSerarchVO" resultClass="egovMap">
+			SELECT
+								EXPERT_ID /*  */
+								, KNWLDG_TY_CODE /*  */
+								, EXPERT_GRAD /*  */
+								, EXPERT_CONFM_DE /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, EXPERT_DC /*  */
+					FROM comtndampro
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EXPERT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				KNWLDG_TY_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							EXPERT_ID DESC /*  */
+							, KNWLDG_TY_CODE DESC /*  */
+							, EXPERT_GRAD DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtndamproDAO.selectComtndamproListTotCnt_S" parameterClass="comtndamproSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtndampro
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EXPERT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				KNWLDG_TY_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

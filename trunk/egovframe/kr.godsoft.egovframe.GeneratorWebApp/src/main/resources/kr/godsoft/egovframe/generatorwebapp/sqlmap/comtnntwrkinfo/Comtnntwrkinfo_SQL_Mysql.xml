@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnntwrkinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnntwrkinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service.ComtnntwrkinfoDefaultVO"/>
+	
+	<resultMap id="comtnntwrkinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service.ComtnntwrkinfoVO">
+		<result property="ntwrkId" column="NTWRK_ID" columnIndex="1"/> <!--  -->
+		<result property="ntwrkIp" column="NTWRK_IP" columnIndex="2"/> <!--  -->
+		<result property="gtwy" column="GTWY" columnIndex="3"/> <!--  -->
+		<result property="subnet" column="SUBNET" columnIndex="4"/> <!--  -->
+		<result property="domnNmServer" column="DOMN_NM_SERVER" columnIndex="5"/> <!--  -->
+		<result property="manageIem" column="MANAGE_IEM" columnIndex="6"/> <!--  -->
+		<result property="userNm" column="USER_NM" columnIndex="7"/> <!--  -->
+		<result property="useAt" column="USE_AT" columnIndex="8"/> <!--  -->
+		<result property="rgsde" column="RGSDE" columnIndex="9"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnntwrkinfoDAO.insertComtnntwrkinfo_S">
+		<![CDATA[
+			INSERT INTO comtnntwrkinfo 
+				( NTWRK_ID /*  */
+				  , NTWRK_IP /*  */
+				  , GTWY /*  */
+				  , SUBNET /*  */
+				  , DOMN_NM_SERVER /*  */
+				  , MANAGE_IEM /*  */
+				  , USER_NM /*  */
+				  , USE_AT /*  */
+				  , RGSDE /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #ntwrkId# /*  */
+					  , #ntwrkIp# /*  */
+						  , #gtwy# /*  */
+						  , #subnet# /*  */
+						  , #domnNmServer# /*  */
+						  , #manageIem# /*  */
+						  , #userNm# /*  */
+						  , #useAt# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnntwrkinfoDAO.updateComtnntwrkinfo_S">
+		<![CDATA[
+			UPDATE comtnntwrkinfo
+			SET NTWRK_ID=#ntwrkId# /*  */
+				, NTWRK_IP=#ntwrkIp# /*  */
+				, GTWY=#gtwy# /*  */
+				, SUBNET=#subnet# /*  */
+				, DOMN_NM_SERVER=#domnNmServer# /*  */
+				, MANAGE_IEM=#manageIem# /*  */
+				, USER_NM=#userNm# /*  */
+				, USE_AT=#useAt# /*  */
+				, RGSDE=#rgsde# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE NTWRK_ID=#ntwrkId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnntwrkinfoDAO.deleteComtnntwrkinfo_S">
+		<![CDATA[
+			DELETE FROM comtnntwrkinfo 
+			WHERE NTWRK_ID=#ntwrkId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnntwrkinfoDAO.selectComtnntwrkinfo_S" resultMap="comtnntwrkinfo">
+		<![CDATA[
+			SELECT
+				NTWRK_ID /*  */
+				, NTWRK_IP /*  */
+				, GTWY /*  */
+				, SUBNET /*  */
+				, DOMN_NM_SERVER /*  */
+				, MANAGE_IEM /*  */
+				, USER_NM /*  */
+				, USE_AT /*  */
+				, RGSDE /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnntwrkinfo
+			WHERE NTWRK_ID=#ntwrkId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnntwrkinfoDAO.selectComtnntwrkinfoList_D" parameterClass="comtnntwrkinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								NTWRK_ID /*  */
+								, NTWRK_IP /*  */
+								, GTWY /*  */
+								, SUBNET /*  */
+								, DOMN_NM_SERVER /*  */
+								, MANAGE_IEM /*  */
+								, USER_NM /*  */
+								, USE_AT /*  */
+								, RGSDE /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnntwrkinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NTWRK_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NTWRK_IP LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							NTWRK_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnntwrkinfoDAO.selectComtnntwrkinfoListTotCnt_S" parameterClass="comtnntwrkinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnntwrkinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NTWRK_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NTWRK_IP LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

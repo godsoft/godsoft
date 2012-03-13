@@ -1,0 +1,113 @@
+package kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
+import egovframework.rte.fdl.idgnr.EgovIdGnrService;
+import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordService;
+import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.impl.ComtnadministrationwordDAO;
+
+/**
+ * @Class Name : ComtnadministrationwordServiceImpl.java
+ * @Description : Comtnadministrationword Business Implement class
+ * @Modification Information
+ *
+ * @author 이백행
+ * @since 2012.03.13
+ * @version 1.0
+ * @see
+ *  
+ *  Copyright (C)  All right reserved.
+ */
+
+@Service("comtnadministrationwordService")
+public class ComtnadministrationwordServiceImpl extends AbstractServiceImpl implements
+        ComtnadministrationwordService {
+
+    @Resource(name="comtnadministrationwordDAO")
+    private ComtnadministrationwordDAO comtnadministrationwordDAO;
+    
+    /** ID Generation */
+    //@Resource(name="{egovComtnadministrationwordIdGnrService}")    
+    //private EgovIdGnrService egovIdGnrService;
+
+	/**
+	 * comtnadministrationword을 등록한다.
+	 * @param vo - 등록할 정보가 담긴 ComtnadministrationwordVO
+	 * @return 등록 결과
+	 * @exception Exception
+	 */
+    public String insertComtnadministrationword(ComtnadministrationwordVO vo) throws Exception {
+    	log.debug(vo.toString());
+    	
+    	/** ID Generation Service */
+    	//TODO 해당 테이블 속성에 따라 ID 제너레이션 서비스 사용
+    	//String id = egovIdGnrService.getNextStringId();
+    	//vo.setId(id);
+    	log.debug(vo.toString());
+    	
+    	comtnadministrationwordDAO.insertComtnadministrationword(vo);
+    	//TODO 해당 테이블 정보에 맞게 수정    	
+        return null;
+    }
+
+    /**
+	 * comtnadministrationword을 수정한다.
+	 * @param vo - 수정할 정보가 담긴 ComtnadministrationwordVO
+	 * @return void형
+	 * @exception Exception
+	 */
+    public void updateComtnadministrationword(ComtnadministrationwordVO vo) throws Exception {
+        comtnadministrationwordDAO.updateComtnadministrationword(vo);
+    }
+
+    /**
+	 * comtnadministrationword을 삭제한다.
+	 * @param vo - 삭제할 정보가 담긴 ComtnadministrationwordVO
+	 * @return void형 
+	 * @exception Exception
+	 */
+    public void deleteComtnadministrationword(ComtnadministrationwordVO vo) throws Exception {
+        comtnadministrationwordDAO.deleteComtnadministrationword(vo);
+    }
+
+    /**
+	 * comtnadministrationword을 조회한다.
+	 * @param vo - 조회할 정보가 담긴 ComtnadministrationwordVO
+	 * @return 조회한 comtnadministrationword
+	 * @exception Exception
+	 */
+    public ComtnadministrationwordVO selectComtnadministrationword(ComtnadministrationwordVO vo) throws Exception {
+        ComtnadministrationwordVO resultVO = comtnadministrationwordDAO.selectComtnadministrationword(vo);
+        if (resultVO == null)
+            throw processException("info.nodata.msg");
+        return resultVO;
+    }
+
+    /**
+	 * comtnadministrationword 목록을 조회한다.
+	 * @param searchVO - 조회할 정보가 담긴 VO
+	 * @return comtnadministrationword 목록
+	 * @exception Exception
+	 */
+    public List selectComtnadministrationwordList(ComtnadministrationwordDefaultVO searchVO) throws Exception {
+        return comtnadministrationwordDAO.selectComtnadministrationwordList(searchVO);
+    }
+
+    /**
+	 * comtnadministrationword 총 갯수를 조회한다.
+	 * @param searchVO - 조회할 정보가 담긴 VO
+	 * @return comtnadministrationword 총 갯수
+	 * @exception
+	 */
+    public int selectComtnadministrationwordListTotCnt(ComtnadministrationwordDefaultVO searchVO) {
+		return comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt(searchVO);
+	}
+    
+}

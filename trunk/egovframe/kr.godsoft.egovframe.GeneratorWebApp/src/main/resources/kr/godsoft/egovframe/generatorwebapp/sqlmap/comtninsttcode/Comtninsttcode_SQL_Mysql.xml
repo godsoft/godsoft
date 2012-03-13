@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtninsttcode">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtninsttcodeSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtninsttcode.service.ComtninsttcodeDefaultVO"/>
+	
+	<resultMap id="comtninsttcode" class="kr.godsoft.egovframe.generatorwebapp.comtninsttcode.service.ComtninsttcodeVO">
+		<result property="insttCode" column="INSTT_CODE" columnIndex="1"/> <!--  -->
+		<result property="allInsttNm" column="ALL_INSTT_NM" columnIndex="2"/> <!--  -->
+		<result property="lowestInsttNm" column="LOWEST_INSTT_NM" columnIndex="3"/> <!--  -->
+		<result property="insttAbrvNm" column="INSTT_ABRV_NM" columnIndex="4"/> <!--  -->
+		<result property="odr" column="ODR" columnIndex="5"/> <!--  -->
+		<result property="ord" column="ORD" columnIndex="6"/> <!--  -->
+		<result property="insttOdr" column="INSTT_ODR" columnIndex="7"/> <!--  -->
+		<result property="upperInsttCode" column="UPPER_INSTT_CODE" columnIndex="8"/> <!--  -->
+		<result property="bestInsttCode" column="BEST_INSTT_CODE" columnIndex="9"/> <!--  -->
+		<result property="reprsntInsttCode" column="REPRSNT_INSTT_CODE" columnIndex="10"/> <!--  -->
+		<result property="insttTyLclas" column="INSTT_TY_LCLAS" columnIndex="11"/> <!--  -->
+		<result property="insttTyMlsfc" column="INSTT_TY_MLSFC" columnIndex="12"/> <!--  -->
+		<result property="insttTySclas" column="INSTT_TY_SCLAS" columnIndex="13"/> <!--  -->
+		<result property="telno" column="TELNO" columnIndex="14"/> <!--  -->
+		<result property="fxnum" column="FXNUM" columnIndex="15"/> <!--  -->
+		<result property="creatDe" column="CREAT_DE" columnIndex="16"/> <!--  -->
+		<result property="ablDe" column="ABL_DE" columnIndex="17"/> <!--  -->
+		<result property="ablEnnc" column="ABL_ENNC" columnIndex="18"/> <!--  -->
+		<result property="changeDe" column="CHANGE_DE" columnIndex="19"/> <!--  -->
+		<result property="changeTime" column="CHANGE_TIME" columnIndex="20"/> <!--  -->
+		<result property="bsisDe" column="BSIS_DE" columnIndex="21"/> <!--  -->
+		<result property="sortOrdr" column="SORT_ORDR" columnIndex="22"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="23"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="24"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="25"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="26"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtninsttcodeDAO.insertComtninsttcode_S">
+		<![CDATA[
+			INSERT INTO comtninsttcode 
+				( INSTT_CODE /*  */
+				  , ALL_INSTT_NM /*  */
+				  , LOWEST_INSTT_NM /*  */
+				  , INSTT_ABRV_NM /*  */
+				  , ODR /*  */
+				  , ORD /*  */
+				  , INSTT_ODR /*  */
+				  , UPPER_INSTT_CODE /*  */
+				  , BEST_INSTT_CODE /*  */
+				  , REPRSNT_INSTT_CODE /*  */
+				  , INSTT_TY_LCLAS /*  */
+				  , INSTT_TY_MLSFC /*  */
+				  , INSTT_TY_SCLAS /*  */
+				  , TELNO /*  */
+				  , FXNUM /*  */
+				  , CREAT_DE /*  */
+				  , ABL_DE /*  */
+				  , ABL_ENNC /*  */
+				  , CHANGE_DE /*  */
+				  , CHANGE_TIME /*  */
+				  , BSIS_DE /*  */
+				  , SORT_ORDR /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #insttCode# /*  */
+					  , #allInsttNm# /*  */
+						  , #lowestInsttNm# /*  */
+						  , #insttAbrvNm# /*  */
+						  , #odr# /*  */
+						  , #ord# /*  */
+						  , #insttOdr# /*  */
+						  , #upperInsttCode# /*  */
+						  , #bestInsttCode# /*  */
+						  , #reprsntInsttCode# /*  */
+						  , #insttTyLclas# /*  */
+						  , #insttTyMlsfc# /*  */
+						  , #insttTySclas# /*  */
+						  , #telno# /*  */
+						  , #fxnum# /*  */
+						  , #creatDe# /*  */
+						  , #ablDe# /*  */
+						  , #ablEnnc# /*  */
+						  , #changeDe# /*  */
+						  , #changeTime# /*  */
+						  , #bsisDe# /*  */
+						  , #sortOrdr# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtninsttcodeDAO.updateComtninsttcode_S">
+		<![CDATA[
+			UPDATE comtninsttcode
+			SET INSTT_CODE=#insttCode# /*  */
+				, ALL_INSTT_NM=#allInsttNm# /*  */
+				, LOWEST_INSTT_NM=#lowestInsttNm# /*  */
+				, INSTT_ABRV_NM=#insttAbrvNm# /*  */
+				, ODR=#odr# /*  */
+				, ORD=#ord# /*  */
+				, INSTT_ODR=#insttOdr# /*  */
+				, UPPER_INSTT_CODE=#upperInsttCode# /*  */
+				, BEST_INSTT_CODE=#bestInsttCode# /*  */
+				, REPRSNT_INSTT_CODE=#reprsntInsttCode# /*  */
+				, INSTT_TY_LCLAS=#insttTyLclas# /*  */
+				, INSTT_TY_MLSFC=#insttTyMlsfc# /*  */
+				, INSTT_TY_SCLAS=#insttTySclas# /*  */
+				, TELNO=#telno# /*  */
+				, FXNUM=#fxnum# /*  */
+				, CREAT_DE=#creatDe# /*  */
+				, ABL_DE=#ablDe# /*  */
+				, ABL_ENNC=#ablEnnc# /*  */
+				, CHANGE_DE=#changeDe# /*  */
+				, CHANGE_TIME=#changeTime# /*  */
+				, BSIS_DE=#bsisDe# /*  */
+				, SORT_ORDR=#sortOrdr# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE INSTT_CODE=#insttCode# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtninsttcodeDAO.deleteComtninsttcode_S">
+		<![CDATA[
+			DELETE FROM comtninsttcode 
+			WHERE INSTT_CODE=#insttCode# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtninsttcodeDAO.selectComtninsttcode_S" resultMap="comtninsttcode">
+		<![CDATA[
+			SELECT
+				INSTT_CODE /*  */
+				, ALL_INSTT_NM /*  */
+				, LOWEST_INSTT_NM /*  */
+				, INSTT_ABRV_NM /*  */
+				, ODR /*  */
+				, ORD /*  */
+				, INSTT_ODR /*  */
+				, UPPER_INSTT_CODE /*  */
+				, BEST_INSTT_CODE /*  */
+				, REPRSNT_INSTT_CODE /*  */
+				, INSTT_TY_LCLAS /*  */
+				, INSTT_TY_MLSFC /*  */
+				, INSTT_TY_SCLAS /*  */
+				, TELNO /*  */
+				, FXNUM /*  */
+				, CREAT_DE /*  */
+				, ABL_DE /*  */
+				, ABL_ENNC /*  */
+				, CHANGE_DE /*  */
+				, CHANGE_TIME /*  */
+				, BSIS_DE /*  */
+				, SORT_ORDR /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtninsttcode
+			WHERE INSTT_CODE=#insttCode# /*  */
+		]]>
+	</select>
+	
+	<select id="comtninsttcodeDAO.selectComtninsttcodeList_D" parameterClass="comtninsttcodeSerarchVO" resultClass="egovMap">
+			SELECT
+								INSTT_CODE /*  */
+								, ALL_INSTT_NM /*  */
+								, LOWEST_INSTT_NM /*  */
+								, INSTT_ABRV_NM /*  */
+								, ODR /*  */
+								, ORD /*  */
+								, INSTT_ODR /*  */
+								, UPPER_INSTT_CODE /*  */
+								, BEST_INSTT_CODE /*  */
+								, REPRSNT_INSTT_CODE /*  */
+								, INSTT_TY_LCLAS /*  */
+								, INSTT_TY_MLSFC /*  */
+								, INSTT_TY_SCLAS /*  */
+								, TELNO /*  */
+								, FXNUM /*  */
+								, CREAT_DE /*  */
+								, ABL_DE /*  */
+								, ABL_ENNC /*  */
+								, CHANGE_DE /*  */
+								, CHANGE_TIME /*  */
+								, BSIS_DE /*  */
+								, SORT_ORDR /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtninsttcode
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INSTT_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ALL_INSTT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							INSTT_CODE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtninsttcodeDAO.selectComtninsttcodeListTotCnt_S" parameterClass="comtninsttcodeSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtninsttcode
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INSTT_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ALL_INSTT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

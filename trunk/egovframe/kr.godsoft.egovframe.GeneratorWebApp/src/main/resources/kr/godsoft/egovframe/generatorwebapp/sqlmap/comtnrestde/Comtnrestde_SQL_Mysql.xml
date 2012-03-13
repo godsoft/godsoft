@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnrestde">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnrestdeSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeDefaultVO"/>
+	
+	<resultMap id="comtnrestde" class="kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeVO">
+		<result property="restdeNo" column="RESTDE_NO" columnIndex="1"/> <!--  -->
+		<result property="restde" column="RESTDE" columnIndex="2"/> <!--  -->
+		<result property="restdeNm" column="RESTDE_NM" columnIndex="3"/> <!--  -->
+		<result property="restdeDc" column="RESTDE_DC" columnIndex="4"/> <!--  -->
+		<result property="restdeSeCode" column="RESTDE_SE_CODE" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnrestdeDAO.insertComtnrestde_S">
+		<![CDATA[
+			INSERT INTO comtnrestde 
+				( RESTDE_NO /*  */
+				  , RESTDE /*  */
+				  , RESTDE_NM /*  */
+				  , RESTDE_DC /*  */
+				  , RESTDE_SE_CODE /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #restdeNo# /*  */
+					  , #restde# /*  */
+						  , #restdeNm# /*  */
+						  , #restdeDc# /*  */
+						  , #restdeSeCode# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnrestdeDAO.updateComtnrestde_S">
+		<![CDATA[
+			UPDATE comtnrestde
+			SET RESTDE_NO=#restdeNo# /*  */
+				, RESTDE=#restde# /*  */
+				, RESTDE_NM=#restdeNm# /*  */
+				, RESTDE_DC=#restdeDc# /*  */
+				, RESTDE_SE_CODE=#restdeSeCode# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE RESTDE_NO=#restdeNo# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnrestdeDAO.deleteComtnrestde_S">
+		<![CDATA[
+			DELETE FROM comtnrestde 
+			WHERE RESTDE_NO=#restdeNo# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnrestdeDAO.selectComtnrestde_S" resultMap="comtnrestde">
+		<![CDATA[
+			SELECT
+				RESTDE_NO /*  */
+				, RESTDE /*  */
+				, RESTDE_NM /*  */
+				, RESTDE_DC /*  */
+				, RESTDE_SE_CODE /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnrestde
+			WHERE RESTDE_NO=#restdeNo# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnrestdeDAO.selectComtnrestdeList_D" parameterClass="comtnrestdeSerarchVO" resultClass="egovMap">
+			SELECT
+								RESTDE_NO /*  */
+								, RESTDE /*  */
+								, RESTDE_NM /*  */
+								, RESTDE_DC /*  */
+								, RESTDE_SE_CODE /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnrestde
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RESTDE_NO = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RESTDE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							RESTDE_NO DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnrestdeDAO.selectComtnrestdeListTotCnt_S" parameterClass="comtnrestdeSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnrestde
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RESTDE_NO = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RESTDE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

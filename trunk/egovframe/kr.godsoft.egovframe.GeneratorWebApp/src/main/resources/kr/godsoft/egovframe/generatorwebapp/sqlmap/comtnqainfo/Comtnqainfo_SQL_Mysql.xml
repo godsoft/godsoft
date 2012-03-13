@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnqainfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnqainfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service.ComtnqainfoDefaultVO"/>
+	
+	<resultMap id="comtnqainfo" class="kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service.ComtnqainfoVO">
+		<result property="qaId" column="QA_ID" columnIndex="1"/> <!--  -->
+		<result property="qestnSj" column="QESTN_SJ" columnIndex="2"/> <!--  -->
+		<result property="qestnCn" column="QESTN_CN" columnIndex="3"/> <!--  -->
+		<result property="writngDe" column="WRITNG_DE" columnIndex="4"/> <!--  -->
+		<result property="rdcnt" column="RDCNT" columnIndex="5"/> <!--  -->
+		<result property="emailAdres" column="EMAIL_ADRES" columnIndex="6"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="8"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="9"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
+		<result property="qnaProcessSttusCode" column="QNA_PROCESS_STTUS_CODE" columnIndex="11"/> <!--  -->
+		<result property="wrterNm" column="WRTER_NM" columnIndex="12"/> <!--  -->
+		<result property="answerCn" column="ANSWER_CN" columnIndex="13"/> <!--  -->
+		<result property="writngPassword" column="WRITNG_PASSWORD" columnIndex="14"/> <!--  -->
+		<result property="answerDe" column="ANSWER_DE" columnIndex="15"/> <!--  -->
+		<result property="emailAnswerAt" column="EMAIL_ANSWER_AT" columnIndex="16"/> <!--  -->
+		<result property="areaNo" column="AREA_NO" columnIndex="17"/> <!--  -->
+		<result property="middleTelno" column="MIDDLE_TELNO" columnIndex="18"/> <!--  -->
+		<result property="endTelno" column="END_TELNO" columnIndex="19"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnqainfoDAO.insertComtnqainfo_S">
+		<![CDATA[
+			INSERT INTO comtnqainfo 
+				( QA_ID /*  */
+				  , QESTN_SJ /*  */
+				  , QESTN_CN /*  */
+				  , WRITNG_DE /*  */
+				  , RDCNT /*  */
+				  , EMAIL_ADRES /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , QNA_PROCESS_STTUS_CODE /*  */
+				  , WRTER_NM /*  */
+				  , ANSWER_CN /*  */
+				  , WRITNG_PASSWORD /*  */
+				  , ANSWER_DE /*  */
+				  , EMAIL_ANSWER_AT /*  */
+				  , AREA_NO /*  */
+				  , MIDDLE_TELNO /*  */
+				  , END_TELNO /*  */ )
+			VALUES ( #qaId# /*  */
+					  , #qestnSj# /*  */
+						  , #qestnCn# /*  */
+						  , #writngDe# /*  */
+						  , #rdcnt# /*  */
+						  , #emailAdres# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , #qnaProcessSttusCode# /*  */
+						  , #wrterNm# /*  */
+						  , #answerCn# /*  */
+						  , #writngPassword# /*  */
+						  , #answerDe# /*  */
+						  , #emailAnswerAt# /*  */
+						  , #areaNo# /*  */
+						  , #middleTelno# /*  */
+					  , #endTelno# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnqainfoDAO.updateComtnqainfo_S">
+		<![CDATA[
+			UPDATE comtnqainfo
+			SET QA_ID=#qaId# /*  */
+				, QESTN_SJ=#qestnSj# /*  */
+				, QESTN_CN=#qestnCn# /*  */
+				, WRITNG_DE=#writngDe# /*  */
+				, RDCNT=#rdcnt# /*  */
+				, EMAIL_ADRES=#emailAdres# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, QNA_PROCESS_STTUS_CODE=#qnaProcessSttusCode# /*  */
+				, WRTER_NM=#wrterNm# /*  */
+				, ANSWER_CN=#answerCn# /*  */
+				, WRITNG_PASSWORD=#writngPassword# /*  */
+				, ANSWER_DE=#answerDe# /*  */
+				, EMAIL_ANSWER_AT=#emailAnswerAt# /*  */
+				, AREA_NO=#areaNo# /*  */
+				, MIDDLE_TELNO=#middleTelno# /*  */
+				, END_TELNO=#endTelno# /*  */
+			WHERE QA_ID=#qaId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnqainfoDAO.deleteComtnqainfo_S">
+		<![CDATA[
+			DELETE FROM comtnqainfo 
+			WHERE QA_ID=#qaId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnqainfoDAO.selectComtnqainfo_S" resultMap="comtnqainfo">
+		<![CDATA[
+			SELECT
+				QA_ID /*  */
+				, QESTN_SJ /*  */
+				, QESTN_CN /*  */
+				, WRITNG_DE /*  */
+				, RDCNT /*  */
+				, EMAIL_ADRES /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, QNA_PROCESS_STTUS_CODE /*  */
+				, WRTER_NM /*  */
+				, ANSWER_CN /*  */
+				, WRITNG_PASSWORD /*  */
+				, ANSWER_DE /*  */
+				, EMAIL_ANSWER_AT /*  */
+				, AREA_NO /*  */
+				, MIDDLE_TELNO /*  */
+				, END_TELNO /*  */
+			FROM comtnqainfo
+			WHERE QA_ID=#qaId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnqainfoDAO.selectComtnqainfoList_D" parameterClass="comtnqainfoSerarchVO" resultClass="egovMap">
+			SELECT
+								QA_ID /*  */
+								, QESTN_SJ /*  */
+								, QESTN_CN /*  */
+								, WRITNG_DE /*  */
+								, RDCNT /*  */
+								, EMAIL_ADRES /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, QNA_PROCESS_STTUS_CODE /*  */
+								, WRTER_NM /*  */
+								, ANSWER_CN /*  */
+								, WRITNG_PASSWORD /*  */
+								, ANSWER_DE /*  */
+								, EMAIL_ANSWER_AT /*  */
+								, AREA_NO /*  */
+								, MIDDLE_TELNO /*  */
+								, END_TELNO /*  */
+					FROM comtnqainfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QA_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTN_SJ LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							QA_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnqainfoDAO.selectComtnqainfoListTotCnt_S" parameterClass="comtnqainfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnqainfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QA_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTN_SJ LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

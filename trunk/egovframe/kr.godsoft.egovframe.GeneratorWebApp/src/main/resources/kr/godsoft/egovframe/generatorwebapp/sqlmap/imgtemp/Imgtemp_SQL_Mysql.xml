@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Imgtemp">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="imgtempSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempDefaultVO"/>
+	
+	<resultMap id="imgtemp" class="kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempVO">
+		<result property="orgnztCode" column="ORGNZT_CODE" columnIndex="1"/> <!--  -->
+		<result property="erncslSe" column="ERNCSL_SE" columnIndex="2"/> <!--  -->
+		<result property="imageInfo" column="IMAGE_INFO" columnIndex="3"/> <!--  -->
+		<result property="imageTy" column="IMAGE_TY" columnIndex="4"/> <!--  -->
+	</resultMap>
+	
+	<insert id="imgtempDAO.insertImgtemp_S">
+		<![CDATA[
+			INSERT INTO imgtemp 
+				( ORGNZT_CODE /*  */
+				  , ERNCSL_SE /*  */
+				  , IMAGE_INFO /*  */
+				  , IMAGE_TY /*  */ )
+			VALUES ( #orgnztCode# /*  */
+					  , #erncslSe# /*  */
+						  , #imageInfo# /*  */
+					  , #imageTy# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="imgtempDAO.updateImgtemp_S">
+		<![CDATA[
+			UPDATE imgtemp
+			SET ORGNZT_CODE=#orgnztCode# /*  */
+				, ERNCSL_SE=#erncslSe# /*  */
+				, IMAGE_INFO=#imageInfo# /*  */
+				, IMAGE_TY=#imageTy# /*  */
+			WHERE ORGNZT_CODE=#orgnztCode# /*  */
+				AND ERNCSL_SE=#erncslSe# /*  */
+		]]>
+	</update>
+	
+	<delete id="imgtempDAO.deleteImgtemp_S">
+		<![CDATA[
+			DELETE FROM imgtemp 
+			WHERE ORGNZT_CODE=#orgnztCode# /*  */
+				AND ERNCSL_SE=#erncslSe# /*  */
+		]]>
+	</delete>
+	
+	<select id="imgtempDAO.selectImgtemp_S" resultMap="imgtemp">
+		<![CDATA[
+			SELECT
+				ORGNZT_CODE /*  */
+				, ERNCSL_SE /*  */
+				, IMAGE_INFO /*  */
+				, IMAGE_TY /*  */
+			FROM imgtemp
+			WHERE ORGNZT_CODE=#orgnztCode# /*  */
+				AND ERNCSL_SE=#erncslSe# /*  */
+		]]>
+	</select>
+	
+	<select id="imgtempDAO.selectImgtempList_D" parameterClass="imgtempSerarchVO" resultClass="egovMap">
+			SELECT
+								ORGNZT_CODE /*  */
+								, ERNCSL_SE /*  */
+								, IMAGE_INFO /*  */
+								, IMAGE_TY /*  */
+					FROM imgtemp
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ERNCSL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ORGNZT_CODE DESC /*  */
+							, ERNCSL_SE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="imgtempDAO.selectImgtempListTotCnt_S" parameterClass="imgtempSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM imgtemp
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ERNCSL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

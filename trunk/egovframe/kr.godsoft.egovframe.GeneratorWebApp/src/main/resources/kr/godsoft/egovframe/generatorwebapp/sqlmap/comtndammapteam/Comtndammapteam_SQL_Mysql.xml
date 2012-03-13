@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndammapteam">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtndammapteamSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamDefaultVO"/>
+	
+	<resultMap id="comtndammapteam" class="kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamVO">
+		<result property="orgnztId" column="ORGNZT_ID" columnIndex="1"/> <!--  -->
+		<result property="orgnztNm" column="ORGNZT_NM" columnIndex="2"/> <!--  -->
+		<result property="clDe" column="CL_DE" columnIndex="3"/> <!--  -->
+		<result property="knwldgUrl" column="KNWLDG_URL" columnIndex="4"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="5"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="6"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtndammapteamDAO.insertComtndammapteam_S">
+		<![CDATA[
+			INSERT INTO comtndammapteam 
+				( ORGNZT_ID /*  */
+				  , ORGNZT_NM /*  */
+				  , CL_DE /*  */
+				  , KNWLDG_URL /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #orgnztId# /*  */
+					  , #orgnztNm# /*  */
+						  , #clDe# /*  */
+						  , #knwldgUrl# /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtndammapteamDAO.updateComtndammapteam_S">
+		<![CDATA[
+			UPDATE comtndammapteam
+			SET ORGNZT_ID=#orgnztId# /*  */
+				, ORGNZT_NM=#orgnztNm# /*  */
+				, CL_DE=#clDe# /*  */
+				, KNWLDG_URL=#knwldgUrl# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtndammapteamDAO.deleteComtndammapteam_S">
+		<![CDATA[
+			DELETE FROM comtndammapteam 
+			WHERE ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtndammapteamDAO.selectComtndammapteam_S" resultMap="comtndammapteam">
+		<![CDATA[
+			SELECT
+				ORGNZT_ID /*  */
+				, ORGNZT_NM /*  */
+				, CL_DE /*  */
+				, KNWLDG_URL /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtndammapteam
+			WHERE ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtndammapteamDAO.selectComtndammapteamList_D" parameterClass="comtndammapteamSerarchVO" resultClass="egovMap">
+			SELECT
+								ORGNZT_ID /*  */
+								, ORGNZT_NM /*  */
+								, CL_DE /*  */
+								, KNWLDG_URL /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtndammapteam
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ORGNZT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ORGNZT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtndammapteamDAO.selectComtndammapteamListTotCnt_S" parameterClass="comtndammapteamSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtndammapteam
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ORGNZT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ORGNZT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

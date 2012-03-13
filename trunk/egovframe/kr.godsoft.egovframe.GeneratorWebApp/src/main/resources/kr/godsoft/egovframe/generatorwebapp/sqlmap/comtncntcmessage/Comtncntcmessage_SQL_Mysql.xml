@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtncntcmessage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtncntcmessageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtncntcmessage.service.ComtncntcmessageDefaultVO"/>
+	
+	<resultMap id="comtncntcmessage" class="kr.godsoft.egovframe.generatorwebapp.comtncntcmessage.service.ComtncntcmessageVO">
+		<result property="cntcMssageId" column="CNTC_MSSAGE_ID" columnIndex="1"/> <!--  -->
+		<result property="cntcMssageNm" column="CNTC_MSSAGE_NM" columnIndex="2"/> <!--  -->
+		<result property="upperCntcMssageId" column="UPPER_CNTC_MSSAGE_ID" columnIndex="3"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="useAt" column="USE_AT" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtncntcmessageDAO.insertComtncntcmessage_S">
+		<![CDATA[
+			INSERT INTO comtncntcmessage 
+				( CNTC_MSSAGE_ID /*  */
+				  , CNTC_MSSAGE_NM /*  */
+				  , UPPER_CNTC_MSSAGE_ID /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , USE_AT /*  */ )
+			VALUES ( #cntcMssageId# /*  */
+					  , #cntcMssageNm# /*  */
+						  , #upperCntcMssageId# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #useAt# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtncntcmessageDAO.updateComtncntcmessage_S">
+		<![CDATA[
+			UPDATE comtncntcmessage
+			SET CNTC_MSSAGE_ID=#cntcMssageId# /*  */
+				, CNTC_MSSAGE_NM=#cntcMssageNm# /*  */
+				, UPPER_CNTC_MSSAGE_ID=#upperCntcMssageId# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, USE_AT=#useAt# /*  */
+			WHERE CNTC_MSSAGE_ID=#cntcMssageId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtncntcmessageDAO.deleteComtncntcmessage_S">
+		<![CDATA[
+			DELETE FROM comtncntcmessage 
+			WHERE CNTC_MSSAGE_ID=#cntcMssageId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtncntcmessageDAO.selectComtncntcmessage_S" resultMap="comtncntcmessage">
+		<![CDATA[
+			SELECT
+				CNTC_MSSAGE_ID /*  */
+				, CNTC_MSSAGE_NM /*  */
+				, UPPER_CNTC_MSSAGE_ID /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, USE_AT /*  */
+			FROM comtncntcmessage
+			WHERE CNTC_MSSAGE_ID=#cntcMssageId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtncntcmessageDAO.selectComtncntcmessageList_D" parameterClass="comtncntcmessageSerarchVO" resultClass="egovMap">
+			SELECT
+								CNTC_MSSAGE_ID /*  */
+								, CNTC_MSSAGE_NM /*  */
+								, UPPER_CNTC_MSSAGE_ID /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, USE_AT /*  */
+					FROM comtncntcmessage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTC_MSSAGE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNTC_MSSAGE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							CNTC_MSSAGE_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtncntcmessageDAO.selectComtncntcmessageListTotCnt_S" parameterClass="comtncntcmessageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtncntcmessage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTC_MSSAGE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNTC_MSSAGE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

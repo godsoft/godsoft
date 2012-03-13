@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndeptjobbx">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtndeptjobbxSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxDefaultVO"/>
+	
+	<resultMap id="comtndeptjobbx" class="kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxVO">
+		<result property="deptJobbxId" column="DEPT_JOBBX_ID" columnIndex="1"/> <!--  -->
+		<result property="deptJobbxNm" column="DEPT_JOBBX_NM" columnIndex="2"/> <!--  -->
+		<result property="deptId" column="DEPT_ID" columnIndex="3"/> <!--  -->
+		<result property="indictOrdr" column="INDICT_ORDR" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtndeptjobbxDAO.insertComtndeptjobbx_S">
+		<![CDATA[
+			INSERT INTO comtndeptjobbx 
+				( DEPT_JOBBX_ID /*  */
+				  , DEPT_JOBBX_NM /*  */
+				  , DEPT_ID /*  */
+				  , INDICT_ORDR /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #deptJobbxId# /*  */
+					  , #deptJobbxNm# /*  */
+						  , #deptId# /*  */
+						  , #indictOrdr# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtndeptjobbxDAO.updateComtndeptjobbx_S">
+		<![CDATA[
+			UPDATE comtndeptjobbx
+			SET DEPT_JOBBX_ID=#deptJobbxId# /*  */
+				, DEPT_JOBBX_NM=#deptJobbxNm# /*  */
+				, DEPT_ID=#deptId# /*  */
+				, INDICT_ORDR=#indictOrdr# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE DEPT_JOBBX_ID=#deptJobbxId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtndeptjobbxDAO.deleteComtndeptjobbx_S">
+		<![CDATA[
+			DELETE FROM comtndeptjobbx 
+			WHERE DEPT_JOBBX_ID=#deptJobbxId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtndeptjobbxDAO.selectComtndeptjobbx_S" resultMap="comtndeptjobbx">
+		<![CDATA[
+			SELECT
+				DEPT_JOBBX_ID /*  */
+				, DEPT_JOBBX_NM /*  */
+				, DEPT_ID /*  */
+				, INDICT_ORDR /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtndeptjobbx
+			WHERE DEPT_JOBBX_ID=#deptJobbxId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtndeptjobbxDAO.selectComtndeptjobbxList_D" parameterClass="comtndeptjobbxSerarchVO" resultClass="egovMap">
+			SELECT
+								DEPT_JOBBX_ID /*  */
+								, DEPT_JOBBX_NM /*  */
+								, DEPT_ID /*  */
+								, INDICT_ORDR /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtndeptjobbx
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				DEPT_JOBBX_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				DEPT_JOBBX_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							DEPT_JOBBX_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtndeptjobbxDAO.selectComtndeptjobbxListTotCnt_S" parameterClass="comtndeptjobbxSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtndeptjobbx
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				DEPT_JOBBX_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				DEPT_JOBBX_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

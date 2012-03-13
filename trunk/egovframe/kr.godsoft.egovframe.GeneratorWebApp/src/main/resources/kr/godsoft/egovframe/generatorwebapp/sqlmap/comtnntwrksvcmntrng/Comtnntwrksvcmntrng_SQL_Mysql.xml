@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnntwrksvcmntrng">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnntwrksvcmntrngSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngDefaultVO"/>
+	
+	<resultMap id="comtnntwrksvcmntrng" class="kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngVO">
+		<result property="sysIp" column="SYS_IP" columnIndex="1"/> <!--  -->
+		<result property="sysPort" column="SYS_PORT" columnIndex="2"/> <!--  -->
+		<result property="sysNm" column="SYS_NM" columnIndex="3"/> <!--  -->
+		<result property="mngrNm" column="MNGR_NM" columnIndex="4"/> <!--  -->
+		<result property="mngrEmailAdres" column="MNGR_EMAIL_ADRES" columnIndex="5"/> <!--  -->
+		<result property="mntrngSttus" column="MNTRNG_STTUS" columnIndex="6"/> <!--  -->
+		<result property="creatDt" column="CREAT_DT" columnIndex="7"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="8"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="9"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="11"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnntwrksvcmntrngDAO.insertComtnntwrksvcmntrng_S">
+		<![CDATA[
+			INSERT INTO comtnntwrksvcmntrng 
+				( SYS_IP /*  */
+				  , SYS_PORT /*  */
+				  , SYS_NM /*  */
+				  , MNGR_NM /*  */
+				  , MNGR_EMAIL_ADRES /*  */
+				  , MNTRNG_STTUS /*  */
+				  , CREAT_DT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #sysIp# /*  */
+					  , #sysPort# /*  */
+						  , #sysNm# /*  */
+						  , #mngrNm# /*  */
+						  , #mngrEmailAdres# /*  */
+						  , #mntrngSttus# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnntwrksvcmntrngDAO.updateComtnntwrksvcmntrng_S">
+		<![CDATA[
+			UPDATE comtnntwrksvcmntrng
+			SET SYS_IP=#sysIp# /*  */
+				, SYS_PORT=#sysPort# /*  */
+				, SYS_NM=#sysNm# /*  */
+				, MNGR_NM=#mngrNm# /*  */
+				, MNGR_EMAIL_ADRES=#mngrEmailAdres# /*  */
+				, MNTRNG_STTUS=#mntrngSttus# /*  */
+				, CREAT_DT=#creatDt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE SYS_IP=#sysIp# /*  */
+				AND SYS_PORT=#sysPort# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnntwrksvcmntrngDAO.deleteComtnntwrksvcmntrng_S">
+		<![CDATA[
+			DELETE FROM comtnntwrksvcmntrng 
+			WHERE SYS_IP=#sysIp# /*  */
+				AND SYS_PORT=#sysPort# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrng_S" resultMap="comtnntwrksvcmntrng">
+		<![CDATA[
+			SELECT
+				SYS_IP /*  */
+				, SYS_PORT /*  */
+				, SYS_NM /*  */
+				, MNGR_NM /*  */
+				, MNGR_EMAIL_ADRES /*  */
+				, MNTRNG_STTUS /*  */
+				, CREAT_DT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnntwrksvcmntrng
+			WHERE SYS_IP=#sysIp# /*  */
+				AND SYS_PORT=#sysPort# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrngList_D" parameterClass="comtnntwrksvcmntrngSerarchVO" resultClass="egovMap">
+			SELECT
+								SYS_IP /*  */
+								, SYS_PORT /*  */
+								, SYS_NM /*  */
+								, MNGR_NM /*  */
+								, MNGR_EMAIL_ADRES /*  */
+								, MNTRNG_STTUS /*  */
+								, CREAT_DT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnntwrksvcmntrng
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SYS_IP = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SYS_PORT LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SYS_IP DESC /*  */
+							, SYS_PORT DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrngListTotCnt_S" parameterClass="comtnntwrksvcmntrngSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnntwrksvcmntrng
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SYS_IP = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SYS_PORT LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

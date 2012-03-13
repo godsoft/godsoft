@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comvnusermaster">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comvnusermasterSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterDefaultVO"/>
+	
+	<resultMap id="comvnusermaster" class="kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO">
+		<result property="esntlId" column="ESNTL_ID" columnIndex="1"/> <!--  -->
+		<result property="userId" column="USER_ID" columnIndex="2"/> <!--  -->
+		<result property="password" column="PASSWORD" columnIndex="3"/> <!--  -->
+		<result property="userNm" column="USER_NM" columnIndex="4"/> <!--  -->
+		<result property="userZip" column="USER_ZIP" columnIndex="5"/> <!--  -->
+		<result property="userAdres" column="USER_ADRES" columnIndex="6"/> <!--  -->
+		<result property="userEmail" column="USER_EMAIL" columnIndex="7"/> <!--  -->
+		<result property="groupId" column="GROUP_ID" columnIndex="8"/> <!--  -->
+		<result property="userSe" column="USER_SE" columnIndex="9"/> <!--  -->
+		<result property="orgnztId" column="ORGNZT_ID" columnIndex="10"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comvnusermasterDAO.insertComvnusermaster_S">
+		<![CDATA[
+			INSERT INTO comvnusermaster 
+				( ESNTL_ID /*  */
+				  , USER_ID /*  */
+				  , PASSWORD /*  */
+				  , USER_NM /*  */
+				  , USER_ZIP /*  */
+				  , USER_ADRES /*  */
+				  , USER_EMAIL /*  */
+				  , GROUP_ID /*  */
+				  , USER_SE /*  */
+				  , ORGNZT_ID /*  */ )
+			VALUES ( #esntlId# /*  */
+					  , #userId# /*  */
+						  , #password# /*  */
+						  , #userNm# /*  */
+						  , #userZip# /*  */
+						  , #userAdres# /*  */
+						  , #userEmail# /*  */
+						  , #groupId# /*  */
+						  , #userSe# /*  */
+					  , #orgnztId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comvnusermasterDAO.updateComvnusermaster_S">
+		<![CDATA[
+			UPDATE comvnusermaster
+			SET ESNTL_ID=#esntlId# /*  */
+				, USER_ID=#userId# /*  */
+				, PASSWORD=#password# /*  */
+				, USER_NM=#userNm# /*  */
+				, USER_ZIP=#userZip# /*  */
+				, USER_ADRES=#userAdres# /*  */
+				, USER_EMAIL=#userEmail# /*  */
+				, GROUP_ID=#groupId# /*  */
+				, USER_SE=#userSe# /*  */
+				, ORGNZT_ID=#orgnztId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comvnusermasterDAO.deleteComvnusermaster_S">
+		<![CDATA[
+			DELETE FROM comvnusermaster 
+		]]>
+	</delete>
+	
+	<select id="comvnusermasterDAO.selectComvnusermaster_S" resultMap="comvnusermaster">
+		<![CDATA[
+			SELECT
+				ESNTL_ID /*  */
+				, USER_ID /*  */
+				, PASSWORD /*  */
+				, USER_NM /*  */
+				, USER_ZIP /*  */
+				, USER_ADRES /*  */
+				, USER_EMAIL /*  */
+				, GROUP_ID /*  */
+				, USER_SE /*  */
+				, ORGNZT_ID /*  */
+			FROM comvnusermaster
+		]]>
+	</select>
+	
+	<select id="comvnusermasterDAO.selectComvnusermasterList_D" parameterClass="comvnusermasterSerarchVO" resultClass="egovMap">
+			SELECT
+								ESNTL_ID /*  */
+								, USER_ID /*  */
+								, PASSWORD /*  */
+								, USER_NM /*  */
+								, USER_ZIP /*  */
+								, USER_ADRES /*  */
+								, USER_EMAIL /*  */
+								, GROUP_ID /*  */
+								, USER_SE /*  */
+								, ORGNZT_ID /*  */
+					FROM comvnusermaster
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ESNTL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				USER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comvnusermasterDAO.selectComvnusermasterListTotCnt_S" parameterClass="comvnusermasterSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comvnusermaster
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ESNTL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				USER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

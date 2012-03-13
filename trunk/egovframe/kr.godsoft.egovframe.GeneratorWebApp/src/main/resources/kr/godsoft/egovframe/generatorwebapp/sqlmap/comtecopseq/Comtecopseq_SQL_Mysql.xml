@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtecopseq">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtecopseqSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqDefaultVO"/>
+	
+	<resultMap id="comtecopseq" class="kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO">
+		<result property="tableName" column="TABLE_NAME" columnIndex="1"/> <!--  -->
+		<result property="nextId" column="NEXT_ID" columnIndex="2"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtecopseqDAO.insertComtecopseq_S">
+		<![CDATA[
+			INSERT INTO comtecopseq 
+				( TABLE_NAME /*  */
+				  , NEXT_ID /*  */ )
+			VALUES ( #tableName# /*  */
+				  , #nextId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtecopseqDAO.updateComtecopseq_S">
+		<![CDATA[
+			UPDATE comtecopseq
+			SET TABLE_NAME=#tableName# /*  */
+				, NEXT_ID=#nextId# /*  */
+			WHERE TABLE_NAME=#tableName# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtecopseqDAO.deleteComtecopseq_S">
+		<![CDATA[
+			DELETE FROM comtecopseq 
+			WHERE TABLE_NAME=#tableName# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtecopseqDAO.selectComtecopseq_S" resultMap="comtecopseq">
+		<![CDATA[
+			SELECT
+				TABLE_NAME /*  */
+				, NEXT_ID /*  */
+			FROM comtecopseq
+			WHERE TABLE_NAME=#tableName# /*  */
+		]]>
+	</select>
+	
+	<select id="comtecopseqDAO.selectComtecopseqList_D" parameterClass="comtecopseqSerarchVO" resultClass="egovMap">
+			SELECT
+								TABLE_NAME /*  */
+								, NEXT_ID /*  */
+					FROM comtecopseq
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TABLE_NAME = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							TABLE_NAME DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtecopseqDAO.selectComtecopseqListTotCnt_S" parameterClass="comtecopseqSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtecopseq
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TABLE_NAME = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

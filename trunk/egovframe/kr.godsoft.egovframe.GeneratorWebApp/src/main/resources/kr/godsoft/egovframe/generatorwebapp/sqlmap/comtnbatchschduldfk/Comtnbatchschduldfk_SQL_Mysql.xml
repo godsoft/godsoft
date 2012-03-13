@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbatchschduldfk">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnbatchschduldfkSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkDefaultVO"/>
+	
+	<resultMap id="comtnbatchschduldfk" class="kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkVO">
+		<result property="batchSchdulId" column="BATCH_SCHDUL_ID" columnIndex="1"/> <!--  -->
+		<result property="executSchdulDfkSe" column="EXECUT_SCHDUL_DFK_SE" columnIndex="2"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnbatchschduldfkDAO.insertComtnbatchschduldfk_S">
+		<![CDATA[
+			INSERT INTO comtnbatchschduldfk 
+				( BATCH_SCHDUL_ID /*  */
+				  , EXECUT_SCHDUL_DFK_SE /*  */ )
+			VALUES ( #batchSchdulId# /*  */
+				  , #executSchdulDfkSe# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnbatchschduldfkDAO.updateComtnbatchschduldfk_S">
+		<![CDATA[
+			UPDATE comtnbatchschduldfk
+			SET BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+				, EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+			WHERE BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+				AND EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnbatchschduldfkDAO.deleteComtnbatchschduldfk_S">
+		<![CDATA[
+			DELETE FROM comtnbatchschduldfk 
+			WHERE BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+				AND EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnbatchschduldfkDAO.selectComtnbatchschduldfk_S" resultMap="comtnbatchschduldfk">
+		<![CDATA[
+			SELECT
+				BATCH_SCHDUL_ID /*  */
+				, EXECUT_SCHDUL_DFK_SE /*  */
+			FROM comtnbatchschduldfk
+			WHERE BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+				AND EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnbatchschduldfkDAO.selectComtnbatchschduldfkList_D" parameterClass="comtnbatchschduldfkSerarchVO" resultClass="egovMap">
+			SELECT
+								BATCH_SCHDUL_ID /*  */
+								, EXECUT_SCHDUL_DFK_SE /*  */
+					FROM comtnbatchschduldfk
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BATCH_SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EXECUT_SCHDUL_DFK_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							BATCH_SCHDUL_ID DESC /*  */
+							, EXECUT_SCHDUL_DFK_SE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnbatchschduldfkDAO.selectComtnbatchschduldfkListTotCnt_S" parameterClass="comtnbatchschduldfkSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnbatchschduldfk
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BATCH_SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EXECUT_SCHDUL_DFK_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

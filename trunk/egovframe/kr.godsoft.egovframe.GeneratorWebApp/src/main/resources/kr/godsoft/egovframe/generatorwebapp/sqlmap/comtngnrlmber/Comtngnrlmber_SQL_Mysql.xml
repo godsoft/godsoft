@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtngnrlmber">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtngnrlmberSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtngnrlmber.service.ComtngnrlmberDefaultVO"/>
+	
+	<resultMap id="comtngnrlmber" class="kr.godsoft.egovframe.generatorwebapp.comtngnrlmber.service.ComtngnrlmberVO">
+		<result property="mberId" column="MBER_ID" columnIndex="1"/> <!--  -->
+		<result property="password" column="PASSWORD" columnIndex="2"/> <!--  -->
+		<result property="passwordHint" column="PASSWORD_HINT" columnIndex="3"/> <!--  -->
+		<result property="passwordCnsr" column="PASSWORD_CNSR" columnIndex="4"/> <!--  -->
+		<result property="ihidnum" column="IHIDNUM" columnIndex="5"/> <!--  -->
+		<result property="mberNm" column="MBER_NM" columnIndex="6"/> <!--  -->
+		<result property="zip" column="ZIP" columnIndex="7"/> <!--  -->
+		<result property="adres" column="ADRES" columnIndex="8"/> <!--  -->
+		<result property="areaNo" column="AREA_NO" columnIndex="9"/> <!--  -->
+		<result property="mberSttus" column="MBER_STTUS" columnIndex="10"/> <!--  -->
+		<result property="detailAdres" column="DETAIL_ADRES" columnIndex="11"/> <!--  -->
+		<result property="endTelno" column="END_TELNO" columnIndex="12"/> <!--  -->
+		<result property="mbtlnum" column="MBTLNUM" columnIndex="13"/> <!--  -->
+		<result property="groupId" column="GROUP_ID" columnIndex="14"/> <!--  -->
+		<result property="mberFxnum" column="MBER_FXNUM" columnIndex="15"/> <!--  -->
+		<result property="mberEmailAdres" column="MBER_EMAIL_ADRES" columnIndex="16"/> <!--  -->
+		<result property="middleTelno" column="MIDDLE_TELNO" columnIndex="17"/> <!--  -->
+		<result property="sbscrbDe" column="SBSCRB_DE" columnIndex="18"/> <!--  -->
+		<result property="sexdstnCode" column="SEXDSTN_CODE" columnIndex="19"/> <!--  -->
+		<result property="esntlId" column="ESNTL_ID" columnIndex="20"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtngnrlmberDAO.insertComtngnrlmber_S">
+		<![CDATA[
+			INSERT INTO comtngnrlmber 
+				( MBER_ID /*  */
+				  , PASSWORD /*  */
+				  , PASSWORD_HINT /*  */
+				  , PASSWORD_CNSR /*  */
+				  , IHIDNUM /*  */
+				  , MBER_NM /*  */
+				  , ZIP /*  */
+				  , ADRES /*  */
+				  , AREA_NO /*  */
+				  , MBER_STTUS /*  */
+				  , DETAIL_ADRES /*  */
+				  , END_TELNO /*  */
+				  , MBTLNUM /*  */
+				  , GROUP_ID /*  */
+				  , MBER_FXNUM /*  */
+				  , MBER_EMAIL_ADRES /*  */
+				  , MIDDLE_TELNO /*  */
+				  , SBSCRB_DE /*  */
+				  , SEXDSTN_CODE /*  */
+				  , ESNTL_ID /*  */ )
+			VALUES ( #mberId# /*  */
+					  , #password# /*  */
+						  , #passwordHint# /*  */
+						  , #passwordCnsr# /*  */
+						  , #ihidnum# /*  */
+						  , #mberNm# /*  */
+						  , #zip# /*  */
+						  , #adres# /*  */
+						  , #areaNo# /*  */
+						  , #mberSttus# /*  */
+						  , #detailAdres# /*  */
+						  , #endTelno# /*  */
+						  , #mbtlnum# /*  */
+						  , #groupId# /*  */
+						  , #mberFxnum# /*  */
+						  , #mberEmailAdres# /*  */
+						  , #middleTelno# /*  */
+						  , SYSDATE() /*  */
+						  , #sexdstnCode# /*  */
+					  , #esntlId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtngnrlmberDAO.updateComtngnrlmber_S">
+		<![CDATA[
+			UPDATE comtngnrlmber
+			SET MBER_ID=#mberId# /*  */
+				, PASSWORD=#password# /*  */
+				, PASSWORD_HINT=#passwordHint# /*  */
+				, PASSWORD_CNSR=#passwordCnsr# /*  */
+				, IHIDNUM=#ihidnum# /*  */
+				, MBER_NM=#mberNm# /*  */
+				, ZIP=#zip# /*  */
+				, ADRES=#adres# /*  */
+				, AREA_NO=#areaNo# /*  */
+				, MBER_STTUS=#mberSttus# /*  */
+				, DETAIL_ADRES=#detailAdres# /*  */
+				, END_TELNO=#endTelno# /*  */
+				, MBTLNUM=#mbtlnum# /*  */
+				, GROUP_ID=#groupId# /*  */
+				, MBER_FXNUM=#mberFxnum# /*  */
+				, MBER_EMAIL_ADRES=#mberEmailAdres# /*  */
+				, MIDDLE_TELNO=#middleTelno# /*  */
+				, SBSCRB_DE=#sbscrbDe# /*  */
+				, SEXDSTN_CODE=#sexdstnCode# /*  */
+				, ESNTL_ID=#esntlId# /*  */
+			WHERE MBER_ID=#mberId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtngnrlmberDAO.deleteComtngnrlmber_S">
+		<![CDATA[
+			DELETE FROM comtngnrlmber 
+			WHERE MBER_ID=#mberId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtngnrlmberDAO.selectComtngnrlmber_S" resultMap="comtngnrlmber">
+		<![CDATA[
+			SELECT
+				MBER_ID /*  */
+				, PASSWORD /*  */
+				, PASSWORD_HINT /*  */
+				, PASSWORD_CNSR /*  */
+				, IHIDNUM /*  */
+				, MBER_NM /*  */
+				, ZIP /*  */
+				, ADRES /*  */
+				, AREA_NO /*  */
+				, MBER_STTUS /*  */
+				, DETAIL_ADRES /*  */
+				, END_TELNO /*  */
+				, MBTLNUM /*  */
+				, GROUP_ID /*  */
+				, MBER_FXNUM /*  */
+				, MBER_EMAIL_ADRES /*  */
+				, MIDDLE_TELNO /*  */
+				, SBSCRB_DE /*  */
+				, SEXDSTN_CODE /*  */
+				, ESNTL_ID /*  */
+			FROM comtngnrlmber
+			WHERE MBER_ID=#mberId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtngnrlmberDAO.selectComtngnrlmberList_D" parameterClass="comtngnrlmberSerarchVO" resultClass="egovMap">
+			SELECT
+								MBER_ID /*  */
+								, PASSWORD /*  */
+								, PASSWORD_HINT /*  */
+								, PASSWORD_CNSR /*  */
+								, IHIDNUM /*  */
+								, MBER_NM /*  */
+								, ZIP /*  */
+								, ADRES /*  */
+								, AREA_NO /*  */
+								, MBER_STTUS /*  */
+								, DETAIL_ADRES /*  */
+								, END_TELNO /*  */
+								, MBTLNUM /*  */
+								, GROUP_ID /*  */
+								, MBER_FXNUM /*  */
+								, MBER_EMAIL_ADRES /*  */
+								, MIDDLE_TELNO /*  */
+								, SBSCRB_DE /*  */
+								, SEXDSTN_CODE /*  */
+								, ESNTL_ID /*  */
+					FROM comtngnrlmber
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MBER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PASSWORD LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MBER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtngnrlmberDAO.selectComtngnrlmberListTotCnt_S" parameterClass="comtngnrlmberSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtngnrlmber
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MBER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PASSWORD LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

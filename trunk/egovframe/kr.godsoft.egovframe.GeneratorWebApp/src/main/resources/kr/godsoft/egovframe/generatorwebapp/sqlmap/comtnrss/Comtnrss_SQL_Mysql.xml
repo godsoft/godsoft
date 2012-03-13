@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnrss">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnrssSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssDefaultVO"/>
+	
+	<resultMap id="comtnrss" class="kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssVO">
+		<result property="rssId" column="RSS_ID" columnIndex="1"/> <!--  -->
+		<result property="trgetSvcNm" column="TRGET_SVC_NM" columnIndex="2"/> <!--  -->
+		<result property="trgetSvcTable" column="TRGET_SVC_TABLE" columnIndex="3"/> <!--  -->
+		<result property="trgetSvcListCo" column="TRGET_SVC_LIST_CO" columnIndex="4"/> <!--  -->
+		<result property="hderTitle" column="HDER_TITLE" columnIndex="5"/> <!--  -->
+		<result property="hderLink" column="HDER_LINK" columnIndex="6"/> <!--  -->
+		<result property="hderDc" column="HDER_DC" columnIndex="7"/> <!--  -->
+		<result property="hderTag" column="HDER_TAG" columnIndex="8"/> <!--  -->
+		<result property="hderEtc" column="HDER_ETC" columnIndex="9"/> <!--  -->
+		<result property="bdtTitle" column="BDT_TITLE" columnIndex="10"/> <!--  -->
+		<result property="bdtLink" column="BDT_LINK" columnIndex="11"/> <!--  -->
+		<result property="bdtDc" column="BDT_DC" columnIndex="12"/> <!--  -->
+		<result property="bdtTag" column="BDT_TAG" columnIndex="13"/> <!--  -->
+		<result property="bdtEtcTag" column="BDT_ETC_TAG" columnIndex="14"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="15"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="16"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="17"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="18"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnrssDAO.insertComtnrss_S">
+		<![CDATA[
+			INSERT INTO comtnrss 
+				( RSS_ID /*  */
+				  , TRGET_SVC_NM /*  */
+				  , TRGET_SVC_TABLE /*  */
+				  , TRGET_SVC_LIST_CO /*  */
+				  , HDER_TITLE /*  */
+				  , HDER_LINK /*  */
+				  , HDER_DC /*  */
+				  , HDER_TAG /*  */
+				  , HDER_ETC /*  */
+				  , BDT_TITLE /*  */
+				  , BDT_LINK /*  */
+				  , BDT_DC /*  */
+				  , BDT_TAG /*  */
+				  , BDT_ETC_TAG /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #rssId# /*  */
+					  , #trgetSvcNm# /*  */
+						  , #trgetSvcTable# /*  */
+						  , #trgetSvcListCo# /*  */
+						  , #hderTitle# /*  */
+						  , #hderLink# /*  */
+						  , #hderDc# /*  */
+						  , #hderTag# /*  */
+						  , #hderEtc# /*  */
+						  , #bdtTitle# /*  */
+						  , #bdtLink# /*  */
+						  , #bdtDc# /*  */
+						  , #bdtTag# /*  */
+						  , #bdtEtcTag# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnrssDAO.updateComtnrss_S">
+		<![CDATA[
+			UPDATE comtnrss
+			SET RSS_ID=#rssId# /*  */
+				, TRGET_SVC_NM=#trgetSvcNm# /*  */
+				, TRGET_SVC_TABLE=#trgetSvcTable# /*  */
+				, TRGET_SVC_LIST_CO=#trgetSvcListCo# /*  */
+				, HDER_TITLE=#hderTitle# /*  */
+				, HDER_LINK=#hderLink# /*  */
+				, HDER_DC=#hderDc# /*  */
+				, HDER_TAG=#hderTag# /*  */
+				, HDER_ETC=#hderEtc# /*  */
+				, BDT_TITLE=#bdtTitle# /*  */
+				, BDT_LINK=#bdtLink# /*  */
+				, BDT_DC=#bdtDc# /*  */
+				, BDT_TAG=#bdtTag# /*  */
+				, BDT_ETC_TAG=#bdtEtcTag# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE RSS_ID=#rssId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnrssDAO.deleteComtnrss_S">
+		<![CDATA[
+			DELETE FROM comtnrss 
+			WHERE RSS_ID=#rssId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnrssDAO.selectComtnrss_S" resultMap="comtnrss">
+		<![CDATA[
+			SELECT
+				RSS_ID /*  */
+				, TRGET_SVC_NM /*  */
+				, TRGET_SVC_TABLE /*  */
+				, TRGET_SVC_LIST_CO /*  */
+				, HDER_TITLE /*  */
+				, HDER_LINK /*  */
+				, HDER_DC /*  */
+				, HDER_TAG /*  */
+				, HDER_ETC /*  */
+				, BDT_TITLE /*  */
+				, BDT_LINK /*  */
+				, BDT_DC /*  */
+				, BDT_TAG /*  */
+				, BDT_ETC_TAG /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnrss
+			WHERE RSS_ID=#rssId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnrssDAO.selectComtnrssList_D" parameterClass="comtnrssSerarchVO" resultClass="egovMap">
+			SELECT
+								RSS_ID /*  */
+								, TRGET_SVC_NM /*  */
+								, TRGET_SVC_TABLE /*  */
+								, TRGET_SVC_LIST_CO /*  */
+								, HDER_TITLE /*  */
+								, HDER_LINK /*  */
+								, HDER_DC /*  */
+								, HDER_TAG /*  */
+								, HDER_ETC /*  */
+								, BDT_TITLE /*  */
+								, BDT_LINK /*  */
+								, BDT_DC /*  */
+								, BDT_TAG /*  */
+								, BDT_ETC_TAG /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnrss
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RSS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TRGET_SVC_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							RSS_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnrssDAO.selectComtnrssListTotCnt_S" parameterClass="comtnrssSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnrss
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RSS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TRGET_SVC_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

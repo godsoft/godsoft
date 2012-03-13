@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnadministrationword">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnadministrationwordSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordDefaultVO"/>
+	
+	<resultMap id="comtnadministrationword" class="kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO">
+		<result property="administWordId" column="ADMINIST_WORD_ID" columnIndex="1"/> <!--  -->
+		<result property="administWordNm" column="ADMINIST_WORD_NM" columnIndex="2"/> <!--  -->
+		<result property="administWordEngNm" column="ADMINIST_WORD_ENG_NM" columnIndex="3"/> <!--  -->
+		<result property="administWordAbrvNm" column="ADMINIST_WORD_ABRV_NM" columnIndex="4"/> <!--  -->
+		<result property="themaRelm" column="THEMA_RELM" columnIndex="5"/> <!--  -->
+		<result property="wordSe" column="WORD_SE" columnIndex="6"/> <!--  -->
+		<result property="relateStdWord" column="RELATE_STD_WORD" columnIndex="7"/> <!--  -->
+		<result property="administWordDfn" column="ADMINIST_WORD_DFN" columnIndex="8"/> <!--  -->
+		<result property="administWordDc" column="ADMINIST_WORD_DC" columnIndex="9"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnadministrationwordDAO.insertComtnadministrationword_S">
+		<![CDATA[
+			INSERT INTO comtnadministrationword 
+				( ADMINIST_WORD_ID /*  */
+				  , ADMINIST_WORD_NM /*  */
+				  , ADMINIST_WORD_ENG_NM /*  */
+				  , ADMINIST_WORD_ABRV_NM /*  */
+				  , THEMA_RELM /*  */
+				  , WORD_SE /*  */
+				  , RELATE_STD_WORD /*  */
+				  , ADMINIST_WORD_DFN /*  */
+				  , ADMINIST_WORD_DC /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #administWordId# /*  */
+					  , #administWordNm# /*  */
+						  , #administWordEngNm# /*  */
+						  , #administWordAbrvNm# /*  */
+						  , #themaRelm# /*  */
+						  , #wordSe# /*  */
+						  , #relateStdWord# /*  */
+						  , #administWordDfn# /*  */
+						  , #administWordDc# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnadministrationwordDAO.updateComtnadministrationword_S">
+		<![CDATA[
+			UPDATE comtnadministrationword
+			SET ADMINIST_WORD_ID=#administWordId# /*  */
+				, ADMINIST_WORD_NM=#administWordNm# /*  */
+				, ADMINIST_WORD_ENG_NM=#administWordEngNm# /*  */
+				, ADMINIST_WORD_ABRV_NM=#administWordAbrvNm# /*  */
+				, THEMA_RELM=#themaRelm# /*  */
+				, WORD_SE=#wordSe# /*  */
+				, RELATE_STD_WORD=#relateStdWord# /*  */
+				, ADMINIST_WORD_DFN=#administWordDfn# /*  */
+				, ADMINIST_WORD_DC=#administWordDc# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE ADMINIST_WORD_ID=#administWordId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnadministrationwordDAO.deleteComtnadministrationword_S">
+		<![CDATA[
+			DELETE FROM comtnadministrationword 
+			WHERE ADMINIST_WORD_ID=#administWordId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnadministrationwordDAO.selectComtnadministrationword_S" resultMap="comtnadministrationword">
+		<![CDATA[
+			SELECT
+				ADMINIST_WORD_ID /*  */
+				, ADMINIST_WORD_NM /*  */
+				, ADMINIST_WORD_ENG_NM /*  */
+				, ADMINIST_WORD_ABRV_NM /*  */
+				, THEMA_RELM /*  */
+				, WORD_SE /*  */
+				, RELATE_STD_WORD /*  */
+				, ADMINIST_WORD_DFN /*  */
+				, ADMINIST_WORD_DC /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnadministrationword
+			WHERE ADMINIST_WORD_ID=#administWordId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnadministrationwordDAO.selectComtnadministrationwordList_D" parameterClass="comtnadministrationwordSerarchVO" resultClass="egovMap">
+			SELECT
+								ADMINIST_WORD_ID /*  */
+								, ADMINIST_WORD_NM /*  */
+								, ADMINIST_WORD_ENG_NM /*  */
+								, ADMINIST_WORD_ABRV_NM /*  */
+								, THEMA_RELM /*  */
+								, WORD_SE /*  */
+								, RELATE_STD_WORD /*  */
+								, ADMINIST_WORD_DFN /*  */
+								, ADMINIST_WORD_DC /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnadministrationword
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ADMINIST_WORD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ADMINIST_WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ADMINIST_WORD_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt_S" parameterClass="comtnadministrationwordSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnadministrationword
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ADMINIST_WORD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ADMINIST_WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

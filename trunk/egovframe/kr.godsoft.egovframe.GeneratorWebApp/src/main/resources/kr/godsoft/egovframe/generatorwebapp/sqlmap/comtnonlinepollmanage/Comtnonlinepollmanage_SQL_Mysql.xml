@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnonlinepollmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnonlinepollmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageDefaultVO"/>
+	
+	<resultMap id="comtnonlinepollmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageVO">
+		<result property="pollId" column="POLL_ID" columnIndex="1"/> <!--  -->
+		<result property="pollNm" column="POLL_NM" columnIndex="2"/> <!--  -->
+		<result property="pollBgnde" column="POLL_BGNDE" columnIndex="3"/> <!--  -->
+		<result property="pollEndde" column="POLL_ENDDE" columnIndex="4"/> <!--  -->
+		<result property="pollKnd" column="POLL_KND" columnIndex="5"/> <!--  -->
+		<result property="pollDsuseEnnc" column="POLL_DSUSE_ENNC" columnIndex="6"/> <!--  -->
+		<result property="pollAtmcDsuseEnnc" column="POLL_ATMC_DSUSE_ENNC" columnIndex="7"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="8"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="9"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="11"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnonlinepollmanageDAO.insertComtnonlinepollmanage_S">
+		<![CDATA[
+			INSERT INTO comtnonlinepollmanage 
+				( POLL_ID /*  */
+				  , POLL_NM /*  */
+				  , POLL_BGNDE /*  */
+				  , POLL_ENDDE /*  */
+				  , POLL_KND /*  */
+				  , POLL_DSUSE_ENNC /*  */
+				  , POLL_ATMC_DSUSE_ENNC /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #pollId# /*  */
+					  , #pollNm# /*  */
+						  , #pollBgnde# /*  */
+						  , #pollEndde# /*  */
+						  , #pollKnd# /*  */
+						  , #pollDsuseEnnc# /*  */
+						  , #pollAtmcDsuseEnnc# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnonlinepollmanageDAO.updateComtnonlinepollmanage_S">
+		<![CDATA[
+			UPDATE comtnonlinepollmanage
+			SET POLL_ID=#pollId# /*  */
+				, POLL_NM=#pollNm# /*  */
+				, POLL_BGNDE=#pollBgnde# /*  */
+				, POLL_ENDDE=#pollEndde# /*  */
+				, POLL_KND=#pollKnd# /*  */
+				, POLL_DSUSE_ENNC=#pollDsuseEnnc# /*  */
+				, POLL_ATMC_DSUSE_ENNC=#pollAtmcDsuseEnnc# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE POLL_ID=#pollId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnonlinepollmanageDAO.deleteComtnonlinepollmanage_S">
+		<![CDATA[
+			DELETE FROM comtnonlinepollmanage 
+			WHERE POLL_ID=#pollId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnonlinepollmanageDAO.selectComtnonlinepollmanage_S" resultMap="comtnonlinepollmanage">
+		<![CDATA[
+			SELECT
+				POLL_ID /*  */
+				, POLL_NM /*  */
+				, POLL_BGNDE /*  */
+				, POLL_ENDDE /*  */
+				, POLL_KND /*  */
+				, POLL_DSUSE_ENNC /*  */
+				, POLL_ATMC_DSUSE_ENNC /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnonlinepollmanage
+			WHERE POLL_ID=#pollId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnonlinepollmanageDAO.selectComtnonlinepollmanageList_D" parameterClass="comtnonlinepollmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								POLL_ID /*  */
+								, POLL_NM /*  */
+								, POLL_BGNDE /*  */
+								, POLL_ENDDE /*  */
+								, POLL_KND /*  */
+								, POLL_DSUSE_ENNC /*  */
+								, POLL_ATMC_DSUSE_ENNC /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnonlinepollmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				POLL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				POLL_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							POLL_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnonlinepollmanageDAO.selectComtnonlinepollmanageListTotCnt_S" parameterClass="comtnonlinepollmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnonlinepollmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				POLL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				POLL_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnleaderschdul">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnleaderschdulSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulDefaultVO"/>
+	
+	<resultMap id="comtnleaderschdul" class="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulVO">
+		<result property="schdulId" column="SCHDUL_ID" columnIndex="1"/> <!--  -->
+		<result property="schdulSe" column="SCHDUL_SE" columnIndex="2"/> <!--  -->
+		<result property="schdulNm" column="SCHDUL_NM" columnIndex="3"/> <!--  -->
+		<result property="schdulCn" column="SCHDUL_CN" columnIndex="4"/> <!--  -->
+		<result property="schdulPlace" column="SCHDUL_PLACE" columnIndex="5"/> <!--  -->
+		<result property="leaderId" column="LEADER_ID" columnIndex="6"/> <!--  -->
+		<result property="reptitSeCode" column="REPTIT_SE_CODE" columnIndex="7"/> <!--  -->
+		<result property="schdulBgnde" column="SCHDUL_BGNDE" columnIndex="8"/> <!--  -->
+		<result property="schdulEndde" column="SCHDUL_ENDDE" columnIndex="9"/> <!--  -->
+		<result property="schdulChargerId" column="SCHDUL_CHARGER_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="11"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="12"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="13"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="14"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnleaderschdulDAO.insertComtnleaderschdul_S">
+		<![CDATA[
+			INSERT INTO comtnleaderschdul 
+				( SCHDUL_ID /*  */
+				  , SCHDUL_SE /*  */
+				  , SCHDUL_NM /*  */
+				  , SCHDUL_CN /*  */
+				  , SCHDUL_PLACE /*  */
+				  , LEADER_ID /*  */
+				  , REPTIT_SE_CODE /*  */
+				  , SCHDUL_BGNDE /*  */
+				  , SCHDUL_ENDDE /*  */
+				  , SCHDUL_CHARGER_ID /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #schdulId# /*  */
+					  , #schdulSe# /*  */
+						  , #schdulNm# /*  */
+						  , #schdulCn# /*  */
+						  , #schdulPlace# /*  */
+						  , #leaderId# /*  */
+						  , #reptitSeCode# /*  */
+						  , #schdulBgnde# /*  */
+						  , #schdulEndde# /*  */
+						  , #schdulChargerId# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnleaderschdulDAO.updateComtnleaderschdul_S">
+		<![CDATA[
+			UPDATE comtnleaderschdul
+			SET SCHDUL_ID=#schdulId# /*  */
+				, SCHDUL_SE=#schdulSe# /*  */
+				, SCHDUL_NM=#schdulNm# /*  */
+				, SCHDUL_CN=#schdulCn# /*  */
+				, SCHDUL_PLACE=#schdulPlace# /*  */
+				, LEADER_ID=#leaderId# /*  */
+				, REPTIT_SE_CODE=#reptitSeCode# /*  */
+				, SCHDUL_BGNDE=#schdulBgnde# /*  */
+				, SCHDUL_ENDDE=#schdulEndde# /*  */
+				, SCHDUL_CHARGER_ID=#schdulChargerId# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE SCHDUL_ID=#schdulId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnleaderschdulDAO.deleteComtnleaderschdul_S">
+		<![CDATA[
+			DELETE FROM comtnleaderschdul 
+			WHERE SCHDUL_ID=#schdulId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnleaderschdulDAO.selectComtnleaderschdul_S" resultMap="comtnleaderschdul">
+		<![CDATA[
+			SELECT
+				SCHDUL_ID /*  */
+				, SCHDUL_SE /*  */
+				, SCHDUL_NM /*  */
+				, SCHDUL_CN /*  */
+				, SCHDUL_PLACE /*  */
+				, LEADER_ID /*  */
+				, REPTIT_SE_CODE /*  */
+				, SCHDUL_BGNDE /*  */
+				, SCHDUL_ENDDE /*  */
+				, SCHDUL_CHARGER_ID /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnleaderschdul
+			WHERE SCHDUL_ID=#schdulId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnleaderschdulDAO.selectComtnleaderschdulList_D" parameterClass="comtnleaderschdulSerarchVO" resultClass="egovMap">
+			SELECT
+								SCHDUL_ID /*  */
+								, SCHDUL_SE /*  */
+								, SCHDUL_NM /*  */
+								, SCHDUL_CN /*  */
+								, SCHDUL_PLACE /*  */
+								, LEADER_ID /*  */
+								, REPTIT_SE_CODE /*  */
+								, SCHDUL_BGNDE /*  */
+								, SCHDUL_ENDDE /*  */
+								, SCHDUL_CHARGER_ID /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnleaderschdul
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHDUL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SCHDUL_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt_S" parameterClass="comtnleaderschdulSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnleaderschdul
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHDUL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

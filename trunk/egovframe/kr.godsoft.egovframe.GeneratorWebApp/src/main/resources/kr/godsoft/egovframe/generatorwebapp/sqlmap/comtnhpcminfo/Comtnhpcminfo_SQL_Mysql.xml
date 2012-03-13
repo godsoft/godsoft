@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnhpcminfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnhpcminfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoDefaultVO"/>
+	
+	<resultMap id="comtnhpcminfo" class="kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoVO">
+		<result property="hpcmId" column="HPCM_ID" columnIndex="1"/> <!--  -->
+		<result property="hpcmSeCode" column="HPCM_SE_CODE" columnIndex="2"/> <!--  -->
+		<result property="hpcmDfn" column="HPCM_DFN" columnIndex="3"/> <!--  -->
+		<result property="hpcmDc" column="HPCM_DC" columnIndex="4"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="6"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnhpcminfoDAO.insertComtnhpcminfo_S">
+		<![CDATA[
+			INSERT INTO comtnhpcminfo 
+				( HPCM_ID /*  */
+				  , HPCM_SE_CODE /*  */
+				  , HPCM_DFN /*  */
+				  , HPCM_DC /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #hpcmId# /*  */
+					  , #hpcmSeCode# /*  */
+						  , #hpcmDfn# /*  */
+						  , #hpcmDc# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnhpcminfoDAO.updateComtnhpcminfo_S">
+		<![CDATA[
+			UPDATE comtnhpcminfo
+			SET HPCM_ID=#hpcmId# /*  */
+				, HPCM_SE_CODE=#hpcmSeCode# /*  */
+				, HPCM_DFN=#hpcmDfn# /*  */
+				, HPCM_DC=#hpcmDc# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE HPCM_ID=#hpcmId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnhpcminfoDAO.deleteComtnhpcminfo_S">
+		<![CDATA[
+			DELETE FROM comtnhpcminfo 
+			WHERE HPCM_ID=#hpcmId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnhpcminfoDAO.selectComtnhpcminfo_S" resultMap="comtnhpcminfo">
+		<![CDATA[
+			SELECT
+				HPCM_ID /*  */
+				, HPCM_SE_CODE /*  */
+				, HPCM_DFN /*  */
+				, HPCM_DC /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnhpcminfo
+			WHERE HPCM_ID=#hpcmId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnhpcminfoDAO.selectComtnhpcminfoList_D" parameterClass="comtnhpcminfoSerarchVO" resultClass="egovMap">
+			SELECT
+								HPCM_ID /*  */
+								, HPCM_SE_CODE /*  */
+								, HPCM_DFN /*  */
+								, HPCM_DC /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnhpcminfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				HPCM_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				HPCM_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							HPCM_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnhpcminfoDAO.selectComtnhpcminfoListTotCnt_S" parameterClass="comtnhpcminfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnhpcminfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				HPCM_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				HPCM_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

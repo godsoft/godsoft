@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnrwardmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnrwardmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageDefaultVO"/>
+	
+	<resultMap id="comtnrwardmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO">
+		<result property="rwardId" column="RWARD_ID" columnIndex="1"/> <!--  -->
+		<result property="rwardwnrId" column="RWARDWNR_ID" columnIndex="2"/> <!--  -->
+		<result property="rwardCode" column="RWARD_CODE" columnIndex="3"/> <!--  -->
+		<result property="rwardDe" column="RWARD_DE" columnIndex="4"/> <!--  -->
+		<result property="rwardNm" column="RWARD_NM" columnIndex="5"/> <!--  -->
+		<result property="pblenCn" column="PBLEN_CN" columnIndex="6"/> <!--  -->
+		<result property="sanctnerId" column="SANCTNER_ID" columnIndex="7"/> <!--  -->
+		<result property="confmAt" column="CONFM_AT" columnIndex="8"/> <!--  -->
+		<result property="sanctnDt" column="SANCTN_DT" columnIndex="9"/> <!--  -->
+		<result property="returnResn" column="RETURN_RESN" columnIndex="10"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="11"/> <!--  -->
+		<result property="infrmlSanctnId" column="INFRML_SANCTN_ID" columnIndex="12"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="13"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="14"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="15"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="16"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnrwardmanageDAO.insertComtnrwardmanage_S">
+		<![CDATA[
+			INSERT INTO comtnrwardmanage 
+				( RWARD_ID /*  */
+				  , RWARDWNR_ID /*  */
+				  , RWARD_CODE /*  */
+				  , RWARD_DE /*  */
+				  , RWARD_NM /*  */
+				  , PBLEN_CN /*  */
+				  , SANCTNER_ID /*  */
+				  , CONFM_AT /*  */
+				  , SANCTN_DT /*  */
+				  , RETURN_RESN /*  */
+				  , ATCH_FILE_ID /*  */
+				  , INFRML_SANCTN_ID /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #rwardId# /*  */
+					  , #rwardwnrId# /*  */
+						  , #rwardCode# /*  */
+						  , #rwardDe# /*  */
+						  , #rwardNm# /*  */
+						  , #pblenCn# /*  */
+						  , #sanctnerId# /*  */
+						  , #confmAt# /*  */
+						  , SYSDATE() /*  */
+						  , #returnResn# /*  */
+						  , #atchFileId# /*  */
+						  , #infrmlSanctnId# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnrwardmanageDAO.updateComtnrwardmanage_S">
+		<![CDATA[
+			UPDATE comtnrwardmanage
+			SET RWARD_ID=#rwardId# /*  */
+				, RWARDWNR_ID=#rwardwnrId# /*  */
+				, RWARD_CODE=#rwardCode# /*  */
+				, RWARD_DE=#rwardDe# /*  */
+				, RWARD_NM=#rwardNm# /*  */
+				, PBLEN_CN=#pblenCn# /*  */
+				, SANCTNER_ID=#sanctnerId# /*  */
+				, CONFM_AT=#confmAt# /*  */
+				, SANCTN_DT=#sanctnDt# /*  */
+				, RETURN_RESN=#returnResn# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE RWARD_ID=#rwardId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnrwardmanageDAO.deleteComtnrwardmanage_S">
+		<![CDATA[
+			DELETE FROM comtnrwardmanage 
+			WHERE RWARD_ID=#rwardId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnrwardmanageDAO.selectComtnrwardmanage_S" resultMap="comtnrwardmanage">
+		<![CDATA[
+			SELECT
+				RWARD_ID /*  */
+				, RWARDWNR_ID /*  */
+				, RWARD_CODE /*  */
+				, RWARD_DE /*  */
+				, RWARD_NM /*  */
+				, PBLEN_CN /*  */
+				, SANCTNER_ID /*  */
+				, CONFM_AT /*  */
+				, SANCTN_DT /*  */
+				, RETURN_RESN /*  */
+				, ATCH_FILE_ID /*  */
+				, INFRML_SANCTN_ID /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnrwardmanage
+			WHERE RWARD_ID=#rwardId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnrwardmanageDAO.selectComtnrwardmanageList_D" parameterClass="comtnrwardmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								RWARD_ID /*  */
+								, RWARDWNR_ID /*  */
+								, RWARD_CODE /*  */
+								, RWARD_DE /*  */
+								, RWARD_NM /*  */
+								, PBLEN_CN /*  */
+								, SANCTNER_ID /*  */
+								, CONFM_AT /*  */
+								, SANCTN_DT /*  */
+								, RETURN_RESN /*  */
+								, ATCH_FILE_ID /*  */
+								, INFRML_SANCTN_ID /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnrwardmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RWARD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RWARDWNR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							RWARD_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnrwardmanageDAO.selectComtnrwardmanageListTotCnt_S" parameterClass="comtnrwardmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnrwardmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RWARD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RWARDWNR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnwikibkmk">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnwikibkmkSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkDefaultVO"/>
+	
+	<resultMap id="comtnwikibkmk" class="kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkVO">
+		<result property="wikiBkmkId" column="WIKI_BKMK_ID" columnIndex="1"/> <!--  -->
+		<result property="userId" column="USER_ID" columnIndex="2"/> <!--  -->
+		<result property="wikiBkmkNm" column="WIKI_BKMK_NM" columnIndex="3"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnwikibkmkDAO.insertComtnwikibkmk_S">
+		<![CDATA[
+			INSERT INTO comtnwikibkmk 
+				( WIKI_BKMK_ID /*  */
+				  , USER_ID /*  */
+				  , WIKI_BKMK_NM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #wikiBkmkId# /*  */
+					  , #userId# /*  */
+						  , #wikiBkmkNm# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnwikibkmkDAO.updateComtnwikibkmk_S">
+		<![CDATA[
+			UPDATE comtnwikibkmk
+			SET WIKI_BKMK_ID=#wikiBkmkId# /*  */
+				, USER_ID=#userId# /*  */
+				, WIKI_BKMK_NM=#wikiBkmkNm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE WIKI_BKMK_ID=#wikiBkmkId# /*  */
+				AND USER_ID=#userId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnwikibkmkDAO.deleteComtnwikibkmk_S">
+		<![CDATA[
+			DELETE FROM comtnwikibkmk 
+			WHERE WIKI_BKMK_ID=#wikiBkmkId# /*  */
+				AND USER_ID=#userId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnwikibkmkDAO.selectComtnwikibkmk_S" resultMap="comtnwikibkmk">
+		<![CDATA[
+			SELECT
+				WIKI_BKMK_ID /*  */
+				, USER_ID /*  */
+				, WIKI_BKMK_NM /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnwikibkmk
+			WHERE WIKI_BKMK_ID=#wikiBkmkId# /*  */
+				AND USER_ID=#userId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnwikibkmkDAO.selectComtnwikibkmkList_D" parameterClass="comtnwikibkmkSerarchVO" resultClass="egovMap">
+			SELECT
+								WIKI_BKMK_ID /*  */
+								, USER_ID /*  */
+								, WIKI_BKMK_NM /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnwikibkmk
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				WIKI_BKMK_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				USER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							WIKI_BKMK_ID DESC /*  */
+							, USER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnwikibkmkDAO.selectComtnwikibkmkListTotCnt_S" parameterClass="comtnwikibkmkSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnwikibkmk
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				WIKI_BKMK_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				USER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

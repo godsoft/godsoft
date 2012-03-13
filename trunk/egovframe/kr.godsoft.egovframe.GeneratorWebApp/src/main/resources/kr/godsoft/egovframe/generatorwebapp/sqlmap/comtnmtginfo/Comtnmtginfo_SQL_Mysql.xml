@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmtginfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnmtginfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoDefaultVO"/>
+	
+	<resultMap id="comtnmtginfo" class="kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoVO">
+		<result property="mtgId" column="MTG_ID" columnIndex="1"/> <!--  -->
+		<result property="mtgNm" column="MTG_NM" columnIndex="2"/> <!--  -->
+		<result property="mtgMtrCn" column="MTG_MTR_CN" columnIndex="3"/> <!--  -->
+		<result property="mtgSn" column="MTG_SN" columnIndex="4"/> <!--  -->
+		<result property="mtgCo" column="MTG_CO" columnIndex="5"/> <!--  -->
+		<result property="mtgDe" column="MTG_DE" columnIndex="6"/> <!--  -->
+		<result property="mtgPlace" column="MTG_PLACE" columnIndex="7"/> <!--  -->
+		<result property="mtgBeginTm" column="MTG_BEGIN_TM" columnIndex="8"/> <!--  -->
+		<result property="mtgEndTm" column="MTG_END_TM" columnIndex="9"/> <!--  -->
+		<result property="clsdrMtgAt" column="CLSDR_MTG_AT" columnIndex="10"/> <!--  -->
+		<result property="readngBgnde" column="READNG_BGNDE" columnIndex="11"/> <!--  -->
+		<result property="readngAt" column="READNG_AT" columnIndex="12"/> <!--  -->
+		<result property="mtgResultCn" column="MTG_RESULT_CN" columnIndex="13"/> <!--  -->
+		<result property="mtgResultEnnc" column="MTG_RESULT_ENNC" columnIndex="14"/> <!--  -->
+		<result property="etcMatter" column="ETC_MATTER" columnIndex="15"/> <!--  -->
+		<result property="mngtDeptId" column="MNGT_DEPT_ID" columnIndex="16"/> <!--  -->
+		<result property="mnaerId" column="MNAER_ID" columnIndex="17"/> <!--  -->
+		<result property="mnaerDeptId" column="MNAER_DEPT_ID" columnIndex="18"/> <!--  -->
+		<result property="mtgAt" column="MTG_AT" columnIndex="19"/> <!--  -->
+		<result property="nonatdrnCo" column="NONATDRN_CO" columnIndex="20"/> <!--  -->
+		<result property="atdrnCo" column="ATDRN_CO" columnIndex="21"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="22"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="23"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="24"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="25"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnmtginfoDAO.insertComtnmtginfo_S">
+		<![CDATA[
+			INSERT INTO comtnmtginfo 
+				( MTG_ID /*  */
+				  , MTG_NM /*  */
+				  , MTG_MTR_CN /*  */
+				  , MTG_SN /*  */
+				  , MTG_CO /*  */
+				  , MTG_DE /*  */
+				  , MTG_PLACE /*  */
+				  , MTG_BEGIN_TM /*  */
+				  , MTG_END_TM /*  */
+				  , CLSDR_MTG_AT /*  */
+				  , READNG_BGNDE /*  */
+				  , READNG_AT /*  */
+				  , MTG_RESULT_CN /*  */
+				  , MTG_RESULT_ENNC /*  */
+				  , ETC_MATTER /*  */
+				  , MNGT_DEPT_ID /*  */
+				  , MNAER_ID /*  */
+				  , MNAER_DEPT_ID /*  */
+				  , MTG_AT /*  */
+				  , NONATDRN_CO /*  */
+				  , ATDRN_CO /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #mtgId# /*  */
+					  , #mtgNm# /*  */
+						  , #mtgMtrCn# /*  */
+						  , #mtgSn# /*  */
+						  , #mtgCo# /*  */
+						  , #mtgDe# /*  */
+						  , #mtgPlace# /*  */
+						  , #mtgBeginTm# /*  */
+						  , #mtgEndTm# /*  */
+						  , #clsdrMtgAt# /*  */
+						  , #readngBgnde# /*  */
+						  , #readngAt# /*  */
+						  , #mtgResultCn# /*  */
+						  , #mtgResultEnnc# /*  */
+						  , #etcMatter# /*  */
+						  , #mngtDeptId# /*  */
+						  , #mnaerId# /*  */
+						  , #mnaerDeptId# /*  */
+						  , #mtgAt# /*  */
+						  , #nonatdrnCo# /*  */
+						  , #atdrnCo# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnmtginfoDAO.updateComtnmtginfo_S">
+		<![CDATA[
+			UPDATE comtnmtginfo
+			SET MTG_ID=#mtgId# /*  */
+				, MTG_NM=#mtgNm# /*  */
+				, MTG_MTR_CN=#mtgMtrCn# /*  */
+				, MTG_SN=#mtgSn# /*  */
+				, MTG_CO=#mtgCo# /*  */
+				, MTG_DE=#mtgDe# /*  */
+				, MTG_PLACE=#mtgPlace# /*  */
+				, MTG_BEGIN_TM=#mtgBeginTm# /*  */
+				, MTG_END_TM=#mtgEndTm# /*  */
+				, CLSDR_MTG_AT=#clsdrMtgAt# /*  */
+				, READNG_BGNDE=#readngBgnde# /*  */
+				, READNG_AT=#readngAt# /*  */
+				, MTG_RESULT_CN=#mtgResultCn# /*  */
+				, MTG_RESULT_ENNC=#mtgResultEnnc# /*  */
+				, ETC_MATTER=#etcMatter# /*  */
+				, MNGT_DEPT_ID=#mngtDeptId# /*  */
+				, MNAER_ID=#mnaerId# /*  */
+				, MNAER_DEPT_ID=#mnaerDeptId# /*  */
+				, MTG_AT=#mtgAt# /*  */
+				, NONATDRN_CO=#nonatdrnCo# /*  */
+				, ATDRN_CO=#atdrnCo# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE MTG_ID=#mtgId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnmtginfoDAO.deleteComtnmtginfo_S">
+		<![CDATA[
+			DELETE FROM comtnmtginfo 
+			WHERE MTG_ID=#mtgId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnmtginfoDAO.selectComtnmtginfo_S" resultMap="comtnmtginfo">
+		<![CDATA[
+			SELECT
+				MTG_ID /*  */
+				, MTG_NM /*  */
+				, MTG_MTR_CN /*  */
+				, MTG_SN /*  */
+				, MTG_CO /*  */
+				, MTG_DE /*  */
+				, MTG_PLACE /*  */
+				, MTG_BEGIN_TM /*  */
+				, MTG_END_TM /*  */
+				, CLSDR_MTG_AT /*  */
+				, READNG_BGNDE /*  */
+				, READNG_AT /*  */
+				, MTG_RESULT_CN /*  */
+				, MTG_RESULT_ENNC /*  */
+				, ETC_MATTER /*  */
+				, MNGT_DEPT_ID /*  */
+				, MNAER_ID /*  */
+				, MNAER_DEPT_ID /*  */
+				, MTG_AT /*  */
+				, NONATDRN_CO /*  */
+				, ATDRN_CO /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnmtginfo
+			WHERE MTG_ID=#mtgId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnmtginfoDAO.selectComtnmtginfoList_D" parameterClass="comtnmtginfoSerarchVO" resultClass="egovMap">
+			SELECT
+								MTG_ID /*  */
+								, MTG_NM /*  */
+								, MTG_MTR_CN /*  */
+								, MTG_SN /*  */
+								, MTG_CO /*  */
+								, MTG_DE /*  */
+								, MTG_PLACE /*  */
+								, MTG_BEGIN_TM /*  */
+								, MTG_END_TM /*  */
+								, CLSDR_MTG_AT /*  */
+								, READNG_BGNDE /*  */
+								, READNG_AT /*  */
+								, MTG_RESULT_CN /*  */
+								, MTG_RESULT_ENNC /*  */
+								, ETC_MATTER /*  */
+								, MNGT_DEPT_ID /*  */
+								, MNAER_ID /*  */
+								, MNAER_DEPT_ID /*  */
+								, MTG_AT /*  */
+								, NONATDRN_CO /*  */
+								, ATDRN_CO /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnmtginfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MTG_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MTG_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MTG_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnmtginfoDAO.selectComtnmtginfoListTotCnt_S" parameterClass="comtnmtginfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnmtginfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MTG_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MTG_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

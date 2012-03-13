@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Ids">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="idsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO"/>
+	
+	<resultMap id="ids" class="kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO">
+		<result property="idgenTableNm" column="IDGEN_TABLE_NM" columnIndex="1"/> <!--  -->
+		<result property="idgenNextId" column="IDGEN_NEXT_ID" columnIndex="2"/> <!--  -->
+	</resultMap>
+	
+	<insert id="idsDAO.insertIds_S">
+		<![CDATA[
+			INSERT INTO ids 
+				( IDGEN_TABLE_NM /*  */
+				  , IDGEN_NEXT_ID /*  */ )
+			VALUES ( #idgenTableNm# /*  */
+				  , #idgenNextId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="idsDAO.updateIds_S">
+		<![CDATA[
+			UPDATE ids
+			SET IDGEN_TABLE_NM=#idgenTableNm# /*  */
+				, IDGEN_NEXT_ID=#idgenNextId# /*  */
+			WHERE IDGEN_TABLE_NM=#idgenTableNm# /*  */
+		]]>
+	</update>
+	
+	<delete id="idsDAO.deleteIds_S">
+		<![CDATA[
+			DELETE FROM ids 
+			WHERE IDGEN_TABLE_NM=#idgenTableNm# /*  */
+		]]>
+	</delete>
+	
+	<select id="idsDAO.selectIds_S" resultMap="ids">
+		<![CDATA[
+			SELECT
+				IDGEN_TABLE_NM /*  */
+				, IDGEN_NEXT_ID /*  */
+			FROM ids
+			WHERE IDGEN_TABLE_NM=#idgenTableNm# /*  */
+		]]>
+	</select>
+	
+	<select id="idsDAO.selectIdsList_D" parameterClass="idsSerarchVO" resultClass="egovMap">
+			SELECT
+								IDGEN_TABLE_NM /*  */
+								, IDGEN_NEXT_ID /*  */
+					FROM ids
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				IDGEN_TABLE_NM = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				IDGEN_NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							IDGEN_TABLE_NM DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="idsDAO.selectIdsListTotCnt_S" parameterClass="idsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM ids
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				IDGEN_TABLE_NM = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				IDGEN_NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndiaryinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtndiaryinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoDefaultVO"/>
+	
+	<resultMap id="comtndiaryinfo" class="kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoVO">
+		<result property="schdulId" column="SCHDUL_ID" columnIndex="1"/> <!--  -->
+		<result property="diaryId" column="DIARY_ID" columnIndex="2"/> <!--  -->
+		<result property="diaryProgrsrt" column="DIARY_PROGRSRT" columnIndex="3"/> <!--  -->
+		<result property="diaryNm" column="DIARY_NM" columnIndex="4"/> <!--  -->
+		<result property="drctMatter" column="DRCT_MATTER" columnIndex="5"/> <!--  -->
+		<result property="partclrMatter" column="PARTCLR_MATTER" columnIndex="6"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="7"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtndiaryinfoDAO.insertComtndiaryinfo_S">
+		<![CDATA[
+			INSERT INTO comtndiaryinfo 
+				( SCHDUL_ID /*  */
+				  , DIARY_ID /*  */
+				  , DIARY_PROGRSRT /*  */
+				  , DIARY_NM /*  */
+				  , DRCT_MATTER /*  */
+				  , PARTCLR_MATTER /*  */
+				  , ATCH_FILE_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #schdulId# /*  */
+					  , #diaryId# /*  */
+						  , #diaryProgrsrt# /*  */
+						  , #diaryNm# /*  */
+						  , #drctMatter# /*  */
+						  , #partclrMatter# /*  */
+						  , #atchFileId# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtndiaryinfoDAO.updateComtndiaryinfo_S">
+		<![CDATA[
+			UPDATE comtndiaryinfo
+			SET SCHDUL_ID=#schdulId# /*  */
+				, DIARY_ID=#diaryId# /*  */
+				, DIARY_PROGRSRT=#diaryProgrsrt# /*  */
+				, DIARY_NM=#diaryNm# /*  */
+				, DRCT_MATTER=#drctMatter# /*  */
+				, PARTCLR_MATTER=#partclrMatter# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE SCHDUL_ID=#schdulId# /*  */
+				AND DIARY_ID=#diaryId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtndiaryinfoDAO.deleteComtndiaryinfo_S">
+		<![CDATA[
+			DELETE FROM comtndiaryinfo 
+			WHERE SCHDUL_ID=#schdulId# /*  */
+				AND DIARY_ID=#diaryId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtndiaryinfoDAO.selectComtndiaryinfo_S" resultMap="comtndiaryinfo">
+		<![CDATA[
+			SELECT
+				SCHDUL_ID /*  */
+				, DIARY_ID /*  */
+				, DIARY_PROGRSRT /*  */
+				, DIARY_NM /*  */
+				, DRCT_MATTER /*  */
+				, PARTCLR_MATTER /*  */
+				, ATCH_FILE_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtndiaryinfo
+			WHERE SCHDUL_ID=#schdulId# /*  */
+				AND DIARY_ID=#diaryId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtndiaryinfoDAO.selectComtndiaryinfoList_D" parameterClass="comtndiaryinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								SCHDUL_ID /*  */
+								, DIARY_ID /*  */
+								, DIARY_PROGRSRT /*  */
+								, DIARY_NM /*  */
+								, DRCT_MATTER /*  */
+								, PARTCLR_MATTER /*  */
+								, ATCH_FILE_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtndiaryinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				DIARY_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SCHDUL_ID DESC /*  */
+							, DIARY_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtndiaryinfoDAO.selectComtndiaryinfoListTotCnt_S" parameterClass="comtndiaryinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtndiaryinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				DIARY_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

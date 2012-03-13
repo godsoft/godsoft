@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbatchresult">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnbatchresultSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultDefaultVO"/>
+	
+	<resultMap id="comtnbatchresult" class="kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultVO">
+		<result property="batchResultId" column="BATCH_RESULT_ID" columnIndex="1"/> <!--  -->
+		<result property="batchSchdulId" column="BATCH_SCHDUL_ID" columnIndex="2"/> <!--  -->
+		<result property="batchOpertId" column="BATCH_OPERT_ID" columnIndex="3"/> <!--  -->
+		<result property="paramtr" column="PARAMTR" columnIndex="4"/> <!--  -->
+		<result property="sttus" column="STTUS" columnIndex="5"/> <!--  -->
+		<result property="errorInfo" column="ERROR_INFO" columnIndex="6"/> <!--  -->
+		<result property="executBeginTm" column="EXECUT_BEGIN_TM" columnIndex="7"/> <!--  -->
+		<result property="executEndTm" column="EXECUT_END_TM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="9"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="12"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnbatchresultDAO.insertComtnbatchresult_S">
+		<![CDATA[
+			INSERT INTO comtnbatchresult 
+				( BATCH_RESULT_ID /*  */
+				  , BATCH_SCHDUL_ID /*  */
+				  , BATCH_OPERT_ID /*  */
+				  , PARAMTR /*  */
+				  , STTUS /*  */
+				  , ERROR_INFO /*  */
+				  , EXECUT_BEGIN_TM /*  */
+				  , EXECUT_END_TM /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */ )
+			VALUES ( #batchResultId# /*  */
+					  , #batchSchdulId# /*  */
+						  , #batchOpertId# /*  */
+						  , #paramtr# /*  */
+						  , #sttus# /*  */
+						  , #errorInfo# /*  */
+						  , #executBeginTm# /*  */
+						  , #executEndTm# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #frstRegisterId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnbatchresultDAO.updateComtnbatchresult_S">
+		<![CDATA[
+			UPDATE comtnbatchresult
+			SET BATCH_RESULT_ID=#batchResultId# /*  */
+				, BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+				, BATCH_OPERT_ID=#batchOpertId# /*  */
+				, PARAMTR=#paramtr# /*  */
+				, STTUS=#sttus# /*  */
+				, ERROR_INFO=#errorInfo# /*  */
+				, EXECUT_BEGIN_TM=#executBeginTm# /*  */
+				, EXECUT_END_TM=#executEndTm# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+			WHERE BATCH_RESULT_ID=#batchResultId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnbatchresultDAO.deleteComtnbatchresult_S">
+		<![CDATA[
+			DELETE FROM comtnbatchresult 
+			WHERE BATCH_RESULT_ID=#batchResultId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnbatchresultDAO.selectComtnbatchresult_S" resultMap="comtnbatchresult">
+		<![CDATA[
+			SELECT
+				BATCH_RESULT_ID /*  */
+				, BATCH_SCHDUL_ID /*  */
+				, BATCH_OPERT_ID /*  */
+				, PARAMTR /*  */
+				, STTUS /*  */
+				, ERROR_INFO /*  */
+				, EXECUT_BEGIN_TM /*  */
+				, EXECUT_END_TM /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+			FROM comtnbatchresult
+			WHERE BATCH_RESULT_ID=#batchResultId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnbatchresultDAO.selectComtnbatchresultList_D" parameterClass="comtnbatchresultSerarchVO" resultClass="egovMap">
+			SELECT
+								BATCH_RESULT_ID /*  */
+								, BATCH_SCHDUL_ID /*  */
+								, BATCH_OPERT_ID /*  */
+								, PARAMTR /*  */
+								, STTUS /*  */
+								, ERROR_INFO /*  */
+								, EXECUT_BEGIN_TM /*  */
+								, EXECUT_END_TM /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+					FROM comtnbatchresult
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BATCH_RESULT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BATCH_SCHDUL_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							BATCH_RESULT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnbatchresultDAO.selectComtnbatchresultListTotCnt_S" parameterClass="comtnbatchresultSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnbatchresult
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BATCH_RESULT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BATCH_SCHDUL_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnwikmnthngreprt">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnwikmnthngreprtSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnwikmnthngreprt.service.ComtnwikmnthngreprtDefaultVO"/>
+	
+	<resultMap id="comtnwikmnthngreprt" class="kr.godsoft.egovframe.generatorwebapp.comtnwikmnthngreprt.service.ComtnwikmnthngreprtVO">
+		<result property="reprtId" column="REPRT_ID" columnIndex="1"/> <!--  -->
+		<result property="reprtSe" column="REPRT_SE" columnIndex="2"/> <!--  -->
+		<result property="reprtSj" column="REPRT_SJ" columnIndex="3"/> <!--  -->
+		<result property="reportDe" column="REPORT_DE" columnIndex="4"/> <!--  -->
+		<result property="wrterId" column="WRTER_ID" columnIndex="5"/> <!--  -->
+		<result property="reportrId" column="REPORTR_ID" columnIndex="6"/> <!--  -->
+		<result property="reportBgnde" column="REPORT_BGNDE" columnIndex="7"/> <!--  -->
+		<result property="reportEndde" column="REPORT_ENDDE" columnIndex="8"/> <!--  -->
+		<result property="thswikReportCn" column="THSWIK_REPORT_CN" columnIndex="9"/> <!--  -->
+		<result property="nextwikReportCn" column="NEXTWIK_REPORT_CN" columnIndex="10"/> <!--  -->
+		<result property="partclrMatter" column="PARTCLR_MATTER" columnIndex="11"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="12"/> <!--  -->
+		<result property="confmDt" column="CONFM_DT" columnIndex="13"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="14"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="15"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="16"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="17"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnwikmnthngreprtDAO.insertComtnwikmnthngreprt_S">
+		<![CDATA[
+			INSERT INTO comtnwikmnthngreprt 
+				( REPRT_ID /*  */
+				  , REPRT_SE /*  */
+				  , REPRT_SJ /*  */
+				  , REPORT_DE /*  */
+				  , WRTER_ID /*  */
+				  , REPORTR_ID /*  */
+				  , REPORT_BGNDE /*  */
+				  , REPORT_ENDDE /*  */
+				  , THSWIK_REPORT_CN /*  */
+				  , NEXTWIK_REPORT_CN /*  */
+				  , PARTCLR_MATTER /*  */
+				  , ATCH_FILE_ID /*  */
+				  , CONFM_DT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #reprtId# /*  */
+					  , #reprtSe# /*  */
+						  , #reprtSj# /*  */
+						  , #reportDe# /*  */
+						  , #wrterId# /*  */
+						  , #reportrId# /*  */
+						  , #reportBgnde# /*  */
+						  , #reportEndde# /*  */
+						  , #thswikReportCn# /*  */
+						  , #nextwikReportCn# /*  */
+						  , #partclrMatter# /*  */
+						  , #atchFileId# /*  */
+						  , #confmDt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnwikmnthngreprtDAO.updateComtnwikmnthngreprt_S">
+		<![CDATA[
+			UPDATE comtnwikmnthngreprt
+			SET REPRT_ID=#reprtId# /*  */
+				, REPRT_SE=#reprtSe# /*  */
+				, REPRT_SJ=#reprtSj# /*  */
+				, REPORT_DE=#reportDe# /*  */
+				, WRTER_ID=#wrterId# /*  */
+				, REPORTR_ID=#reportrId# /*  */
+				, REPORT_BGNDE=#reportBgnde# /*  */
+				, REPORT_ENDDE=#reportEndde# /*  */
+				, THSWIK_REPORT_CN=#thswikReportCn# /*  */
+				, NEXTWIK_REPORT_CN=#nextwikReportCn# /*  */
+				, PARTCLR_MATTER=#partclrMatter# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, CONFM_DT=#confmDt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnwikmnthngreprtDAO.deleteComtnwikmnthngreprt_S">
+		<![CDATA[
+			DELETE FROM comtnwikmnthngreprt 
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnwikmnthngreprtDAO.selectComtnwikmnthngreprt_S" resultMap="comtnwikmnthngreprt">
+		<![CDATA[
+			SELECT
+				REPRT_ID /*  */
+				, REPRT_SE /*  */
+				, REPRT_SJ /*  */
+				, REPORT_DE /*  */
+				, WRTER_ID /*  */
+				, REPORTR_ID /*  */
+				, REPORT_BGNDE /*  */
+				, REPORT_ENDDE /*  */
+				, THSWIK_REPORT_CN /*  */
+				, NEXTWIK_REPORT_CN /*  */
+				, PARTCLR_MATTER /*  */
+				, ATCH_FILE_ID /*  */
+				, CONFM_DT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnwikmnthngreprt
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnwikmnthngreprtDAO.selectComtnwikmnthngreprtList_D" parameterClass="comtnwikmnthngreprtSerarchVO" resultClass="egovMap">
+			SELECT
+								REPRT_ID /*  */
+								, REPRT_SE /*  */
+								, REPRT_SJ /*  */
+								, REPORT_DE /*  */
+								, WRTER_ID /*  */
+								, REPORTR_ID /*  */
+								, REPORT_BGNDE /*  */
+								, REPORT_ENDDE /*  */
+								, THSWIK_REPORT_CN /*  */
+								, NEXTWIK_REPORT_CN /*  */
+								, PARTCLR_MATTER /*  */
+								, ATCH_FILE_ID /*  */
+								, CONFM_DT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnwikmnthngreprt
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPRT_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							REPRT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnwikmnthngreprtDAO.selectComtnwikmnthngreprtListTotCnt_S" parameterClass="comtnwikmnthngreprtSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnwikmnthngreprt
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPRT_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

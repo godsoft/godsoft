@@ -1,0 +1,87 @@
+package kr.godsoft.egovframe.generatorwebapp.comtnsms.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsDefaultVO;
+
+/**
+ * @Class Name : ComtnsmsDAO.java
+ * @Description : Comtnsms DAO Class
+ * @Modification Information
+ *
+ * @author 이백행
+ * @since 2012.03.13
+ * @version 1.0
+ * @see
+ *  
+ *  Copyright (C)  All right reserved.
+ */
+
+@Repository("comtnsmsDAO")
+public class ComtnsmsDAO extends EgovAbstractDAO {
+
+	/**
+	 * comtnsms을 등록한다.
+	 * @param vo - 등록할 정보가 담긴 ComtnsmsVO
+	 * @return 등록 결과
+	 * @exception Exception
+	 */
+    public String insertComtnsms(ComtnsmsVO vo) throws Exception {
+        return (String)insert("comtnsmsDAO.insertComtnsms_S", vo);
+    }
+
+    /**
+	 * comtnsms을 수정한다.
+	 * @param vo - 수정할 정보가 담긴 ComtnsmsVO
+	 * @return void형
+	 * @exception Exception
+	 */
+    public void updateComtnsms(ComtnsmsVO vo) throws Exception {
+        update("comtnsmsDAO.updateComtnsms_S", vo);
+    }
+
+    /**
+	 * comtnsms을 삭제한다.
+	 * @param vo - 삭제할 정보가 담긴 ComtnsmsVO
+	 * @return void형 
+	 * @exception Exception
+	 */
+    public void deleteComtnsms(ComtnsmsVO vo) throws Exception {
+        delete("comtnsmsDAO.deleteComtnsms_S", vo);
+    }
+
+    /**
+	 * comtnsms을 조회한다.
+	 * @param vo - 조회할 정보가 담긴 ComtnsmsVO
+	 * @return 조회한 comtnsms
+	 * @exception Exception
+	 */
+    public ComtnsmsVO selectComtnsms(ComtnsmsVO vo) throws Exception {
+        return (ComtnsmsVO) selectByPk("comtnsmsDAO.selectComtnsms_S", vo);
+    }
+
+    /**
+	 * comtnsms 목록을 조회한다.
+	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @return comtnsms 목록
+	 * @exception Exception
+	 */
+    public List selectComtnsmsList(ComtnsmsDefaultVO searchVO) throws Exception {
+        return list("comtnsmsDAO.selectComtnsmsList_D", searchVO);
+    }
+
+    /**
+	 * comtnsms 총 갯수를 조회한다.
+	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @return comtnsms 총 갯수
+	 * @exception
+	 */
+    public int selectComtnsmsListTotCnt(ComtnsmsDefaultVO searchVO) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnsmsDAO.selectComtnsmsListTotCnt_S", searchVO);
+    }
+
+}

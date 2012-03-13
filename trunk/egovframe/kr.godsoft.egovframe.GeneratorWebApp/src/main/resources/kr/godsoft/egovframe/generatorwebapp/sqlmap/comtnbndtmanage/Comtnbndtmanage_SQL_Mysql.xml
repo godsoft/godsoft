@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbndtmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnbndtmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageDefaultVO"/>
+	
+	<resultMap id="comtnbndtmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageVO">
+		<result property="bndtId" column="BNDT_ID" columnIndex="1"/> <!--  -->
+		<result property="bndtDe" column="BNDT_DE" columnIndex="2"/> <!--  -->
+		<result property="rm" column="RM" columnIndex="3"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnbndtmanageDAO.insertComtnbndtmanage_S">
+		<![CDATA[
+			INSERT INTO comtnbndtmanage 
+				( BNDT_ID /*  */
+				  , BNDT_DE /*  */
+				  , RM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #bndtId# /*  */
+					  , #bndtDe# /*  */
+						  , #rm# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnbndtmanageDAO.updateComtnbndtmanage_S">
+		<![CDATA[
+			UPDATE comtnbndtmanage
+			SET BNDT_ID=#bndtId# /*  */
+				, BNDT_DE=#bndtDe# /*  */
+				, RM=#rm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE BNDT_ID=#bndtId# /*  */
+				AND BNDT_DE=#bndtDe# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnbndtmanageDAO.deleteComtnbndtmanage_S">
+		<![CDATA[
+			DELETE FROM comtnbndtmanage 
+			WHERE BNDT_ID=#bndtId# /*  */
+				AND BNDT_DE=#bndtDe# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnbndtmanageDAO.selectComtnbndtmanage_S" resultMap="comtnbndtmanage">
+		<![CDATA[
+			SELECT
+				BNDT_ID /*  */
+				, BNDT_DE /*  */
+				, RM /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnbndtmanage
+			WHERE BNDT_ID=#bndtId# /*  */
+				AND BNDT_DE=#bndtDe# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnbndtmanageDAO.selectComtnbndtmanageList_D" parameterClass="comtnbndtmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								BNDT_ID /*  */
+								, BNDT_DE /*  */
+								, RM /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnbndtmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BNDT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BNDT_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							BNDT_ID DESC /*  */
+							, BNDT_DE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnbndtmanageDAO.selectComtnbndtmanageListTotCnt_S" parameterClass="comtnbndtmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnbndtmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BNDT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BNDT_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

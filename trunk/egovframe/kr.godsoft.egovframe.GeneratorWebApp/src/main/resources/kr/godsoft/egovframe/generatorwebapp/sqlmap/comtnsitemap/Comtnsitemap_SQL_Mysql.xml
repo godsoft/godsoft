@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnsitemap">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnsitemapSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO"/>
+	
+	<resultMap id="comtnsitemap" class="kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO">
+		<result property="mapngCreatId" column="MAPNG_CREAT_ID" columnIndex="1"/> <!--  -->
+		<result property="creatrId" column="CREATR_ID" columnIndex="2"/> <!--  -->
+		<result property="mapngFileNm" column="MAPNG_FILE_NM" columnIndex="3"/> <!--  -->
+		<result property="mapngFilePath" column="MAPNG_FILE_PATH" columnIndex="4"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnsitemapDAO.insertComtnsitemap_S">
+		<![CDATA[
+			INSERT INTO comtnsitemap 
+				( MAPNG_CREAT_ID /*  */
+				  , CREATR_ID /*  */
+				  , MAPNG_FILE_NM /*  */
+				  , MAPNG_FILE_PATH /*  */ )
+			VALUES ( #mapngCreatId# /*  */
+					  , #creatrId# /*  */
+						  , #mapngFileNm# /*  */
+					  , #mapngFilePath# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnsitemapDAO.updateComtnsitemap_S">
+		<![CDATA[
+			UPDATE comtnsitemap
+			SET MAPNG_CREAT_ID=#mapngCreatId# /*  */
+				, CREATR_ID=#creatrId# /*  */
+				, MAPNG_FILE_NM=#mapngFileNm# /*  */
+				, MAPNG_FILE_PATH=#mapngFilePath# /*  */
+			WHERE MAPNG_CREAT_ID=#mapngCreatId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnsitemapDAO.deleteComtnsitemap_S">
+		<![CDATA[
+			DELETE FROM comtnsitemap 
+			WHERE MAPNG_CREAT_ID=#mapngCreatId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnsitemapDAO.selectComtnsitemap_S" resultMap="comtnsitemap">
+		<![CDATA[
+			SELECT
+				MAPNG_CREAT_ID /*  */
+				, CREATR_ID /*  */
+				, MAPNG_FILE_NM /*  */
+				, MAPNG_FILE_PATH /*  */
+			FROM comtnsitemap
+			WHERE MAPNG_CREAT_ID=#mapngCreatId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnsitemapDAO.selectComtnsitemapList_D" parameterClass="comtnsitemapSerarchVO" resultClass="egovMap">
+			SELECT
+								MAPNG_CREAT_ID /*  */
+								, CREATR_ID /*  */
+								, MAPNG_FILE_NM /*  */
+								, MAPNG_FILE_PATH /*  */
+					FROM comtnsitemap
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MAPNG_CREAT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CREATR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MAPNG_CREAT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnsitemapDAO.selectComtnsitemapListTotCnt_S" parameterClass="comtnsitemapSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnsitemap
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MAPNG_CREAT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CREATR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbanner">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnbannerSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerDefaultVO"/>
+	
+	<resultMap id="comtnbanner" class="kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO">
+		<result property="bannerId" column="BANNER_ID" columnIndex="1"/> <!--  -->
+		<result property="bannerNm" column="BANNER_NM" columnIndex="2"/> <!--  -->
+		<result property="linkUrl" column="LINK_URL" columnIndex="3"/> <!--  -->
+		<result property="bannerImage" column="BANNER_IMAGE" columnIndex="4"/> <!--  -->
+		<result property="bannerDc" column="BANNER_DC" columnIndex="5"/> <!--  -->
+		<result property="reflctAt" column="REFLCT_AT" columnIndex="6"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="bannerImageFile" column="BANNER_IMAGE_FILE" columnIndex="11"/> <!--  -->
+		<result property="sortOrdr" column="SORT_ORDR" columnIndex="12"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnbannerDAO.insertComtnbanner_S">
+		<![CDATA[
+			INSERT INTO comtnbanner 
+				( BANNER_ID /*  */
+				  , BANNER_NM /*  */
+				  , LINK_URL /*  */
+				  , BANNER_IMAGE /*  */
+				  , BANNER_DC /*  */
+				  , REFLCT_AT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , BANNER_IMAGE_FILE /*  */
+				  , SORT_ORDR /*  */ )
+			VALUES ( #bannerId# /*  */
+					  , #bannerNm# /*  */
+						  , #linkUrl# /*  */
+						  , #bannerImage# /*  */
+						  , #bannerDc# /*  */
+						  , #reflctAt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+						  , #bannerImageFile# /*  */
+					  , #sortOrdr# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnbannerDAO.updateComtnbanner_S">
+		<![CDATA[
+			UPDATE comtnbanner
+			SET BANNER_ID=#bannerId# /*  */
+				, BANNER_NM=#bannerNm# /*  */
+				, LINK_URL=#linkUrl# /*  */
+				, BANNER_IMAGE=#bannerImage# /*  */
+				, BANNER_DC=#bannerDc# /*  */
+				, REFLCT_AT=#reflctAt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, BANNER_IMAGE_FILE=#bannerImageFile# /*  */
+				, SORT_ORDR=#sortOrdr# /*  */
+			WHERE BANNER_ID=#bannerId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnbannerDAO.deleteComtnbanner_S">
+		<![CDATA[
+			DELETE FROM comtnbanner 
+			WHERE BANNER_ID=#bannerId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnbannerDAO.selectComtnbanner_S" resultMap="comtnbanner">
+		<![CDATA[
+			SELECT
+				BANNER_ID /*  */
+				, BANNER_NM /*  */
+				, LINK_URL /*  */
+				, BANNER_IMAGE /*  */
+				, BANNER_DC /*  */
+				, REFLCT_AT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, BANNER_IMAGE_FILE /*  */
+				, SORT_ORDR /*  */
+			FROM comtnbanner
+			WHERE BANNER_ID=#bannerId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnbannerDAO.selectComtnbannerList_D" parameterClass="comtnbannerSerarchVO" resultClass="egovMap">
+			SELECT
+								BANNER_ID /*  */
+								, BANNER_NM /*  */
+								, LINK_URL /*  */
+								, BANNER_IMAGE /*  */
+								, BANNER_DC /*  */
+								, REFLCT_AT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, BANNER_IMAGE_FILE /*  */
+								, SORT_ORDR /*  */
+					FROM comtnbanner
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BANNER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BANNER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							BANNER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnbannerDAO.selectComtnbannerListTotCnt_S" parameterClass="comtnbannerSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnbanner
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BANNER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BANNER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

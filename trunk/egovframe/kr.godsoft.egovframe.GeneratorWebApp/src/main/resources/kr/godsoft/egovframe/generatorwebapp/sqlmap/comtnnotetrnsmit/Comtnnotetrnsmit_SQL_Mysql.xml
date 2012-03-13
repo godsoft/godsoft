@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnnotetrnsmit">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnnotetrnsmitSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitDefaultVO"/>
+	
+	<resultMap id="comtnnotetrnsmit" class="kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitVO">
+		<result property="noteId" column="NOTE_ID" columnIndex="1"/> <!--  -->
+		<result property="noteTrnsmitId" column="NOTE_TRNSMIT_ID" columnIndex="2"/> <!--  -->
+		<result property="trnsmiterId" column="TRNSMITER_ID" columnIndex="3"/> <!--  -->
+		<result property="deleteAt" column="DELETE_AT" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnnotetrnsmitDAO.insertComtnnotetrnsmit_S">
+		<![CDATA[
+			INSERT INTO comtnnotetrnsmit 
+				( NOTE_ID /*  */
+				  , NOTE_TRNSMIT_ID /*  */
+				  , TRNSMITER_ID /*  */
+				  , DELETE_AT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #noteId# /*  */
+					  , #noteTrnsmitId# /*  */
+						  , #trnsmiterId# /*  */
+						  , #deleteAt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnnotetrnsmitDAO.updateComtnnotetrnsmit_S">
+		<![CDATA[
+			UPDATE comtnnotetrnsmit
+			SET NOTE_ID=#noteId# /*  */
+				, NOTE_TRNSMIT_ID=#noteTrnsmitId# /*  */
+				, TRNSMITER_ID=#trnsmiterId# /*  */
+				, DELETE_AT=#deleteAt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE NOTE_ID=#noteId# /*  */
+				AND NOTE_TRNSMIT_ID=#noteTrnsmitId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnnotetrnsmitDAO.deleteComtnnotetrnsmit_S">
+		<![CDATA[
+			DELETE FROM comtnnotetrnsmit 
+			WHERE NOTE_ID=#noteId# /*  */
+				AND NOTE_TRNSMIT_ID=#noteTrnsmitId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnnotetrnsmitDAO.selectComtnnotetrnsmit_S" resultMap="comtnnotetrnsmit">
+		<![CDATA[
+			SELECT
+				NOTE_ID /*  */
+				, NOTE_TRNSMIT_ID /*  */
+				, TRNSMITER_ID /*  */
+				, DELETE_AT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtnnotetrnsmit
+			WHERE NOTE_ID=#noteId# /*  */
+				AND NOTE_TRNSMIT_ID=#noteTrnsmitId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnnotetrnsmitDAO.selectComtnnotetrnsmitList_D" parameterClass="comtnnotetrnsmitSerarchVO" resultClass="egovMap">
+			SELECT
+								NOTE_ID /*  */
+								, NOTE_TRNSMIT_ID /*  */
+								, TRNSMITER_ID /*  */
+								, DELETE_AT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtnnotetrnsmit
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NOTE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NOTE_TRNSMIT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							NOTE_ID DESC /*  */
+							, NOTE_TRNSMIT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnnotetrnsmitDAO.selectComtnnotetrnsmitListTotCnt_S" parameterClass="comtnnotetrnsmitSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnnotetrnsmit
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NOTE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NOTE_TRNSMIT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

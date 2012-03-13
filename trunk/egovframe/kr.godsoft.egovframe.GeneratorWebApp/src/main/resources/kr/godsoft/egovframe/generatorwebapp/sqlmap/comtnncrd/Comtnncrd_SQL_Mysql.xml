@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnncrd">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnncrdSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnncrd.service.ComtnncrdDefaultVO"/>
+	
+	<resultMap id="comtnncrd" class="kr.godsoft.egovframe.generatorwebapp.comtnncrd.service.ComtnncrdVO">
+		<result property="ncrdId" column="NCRD_ID" columnIndex="1"/> <!--  -->
+		<result property="ncrdTrgterId" column="NCRD_TRGTER_ID" columnIndex="2"/> <!--  -->
+		<result property="nm" column="NM" columnIndex="3"/> <!--  -->
+		<result property="telno" column="TELNO" columnIndex="4"/> <!--  -->
+		<result property="nationNo" column="NATION_NO" columnIndex="5"/> <!--  -->
+		<result property="areaNo" column="AREA_NO" columnIndex="6"/> <!--  -->
+		<result property="middleTelno" column="MIDDLE_TELNO" columnIndex="7"/> <!--  -->
+		<result property="endTelno" column="END_TELNO" columnIndex="8"/> <!--  -->
+		<result property="mbtlnum" column="MBTLNUM" columnIndex="9"/> <!--  -->
+		<result property="idntfcNo" column="IDNTFC_NO" columnIndex="10"/> <!--  -->
+		<result property="middleMbtlnum" column="MIDDLE_MBTLNUM" columnIndex="11"/> <!--  -->
+		<result property="endMbtlnum" column="END_MBTLNUM" columnIndex="12"/> <!--  -->
+		<result property="emailAdres" column="EMAIL_ADRES" columnIndex="13"/> <!--  -->
+		<result property="cmpnyNm" column="CMPNY_NM" columnIndex="14"/> <!--  -->
+		<result property="deptNm" column="DEPT_NM" columnIndex="15"/> <!--  -->
+		<result property="adres" column="ADRES" columnIndex="16"/> <!--  -->
+		<result property="detailAdres" column="DETAIL_ADRES" columnIndex="17"/> <!--  -->
+		<result property="ofcpsNm" column="OFCPS_NM" columnIndex="18"/> <!--  -->
+		<result property="clsfNm" column="CLSF_NM" columnIndex="19"/> <!--  -->
+		<result property="extrlUserAt" column="EXTRL_USER_AT" columnIndex="20"/> <!--  -->
+		<result property="othbcAt" column="OTHBC_AT" columnIndex="21"/> <!--  -->
+		<result property="rm" column="RM" columnIndex="22"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="23"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="24"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="25"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="26"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnncrdDAO.insertComtnncrd_S">
+		<![CDATA[
+			INSERT INTO comtnncrd 
+				( NCRD_ID /*  */
+				  , NCRD_TRGTER_ID /*  */
+				  , NM /*  */
+				  , TELNO /*  */
+				  , NATION_NO /*  */
+				  , AREA_NO /*  */
+				  , MIDDLE_TELNO /*  */
+				  , END_TELNO /*  */
+				  , MBTLNUM /*  */
+				  , IDNTFC_NO /*  */
+				  , MIDDLE_MBTLNUM /*  */
+				  , END_MBTLNUM /*  */
+				  , EMAIL_ADRES /*  */
+				  , CMPNY_NM /*  */
+				  , DEPT_NM /*  */
+				  , ADRES /*  */
+				  , DETAIL_ADRES /*  */
+				  , OFCPS_NM /*  */
+				  , CLSF_NM /*  */
+				  , EXTRL_USER_AT /*  */
+				  , OTHBC_AT /*  */
+				  , RM /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #ncrdId# /*  */
+					  , #ncrdTrgterId# /*  */
+						  , #nm# /*  */
+						  , #telno# /*  */
+						  , #nationNo# /*  */
+						  , #areaNo# /*  */
+						  , #middleTelno# /*  */
+						  , #endTelno# /*  */
+						  , #mbtlnum# /*  */
+						  , #idntfcNo# /*  */
+						  , #middleMbtlnum# /*  */
+						  , #endMbtlnum# /*  */
+						  , #emailAdres# /*  */
+						  , #cmpnyNm# /*  */
+						  , #deptNm# /*  */
+						  , #adres# /*  */
+						  , #detailAdres# /*  */
+						  , #ofcpsNm# /*  */
+						  , #clsfNm# /*  */
+						  , #extrlUserAt# /*  */
+						  , #othbcAt# /*  */
+						  , #rm# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnncrdDAO.updateComtnncrd_S">
+		<![CDATA[
+			UPDATE comtnncrd
+			SET NCRD_ID=#ncrdId# /*  */
+				, NCRD_TRGTER_ID=#ncrdTrgterId# /*  */
+				, NM=#nm# /*  */
+				, TELNO=#telno# /*  */
+				, NATION_NO=#nationNo# /*  */
+				, AREA_NO=#areaNo# /*  */
+				, MIDDLE_TELNO=#middleTelno# /*  */
+				, END_TELNO=#endTelno# /*  */
+				, MBTLNUM=#mbtlnum# /*  */
+				, IDNTFC_NO=#idntfcNo# /*  */
+				, MIDDLE_MBTLNUM=#middleMbtlnum# /*  */
+				, END_MBTLNUM=#endMbtlnum# /*  */
+				, EMAIL_ADRES=#emailAdres# /*  */
+				, CMPNY_NM=#cmpnyNm# /*  */
+				, DEPT_NM=#deptNm# /*  */
+				, ADRES=#adres# /*  */
+				, DETAIL_ADRES=#detailAdres# /*  */
+				, OFCPS_NM=#ofcpsNm# /*  */
+				, CLSF_NM=#clsfNm# /*  */
+				, EXTRL_USER_AT=#extrlUserAt# /*  */
+				, OTHBC_AT=#othbcAt# /*  */
+				, RM=#rm# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE NCRD_ID=#ncrdId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnncrdDAO.deleteComtnncrd_S">
+		<![CDATA[
+			DELETE FROM comtnncrd 
+			WHERE NCRD_ID=#ncrdId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnncrdDAO.selectComtnncrd_S" resultMap="comtnncrd">
+		<![CDATA[
+			SELECT
+				NCRD_ID /*  */
+				, NCRD_TRGTER_ID /*  */
+				, NM /*  */
+				, TELNO /*  */
+				, NATION_NO /*  */
+				, AREA_NO /*  */
+				, MIDDLE_TELNO /*  */
+				, END_TELNO /*  */
+				, MBTLNUM /*  */
+				, IDNTFC_NO /*  */
+				, MIDDLE_MBTLNUM /*  */
+				, END_MBTLNUM /*  */
+				, EMAIL_ADRES /*  */
+				, CMPNY_NM /*  */
+				, DEPT_NM /*  */
+				, ADRES /*  */
+				, DETAIL_ADRES /*  */
+				, OFCPS_NM /*  */
+				, CLSF_NM /*  */
+				, EXTRL_USER_AT /*  */
+				, OTHBC_AT /*  */
+				, RM /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnncrd
+			WHERE NCRD_ID=#ncrdId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnncrdDAO.selectComtnncrdList_D" parameterClass="comtnncrdSerarchVO" resultClass="egovMap">
+			SELECT
+								NCRD_ID /*  */
+								, NCRD_TRGTER_ID /*  */
+								, NM /*  */
+								, TELNO /*  */
+								, NATION_NO /*  */
+								, AREA_NO /*  */
+								, MIDDLE_TELNO /*  */
+								, END_TELNO /*  */
+								, MBTLNUM /*  */
+								, IDNTFC_NO /*  */
+								, MIDDLE_MBTLNUM /*  */
+								, END_MBTLNUM /*  */
+								, EMAIL_ADRES /*  */
+								, CMPNY_NM /*  */
+								, DEPT_NM /*  */
+								, ADRES /*  */
+								, DETAIL_ADRES /*  */
+								, OFCPS_NM /*  */
+								, CLSF_NM /*  */
+								, EXTRL_USER_AT /*  */
+								, OTHBC_AT /*  */
+								, RM /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnncrd
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NCRD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NCRD_TRGTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							NCRD_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnncrdDAO.selectComtnncrdListTotCnt_S" parameterClass="comtnncrdSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnncrd
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NCRD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NCRD_TRGTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

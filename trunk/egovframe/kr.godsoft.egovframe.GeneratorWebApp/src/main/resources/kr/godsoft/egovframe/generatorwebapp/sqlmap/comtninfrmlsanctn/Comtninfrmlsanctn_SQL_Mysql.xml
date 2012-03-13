@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtninfrmlsanctn">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtninfrmlsanctnSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnDefaultVO"/>
+	
+	<resultMap id="comtninfrmlsanctn" class="kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnVO">
+		<result property="infrmlSanctnId" column="INFRML_SANCTN_ID" columnIndex="1"/> <!--  -->
+		<result property="jobSeCode" column="JOB_SE_CODE" columnIndex="2"/> <!--  -->
+		<result property="applcntId" column="APPLCNT_ID" columnIndex="3"/> <!--  -->
+		<result property="reqstDe" column="REQST_DE" columnIndex="4"/> <!--  -->
+		<result property="sanctnerId" column="SANCTNER_ID" columnIndex="5"/> <!--  -->
+		<result property="confmAt" column="CONFM_AT" columnIndex="6"/> <!--  -->
+		<result property="sanctnDt" column="SANCTN_DT" columnIndex="7"/> <!--  -->
+		<result property="returnResn" column="RETURN_RESN" columnIndex="8"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="12"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtninfrmlsanctnDAO.insertComtninfrmlsanctn_S">
+		<![CDATA[
+			INSERT INTO comtninfrmlsanctn 
+				( INFRML_SANCTN_ID /*  */
+				  , JOB_SE_CODE /*  */
+				  , APPLCNT_ID /*  */
+				  , REQST_DE /*  */
+				  , SANCTNER_ID /*  */
+				  , CONFM_AT /*  */
+				  , SANCTN_DT /*  */
+				  , RETURN_RESN /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #infrmlSanctnId# /*  */
+					  , #jobSeCode# /*  */
+						  , #applcntId# /*  */
+						  , #reqstDe# /*  */
+						  , #sanctnerId# /*  */
+						  , #confmAt# /*  */
+						  , SYSDATE() /*  */
+						  , #returnResn# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtninfrmlsanctnDAO.updateComtninfrmlsanctn_S">
+		<![CDATA[
+			UPDATE comtninfrmlsanctn
+			SET INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+				, JOB_SE_CODE=#jobSeCode# /*  */
+				, APPLCNT_ID=#applcntId# /*  */
+				, REQST_DE=#reqstDe# /*  */
+				, SANCTNER_ID=#sanctnerId# /*  */
+				, CONFM_AT=#confmAt# /*  */
+				, SANCTN_DT=#sanctnDt# /*  */
+				, RETURN_RESN=#returnResn# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtninfrmlsanctnDAO.deleteComtninfrmlsanctn_S">
+		<![CDATA[
+			DELETE FROM comtninfrmlsanctn 
+			WHERE INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctn_S" resultMap="comtninfrmlsanctn">
+		<![CDATA[
+			SELECT
+				INFRML_SANCTN_ID /*  */
+				, JOB_SE_CODE /*  */
+				, APPLCNT_ID /*  */
+				, REQST_DE /*  */
+				, SANCTNER_ID /*  */
+				, CONFM_AT /*  */
+				, SANCTN_DT /*  */
+				, RETURN_RESN /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtninfrmlsanctn
+			WHERE INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctnList_D" parameterClass="comtninfrmlsanctnSerarchVO" resultClass="egovMap">
+			SELECT
+								INFRML_SANCTN_ID /*  */
+								, JOB_SE_CODE /*  */
+								, APPLCNT_ID /*  */
+								, REQST_DE /*  */
+								, SANCTNER_ID /*  */
+								, CONFM_AT /*  */
+								, SANCTN_DT /*  */
+								, RETURN_RESN /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtninfrmlsanctn
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INFRML_SANCTN_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				JOB_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							INFRML_SANCTN_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctnListTotCnt_S" parameterClass="comtninfrmlsanctnSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtninfrmlsanctn
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INFRML_SANCTN_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				JOB_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnuserlog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnuserlogSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogDefaultVO"/>
+	
+	<resultMap id="comtnuserlog" class="kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogVO">
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
+		<result property="rqesterId" column="RQESTER_ID" columnIndex="2"/> <!--  -->
+		<result property="svcNm" column="SVC_NM" columnIndex="3"/> <!--  -->
+		<result property="methodNm" column="METHOD_NM" columnIndex="4"/> <!--  -->
+		<result property="creatCo" column="CREAT_CO" columnIndex="5"/> <!--  -->
+		<result property="updtCo" column="UPDT_CO" columnIndex="6"/> <!--  -->
+		<result property="rdcnt" column="RDCNT" columnIndex="7"/> <!--  -->
+		<result property="deleteCo" column="DELETE_CO" columnIndex="8"/> <!--  -->
+		<result property="outptCo" column="OUTPT_CO" columnIndex="9"/> <!--  -->
+		<result property="errorCo" column="ERROR_CO" columnIndex="10"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnuserlogDAO.insertComtnuserlog_S">
+		<![CDATA[
+			INSERT INTO comtnuserlog 
+				( OCCRRNC_DE /*  */
+				  , RQESTER_ID /*  */
+				  , SVC_NM /*  */
+				  , METHOD_NM /*  */
+				  , CREAT_CO /*  */
+				  , UPDT_CO /*  */
+				  , RDCNT /*  */
+				  , DELETE_CO /*  */
+				  , OUTPT_CO /*  */
+				  , ERROR_CO /*  */ )
+			VALUES ( #occrrncDe# /*  */
+					  , #rqesterId# /*  */
+						  , #svcNm# /*  */
+						  , #methodNm# /*  */
+						  , #creatCo# /*  */
+						  , #updtCo# /*  */
+						  , #rdcnt# /*  */
+						  , #deleteCo# /*  */
+						  , #outptCo# /*  */
+					  , #errorCo# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnuserlogDAO.updateComtnuserlog_S">
+		<![CDATA[
+			UPDATE comtnuserlog
+			SET OCCRRNC_DE=#occrrncDe# /*  */
+				, RQESTER_ID=#rqesterId# /*  */
+				, SVC_NM=#svcNm# /*  */
+				, METHOD_NM=#methodNm# /*  */
+				, CREAT_CO=#creatCo# /*  */
+				, UPDT_CO=#updtCo# /*  */
+				, RDCNT=#rdcnt# /*  */
+				, DELETE_CO=#deleteCo# /*  */
+				, OUTPT_CO=#outptCo# /*  */
+				, ERROR_CO=#errorCo# /*  */
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND RQESTER_ID=#rqesterId# /*  */
+				AND SVC_NM=#svcNm# /*  */
+				AND METHOD_NM=#methodNm# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnuserlogDAO.deleteComtnuserlog_S">
+		<![CDATA[
+			DELETE FROM comtnuserlog 
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND RQESTER_ID=#rqesterId# /*  */
+				AND SVC_NM=#svcNm# /*  */
+				AND METHOD_NM=#methodNm# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnuserlogDAO.selectComtnuserlog_S" resultMap="comtnuserlog">
+		<![CDATA[
+			SELECT
+				OCCRRNC_DE /*  */
+				, RQESTER_ID /*  */
+				, SVC_NM /*  */
+				, METHOD_NM /*  */
+				, CREAT_CO /*  */
+				, UPDT_CO /*  */
+				, RDCNT /*  */
+				, DELETE_CO /*  */
+				, OUTPT_CO /*  */
+				, ERROR_CO /*  */
+			FROM comtnuserlog
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND RQESTER_ID=#rqesterId# /*  */
+				AND SVC_NM=#svcNm# /*  */
+				AND METHOD_NM=#methodNm# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnuserlogDAO.selectComtnuserlogList_D" parameterClass="comtnuserlogSerarchVO" resultClass="egovMap">
+			SELECT
+								OCCRRNC_DE /*  */
+								, RQESTER_ID /*  */
+								, SVC_NM /*  */
+								, METHOD_NM /*  */
+								, CREAT_CO /*  */
+								, UPDT_CO /*  */
+								, RDCNT /*  */
+								, DELETE_CO /*  */
+								, OUTPT_CO /*  */
+								, ERROR_CO /*  */
+					FROM comtnuserlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RQESTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							OCCRRNC_DE DESC /*  */
+							, RQESTER_ID DESC /*  */
+							, SVC_NM DESC /*  */
+							, METHOD_NM DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnuserlogDAO.selectComtnuserlogListTotCnt_S" parameterClass="comtnuserlogSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnuserlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RQESTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

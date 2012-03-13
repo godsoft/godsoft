@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnleadersttus">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnleadersttusSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusDefaultVO"/>
+	
+	<resultMap id="comtnleadersttus" class="kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusVO">
+		<result property="leaderId" column="LEADER_ID" columnIndex="1"/> <!--  -->
+		<result property="leaderSttus" column="LEADER_STTUS" columnIndex="2"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="3"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnleadersttusDAO.insertComtnleadersttus_S">
+		<![CDATA[
+			INSERT INTO comtnleadersttus 
+				( LEADER_ID /*  */
+				  , LEADER_STTUS /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #leaderId# /*  */
+					  , #leaderSttus# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnleadersttusDAO.updateComtnleadersttus_S">
+		<![CDATA[
+			UPDATE comtnleadersttus
+			SET LEADER_ID=#leaderId# /*  */
+				, LEADER_STTUS=#leaderSttus# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE LEADER_ID=#leaderId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnleadersttusDAO.deleteComtnleadersttus_S">
+		<![CDATA[
+			DELETE FROM comtnleadersttus 
+			WHERE LEADER_ID=#leaderId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnleadersttusDAO.selectComtnleadersttus_S" resultMap="comtnleadersttus">
+		<![CDATA[
+			SELECT
+				LEADER_ID /*  */
+				, LEADER_STTUS /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnleadersttus
+			WHERE LEADER_ID=#leaderId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnleadersttusDAO.selectComtnleadersttusList_D" parameterClass="comtnleadersttusSerarchVO" resultClass="egovMap">
+			SELECT
+								LEADER_ID /*  */
+								, LEADER_STTUS /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnleadersttus
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				LEADER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				LEADER_STTUS LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							LEADER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnleadersttusDAO.selectComtnleadersttusListTotCnt_S" parameterClass="comtnleadersttusSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnleadersttus
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				LEADER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				LEADER_STTUS LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

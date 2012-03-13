@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnfilesysmntrngloginfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnfilesysmntrngloginfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoDefaultVO"/>
+	
+	<resultMap id="comtnfilesysmntrngloginfo" class="kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoVO">
+		<result property="fileSysId" column="FILE_SYS_ID" columnIndex="1"/> <!--  -->
+		<result property="fileSysNm" column="FILE_SYS_NM" columnIndex="2"/> <!--  -->
+		<result property="fileSysManageNm" column="FILE_SYS_MANAGE_NM" columnIndex="3"/> <!--  -->
+		<result property="fileSysSize" column="FILE_SYS_SIZE" columnIndex="4"/> <!--  -->
+		<result property="fileSysThrhld" column="FILE_SYS_THRHLD" columnIndex="5"/> <!--  -->
+		<result property="fileSysUsgqty" column="FILE_SYS_USGQTY" columnIndex="6"/> <!--  -->
+		<result property="mntrngSttus" column="MNTRNG_STTUS" columnIndex="7"/> <!--  -->
+		<result property="logInfo" column="LOG_INFO" columnIndex="8"/> <!--  -->
+		<result property="creatDt" column="CREAT_DT" columnIndex="9"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="logId" column="LOG_ID" columnIndex="14"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnfilesysmntrngloginfoDAO.insertComtnfilesysmntrngloginfo_S">
+		<![CDATA[
+			INSERT INTO comtnfilesysmntrngloginfo 
+				( FILE_SYS_ID /*  */
+				  , FILE_SYS_NM /*  */
+				  , FILE_SYS_MANAGE_NM /*  */
+				  , FILE_SYS_SIZE /*  */
+				  , FILE_SYS_THRHLD /*  */
+				  , FILE_SYS_USGQTY /*  */
+				  , MNTRNG_STTUS /*  */
+				  , LOG_INFO /*  */
+				  , CREAT_DT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LOG_ID /*  */ )
+			VALUES ( #fileSysId# /*  */
+					  , #fileSysNm# /*  */
+						  , #fileSysManageNm# /*  */
+						  , #fileSysSize# /*  */
+						  , #fileSysThrhld# /*  */
+						  , #fileSysUsgqty# /*  */
+						  , #mntrngSttus# /*  */
+						  , #logInfo# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #logId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnfilesysmntrngloginfoDAO.updateComtnfilesysmntrngloginfo_S">
+		<![CDATA[
+			UPDATE comtnfilesysmntrngloginfo
+			SET FILE_SYS_ID=#fileSysId# /*  */
+				, FILE_SYS_NM=#fileSysNm# /*  */
+				, FILE_SYS_MANAGE_NM=#fileSysManageNm# /*  */
+				, FILE_SYS_SIZE=#fileSysSize# /*  */
+				, FILE_SYS_THRHLD=#fileSysThrhld# /*  */
+				, FILE_SYS_USGQTY=#fileSysUsgqty# /*  */
+				, MNTRNG_STTUS=#mntrngSttus# /*  */
+				, LOG_INFO=#logInfo# /*  */
+				, CREAT_DT=#creatDt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LOG_ID=#logId# /*  */
+			WHERE FILE_SYS_ID=#fileSysId# /*  */
+				AND LOG_ID=#logId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnfilesysmntrngloginfoDAO.deleteComtnfilesysmntrngloginfo_S">
+		<![CDATA[
+			DELETE FROM comtnfilesysmntrngloginfo 
+			WHERE FILE_SYS_ID=#fileSysId# /*  */
+				AND LOG_ID=#logId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfo_S" resultMap="comtnfilesysmntrngloginfo">
+		<![CDATA[
+			SELECT
+				FILE_SYS_ID /*  */
+				, FILE_SYS_NM /*  */
+				, FILE_SYS_MANAGE_NM /*  */
+				, FILE_SYS_SIZE /*  */
+				, FILE_SYS_THRHLD /*  */
+				, FILE_SYS_USGQTY /*  */
+				, MNTRNG_STTUS /*  */
+				, LOG_INFO /*  */
+				, CREAT_DT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LOG_ID /*  */
+			FROM comtnfilesysmntrngloginfo
+			WHERE FILE_SYS_ID=#fileSysId# /*  */
+				AND LOG_ID=#logId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfoList_D" parameterClass="comtnfilesysmntrngloginfoSerarchVO" resultClass="egovMap">
+			SELECT
+								FILE_SYS_ID /*  */
+								, FILE_SYS_NM /*  */
+								, FILE_SYS_MANAGE_NM /*  */
+								, FILE_SYS_SIZE /*  */
+								, FILE_SYS_THRHLD /*  */
+								, FILE_SYS_USGQTY /*  */
+								, MNTRNG_STTUS /*  */
+								, LOG_INFO /*  */
+								, CREAT_DT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LOG_ID /*  */
+					FROM comtnfilesysmntrngloginfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FILE_SYS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FILE_SYS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							FILE_SYS_ID DESC /*  */
+							, LOG_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfoListTotCnt_S" parameterClass="comtnfilesysmntrngloginfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnfilesysmntrngloginfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				FILE_SYS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FILE_SYS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

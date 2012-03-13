@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndammapkno">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtndammapknoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoDefaultVO"/>
+	
+	<resultMap id="comtndammapkno" class="kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoVO">
+		<result property="knwldgTyCode" column="KNWLDG_TY_CODE" columnIndex="1"/> <!--  -->
+		<result property="orgnztId" column="ORGNZT_ID" columnIndex="2"/> <!--  -->
+		<result property="expertId" column="EXPERT_ID" columnIndex="3"/> <!--  -->
+		<result property="knwldgTyNm" column="KNWLDG_TY_NM" columnIndex="4"/> <!--  -->
+		<result property="clDe" column="CL_DE" columnIndex="5"/> <!--  -->
+		<result property="knwldgUrl" column="KNWLDG_URL" columnIndex="6"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtndammapknoDAO.insertComtndammapkno_S">
+		<![CDATA[
+			INSERT INTO comtndammapkno 
+				( KNWLDG_TY_CODE /*  */
+				  , ORGNZT_ID /*  */
+				  , EXPERT_ID /*  */
+				  , KNWLDG_TY_NM /*  */
+				  , CL_DE /*  */
+				  , KNWLDG_URL /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #knwldgTyCode# /*  */
+					  , #orgnztId# /*  */
+						  , #expertId# /*  */
+						  , #knwldgTyNm# /*  */
+						  , #clDe# /*  */
+						  , #knwldgUrl# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtndammapknoDAO.updateComtndammapkno_S">
+		<![CDATA[
+			UPDATE comtndammapkno
+			SET KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+				, ORGNZT_ID=#orgnztId# /*  */
+				, EXPERT_ID=#expertId# /*  */
+				, KNWLDG_TY_NM=#knwldgTyNm# /*  */
+				, CL_DE=#clDe# /*  */
+				, KNWLDG_URL=#knwldgUrl# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtndammapknoDAO.deleteComtndammapkno_S">
+		<![CDATA[
+			DELETE FROM comtndammapkno 
+			WHERE KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtndammapknoDAO.selectComtndammapkno_S" resultMap="comtndammapkno">
+		<![CDATA[
+			SELECT
+				KNWLDG_TY_CODE /*  */
+				, ORGNZT_ID /*  */
+				, EXPERT_ID /*  */
+				, KNWLDG_TY_NM /*  */
+				, CL_DE /*  */
+				, KNWLDG_URL /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtndammapkno
+			WHERE KNWLDG_TY_CODE=#knwldgTyCode# /*  */
+		]]>
+	</select>
+	
+	<select id="comtndammapknoDAO.selectComtndammapknoList_D" parameterClass="comtndammapknoSerarchVO" resultClass="egovMap">
+			SELECT
+								KNWLDG_TY_CODE /*  */
+								, ORGNZT_ID /*  */
+								, EXPERT_ID /*  */
+								, KNWLDG_TY_NM /*  */
+								, CL_DE /*  */
+								, KNWLDG_URL /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtndammapkno
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				KNWLDG_TY_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ORGNZT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							KNWLDG_TY_CODE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtndammapknoDAO.selectComtndammapknoListTotCnt_S" parameterClass="comtndammapknoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtndammapkno
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				KNWLDG_TY_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ORGNZT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

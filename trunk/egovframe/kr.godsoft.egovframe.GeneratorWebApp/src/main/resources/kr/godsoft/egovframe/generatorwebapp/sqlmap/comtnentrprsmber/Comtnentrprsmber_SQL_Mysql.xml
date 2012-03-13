@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnentrprsmber">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnentrprsmberSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberDefaultVO"/>
+	
+	<resultMap id="comtnentrprsmber" class="kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberVO">
+		<result property="entrprsMberId" column="ENTRPRS_MBER_ID" columnIndex="1"/> <!--  -->
+		<result property="entrprsSeCode" column="ENTRPRS_SE_CODE" columnIndex="2"/> <!--  -->
+		<result property="bizrno" column="BIZRNO" columnIndex="3"/> <!--  -->
+		<result property="jurirno" column="JURIRNO" columnIndex="4"/> <!--  -->
+		<result property="cmpnyNm" column="CMPNY_NM" columnIndex="5"/> <!--  -->
+		<result property="cxfc" column="CXFC" columnIndex="6"/> <!--  -->
+		<result property="zip" column="ZIP" columnIndex="7"/> <!--  -->
+		<result property="adres" column="ADRES" columnIndex="8"/> <!--  -->
+		<result property="entrprsMiddleTelno" column="ENTRPRS_MIDDLE_TELNO" columnIndex="9"/> <!--  -->
+		<result property="fxnum" column="FXNUM" columnIndex="10"/> <!--  -->
+		<result property="indutyCode" column="INDUTY_CODE" columnIndex="11"/> <!--  -->
+		<result property="applcntNm" column="APPLCNT_NM" columnIndex="12"/> <!--  -->
+		<result property="applcntIhidnum" column="APPLCNT_IHIDNUM" columnIndex="13"/> <!--  -->
+		<result property="sbscrbDe" column="SBSCRB_DE" columnIndex="14"/> <!--  -->
+		<result property="entrprsMberSttus" column="ENTRPRS_MBER_STTUS" columnIndex="15"/> <!--  -->
+		<result property="entrprsMberPassword" column="ENTRPRS_MBER_PASSWORD" columnIndex="16"/> <!--  -->
+		<result property="entrprsMberPasswordHint" column="ENTRPRS_MBER_PASSWORD_HINT" columnIndex="17"/> <!--  -->
+		<result property="entrprsMberPasswordCnsr" column="ENTRPRS_MBER_PASSWORD_CNSR" columnIndex="18"/> <!--  -->
+		<result property="groupId" column="GROUP_ID" columnIndex="19"/> <!--  -->
+		<result property="detailAdres" column="DETAIL_ADRES" columnIndex="20"/> <!--  -->
+		<result property="entrprsEndTelno" column="ENTRPRS_END_TELNO" columnIndex="21"/> <!--  -->
+		<result property="areaNo" column="AREA_NO" columnIndex="22"/> <!--  -->
+		<result property="applcntEmailAdres" column="APPLCNT_EMAIL_ADRES" columnIndex="23"/> <!--  -->
+		<result property="esntlId" column="ESNTL_ID" columnIndex="24"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnentrprsmberDAO.insertComtnentrprsmber_S">
+		<![CDATA[
+			INSERT INTO comtnentrprsmber 
+				( ENTRPRS_MBER_ID /*  */
+				  , ENTRPRS_SE_CODE /*  */
+				  , BIZRNO /*  */
+				  , JURIRNO /*  */
+				  , CMPNY_NM /*  */
+				  , CXFC /*  */
+				  , ZIP /*  */
+				  , ADRES /*  */
+				  , ENTRPRS_MIDDLE_TELNO /*  */
+				  , FXNUM /*  */
+				  , INDUTY_CODE /*  */
+				  , APPLCNT_NM /*  */
+				  , APPLCNT_IHIDNUM /*  */
+				  , SBSCRB_DE /*  */
+				  , ENTRPRS_MBER_STTUS /*  */
+				  , ENTRPRS_MBER_PASSWORD /*  */
+				  , ENTRPRS_MBER_PASSWORD_HINT /*  */
+				  , ENTRPRS_MBER_PASSWORD_CNSR /*  */
+				  , GROUP_ID /*  */
+				  , DETAIL_ADRES /*  */
+				  , ENTRPRS_END_TELNO /*  */
+				  , AREA_NO /*  */
+				  , APPLCNT_EMAIL_ADRES /*  */
+				  , ESNTL_ID /*  */ )
+			VALUES ( #entrprsMberId# /*  */
+					  , #entrprsSeCode# /*  */
+						  , #bizrno# /*  */
+						  , #jurirno# /*  */
+						  , #cmpnyNm# /*  */
+						  , #cxfc# /*  */
+						  , #zip# /*  */
+						  , #adres# /*  */
+						  , #entrprsMiddleTelno# /*  */
+						  , #fxnum# /*  */
+						  , #indutyCode# /*  */
+						  , #applcntNm# /*  */
+						  , #applcntIhidnum# /*  */
+						  , SYSDATE() /*  */
+						  , #entrprsMberSttus# /*  */
+						  , #entrprsMberPassword# /*  */
+						  , #entrprsMberPasswordHint# /*  */
+						  , #entrprsMberPasswordCnsr# /*  */
+						  , #groupId# /*  */
+						  , #detailAdres# /*  */
+						  , #entrprsEndTelno# /*  */
+						  , #areaNo# /*  */
+						  , #applcntEmailAdres# /*  */
+					  , #esntlId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnentrprsmberDAO.updateComtnentrprsmber_S">
+		<![CDATA[
+			UPDATE comtnentrprsmber
+			SET ENTRPRS_MBER_ID=#entrprsMberId# /*  */
+				, ENTRPRS_SE_CODE=#entrprsSeCode# /*  */
+				, BIZRNO=#bizrno# /*  */
+				, JURIRNO=#jurirno# /*  */
+				, CMPNY_NM=#cmpnyNm# /*  */
+				, CXFC=#cxfc# /*  */
+				, ZIP=#zip# /*  */
+				, ADRES=#adres# /*  */
+				, ENTRPRS_MIDDLE_TELNO=#entrprsMiddleTelno# /*  */
+				, FXNUM=#fxnum# /*  */
+				, INDUTY_CODE=#indutyCode# /*  */
+				, APPLCNT_NM=#applcntNm# /*  */
+				, APPLCNT_IHIDNUM=#applcntIhidnum# /*  */
+				, SBSCRB_DE=#sbscrbDe# /*  */
+				, ENTRPRS_MBER_STTUS=#entrprsMberSttus# /*  */
+				, ENTRPRS_MBER_PASSWORD=#entrprsMberPassword# /*  */
+				, ENTRPRS_MBER_PASSWORD_HINT=#entrprsMberPasswordHint# /*  */
+				, ENTRPRS_MBER_PASSWORD_CNSR=#entrprsMberPasswordCnsr# /*  */
+				, GROUP_ID=#groupId# /*  */
+				, DETAIL_ADRES=#detailAdres# /*  */
+				, ENTRPRS_END_TELNO=#entrprsEndTelno# /*  */
+				, AREA_NO=#areaNo# /*  */
+				, APPLCNT_EMAIL_ADRES=#applcntEmailAdres# /*  */
+				, ESNTL_ID=#esntlId# /*  */
+			WHERE ENTRPRS_MBER_ID=#entrprsMberId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnentrprsmberDAO.deleteComtnentrprsmber_S">
+		<![CDATA[
+			DELETE FROM comtnentrprsmber 
+			WHERE ENTRPRS_MBER_ID=#entrprsMberId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnentrprsmberDAO.selectComtnentrprsmber_S" resultMap="comtnentrprsmber">
+		<![CDATA[
+			SELECT
+				ENTRPRS_MBER_ID /*  */
+				, ENTRPRS_SE_CODE /*  */
+				, BIZRNO /*  */
+				, JURIRNO /*  */
+				, CMPNY_NM /*  */
+				, CXFC /*  */
+				, ZIP /*  */
+				, ADRES /*  */
+				, ENTRPRS_MIDDLE_TELNO /*  */
+				, FXNUM /*  */
+				, INDUTY_CODE /*  */
+				, APPLCNT_NM /*  */
+				, APPLCNT_IHIDNUM /*  */
+				, SBSCRB_DE /*  */
+				, ENTRPRS_MBER_STTUS /*  */
+				, ENTRPRS_MBER_PASSWORD /*  */
+				, ENTRPRS_MBER_PASSWORD_HINT /*  */
+				, ENTRPRS_MBER_PASSWORD_CNSR /*  */
+				, GROUP_ID /*  */
+				, DETAIL_ADRES /*  */
+				, ENTRPRS_END_TELNO /*  */
+				, AREA_NO /*  */
+				, APPLCNT_EMAIL_ADRES /*  */
+				, ESNTL_ID /*  */
+			FROM comtnentrprsmber
+			WHERE ENTRPRS_MBER_ID=#entrprsMberId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnentrprsmberDAO.selectComtnentrprsmberList_D" parameterClass="comtnentrprsmberSerarchVO" resultClass="egovMap">
+			SELECT
+								ENTRPRS_MBER_ID /*  */
+								, ENTRPRS_SE_CODE /*  */
+								, BIZRNO /*  */
+								, JURIRNO /*  */
+								, CMPNY_NM /*  */
+								, CXFC /*  */
+								, ZIP /*  */
+								, ADRES /*  */
+								, ENTRPRS_MIDDLE_TELNO /*  */
+								, FXNUM /*  */
+								, INDUTY_CODE /*  */
+								, APPLCNT_NM /*  */
+								, APPLCNT_IHIDNUM /*  */
+								, SBSCRB_DE /*  */
+								, ENTRPRS_MBER_STTUS /*  */
+								, ENTRPRS_MBER_PASSWORD /*  */
+								, ENTRPRS_MBER_PASSWORD_HINT /*  */
+								, ENTRPRS_MBER_PASSWORD_CNSR /*  */
+								, GROUP_ID /*  */
+								, DETAIL_ADRES /*  */
+								, ENTRPRS_END_TELNO /*  */
+								, AREA_NO /*  */
+								, APPLCNT_EMAIL_ADRES /*  */
+								, ESNTL_ID /*  */
+					FROM comtnentrprsmber
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ENTRPRS_MBER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ENTRPRS_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ENTRPRS_MBER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnentrprsmberDAO.selectComtnentrprsmberListTotCnt_S" parameterClass="comtnentrprsmberSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnentrprsmber
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ENTRPRS_MBER_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ENTRPRS_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

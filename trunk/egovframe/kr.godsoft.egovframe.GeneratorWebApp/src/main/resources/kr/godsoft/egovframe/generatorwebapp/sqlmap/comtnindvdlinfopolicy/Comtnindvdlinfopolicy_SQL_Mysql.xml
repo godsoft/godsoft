@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnindvdlinfopolicy">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnindvdlinfopolicySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnindvdlinfopolicy.service.ComtnindvdlinfopolicyDefaultVO"/>
+	
+	<resultMap id="comtnindvdlinfopolicy" class="kr.godsoft.egovframe.generatorwebapp.comtnindvdlinfopolicy.service.ComtnindvdlinfopolicyVO">
+		<result property="indvdlInfoPolicyId" column="INDVDL_INFO_POLICY_ID" columnIndex="1"/> <!--  -->
+		<result property="indvdlInfoPolicyCn" column="INDVDL_INFO_POLICY_CN" columnIndex="2"/> <!--  -->
+		<result property="indvdlInfoPolicyAgreAt" column="INDVDL_INFO_POLICY_AGRE_AT" columnIndex="3"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="indvdlInfoPolicyNm" column="INDVDL_INFO_POLICY_NM" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnindvdlinfopolicyDAO.insertComtnindvdlinfopolicy_S">
+		<![CDATA[
+			INSERT INTO comtnindvdlinfopolicy 
+				( INDVDL_INFO_POLICY_ID /*  */
+				  , INDVDL_INFO_POLICY_CN /*  */
+				  , INDVDL_INFO_POLICY_AGRE_AT /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , INDVDL_INFO_POLICY_NM /*  */ )
+			VALUES ( #indvdlInfoPolicyId# /*  */
+					  , #indvdlInfoPolicyCn# /*  */
+						  , #indvdlInfoPolicyAgreAt# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #indvdlInfoPolicyNm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnindvdlinfopolicyDAO.updateComtnindvdlinfopolicy_S">
+		<![CDATA[
+			UPDATE comtnindvdlinfopolicy
+			SET INDVDL_INFO_POLICY_ID=#indvdlInfoPolicyId# /*  */
+				, INDVDL_INFO_POLICY_CN=#indvdlInfoPolicyCn# /*  */
+				, INDVDL_INFO_POLICY_AGRE_AT=#indvdlInfoPolicyAgreAt# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, INDVDL_INFO_POLICY_NM=#indvdlInfoPolicyNm# /*  */
+			WHERE INDVDL_INFO_POLICY_ID=#indvdlInfoPolicyId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnindvdlinfopolicyDAO.deleteComtnindvdlinfopolicy_S">
+		<![CDATA[
+			DELETE FROM comtnindvdlinfopolicy 
+			WHERE INDVDL_INFO_POLICY_ID=#indvdlInfoPolicyId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnindvdlinfopolicyDAO.selectComtnindvdlinfopolicy_S" resultMap="comtnindvdlinfopolicy">
+		<![CDATA[
+			SELECT
+				INDVDL_INFO_POLICY_ID /*  */
+				, INDVDL_INFO_POLICY_CN /*  */
+				, INDVDL_INFO_POLICY_AGRE_AT /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, INDVDL_INFO_POLICY_NM /*  */
+			FROM comtnindvdlinfopolicy
+			WHERE INDVDL_INFO_POLICY_ID=#indvdlInfoPolicyId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnindvdlinfopolicyDAO.selectComtnindvdlinfopolicyList_D" parameterClass="comtnindvdlinfopolicySerarchVO" resultClass="egovMap">
+			SELECT
+								INDVDL_INFO_POLICY_ID /*  */
+								, INDVDL_INFO_POLICY_CN /*  */
+								, INDVDL_INFO_POLICY_AGRE_AT /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, INDVDL_INFO_POLICY_NM /*  */
+					FROM comtnindvdlinfopolicy
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INDVDL_INFO_POLICY_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				INDVDL_INFO_POLICY_CN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							INDVDL_INFO_POLICY_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnindvdlinfopolicyDAO.selectComtnindvdlinfopolicyListTotCnt_S" parameterClass="comtnindvdlinfopolicySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnindvdlinfopolicy
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INDVDL_INFO_POLICY_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				INDVDL_INFO_POLICY_CN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

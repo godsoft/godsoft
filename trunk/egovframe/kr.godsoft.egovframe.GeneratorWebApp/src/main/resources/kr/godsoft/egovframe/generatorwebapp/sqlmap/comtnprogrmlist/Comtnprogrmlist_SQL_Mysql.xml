@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnprogrmlist">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnprogrmlistSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistDefaultVO"/>
+	
+	<resultMap id="comtnprogrmlist" class="kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistVO">
+		<result property="progrmFileNm" column="PROGRM_FILE_NM" columnIndex="1"/> <!--  -->
+		<result property="progrmStrePath" column="PROGRM_STRE_PATH" columnIndex="2"/> <!--  -->
+		<result property="progrmKoreanNm" column="PROGRM_KOREAN_NM" columnIndex="3"/> <!--  -->
+		<result property="progrmDc" column="PROGRM_DC" columnIndex="4"/> <!--  -->
+		<result property="url" column="URL" columnIndex="5"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnprogrmlistDAO.insertComtnprogrmlist_S">
+		<![CDATA[
+			INSERT INTO comtnprogrmlist 
+				( PROGRM_FILE_NM /*  */
+				  , PROGRM_STRE_PATH /*  */
+				  , PROGRM_KOREAN_NM /*  */
+				  , PROGRM_DC /*  */
+				  , URL /*  */ )
+			VALUES ( #progrmFileNm# /*  */
+					  , #progrmStrePath# /*  */
+						  , #progrmKoreanNm# /*  */
+						  , #progrmDc# /*  */
+					  , #url# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnprogrmlistDAO.updateComtnprogrmlist_S">
+		<![CDATA[
+			UPDATE comtnprogrmlist
+			SET PROGRM_FILE_NM=#progrmFileNm# /*  */
+				, PROGRM_STRE_PATH=#progrmStrePath# /*  */
+				, PROGRM_KOREAN_NM=#progrmKoreanNm# /*  */
+				, PROGRM_DC=#progrmDc# /*  */
+				, URL=#url# /*  */
+			WHERE PROGRM_FILE_NM=#progrmFileNm# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnprogrmlistDAO.deleteComtnprogrmlist_S">
+		<![CDATA[
+			DELETE FROM comtnprogrmlist 
+			WHERE PROGRM_FILE_NM=#progrmFileNm# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnprogrmlistDAO.selectComtnprogrmlist_S" resultMap="comtnprogrmlist">
+		<![CDATA[
+			SELECT
+				PROGRM_FILE_NM /*  */
+				, PROGRM_STRE_PATH /*  */
+				, PROGRM_KOREAN_NM /*  */
+				, PROGRM_DC /*  */
+				, URL /*  */
+			FROM comtnprogrmlist
+			WHERE PROGRM_FILE_NM=#progrmFileNm# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnprogrmlistDAO.selectComtnprogrmlistList_D" parameterClass="comtnprogrmlistSerarchVO" resultClass="egovMap">
+			SELECT
+								PROGRM_FILE_NM /*  */
+								, PROGRM_STRE_PATH /*  */
+								, PROGRM_KOREAN_NM /*  */
+								, PROGRM_DC /*  */
+								, URL /*  */
+					FROM comtnprogrmlist
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROGRM_FILE_NM = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROGRM_STRE_PATH LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							PROGRM_FILE_NM DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnprogrmlistDAO.selectComtnprogrmlistListTotCnt_S" parameterClass="comtnprogrmlistSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnprogrmlist
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROGRM_FILE_NM = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROGRM_STRE_PATH LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

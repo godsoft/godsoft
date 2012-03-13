@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbkmkmenumanageresult">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnbkmkmenumanageresultSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultDefaultVO"/>
+	
+	<resultMap id="comtnbkmkmenumanageresult" class="kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultVO">
+		<result property="menuId" column="MENU_ID" columnIndex="1"/> <!--  -->
+		<result property="emplyrId" column="EMPLYR_ID" columnIndex="2"/> <!--  -->
+		<result property="menuNm" column="MENU_NM" columnIndex="3"/> <!--  -->
+		<result property="progrmStrePath" column="PROGRM_STRE_PATH" columnIndex="4"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnbkmkmenumanageresultDAO.insertComtnbkmkmenumanageresult_S">
+		<![CDATA[
+			INSERT INTO comtnbkmkmenumanageresult 
+				( MENU_ID /*  */
+				  , EMPLYR_ID /*  */
+				  , MENU_NM /*  */
+				  , PROGRM_STRE_PATH /*  */ )
+			VALUES ( #menuId# /*  */
+					  , #emplyrId# /*  */
+						  , #menuNm# /*  */
+					  , #progrmStrePath# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnbkmkmenumanageresultDAO.updateComtnbkmkmenumanageresult_S">
+		<![CDATA[
+			UPDATE comtnbkmkmenumanageresult
+			SET MENU_ID=#menuId# /*  */
+				, EMPLYR_ID=#emplyrId# /*  */
+				, MENU_NM=#menuNm# /*  */
+				, PROGRM_STRE_PATH=#progrmStrePath# /*  */
+			WHERE MENU_ID=#menuId# /*  */
+				AND EMPLYR_ID=#emplyrId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnbkmkmenumanageresultDAO.deleteComtnbkmkmenumanageresult_S">
+		<![CDATA[
+			DELETE FROM comtnbkmkmenumanageresult 
+			WHERE MENU_ID=#menuId# /*  */
+				AND EMPLYR_ID=#emplyrId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresult_S" resultMap="comtnbkmkmenumanageresult">
+		<![CDATA[
+			SELECT
+				MENU_ID /*  */
+				, EMPLYR_ID /*  */
+				, MENU_NM /*  */
+				, PROGRM_STRE_PATH /*  */
+			FROM comtnbkmkmenumanageresult
+			WHERE MENU_ID=#menuId# /*  */
+				AND EMPLYR_ID=#emplyrId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultList_D" parameterClass="comtnbkmkmenumanageresultSerarchVO" resultClass="egovMap">
+			SELECT
+								MENU_ID /*  */
+								, EMPLYR_ID /*  */
+								, MENU_NM /*  */
+								, PROGRM_STRE_PATH /*  */
+					FROM comtnbkmkmenumanageresult
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EMPLYR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MENU_ID DESC /*  */
+							, EMPLYR_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultListTotCnt_S" parameterClass="comtnbkmkmenumanageresultSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnbkmkmenumanageresult
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EMPLYR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

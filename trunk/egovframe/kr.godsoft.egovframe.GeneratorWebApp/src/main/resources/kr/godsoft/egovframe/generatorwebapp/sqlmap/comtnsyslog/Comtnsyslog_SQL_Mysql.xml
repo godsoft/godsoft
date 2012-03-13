@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnsyslog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnsyslogSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsyslog.service.ComtnsyslogDefaultVO"/>
+	
+	<resultMap id="comtnsyslog" class="kr.godsoft.egovframe.generatorwebapp.comtnsyslog.service.ComtnsyslogVO">
+		<result property="requstId" column="REQUST_ID" columnIndex="1"/> <!--  -->
+		<result property="jobSeCode" column="JOB_SE_CODE" columnIndex="2"/> <!--  -->
+		<result property="insttCode" column="INSTT_CODE" columnIndex="3"/> <!--  -->
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="4"/> <!--  -->
+		<result property="rqesterIp" column="RQESTER_IP" columnIndex="5"/> <!--  -->
+		<result property="rqesterId" column="RQESTER_ID" columnIndex="6"/> <!--  -->
+		<result property="trgetMenuNm" column="TRGET_MENU_NM" columnIndex="7"/> <!--  -->
+		<result property="svcNm" column="SVC_NM" columnIndex="8"/> <!--  -->
+		<result property="methodNm" column="METHOD_NM" columnIndex="9"/> <!--  -->
+		<result property="processSeCode" column="PROCESS_SE_CODE" columnIndex="10"/> <!--  -->
+		<result property="processCo" column="PROCESS_CO" columnIndex="11"/> <!--  -->
+		<result property="processTime" column="PROCESS_TIME" columnIndex="12"/> <!--  -->
+		<result property="rspnsCode" column="RSPNS_CODE" columnIndex="13"/> <!--  -->
+		<result property="errorSe" column="ERROR_SE" columnIndex="14"/> <!--  -->
+		<result property="errorCo" column="ERROR_CO" columnIndex="15"/> <!--  -->
+		<result property="errorCode" column="ERROR_CODE" columnIndex="16"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnsyslogDAO.insertComtnsyslog_S">
+		<![CDATA[
+			INSERT INTO comtnsyslog 
+				( REQUST_ID /*  */
+				  , JOB_SE_CODE /*  */
+				  , INSTT_CODE /*  */
+				  , OCCRRNC_DE /*  */
+				  , RQESTER_IP /*  */
+				  , RQESTER_ID /*  */
+				  , TRGET_MENU_NM /*  */
+				  , SVC_NM /*  */
+				  , METHOD_NM /*  */
+				  , PROCESS_SE_CODE /*  */
+				  , PROCESS_CO /*  */
+				  , PROCESS_TIME /*  */
+				  , RSPNS_CODE /*  */
+				  , ERROR_SE /*  */
+				  , ERROR_CO /*  */
+				  , ERROR_CODE /*  */ )
+			VALUES ( #requstId# /*  */
+					  , #jobSeCode# /*  */
+						  , #insttCode# /*  */
+						  , #occrrncDe# /*  */
+						  , #rqesterIp# /*  */
+						  , #rqesterId# /*  */
+						  , #trgetMenuNm# /*  */
+						  , #svcNm# /*  */
+						  , #methodNm# /*  */
+						  , #processSeCode# /*  */
+						  , #processCo# /*  */
+						  , #processTime# /*  */
+						  , #rspnsCode# /*  */
+						  , #errorSe# /*  */
+						  , #errorCo# /*  */
+					  , #errorCode# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnsyslogDAO.updateComtnsyslog_S">
+		<![CDATA[
+			UPDATE comtnsyslog
+			SET REQUST_ID=#requstId# /*  */
+				, JOB_SE_CODE=#jobSeCode# /*  */
+				, INSTT_CODE=#insttCode# /*  */
+				, OCCRRNC_DE=#occrrncDe# /*  */
+				, RQESTER_IP=#rqesterIp# /*  */
+				, RQESTER_ID=#rqesterId# /*  */
+				, TRGET_MENU_NM=#trgetMenuNm# /*  */
+				, SVC_NM=#svcNm# /*  */
+				, METHOD_NM=#methodNm# /*  */
+				, PROCESS_SE_CODE=#processSeCode# /*  */
+				, PROCESS_CO=#processCo# /*  */
+				, PROCESS_TIME=#processTime# /*  */
+				, RSPNS_CODE=#rspnsCode# /*  */
+				, ERROR_SE=#errorSe# /*  */
+				, ERROR_CO=#errorCo# /*  */
+				, ERROR_CODE=#errorCode# /*  */
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnsyslogDAO.deleteComtnsyslog_S">
+		<![CDATA[
+			DELETE FROM comtnsyslog 
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnsyslogDAO.selectComtnsyslog_S" resultMap="comtnsyslog">
+		<![CDATA[
+			SELECT
+				REQUST_ID /*  */
+				, JOB_SE_CODE /*  */
+				, INSTT_CODE /*  */
+				, OCCRRNC_DE /*  */
+				, RQESTER_IP /*  */
+				, RQESTER_ID /*  */
+				, TRGET_MENU_NM /*  */
+				, SVC_NM /*  */
+				, METHOD_NM /*  */
+				, PROCESS_SE_CODE /*  */
+				, PROCESS_CO /*  */
+				, PROCESS_TIME /*  */
+				, RSPNS_CODE /*  */
+				, ERROR_SE /*  */
+				, ERROR_CO /*  */
+				, ERROR_CODE /*  */
+			FROM comtnsyslog
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnsyslogDAO.selectComtnsyslogList_D" parameterClass="comtnsyslogSerarchVO" resultClass="egovMap">
+			SELECT
+								REQUST_ID /*  */
+								, JOB_SE_CODE /*  */
+								, INSTT_CODE /*  */
+								, OCCRRNC_DE /*  */
+								, RQESTER_IP /*  */
+								, RQESTER_ID /*  */
+								, TRGET_MENU_NM /*  */
+								, SVC_NM /*  */
+								, METHOD_NM /*  */
+								, PROCESS_SE_CODE /*  */
+								, PROCESS_CO /*  */
+								, PROCESS_TIME /*  */
+								, RSPNS_CODE /*  */
+								, ERROR_SE /*  */
+								, ERROR_CO /*  */
+								, ERROR_CODE /*  */
+					FROM comtnsyslog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REQUST_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				JOB_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							REQUST_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnsyslogDAO.selectComtnsyslogListTotCnt_S" parameterClass="comtnsyslogSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnsyslog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REQUST_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				JOB_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

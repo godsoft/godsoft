@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnauthorrolerelate">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnauthorrolerelateSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateDefaultVO"/>
+	
+	<resultMap id="comtnauthorrolerelate" class="kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateVO">
+		<result property="authorCode" column="AUTHOR_CODE" columnIndex="1"/> <!--  -->
+		<result property="roleCode" column="ROLE_CODE" columnIndex="2"/> <!--  -->
+		<result property="creatDt" column="CREAT_DT" columnIndex="3"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnauthorrolerelateDAO.insertComtnauthorrolerelate_S">
+		<![CDATA[
+			INSERT INTO comtnauthorrolerelate 
+				( AUTHOR_CODE /*  */
+				  , ROLE_CODE /*  */
+				  , CREAT_DT /*  */ )
+			VALUES ( #authorCode# /*  */
+					  , #roleCode# /*  */
+					  , #creatDt# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnauthorrolerelateDAO.updateComtnauthorrolerelate_S">
+		<![CDATA[
+			UPDATE comtnauthorrolerelate
+			SET AUTHOR_CODE=#authorCode# /*  */
+				, ROLE_CODE=#roleCode# /*  */
+				, CREAT_DT=#creatDt# /*  */
+			WHERE AUTHOR_CODE=#authorCode# /*  */
+				AND ROLE_CODE=#roleCode# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnauthorrolerelateDAO.deleteComtnauthorrolerelate_S">
+		<![CDATA[
+			DELETE FROM comtnauthorrolerelate 
+			WHERE AUTHOR_CODE=#authorCode# /*  */
+				AND ROLE_CODE=#roleCode# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnauthorrolerelateDAO.selectComtnauthorrolerelate_S" resultMap="comtnauthorrolerelate">
+		<![CDATA[
+			SELECT
+				AUTHOR_CODE /*  */
+				, ROLE_CODE /*  */
+				, CREAT_DT /*  */
+			FROM comtnauthorrolerelate
+			WHERE AUTHOR_CODE=#authorCode# /*  */
+				AND ROLE_CODE=#roleCode# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnauthorrolerelateDAO.selectComtnauthorrolerelateList_D" parameterClass="comtnauthorrolerelateSerarchVO" resultClass="egovMap">
+			SELECT
+								AUTHOR_CODE /*  */
+								, ROLE_CODE /*  */
+								, CREAT_DT /*  */
+					FROM comtnauthorrolerelate
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				AUTHOR_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ROLE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							AUTHOR_CODE DESC /*  */
+							, ROLE_CODE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnauthorrolerelateDAO.selectComtnauthorrolerelateListTotCnt_S" parameterClass="comtnauthorrolerelateSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnauthorrolerelate
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				AUTHOR_CODE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ROLE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

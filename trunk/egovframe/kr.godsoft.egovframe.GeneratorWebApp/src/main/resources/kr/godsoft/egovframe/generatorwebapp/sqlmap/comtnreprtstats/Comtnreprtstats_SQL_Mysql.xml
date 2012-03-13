@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnreprtstats">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnreprtstatsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsDefaultVO"/>
+	
+	<resultMap id="comtnreprtstats" class="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO">
+		<result property="reprtId" column="REPRT_ID" columnIndex="1"/> <!--  -->
+		<result property="reprtNm" column="REPRT_NM" columnIndex="2"/> <!--  -->
+		<result property="reprtSttus" column="REPRT_STTUS" columnIndex="3"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="reprtTy" column="REPRT_TY" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnreprtstatsDAO.insertComtnreprtstats_S">
+		<![CDATA[
+			INSERT INTO comtnreprtstats 
+				( REPRT_ID /*  */
+				  , REPRT_NM /*  */
+				  , REPRT_STTUS /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , REPRT_TY /*  */ )
+			VALUES ( #reprtId# /*  */
+					  , #reprtNm# /*  */
+						  , #reprtSttus# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #reprtTy# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnreprtstatsDAO.updateComtnreprtstats_S">
+		<![CDATA[
+			UPDATE comtnreprtstats
+			SET REPRT_ID=#reprtId# /*  */
+				, REPRT_NM=#reprtNm# /*  */
+				, REPRT_STTUS=#reprtSttus# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, REPRT_TY=#reprtTy# /*  */
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnreprtstatsDAO.deleteComtnreprtstats_S">
+		<![CDATA[
+			DELETE FROM comtnreprtstats 
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnreprtstatsDAO.selectComtnreprtstats_S" resultMap="comtnreprtstats">
+		<![CDATA[
+			SELECT
+				REPRT_ID /*  */
+				, REPRT_NM /*  */
+				, REPRT_STTUS /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, REPRT_TY /*  */
+			FROM comtnreprtstats
+			WHERE REPRT_ID=#reprtId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnreprtstatsDAO.selectComtnreprtstatsList_D" parameterClass="comtnreprtstatsSerarchVO" resultClass="egovMap">
+			SELECT
+								REPRT_ID /*  */
+								, REPRT_NM /*  */
+								, REPRT_STTUS /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, REPRT_TY /*  */
+					FROM comtnreprtstats
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPRT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							REPRT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnreprtstatsDAO.selectComtnreprtstatsListTotCnt_S" parameterClass="comtnreprtstatsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnreprtstats
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPRT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

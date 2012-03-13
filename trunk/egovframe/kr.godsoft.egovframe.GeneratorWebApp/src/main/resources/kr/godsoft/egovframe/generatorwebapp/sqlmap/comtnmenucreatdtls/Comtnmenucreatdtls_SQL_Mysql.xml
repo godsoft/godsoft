@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmenucreatdtls">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnmenucreatdtlsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsDefaultVO"/>
+	
+	<resultMap id="comtnmenucreatdtls" class="kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsVO">
+		<result property="menuNo" column="MENU_NO" columnIndex="1"/> <!--  -->
+		<result property="authorCode" column="AUTHOR_CODE" columnIndex="2"/> <!--  -->
+		<result property="mapngCreatId" column="MAPNG_CREAT_ID" columnIndex="3"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnmenucreatdtlsDAO.insertComtnmenucreatdtls_S">
+		<![CDATA[
+			INSERT INTO comtnmenucreatdtls 
+				( MENU_NO /*  */
+				  , AUTHOR_CODE /*  */
+				  , MAPNG_CREAT_ID /*  */ )
+			VALUES ( #menuNo# /*  */
+					  , #authorCode# /*  */
+					  , #mapngCreatId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnmenucreatdtlsDAO.updateComtnmenucreatdtls_S">
+		<![CDATA[
+			UPDATE comtnmenucreatdtls
+			SET MENU_NO=#menuNo# /*  */
+				, AUTHOR_CODE=#authorCode# /*  */
+				, MAPNG_CREAT_ID=#mapngCreatId# /*  */
+			WHERE MENU_NO=#menuNo# /*  */
+				AND AUTHOR_CODE=#authorCode# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnmenucreatdtlsDAO.deleteComtnmenucreatdtls_S">
+		<![CDATA[
+			DELETE FROM comtnmenucreatdtls 
+			WHERE MENU_NO=#menuNo# /*  */
+				AND AUTHOR_CODE=#authorCode# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnmenucreatdtlsDAO.selectComtnmenucreatdtls_S" resultMap="comtnmenucreatdtls">
+		<![CDATA[
+			SELECT
+				MENU_NO /*  */
+				, AUTHOR_CODE /*  */
+				, MAPNG_CREAT_ID /*  */
+			FROM comtnmenucreatdtls
+			WHERE MENU_NO=#menuNo# /*  */
+				AND AUTHOR_CODE=#authorCode# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsList_D" parameterClass="comtnmenucreatdtlsSerarchVO" resultClass="egovMap">
+			SELECT
+								MENU_NO /*  */
+								, AUTHOR_CODE /*  */
+								, MAPNG_CREAT_ID /*  */
+					FROM comtnmenucreatdtls
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_NO = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				AUTHOR_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MENU_NO DESC /*  */
+							, AUTHOR_CODE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsListTotCnt_S" parameterClass="comtnmenucreatdtlsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnmenucreatdtls
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_NO = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				AUTHOR_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

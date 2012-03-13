@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtsusersummary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtsusersummarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryDefaultVO"/>
+	
+	<resultMap id="comtsusersummary" class="kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO">
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
+		<result property="statsSe" column="STATS_SE" columnIndex="2"/> <!--  -->
+		<result property="detailStatsSe" column="DETAIL_STATS_SE" columnIndex="3"/> <!--  -->
+		<result property="userCo" column="USER_CO" columnIndex="4"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtsusersummaryDAO.insertComtsusersummary_S">
+		<![CDATA[
+			INSERT INTO comtsusersummary 
+				( OCCRRNC_DE /*  */
+				  , STATS_SE /*  */
+				  , DETAIL_STATS_SE /*  */
+				  , USER_CO /*  */ )
+			VALUES ( #occrrncDe# /*  */
+					  , #statsSe# /*  */
+						  , #detailStatsSe# /*  */
+					  , #userCo# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtsusersummaryDAO.updateComtsusersummary_S">
+		<![CDATA[
+			UPDATE comtsusersummary
+			SET OCCRRNC_DE=#occrrncDe# /*  */
+				, STATS_SE=#statsSe# /*  */
+				, DETAIL_STATS_SE=#detailStatsSe# /*  */
+				, USER_CO=#userCo# /*  */
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND STATS_SE=#statsSe# /*  */
+				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtsusersummaryDAO.deleteComtsusersummary_S">
+		<![CDATA[
+			DELETE FROM comtsusersummary 
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND STATS_SE=#statsSe# /*  */
+				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtsusersummaryDAO.selectComtsusersummary_S" resultMap="comtsusersummary">
+		<![CDATA[
+			SELECT
+				OCCRRNC_DE /*  */
+				, STATS_SE /*  */
+				, DETAIL_STATS_SE /*  */
+				, USER_CO /*  */
+			FROM comtsusersummary
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND STATS_SE=#statsSe# /*  */
+				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+		]]>
+	</select>
+	
+	<select id="comtsusersummaryDAO.selectComtsusersummaryList_D" parameterClass="comtsusersummarySerarchVO" resultClass="egovMap">
+			SELECT
+								OCCRRNC_DE /*  */
+								, STATS_SE /*  */
+								, DETAIL_STATS_SE /*  */
+								, USER_CO /*  */
+					FROM comtsusersummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							OCCRRNC_DE DESC /*  */
+							, STATS_SE DESC /*  */
+							, DETAIL_STATS_SE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtsusersummaryDAO.selectComtsusersummaryListTotCnt_S" parameterClass="comtsusersummarySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtsusersummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

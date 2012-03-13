@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnonlinemanual">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnonlinemanualSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualDefaultVO"/>
+	
+	<resultMap id="comtnonlinemanual" class="kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO">
+		<result property="onlineMnlId" column="ONLINE_MNL_ID" columnIndex="1"/> <!--  -->
+		<result property="onlineMnlSeCode" column="ONLINE_MNL_SE_CODE" columnIndex="2"/> <!--  -->
+		<result property="onlineMnlDfn" column="ONLINE_MNL_DFN" columnIndex="3"/> <!--  -->
+		<result property="onlineMnlDc" column="ONLINE_MNL_DC" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="onlineMnlNm" column="ONLINE_MNL_NM" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnonlinemanualDAO.insertComtnonlinemanual_S">
+		<![CDATA[
+			INSERT INTO comtnonlinemanual 
+				( ONLINE_MNL_ID /*  */
+				  , ONLINE_MNL_SE_CODE /*  */
+				  , ONLINE_MNL_DFN /*  */
+				  , ONLINE_MNL_DC /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , ONLINE_MNL_NM /*  */ )
+			VALUES ( #onlineMnlId# /*  */
+					  , #onlineMnlSeCode# /*  */
+						  , #onlineMnlDfn# /*  */
+						  , #onlineMnlDc# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #onlineMnlNm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnonlinemanualDAO.updateComtnonlinemanual_S">
+		<![CDATA[
+			UPDATE comtnonlinemanual
+			SET ONLINE_MNL_ID=#onlineMnlId# /*  */
+				, ONLINE_MNL_SE_CODE=#onlineMnlSeCode# /*  */
+				, ONLINE_MNL_DFN=#onlineMnlDfn# /*  */
+				, ONLINE_MNL_DC=#onlineMnlDc# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, ONLINE_MNL_NM=#onlineMnlNm# /*  */
+			WHERE ONLINE_MNL_ID=#onlineMnlId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnonlinemanualDAO.deleteComtnonlinemanual_S">
+		<![CDATA[
+			DELETE FROM comtnonlinemanual 
+			WHERE ONLINE_MNL_ID=#onlineMnlId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnonlinemanualDAO.selectComtnonlinemanual_S" resultMap="comtnonlinemanual">
+		<![CDATA[
+			SELECT
+				ONLINE_MNL_ID /*  */
+				, ONLINE_MNL_SE_CODE /*  */
+				, ONLINE_MNL_DFN /*  */
+				, ONLINE_MNL_DC /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, ONLINE_MNL_NM /*  */
+			FROM comtnonlinemanual
+			WHERE ONLINE_MNL_ID=#onlineMnlId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnonlinemanualDAO.selectComtnonlinemanualList_D" parameterClass="comtnonlinemanualSerarchVO" resultClass="egovMap">
+			SELECT
+								ONLINE_MNL_ID /*  */
+								, ONLINE_MNL_SE_CODE /*  */
+								, ONLINE_MNL_DFN /*  */
+								, ONLINE_MNL_DC /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, ONLINE_MNL_NM /*  */
+					FROM comtnonlinemanual
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ONLINE_MNL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ONLINE_MNL_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ONLINE_MNL_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnonlinemanualDAO.selectComtnonlinemanualListTotCnt_S" parameterClass="comtnonlinemanualSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnonlinemanual
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ONLINE_MNL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ONLINE_MNL_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

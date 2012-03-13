@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtneventinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtneventinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoDefaultVO"/>
+	
+	<resultMap id="comtneventinfo" class="kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoVO">
+		<result property="eventId" column="EVENT_ID" columnIndex="1"/> <!--  -->
+		<result property="bsnsYear" column="BSNS_YEAR" columnIndex="2"/> <!--  -->
+		<result property="bsnsCode" column="BSNS_CODE" columnIndex="3"/> <!--  -->
+		<result property="eventCn" column="EVENT_CN" columnIndex="4"/> <!--  -->
+		<result property="eventSvcBgnde" column="EVENT_SVC_BGNDE" columnIndex="5"/> <!--  -->
+		<result property="svcUseNmprCo" column="SVC_USE_NMPR_CO" columnIndex="6"/> <!--  -->
+		<result property="chargerNm" column="CHARGER_NM" columnIndex="7"/> <!--  -->
+		<result property="prparetgCn" column="PRPARETG_CN" columnIndex="8"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="9"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
+		<result property="eventSvcEndde" column="EVENT_SVC_ENDDE" columnIndex="13"/> <!--  -->
+		<result property="eventTyCode" column="EVENT_TY_CODE" columnIndex="14"/> <!--  -->
+		<result property="eventConfmAt" column="EVENT_CONFM_AT" columnIndex="15"/> <!--  -->
+		<result property="eventConfmDe" column="EVENT_CONFM_DE" columnIndex="16"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtneventinfoDAO.insertComtneventinfo_S">
+		<![CDATA[
+			INSERT INTO comtneventinfo 
+				( EVENT_ID /*  */
+				  , BSNS_YEAR /*  */
+				  , BSNS_CODE /*  */
+				  , EVENT_CN /*  */
+				  , EVENT_SVC_BGNDE /*  */
+				  , SVC_USE_NMPR_CO /*  */
+				  , CHARGER_NM /*  */
+				  , PRPARETG_CN /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , EVENT_SVC_ENDDE /*  */
+				  , EVENT_TY_CODE /*  */
+				  , EVENT_CONFM_AT /*  */
+				  , EVENT_CONFM_DE /*  */ )
+			VALUES ( #eventId# /*  */
+					  , #bsnsYear# /*  */
+						  , #bsnsCode# /*  */
+						  , #eventCn# /*  */
+						  , #eventSvcBgnde# /*  */
+						  , #svcUseNmprCo# /*  */
+						  , #chargerNm# /*  */
+						  , #prparetgCn# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , #eventSvcEndde# /*  */
+						  , #eventTyCode# /*  */
+						  , #eventConfmAt# /*  */
+					  , #eventConfmDe# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtneventinfoDAO.updateComtneventinfo_S">
+		<![CDATA[
+			UPDATE comtneventinfo
+			SET EVENT_ID=#eventId# /*  */
+				, BSNS_YEAR=#bsnsYear# /*  */
+				, BSNS_CODE=#bsnsCode# /*  */
+				, EVENT_CN=#eventCn# /*  */
+				, EVENT_SVC_BGNDE=#eventSvcBgnde# /*  */
+				, SVC_USE_NMPR_CO=#svcUseNmprCo# /*  */
+				, CHARGER_NM=#chargerNm# /*  */
+				, PRPARETG_CN=#prparetgCn# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, EVENT_SVC_ENDDE=#eventSvcEndde# /*  */
+				, EVENT_TY_CODE=#eventTyCode# /*  */
+				, EVENT_CONFM_AT=#eventConfmAt# /*  */
+				, EVENT_CONFM_DE=#eventConfmDe# /*  */
+			WHERE EVENT_ID=#eventId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtneventinfoDAO.deleteComtneventinfo_S">
+		<![CDATA[
+			DELETE FROM comtneventinfo 
+			WHERE EVENT_ID=#eventId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtneventinfoDAO.selectComtneventinfo_S" resultMap="comtneventinfo">
+		<![CDATA[
+			SELECT
+				EVENT_ID /*  */
+				, BSNS_YEAR /*  */
+				, BSNS_CODE /*  */
+				, EVENT_CN /*  */
+				, EVENT_SVC_BGNDE /*  */
+				, SVC_USE_NMPR_CO /*  */
+				, CHARGER_NM /*  */
+				, PRPARETG_CN /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, EVENT_SVC_ENDDE /*  */
+				, EVENT_TY_CODE /*  */
+				, EVENT_CONFM_AT /*  */
+				, EVENT_CONFM_DE /*  */
+			FROM comtneventinfo
+			WHERE EVENT_ID=#eventId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtneventinfoDAO.selectComtneventinfoList_D" parameterClass="comtneventinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								EVENT_ID /*  */
+								, BSNS_YEAR /*  */
+								, BSNS_CODE /*  */
+								, EVENT_CN /*  */
+								, EVENT_SVC_BGNDE /*  */
+								, SVC_USE_NMPR_CO /*  */
+								, CHARGER_NM /*  */
+								, PRPARETG_CN /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, EVENT_SVC_ENDDE /*  */
+								, EVENT_TY_CODE /*  */
+								, EVENT_CONFM_AT /*  */
+								, EVENT_CONFM_DE /*  */
+					FROM comtneventinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EVENT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BSNS_YEAR LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							EVENT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtneventinfoDAO.selectComtneventinfoListTotCnt_S" parameterClass="comtneventinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtneventinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EVENT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BSNS_YEAR LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

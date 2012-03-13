@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtsbbssummary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtsbbssummarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryDefaultVO"/>
+	
+	<resultMap id="comtsbbssummary" class="kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO">
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
+		<result property="statsSe" column="STATS_SE" columnIndex="2"/> <!--  -->
+		<result property="detailStatsSe" column="DETAIL_STATS_SE" columnIndex="3"/> <!--  -->
+		<result property="creatCo" column="CREAT_CO" columnIndex="4"/> <!--  -->
+		<result property="totRdcnt" column="TOT_RDCNT" columnIndex="5"/> <!--  -->
+		<result property="avrgRdcnt" column="AVRG_RDCNT" columnIndex="6"/> <!--  -->
+		<result property="topInqireBbscttId" column="TOP_INQIRE_BBSCTT_ID" columnIndex="7"/> <!--  -->
+		<result property="mummInqireBbscttId" column="MUMM_INQIRE_BBSCTT_ID" columnIndex="8"/> <!--  -->
+		<result property="topNtcrId" column="TOP_NTCR_ID" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtsbbssummaryDAO.insertComtsbbssummary_S">
+		<![CDATA[
+			INSERT INTO comtsbbssummary 
+				( OCCRRNC_DE /*  */
+				  , STATS_SE /*  */
+				  , DETAIL_STATS_SE /*  */
+				  , CREAT_CO /*  */
+				  , TOT_RDCNT /*  */
+				  , AVRG_RDCNT /*  */
+				  , TOP_INQIRE_BBSCTT_ID /*  */
+				  , MUMM_INQIRE_BBSCTT_ID /*  */
+				  , TOP_NTCR_ID /*  */ )
+			VALUES ( #occrrncDe# /*  */
+					  , #statsSe# /*  */
+						  , #detailStatsSe# /*  */
+						  , #creatCo# /*  */
+						  , #totRdcnt# /*  */
+						  , #avrgRdcnt# /*  */
+						  , #topInqireBbscttId# /*  */
+						  , #mummInqireBbscttId# /*  */
+					  , #topNtcrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtsbbssummaryDAO.updateComtsbbssummary_S">
+		<![CDATA[
+			UPDATE comtsbbssummary
+			SET OCCRRNC_DE=#occrrncDe# /*  */
+				, STATS_SE=#statsSe# /*  */
+				, DETAIL_STATS_SE=#detailStatsSe# /*  */
+				, CREAT_CO=#creatCo# /*  */
+				, TOT_RDCNT=#totRdcnt# /*  */
+				, AVRG_RDCNT=#avrgRdcnt# /*  */
+				, TOP_INQIRE_BBSCTT_ID=#topInqireBbscttId# /*  */
+				, MUMM_INQIRE_BBSCTT_ID=#mummInqireBbscttId# /*  */
+				, TOP_NTCR_ID=#topNtcrId# /*  */
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND STATS_SE=#statsSe# /*  */
+				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtsbbssummaryDAO.deleteComtsbbssummary_S">
+		<![CDATA[
+			DELETE FROM comtsbbssummary 
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND STATS_SE=#statsSe# /*  */
+				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtsbbssummaryDAO.selectComtsbbssummary_S" resultMap="comtsbbssummary">
+		<![CDATA[
+			SELECT
+				OCCRRNC_DE /*  */
+				, STATS_SE /*  */
+				, DETAIL_STATS_SE /*  */
+				, CREAT_CO /*  */
+				, TOT_RDCNT /*  */
+				, AVRG_RDCNT /*  */
+				, TOP_INQIRE_BBSCTT_ID /*  */
+				, MUMM_INQIRE_BBSCTT_ID /*  */
+				, TOP_NTCR_ID /*  */
+			FROM comtsbbssummary
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND STATS_SE=#statsSe# /*  */
+				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+		]]>
+	</select>
+	
+	<select id="comtsbbssummaryDAO.selectComtsbbssummaryList_D" parameterClass="comtsbbssummarySerarchVO" resultClass="egovMap">
+			SELECT
+								OCCRRNC_DE /*  */
+								, STATS_SE /*  */
+								, DETAIL_STATS_SE /*  */
+								, CREAT_CO /*  */
+								, TOT_RDCNT /*  */
+								, AVRG_RDCNT /*  */
+								, TOP_INQIRE_BBSCTT_ID /*  */
+								, MUMM_INQIRE_BBSCTT_ID /*  */
+								, TOP_NTCR_ID /*  */
+					FROM comtsbbssummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							OCCRRNC_DE DESC /*  */
+							, STATS_SE DESC /*  */
+							, DETAIL_STATS_SE DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt_S" parameterClass="comtsbbssummarySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtsbbssummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

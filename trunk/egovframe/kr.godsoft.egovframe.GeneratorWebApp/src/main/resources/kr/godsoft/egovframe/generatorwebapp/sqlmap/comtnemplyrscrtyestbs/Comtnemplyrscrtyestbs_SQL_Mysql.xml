@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnemplyrscrtyestbs">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnemplyrscrtyestbsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsDefaultVO"/>
+	
+	<resultMap id="comtnemplyrscrtyestbs" class="kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsVO">
+		<result property="scrtyDtrmnTrgetId" column="SCRTY_DTRMN_TRGET_ID" columnIndex="1"/> <!--  -->
+		<result property="mberTyCode" column="MBER_TY_CODE" columnIndex="2"/> <!--  -->
+		<result property="authorCode" column="AUTHOR_CODE" columnIndex="3"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnemplyrscrtyestbsDAO.insertComtnemplyrscrtyestbs_S">
+		<![CDATA[
+			INSERT INTO comtnemplyrscrtyestbs 
+				( SCRTY_DTRMN_TRGET_ID /*  */
+				  , MBER_TY_CODE /*  */
+				  , AUTHOR_CODE /*  */ )
+			VALUES ( #scrtyDtrmnTrgetId# /*  */
+					  , #mberTyCode# /*  */
+					  , #authorCode# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnemplyrscrtyestbsDAO.updateComtnemplyrscrtyestbs_S">
+		<![CDATA[
+			UPDATE comtnemplyrscrtyestbs
+			SET SCRTY_DTRMN_TRGET_ID=#scrtyDtrmnTrgetId# /*  */
+				, MBER_TY_CODE=#mberTyCode# /*  */
+				, AUTHOR_CODE=#authorCode# /*  */
+			WHERE SCRTY_DTRMN_TRGET_ID=#scrtyDtrmnTrgetId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnemplyrscrtyestbsDAO.deleteComtnemplyrscrtyestbs_S">
+		<![CDATA[
+			DELETE FROM comtnemplyrscrtyestbs 
+			WHERE SCRTY_DTRMN_TRGET_ID=#scrtyDtrmnTrgetId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbs_S" resultMap="comtnemplyrscrtyestbs">
+		<![CDATA[
+			SELECT
+				SCRTY_DTRMN_TRGET_ID /*  */
+				, MBER_TY_CODE /*  */
+				, AUTHOR_CODE /*  */
+			FROM comtnemplyrscrtyestbs
+			WHERE SCRTY_DTRMN_TRGET_ID=#scrtyDtrmnTrgetId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbsList_D" parameterClass="comtnemplyrscrtyestbsSerarchVO" resultClass="egovMap">
+			SELECT
+								SCRTY_DTRMN_TRGET_ID /*  */
+								, MBER_TY_CODE /*  */
+								, AUTHOR_CODE /*  */
+					FROM comtnemplyrscrtyestbs
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCRTY_DTRMN_TRGET_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MBER_TY_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SCRTY_DTRMN_TRGET_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbsListTotCnt_S" parameterClass="comtnemplyrscrtyestbsSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnemplyrscrtyestbs
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCRTY_DTRMN_TRGET_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MBER_TY_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnworddicaryinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnworddicaryinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoDefaultVO"/>
+	
+	<resultMap id="comtnworddicaryinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO">
+		<result property="wordId" column="WORD_ID" columnIndex="1"/> <!--  -->
+		<result property="wordNm" column="WORD_NM" columnIndex="2"/> <!--  -->
+		<result property="engNm" column="ENG_NM" columnIndex="3"/> <!--  -->
+		<result property="wordDc" column="WORD_DC" columnIndex="4"/> <!--  -->
+		<result property="synonm" column="SYNONM" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnworddicaryinfoDAO.insertComtnworddicaryinfo_S">
+		<![CDATA[
+			INSERT INTO comtnworddicaryinfo 
+				( WORD_ID /*  */
+				  , WORD_NM /*  */
+				  , ENG_NM /*  */
+				  , WORD_DC /*  */
+				  , SYNONM /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */ )
+			VALUES ( #wordId# /*  */
+					  , #wordNm# /*  */
+						  , #engNm# /*  */
+						  , #wordDc# /*  */
+						  , #synonm# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+					  , #lastUpdusrId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnworddicaryinfoDAO.updateComtnworddicaryinfo_S">
+		<![CDATA[
+			UPDATE comtnworddicaryinfo
+			SET WORD_ID=#wordId# /*  */
+				, WORD_NM=#wordNm# /*  */
+				, ENG_NM=#engNm# /*  */
+				, WORD_DC=#wordDc# /*  */
+				, SYNONM=#synonm# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+			WHERE WORD_ID=#wordId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnworddicaryinfoDAO.deleteComtnworddicaryinfo_S">
+		<![CDATA[
+			DELETE FROM comtnworddicaryinfo 
+			WHERE WORD_ID=#wordId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfo_S" resultMap="comtnworddicaryinfo">
+		<![CDATA[
+			SELECT
+				WORD_ID /*  */
+				, WORD_NM /*  */
+				, ENG_NM /*  */
+				, WORD_DC /*  */
+				, SYNONM /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+			FROM comtnworddicaryinfo
+			WHERE WORD_ID=#wordId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfoList_D" parameterClass="comtnworddicaryinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								WORD_ID /*  */
+								, WORD_NM /*  */
+								, ENG_NM /*  */
+								, WORD_DC /*  */
+								, SYNONM /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+					FROM comtnworddicaryinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				WORD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							WORD_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfoListTotCnt_S" parameterClass="comtnworddicaryinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnworddicaryinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				WORD_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

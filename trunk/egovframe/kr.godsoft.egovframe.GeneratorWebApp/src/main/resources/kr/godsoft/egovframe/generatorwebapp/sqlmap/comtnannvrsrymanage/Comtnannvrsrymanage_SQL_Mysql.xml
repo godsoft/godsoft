@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnannvrsrymanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnannvrsrymanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageDefaultVO"/>
+	
+	<resultMap id="comtnannvrsrymanage" class="kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO">
+		<result property="annvrsryId" column="ANNVRSRY_ID" columnIndex="1"/> <!--  -->
+		<result property="userId" column="USER_ID" columnIndex="2"/> <!--  -->
+		<result property="annvrsrySe" column="ANNVRSRY_SE" columnIndex="3"/> <!--  -->
+		<result property="annvrsryNm" column="ANNVRSRY_NM" columnIndex="4"/> <!--  -->
+		<result property="annvrsry" column="ANNVRSRY" columnIndex="5"/> <!--  -->
+		<result property="cldrSe" column="CLDR_SE" columnIndex="6"/> <!--  -->
+		<result property="annvrsryNtcnSetup" column="ANNVRSRY_NTCN_SETUP" columnIndex="7"/> <!--  -->
+		<result property="annvrsryNtcnBgnde" column="ANNVRSRY_NTCN_BGNDE" columnIndex="8"/> <!--  -->
+		<result property="memo" column="MEMO" columnIndex="9"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="reptitAt" column="REPTIT_AT" columnIndex="14"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnannvrsrymanageDAO.insertComtnannvrsrymanage_S">
+		<![CDATA[
+			INSERT INTO comtnannvrsrymanage 
+				( ANNVRSRY_ID /*  */
+				  , USER_ID /*  */
+				  , ANNVRSRY_SE /*  */
+				  , ANNVRSRY_NM /*  */
+				  , ANNVRSRY /*  */
+				  , CLDR_SE /*  */
+				  , ANNVRSRY_NTCN_SETUP /*  */
+				  , ANNVRSRY_NTCN_BGNDE /*  */
+				  , MEMO /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , REPTIT_AT /*  */ )
+			VALUES ( #annvrsryId# /*  */
+					  , #userId# /*  */
+						  , #annvrsrySe# /*  */
+						  , #annvrsryNm# /*  */
+						  , #annvrsry# /*  */
+						  , #cldrSe# /*  */
+						  , #annvrsryNtcnSetup# /*  */
+						  , #annvrsryNtcnBgnde# /*  */
+						  , #memo# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #reptitAt# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnannvrsrymanageDAO.updateComtnannvrsrymanage_S">
+		<![CDATA[
+			UPDATE comtnannvrsrymanage
+			SET ANNVRSRY_ID=#annvrsryId# /*  */
+				, USER_ID=#userId# /*  */
+				, ANNVRSRY_SE=#annvrsrySe# /*  */
+				, ANNVRSRY_NM=#annvrsryNm# /*  */
+				, ANNVRSRY=#annvrsry# /*  */
+				, CLDR_SE=#cldrSe# /*  */
+				, ANNVRSRY_NTCN_SETUP=#annvrsryNtcnSetup# /*  */
+				, ANNVRSRY_NTCN_BGNDE=#annvrsryNtcnBgnde# /*  */
+				, MEMO=#memo# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, REPTIT_AT=#reptitAt# /*  */
+			WHERE ANNVRSRY_ID=#annvrsryId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnannvrsrymanageDAO.deleteComtnannvrsrymanage_S">
+		<![CDATA[
+			DELETE FROM comtnannvrsrymanage 
+			WHERE ANNVRSRY_ID=#annvrsryId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnannvrsrymanageDAO.selectComtnannvrsrymanage_S" resultMap="comtnannvrsrymanage">
+		<![CDATA[
+			SELECT
+				ANNVRSRY_ID /*  */
+				, USER_ID /*  */
+				, ANNVRSRY_SE /*  */
+				, ANNVRSRY_NM /*  */
+				, ANNVRSRY /*  */
+				, CLDR_SE /*  */
+				, ANNVRSRY_NTCN_SETUP /*  */
+				, ANNVRSRY_NTCN_BGNDE /*  */
+				, MEMO /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, REPTIT_AT /*  */
+			FROM comtnannvrsrymanage
+			WHERE ANNVRSRY_ID=#annvrsryId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnannvrsrymanageDAO.selectComtnannvrsrymanageList_D" parameterClass="comtnannvrsrymanageSerarchVO" resultClass="egovMap">
+			SELECT
+								ANNVRSRY_ID /*  */
+								, USER_ID /*  */
+								, ANNVRSRY_SE /*  */
+								, ANNVRSRY_NM /*  */
+								, ANNVRSRY /*  */
+								, CLDR_SE /*  */
+								, ANNVRSRY_NTCN_SETUP /*  */
+								, ANNVRSRY_NTCN_BGNDE /*  */
+								, MEMO /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, REPTIT_AT /*  */
+					FROM comtnannvrsrymanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ANNVRSRY_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				USER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ANNVRSRY_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnannvrsrymanageDAO.selectComtnannvrsrymanageListTotCnt_S" parameterClass="comtnannvrsrymanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnannvrsrymanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ANNVRSRY_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				USER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

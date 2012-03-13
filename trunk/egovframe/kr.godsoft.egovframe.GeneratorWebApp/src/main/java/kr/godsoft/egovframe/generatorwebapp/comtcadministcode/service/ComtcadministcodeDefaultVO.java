@@ -9,7 +9,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.09
+ * @since 2012.03.13
  * @version 1.0
  * @see
  *  

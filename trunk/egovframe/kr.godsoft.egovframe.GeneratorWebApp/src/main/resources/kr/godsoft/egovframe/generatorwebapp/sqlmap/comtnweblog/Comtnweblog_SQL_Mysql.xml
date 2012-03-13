@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnweblog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnweblogSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogDefaultVO"/>
+	
+	<resultMap id="comtnweblog" class="kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO">
+		<result property="requstId" column="REQUST_ID" columnIndex="1"/> <!--  -->
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="2"/> <!--  -->
+		<result property="url" column="URL" columnIndex="3"/> <!--  -->
+		<result property="rqesterId" column="RQESTER_ID" columnIndex="4"/> <!--  -->
+		<result property="rqesterIp" column="RQESTER_IP" columnIndex="5"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnweblogDAO.insertComtnweblog_S">
+		<![CDATA[
+			INSERT INTO comtnweblog 
+				( REQUST_ID /*  */
+				  , OCCRRNC_DE /*  */
+				  , URL /*  */
+				  , RQESTER_ID /*  */
+				  , RQESTER_IP /*  */ )
+			VALUES ( #requstId# /*  */
+					  , #occrrncDe# /*  */
+						  , #url# /*  */
+						  , #rqesterId# /*  */
+					  , #rqesterIp# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnweblogDAO.updateComtnweblog_S">
+		<![CDATA[
+			UPDATE comtnweblog
+			SET REQUST_ID=#requstId# /*  */
+				, OCCRRNC_DE=#occrrncDe# /*  */
+				, URL=#url# /*  */
+				, RQESTER_ID=#rqesterId# /*  */
+				, RQESTER_IP=#rqesterIp# /*  */
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnweblogDAO.deleteComtnweblog_S">
+		<![CDATA[
+			DELETE FROM comtnweblog 
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnweblogDAO.selectComtnweblog_S" resultMap="comtnweblog">
+		<![CDATA[
+			SELECT
+				REQUST_ID /*  */
+				, OCCRRNC_DE /*  */
+				, URL /*  */
+				, RQESTER_ID /*  */
+				, RQESTER_IP /*  */
+			FROM comtnweblog
+			WHERE REQUST_ID=#requstId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnweblogDAO.selectComtnweblogList_D" parameterClass="comtnweblogSerarchVO" resultClass="egovMap">
+			SELECT
+								REQUST_ID /*  */
+								, OCCRRNC_DE /*  */
+								, URL /*  */
+								, RQESTER_ID /*  */
+								, RQESTER_IP /*  */
+					FROM comtnweblog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REQUST_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OCCRRNC_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							REQUST_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnweblogDAO.selectComtnweblogListTotCnt_S" parameterClass="comtnweblogSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnweblog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REQUST_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OCCRRNC_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

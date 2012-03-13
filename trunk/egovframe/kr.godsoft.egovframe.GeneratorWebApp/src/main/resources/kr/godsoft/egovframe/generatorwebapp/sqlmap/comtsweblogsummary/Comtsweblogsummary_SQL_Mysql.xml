@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtsweblogsummary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtsweblogsummarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryDefaultVO"/>
+	
+	<resultMap id="comtsweblogsummary" class="kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryVO">
+		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
+		<result property="url" column="URL" columnIndex="2"/> <!--  -->
+		<result property="rdcnt" column="RDCNT" columnIndex="3"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtsweblogsummaryDAO.insertComtsweblogsummary_S">
+		<![CDATA[
+			INSERT INTO comtsweblogsummary 
+				( OCCRRNC_DE /*  */
+				  , URL /*  */
+				  , RDCNT /*  */ )
+			VALUES ( #occrrncDe# /*  */
+					  , #url# /*  */
+					  , #rdcnt# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtsweblogsummaryDAO.updateComtsweblogsummary_S">
+		<![CDATA[
+			UPDATE comtsweblogsummary
+			SET OCCRRNC_DE=#occrrncDe# /*  */
+				, URL=#url# /*  */
+				, RDCNT=#rdcnt# /*  */
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND URL=#url# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtsweblogsummaryDAO.deleteComtsweblogsummary_S">
+		<![CDATA[
+			DELETE FROM comtsweblogsummary 
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND URL=#url# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtsweblogsummaryDAO.selectComtsweblogsummary_S" resultMap="comtsweblogsummary">
+		<![CDATA[
+			SELECT
+				OCCRRNC_DE /*  */
+				, URL /*  */
+				, RDCNT /*  */
+			FROM comtsweblogsummary
+			WHERE OCCRRNC_DE=#occrrncDe# /*  */
+				AND URL=#url# /*  */
+		]]>
+	</select>
+	
+	<select id="comtsweblogsummaryDAO.selectComtsweblogsummaryList_D" parameterClass="comtsweblogsummarySerarchVO" resultClass="egovMap">
+			SELECT
+								OCCRRNC_DE /*  */
+								, URL /*  */
+								, RDCNT /*  */
+					FROM comtsweblogsummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				URL LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							OCCRRNC_DE DESC /*  */
+							, URL DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtsweblogsummaryDAO.selectComtsweblogsummaryListTotCnt_S" parameterClass="comtsweblogsummarySerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtsweblogsummary
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				URL LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnindvdlyrycmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnindvdlyrycmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageDefaultVO"/>
+	
+	<resultMap id="comtnindvdlyrycmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageVO">
+		<result property="occrrncYear" column="OCCRRNC_YEAR" columnIndex="1"/> <!--  -->
+		<result property="yrycOccrrncCo" column="YRYC_OCCRRNC_CO" columnIndex="2"/> <!--  -->
+		<result property="useYrycCo" column="USE_YRYC_CO" columnIndex="3"/> <!--  -->
+		<result property="remndrYrycCo" column="REMNDR_YRYC_CO" columnIndex="4"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="userId" column="USER_ID" columnIndex="9"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnindvdlyrycmanageDAO.insertComtnindvdlyrycmanage_S">
+		<![CDATA[
+			INSERT INTO comtnindvdlyrycmanage 
+				( OCCRRNC_YEAR /*  */
+				  , YRYC_OCCRRNC_CO /*  */
+				  , USE_YRYC_CO /*  */
+				  , REMNDR_YRYC_CO /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , USER_ID /*  */ )
+			VALUES ( #occrrncYear# /*  */
+					  , #yrycOccrrncCo# /*  */
+						  , #useYrycCo# /*  */
+						  , #remndrYrycCo# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+					  , #userId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnindvdlyrycmanageDAO.updateComtnindvdlyrycmanage_S">
+		<![CDATA[
+			UPDATE comtnindvdlyrycmanage
+			SET OCCRRNC_YEAR=#occrrncYear# /*  */
+				, YRYC_OCCRRNC_CO=#yrycOccrrncCo# /*  */
+				, USE_YRYC_CO=#useYrycCo# /*  */
+				, REMNDR_YRYC_CO=#remndrYrycCo# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, USER_ID=#userId# /*  */
+			WHERE OCCRRNC_YEAR=#occrrncYear# /*  */
+				AND USER_ID=#userId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnindvdlyrycmanageDAO.deleteComtnindvdlyrycmanage_S">
+		<![CDATA[
+			DELETE FROM comtnindvdlyrycmanage 
+			WHERE OCCRRNC_YEAR=#occrrncYear# /*  */
+				AND USER_ID=#userId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanage_S" resultMap="comtnindvdlyrycmanage">
+		<![CDATA[
+			SELECT
+				OCCRRNC_YEAR /*  */
+				, YRYC_OCCRRNC_CO /*  */
+				, USE_YRYC_CO /*  */
+				, REMNDR_YRYC_CO /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, USER_ID /*  */
+			FROM comtnindvdlyrycmanage
+			WHERE OCCRRNC_YEAR=#occrrncYear# /*  */
+				AND USER_ID=#userId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanageList_D" parameterClass="comtnindvdlyrycmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								OCCRRNC_YEAR /*  */
+								, YRYC_OCCRRNC_CO /*  */
+								, USE_YRYC_CO /*  */
+								, REMNDR_YRYC_CO /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, USER_ID /*  */
+					FROM comtnindvdlyrycmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_YEAR = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				YRYC_OCCRRNC_CO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							OCCRRNC_YEAR DESC /*  */
+							, USER_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanageListTotCnt_S" parameterClass="comtnindvdlyrycmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnindvdlyrycmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_YEAR = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				YRYC_OCCRRNC_CO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

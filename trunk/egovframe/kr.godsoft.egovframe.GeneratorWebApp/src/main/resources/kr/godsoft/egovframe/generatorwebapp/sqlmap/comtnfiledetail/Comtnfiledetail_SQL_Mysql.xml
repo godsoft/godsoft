@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnfiledetail">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnfiledetailSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailDefaultVO"/>
+	
+	<resultMap id="comtnfiledetail" class="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO">
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="1"/> <!--  -->
+		<result property="fileSn" column="FILE_SN" columnIndex="2"/> <!--  -->
+		<result property="fileStreCours" column="FILE_STRE_COURS" columnIndex="3"/> <!--  -->
+		<result property="streFileNm" column="STRE_FILE_NM" columnIndex="4"/> <!--  -->
+		<result property="orignlFileNm" column="ORIGNL_FILE_NM" columnIndex="5"/> <!--  -->
+		<result property="fileExtsn" column="FILE_EXTSN" columnIndex="6"/> <!--  -->
+		<result property="fileCn" column="FILE_CN" columnIndex="7"/> <!--  -->
+		<result property="fileSize" column="FILE_SIZE" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnfiledetailDAO.insertComtnfiledetail_S">
+		<![CDATA[
+			INSERT INTO comtnfiledetail 
+				( ATCH_FILE_ID /*  */
+				  , FILE_SN /*  */
+				  , FILE_STRE_COURS /*  */
+				  , STRE_FILE_NM /*  */
+				  , ORIGNL_FILE_NM /*  */
+				  , FILE_EXTSN /*  */
+				  , FILE_CN /*  */
+				  , FILE_SIZE /*  */ )
+			VALUES ( #atchFileId# /*  */
+					  , #fileSn# /*  */
+						  , #fileStreCours# /*  */
+						  , #streFileNm# /*  */
+						  , #orignlFileNm# /*  */
+						  , #fileExtsn# /*  */
+						  , #fileCn# /*  */
+					  , #fileSize# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnfiledetailDAO.updateComtnfiledetail_S">
+		<![CDATA[
+			UPDATE comtnfiledetail
+			SET ATCH_FILE_ID=#atchFileId# /*  */
+				, FILE_SN=#fileSn# /*  */
+				, FILE_STRE_COURS=#fileStreCours# /*  */
+				, STRE_FILE_NM=#streFileNm# /*  */
+				, ORIGNL_FILE_NM=#orignlFileNm# /*  */
+				, FILE_EXTSN=#fileExtsn# /*  */
+				, FILE_CN=#fileCn# /*  */
+				, FILE_SIZE=#fileSize# /*  */
+			WHERE ATCH_FILE_ID=#atchFileId# /*  */
+				AND FILE_SN=#fileSn# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnfiledetailDAO.deleteComtnfiledetail_S">
+		<![CDATA[
+			DELETE FROM comtnfiledetail 
+			WHERE ATCH_FILE_ID=#atchFileId# /*  */
+				AND FILE_SN=#fileSn# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnfiledetailDAO.selectComtnfiledetail_S" resultMap="comtnfiledetail">
+		<![CDATA[
+			SELECT
+				ATCH_FILE_ID /*  */
+				, FILE_SN /*  */
+				, FILE_STRE_COURS /*  */
+				, STRE_FILE_NM /*  */
+				, ORIGNL_FILE_NM /*  */
+				, FILE_EXTSN /*  */
+				, FILE_CN /*  */
+				, FILE_SIZE /*  */
+			FROM comtnfiledetail
+			WHERE ATCH_FILE_ID=#atchFileId# /*  */
+				AND FILE_SN=#fileSn# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnfiledetailDAO.selectComtnfiledetailList_D" parameterClass="comtnfiledetailSerarchVO" resultClass="egovMap">
+			SELECT
+								ATCH_FILE_ID /*  */
+								, FILE_SN /*  */
+								, FILE_STRE_COURS /*  */
+								, STRE_FILE_NM /*  */
+								, ORIGNL_FILE_NM /*  */
+								, FILE_EXTSN /*  */
+								, FILE_CN /*  */
+								, FILE_SIZE /*  */
+					FROM comtnfiledetail
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ATCH_FILE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FILE_SN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							ATCH_FILE_ID DESC /*  */
+							, FILE_SN DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnfiledetailDAO.selectComtnfiledetailListTotCnt_S" parameterClass="comtnfiledetailSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnfiledetail
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ATCH_FILE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FILE_SN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

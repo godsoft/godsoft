@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnsmsrecptn">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnsmsrecptnSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsmsrecptn.service.ComtnsmsrecptnDefaultVO"/>
+	
+	<resultMap id="comtnsmsrecptn" class="kr.godsoft.egovframe.generatorwebapp.comtnsmsrecptn.service.ComtnsmsrecptnVO">
+		<result property="smsId" column="SMS_ID" columnIndex="1"/> <!--  -->
+		<result property="recptnTelno" column="RECPTN_TELNO" columnIndex="2"/> <!--  -->
+		<result property="resultCode" column="RESULT_CODE" columnIndex="3"/> <!--  -->
+		<result property="resultMssage" column="RESULT_MSSAGE" columnIndex="4"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnsmsrecptnDAO.insertComtnsmsrecptn_S">
+		<![CDATA[
+			INSERT INTO comtnsmsrecptn 
+				( SMS_ID /*  */
+				  , RECPTN_TELNO /*  */
+				  , RESULT_CODE /*  */
+				  , RESULT_MSSAGE /*  */ )
+			VALUES ( #smsId# /*  */
+					  , #recptnTelno# /*  */
+						  , #resultCode# /*  */
+					  , #resultMssage# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnsmsrecptnDAO.updateComtnsmsrecptn_S">
+		<![CDATA[
+			UPDATE comtnsmsrecptn
+			SET SMS_ID=#smsId# /*  */
+				, RECPTN_TELNO=#recptnTelno# /*  */
+				, RESULT_CODE=#resultCode# /*  */
+				, RESULT_MSSAGE=#resultMssage# /*  */
+			WHERE SMS_ID=#smsId# /*  */
+				AND RECPTN_TELNO=#recptnTelno# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnsmsrecptnDAO.deleteComtnsmsrecptn_S">
+		<![CDATA[
+			DELETE FROM comtnsmsrecptn 
+			WHERE SMS_ID=#smsId# /*  */
+				AND RECPTN_TELNO=#recptnTelno# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnsmsrecptnDAO.selectComtnsmsrecptn_S" resultMap="comtnsmsrecptn">
+		<![CDATA[
+			SELECT
+				SMS_ID /*  */
+				, RECPTN_TELNO /*  */
+				, RESULT_CODE /*  */
+				, RESULT_MSSAGE /*  */
+			FROM comtnsmsrecptn
+			WHERE SMS_ID=#smsId# /*  */
+				AND RECPTN_TELNO=#recptnTelno# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnsmsrecptnDAO.selectComtnsmsrecptnList_D" parameterClass="comtnsmsrecptnSerarchVO" resultClass="egovMap">
+			SELECT
+								SMS_ID /*  */
+								, RECPTN_TELNO /*  */
+								, RESULT_CODE /*  */
+								, RESULT_MSSAGE /*  */
+					FROM comtnsmsrecptn
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SMS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RECPTN_TELNO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SMS_ID DESC /*  */
+							, RECPTN_TELNO DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnsmsrecptnDAO.selectComtnsmsrecptnListTotCnt_S" parameterClass="comtnsmsrecptnSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnsmsrecptn
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SMS_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RECPTN_TELNO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

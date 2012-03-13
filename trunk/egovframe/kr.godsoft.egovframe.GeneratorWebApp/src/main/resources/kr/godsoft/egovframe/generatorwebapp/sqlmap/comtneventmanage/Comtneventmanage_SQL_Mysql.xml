@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtneventmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtneventmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageDefaultVO"/>
+	
+	<resultMap id="comtneventmanage" class="kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageVO">
+		<result property="eventId" column="EVENT_ID" columnIndex="1"/> <!--  -->
+		<result property="eventSe" column="EVENT_SE" columnIndex="2"/> <!--  -->
+		<result property="eventNm" column="EVENT_NM" columnIndex="3"/> <!--  -->
+		<result property="eventPurps" column="EVENT_PURPS" columnIndex="4"/> <!--  -->
+		<result property="eventBgnde" column="EVENT_BGNDE" columnIndex="5"/> <!--  -->
+		<result property="eventEndde" column="EVENT_ENDDE" columnIndex="6"/> <!--  -->
+		<result property="eventAuspcInsttNm" column="EVENT_AUSPC_INSTT_NM" columnIndex="7"/> <!--  -->
+		<result property="eventMngtInsttNm" column="EVENT_MNGT_INSTT_NM" columnIndex="8"/> <!--  -->
+		<result property="eventPlace" column="EVENT_PLACE" columnIndex="9"/> <!--  -->
+		<result property="eventCn" column="EVENT_CN" columnIndex="10"/> <!--  -->
+		<result property="ctOccrrncAt" column="CT_OCCRRNC_AT" columnIndex="11"/> <!--  -->
+		<result property="partcptCt" column="PARTCPT_CT" columnIndex="12"/> <!--  -->
+		<result property="garden" column="GARDEN" columnIndex="13"/> <!--  -->
+		<result property="refrnUrl" column="REFRN_URL" columnIndex="14"/> <!--  -->
+		<result property="rceptBgnde" column="RCEPT_BGNDE" columnIndex="15"/> <!--  -->
+		<result property="rceptEndde" column="RCEPT_ENDDE" columnIndex="16"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="17"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="18"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="19"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="20"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtneventmanageDAO.insertComtneventmanage_S">
+		<![CDATA[
+			INSERT INTO comtneventmanage 
+				( EVENT_ID /*  */
+				  , EVENT_SE /*  */
+				  , EVENT_NM /*  */
+				  , EVENT_PURPS /*  */
+				  , EVENT_BGNDE /*  */
+				  , EVENT_ENDDE /*  */
+				  , EVENT_AUSPC_INSTT_NM /*  */
+				  , EVENT_MNGT_INSTT_NM /*  */
+				  , EVENT_PLACE /*  */
+				  , EVENT_CN /*  */
+				  , CT_OCCRRNC_AT /*  */
+				  , PARTCPT_CT /*  */
+				  , GARDEN /*  */
+				  , REFRN_URL /*  */
+				  , RCEPT_BGNDE /*  */
+				  , RCEPT_ENDDE /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */ )
+			VALUES ( #eventId# /*  */
+					  , #eventSe# /*  */
+						  , #eventNm# /*  */
+						  , #eventPurps# /*  */
+						  , #eventBgnde# /*  */
+						  , #eventEndde# /*  */
+						  , #eventAuspcInsttNm# /*  */
+						  , #eventMngtInsttNm# /*  */
+						  , #eventPlace# /*  */
+						  , #eventCn# /*  */
+						  , #ctOccrrncAt# /*  */
+						  , #partcptCt# /*  */
+						  , #garden# /*  */
+						  , #refrnUrl# /*  */
+						  , #rceptBgnde# /*  */
+						  , #rceptEndde# /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #lastUpdtPnttm# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtneventmanageDAO.updateComtneventmanage_S">
+		<![CDATA[
+			UPDATE comtneventmanage
+			SET EVENT_ID=#eventId# /*  */
+				, EVENT_SE=#eventSe# /*  */
+				, EVENT_NM=#eventNm# /*  */
+				, EVENT_PURPS=#eventPurps# /*  */
+				, EVENT_BGNDE=#eventBgnde# /*  */
+				, EVENT_ENDDE=#eventEndde# /*  */
+				, EVENT_AUSPC_INSTT_NM=#eventAuspcInsttNm# /*  */
+				, EVENT_MNGT_INSTT_NM=#eventMngtInsttNm# /*  */
+				, EVENT_PLACE=#eventPlace# /*  */
+				, EVENT_CN=#eventCn# /*  */
+				, CT_OCCRRNC_AT=#ctOccrrncAt# /*  */
+				, PARTCPT_CT=#partcptCt# /*  */
+				, GARDEN=#garden# /*  */
+				, REFRN_URL=#refrnUrl# /*  */
+				, RCEPT_BGNDE=#rceptBgnde# /*  */
+				, RCEPT_ENDDE=#rceptEndde# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+			WHERE EVENT_ID=#eventId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtneventmanageDAO.deleteComtneventmanage_S">
+		<![CDATA[
+			DELETE FROM comtneventmanage 
+			WHERE EVENT_ID=#eventId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtneventmanageDAO.selectComtneventmanage_S" resultMap="comtneventmanage">
+		<![CDATA[
+			SELECT
+				EVENT_ID /*  */
+				, EVENT_SE /*  */
+				, EVENT_NM /*  */
+				, EVENT_PURPS /*  */
+				, EVENT_BGNDE /*  */
+				, EVENT_ENDDE /*  */
+				, EVENT_AUSPC_INSTT_NM /*  */
+				, EVENT_MNGT_INSTT_NM /*  */
+				, EVENT_PLACE /*  */
+				, EVENT_CN /*  */
+				, CT_OCCRRNC_AT /*  */
+				, PARTCPT_CT /*  */
+				, GARDEN /*  */
+				, REFRN_URL /*  */
+				, RCEPT_BGNDE /*  */
+				, RCEPT_ENDDE /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+			FROM comtneventmanage
+			WHERE EVENT_ID=#eventId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtneventmanageDAO.selectComtneventmanageList_D" parameterClass="comtneventmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								EVENT_ID /*  */
+								, EVENT_SE /*  */
+								, EVENT_NM /*  */
+								, EVENT_PURPS /*  */
+								, EVENT_BGNDE /*  */
+								, EVENT_ENDDE /*  */
+								, EVENT_AUSPC_INSTT_NM /*  */
+								, EVENT_MNGT_INSTT_NM /*  */
+								, EVENT_PLACE /*  */
+								, EVENT_CN /*  */
+								, CT_OCCRRNC_AT /*  */
+								, PARTCPT_CT /*  */
+								, GARDEN /*  */
+								, REFRN_URL /*  */
+								, RCEPT_BGNDE /*  */
+								, RCEPT_ENDDE /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+					FROM comtneventmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EVENT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EVENT_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							EVENT_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtneventmanageDAO.selectComtneventmanageListTotCnt_S" parameterClass="comtneventmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtneventmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				EVENT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EVENT_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

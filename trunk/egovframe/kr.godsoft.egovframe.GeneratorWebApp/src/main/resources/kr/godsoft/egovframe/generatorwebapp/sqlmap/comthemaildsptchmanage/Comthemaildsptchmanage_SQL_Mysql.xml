@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comthemaildsptchmanage">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comthemaildsptchmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageDefaultVO"/>
+	
+	<resultMap id="comthemaildsptchmanage" class="kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageVO">
+		<result property="mssageId" column="MSSAGE_ID" columnIndex="1"/> <!--  -->
+		<result property="emailCn" column="EMAIL_CN" columnIndex="2"/> <!--  -->
+		<result property="sndr" column="SNDR" columnIndex="3"/> <!--  -->
+		<result property="rcver" column="RCVER" columnIndex="4"/> <!--  -->
+		<result property="sj" column="SJ" columnIndex="5"/> <!--  -->
+		<result property="sndngResultCode" column="SNDNG_RESULT_CODE" columnIndex="6"/> <!--  -->
+		<result property="dsptchDt" column="DSPTCH_DT" columnIndex="7"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="8"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comthemaildsptchmanageDAO.insertComthemaildsptchmanage_S">
+		<![CDATA[
+			INSERT INTO comthemaildsptchmanage 
+				( MSSAGE_ID /*  */
+				  , EMAIL_CN /*  */
+				  , SNDR /*  */
+				  , RCVER /*  */
+				  , SJ /*  */
+				  , SNDNG_RESULT_CODE /*  */
+				  , DSPTCH_DT /*  */
+				  , ATCH_FILE_ID /*  */ )
+			VALUES ( #mssageId# /*  */
+					  , #emailCn# /*  */
+						  , #sndr# /*  */
+						  , #rcver# /*  */
+						  , #sj# /*  */
+						  , #sndngResultCode# /*  */
+						  , #dsptchDt# /*  */
+					  , #atchFileId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comthemaildsptchmanageDAO.updateComthemaildsptchmanage_S">
+		<![CDATA[
+			UPDATE comthemaildsptchmanage
+			SET MSSAGE_ID=#mssageId# /*  */
+				, EMAIL_CN=#emailCn# /*  */
+				, SNDR=#sndr# /*  */
+				, RCVER=#rcver# /*  */
+				, SJ=#sj# /*  */
+				, SNDNG_RESULT_CODE=#sndngResultCode# /*  */
+				, DSPTCH_DT=#dsptchDt# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+			WHERE MSSAGE_ID=#mssageId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comthemaildsptchmanageDAO.deleteComthemaildsptchmanage_S">
+		<![CDATA[
+			DELETE FROM comthemaildsptchmanage 
+			WHERE MSSAGE_ID=#mssageId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comthemaildsptchmanageDAO.selectComthemaildsptchmanage_S" resultMap="comthemaildsptchmanage">
+		<![CDATA[
+			SELECT
+				MSSAGE_ID /*  */
+				, EMAIL_CN /*  */
+				, SNDR /*  */
+				, RCVER /*  */
+				, SJ /*  */
+				, SNDNG_RESULT_CODE /*  */
+				, DSPTCH_DT /*  */
+				, ATCH_FILE_ID /*  */
+			FROM comthemaildsptchmanage
+			WHERE MSSAGE_ID=#mssageId# /*  */
+		]]>
+	</select>
+	
+	<select id="comthemaildsptchmanageDAO.selectComthemaildsptchmanageList_D" parameterClass="comthemaildsptchmanageSerarchVO" resultClass="egovMap">
+			SELECT
+								MSSAGE_ID /*  */
+								, EMAIL_CN /*  */
+								, SNDR /*  */
+								, RCVER /*  */
+								, SJ /*  */
+								, SNDNG_RESULT_CODE /*  */
+								, DSPTCH_DT /*  */
+								, ATCH_FILE_ID /*  */
+					FROM comthemaildsptchmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MSSAGE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EMAIL_CN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							MSSAGE_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comthemaildsptchmanageDAO.selectComthemaildsptchmanageListTotCnt_S" parameterClass="comthemaildsptchmanageSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comthemaildsptchmanage
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MSSAGE_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EMAIL_CN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

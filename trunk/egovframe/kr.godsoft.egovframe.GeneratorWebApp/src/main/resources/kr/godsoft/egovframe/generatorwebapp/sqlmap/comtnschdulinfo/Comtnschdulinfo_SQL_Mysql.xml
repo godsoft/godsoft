@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnschdulinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnschdulinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoDefaultVO"/>
+	
+	<resultMap id="comtnschdulinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoVO">
+		<result property="schdulId" column="SCHDUL_ID" columnIndex="1"/> <!--  -->
+		<result property="schdulSe" column="SCHDUL_SE" columnIndex="2"/> <!--  -->
+		<result property="schdulDeptId" column="SCHDUL_DEPT_ID" columnIndex="3"/> <!--  -->
+		<result property="schdulKndCode" column="SCHDUL_KND_CODE" columnIndex="4"/> <!--  -->
+		<result property="schdulBgnde" column="SCHDUL_BGNDE" columnIndex="5"/> <!--  -->
+		<result property="schdulEndde" column="SCHDUL_ENDDE" columnIndex="6"/> <!--  -->
+		<result property="schdulNm" column="SCHDUL_NM" columnIndex="7"/> <!--  -->
+		<result property="schdulCn" column="SCHDUL_CN" columnIndex="8"/> <!--  -->
+		<result property="schdulPlace" column="SCHDUL_PLACE" columnIndex="9"/> <!--  -->
+		<result property="schdulIpcrCode" column="SCHDUL_IPCR_CODE" columnIndex="10"/> <!--  -->
+		<result property="schdulChargerId" column="SCHDUL_CHARGER_ID" columnIndex="11"/> <!--  -->
+		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="12"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="14"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="15"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="16"/> <!--  -->
+		<result property="reptitSeCode" column="REPTIT_SE_CODE" columnIndex="17"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnschdulinfoDAO.insertComtnschdulinfo_S">
+		<![CDATA[
+			INSERT INTO comtnschdulinfo 
+				( SCHDUL_ID /*  */
+				  , SCHDUL_SE /*  */
+				  , SCHDUL_DEPT_ID /*  */
+				  , SCHDUL_KND_CODE /*  */
+				  , SCHDUL_BGNDE /*  */
+				  , SCHDUL_ENDDE /*  */
+				  , SCHDUL_NM /*  */
+				  , SCHDUL_CN /*  */
+				  , SCHDUL_PLACE /*  */
+				  , SCHDUL_IPCR_CODE /*  */
+				  , SCHDUL_CHARGER_ID /*  */
+				  , ATCH_FILE_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , REPTIT_SE_CODE /*  */ )
+			VALUES ( #schdulId# /*  */
+					  , #schdulSe# /*  */
+						  , #schdulDeptId# /*  */
+						  , #schdulKndCode# /*  */
+						  , #schdulBgnde# /*  */
+						  , #schdulEndde# /*  */
+						  , #schdulNm# /*  */
+						  , #schdulCn# /*  */
+						  , #schdulPlace# /*  */
+						  , #schdulIpcrCode# /*  */
+						  , #schdulChargerId# /*  */
+						  , #atchFileId# /*  */
+						  , SYSDATE() /*  */
+						  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+					  , #reptitSeCode# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnschdulinfoDAO.updateComtnschdulinfo_S">
+		<![CDATA[
+			UPDATE comtnschdulinfo
+			SET SCHDUL_ID=#schdulId# /*  */
+				, SCHDUL_SE=#schdulSe# /*  */
+				, SCHDUL_DEPT_ID=#schdulDeptId# /*  */
+				, SCHDUL_KND_CODE=#schdulKndCode# /*  */
+				, SCHDUL_BGNDE=#schdulBgnde# /*  */
+				, SCHDUL_ENDDE=#schdulEndde# /*  */
+				, SCHDUL_NM=#schdulNm# /*  */
+				, SCHDUL_CN=#schdulCn# /*  */
+				, SCHDUL_PLACE=#schdulPlace# /*  */
+				, SCHDUL_IPCR_CODE=#schdulIpcrCode# /*  */
+				, SCHDUL_CHARGER_ID=#schdulChargerId# /*  */
+				, ATCH_FILE_ID=#atchFileId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, REPTIT_SE_CODE=#reptitSeCode# /*  */
+			WHERE SCHDUL_ID=#schdulId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnschdulinfoDAO.deleteComtnschdulinfo_S">
+		<![CDATA[
+			DELETE FROM comtnschdulinfo 
+			WHERE SCHDUL_ID=#schdulId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnschdulinfoDAO.selectComtnschdulinfo_S" resultMap="comtnschdulinfo">
+		<![CDATA[
+			SELECT
+				SCHDUL_ID /*  */
+				, SCHDUL_SE /*  */
+				, SCHDUL_DEPT_ID /*  */
+				, SCHDUL_KND_CODE /*  */
+				, SCHDUL_BGNDE /*  */
+				, SCHDUL_ENDDE /*  */
+				, SCHDUL_NM /*  */
+				, SCHDUL_CN /*  */
+				, SCHDUL_PLACE /*  */
+				, SCHDUL_IPCR_CODE /*  */
+				, SCHDUL_CHARGER_ID /*  */
+				, ATCH_FILE_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, FRST_REGISTER_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, REPTIT_SE_CODE /*  */
+			FROM comtnschdulinfo
+			WHERE SCHDUL_ID=#schdulId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnschdulinfoDAO.selectComtnschdulinfoList_D" parameterClass="comtnschdulinfoSerarchVO" resultClass="egovMap">
+			SELECT
+								SCHDUL_ID /*  */
+								, SCHDUL_SE /*  */
+								, SCHDUL_DEPT_ID /*  */
+								, SCHDUL_KND_CODE /*  */
+								, SCHDUL_BGNDE /*  */
+								, SCHDUL_ENDDE /*  */
+								, SCHDUL_NM /*  */
+								, SCHDUL_CN /*  */
+								, SCHDUL_PLACE /*  */
+								, SCHDUL_IPCR_CODE /*  */
+								, SCHDUL_CHARGER_ID /*  */
+								, ATCH_FILE_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, FRST_REGISTER_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, REPTIT_SE_CODE /*  */
+					FROM comtnschdulinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHDUL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							SCHDUL_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnschdulinfoDAO.selectComtnschdulinfoListTotCnt_S" parameterClass="comtnschdulinfoSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnschdulinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCHDUL_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHDUL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>
