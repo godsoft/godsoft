@@ -2,6 +2,7 @@ package kr.godsoft.egovframe.egovframegenerator.columns.service;
 
 import java.util.List;
 
+import model.DataModelContext;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
@@ -85,5 +86,8 @@ public interface ColumnsService {
 	 * @exception
 	 */
 	int selectColumnsListTotCnt(ColumnsDefaultVO searchVO);
+
+	List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO)
+			throws Exception;
 
 }

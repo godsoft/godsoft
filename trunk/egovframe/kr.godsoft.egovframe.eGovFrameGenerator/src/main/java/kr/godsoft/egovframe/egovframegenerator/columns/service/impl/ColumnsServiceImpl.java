@@ -1,13 +1,21 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsDefaultVO;
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsService;
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsVO;
+import model.Attribute;
+import model.DataModelContext;
+import model.Entity;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
@@ -131,6 +139,78 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 	 */
 	public int selectColumnsListTotCnt(ColumnsDefaultVO searchVO) {
 		return columnsDAO.selectColumnsListTotCnt(searchVO);
+	}
+
+	public List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO)
+			throws Exception {
+		List<DataModelContext> dataModelContexts = new ArrayList<DataModelContext>();
+
+		List<EgovMap> columns = selectColumnsList(columnsVO);
+
+		Set<String> tableNames = new HashSet<String>();
+
+		for (int i = 0; i < columns.size(); i++) {
+			EgovMap egovMap = columns.get(i);
+
+			String tableName = (String) egovMap.get("tableName");
+
+			tableNames.add(tableName);
+		}
+
+		// if (log.isDebugEnabled()) {
+		// log.debug("tables=" + tableNames);
+		//
+		// log.debug("size=" + tableNames.size());
+		// }
+
+		Iterator<String> iterator = tableNames.iterator();
+
+		while (iterator.hasNext()) {
+			String tableName = iterator.next();
+
+			// if (log.isDebugEnabled()) {
+			// log.debug("tableName=" + tableName);
+			// }
+
+			DataModelContext dataModelContext = (DataModelContext) BeanUtils
+					.cloneBean(columnsVO.getDataModelContext());
+			dataModelContext.setEntity(new Entity(tableName));
+
+			dataModelContext.setAttributes(setAttributes(columns, tableName));
+
+			dataModelContexts.add(dataModelContext);
+		}
+
+		return dataModelContexts;
+	}
+
+	private List<Attribute> setAttributes(List<EgovMap> columns,
+			String tableNameVO) {
+		List<Attribute> attributes = new ArrayList<Attribute>();
+
+		for (int i = 0; i < columns.size(); i++) {
+			EgovMap egovMap = columns.get(i);
+
+			String tableName = (String) egovMap.get("tableName");
+
+			if (tableName.equals(tableNameVO)) {
+				String columnName = (String) egovMap.get("columnName");
+
+				Attribute attribute = new Attribute(columnName);
+				attribute.setJavaType("String");
+				// attributes.add(attr);
+				// primaryKeys.add(attr);
+
+				attributes.add(attribute);
+
+				if (log.isDebugEnabled()) {
+					log.debug("tableName=" + tableName);
+					log.debug("columnName=" + columnName);
+				}
+			}
+		}
+
+		return attributes;
 	}
 
 }

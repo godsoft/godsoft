@@ -6,11 +6,14 @@ import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsDefaultVO;
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsService;
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsVO;
 import kr.godsoft.egovframe.egovframegenerator.util.Util;
+import model.Attribute;
+import model.DataModelContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 
+import egovframework.com.utl.fcc.service.EgovDateUtil;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class ColumnsClient {
@@ -37,7 +40,14 @@ public class ColumnsClient {
 		try {
 			// columnsClient.selectColumnsList();
 
-			columnsClient.selectColumnsListColumnsVO();
+			// columnsClient.selectColumnsListColumnsVO();
+
+			// ColumnsVO columnsVO = new ColumnsVO();
+			// columnsVO.setTableSchema("rte");
+			//
+			// columnsClient.getDataModelContext(columnsVO);
+
+			columnsClient.getDataModelContexts();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,6 +108,77 @@ public class ColumnsClient {
 	public List<EgovMap> selectColumnsList(ColumnsVO columnsVO)
 			throws Exception {
 		return columnsService.selectColumnsList(columnsVO);
+	}
+
+	public List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO)
+			throws Exception {
+		return columnsService.getDataModelContexts(columnsVO);
+	}
+
+	@Deprecated
+	public void getDataModelContexts() throws Exception {
+		ColumnsVO columnsVO = new ColumnsVO();
+		columnsVO.setTableSchema("rte");
+
+		DataModelContext dataModelContextVO = new DataModelContext();
+		dataModelContextVO.setAuthor("이백행");
+		dataModelContextVO.setTeam("갓소프트");
+		dataModelContextVO.setCreateDate(EgovDateUtil.formatDate(
+				EgovDateUtil.getToday(), "-"));
+		dataModelContextVO
+				.setPackageName("kr.godsoft.egovframe.generatorwebapp");
+		columnsVO.setDataModelContext(dataModelContextVO);
+
+		List<DataModelContext> dataModelContexts = getDataModelContexts(columnsVO);
+
+		if (dataModelContexts != null) {
+			for (int i = 0; i < dataModelContexts.size(); i++) {
+				DataModelContext dataModelContext = dataModelContexts.get(i);
+
+				if (log.isDebugEnabled()) {
+					log.debug("dataModelContexts[" + i + "]="
+							+ dataModelContext);
+				}
+
+				sql(dataModelContext);
+			}
+		}
+	}
+
+	@Deprecated
+	private void sql(DataModelContext dataModelContext) throws Exception {
+		StringBuilder sql = new StringBuilder();
+
+		// sql.append("SELECT * FROM ");
+		// sql.append(dataModelContext.getEntity().getLcName());
+		// sql.append(";");
+		// sql.append("\n");
+
+		sql.append("SELECT\n");
+
+		List<Attribute> attributes = dataModelContext.getAttributes();
+
+		for (int i = 0; i < attributes.size(); i++) {
+			Attribute attribute = attributes.get(i);
+
+			if (i == 0) {
+				sql.append("    ");
+			} else {
+				sql.append("    , ");
+			}
+
+			sql.append(attribute.getLcName());
+			sql.append("\n");
+		}
+
+		sql.append("FROM ");
+		sql.append(dataModelContext.getEntity().getLcName());
+		sql.append(";");
+		sql.append("\n");
+
+		if (log.isDebugEnabled()) {
+			log.debug(sql);
+		}
 	}
 
 }

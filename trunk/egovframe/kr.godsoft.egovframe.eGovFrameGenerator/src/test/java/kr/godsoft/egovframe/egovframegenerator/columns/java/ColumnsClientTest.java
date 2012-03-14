@@ -1,11 +1,14 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.java;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsVO;
+import model.Attribute;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,36 +16,127 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class ColumnsClientTest {
 
-	private static final Log log = LogFactory.getLog(ColumnsClientTest.class);
-
 	private static ColumnsClient columnsClient;
+
+	private static List<EgovMap> columns;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		columnsClient = new ColumnsClient();
+
+		// columns
+		ColumnsVO columnsVO = new ColumnsVO();
+		columnsVO.setTableSchema("rte");
+
+		columns = columnsClient.selectColumnsList(columnsVO);
+	}
+
+	// @Test
+	public void selectColumnsListColumnsVO() throws Exception {
+		if (columns != null) {
+			for (int i = 0; i < columns.size(); i++) {
+				EgovMap egovMap = columns.get(i);
+
+				String tableName = (String) egovMap.get("tableName");
+				String columnName = (String) egovMap.get("columnName");
+
+				System.out.println("tableName=" + tableName);
+				System.out.println("columnName=" + columnName);
+			}
+		}
+	}
+
+	// @Test
+	public void getTablesTest() throws Exception {
+		if (columns != null) {
+			Set<String> tables = new HashSet<String>();
+
+			for (int i = 0; i < columns.size(); i++) {
+				EgovMap egovMap = columns.get(i);
+
+				String tableName = (String) egovMap.get("tableName");
+				String columnName = (String) egovMap.get("columnName");
+
+				// System.out.println("tableName=" + tableName);
+				// System.out.println("columnName=" + columnName);
+
+				tables.add(tableName);
+			}
+
+			System.out.println("tables=" + tables);
+
+			int i = 0;
+
+			for (String tableName : tables) {
+				System.out.println("tables[" + i + "]=" + tableName);
+
+				i++;
+			}
+		}
 	}
 
 	@Test
-	public void selectColumnsListColumnsVO() throws Exception {
-		ColumnsVO columnsVO = new ColumnsVO();
+	public void getColumnsTest() throws Exception {
+		if (columns != null) {
+			Set<String> tables = new HashSet<String>();
 
-		columnsVO.setTableSchema("rte");
+			Map<String, Attribute> attributes = new HashMap<String, Attribute>();
 
-		List<EgovMap> colnums = columnsClient.selectColumnsList(columnsVO);
+			for (int i = 0; i < columns.size(); i++) {
+				EgovMap egovMap = columns.get(i);
 
-		if (log.isDebugEnabled()) {
-			log.debug("colnums=" + colnums);
-		}
+				String tableName = (String) egovMap.get("tableName");
+				String columnName = (String) egovMap.get("columnName");
 
-		if (colnums != null) {
-			for (int i = 0; i < colnums.size(); i++) {
-				EgovMap egovMap = colnums.get(i);
+				System.out.println("columns[" + i + "].tableName=" + tableName);
+				System.out.println("columns[" + i + "].columnName="
+						+ columnName);
 
-				if (log.isDebugEnabled()) {
-					log.debug("egovMap=" + egovMap);
-				}
+				tables.add(tableName);
+
+				// attributes
+				Attribute attribute = new Attribute(columnName);
+				attribute.setJavaType("String");
+				// attributes.add(attr);
+				// primaryKeys.add(attr);
+
+				attributes.put(tableName, attribute);
 			}
+
+			// System.out.println("tables=" + tables);
+			//
+			// int i = 0;
+			//
+			// for (String tableName : tables) {
+			// System.out.println("tables[" + i + "]=" + tableName);
+			//
+			// // EgovMap egovMap = new EgovMap();
+			// // egovMap.put("tableName", tableName);
+			// //
+			// // System.out.println(columns.indexOf(egovMap));
+			//
+			// i++;
+			// }
+
+			// // attributes
+			// i = 0;
+			// for (Attribute attribute : attributes.values()) {
+			// System.out.println("attributes[" + i + "]="
+			// + attribute.getName());
+			//
+			// i++;
+			// }
 		}
+	}
+
+	// @Test
+	public void indexOfTest() throws Exception {
+		System.out.println(columns.indexOf("comtnhttpmon"));
+
+		EgovMap egovMap = new EgovMap();
+		egovMap.put("tableName", "comtnhttpmon");
+
+		System.out.println(columns.indexOf(egovMap));
 	}
 
 }
