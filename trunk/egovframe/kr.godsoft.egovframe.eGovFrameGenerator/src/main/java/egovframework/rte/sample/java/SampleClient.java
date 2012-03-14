@@ -2,8 +2,9 @@ package egovframework.rte.sample.java;
 
 import java.util.List;
 
+import kr.godsoft.egovframe.egovframegenerator.util.Util;
+
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.sample.service.EgovSampleService;
@@ -15,8 +16,7 @@ public class SampleClient {
 	private EgovSampleService sampleService;
 
 	public SampleClient() {
-		applicationContext = new ClassPathXmlApplicationContext(
-				"classpath:egovframework/spring/eGovFrameGenerator.xml");
+		applicationContext = Util.getApplicationContext();
 
 		sampleService = (EgovSampleService) applicationContext
 				.getBean("sampleService");
