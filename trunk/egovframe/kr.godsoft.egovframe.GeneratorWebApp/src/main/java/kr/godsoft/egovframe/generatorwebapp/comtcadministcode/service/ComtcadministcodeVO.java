@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-15
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtcadministcodeVO extends ComtcadministcodeDefaultVO{
+public class ComtcadministcodeVO extends ComtcadministcodeDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /** 행정구역구분 */
+    /** ADMINIST_ZONE_SE */
     private String administZoneSe;
     
-    /** 행정구역코드 */
+    /** ADMINIST_ZONE_CODE */
     private String administZoneCode;
     
-    /** 사용여부 */
+    /** USE_AT */
     private String useAt;
     
-    /** 행정구역명 */
+    /** ADMINIST_ZONE_NM */
     private String administZoneNm;
     
-    /** 상위행정구역코드 */
+    /** UPPER_ADMINIST_ZONE_CODE */
     private String upperAdministZoneCode;
     
-    /** 생성일자 */
+    /** CREAT_DE */
     private String creatDe;
     
-    /** 폐지일자 */
+    /** ABL_DE */
     private String ablDe;
     
-    /** 최초등록시점 */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /** 최초등록자ID */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /** 최종수정시점 */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /** 최종수정자ID */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getAdministZoneSe() {

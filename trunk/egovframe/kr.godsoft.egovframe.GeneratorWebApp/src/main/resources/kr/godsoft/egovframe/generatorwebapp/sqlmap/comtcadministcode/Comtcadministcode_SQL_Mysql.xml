@@ -4,132 +4,133 @@
 <sqlMap namespace="Comtcadministcode">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtcadministcodeSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeDefaultVO"/>
+	<typeAlias  alias="ComtcadministcodeVO" type="kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeVO"/>
 	
 	<resultMap id="comtcadministcode" class="kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeVO">
-		<result property="administZoneSe" column="ADMINIST_ZONE_SE" columnIndex="1"/> <!-- 행정구역구분 -->
-		<result property="administZoneCode" column="ADMINIST_ZONE_CODE" columnIndex="2"/> <!-- 행정구역코드 -->
-		<result property="useAt" column="USE_AT" columnIndex="3"/> <!-- 사용여부 -->
-		<result property="administZoneNm" column="ADMINIST_ZONE_NM" columnIndex="4"/> <!-- 행정구역명 -->
-		<result property="upperAdministZoneCode" column="UPPER_ADMINIST_ZONE_CODE" columnIndex="5"/> <!-- 상위행정구역코드 -->
-		<result property="creatDe" column="CREAT_DE" columnIndex="6"/> <!-- 생성일자 -->
-		<result property="ablDe" column="ABL_DE" columnIndex="7"/> <!-- 폐지일자 -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!-- 최초등록시점 -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!-- 최초등록자ID -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!-- 최종수정시점 -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!-- 최종수정자ID -->
+		<result property="administZoneSe" column="administ_zone_se" columnIndex="1"/>
+		<result property="administZoneCode" column="administ_zone_code" columnIndex="2"/>
+		<result property="useAt" column="use_at" columnIndex="3"/>
+		<result property="administZoneNm" column="administ_zone_nm" columnIndex="4"/>
+		<result property="upperAdministZoneCode" column="upper_administ_zone_code" columnIndex="5"/>
+		<result property="creatDe" column="creat_de" columnIndex="6"/>
+		<result property="ablDe" column="abl_de" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="11"/>
 	</resultMap>
 	
 	<insert id="comtcadministcodeDAO.insertComtcadministcode_S">
 		<![CDATA[
 			INSERT INTO comtcadministcode 
-				( ADMINIST_ZONE_SE /* 행정구역구분 */
-				  , ADMINIST_ZONE_CODE /* 행정구역코드 */
-				  , USE_AT /* 사용여부 */
-				  , ADMINIST_ZONE_NM /* 행정구역명 */
-				  , UPPER_ADMINIST_ZONE_CODE /* 상위행정구역코드 */
-				  , CREAT_DE /* 생성일자 */
-				  , ABL_DE /* 폐지일자 */
-				  , FRST_REGIST_PNTTM /* 최초등록시점 */
-				  , FRST_REGISTER_ID /* 최초등록자ID */
-				  , LAST_UPDT_PNTTM /* 최종수정시점 */
-				  , LAST_UPDUSR_ID /* 최종수정자ID */ )
-			VALUES ( #administZoneSe# /* 행정구역구분 */
-					  , #administZoneCode# /* 행정구역코드 */
-						  , #useAt# /* 사용여부 */
-						  , #administZoneNm# /* 행정구역명 */
-						  , #upperAdministZoneCode# /* 상위행정구역코드 */
-						  , #creatDe# /* 생성일자 */
-						  , #ablDe# /* 폐지일자 */
-						  , SYSDATE() /* 최초등록시점 */
-						  , #frstRegisterId# /* 최초등록자ID */
-						  , SYSDATE() /* 최종수정시점 */
-					  , #lastUpdusrId# /* 최종수정자ID */ )
+				( ADMINIST_ZONE_SE
+				  , administ_zone_code
+				  , use_at
+				  , administ_zone_nm
+				  , upper_administ_zone_code
+				  , creat_de
+				  , abl_de
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #administZoneSe#
+				  , #administZoneCode#
+				  , #useAt#
+				  , #administZoneNm#
+				  , #upperAdministZoneCode#
+				  , #creatDe#
+				  , #ablDe#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtcadministcodeDAO.updateComtcadministcode_S">
 		<![CDATA[
 			UPDATE comtcadministcode
-			SET ADMINIST_ZONE_SE=#administZoneSe# /* 행정구역구분 */
-				, ADMINIST_ZONE_CODE=#administZoneCode# /* 행정구역코드 */
-				, USE_AT=#useAt# /* 사용여부 */
-				, ADMINIST_ZONE_NM=#administZoneNm# /* 행정구역명 */
-				, UPPER_ADMINIST_ZONE_CODE=#upperAdministZoneCode# /* 상위행정구역코드 */
-				, CREAT_DE=#creatDe# /* 생성일자 */
-				, ABL_DE=#ablDe# /* 폐지일자 */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /* 최초등록시점 */
-				, FRST_REGISTER_ID=#frstRegisterId# /* 최초등록자ID */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /* 최종수정시점 */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /* 최종수정자ID */
-			WHERE ADMINIST_ZONE_SE=#administZoneSe# /* 행정구역구분 */
-				AND ADMINIST_ZONE_CODE=#administZoneCode# /* 행정구역코드 */
+			SET administ_zone_se = #administZoneSe#
+				, administ_zone_code = #administZoneCode#
+				, use_at = #useAt#
+				, administ_zone_nm = #administZoneNm#
+				, upper_administ_zone_code = #upperAdministZoneCode#
+				, creat_de = #creatDe#
+				, abl_de = #ablDe#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE administ_zone_se = #administZoneSe#
+				AND administ_zone_code = #administZoneCode#
 		]]>
 	</update>
 	
 	<delete id="comtcadministcodeDAO.deleteComtcadministcode_S">
 		<![CDATA[
 			DELETE FROM comtcadministcode 
-			WHERE ADMINIST_ZONE_SE=#administZoneSe# /* 행정구역구분 */
-				AND ADMINIST_ZONE_CODE=#administZoneCode# /* 행정구역코드 */
+			WHERE administ_zone_se = #administZoneSe#
+				AND administ_zone_code = #administZoneCode#
 		]]>
 	</delete>
 	
 	<select id="comtcadministcodeDAO.selectComtcadministcode_S" resultMap="comtcadministcode">
 		<![CDATA[
 			SELECT
-				ADMINIST_ZONE_SE /* 행정구역구분 */
-				, ADMINIST_ZONE_CODE /* 행정구역코드 */
-				, USE_AT /* 사용여부 */
-				, ADMINIST_ZONE_NM /* 행정구역명 */
-				, UPPER_ADMINIST_ZONE_CODE /* 상위행정구역코드 */
-				, CREAT_DE /* 생성일자 */
-				, ABL_DE /* 폐지일자 */
-				, FRST_REGIST_PNTTM /* 최초등록시점 */
-				, FRST_REGISTER_ID /* 최초등록자ID */
-				, LAST_UPDT_PNTTM /* 최종수정시점 */
-				, LAST_UPDUSR_ID /* 최종수정자ID */
+				administ_zone_se
+				, administ_zone_code
+				, use_at
+				, administ_zone_nm
+				, upper_administ_zone_code
+				, creat_de
+				, abl_de
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtcadministcode
-			WHERE ADMINIST_ZONE_SE=#administZoneSe# /* 행정구역구분 */
-				AND ADMINIST_ZONE_CODE=#administZoneCode# /* 행정구역코드 */
+			WHERE administ_zone_se = #administZoneSe#
+				AND administ_zone_code = #administZoneCode#
 		]]>
 	</select>
 	
-	<select id="comtcadministcodeDAO.selectComtcadministcodeList_D" parameterClass="comtcadministcodeSerarchVO" resultClass="egovMap">
+	<select id="comtcadministcodeDAO.selectComtcadministcodeList_D" parameterClass="ComtcadministcodeVO" resultClass="egovMap">
 			SELECT
-								ADMINIST_ZONE_SE /* 행정구역구분 */
-								, ADMINIST_ZONE_CODE /* 행정구역코드 */
-								, USE_AT /* 사용여부 */
-								, ADMINIST_ZONE_NM /* 행정구역명 */
-								, UPPER_ADMINIST_ZONE_CODE /* 상위행정구역코드 */
-								, CREAT_DE /* 생성일자 */
-								, ABL_DE /* 폐지일자 */
-								, FRST_REGIST_PNTTM /* 최초등록시점 */
-								, FRST_REGISTER_ID /* 최초등록자ID */
-								, LAST_UPDT_PNTTM /* 최종수정시점 */
-								, LAST_UPDUSR_ID /* 최종수정자ID */
+								administ_zone_se
+								, administ_zone_code
+								, use_at
+								, administ_zone_nm
+								, upper_administ_zone_code
+								, creat_de
+								, abl_de
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtcadministcode
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ADMINIST_ZONE_SE = #searchKeyword# /* 행정구역구분 */
+				administ_zone_se = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADMINIST_ZONE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /* 행정구역코드 */
+				administ_zone_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							ADMINIST_ZONE_SE DESC /* 행정구역구분 */
-							, ADMINIST_ZONE_CODE DESC /* 행정구역코드 */
+							administ_zone_se DESC
+							, administ_zone_code DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtcadministcodeDAO.selectComtcadministcodeListTotCnt_S" parameterClass="comtcadministcodeSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtcadministcodeDAO.selectComtcadministcodeListTotCnt_S" parameterClass="ComtcadministcodeVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtcadministcode
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ADMINIST_ZONE_SE = #searchKeyword# /* 행정구역구분 */
+				administ_zone_se = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADMINIST_ZONE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /* 행정구역코드 */
+				administ_zone_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 
