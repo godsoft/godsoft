@@ -87,7 +87,7 @@ public interface ColumnsService {
 	 */
 	int selectColumnsListTotCnt(ColumnsDefaultVO searchVO);
 
-	List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO)
-			throws Exception;
+	List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO,
+			DataModelContext dataModelContext) throws Exception;
 
 }

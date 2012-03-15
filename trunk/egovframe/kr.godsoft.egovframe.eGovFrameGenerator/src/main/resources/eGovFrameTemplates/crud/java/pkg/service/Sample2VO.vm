@@ -18,7 +18,7 @@ package $voPackage;
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ${voClassName} extends ${defaultVoClassName}{
+public class ${voClassName} extends ${defaultVoClassName} {
     private static final long serialVersionUID = 1L;
     
 #set($i=0)	

@@ -131,7 +131,7 @@ public class ColumnsClientTest {
 
 	// @Test
 	public void indexOfTest() throws Exception {
-		System.out.println(columns.indexOf("comtnhttpmon"));
+		// System.out.println(columns.indexOf("comtnhttpmon"));
 
 		EgovMap egovMap = new EgovMap();
 		egovMap.put("tableName", "comtnhttpmon");

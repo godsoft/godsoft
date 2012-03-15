@@ -1,6 +1,6 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.service;
 
-import model.DataModelContext;
+import java.util.List;
 
 /**
  * @Class Name : ColumnsVO.java
@@ -72,7 +72,7 @@ public class ColumnsVO extends ColumnsDefaultVO {
 	/** COLUMN_COMMENT */
 	private java.lang.String columnComment;
 
-	private DataModelContext dataModelContext;
+	private List<String> tableNames;
 
 	public java.lang.String getTableCatalog() {
 		return this.tableCatalog;
@@ -228,12 +228,12 @@ public class ColumnsVO extends ColumnsDefaultVO {
 		this.columnComment = columnComment;
 	}
 
-	public DataModelContext getDataModelContext() {
-		return dataModelContext;
+	public List<String> getTableNames() {
+		return tableNames;
 	}
 
-	public void setDataModelContext(DataModelContext dataModelContext) {
-		this.dataModelContext = dataModelContext;
+	public void setTableNames(List<String> tableNames) {
+		this.tableNames = tableNames;
 	}
 
 }

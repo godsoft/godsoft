@@ -182,6 +182,16 @@ public class DataModelContext {
 		this.attributes = attributes;
 	}
 
+	private String vender;
+
+	public String getVender() {
+		return vender;
+	}
+
+	public void setVender(String vender) {
+		this.vender = vender;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

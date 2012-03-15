@@ -141,8 +141,8 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 		return columnsDAO.selectColumnsListTotCnt(searchVO);
 	}
 
-	public List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO)
-			throws Exception {
+	public List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO,
+			DataModelContext dataModelContext) throws Exception {
 		List<DataModelContext> dataModelContexts = new ArrayList<DataModelContext>();
 
 		List<EgovMap> columns = selectColumnsList(columnsVO);
@@ -172,11 +172,14 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			// log.debug("tableName=" + tableName);
 			// }
 
-			DataModelContext dataModelContext = (DataModelContext) BeanUtils
-					.cloneBean(columnsVO.getDataModelContext());
+			dataModelContext = (DataModelContext) BeanUtils
+					.cloneBean(dataModelContext);
+
 			dataModelContext.setEntity(new Entity(tableName));
 
 			dataModelContext.setAttributes(setAttributes(columns, tableName));
+
+			dataModelContext.setPrimaryKeys(setPrimaryKeys(columns, tableName));
 
 			dataModelContexts.add(dataModelContext);
 		}
@@ -206,6 +209,33 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 				if (log.isDebugEnabled()) {
 					log.debug("tableName=" + tableName);
 					log.debug("columnName=" + columnName);
+				}
+			}
+		}
+
+		return attributes;
+	}
+
+	private List<Attribute> setPrimaryKeys(List<EgovMap> columns,
+			String tableNameVO) {
+		List<Attribute> attributes = new ArrayList<Attribute>();
+
+		for (int i = 0; i < columns.size(); i++) {
+			EgovMap egovMap = columns.get(i);
+
+			String tableName = (String) egovMap.get("tableName");
+
+			if (tableName.equals(tableNameVO)) {
+				String columnName = (String) egovMap.get("columnName");
+				String columnKey = (String) egovMap.get("columnKey");
+
+				if (columnKey.equals("PRI")) {
+					Attribute attribute = new Attribute(columnName);
+					attribute.setJavaType("String");
+					// attributes.add(attr);
+					// primaryKeys.add(attr);
+
+					attributes.add(attribute);
 				}
 			}
 		}

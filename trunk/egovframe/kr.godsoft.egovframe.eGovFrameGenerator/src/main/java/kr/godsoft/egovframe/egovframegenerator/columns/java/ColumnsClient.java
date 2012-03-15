@@ -110,9 +110,9 @@ public class ColumnsClient {
 		return columnsService.selectColumnsList(columnsVO);
 	}
 
-	public List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO)
-			throws Exception {
-		return columnsService.getDataModelContexts(columnsVO);
+	public List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO,
+			DataModelContext dataModelContext) throws Exception {
+		return columnsService.getDataModelContexts(columnsVO, dataModelContext);
 	}
 
 	@Deprecated
@@ -120,28 +120,24 @@ public class ColumnsClient {
 		ColumnsVO columnsVO = new ColumnsVO();
 		columnsVO.setTableSchema("rte");
 
-		DataModelContext dataModelContextVO = new DataModelContext();
-		dataModelContextVO.setAuthor("이백행");
-		dataModelContextVO.setTeam("갓소프트");
-		dataModelContextVO.setCreateDate(EgovDateUtil.formatDate(
+		DataModelContext dataModelContext = new DataModelContext();
+		dataModelContext.setAuthor("이백행");
+		dataModelContext.setTeam("갓소프트");
+		dataModelContext.setCreateDate(EgovDateUtil.formatDate(
 				EgovDateUtil.getToday(), "-"));
-		dataModelContextVO
-				.setPackageName("kr.godsoft.egovframe.generatorwebapp");
-		columnsVO.setDataModelContext(dataModelContextVO);
+		dataModelContext.setPackageName("kr.godsoft.egovframe.generatorwebapp");
 
-		List<DataModelContext> dataModelContexts = getDataModelContexts(columnsVO);
+		List<DataModelContext> dataModelContexts = getDataModelContexts(
+				columnsVO, dataModelContext);
 
-		if (dataModelContexts != null) {
-			for (int i = 0; i < dataModelContexts.size(); i++) {
-				DataModelContext dataModelContext = dataModelContexts.get(i);
+		for (int i = 0; i < dataModelContexts.size(); i++) {
+			dataModelContext = dataModelContexts.get(i);
 
-				if (log.isDebugEnabled()) {
-					log.debug("dataModelContexts[" + i + "]="
-							+ dataModelContext);
-				}
-
-				sql(dataModelContext);
+			if (log.isDebugEnabled()) {
+				log.debug("dataModelContexts[" + i + "]=" + dataModelContext);
 			}
+
+			sql(dataModelContext);
 		}
 	}
 

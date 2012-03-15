@@ -1,9 +1,8 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,46 +11,44 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import operation.TemplateCodeGen;
-
 
 import org.incava.util.diff.Diff;
 import org.incava.util.diff.Difference;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 /**
  * 
- * 템플릿 코드 생성 JUNIT 테스트 클래스 
- * <p><b>NOTE:</b> CRUD 코드 생성 클래스 
+ * 템플릿 코드 생성 JUNIT 테스트 클래스
+ * <p>
+ * <b>NOTE:</b> CRUD 코드 생성 클래스
  * 
  * @author 개발환경 개발팀 이흥주
  * @since 2009.08.03
  * @version 1.0
  * @see
- *
- * <pre>
+ * 
+ *      <pre>
  *  == 개정이력(Modification Information) ==
  *   
  *   수정일      수정자           수정내용
  *  -------    --------    ---------------------------
  *   2009.08.03  이흥주          최초 생성
- *
+ * 
  * </pre>
  */
 public class TemplateCodeGenTest {
 	/**
-	 * 템플릿 코드 생성 
+	 * 템플릿 코드 생성
 	 */
 	private TemplateCodeGen templateCodeGen;
 	/**
 	 * 정보 맵
 	 */
 	private Map<String, String> map;
+
 	/**
 	 * 설정
 	 * 
@@ -60,9 +57,9 @@ public class TemplateCodeGenTest {
 	@Before
 	public void setUp() throws Exception {
 		templateCodeGen = new TemplateCodeGen();
-		
+
 	}
-	
+
 	/**
 	 * 목표값과 비교
 	 * 
@@ -71,44 +68,47 @@ public class TemplateCodeGenTest {
 	 * @param targetFile
 	 * @throws Exception
 	 */
-	private void genAndDiff(String templateFile, String valueFile, String targetFile) throws Exception {
+	private void genAndDiff(String templateFile, String valueFile,
+			String targetFile) throws Exception {
 		// value Setting
 		convertFile2Map(valueFile);
-		// template code Gen 
+		// template code Gen
 		String result = templateCodeGen.generate(map, templateFile);
 		String[] targetLines = readResource(targetFile);
 		String[] sourceLines = readString(result);
-		
-        List<Difference> diffs  = (new Diff<String>(sourceLines, targetLines)).diff();
-        
-        
-        for (Difference diff : diffs) {
-            int        delStart = diff.getDeletedStart();
-            int        delEnd   = diff.getDeletedEnd();
-            int        addStart = diff.getAddedStart();
-            int        addEnd   = diff.getAddedEnd();
-            String     from     = toString(delStart, delEnd);
-            String     to       = toString(addStart, addEnd);
-            String     type     = delEnd != Difference.NONE && addEnd != Difference.NONE ? "c" : (delEnd == Difference.NONE ? "a" : "d");
 
-            System.out.println(from + type + to);
+		List<Difference> diffs = (new Diff<String>(sourceLines, targetLines))
+				.diff();
 
-            if (delEnd != Difference.NONE) {
-                printLines(delStart, delEnd, "<", sourceLines);
-                if (addEnd != Difference.NONE) {
-                    System.out.println("---");
-                }
-            }
-            if (addEnd != Difference.NONE) {
-                printLines(addStart, addEnd, ">", targetLines);
-            }
-        }
-        
-        assertEquals(diffs.size(), 0);		
+		for (Difference diff : diffs) {
+			int delStart = diff.getDeletedStart();
+			int delEnd = diff.getDeletedEnd();
+			int addStart = diff.getAddedStart();
+			int addEnd = diff.getAddedEnd();
+			String from = toString(delStart, delEnd);
+			String to = toString(addStart, addEnd);
+			String type = delEnd != Difference.NONE
+					&& addEnd != Difference.NONE ? "c"
+					: (delEnd == Difference.NONE ? "a" : "d");
+
+			System.out.println(from + type + to);
+
+			if (delEnd != Difference.NONE) {
+				printLines(delStart, delEnd, "<", sourceLines);
+				if (addEnd != Difference.NONE) {
+					System.out.println("---");
+				}
+			}
+			if (addEnd != Difference.NONE) {
+				printLines(addStart, addEnd, ">", targetLines);
+			}
+		}
+
+		assertEquals(diffs.size(), 0);
 	}
 
 	/**
-	 * 캐쉬 생성 테스트 
+	 * 캐쉬 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -119,8 +119,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/cache/cache.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Ehcache 생성 테스트 
+	 * Ehcache 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -131,8 +132,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/cache/ehcache.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * DataSource 생성 테스트 
+	 * DataSource 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -143,8 +145,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/datasource/datasource.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Jndi Datasource 생성 테스트 
+	 * Jndi Datasource 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -155,8 +158,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/datasource/jndiDatasource.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * DataSource Transaction 생성 테스트 
+	 * DataSource Transaction 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -167,8 +171,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/transaction/datasource.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Jpa Transaction 생성 테스트 
+	 * Jpa Transaction 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -179,8 +184,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/transaction/jpa.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Jta Transaction 생성 테스트 
+	 * Jta Transaction 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -191,8 +197,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/transaction/jta.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Sequence ID Gen 생성 테스트 
+	 * Sequence ID Gen 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -203,8 +210,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/idGeneration/sequenceId.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Table ID Gen 생성 테스트 
+	 * Table ID Gen 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -215,8 +223,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/idGeneration/tableId.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * UUID Gen 생성 테스트 
+	 * UUID Gen 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -227,8 +236,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/idGeneration/uuId.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Property Config 생성 테스트 
+	 * Property Config 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -239,8 +249,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/property/property.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Datail Bean Job Schedule 생성 테스트 
+	 * Datail Bean Job Schedule 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -251,8 +262,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/scheduling/beanJob.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Method Invoking Job Schedule 생성 테스트 
+	 * Method Invoking Job Schedule 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -263,8 +275,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/scheduling/methodJob.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Simple Trigger 생성 테스트 
+	 * Simple Trigger 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -275,8 +288,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/scheduling/simpleTrigger.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Cron Trigger 생성 테스트 
+	 * Cron Trigger 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -287,8 +301,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/scheduling/cronTrigger.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Scheduler 생성 테스트 
+	 * Scheduler 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -299,8 +314,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/scheduling/scheduler.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Console Appender 생성 테스트 
+	 * Console Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -311,8 +327,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/console.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * File Appender 생성 테스트 
+	 * File Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -323,8 +340,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/file.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Rolling File Appender 생성 테스트 
+	 * Rolling File Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -335,8 +353,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/rollingFile.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * Daily Rolling File Appender 생성 테스트 
+	 * Daily Rolling File Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -347,8 +366,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/dailyRollingFile.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * JDBC Appender 생성 테스트 
+	 * JDBC Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -359,8 +379,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/jdbc.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * EgovDB Appender 생성 테스트 
+	 * EgovDB Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -371,8 +392,9 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/egovDb.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
+
 	/**
-	 * EgovJDBC Appender 생성 테스트 
+	 * EgovJDBC Appender 생성 테스트
 	 * 
 	 * @throws Exception
 	 */
@@ -383,95 +405,98 @@ public class TemplateCodeGenTest {
 		String valueFile = "eGovFrameTemplatesTestValue/logging/egovJdbc.properties";
 		genAndDiff(templateFile, valueFile, targetFile);
 	}
-	
-	
-    /**
-     * 라인 출력
-     * 
-     * @param start
-     * @param end
-     * @param ind
-     * @param lines
-     */
-    protected void printLines(int start, int end, String ind, String[] lines)
-    {
-        for (int lnum = start; lnum <= end; ++lnum) {
-            System.out.println(ind + " " + lines[lnum]);
-        }
-    }
 
-    /**
-     * 스트링 변환
-     * 
-     * @param start
-     * @param end
-     * @return
-     */
-    protected String toString(int start, int end)
-    {
-        // adjusted, because file lines are one-indexed, not zero.
+	/**
+	 * 라인 출력
+	 * 
+	 * @param start
+	 * @param end
+	 * @param ind
+	 * @param lines
+	 */
+	protected void printLines(int start, int end, String ind, String[] lines) {
+		for (int lnum = start; lnum <= end; ++lnum) {
+			System.out.println(ind + " " + lines[lnum]);
+		}
+	}
 
-        StringBuffer buf = new StringBuffer();
+	/**
+	 * 스트링 변환
+	 * 
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	protected String toString(int start, int end) {
+		// adjusted, because file lines are one-indexed, not zero.
 
-        // match the line numbering from diff(1):
-        buf.append(end == Difference.NONE ? start : (1 + start));
-        
-        if (end != Difference.NONE && start != end) {
-            buf.append(",").append(1 + end);
-        }
-        return buf.toString();
-    }	
-	
-    /**
-     * 파일 리소스 읽기
-     * 
-     * @param fileName
-     * @return
-     */
-    protected String[] readResource(String fileName)
-    {
-        try {
-        	InputStream is = getClass().getClassLoader().getResourceAsStream(fileName);        	
-        	InputStreamReader sr = new InputStreamReader(is);        	
-        	BufferedReader br       = new BufferedReader(sr);        	
-            List<String>   contents = new ArrayList<String>();            
-            String in;
-            while ((in = br.readLine()) != null) {
-                contents.add(in);
-            }
-            return (String[])contents.toArray(new String[] {});
-        }
-        catch (Exception e) {
-            System.err.println("error reading " + fileName + ": " + e);
-            System.exit(1);
-            return null;
-        }        
-    }
-    /**
-     * 스트링 변환
-     * 
-     * @param data
-     * @return
-     */
-    protected String[] readString(String data)
-    {
-        try {
-        	StringReader sr = new StringReader(data);        	
-        	BufferedReader br       = new BufferedReader(sr);        	
-            List<String>   contents = new ArrayList<String>();            
-            String in;
-            while ((in = br.readLine()) != null) {
-                contents.add(in);
-            }
-            return (String[])contents.toArray(new String[] {});
-        }
-        catch (Exception e) {
-            System.err.println("error reading " + e);
-            System.exit(1);
-            return null;
-        }        
-    }   
-    
+		StringBuffer buf = new StringBuffer();
+
+		// match the line numbering from diff(1):
+		buf.append(end == Difference.NONE ? start : (1 + start));
+
+		if (end != Difference.NONE && start != end) {
+			buf.append(",").append(1 + end);
+		}
+		return buf.toString();
+	}
+
+	/**
+	 * 파일 리소스 읽기
+	 * 
+	 * @param fileName
+	 * @return
+	 */
+	protected String[] readResource(String fileName) {
+		BufferedReader br = null;
+
+		try {
+			InputStream is = getClass().getClassLoader().getResourceAsStream(
+					fileName);
+			InputStreamReader sr = new InputStreamReader(is);
+			br = new BufferedReader(sr);
+			List<String> contents = new ArrayList<String>();
+			String in;
+			while ((in = br.readLine()) != null) {
+				contents.add(in);
+			}
+			return (String[]) contents.toArray(new String[] {});
+		} catch (Exception e) {
+			System.err.println("error reading " + fileName + ": " + e);
+			// System.exit(1);
+			return null;
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * 스트링 변환
+	 * 
+	 * @param data
+	 * @return
+	 */
+	protected String[] readString(String data) {
+		try {
+			StringReader sr = new StringReader(data);
+			BufferedReader br = new BufferedReader(sr);
+			List<String> contents = new ArrayList<String>();
+			String in;
+			while ((in = br.readLine()) != null) {
+				contents.add(in);
+			}
+			return (String[]) contents.toArray(new String[] {});
+		} catch (Exception e) {
+			System.err.println("error reading " + e);
+			// System.exit(1);
+			return null;
+		}
+	}
+
 	/**
 	 * 파일을 맵으로 변환
 	 * 
@@ -479,27 +504,28 @@ public class TemplateCodeGenTest {
 	 * @throws IOException
 	 */
 	public void convertFile2Map(String filePath) throws IOException {
-		InputStream is = getClass().getClassLoader().getResourceAsStream(filePath);        	
-    	InputStreamReader sr = new InputStreamReader(is);        	
-    	BufferedReader reader       = new BufferedReader(sr);        	
-        map = new HashMap<String, String>();
-		String line="";
-		while((line=reader.readLine())!=null){
+		InputStream is = getClass().getClassLoader().getResourceAsStream(
+				filePath);
+		InputStreamReader sr = new InputStreamReader(is);
+		BufferedReader reader = new BufferedReader(sr);
+		map = new HashMap<String, String>();
+		String line = "";
+		while ((line = reader.readLine()) != null) {
 			String[] str = getField(line);
-			if (str !=null)
-				map.put(str[0],str[1]);
+			if (str != null)
+				map.put(str[0], str[1]);
 		}
 		reader.close();
 	}
-	
+
 	/**
-	 * 필드 정보 얻기 
+	 * 필드 정보 얻기
 	 * 
 	 * @param line
 	 * @return
 	 */
-	private  String[] getField(String line) {
-		if (line!=null && line.indexOf("=")>=0)
+	private String[] getField(String line) {
+		if (line != null && line.indexOf("=") >= 0)
 			return line.split("=");
 		return null;
 	}

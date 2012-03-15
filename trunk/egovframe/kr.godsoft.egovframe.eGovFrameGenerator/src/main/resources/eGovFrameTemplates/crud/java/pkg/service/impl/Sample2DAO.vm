@@ -31,8 +31,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import ${voPackage}.${voClassName};
-import ${voPackage}.${defaultVoClassName};
+##import ${voPackage}.${defaultVoClassName};
 
 /**
  * @Class Name : ${daoClassName}.java
@@ -96,8 +97,9 @@ public class ${daoClassName} extends EgovAbstractDAO {
 	 * @return ${model.entity.name} 목록
 	 * @exception Exception
 	 */
-    public List ${selectListMethodName}(${defaultVoClassName} searchVO) throws Exception {
-        return list("${selectListQueryId}", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> ${selectListMethodName}(${voClassName} vo) throws Exception {
+        return list("${selectListQueryId}", vo);
     }
 
     /**
@@ -106,8 +108,8 @@ public class ${daoClassName} extends EgovAbstractDAO {
 	 * @return ${model.entity.name} 총 갯수
 	 * @exception
 	 */
-    public int ${selectListTotCntMethodName}(${defaultVoClassName} searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("${selectListTotCntQueryId}", searchVO);
+    public int ${selectListTotCntMethodName}(${voClassName} vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("${selectListTotCntQueryId}", vo);
     }
 
 }

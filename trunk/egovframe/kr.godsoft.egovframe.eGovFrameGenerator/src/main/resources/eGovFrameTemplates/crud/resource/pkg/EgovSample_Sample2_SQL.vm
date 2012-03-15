@@ -30,14 +30,14 @@
 	
 ## --------------------------------------------------------------------------------------------------------
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="${searchVOAlias}" type="${voPackage}.${defaultVoClassName}"/>
+	<typeAlias  alias="${voClassName}" type="${voPackage}.${voClassName}"/>
 	
 ## --------------------------------------------------------------------------------------------------------
 	<resultMap id="$resultMapId" class="$resultMapClass">
 #set($i=0)	
 #foreach($attribute in $model.attributes)
 #set($i=$i+1)	
-		<result property="${attribute.ccName}" column="${attribute.name}" columnIndex="$i"/>
+		<result property="${attribute.ccName}" column="${attribute.lcName}" columnIndex="$i"/>
 #end		
 	</resultMap>
 	
@@ -50,9 +50,9 @@
 #if($i == 0)
 				( ${attribute.name}
 #elseif($i < ($model.attributes.size() - 1))
-				  , ${attribute.name}
+				  , ${attribute.lcName}
 #else
-				  , ${attribute.name} )
+				  , ${attribute.lcName} )
 #end
 #set($i=$i+1)
 #end
@@ -78,9 +78,9 @@
 #set($i=0)	
 #foreach($attribute in $model.attributes)
 #if($i == 0)
-			SET ${attribute.name}=#${attribute.ccName}#
+			SET ${attribute.lcName} = #${attribute.ccName}#
 #else
-				, ${attribute.name}=#${attribute.ccName}#
+				, ${attribute.lcName} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end	
@@ -88,9 +88,9 @@
 #set($i=0)	
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-			WHERE ${attribute.name}=#${attribute.ccName}#
+			WHERE ${attribute.lcName} = #${attribute.ccName}#
 #else
-				AND ${attribute.name}=#${attribute.ccName}#
+				AND ${attribute.lcName} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
@@ -104,9 +104,9 @@
 #set($i=0)	
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-			WHERE ${attribute.name}=#${attribute.ccName}#
+			WHERE ${attribute.lcName} = #${attribute.ccName}#
 #else
-				AND ${attribute.name}=#${attribute.ccName}#
+				AND ${attribute.lcName} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
@@ -120,9 +120,9 @@
 #set($i=0)	
 #foreach($attribute in $model.attributes)
 #if($i == 0)
-				${attribute.name}
+				${attribute.lcName}
 #else
-				, ${attribute.name}
+				, ${attribute.lcName}
 #end
 #set($i=$i+1)
 #end				
@@ -130,9 +130,9 @@
 #set($i=0)	
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-			WHERE ${attribute.name}=#${attribute.ccName}#
+			WHERE ${attribute.lcName} = #${attribute.ccName}#
 #else
-				AND ${attribute.name}=#${attribute.ccName}#
+				AND ${attribute.lcName} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
@@ -140,7 +140,7 @@
 	</select>
 	
 ## ##################################################################################################	
-	<select id="${selectListQueryId}" parameterClass="${searchVOAlias}" resultClass="egovMap">
+	<select id="${selectListQueryId}" parameterClass="${voClassName}" resultClass="egovMap">
 #if($vender == "HSQLDB")
 			SELECT
 	#set($i=0)	
@@ -220,27 +220,27 @@
 	#set($i=0)	
 	#foreach($attribute in $model.attributes)
 	#if($i == 0)
-					${attribute.name}
+					${attribute.lcName}
 	#else
-					, ${attribute.name}
+					, ${attribute.lcName}
 	#end
 	#set($i=$i+1)
 	#end
 			FROM ${model.entity.name}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				${model.attributes.get(0).name} = #searchKeyword#
+				${model.attributes.get(0).lcName} = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				${model.attributes.get(1).name} LIKE CONCAT('%',#searchKeyword#,'%')
+				${model.attributes.get(1).lcName} LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
 	#set($i=0)				
 	#foreach($attribute in $model.primaryKeys)
 	#if($i == 0)
-				${attribute.name} DESC
+				${attribute.lcName} DESC
 	#else
-				, ${attribute.name} DESC
+				, ${attribute.lcName} DESC
 	#end
 	#set($i=$i+1)
 	#end
@@ -248,9 +248,10 @@
 #else
 
 #end			
-	</select>	
+	</select>
+
 ## ##################################################################################################	
-	<select id="${selectListTotCntQueryId}" parameterClass="${searchVOAlias}" resultClass="int">
+	<select id="${selectListTotCntQueryId}" parameterClass="${voClassName}" resultClass="int">
 #if($vender == "HSQLDB")
 			SELECT COUNT(*) totcnt
 			FROM ${model.entity.name}
@@ -276,10 +277,10 @@
 			FROM ${model.entity.name}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				${model.attributes.get(0).name} = #searchKeyword#
+				${model.attributes.get(0).lcName} = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				${model.attributes.get(1).name} LIKE CONCAT('%',#searchKeyword#,'%')
+				${model.attributes.get(1).lcName} LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 #else
 

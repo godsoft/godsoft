@@ -188,6 +188,13 @@
 					FROM information_schema.COLUMNS
 			WHERE 1 = 1
 			AND table_schema = #tableSchema#
+
+			<isNotNull property="tableNames" >
+				<iterate prepend="AND table_name IN " property="tableNames"
+				  open="(" close=")" conjunction=",">
+				  #tableNames[]#
+				</iterate>
+			</isNotNull>
 	</select>
 
 	<select id="columnsDAO.selectColumnsListTotCnt_S" parameterClass="columnsSerarchVO" resultClass="int">
