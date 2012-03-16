@@ -5,7 +5,7 @@
   <artifactId>GeneratorWebApp</artifactId>
   <packaging>war</packaging>
   <version>1.0.0</version>
-  <name>GeneratorWebApp</name>
+  <name>generatorWebApp</name>
   <url>http://maven.apache.org</url>
 
 	<properties>
@@ -303,7 +303,7 @@
 		<build>
 		<defaultGoal>install</defaultGoal>
 		<directory>${basedir}/target</directory>
-		<finalName>test123.test123-webapp</finalName>
+		<finalName>${name}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
