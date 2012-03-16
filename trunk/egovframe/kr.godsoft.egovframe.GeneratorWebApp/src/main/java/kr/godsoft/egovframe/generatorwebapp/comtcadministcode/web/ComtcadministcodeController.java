@@ -52,7 +52,7 @@ public class ComtcadministcodeController {
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtcadministcode/ComtcadministcodeList.do")
-    public String selectComtcadministcodeList(@ModelAttribute("searchVO") ComtcadministcodeVO searchVO, 
+    public String selectComtcadministcodeList(@ModelAttribute("vo") ComtcadministcodeVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
