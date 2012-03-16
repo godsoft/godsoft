@@ -182,7 +182,10 @@ public class DataModelContext {
 		this.attributes = attributes;
 	}
 
+	// 추가
 	private String vender;
+
+	private String str;
 
 	public String getVender() {
 		return vender;
@@ -190,6 +193,14 @@ public class DataModelContext {
 
 	public void setVender(String vender) {
 		this.vender = vender;
+	}
+
+	public String getStr() {
+		return str;
+	}
+
+	public void setStr(String str) {
+		this.str = str;
 	}
 
 	@Override

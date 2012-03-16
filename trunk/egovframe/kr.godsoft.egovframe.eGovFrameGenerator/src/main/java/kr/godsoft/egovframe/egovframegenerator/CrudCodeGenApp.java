@@ -28,6 +28,8 @@ public class CrudCodeGenApp {
 		crudCodeGenPath
 				.setProjectPath("../kr.godsoft.egovframe.GeneratorWebApp/");
 		crudCodeGenPath.setJspPath("WEB-INF/jsp/egovframework/rte/");
+		crudCodeGenPath
+				.setSqlMapConfigPath("egovframework/sqlmap/rte/sql-map-config.xml");
 
 		crudCodeGenServiceImpl.setCrudCodeGenPath(crudCodeGenPath);
 	}
@@ -39,7 +41,6 @@ public class CrudCodeGenApp {
 		CrudCodeGenApp crudCodeGenApp = new CrudCodeGenApp();
 
 		try {
-
 			crudCodeGenApp.mysql();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,8 +53,8 @@ public class CrudCodeGenApp {
 
 		// List<String> tableNames = new ArrayList<String>();
 		// tableNames.add("comtcadministcode");
-		// // tableNames.add("comtcadministcoderecptnlog");
-		// // tableNames.add("comtccmmnclcode");
+		// tableNames.add("comtcadministcoderecptnlog");
+		// tableNames.add("comtccmmnclcode");
 		// columnsVO.setTableNames(tableNames);
 
 		DataModelContext dataModelContext = new DataModelContext();
@@ -84,7 +85,12 @@ public class CrudCodeGenApp {
 			crudCodeGenServiceImpl.genController(dataModelContext);
 			crudCodeGenServiceImpl.genList(dataModelContext);
 			crudCodeGenServiceImpl.genRegister(dataModelContext);
+
+			crudCodeGenServiceImpl.setSqlMap(dataModelContext);
 		}
+
+		crudCodeGenServiceImpl.genSqlMapConfig(crudCodeGenServiceImpl
+				.getSqlMap());
 	}
 
 }

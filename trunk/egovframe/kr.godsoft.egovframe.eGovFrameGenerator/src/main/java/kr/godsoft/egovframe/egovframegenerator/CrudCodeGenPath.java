@@ -38,6 +38,11 @@ public class CrudCodeGenPath {
 
 	private String registerPath;
 
+	// SqlMapConfig.xml, index.jsp
+	private String sqlMapResource;
+
+	private String sqlMapConfigPath;
+
 	public String getProjectPath() {
 		return projectPath;
 	}
@@ -288,6 +293,49 @@ public class CrudCodeGenPath {
 		sb.append("Register.jsp");
 
 		this.registerPath = sb.toString();
+	}
+
+	// SqlMapConfig.xml, index.jsp
+	public String getSqlMapResource() {
+		return sqlMapResource;
+	}
+
+	public void setSqlMapResource(String sqlMapResource) {
+		this.sqlMapResource = sqlMapResource;
+	}
+
+	public void setSqlMapResource(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(dataModelContext.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/sqlmap/");
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append("/");
+		sb.append(dataModelContext.getEntity().getPcName());
+		sb.append("_SQL_");
+		sb.append(NamingUtils.convertUppercaseFirstLetter(dataModelContext
+				.getVender()));
+		sb.append(".xml");
+
+		this.sqlMapResource = sb.toString();
+	}
+
+	public String getSqlMapConfigPath() {
+		return sqlMapConfigPath;
+	}
+
+	public void setSqlMapConfigPath(String sqlMapConfigPath) {
+		this.sqlMapConfigPath = sqlMapConfigPath;
+	}
+
+	public void setProjectSqlMapConfigPath(String sqlMapConfigPath) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(projectPath);
+		sb.append(SRC_MAIN_RESOURCES);
+		sb.append(sqlMapConfigPath);
+
+		this.sqlMapConfigPath = sb.toString();
 	}
 
 }

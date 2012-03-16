@@ -19,14 +19,35 @@ public class CrudCodeGenServiceImpl {
 
 	private CrudCodeGenPath crudCodeGenPath;
 
+	private StringBuilder sqlMap = new StringBuilder();
+
 	public CrudCodeGenServiceImpl() {
 		crudCodeGen = new CrudCodeGen();
+	}
+
+	public CrudCodeGenPath getCrudCodeGenPath() {
+		return crudCodeGenPath;
 	}
 
 	public void setCrudCodeGenPath(CrudCodeGenPath crudCodeGenPath) {
 		this.crudCodeGenPath = crudCodeGenPath;
 	}
 
+	public String getSqlMap() {
+		return sqlMap.toString();
+	}
+
+	public void setSqlMap(DataModelContext dataModelContext) {
+		crudCodeGenPath.setSqlMapResource(dataModelContext);
+
+		this.sqlMap.append("    ");
+		this.sqlMap.append("<sqlMap resource=\"");
+		this.sqlMap.append(crudCodeGenPath.getSqlMapResource());
+		this.sqlMap.append("\"/>");
+		this.sqlMap.append("\n");
+	}
+
+	// gen
 	public void genDefaultVO(DataModelContext dataModelContext)
 			throws Exception {
 		String templateFile = "eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
@@ -155,6 +176,26 @@ public class CrudCodeGenServiceImpl {
 		}
 
 		writeStringToFile(crudCodeGenPath.getRegisterPath(), data);
+	}
+
+	public void genSqlMapConfig(String str) throws Exception {
+
+		DataModelContext dataModelContext = new DataModelContext();
+		dataModelContext.setStr(str);
+
+		String templateFile = "eGovFrameTemplates/crud/resource/pkg/sqlMapConfig.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setProjectSqlMapConfigPath(crudCodeGenPath
+				.getSqlMapConfigPath());
+
+		if (log.isDebugEnabled()) {
+			log.debug("sqlMapConfigPath="
+					+ crudCodeGenPath.getSqlMapConfigPath());
+		}
+
+		writeStringToFile(crudCodeGenPath.getSqlMapConfigPath(), data);
 	}
 
 	private void writeStringToFile(String pathname, String data)

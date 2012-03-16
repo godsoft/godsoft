@@ -129,36 +129,48 @@ public class CrudCodeGen {
 	}
 
 	private String servicePackage(DataModelContext dataModelContext) {
-		StringBuilder sb = new StringBuilder();
+		if (dataModelContext.getEntity() == null) {
+			return null;
+		} else {
+			StringBuilder sb = new StringBuilder();
 
-		sb.append(dataModelContext.getPackageName());
-		sb.append(".");
-		sb.append(dataModelContext.getEntity().getLcName());
-		sb.append(".service");
+			sb.append(dataModelContext.getPackageName());
+			sb.append(".");
+			sb.append(dataModelContext.getEntity().getLcName());
+			sb.append(".service");
 
-		return sb.toString();
+			return sb.toString();
+		}
 	}
 
 	private String serviceImplPackage(DataModelContext dataModelContext) {
-		StringBuilder sb = new StringBuilder();
+		if (dataModelContext.getEntity() == null) {
+			return null;
+		} else {
+			StringBuilder sb = new StringBuilder();
 
-		sb.append(dataModelContext.getPackageName());
-		sb.append(".");
-		sb.append(dataModelContext.getEntity().getLcName());
-		sb.append(".service.impl");
+			sb.append(dataModelContext.getPackageName());
+			sb.append(".");
+			sb.append(dataModelContext.getEntity().getLcName());
+			sb.append(".service.impl");
 
-		return sb.toString();
+			return sb.toString();
+		}
 	}
 
 	private String controllerPackage(DataModelContext dataModelContext) {
-		StringBuilder sb = new StringBuilder();
+		if (dataModelContext.getEntity() == null) {
+			return null;
+		} else {
+			StringBuilder sb = new StringBuilder();
 
-		sb.append(dataModelContext.getPackageName());
-		sb.append(".");
-		sb.append(dataModelContext.getEntity().getLcName());
-		sb.append(".web");
+			sb.append(dataModelContext.getPackageName());
+			sb.append(".");
+			sb.append(dataModelContext.getEntity().getLcName());
+			sb.append(".web");
 
-		return sb.toString();
+			return sb.toString();
+		}
 	}
 
 }
