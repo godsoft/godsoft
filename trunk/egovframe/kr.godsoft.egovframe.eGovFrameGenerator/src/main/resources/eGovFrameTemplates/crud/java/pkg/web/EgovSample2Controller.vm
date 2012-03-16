@@ -42,18 +42,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
-
-import egovframework.rte.fdl.property.EgovPropertyService;
-import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
 #if (${servicePackage}=='${servicePackage}')
 // Servoce 객체에 대한 import 구문
 // import (service package).${serviceClassName};
@@ -68,6 +56,19 @@ import ${servicePackage}.${serviceClassName};
 import ${voPackage}.${defaultVoClassName};
 import ${voPackage}.${voClassName};
 #end
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+
+import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 /**
  * @Class Name : ${controllerClassName}.java
@@ -95,12 +96,12 @@ public class ${controllerClassName} {
 	
     /**
 	 * ${model.entity.name} 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ${defaultVoClassName}
+	 * @param searchVO - 조회할 정보가 담긴 ${voClassName}
 	 * @return "${listView}"
 	 * @exception Exception
 	 */
     @RequestMapping(value="${listPath}")
-    public String ${selectListMethodName}(@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, 
+    public String ${selectListMethodName}(@ModelAttribute("searchVO") ${voClassName} searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -118,7 +119,7 @@ public class ${controllerClassName} {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List ${listInstanceName} = ${serviceInstanceName}.${selectListMethodName}(searchVO);
+        List<EgovMap> ${listInstanceName} = ${serviceInstanceName}.${selectListMethodName}(searchVO);
         model.addAttribute("resultList", ${listInstanceName});
         
         int totCnt = ${serviceInstanceName}.${selectListTotCntMethodName}(searchVO);

@@ -84,6 +84,79 @@ public class CrudCodeGenServiceImpl {
 		writeStringToFile(crudCodeGenPath.getDaoPath(), data);
 	}
 
+	public void genService(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setGenServicePath(dataModelContext);
+
+		if (log.isDebugEnabled()) {
+			log.debug("genServicePath=" + crudCodeGenPath.getGenServicePath());
+		}
+
+		writeStringToFile(crudCodeGenPath.getGenServicePath(), data);
+	}
+
+	public void genServiceImpl(DataModelContext dataModelContext)
+			throws Exception {
+		String templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setGenServiceImplPath(dataModelContext);
+
+		if (log.isDebugEnabled()) {
+			log.debug("genServiceImplPath="
+					+ crudCodeGenPath.getGenServiceImplPath());
+		}
+
+		writeStringToFile(crudCodeGenPath.getGenServiceImplPath(), data);
+	}
+
+	public void genController(DataModelContext dataModelContext)
+			throws Exception {
+		String templateFile = "eGovFrameTemplates/crud/java/pkg/web/EgovSample2Controller.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setControllerPath(dataModelContext);
+
+		if (log.isDebugEnabled()) {
+			log.debug("controllerPath=" + crudCodeGenPath.getControllerPath());
+		}
+
+		writeStringToFile(crudCodeGenPath.getControllerPath(), data);
+	}
+
+	public void genList(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setListPath(dataModelContext);
+
+		if (log.isDebugEnabled()) {
+			log.debug("listPath=" + crudCodeGenPath.getListPath());
+		}
+
+		writeStringToFile(crudCodeGenPath.getListPath(), data);
+	}
+
+	public void genRegister(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setRegisterPath(dataModelContext);
+
+		if (log.isDebugEnabled()) {
+			log.debug("registerPath=" + crudCodeGenPath.getRegisterPath());
+		}
+
+		writeStringToFile(crudCodeGenPath.getRegisterPath(), data);
+	}
+
 	private void writeStringToFile(String pathname, String data)
 			throws Exception {
 		File file = new File(pathname);

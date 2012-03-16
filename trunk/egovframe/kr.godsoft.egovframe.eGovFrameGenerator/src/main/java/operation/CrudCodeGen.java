@@ -92,8 +92,21 @@ public class CrudCodeGen {
 		context.put("author", dataModel.getAuthor());
 		context.put("createDate", dataModel.getCreateDate());
 
+		// package
+		String servicePackage = servicePackage(dataModel);
+		String serviceImplPackage = serviceImplPackage(dataModel);
+
 		// Sample2DAO.vm
-		context.put("daoPackage", serviceImplPackage(dataModel));
+		context.put("daoPackage", serviceImplPackage);
+
+		// EgovSample2Service.vm
+		context.put("servicePackage", servicePackage);
+
+		// EgovSample2ServiceImpl.vm
+		context.put("implPackage", serviceImplPackage);
+
+		// EgovSample2Controller.vm
+		context.put("controllerPackage", controllerPackage(dataModel));
 
 		Template template = null;
 
@@ -133,6 +146,17 @@ public class CrudCodeGen {
 		sb.append(".");
 		sb.append(dataModelContext.getEntity().getLcName());
 		sb.append(".service.impl");
+
+		return sb.toString();
+	}
+
+	private String controllerPackage(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(dataModelContext.getPackageName());
+		sb.append(".");
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append(".web");
 
 		return sb.toString();
 	}

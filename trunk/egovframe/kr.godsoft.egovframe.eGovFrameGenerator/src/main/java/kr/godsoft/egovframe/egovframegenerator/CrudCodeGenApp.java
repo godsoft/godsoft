@@ -1,6 +1,5 @@
 package kr.godsoft.egovframe.egovframegenerator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import kr.godsoft.egovframe.egovframegenerator.columns.java.ColumnsClient;
@@ -28,6 +27,7 @@ public class CrudCodeGenApp {
 		CrudCodeGenPath crudCodeGenPath = new CrudCodeGenPath();
 		crudCodeGenPath
 				.setProjectPath("../kr.godsoft.egovframe.GeneratorWebApp/");
+		crudCodeGenPath.setJspPath("WEB-INF/jsp/egovframework/rte/");
 
 		crudCodeGenServiceImpl.setCrudCodeGenPath(crudCodeGenPath);
 	}
@@ -50,11 +50,11 @@ public class CrudCodeGenApp {
 		ColumnsVO columnsVO = new ColumnsVO();
 		columnsVO.setTableSchema("rte");
 
-		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("comtcadministcode");
-		// tableNames.add("comtcadministcoderecptnlog");
-		// tableNames.add("comtccmmnclcode");
-		columnsVO.setTableNames(tableNames);
+		// List<String> tableNames = new ArrayList<String>();
+		// tableNames.add("comtcadministcode");
+		// // tableNames.add("comtcadministcoderecptnlog");
+		// // tableNames.add("comtccmmnclcode");
+		// columnsVO.setTableNames(tableNames);
 
 		DataModelContext dataModelContext = new DataModelContext();
 		dataModelContext.setAuthor("이백행");
@@ -75,10 +75,15 @@ public class CrudCodeGenApp {
 				log.debug("dataModelContexts[" + i + "]=" + dataModelContext);
 			}
 
-			// crudCodeGenServiceImpl.genDefaultVO(dataModelContext);
-			// crudCodeGenServiceImpl.genVO(dataModelContext);
-			// crudCodeGenServiceImpl.genSQLMap(dataModelContext);
+			crudCodeGenServiceImpl.genDefaultVO(dataModelContext);
+			crudCodeGenServiceImpl.genVO(dataModelContext);
+			crudCodeGenServiceImpl.genSQLMap(dataModelContext);
 			crudCodeGenServiceImpl.genDao(dataModelContext);
+			crudCodeGenServiceImpl.genService(dataModelContext);
+			crudCodeGenServiceImpl.genServiceImpl(dataModelContext);
+			crudCodeGenServiceImpl.genController(dataModelContext);
+			crudCodeGenServiceImpl.genList(dataModelContext);
+			crudCodeGenServiceImpl.genRegister(dataModelContext);
 		}
 	}
 

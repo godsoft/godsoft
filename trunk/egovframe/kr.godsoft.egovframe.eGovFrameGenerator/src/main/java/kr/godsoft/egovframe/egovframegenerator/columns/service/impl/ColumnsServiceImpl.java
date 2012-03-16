@@ -112,6 +112,7 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 	 * @return COLUMNS 목록
 	 * @exception Exception
 	 */
+	@SuppressWarnings("rawtypes")
 	public List selectColumnsList(ColumnsDefaultVO searchVO) throws Exception {
 		return columnsDAO.selectColumnsList(searchVO);
 	}
@@ -177,9 +178,9 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 
 			dataModelContext.setEntity(new Entity(tableName));
 
-			dataModelContext.setAttributes(setAttributes(columns, tableName));
+			dataModelContext.setAttributes(getAttributes(columns, tableName));
 
-			dataModelContext.setPrimaryKeys(setPrimaryKeys(columns, tableName));
+			dataModelContext.setPrimaryKeys(getPrimaryKeys(columns, tableName));
 
 			dataModelContexts.add(dataModelContext);
 		}
@@ -187,7 +188,7 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 		return dataModelContexts;
 	}
 
-	private List<Attribute> setAttributes(List<EgovMap> columns,
+	private List<Attribute> getAttributes(List<EgovMap> columns,
 			String tableNameVO) {
 		List<Attribute> attributes = new ArrayList<Attribute>();
 
@@ -199,12 +200,10 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			if (tableName.equals(tableNameVO)) {
 				String columnName = (String) egovMap.get("columnName");
 
-				Attribute attribute = new Attribute(columnName);
-				attribute.setJavaType("String");
-				// attributes.add(attr);
-				// primaryKeys.add(attr);
+				// Attribute attribute = new Attribute(columnName);
+				// attribute.setJavaType("String");
 
-				attributes.add(attribute);
+				attributes.add(getAttribute(egovMap));
 
 				if (log.isDebugEnabled()) {
 					log.debug("tableName=" + tableName);
@@ -216,7 +215,7 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 		return attributes;
 	}
 
-	private List<Attribute> setPrimaryKeys(List<EgovMap> columns,
+	private List<Attribute> getPrimaryKeys(List<EgovMap> columns,
 			String tableNameVO) {
 		List<Attribute> attributes = new ArrayList<Attribute>();
 
@@ -226,21 +225,53 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			String tableName = (String) egovMap.get("tableName");
 
 			if (tableName.equals(tableNameVO)) {
-				String columnName = (String) egovMap.get("columnName");
+				// String columnName = (String) egovMap.get("columnName");
 				String columnKey = (String) egovMap.get("columnKey");
 
 				if (columnKey.equals("PRI")) {
-					Attribute attribute = new Attribute(columnName);
-					attribute.setJavaType("String");
-					// attributes.add(attr);
-					// primaryKeys.add(attr);
+					// Attribute attribute = new Attribute(columnName);
+					// attribute.setJavaType("String");
 
-					attributes.add(attribute);
+					attributes.add(getAttribute(egovMap));
 				}
 			}
 		}
 
 		return attributes;
+	}
+
+	private Attribute getAttribute(EgovMap egovMap) {
+		String columnName = (String) egovMap.get("columnName");
+		String dataType = (String) egovMap.get("dataType");
+		String columnKey = (String) egovMap.get("columnKey");
+		String columnComment = (String) egovMap.get("columnComment");
+
+		Attribute attribute = new Attribute(columnName);
+		attribute.setType(dataType);
+		attribute.setJavaType(getJavaType(dataType));
+		attribute.setPrimaryKey(getPrimaryKey(columnKey));
+		attribute.setColumnComment(columnComment);
+
+		return attribute;
+	}
+
+	private boolean getPrimaryKey(String columnKey) {
+		if (columnKey.equals("PRI")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private String getJavaType(String dataType) {
+		String javaType = "";
+
+		if ("decimal".equals(dataType)) {
+			javaType = "int";
+		} else {
+			javaType = "String";
+		}
+		return javaType;
 	}
 
 }

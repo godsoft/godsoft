@@ -20,13 +20,15 @@
 package $servicePackage;
 
 import java.util.List;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 #if (${voPackage}=='${voPackage}')
 // Vo 객체에 대한 import 구문
 // import (vo package).${defaultVoClassName};
 // import (vo package).${voClassName};
 #else
-import ${voPackage}.${defaultVoClassName};
-import ${voPackage}.${voClassName};
+##import ${voPackage}.${defaultVoClassName};
+##import ${voPackage}.${voClassName};
 #end
 
 /**
@@ -81,7 +83,7 @@ public interface $serviceClassName {
 	 * @return ${model.entity.name} 목록
 	 * @exception Exception
 	 */
-    List $selectListMethodName(${defaultVoClassName} searchVO) throws Exception;
+    List<EgovMap> $selectListMethodName(${voClassName} vo) throws Exception;
     
     /**
 	 * ${model.entity.name} 총 갯수를 조회한다.
@@ -89,6 +91,6 @@ public interface $serviceClassName {
 	 * @return ${model.entity.name} 총 갯수
 	 * @exception
 	 */
-    int $selectListTotCntMethodName(${defaultVoClassName} searchVO);
+    int $selectListTotCntMethodName(${voClassName} vo);
     
 }

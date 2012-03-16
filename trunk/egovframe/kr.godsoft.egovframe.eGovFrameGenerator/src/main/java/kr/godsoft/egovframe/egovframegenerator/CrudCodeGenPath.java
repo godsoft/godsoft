@@ -5,23 +5,19 @@ import utils.NamingUtils;
 
 public class CrudCodeGenPath {
 
-	// /kr.godsoft.egovframe.GeneratorWebApp/src/main/java/kr/godsoft/egovframe/generatorwebapp/comtcadministcode/service
-
-	// /kr.godsoft.egovframe.GeneratorWebApp/src/main/resources/kr/godsoft/egovframe/generatorwebapp/sqlmap
-
-	// /kr.godsoft.egovframe.GeneratorWebApp/src/main/webapp/WEB-INF/jsp/egovframework/rte
-
 	private static final String SRC_MAIN_JAVA = "src/main/java/";
 
 	private static final String SRC_MAIN_RESOURCES = "src/main/resources/";
 
-	private static final String SRC_MAIN_EBAPP = "src/main/webapp/";
+	private static final String SRC_MAIN_WEBAPP = "src/main/webapp/";
 
 	private String projectPath;
 
 	private String servicePath;
 
 	private String serviceImplPath;
+
+	private String jspPath;
 
 	// gen
 	private String defaultVOPath;
@@ -31,6 +27,16 @@ public class CrudCodeGenPath {
 	private String sqlMapPath;
 
 	private String daoPath;
+
+	private String genServicePath;
+
+	private String genServiceImplPath;
+
+	private String controllerPath;
+
+	private String listPath;
+
+	private String registerPath;
 
 	public String getProjectPath() {
 		return projectPath;
@@ -80,6 +86,14 @@ public class CrudCodeGenPath {
 		sb.append("/service/impl/");
 
 		this.serviceImplPath = sb.toString();
+	}
+
+	public String getJspPath() {
+		return jspPath;
+	}
+
+	public void setJspPath(String jspPath) {
+		this.jspPath = jspPath;
 	}
 
 	// gen
@@ -167,6 +181,113 @@ public class CrudCodeGenPath {
 		sb.append("DAO.java");
 
 		this.daoPath = sb.toString();
+	}
+
+	public String getGenServicePath() {
+		return genServicePath;
+	}
+
+	public void setGenServicePath(String genServicePath) {
+		this.genServicePath = genServicePath;
+	}
+
+	public void setGenServicePath(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		setServicePath(dataModelContext);
+
+		sb.append(servicePath);
+		sb.append(dataModelContext.getEntity().getPcName());
+		sb.append("Service.java");
+
+		this.genServicePath = sb.toString();
+	}
+
+	public String getGenServiceImplPath() {
+		return genServiceImplPath;
+	}
+
+	public void setGenServiceImplPath(String genServiceImplPath) {
+		this.genServiceImplPath = genServiceImplPath;
+	}
+
+	public void setGenServiceImplPath(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		setServiceImplPath(dataModelContext);
+
+		sb.append(serviceImplPath);
+		sb.append(dataModelContext.getEntity().getPcName());
+		sb.append("ServiceImpl.java");
+
+		this.genServiceImplPath = sb.toString();
+	}
+
+	public String getControllerPath() {
+		return controllerPath;
+	}
+
+	public void setControllerPath(String controllerPath) {
+		this.controllerPath = controllerPath;
+	}
+
+	public void setControllerPath(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(projectPath);
+		sb.append(SRC_MAIN_JAVA);
+		sb.append(dataModelContext.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append("/web/");
+		sb.append(dataModelContext.getEntity().getPcName());
+		sb.append("Controller.java");
+
+		this.controllerPath = sb.toString();
+	}
+
+	public String getListPath() {
+		return listPath;
+	}
+
+	public void setListPath(String listPath) {
+		this.listPath = listPath;
+	}
+
+	public void setListPath(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(projectPath);
+		sb.append(SRC_MAIN_WEBAPP);
+		sb.append(jspPath);
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append("/");
+		sb.append(dataModelContext.getEntity().getPcName());
+		sb.append("List.jsp");
+
+		this.listPath = sb.toString();
+	}
+
+	public String getRegisterPath() {
+		return registerPath;
+	}
+
+	public void setRegisterPath(String registerPath) {
+		this.registerPath = registerPath;
+	}
+
+	public void setRegisterPath(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(projectPath);
+		sb.append(SRC_MAIN_WEBAPP);
+		sb.append(jspPath);
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append("/");
+		sb.append(dataModelContext.getEntity().getPcName());
+		sb.append("Register.jsp");
+
+		this.registerPath = sb.toString();
 	}
 
 }

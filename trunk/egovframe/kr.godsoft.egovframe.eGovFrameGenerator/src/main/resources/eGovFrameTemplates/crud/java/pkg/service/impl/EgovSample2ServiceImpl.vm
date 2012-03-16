@@ -28,25 +28,28 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Service;
-
-import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
 import ${servicePackage}.${serviceClassName};
 #if (${voPackage}=='${voPackage}')
 // Vo 객체에 대한 import 구문
 // import (vo package).${defaultVoClassName};
 // import (vo package).${voClassName};
 #else
-import ${voPackage}.${defaultVoClassName};
+##import ${voPackage}.${defaultVoClassName};
 import ${voPackage}.${voClassName};
 #end
 #if (${daoPackage}=='${daoPackage}')
 // Dao 객체에 대한 import 구문
 // import (dao package).${daoClassName};
 #else
-import ${daoPackage}.${daoClassName};
+##import ${daoPackage}.${daoClassName};
 #end
+
+import org.springframework.stereotype.Service;
+
+import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
+##import egovframework.rte.fdl.idgnr.EgovIdGnrService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ${serviceImplClassName}.java
@@ -131,8 +134,8 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements
 	 * @return ${model.entity.name} 목록
 	 * @exception Exception
 	 */
-    public List ${selectListMethodName}(${defaultVoClassName} searchVO) throws Exception {
-        return ${daoInstanceName}.${selectListMethodName}(searchVO);
+    public List<EgovMap> ${selectListMethodName}(${voClassName} vo) throws Exception {
+        return ${daoInstanceName}.${selectListMethodName}(vo);
     }
 
     /**
@@ -141,8 +144,8 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements
 	 * @return ${model.entity.name} 총 갯수
 	 * @exception
 	 */
-    public int ${selectListTotCntMethodName}(${defaultVoClassName} searchVO) {
-		return ${daoInstanceName}.${selectListTotCntMethodName}(searchVO);
+    public int ${selectListTotCntMethodName}(${voClassName} vo) {
+		return ${daoInstanceName}.${selectListTotCntMethodName}(vo);
 	}
     
 }
