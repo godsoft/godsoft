@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoDefaultVO;
 
 /**
  * @Class Name : ComtnnewsinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoD
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnnewsinfoDAO extends EgovAbstractDAO {
 	 * @return comtnnewsinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnnewsinfoList(ComtnnewsinfoDefaultVO searchVO) throws Exception {
-        return list("comtnnewsinfoDAO.selectComtnnewsinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnnewsinfoList(ComtnnewsinfoVO vo) throws Exception {
+        return list("comtnnewsinfoDAO.selectComtnnewsinfoList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnnewsinfoDAO extends EgovAbstractDAO {
 	 * @return comtnnewsinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnnewsinfoListTotCnt(ComtnnewsinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnnewsinfoDAO.selectComtnnewsinfoListTotCnt_S", searchVO);
+    public int selectComtnnewsinfoListTotCnt(ComtnnewsinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnnewsinfoDAO.selectComtnnewsinfoListTotCnt_S", vo);
     }
 
 }

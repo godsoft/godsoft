@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapService;
+import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapService;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
 
 /**
  * @Class Name : ComtnscrapController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnscrapController {
 	
     /**
 	 * comtnscrap 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnscrapDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnscrapVO
 	 * @return "/comtnscrap/ComtnscrapList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnscrap/ComtnscrapList.do")
-    public String selectComtnscrapList(@ModelAttribute("searchVO") ComtnscrapDefaultVO searchVO, 
+    public String selectComtnscrapList(@ModelAttribute("searchVO") ComtnscrapVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnscrapController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnscrapList = comtnscrapService.selectComtnscrapList(searchVO);
+        List<EgovMap> comtnscrapList = comtnscrapService.selectComtnscrapList(searchVO);
         model.addAttribute("resultList", comtnscrapList);
         
         int totCnt = comtnscrapService.selectComtnscrapListTotCnt(searchVO);

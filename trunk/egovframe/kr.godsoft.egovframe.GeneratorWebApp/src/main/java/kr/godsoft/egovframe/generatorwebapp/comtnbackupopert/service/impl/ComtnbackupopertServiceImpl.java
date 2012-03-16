@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.impl.ComtnbackupopertDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbackupopertServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.impl.Comtnb
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbackupopert 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbackupopertList(ComtnbackupopertDefaultVO searchVO) throws Exception {
-        return comtnbackupopertDAO.selectComtnbackupopertList(searchVO);
+    public List<EgovMap> selectComtnbackupopertList(ComtnbackupopertVO vo) throws Exception {
+        return comtnbackupopertDAO.selectComtnbackupopertList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbackupopert 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbackupopertListTotCnt(ComtnbackupopertDefaultVO searchVO) {
-		return comtnbackupopertDAO.selectComtnbackupopertListTotCnt(searchVO);
+    public int selectComtnbackupopertListTotCnt(ComtnbackupopertVO vo) {
+		return comtnbackupopertDAO.selectComtnbackupopertListTotCnt(vo);
 	}
     
 }

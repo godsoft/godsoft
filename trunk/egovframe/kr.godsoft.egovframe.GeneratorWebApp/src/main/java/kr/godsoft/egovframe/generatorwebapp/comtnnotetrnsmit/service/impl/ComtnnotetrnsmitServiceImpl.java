@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitService;
+import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.impl.ComtnnotetrnsmitDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnnotetrnsmitServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.impl.Comtnn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnnotetrnsmitServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnnotetrnsmit 목록
 	 * @exception Exception
 	 */
-    public List selectComtnnotetrnsmitList(ComtnnotetrnsmitDefaultVO searchVO) throws Exception {
-        return comtnnotetrnsmitDAO.selectComtnnotetrnsmitList(searchVO);
+    public List<EgovMap> selectComtnnotetrnsmitList(ComtnnotetrnsmitVO vo) throws Exception {
+        return comtnnotetrnsmitDAO.selectComtnnotetrnsmitList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnnotetrnsmitServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnnotetrnsmit 총 갯수
 	 * @exception
 	 */
-    public int selectComtnnotetrnsmitListTotCnt(ComtnnotetrnsmitDefaultVO searchVO) {
-		return comtnnotetrnsmitDAO.selectComtnnotetrnsmitListTotCnt(searchVO);
+    public int selectComtnnotetrnsmitListTotCnt(ComtnnotetrnsmitVO vo) {
+		return comtnnotetrnsmitDAO.selectComtnnotetrnsmitListTotCnt(vo);
 	}
     
 }

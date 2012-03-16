@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.impl.ComtnmtgplacemanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmtgplacemanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnmtgplacemanageServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnmtgplacemanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmtgplacemanageList(ComtnmtgplacemanageDefaultVO searchVO) throws Exception {
-        return comtnmtgplacemanageDAO.selectComtnmtgplacemanageList(searchVO);
+    public List<EgovMap> selectComtnmtgplacemanageList(ComtnmtgplacemanageVO vo) throws Exception {
+        return comtnmtgplacemanageDAO.selectComtnmtgplacemanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnmtgplacemanageServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnmtgplacemanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmtgplacemanageListTotCnt(ComtnmtgplacemanageDefaultVO searchVO) {
-		return comtnmtgplacemanageDAO.selectComtnmtgplacemanageListTotCnt(searchVO);
+    public int selectComtnmtgplacemanageListTotCnt(ComtnmtgplacemanageVO vo) {
+		return comtnmtgplacemanageDAO.selectComtnmtgplacemanageListTotCnt(vo);
 	}
     
 }

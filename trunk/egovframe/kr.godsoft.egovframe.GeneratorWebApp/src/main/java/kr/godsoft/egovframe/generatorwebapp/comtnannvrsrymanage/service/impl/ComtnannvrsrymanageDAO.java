@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageDefaultVO;
 
 /**
  * @Class Name : ComtnannvrsrymanageDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.Comtnann
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnannvrsrymanageDAO extends EgovAbstractDAO {
 	 * @return comtnannvrsrymanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnannvrsrymanageList(ComtnannvrsrymanageDefaultVO searchVO) throws Exception {
-        return list("comtnannvrsrymanageDAO.selectComtnannvrsrymanageList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnannvrsrymanageList(ComtnannvrsrymanageVO vo) throws Exception {
+        return list("comtnannvrsrymanageDAO.selectComtnannvrsrymanageList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnannvrsrymanageDAO extends EgovAbstractDAO {
 	 * @return comtnannvrsrymanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnannvrsrymanageDAO.selectComtnannvrsrymanageListTotCnt_S", searchVO);
+    public int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnannvrsrymanageDAO.selectComtnannvrsrymanageListTotCnt_S", vo);
     }
 
 }

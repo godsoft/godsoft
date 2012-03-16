@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbatchschdulVO extends ComtnbatchschdulDefaultVO{
+public class ComtnbatchschdulVO extends ComtnbatchschdulDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BATCH_SCHDUL_ID */
     private String batchSchdulId;
     
-    /**  */
+    /** BATCH_OPERT_ID */
     private String batchOpertId;
     
-    /**  */
+    /** EXECUT_CYCLE */
     private String executCycle;
     
-    /**  */
+    /** EXECUT_SCHDUL_DE */
     private String executSchdulDe;
     
-    /**  */
+    /** EXECUT_SCHDUL_HOUR */
     private String executSchdulHour;
     
-    /**  */
+    /** EXECUT_SCHDUL_MNT */
     private String executSchdulMnt;
     
-    /**  */
+    /** EXECUT_SCHDUL_SECND */
     private String executSchdulSecnd;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getBatchSchdulId() {

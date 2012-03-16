@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultDefaultVO;
 
 /**
  * @Class Name : ComtnbkmkmenumanageresultDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbkmkmenumanageresultDAO extends EgovAbstractDAO {
 	 * @return comtnbkmkmenumanageresult 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbkmkmenumanageresultList(ComtnbkmkmenumanageresultDefaultVO searchVO) throws Exception {
-        return list("comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbkmkmenumanageresultList(ComtnbkmkmenumanageresultVO vo) throws Exception {
+        return list("comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbkmkmenumanageresultDAO extends EgovAbstractDAO {
 	 * @return comtnbkmkmenumanageresult 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbkmkmenumanageresultListTotCnt(ComtnbkmkmenumanageresultDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultListTotCnt_S", searchVO);
+    public int selectComtnbkmkmenumanageresultListTotCnt(ComtnbkmkmenumanageresultVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultListTotCnt_S", vo);
     }
 
 }

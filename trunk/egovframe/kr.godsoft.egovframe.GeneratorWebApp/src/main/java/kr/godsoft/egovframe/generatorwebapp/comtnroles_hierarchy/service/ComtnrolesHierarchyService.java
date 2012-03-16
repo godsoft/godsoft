@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnrolesHierarchyService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.Comtnro
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnrolesHierarchyService {
 	 * @return comtnroles_hierarchy 목록
 	 * @exception Exception
 	 */
-    List selectComtnrolesHierarchyList(ComtnrolesHierarchyDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnrolesHierarchyList(ComtnrolesHierarchyVO vo) throws Exception;
     
     /**
 	 * comtnroles_hierarchy 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnrolesHierarchyService {
 	 * @return comtnroles_hierarchy 총 갯수
 	 * @exception
 	 */
-    int selectComtnrolesHierarchyListTotCnt(ComtnrolesHierarchyDefaultVO searchVO);
+    int selectComtnrolesHierarchyListTotCnt(ComtnrolesHierarchyVO vo);
     
 }

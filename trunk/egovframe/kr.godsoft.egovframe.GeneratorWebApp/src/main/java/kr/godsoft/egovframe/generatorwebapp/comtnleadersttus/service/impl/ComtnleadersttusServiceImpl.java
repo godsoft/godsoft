@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusService;
+import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusService;
-import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.impl.ComtnleadersttusDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnleadersttusServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.impl.Comtnl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnleadersttusServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnleadersttus 목록
 	 * @exception Exception
 	 */
-    public List selectComtnleadersttusList(ComtnleadersttusDefaultVO searchVO) throws Exception {
-        return comtnleadersttusDAO.selectComtnleadersttusList(searchVO);
+    public List<EgovMap> selectComtnleadersttusList(ComtnleadersttusVO vo) throws Exception {
+        return comtnleadersttusDAO.selectComtnleadersttusList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnleadersttusServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnleadersttus 총 갯수
 	 * @exception
 	 */
-    public int selectComtnleadersttusListTotCnt(ComtnleadersttusDefaultVO searchVO) {
-		return comtnleadersttusDAO.selectComtnleadersttusListTotCnt(searchVO);
+    public int selectComtnleadersttusListTotCnt(ComtnleadersttusVO vo) {
+		return comtnleadersttusDAO.selectComtnleadersttusListTotCnt(vo);
 	}
     
 }

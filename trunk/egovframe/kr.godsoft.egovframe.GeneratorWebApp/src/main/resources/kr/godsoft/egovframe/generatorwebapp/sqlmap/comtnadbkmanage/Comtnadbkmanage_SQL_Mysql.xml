@@ -4,122 +4,123 @@
 <sqlMap namespace="Comtnadbkmanage">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnadbkmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageDefaultVO"/>
+	<typeAlias  alias="ComtnadbkmanageVO" type="kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageVO"/>
 	
 	<resultMap id="comtnadbkmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageVO">
-		<result property="adbkId" column="ADBK_ID" columnIndex="1"/> <!--  -->
-		<result property="adbkNm" column="ADBK_NM" columnIndex="2"/> <!--  -->
-		<result property="othbcScope" column="OTHBC_SCOPE" columnIndex="3"/> <!--  -->
-		<result property="useAt" column="USE_AT" columnIndex="4"/> <!--  -->
-		<result property="wrterId" column="WRTER_ID" columnIndex="5"/> <!--  -->
-		<result property="trgetOrgnztId" column="TRGET_ORGNZT_ID" columnIndex="6"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="7"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
+		<result property="adbkId" column="adbk_id" columnIndex="1"/>
+		<result property="adbkNm" column="adbk_nm" columnIndex="2"/>
+		<result property="othbcScope" column="othbc_scope" columnIndex="3"/>
+		<result property="useAt" column="use_at" columnIndex="4"/>
+		<result property="wrterId" column="wrter_id" columnIndex="5"/>
+		<result property="trgetOrgnztId" column="trget_orgnzt_id" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
 	</resultMap>
 	
 	<insert id="comtnadbkmanageDAO.insertComtnadbkmanage_S">
 		<![CDATA[
 			INSERT INTO comtnadbkmanage 
-				( ADBK_ID /*  */
-				  , ADBK_NM /*  */
-				  , OTHBC_SCOPE /*  */
-				  , USE_AT /*  */
-				  , WRTER_ID /*  */
-				  , TRGET_ORGNZT_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #adbkId# /*  */
-					  , #adbkNm# /*  */
-						  , #othbcScope# /*  */
-						  , #useAt# /*  */
-						  , #wrterId# /*  */
-						  , #trgetOrgnztId# /*  */
-						  , SYSDATE() /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-					  , #lastUpdusrId# /*  */ )
+				( ADBK_ID
+				  , adbk_nm
+				  , othbc_scope
+				  , use_at
+				  , wrter_id
+				  , trget_orgnzt_id
+				  , frst_regist_pnttm
+				  , last_updt_pnttm
+				  , frst_register_id
+				  , last_updusr_id )
+			VALUES ( #adbkId#
+				  , #adbkNm#
+				  , #othbcScope#
+				  , #useAt#
+				  , #wrterId#
+				  , #trgetOrgnztId#
+				  , #frstRegistPnttm#
+				  , #lastUpdtPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtnadbkmanageDAO.updateComtnadbkmanage_S">
 		<![CDATA[
 			UPDATE comtnadbkmanage
-			SET ADBK_ID=#adbkId# /*  */
-				, ADBK_NM=#adbkNm# /*  */
-				, OTHBC_SCOPE=#othbcScope# /*  */
-				, USE_AT=#useAt# /*  */
-				, WRTER_ID=#wrterId# /*  */
-				, TRGET_ORGNZT_ID=#trgetOrgnztId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE ADBK_ID=#adbkId# /*  */
+			SET adbk_id = #adbkId#
+				, adbk_nm = #adbkNm#
+				, othbc_scope = #othbcScope#
+				, use_at = #useAt#
+				, wrter_id = #wrterId#
+				, trget_orgnzt_id = #trgetOrgnztId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE adbk_id = #adbkId#
 		]]>
 	</update>
 	
 	<delete id="comtnadbkmanageDAO.deleteComtnadbkmanage_S">
 		<![CDATA[
 			DELETE FROM comtnadbkmanage 
-			WHERE ADBK_ID=#adbkId# /*  */
+			WHERE adbk_id = #adbkId#
 		]]>
 	</delete>
 	
 	<select id="comtnadbkmanageDAO.selectComtnadbkmanage_S" resultMap="comtnadbkmanage">
 		<![CDATA[
 			SELECT
-				ADBK_ID /*  */
-				, ADBK_NM /*  */
-				, OTHBC_SCOPE /*  */
-				, USE_AT /*  */
-				, WRTER_ID /*  */
-				, TRGET_ORGNZT_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDUSR_ID /*  */
+				adbk_id
+				, adbk_nm
+				, othbc_scope
+				, use_at
+				, wrter_id
+				, trget_orgnzt_id
+				, frst_regist_pnttm
+				, last_updt_pnttm
+				, frst_register_id
+				, last_updusr_id
 			FROM comtnadbkmanage
-			WHERE ADBK_ID=#adbkId# /*  */
+			WHERE adbk_id = #adbkId#
 		]]>
 	</select>
 	
-	<select id="comtnadbkmanageDAO.selectComtnadbkmanageList_D" parameterClass="comtnadbkmanageSerarchVO" resultClass="egovMap">
+	<select id="comtnadbkmanageDAO.selectComtnadbkmanageList_D" parameterClass="ComtnadbkmanageVO" resultClass="egovMap">
 			SELECT
-								ADBK_ID /*  */
-								, ADBK_NM /*  */
-								, OTHBC_SCOPE /*  */
-								, USE_AT /*  */
-								, WRTER_ID /*  */
-								, TRGET_ORGNZT_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDUSR_ID /*  */
+								adbk_id
+								, adbk_nm
+								, othbc_scope
+								, use_at
+								, wrter_id
+								, trget_orgnzt_id
+								, frst_regist_pnttm
+								, last_updt_pnttm
+								, frst_register_id
+								, last_updusr_id
 					FROM comtnadbkmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ADBK_ID = #searchKeyword# /*  */
+				adbk_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADBK_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				adbk_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							ADBK_ID DESC /*  */
+							adbk_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnadbkmanageDAO.selectComtnadbkmanageListTotCnt_S" parameterClass="comtnadbkmanageSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnadbkmanageDAO.selectComtnadbkmanageListTotCnt_S" parameterClass="ComtnadbkmanageVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnadbkmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ADBK_ID = #searchKeyword# /*  */
+				adbk_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADBK_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				adbk_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnloginscrinimageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.Comtnlo
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnloginscrinimageService {
 	 * @return comtnloginscrinimage 목록
 	 * @exception Exception
 	 */
-    List selectComtnloginscrinimageList(ComtnloginscrinimageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnloginscrinimageList(ComtnloginscrinimageVO vo) throws Exception;
     
     /**
 	 * comtnloginscrinimage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnloginscrinimageService {
 	 * @return comtnloginscrinimage 총 갯수
 	 * @exception
 	 */
-    int selectComtnloginscrinimageListTotCnt(ComtnloginscrinimageDefaultVO searchVO);
+    int selectComtnloginscrinimageListTotCnt(ComtnloginscrinimageVO vo);
     
 }

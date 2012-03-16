@@ -6,61 +6,61 @@ package kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndamcalresVO extends ComtndamcalresDefaultVO{
+public class ComtndamcalresVO extends ComtndamcalresDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ORGNZT_ID */
     private String orgnztId;
     
-    /**  */
+    /** EXPERT_ID */
     private String expertId;
     
-    /**  */
+    /** KNWLDG_TY_CODE */
     private String knwldgTyCode;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
-    /**  */
+    /** KNWLDG_NM */
     private String knwldgNm;
     
-    /**  */
+    /** KNWLDG_CN */
     private String knwldgCn;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** PARNTS_KNWLDG_ID */
     private String parntsKnwldgId;
     
-    /**  */
+    /** ANSWER_DP */
     private int answerDp;
     
-    /**  */
+    /** ANSWER_ORDR */
     private int answerOrdr;
     
-    /**  */
+    /** ANSWER_GROUP_NO */
     private int answerGroupNo;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** KNWLDG_ID */
     private String knwldgId;
     
     public String getOrgnztId() {

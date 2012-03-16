@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnemplyrscrtyestbsService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.Comtne
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnemplyrscrtyestbsService {
 	 * @return comtnemplyrscrtyestbs 목록
 	 * @exception Exception
 	 */
-    List selectComtnemplyrscrtyestbsList(ComtnemplyrscrtyestbsDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnemplyrscrtyestbsList(ComtnemplyrscrtyestbsVO vo) throws Exception;
     
     /**
 	 * comtnemplyrscrtyestbs 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnemplyrscrtyestbsService {
 	 * @return comtnemplyrscrtyestbs 총 갯수
 	 * @exception
 	 */
-    int selectComtnemplyrscrtyestbsListTotCnt(ComtnemplyrscrtyestbsDefaultVO searchVO);
+    int selectComtnemplyrscrtyestbsListTotCnt(ComtnemplyrscrtyestbsVO vo);
     
 }

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnrecomendsiteinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.Comtnr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnrecomendsiteinfoService {
 	 * @return comtnrecomendsiteinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoVO vo) throws Exception;
     
     /**
 	 * comtnrecomendsiteinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnrecomendsiteinfoService {
 	 * @return comtnrecomendsiteinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoDefaultVO searchVO);
+    int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoVO vo);
     
 }

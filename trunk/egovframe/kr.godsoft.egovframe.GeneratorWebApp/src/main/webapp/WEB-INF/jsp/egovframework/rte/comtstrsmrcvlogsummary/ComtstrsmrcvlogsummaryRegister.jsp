@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtstrsmrcvlogsummaryVO.occrrncDe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtstrsmrcvlogsummaryVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtstrsmrcvlogsummaryVO" name="detailForm" id="detailForm">
+<form:form commandName="comtstrsmrcvlogsummaryVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,43 +77,43 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>OCCRRNC_DE *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>TRSMRCV_SE_CODE *</th>
 			<td>
 				<form:input path="trsmrcvSeCode" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>PROVD_INSTT_ID *</th>
 			<td>
 				<form:input path="provdInsttId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>PROVD_SYS_ID *</th>
 			<td>
 				<form:input path="provdSysId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>PROVD_SVC_ID *</th>
 			<td>
 				<form:input path="provdSvcId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>REQUST_INSTT_ID *</th>
 			<td>
 				<form:input path="requstInsttId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>REQUST_SYS_ID *</th>
 			<td>
 				<form:input path="requstSysId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -121,43 +121,43 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>OCCRRNC_DE *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>TRSMRCV_SE_CODE *</th>
 			<td>
 				<form:input path="trsmrcvSeCode" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>PROVD_INSTT_ID *</th>
 			<td>
 				<form:input path="provdInsttId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>PROVD_SYS_ID *</th>
 			<td>
 				<form:input path="provdSysId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>PROVD_SVC_ID *</th>
 			<td>
 				<form:input path="provdSvcId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>REQUST_INSTT_ID *</th>
 			<td>
 				<form:input path="requstInsttId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>REQUST_SYS_ID *</th>
 			<td>
 				<form:input path="requstSysId" cssClass="txt" readonly="false" />
 			</td>			
@@ -165,22 +165,16 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>RDCNT</th>
 			<td>
-	
 				<form:input path="rdcnt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ERROR_CO</th>
 			<td>
-	
 				<form:input path="errorCo" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="errorCo" />
 			</td>
 		</tr>	

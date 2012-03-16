@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.imgtemp.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ImgtempService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ImgtempService {
 	 * @return imgtemp 목록
 	 * @exception Exception
 	 */
-    List selectImgtempList(ImgtempDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectImgtempList(ImgtempVO vo) throws Exception;
     
     /**
 	 * imgtemp 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ImgtempService {
 	 * @return imgtemp 총 갯수
 	 * @exception
 	 */
-    int selectImgtempListTotCnt(ImgtempDefaultVO searchVO);
+    int selectImgtempListTotCnt(ImgtempVO vo);
     
 }

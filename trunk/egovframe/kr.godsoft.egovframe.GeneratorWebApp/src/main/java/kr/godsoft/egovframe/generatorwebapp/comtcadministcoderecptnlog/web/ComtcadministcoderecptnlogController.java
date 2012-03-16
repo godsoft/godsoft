@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogService;
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogService;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogVO;
 
 /**
  * @Class Name : ComtcadministcoderecptnlogController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtcadministcoderecptnlogController {
 	
     /**
 	 * comtcadministcoderecptnlog 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtcadministcoderecptnlogDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtcadministcoderecptnlogVO
 	 * @return "/comtcadministcoderecptnlog/ComtcadministcoderecptnlogList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtcadministcoderecptnlog/ComtcadministcoderecptnlogList.do")
-    public String selectComtcadministcoderecptnlogList(@ModelAttribute("searchVO") ComtcadministcoderecptnlogDefaultVO searchVO, 
+    public String selectComtcadministcoderecptnlogList(@ModelAttribute("searchVO") ComtcadministcoderecptnlogVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtcadministcoderecptnlogController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtcadministcoderecptnlogList = comtcadministcoderecptnlogService.selectComtcadministcoderecptnlogList(searchVO);
+        List<EgovMap> comtcadministcoderecptnlogList = comtcadministcoderecptnlogService.selectComtcadministcoderecptnlogList(searchVO);
         model.addAttribute("resultList", comtcadministcoderecptnlogList);
         
         int totCnt = comtcadministcoderecptnlogService.selectComtcadministcoderecptnlogListTotCnt(searchVO);

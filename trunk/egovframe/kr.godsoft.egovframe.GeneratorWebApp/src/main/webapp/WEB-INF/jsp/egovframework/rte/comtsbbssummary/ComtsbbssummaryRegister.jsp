@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtsbbssummaryVO.occrrncDe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtsbbssummaryVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtsbbssummaryVO" name="detailForm" id="detailForm">
+<form:form commandName="comtsbbssummaryVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,19 +77,19 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>OCCRRNC_DE *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>STATS_SE *</th>
 			<td>
 				<form:input path="statsSe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>DETAIL_STATS_SE *</th>
 			<td>
 				<form:input path="detailStatsSe" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -97,19 +97,19 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>OCCRRNC_DE *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>STATS_SE *</th>
 			<td>
 				<form:input path="statsSe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>DETAIL_STATS_SE *</th>
 			<td>
 				<form:input path="detailStatsSe" cssClass="txt" readonly="false" />
 			</td>			
@@ -117,62 +117,44 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>CREAT_CO</th>
 			<td>
-	
 				<form:input path="creatCo" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="creatCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>TOT_RDCNT</th>
 			<td>
-	
 				<form:input path="totRdcnt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="totRdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>AVRG_RDCNT</th>
 			<td>
-	
 				<form:input path="avrgRdcnt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="avrgRdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>TOP_INQIRE_BBSCTT_ID</th>
 			<td>
-	
 				<form:input path="topInqireBbscttId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="topInqireBbscttId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>MUMM_INQIRE_BBSCTT_ID</th>
 			<td>
-	
 				<form:input path="mummInqireBbscttId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="mummInqireBbscttId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>TOP_NTCR_ID</th>
 			<td>
-	
 				<form:input path="topNtcrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="topNtcrId" />
 			</td>
 		</tr>	

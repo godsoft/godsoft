@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeService;
+import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeService;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeVO;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.impl.ComtccmmndetailcodeDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtccmmndetailcodeServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtccmmndetailcodeServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtccmmndetailcode 목록
 	 * @exception Exception
 	 */
-    public List selectComtccmmndetailcodeList(ComtccmmndetailcodeDefaultVO searchVO) throws Exception {
-        return comtccmmndetailcodeDAO.selectComtccmmndetailcodeList(searchVO);
+    public List<EgovMap> selectComtccmmndetailcodeList(ComtccmmndetailcodeVO vo) throws Exception {
+        return comtccmmndetailcodeDAO.selectComtccmmndetailcodeList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtccmmndetailcodeServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtccmmndetailcode 총 갯수
 	 * @exception
 	 */
-    public int selectComtccmmndetailcodeListTotCnt(ComtccmmndetailcodeDefaultVO searchVO) {
-		return comtccmmndetailcodeDAO.selectComtccmmndetailcodeListTotCnt(searchVO);
+    public int selectComtccmmndetailcodeListTotCnt(ComtccmmndetailcodeVO vo) {
+		return comtccmmndetailcodeDAO.selectComtccmmndetailcodeListTotCnt(vo);
 	}
     
 }

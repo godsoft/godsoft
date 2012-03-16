@@ -6,58 +6,58 @@ package kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnservereqpmninfoVO extends ComtnservereqpmninfoDefaultVO{
+public class ComtnservereqpmninfoVO extends ComtnservereqpmninfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SERVER_EQPMN_ID */
     private String serverEqpmnId;
     
-    /**  */
+    /** SERVER_EQPMN_NM */
     private String serverEqpmnNm;
     
-    /**  */
+    /** SERVER_EQPMN_IP */
     private String serverEqpmnIp;
     
-    /**  */
+    /** SERVER_EQPMN_MNGR */
     private String serverEqpmnMngr;
     
-    /**  */
+    /** MNGR_EMAIL_ADRES */
     private String mngrEmailAdres;
     
-    /**  */
+    /** OPERSYSM_INFO */
     private String opersysmInfo;
     
-    /**  */
+    /** CPU_INFO */
     private String cpuInfo;
     
-    /**  */
+    /** MORY_INFO */
     private String moryInfo;
     
-    /**  */
+    /** HDDISK */
     private String hddisk;
     
-    /**  */
+    /** ETC_INFO */
     private String etcInfo;
     
-    /**  */
+    /** RGSDE */
     private String rgsde;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getServerEqpmnId() {

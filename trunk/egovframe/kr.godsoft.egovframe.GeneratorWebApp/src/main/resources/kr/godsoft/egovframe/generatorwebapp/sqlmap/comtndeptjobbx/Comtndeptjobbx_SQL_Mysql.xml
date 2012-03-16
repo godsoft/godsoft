@@ -4,110 +4,111 @@
 <sqlMap namespace="Comtndeptjobbx">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtndeptjobbxSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxDefaultVO"/>
+	<typeAlias  alias="ComtndeptjobbxVO" type="kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxVO"/>
 	
 	<resultMap id="comtndeptjobbx" class="kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxVO">
-		<result property="deptJobbxId" column="DEPT_JOBBX_ID" columnIndex="1"/> <!--  -->
-		<result property="deptJobbxNm" column="DEPT_JOBBX_NM" columnIndex="2"/> <!--  -->
-		<result property="deptId" column="DEPT_ID" columnIndex="3"/> <!--  -->
-		<result property="indictOrdr" column="INDICT_ORDR" columnIndex="4"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="deptJobbxId" column="dept_jobbx_id" columnIndex="1"/>
+		<result property="deptJobbxNm" column="dept_jobbx_nm" columnIndex="2"/>
+		<result property="deptId" column="dept_id" columnIndex="3"/>
+		<result property="indictOrdr" column="indict_ordr" columnIndex="4"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
 	</resultMap>
 	
 	<insert id="comtndeptjobbxDAO.insertComtndeptjobbx_S">
 		<![CDATA[
 			INSERT INTO comtndeptjobbx 
-				( DEPT_JOBBX_ID /*  */
-				  , DEPT_JOBBX_NM /*  */
-				  , DEPT_ID /*  */
-				  , INDICT_ORDR /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #deptJobbxId# /*  */
-					  , #deptJobbxNm# /*  */
-						  , #deptId# /*  */
-						  , #indictOrdr# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( DEPT_JOBBX_ID
+				  , dept_jobbx_nm
+				  , dept_id
+				  , indict_ordr
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #deptJobbxId#
+				  , #deptJobbxNm#
+				  , #deptId#
+				  , #indictOrdr#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtndeptjobbxDAO.updateComtndeptjobbx_S">
 		<![CDATA[
 			UPDATE comtndeptjobbx
-			SET DEPT_JOBBX_ID=#deptJobbxId# /*  */
-				, DEPT_JOBBX_NM=#deptJobbxNm# /*  */
-				, DEPT_ID=#deptId# /*  */
-				, INDICT_ORDR=#indictOrdr# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE DEPT_JOBBX_ID=#deptJobbxId# /*  */
+			SET dept_jobbx_id = #deptJobbxId#
+				, dept_jobbx_nm = #deptJobbxNm#
+				, dept_id = #deptId#
+				, indict_ordr = #indictOrdr#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE dept_jobbx_id = #deptJobbxId#
 		]]>
 	</update>
 	
 	<delete id="comtndeptjobbxDAO.deleteComtndeptjobbx_S">
 		<![CDATA[
 			DELETE FROM comtndeptjobbx 
-			WHERE DEPT_JOBBX_ID=#deptJobbxId# /*  */
+			WHERE dept_jobbx_id = #deptJobbxId#
 		]]>
 	</delete>
 	
 	<select id="comtndeptjobbxDAO.selectComtndeptjobbx_S" resultMap="comtndeptjobbx">
 		<![CDATA[
 			SELECT
-				DEPT_JOBBX_ID /*  */
-				, DEPT_JOBBX_NM /*  */
-				, DEPT_ID /*  */
-				, INDICT_ORDR /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				dept_jobbx_id
+				, dept_jobbx_nm
+				, dept_id
+				, indict_ordr
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtndeptjobbx
-			WHERE DEPT_JOBBX_ID=#deptJobbxId# /*  */
+			WHERE dept_jobbx_id = #deptJobbxId#
 		]]>
 	</select>
 	
-	<select id="comtndeptjobbxDAO.selectComtndeptjobbxList_D" parameterClass="comtndeptjobbxSerarchVO" resultClass="egovMap">
+	<select id="comtndeptjobbxDAO.selectComtndeptjobbxList_D" parameterClass="ComtndeptjobbxVO" resultClass="egovMap">
 			SELECT
-								DEPT_JOBBX_ID /*  */
-								, DEPT_JOBBX_NM /*  */
-								, DEPT_ID /*  */
-								, INDICT_ORDR /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								dept_jobbx_id
+								, dept_jobbx_nm
+								, dept_id
+								, indict_ordr
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtndeptjobbx
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				DEPT_JOBBX_ID = #searchKeyword# /*  */
+				dept_jobbx_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				DEPT_JOBBX_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				dept_jobbx_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							DEPT_JOBBX_ID DESC /*  */
+							dept_jobbx_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtndeptjobbxDAO.selectComtndeptjobbxListTotCnt_S" parameterClass="comtndeptjobbxSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtndeptjobbxDAO.selectComtndeptjobbxListTotCnt_S" parameterClass="ComtndeptjobbxVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtndeptjobbx
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				DEPT_JOBBX_ID = #searchKeyword# /*  */
+				dept_jobbx_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				DEPT_JOBBX_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				dept_jobbx_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

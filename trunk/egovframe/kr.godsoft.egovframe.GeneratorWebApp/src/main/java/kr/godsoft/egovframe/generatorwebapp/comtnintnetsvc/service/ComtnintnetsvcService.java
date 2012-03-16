@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.ComtnintnetsvcDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.ComtnintnetsvcVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnintnetsvcService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.Comtnintnetsv
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnintnetsvcService {
 	 * @return comtnintnetsvc 목록
 	 * @exception Exception
 	 */
-    List selectComtnintnetsvcList(ComtnintnetsvcDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnintnetsvcList(ComtnintnetsvcVO vo) throws Exception;
     
     /**
 	 * comtnintnetsvc 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnintnetsvcService {
 	 * @return comtnintnetsvc 총 갯수
 	 * @exception
 	 */
-    int selectComtnintnetsvcListTotCnt(ComtnintnetsvcDefaultVO searchVO);
+    int selectComtnintnetsvcListTotCnt(ComtnintnetsvcVO vo);
     
 }

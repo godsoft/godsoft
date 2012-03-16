@@ -4,128 +4,129 @@
 <sqlMap namespace="Comtnhttpmon">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnhttpmonSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonDefaultVO"/>
+	<typeAlias  alias="ComtnhttpmonVO" type="kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonVO"/>
 	
 	<resultMap id="comtnhttpmon" class="kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonVO">
-		<result property="sysId" column="SYS_ID" columnIndex="1"/> <!--  -->
-		<result property="siteUrl" column="SITE_URL" columnIndex="2"/> <!--  -->
-		<result property="websvcKnd" column="WEBSVC_KND" columnIndex="3"/> <!--  -->
-		<result property="httpSttusCode" column="HTTP_STTUS_CODE" columnIndex="4"/> <!--  -->
-		<result property="creatDt" column="CREAT_DT" columnIndex="5"/> <!--  -->
-		<result property="mngrNm" column="MNGR_NM" columnIndex="6"/> <!--  -->
-		<result property="mngrEmailAdres" column="MNGR_EMAIL_ADRES" columnIndex="7"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="8"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="9"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="sysId" column="sys_id" columnIndex="1"/>
+		<result property="siteUrl" column="site_url" columnIndex="2"/>
+		<result property="websvcKnd" column="websvc_knd" columnIndex="3"/>
+		<result property="httpSttusCode" column="http_sttus_code" columnIndex="4"/>
+		<result property="creatDt" column="creat_dt" columnIndex="5"/>
+		<result property="mngrNm" column="mngr_nm" columnIndex="6"/>
+		<result property="mngrEmailAdres" column="mngr_email_adres" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
 	</resultMap>
 	
 	<insert id="comtnhttpmonDAO.insertComtnhttpmon_S">
 		<![CDATA[
 			INSERT INTO comtnhttpmon 
-				( SYS_ID /*  */
-				  , SITE_URL /*  */
-				  , WEBSVC_KND /*  */
-				  , HTTP_STTUS_CODE /*  */
-				  , CREAT_DT /*  */
-				  , MNGR_NM /*  */
-				  , MNGR_EMAIL_ADRES /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #sysId# /*  */
-					  , #siteUrl# /*  */
-						  , #websvcKnd# /*  */
-						  , #httpSttusCode# /*  */
-						  , SYSDATE() /*  */
-						  , #mngrNm# /*  */
-						  , #mngrEmailAdres# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( SYS_ID
+				  , site_url
+				  , websvc_knd
+				  , http_sttus_code
+				  , creat_dt
+				  , mngr_nm
+				  , mngr_email_adres
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #sysId#
+				  , #siteUrl#
+				  , #websvcKnd#
+				  , #httpSttusCode#
+				  , #creatDt#
+				  , #mngrNm#
+				  , #mngrEmailAdres#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnhttpmonDAO.updateComtnhttpmon_S">
 		<![CDATA[
 			UPDATE comtnhttpmon
-			SET SYS_ID=#sysId# /*  */
-				, SITE_URL=#siteUrl# /*  */
-				, WEBSVC_KND=#websvcKnd# /*  */
-				, HTTP_STTUS_CODE=#httpSttusCode# /*  */
-				, CREAT_DT=#creatDt# /*  */
-				, MNGR_NM=#mngrNm# /*  */
-				, MNGR_EMAIL_ADRES=#mngrEmailAdres# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE SYS_ID=#sysId# /*  */
+			SET sys_id = #sysId#
+				, site_url = #siteUrl#
+				, websvc_knd = #websvcKnd#
+				, http_sttus_code = #httpSttusCode#
+				, creat_dt = #creatDt#
+				, mngr_nm = #mngrNm#
+				, mngr_email_adres = #mngrEmailAdres#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE sys_id = #sysId#
 		]]>
 	</update>
 	
 	<delete id="comtnhttpmonDAO.deleteComtnhttpmon_S">
 		<![CDATA[
 			DELETE FROM comtnhttpmon 
-			WHERE SYS_ID=#sysId# /*  */
+			WHERE sys_id = #sysId#
 		]]>
 	</delete>
 	
 	<select id="comtnhttpmonDAO.selectComtnhttpmon_S" resultMap="comtnhttpmon">
 		<![CDATA[
 			SELECT
-				SYS_ID /*  */
-				, SITE_URL /*  */
-				, WEBSVC_KND /*  */
-				, HTTP_STTUS_CODE /*  */
-				, CREAT_DT /*  */
-				, MNGR_NM /*  */
-				, MNGR_EMAIL_ADRES /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				sys_id
+				, site_url
+				, websvc_knd
+				, http_sttus_code
+				, creat_dt
+				, mngr_nm
+				, mngr_email_adres
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnhttpmon
-			WHERE SYS_ID=#sysId# /*  */
+			WHERE sys_id = #sysId#
 		]]>
 	</select>
 	
-	<select id="comtnhttpmonDAO.selectComtnhttpmonList_D" parameterClass="comtnhttpmonSerarchVO" resultClass="egovMap">
+	<select id="comtnhttpmonDAO.selectComtnhttpmonList_D" parameterClass="ComtnhttpmonVO" resultClass="egovMap">
 			SELECT
-								SYS_ID /*  */
-								, SITE_URL /*  */
-								, WEBSVC_KND /*  */
-								, HTTP_STTUS_CODE /*  */
-								, CREAT_DT /*  */
-								, MNGR_NM /*  */
-								, MNGR_EMAIL_ADRES /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								sys_id
+								, site_url
+								, websvc_knd
+								, http_sttus_code
+								, creat_dt
+								, mngr_nm
+								, mngr_email_adres
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnhttpmon
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SYS_ID = #searchKeyword# /*  */
+				sys_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SITE_URL LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				site_url LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SYS_ID DESC /*  */
+							sys_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnhttpmonDAO.selectComtnhttpmonListTotCnt_S" parameterClass="comtnhttpmonSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnhttpmonDAO.selectComtnhttpmonListTotCnt_S" parameterClass="ComtnhttpmonVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnhttpmon
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SYS_ID = #searchKeyword# /*  */
+				sys_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SITE_URL LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				site_url LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

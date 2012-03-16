@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkVO;
 
 /**
  * @Class Name : ComtnbatchschduldfkController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.Comtnbat
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbatchschduldfkController {
 	
     /**
 	 * comtnbatchschduldfk 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbatchschduldfkDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbatchschduldfkVO
 	 * @return "/comtnbatchschduldfk/ComtnbatchschduldfkList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbatchschduldfk/ComtnbatchschduldfkList.do")
-    public String selectComtnbatchschduldfkList(@ModelAttribute("searchVO") ComtnbatchschduldfkDefaultVO searchVO, 
+    public String selectComtnbatchschduldfkList(@ModelAttribute("searchVO") ComtnbatchschduldfkVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbatchschduldfkController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbatchschduldfkList = comtnbatchschduldfkService.selectComtnbatchschduldfkList(searchVO);
+        List<EgovMap> comtnbatchschduldfkList = comtnbatchschduldfkService.selectComtnbatchschduldfkList(searchVO);
         model.addAttribute("resultList", comtnbatchschduldfkList);
         
         int totCnt = comtnbatchschduldfkService.selectComtnbatchschduldfkListTotCnt(searchVO);

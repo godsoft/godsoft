@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageVO;
 
 /**
  * @Class Name : ComtnonlinepollmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.Comtno
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnonlinepollmanageController {
 	
     /**
 	 * comtnonlinepollmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinepollmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinepollmanageVO
 	 * @return "/comtnonlinepollmanage/ComtnonlinepollmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnonlinepollmanage/ComtnonlinepollmanageList.do")
-    public String selectComtnonlinepollmanageList(@ModelAttribute("searchVO") ComtnonlinepollmanageDefaultVO searchVO, 
+    public String selectComtnonlinepollmanageList(@ModelAttribute("searchVO") ComtnonlinepollmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnonlinepollmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnonlinepollmanageList = comtnonlinepollmanageService.selectComtnonlinepollmanageList(searchVO);
+        List<EgovMap> comtnonlinepollmanageList = comtnonlinepollmanageService.selectComtnonlinepollmanageList(searchVO);
         model.addAttribute("resultList", comtnonlinepollmanageList);
         
         int totCnt = comtnonlinepollmanageService.selectComtnonlinepollmanageListTotCnt(searchVO);

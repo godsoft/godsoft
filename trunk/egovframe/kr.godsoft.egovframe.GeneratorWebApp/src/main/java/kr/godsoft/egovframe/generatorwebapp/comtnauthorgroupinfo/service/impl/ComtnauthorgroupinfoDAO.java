@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoDefaultVO;
 
 /**
  * @Class Name : ComtnauthorgroupinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.Comtnau
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnauthorgroupinfoDAO extends EgovAbstractDAO {
 	 * @return comtnauthorgroupinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnauthorgroupinfoList(ComtnauthorgroupinfoDefaultVO searchVO) throws Exception {
-        return list("comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnauthorgroupinfoList(ComtnauthorgroupinfoVO vo) throws Exception {
+        return list("comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnauthorgroupinfoDAO extends EgovAbstractDAO {
 	 * @return comtnauthorgroupinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoListTotCnt_S", searchVO);
+    public int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoListTotCnt_S", vo);
     }
 
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseDefaultVO;
 
 /**
  * @Class Name : ComtnbbsuseDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseDefau
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbbsuseDAO extends EgovAbstractDAO {
 	 * @return comtnbbsuse 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbbsuseList(ComtnbbsuseDefaultVO searchVO) throws Exception {
-        return list("comtnbbsuseDAO.selectComtnbbsuseList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbbsuseList(ComtnbbsuseVO vo) throws Exception {
+        return list("comtnbbsuseDAO.selectComtnbbsuseList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbbsuseDAO extends EgovAbstractDAO {
 	 * @return comtnbbsuse 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbbsuseListTotCnt(ComtnbbsuseDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbbsuseDAO.selectComtnbbsuseListTotCnt_S", searchVO);
+    public int selectComtnbbsuseListTotCnt(ComtnbbsuseVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbbsuseDAO.selectComtnbbsuseListTotCnt_S", vo);
     }
 
 }

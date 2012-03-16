@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerDefaultVO;
 
 /**
  * @Class Name : ComtnbannerDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerDefau
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
 	 * @return comtnbanner 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbannerList(ComtnbannerDefaultVO searchVO) throws Exception {
-        return list("comtnbannerDAO.selectComtnbannerList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbannerList(ComtnbannerVO vo) throws Exception {
+        return list("comtnbannerDAO.selectComtnbannerList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
 	 * @return comtnbanner 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbannerListTotCnt(ComtnbannerDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbannerDAO.selectComtnbannerListTotCnt_S", searchVO);
+    public int selectComtnbannerListTotCnt(ComtnbannerVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbannerDAO.selectComtnbannerListTotCnt_S", vo);
     }
 
 }

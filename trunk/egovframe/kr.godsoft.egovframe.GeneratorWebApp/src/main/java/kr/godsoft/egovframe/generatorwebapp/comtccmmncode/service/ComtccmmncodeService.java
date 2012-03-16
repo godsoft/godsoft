@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtccmmncodeService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtccmmncodeService {
 	 * @return comtccmmncode 목록
 	 * @exception Exception
 	 */
-    List selectComtccmmncodeList(ComtccmmncodeDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtccmmncodeList(ComtccmmncodeVO vo) throws Exception;
     
     /**
 	 * comtccmmncode 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtccmmncodeService {
 	 * @return comtccmmncode 총 갯수
 	 * @exception
 	 */
-    int selectComtccmmncodeListTotCnt(ComtccmmncodeDefaultVO searchVO);
+    int selectComtccmmncodeListTotCnt(ComtccmmncodeVO vo);
     
 }

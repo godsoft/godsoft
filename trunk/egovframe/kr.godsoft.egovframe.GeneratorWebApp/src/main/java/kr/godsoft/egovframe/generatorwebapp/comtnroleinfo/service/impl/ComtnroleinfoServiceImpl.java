@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.impl.ComtnroleinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnroleinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.impl.Comtnrole
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnroleinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnroleinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnroleinfoList(ComtnroleinfoDefaultVO searchVO) throws Exception {
-        return comtnroleinfoDAO.selectComtnroleinfoList(searchVO);
+    public List<EgovMap> selectComtnroleinfoList(ComtnroleinfoVO vo) throws Exception {
+        return comtnroleinfoDAO.selectComtnroleinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnroleinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnroleinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnroleinfoListTotCnt(ComtnroleinfoDefaultVO searchVO) {
-		return comtnroleinfoDAO.selectComtnroleinfoListTotCnt(searchVO);
+    public int selectComtnroleinfoListTotCnt(ComtnroleinfoVO vo) {
+		return comtnroleinfoDAO.selectComtnroleinfoListTotCnt(vo);
 	}
     
 }

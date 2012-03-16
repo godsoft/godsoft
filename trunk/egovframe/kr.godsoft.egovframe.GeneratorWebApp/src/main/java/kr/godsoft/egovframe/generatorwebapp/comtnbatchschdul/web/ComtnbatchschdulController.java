@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO;
 
 /**
  * @Class Name : ComtnbatchschdulController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.Comtnbatchs
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbatchschdulController {
 	
     /**
 	 * comtnbatchschdul 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbatchschdulDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbatchschdulVO
 	 * @return "/comtnbatchschdul/ComtnbatchschdulList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbatchschdul/ComtnbatchschdulList.do")
-    public String selectComtnbatchschdulList(@ModelAttribute("searchVO") ComtnbatchschdulDefaultVO searchVO, 
+    public String selectComtnbatchschdulList(@ModelAttribute("searchVO") ComtnbatchschdulVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbatchschdulController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbatchschdulList = comtnbatchschdulService.selectComtnbatchschdulList(searchVO);
+        List<EgovMap> comtnbatchschdulList = comtnbatchschdulService.selectComtnbatchschdulList(searchVO);
         model.addAttribute("resultList", comtnbatchschdulList);
         
         int totCnt = comtnbatchschdulService.selectComtnbatchschdulListTotCnt(searchVO);

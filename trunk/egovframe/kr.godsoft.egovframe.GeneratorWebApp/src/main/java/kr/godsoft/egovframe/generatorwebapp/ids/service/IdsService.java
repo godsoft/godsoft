@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.ids.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : IdsService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface IdsService {
 	 * @return ids 목록
 	 * @exception Exception
 	 */
-    List selectIdsList(IdsDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectIdsList(IdsVO vo) throws Exception;
     
     /**
 	 * ids 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface IdsService {
 	 * @return ids 총 갯수
 	 * @exception
 	 */
-    int selectIdsListTotCnt(IdsDefaultVO searchVO);
+    int selectIdsListTotCnt(IdsVO vo);
     
 }

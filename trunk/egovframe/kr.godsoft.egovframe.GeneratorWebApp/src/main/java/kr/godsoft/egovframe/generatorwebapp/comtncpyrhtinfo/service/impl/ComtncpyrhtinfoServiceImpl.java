@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.impl.ComtncpyrhtinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncpyrhtinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.impl.Comtncp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtncpyrhtinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncpyrhtinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtncpyrhtinfoList(ComtncpyrhtinfoDefaultVO searchVO) throws Exception {
-        return comtncpyrhtinfoDAO.selectComtncpyrhtinfoList(searchVO);
+    public List<EgovMap> selectComtncpyrhtinfoList(ComtncpyrhtinfoVO vo) throws Exception {
+        return comtncpyrhtinfoDAO.selectComtncpyrhtinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtncpyrhtinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncpyrhtinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtncpyrhtinfoListTotCnt(ComtncpyrhtinfoDefaultVO searchVO) {
-		return comtncpyrhtinfoDAO.selectComtncpyrhtinfoListTotCnt(searchVO);
+    public int selectComtncpyrhtinfoListTotCnt(ComtncpyrhtinfoVO vo) {
+		return comtncpyrhtinfoDAO.selectComtncpyrhtinfoListTotCnt(vo);
 	}
     
 }

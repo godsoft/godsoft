@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.ComtnnoteService;
+import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.ComtnnoteVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.ComtnnoteService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.ComtnnoteDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.ComtnnoteVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.impl.ComtnnoteDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnnoteServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnote.service.impl.ComtnnoteDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnnoteServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnnote 목록
 	 * @exception Exception
 	 */
-    public List selectComtnnoteList(ComtnnoteDefaultVO searchVO) throws Exception {
-        return comtnnoteDAO.selectComtnnoteList(searchVO);
+    public List<EgovMap> selectComtnnoteList(ComtnnoteVO vo) throws Exception {
+        return comtnnoteDAO.selectComtnnoteList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnnoteServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnnote 총 갯수
 	 * @exception
 	 */
-    public int selectComtnnoteListTotCnt(ComtnnoteDefaultVO searchVO) {
-		return comtnnoteDAO.selectComtnnoteListTotCnt(searchVO);
+    public int selectComtnnoteListTotCnt(ComtnnoteVO vo) {
+		return comtnnoteDAO.selectComtnnoteListTotCnt(vo);
 	}
     
 }

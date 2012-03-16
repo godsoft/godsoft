@@ -4,74 +4,75 @@
 <sqlMap namespace="Comtecopseq">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtecopseqSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqDefaultVO"/>
+	<typeAlias  alias="ComtecopseqVO" type="kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO"/>
 	
 	<resultMap id="comtecopseq" class="kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO">
-		<result property="tableName" column="TABLE_NAME" columnIndex="1"/> <!--  -->
-		<result property="nextId" column="NEXT_ID" columnIndex="2"/> <!--  -->
+		<result property="tableName" column="table_name" columnIndex="1"/>
+		<result property="nextId" column="next_id" columnIndex="2"/>
 	</resultMap>
 	
 	<insert id="comtecopseqDAO.insertComtecopseq_S">
 		<![CDATA[
 			INSERT INTO comtecopseq 
-				( TABLE_NAME /*  */
-				  , NEXT_ID /*  */ )
-			VALUES ( #tableName# /*  */
-				  , #nextId# /*  */ )
+				( TABLE_NAME
+				  , next_id )
+			VALUES ( #tableName#
+				  , #nextId# )
 		]]>
 	</insert>
 	
 	<update id="comtecopseqDAO.updateComtecopseq_S">
 		<![CDATA[
 			UPDATE comtecopseq
-			SET TABLE_NAME=#tableName# /*  */
-				, NEXT_ID=#nextId# /*  */
-			WHERE TABLE_NAME=#tableName# /*  */
+			SET table_name = #tableName#
+				, next_id = #nextId#
+			WHERE table_name = #tableName#
 		]]>
 	</update>
 	
 	<delete id="comtecopseqDAO.deleteComtecopseq_S">
 		<![CDATA[
 			DELETE FROM comtecopseq 
-			WHERE TABLE_NAME=#tableName# /*  */
+			WHERE table_name = #tableName#
 		]]>
 	</delete>
 	
 	<select id="comtecopseqDAO.selectComtecopseq_S" resultMap="comtecopseq">
 		<![CDATA[
 			SELECT
-				TABLE_NAME /*  */
-				, NEXT_ID /*  */
+				table_name
+				, next_id
 			FROM comtecopseq
-			WHERE TABLE_NAME=#tableName# /*  */
+			WHERE table_name = #tableName#
 		]]>
 	</select>
 	
-	<select id="comtecopseqDAO.selectComtecopseqList_D" parameterClass="comtecopseqSerarchVO" resultClass="egovMap">
+	<select id="comtecopseqDAO.selectComtecopseqList_D" parameterClass="ComtecopseqVO" resultClass="egovMap">
 			SELECT
-								TABLE_NAME /*  */
-								, NEXT_ID /*  */
+								table_name
+								, next_id
 					FROM comtecopseq
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				TABLE_NAME = #searchKeyword# /*  */
+				table_name = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				next_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							TABLE_NAME DESC /*  */
+							table_name DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtecopseqDAO.selectComtecopseqListTotCnt_S" parameterClass="comtecopseqSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtecopseqDAO.selectComtecopseqListTotCnt_S" parameterClass="ComtecopseqVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtecopseq
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				TABLE_NAME = #searchKeyword# /*  */
+				table_name = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				next_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

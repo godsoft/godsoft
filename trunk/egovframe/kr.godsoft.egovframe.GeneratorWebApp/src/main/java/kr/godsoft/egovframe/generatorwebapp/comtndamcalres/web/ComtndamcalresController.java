@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresService;
+import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresService;
-import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresVO;
 
 /**
  * @Class Name : ComtndamcalresController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.Comtndamcalre
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtndamcalresController {
 	
     /**
 	 * comtndamcalres 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtndamcalresDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtndamcalresVO
 	 * @return "/comtndamcalres/ComtndamcalresList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtndamcalres/ComtndamcalresList.do")
-    public String selectComtndamcalresList(@ModelAttribute("searchVO") ComtndamcalresDefaultVO searchVO, 
+    public String selectComtndamcalresList(@ModelAttribute("searchVO") ComtndamcalresVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtndamcalresController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtndamcalresList = comtndamcalresService.selectComtndamcalresList(searchVO);
+        List<EgovMap> comtndamcalresList = comtndamcalresService.selectComtndamcalresList(searchVO);
         model.addAttribute("resultList", comtndamcalresList);
         
         int totCnt = comtndamcalresService.selectComtndamcalresListTotCnt(searchVO);

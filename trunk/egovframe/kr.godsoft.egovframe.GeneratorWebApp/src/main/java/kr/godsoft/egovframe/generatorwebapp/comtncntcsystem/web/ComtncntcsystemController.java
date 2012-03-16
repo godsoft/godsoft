@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemService;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemVO;
 
 /**
  * @Class Name : ComtncntcsystemController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.Comtncntcsys
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtncntcsystemController {
 	
     /**
 	 * comtncntcsystem 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtncntcsystemDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtncntcsystemVO
 	 * @return "/comtncntcsystem/ComtncntcsystemList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtncntcsystem/ComtncntcsystemList.do")
-    public String selectComtncntcsystemList(@ModelAttribute("searchVO") ComtncntcsystemDefaultVO searchVO, 
+    public String selectComtncntcsystemList(@ModelAttribute("searchVO") ComtncntcsystemVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtncntcsystemController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtncntcsystemList = comtncntcsystemService.selectComtncntcsystemList(searchVO);
+        List<EgovMap> comtncntcsystemList = comtncntcsystemService.selectComtncntcsystemList(searchVO);
         model.addAttribute("resultList", comtncntcsystemList);
         
         int totCnt = comtncntcsystemService.selectComtncntcsystemListTotCnt(searchVO);

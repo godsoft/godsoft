@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertDefaultVO;
 
 /**
  * @Class Name : ComtnbackupopertDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.Comtnbackup
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbackupopertDAO extends EgovAbstractDAO {
 	 * @return comtnbackupopert 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbackupopertList(ComtnbackupopertDefaultVO searchVO) throws Exception {
-        return list("comtnbackupopertDAO.selectComtnbackupopertList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbackupopertList(ComtnbackupopertVO vo) throws Exception {
+        return list("comtnbackupopertDAO.selectComtnbackupopertList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbackupopertDAO extends EgovAbstractDAO {
 	 * @return comtnbackupopert 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbackupopertListTotCnt(ComtnbackupopertDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbackupopertDAO.selectComtnbackupopertListTotCnt_S", searchVO);
+    public int selectComtnbackupopertListTotCnt(ComtnbackupopertVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbackupopertDAO.selectComtnbackupopertListTotCnt_S", vo);
     }
 
 }

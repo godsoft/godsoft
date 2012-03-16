@@ -4,124 +4,125 @@
 <sqlMap namespace="Comtsbbssummary">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtsbbssummarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryDefaultVO"/>
+	<typeAlias  alias="ComtsbbssummaryVO" type="kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO"/>
 	
 	<resultMap id="comtsbbssummary" class="kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO">
-		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
-		<result property="statsSe" column="STATS_SE" columnIndex="2"/> <!--  -->
-		<result property="detailStatsSe" column="DETAIL_STATS_SE" columnIndex="3"/> <!--  -->
-		<result property="creatCo" column="CREAT_CO" columnIndex="4"/> <!--  -->
-		<result property="totRdcnt" column="TOT_RDCNT" columnIndex="5"/> <!--  -->
-		<result property="avrgRdcnt" column="AVRG_RDCNT" columnIndex="6"/> <!--  -->
-		<result property="topInqireBbscttId" column="TOP_INQIRE_BBSCTT_ID" columnIndex="7"/> <!--  -->
-		<result property="mummInqireBbscttId" column="MUMM_INQIRE_BBSCTT_ID" columnIndex="8"/> <!--  -->
-		<result property="topNtcrId" column="TOP_NTCR_ID" columnIndex="9"/> <!--  -->
+		<result property="occrrncDe" column="occrrnc_de" columnIndex="1"/>
+		<result property="statsSe" column="stats_se" columnIndex="2"/>
+		<result property="detailStatsSe" column="detail_stats_se" columnIndex="3"/>
+		<result property="creatCo" column="creat_co" columnIndex="4"/>
+		<result property="totRdcnt" column="tot_rdcnt" columnIndex="5"/>
+		<result property="avrgRdcnt" column="avrg_rdcnt" columnIndex="6"/>
+		<result property="topInqireBbscttId" column="top_inqire_bbsctt_id" columnIndex="7"/>
+		<result property="mummInqireBbscttId" column="mumm_inqire_bbsctt_id" columnIndex="8"/>
+		<result property="topNtcrId" column="top_ntcr_id" columnIndex="9"/>
 	</resultMap>
 	
 	<insert id="comtsbbssummaryDAO.insertComtsbbssummary_S">
 		<![CDATA[
 			INSERT INTO comtsbbssummary 
-				( OCCRRNC_DE /*  */
-				  , STATS_SE /*  */
-				  , DETAIL_STATS_SE /*  */
-				  , CREAT_CO /*  */
-				  , TOT_RDCNT /*  */
-				  , AVRG_RDCNT /*  */
-				  , TOP_INQIRE_BBSCTT_ID /*  */
-				  , MUMM_INQIRE_BBSCTT_ID /*  */
-				  , TOP_NTCR_ID /*  */ )
-			VALUES ( #occrrncDe# /*  */
-					  , #statsSe# /*  */
-						  , #detailStatsSe# /*  */
-						  , #creatCo# /*  */
-						  , #totRdcnt# /*  */
-						  , #avrgRdcnt# /*  */
-						  , #topInqireBbscttId# /*  */
-						  , #mummInqireBbscttId# /*  */
-					  , #topNtcrId# /*  */ )
+				( OCCRRNC_DE
+				  , stats_se
+				  , detail_stats_se
+				  , creat_co
+				  , tot_rdcnt
+				  , avrg_rdcnt
+				  , top_inqire_bbsctt_id
+				  , mumm_inqire_bbsctt_id
+				  , top_ntcr_id )
+			VALUES ( #occrrncDe#
+				  , #statsSe#
+				  , #detailStatsSe#
+				  , #creatCo#
+				  , #totRdcnt#
+				  , #avrgRdcnt#
+				  , #topInqireBbscttId#
+				  , #mummInqireBbscttId#
+				  , #topNtcrId# )
 		]]>
 	</insert>
 	
 	<update id="comtsbbssummaryDAO.updateComtsbbssummary_S">
 		<![CDATA[
 			UPDATE comtsbbssummary
-			SET OCCRRNC_DE=#occrrncDe# /*  */
-				, STATS_SE=#statsSe# /*  */
-				, DETAIL_STATS_SE=#detailStatsSe# /*  */
-				, CREAT_CO=#creatCo# /*  */
-				, TOT_RDCNT=#totRdcnt# /*  */
-				, AVRG_RDCNT=#avrgRdcnt# /*  */
-				, TOP_INQIRE_BBSCTT_ID=#topInqireBbscttId# /*  */
-				, MUMM_INQIRE_BBSCTT_ID=#mummInqireBbscttId# /*  */
-				, TOP_NTCR_ID=#topNtcrId# /*  */
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND STATS_SE=#statsSe# /*  */
-				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+			SET occrrnc_de = #occrrncDe#
+				, stats_se = #statsSe#
+				, detail_stats_se = #detailStatsSe#
+				, creat_co = #creatCo#
+				, tot_rdcnt = #totRdcnt#
+				, avrg_rdcnt = #avrgRdcnt#
+				, top_inqire_bbsctt_id = #topInqireBbscttId#
+				, mumm_inqire_bbsctt_id = #mummInqireBbscttId#
+				, top_ntcr_id = #topNtcrId#
+			WHERE occrrnc_de = #occrrncDe#
+				AND stats_se = #statsSe#
+				AND detail_stats_se = #detailStatsSe#
 		]]>
 	</update>
 	
 	<delete id="comtsbbssummaryDAO.deleteComtsbbssummary_S">
 		<![CDATA[
 			DELETE FROM comtsbbssummary 
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND STATS_SE=#statsSe# /*  */
-				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+			WHERE occrrnc_de = #occrrncDe#
+				AND stats_se = #statsSe#
+				AND detail_stats_se = #detailStatsSe#
 		]]>
 	</delete>
 	
 	<select id="comtsbbssummaryDAO.selectComtsbbssummary_S" resultMap="comtsbbssummary">
 		<![CDATA[
 			SELECT
-				OCCRRNC_DE /*  */
-				, STATS_SE /*  */
-				, DETAIL_STATS_SE /*  */
-				, CREAT_CO /*  */
-				, TOT_RDCNT /*  */
-				, AVRG_RDCNT /*  */
-				, TOP_INQIRE_BBSCTT_ID /*  */
-				, MUMM_INQIRE_BBSCTT_ID /*  */
-				, TOP_NTCR_ID /*  */
+				occrrnc_de
+				, stats_se
+				, detail_stats_se
+				, creat_co
+				, tot_rdcnt
+				, avrg_rdcnt
+				, top_inqire_bbsctt_id
+				, mumm_inqire_bbsctt_id
+				, top_ntcr_id
 			FROM comtsbbssummary
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND STATS_SE=#statsSe# /*  */
-				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+			WHERE occrrnc_de = #occrrncDe#
+				AND stats_se = #statsSe#
+				AND detail_stats_se = #detailStatsSe#
 		]]>
 	</select>
 	
-	<select id="comtsbbssummaryDAO.selectComtsbbssummaryList_D" parameterClass="comtsbbssummarySerarchVO" resultClass="egovMap">
+	<select id="comtsbbssummaryDAO.selectComtsbbssummaryList_D" parameterClass="ComtsbbssummaryVO" resultClass="egovMap">
 			SELECT
-								OCCRRNC_DE /*  */
-								, STATS_SE /*  */
-								, DETAIL_STATS_SE /*  */
-								, CREAT_CO /*  */
-								, TOT_RDCNT /*  */
-								, AVRG_RDCNT /*  */
-								, TOP_INQIRE_BBSCTT_ID /*  */
-								, MUMM_INQIRE_BBSCTT_ID /*  */
-								, TOP_NTCR_ID /*  */
+								occrrnc_de
+								, stats_se
+								, detail_stats_se
+								, creat_co
+								, tot_rdcnt
+								, avrg_rdcnt
+								, top_inqire_bbsctt_id
+								, mumm_inqire_bbsctt_id
+								, top_ntcr_id
 					FROM comtsbbssummary
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				OCCRRNC_DE = #searchKeyword# /*  */
+				occrrnc_de = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				stats_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							OCCRRNC_DE DESC /*  */
-							, STATS_SE DESC /*  */
-							, DETAIL_STATS_SE DESC /*  */
+							occrrnc_de DESC
+							, stats_se DESC
+							, detail_stats_se DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt_S" parameterClass="comtsbbssummarySerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt_S" parameterClass="ComtsbbssummaryVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtsbbssummary
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				OCCRRNC_DE = #searchKeyword# /*  */
+				occrrnc_de = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				stats_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

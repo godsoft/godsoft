@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbkmkmenumanageresultService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbkmkmenumanageresultService {
 	 * @return comtnbkmkmenumanageresult 목록
 	 * @exception Exception
 	 */
-    List selectComtnbkmkmenumanageresultList(ComtnbkmkmenumanageresultDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbkmkmenumanageresultList(ComtnbkmkmenumanageresultVO vo) throws Exception;
     
     /**
 	 * comtnbkmkmenumanageresult 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbkmkmenumanageresultService {
 	 * @return comtnbkmkmenumanageresult 총 갯수
 	 * @exception
 	 */
-    int selectComtnbkmkmenumanageresultListTotCnt(ComtnbkmkmenumanageresultDefaultVO searchVO);
+    int selectComtnbkmkmenumanageresultListTotCnt(ComtnbkmkmenumanageresultVO vo);
     
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryDefaultVO;
 
 /**
  * @Class Name : ComtsbbssummaryDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.Comtsbbssumm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtsbbssummaryDAO extends EgovAbstractDAO {
 	 * @return comtsbbssummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtsbbssummaryList(ComtsbbssummaryDefaultVO searchVO) throws Exception {
-        return list("comtsbbssummaryDAO.selectComtsbbssummaryList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtsbbssummaryList(ComtsbbssummaryVO vo) throws Exception {
+        return list("comtsbbssummaryDAO.selectComtsbbssummaryList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtsbbssummaryDAO extends EgovAbstractDAO {
 	 * @return comtsbbssummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtsbbssummaryListTotCnt(ComtsbbssummaryDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt_S", searchVO);
+    public int selectComtsbbssummaryListTotCnt(ComtsbbssummaryVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt_S", vo);
     }
 
 }

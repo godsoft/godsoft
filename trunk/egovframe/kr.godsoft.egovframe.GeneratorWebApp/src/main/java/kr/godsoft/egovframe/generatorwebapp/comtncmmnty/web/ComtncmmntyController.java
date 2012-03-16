@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyService;
+import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyService;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO;
 
 /**
  * @Class Name : ComtncmmntyController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtncmmntyController {
 	
     /**
 	 * comtncmmnty 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtncmmntyDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtncmmntyVO
 	 * @return "/comtncmmnty/ComtncmmntyList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtncmmnty/ComtncmmntyList.do")
-    public String selectComtncmmntyList(@ModelAttribute("searchVO") ComtncmmntyDefaultVO searchVO, 
+    public String selectComtncmmntyList(@ModelAttribute("searchVO") ComtncmmntyVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtncmmntyController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtncmmntyList = comtncmmntyService.selectComtncmmntyList(searchVO);
+        List<EgovMap> comtncmmntyList = comtncmmntyService.selectComtncmmntyList(searchVO);
         model.addAttribute("resultList", comtncmmntyList);
         
         int totCnt = comtncmmntyService.selectComtncmmntyListTotCnt(searchVO);

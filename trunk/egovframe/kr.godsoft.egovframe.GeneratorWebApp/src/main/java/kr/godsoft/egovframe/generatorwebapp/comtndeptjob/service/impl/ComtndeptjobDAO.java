@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobDefaultVO;
 
 /**
  * @Class Name : ComtndeptjobDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobDef
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtndeptjobDAO extends EgovAbstractDAO {
 	 * @return comtndeptjob 목록
 	 * @exception Exception
 	 */
-    public List selectComtndeptjobList(ComtndeptjobDefaultVO searchVO) throws Exception {
-        return list("comtndeptjobDAO.selectComtndeptjobList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtndeptjobList(ComtndeptjobVO vo) throws Exception {
+        return list("comtndeptjobDAO.selectComtndeptjobList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtndeptjobDAO extends EgovAbstractDAO {
 	 * @return comtndeptjob 총 갯수
 	 * @exception
 	 */
-    public int selectComtndeptjobListTotCnt(ComtndeptjobDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtndeptjobDAO.selectComtndeptjobListTotCnt_S", searchVO);
+    public int selectComtndeptjobListTotCnt(ComtndeptjobVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtndeptjobDAO.selectComtndeptjobListTotCnt_S", vo);
     }
 
 }

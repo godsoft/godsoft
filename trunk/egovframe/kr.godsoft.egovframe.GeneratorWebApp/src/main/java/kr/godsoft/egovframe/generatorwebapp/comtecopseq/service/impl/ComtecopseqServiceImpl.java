@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqService;
+import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqService;
-import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO;
-import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.impl.ComtecopseqDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtecopseqServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.impl.Comtecopseq
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtecopseqServiceImpl extends AbstractServiceImpl implements
 	 * @return comtecopseq 목록
 	 * @exception Exception
 	 */
-    public List selectComtecopseqList(ComtecopseqDefaultVO searchVO) throws Exception {
-        return comtecopseqDAO.selectComtecopseqList(searchVO);
+    public List<EgovMap> selectComtecopseqList(ComtecopseqVO vo) throws Exception {
+        return comtecopseqDAO.selectComtecopseqList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtecopseqServiceImpl extends AbstractServiceImpl implements
 	 * @return comtecopseq 총 갯수
 	 * @exception
 	 */
-    public int selectComtecopseqListTotCnt(ComtecopseqDefaultVO searchVO) {
-		return comtecopseqDAO.selectComtecopseqListTotCnt(searchVO);
+    public int selectComtecopseqListTotCnt(ComtecopseqVO vo) {
+		return comtecopseqDAO.selectComtecopseqListTotCnt(vo);
 	}
     
 }

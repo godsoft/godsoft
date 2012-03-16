@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogService;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogVO;
 
 /**
  * @Class Name : ComtnloginlogController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnloginlogController {
 	
     /**
 	 * comtnloginlog 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnloginlogDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnloginlogVO
 	 * @return "/comtnloginlog/ComtnloginlogList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnloginlog/ComtnloginlogList.do")
-    public String selectComtnloginlogList(@ModelAttribute("searchVO") ComtnloginlogDefaultVO searchVO, 
+    public String selectComtnloginlogList(@ModelAttribute("searchVO") ComtnloginlogVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnloginlogController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnloginlogList = comtnloginlogService.selectComtnloginlogList(searchVO);
+        List<EgovMap> comtnloginlogList = comtnloginlogService.selectComtnloginlogList(searchVO);
         model.addAttribute("resultList", comtnloginlogList);
         
         int totCnt = comtnloginlogService.selectComtnloginlogListTotCnt(searchVO);

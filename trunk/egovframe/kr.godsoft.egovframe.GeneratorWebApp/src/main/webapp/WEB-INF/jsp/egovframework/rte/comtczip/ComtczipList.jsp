@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> 목록</title>
+<title>목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -50,14 +50,14 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" method="post">
 	<input type="hidden" name="zip" />
 	<input type="hidden" name="sn" />
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" />  목록</li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" /> List </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -78,23 +78,23 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center"></th>
-								<th align="center">테스트</th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
+								<th align="center">Zip</th>
+								<th align="center">Sn</th>
+								<th align="center">CtprvnNm</th>
+								<th align="center">SignguNm</th>
+								<th align="center">EmdNm</th>
+								<th align="center">LiBuldNm</th>
+								<th align="center">LnbrDongHo</th>
+								<th align="center">FrstRegistPnttm</th>
+								<th align="center">FrstRegisterId</th>
+								<th align="center">LastUpdtPnttm</th>
+								<th align="center">LastUpdusrId</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																							
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.zip}"/>', '<c:out value="${result.sn}"/>')"><c:out value="${result.zip}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.zip}"/>', '<c:out value="${result.sn}"/>')"><c:out value="${result.sn}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.zip}"/>, <c:out value="{D}{result.sn}"/>')"><c:out value="${result.zip}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.zip}"/>, <c:out value="{D}{result.sn}"/>')"><c:out value="${result.sn}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.ctprvnNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.signguNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.emdNm}"/>&nbsp;</td>

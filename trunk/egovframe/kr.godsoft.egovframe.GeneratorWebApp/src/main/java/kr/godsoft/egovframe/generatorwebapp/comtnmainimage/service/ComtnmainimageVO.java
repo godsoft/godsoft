@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmainimageVO extends ComtnmainimageDefaultVO{
+public class ComtnmainimageVO extends ComtnmainimageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** IMAGE_ID */
     private String imageId;
     
-    /**  */
+    /** IMAGE_NM */
     private String imageNm;
     
-    /**  */
+    /** IMAGE */
     private String image;
     
-    /**  */
+    /** IMAGE_DC */
     private String imageDc;
     
-    /**  */
+    /** REFLCT_AT */
     private String reflctAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** IMAGE_FILE */
     private String imageFile;
     
     public String getImageId() {

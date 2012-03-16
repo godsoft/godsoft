@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterService;
+import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterService;
-import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.impl.ComtntwitterDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtntwitterServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.impl.Comtntwitt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
 	 * @return comtntwitter 목록
 	 * @exception Exception
 	 */
-    public List selectComtntwitterList(ComtntwitterDefaultVO searchVO) throws Exception {
-        return comtntwitterDAO.selectComtntwitterList(searchVO);
+    public List<EgovMap> selectComtntwitterList(ComtntwitterVO vo) throws Exception {
+        return comtntwitterDAO.selectComtntwitterList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
 	 * @return comtntwitter 총 갯수
 	 * @exception
 	 */
-    public int selectComtntwitterListTotCnt(ComtntwitterDefaultVO searchVO) {
-		return comtntwitterDAO.selectComtntwitterListTotCnt(searchVO);
+    public int selectComtntwitterListTotCnt(ComtntwitterVO vo) {
+		return comtntwitterDAO.selectComtntwitterListTotCnt(vo);
 	}
     
 }

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoVO;
 
 /**
  * @Class Name : ComtnextrlhrinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.Comtnextrlh
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnextrlhrinfoController {
 	
     /**
 	 * comtnextrlhrinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnextrlhrinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnextrlhrinfoVO
 	 * @return "/comtnextrlhrinfo/ComtnextrlhrinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnextrlhrinfo/ComtnextrlhrinfoList.do")
-    public String selectComtnextrlhrinfoList(@ModelAttribute("searchVO") ComtnextrlhrinfoDefaultVO searchVO, 
+    public String selectComtnextrlhrinfoList(@ModelAttribute("searchVO") ComtnextrlhrinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnextrlhrinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnextrlhrinfoList = comtnextrlhrinfoService.selectComtnextrlhrinfoList(searchVO);
+        List<EgovMap> comtnextrlhrinfoList = comtnextrlhrinfoService.selectComtnextrlhrinfoList(searchVO);
         model.addAttribute("resultList", comtnextrlhrinfoList);
         
         int totCnt = comtnextrlhrinfoService.selectComtnextrlhrinfoListTotCnt(searchVO);

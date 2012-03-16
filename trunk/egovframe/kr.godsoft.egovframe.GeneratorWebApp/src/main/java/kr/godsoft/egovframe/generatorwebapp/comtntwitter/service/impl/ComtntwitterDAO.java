@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterDefaultVO;
 
 /**
  * @Class Name : ComtntwitterDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterDef
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtntwitterDAO extends EgovAbstractDAO {
 	 * @return comtntwitter 목록
 	 * @exception Exception
 	 */
-    public List selectComtntwitterList(ComtntwitterDefaultVO searchVO) throws Exception {
-        return list("comtntwitterDAO.selectComtntwitterList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtntwitterList(ComtntwitterVO vo) throws Exception {
+        return list("comtntwitterDAO.selectComtntwitterList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtntwitterDAO extends EgovAbstractDAO {
 	 * @return comtntwitter 총 갯수
 	 * @exception
 	 */
-    public int selectComtntwitterListTotCnt(ComtntwitterDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtntwitterDAO.selectComtntwitterListTotCnt_S", searchVO);
+    public int selectComtntwitterListTotCnt(ComtntwitterVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtntwitterDAO.selectComtntwitterListTotCnt_S", vo);
     }
 
 }

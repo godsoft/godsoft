@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComthtrsmrcvmntrngloginfoVO extends ComthtrsmrcvmntrngloginfoDefaultVO{
+public class ComthtrsmrcvmntrngloginfoVO extends ComthtrsmrcvmntrngloginfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** LOG_ID */
     private String logId;
     
-    /**  */
+    /** CNTC_ID */
     private String cntcId;
     
-    /**  */
+    /** TEST_CLASS_NM */
     private String testClassNm;
     
-    /**  */
+    /** MNGR_NM */
     private String mngrNm;
     
-    /**  */
+    /** MNGR_EMAIL_ADRES */
     private String mngrEmailAdres;
     
-    /**  */
+    /** MNTRNG_STTUS */
     private String mntrngSttus;
     
-    /**  */
+    /** LOG_INFO */
     private String logInfo;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getLogId() {

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnmemotodoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnmemotodoService {
 	 * @return comtnmemotodo 목록
 	 * @exception Exception
 	 */
-    List selectComtnmemotodoList(ComtnmemotodoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnmemotodoList(ComtnmemotodoVO vo) throws Exception;
     
     /**
 	 * comtnmemotodo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnmemotodoService {
 	 * @return comtnmemotodo 총 갯수
 	 * @exception
 	 */
-    int selectComtnmemotodoListTotCnt(ComtnmemotodoDefaultVO searchVO);
+    int selectComtnmemotodoListTotCnt(ComtnmemotodoVO vo);
     
 }

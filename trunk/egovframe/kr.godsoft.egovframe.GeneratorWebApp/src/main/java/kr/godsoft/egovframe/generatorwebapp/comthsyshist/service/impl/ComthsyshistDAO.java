@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistDefaultVO;
 
 /**
  * @Class Name : ComthsyshistDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistDef
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
 	 * @return comthsyshist 목록
 	 * @exception Exception
 	 */
-    public List selectComthsyshistList(ComthsyshistDefaultVO searchVO) throws Exception {
-        return list("comthsyshistDAO.selectComthsyshistList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComthsyshistList(ComthsyshistVO vo) throws Exception {
+        return list("comthsyshistDAO.selectComthsyshistList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
 	 * @return comthsyshist 총 갯수
 	 * @exception
 	 */
-    public int selectComthsyshistListTotCnt(ComthsyshistDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comthsyshistDAO.selectComthsyshistListTotCnt_S", searchVO);
+    public int selectComthsyshistListTotCnt(ComthsyshistVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comthsyshistDAO.selectComthsyshistListTotCnt_S", vo);
     }
 
 }

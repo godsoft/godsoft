@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnadbkmanageVO extends ComtnadbkmanageDefaultVO{
+public class ComtnadbkmanageVO extends ComtnadbkmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ADBK_ID */
     private String adbkId;
     
-    /**  */
+    /** ADBK_NM */
     private String adbkNm;
     
-    /**  */
+    /** OTHBC_SCOPE */
     private String othbcScope;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** WRTER_ID */
     private String wrterId;
     
-    /**  */
+    /** TRGET_ORGNZT_ID */
     private String trgetOrgnztId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getAdbkId() {

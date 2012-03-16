@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.impl.ComtnrwardmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnrwardmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.impl.Comtnr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnrwardmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnrwardmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnrwardmanageList(ComtnrwardmanageDefaultVO searchVO) throws Exception {
-        return comtnrwardmanageDAO.selectComtnrwardmanageList(searchVO);
+    public List<EgovMap> selectComtnrwardmanageList(ComtnrwardmanageVO vo) throws Exception {
+        return comtnrwardmanageDAO.selectComtnrwardmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnrwardmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnrwardmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnrwardmanageListTotCnt(ComtnrwardmanageDefaultVO searchVO) {
-		return comtnrwardmanageDAO.selectComtnrwardmanageListTotCnt(searchVO);
+    public int selectComtnrwardmanageListTotCnt(ComtnrwardmanageVO vo) {
+		return comtnrwardmanageDAO.selectComtnrwardmanageListTotCnt(vo);
 	}
     
 }

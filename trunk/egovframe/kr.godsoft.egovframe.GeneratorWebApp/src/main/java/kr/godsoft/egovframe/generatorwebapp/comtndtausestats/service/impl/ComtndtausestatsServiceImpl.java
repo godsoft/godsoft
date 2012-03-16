@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsService;
+import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsService;
-import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.impl.ComtndtausestatsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtndtausestatsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.impl.Comtnd
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtndtausestatsServiceImpl extends AbstractServiceImpl implements
 	 * @return comtndtausestats 목록
 	 * @exception Exception
 	 */
-    public List selectComtndtausestatsList(ComtndtausestatsDefaultVO searchVO) throws Exception {
-        return comtndtausestatsDAO.selectComtndtausestatsList(searchVO);
+    public List<EgovMap> selectComtndtausestatsList(ComtndtausestatsVO vo) throws Exception {
+        return comtndtausestatsDAO.selectComtndtausestatsList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtndtausestatsServiceImpl extends AbstractServiceImpl implements
 	 * @return comtndtausestats 총 갯수
 	 * @exception
 	 */
-    public int selectComtndtausestatsListTotCnt(ComtndtausestatsDefaultVO searchVO) {
-		return comtndtausestatsDAO.selectComtndtausestatsListTotCnt(searchVO);
+    public int selectComtndtausestatsListTotCnt(ComtndtausestatsVO vo) {
+		return comtndtausestatsDAO.selectComtndtausestatsListTotCnt(vo);
 	}
     
 }

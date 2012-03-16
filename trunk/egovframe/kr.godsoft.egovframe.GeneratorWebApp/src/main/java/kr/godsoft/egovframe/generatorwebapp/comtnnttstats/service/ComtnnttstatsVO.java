@@ -6,31 +6,31 @@ package kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnnttstatsVO extends ComtnnttstatsDefaultVO{
+public class ComtnnttstatsVO extends ComtnnttstatsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** STATS_ID */
     private String statsId;
     
-    /**  */
+    /** NTCE_CO */
     private int ntceCo;
     
-    /**  */
+    /** AVRG_RDCNT */
     private int avrgRdcnt;
     
-    /**  */
+    /** TOP_RDCNT */
     private int topRdcnt;
     
-    /**  */
+    /** MUMM_RDCNT */
     private int mummRdcnt;
     
-    /**  */
+    /** TOP_NTCR_ID */
     private String topNtcrId;
     
     public String getStatsId() {

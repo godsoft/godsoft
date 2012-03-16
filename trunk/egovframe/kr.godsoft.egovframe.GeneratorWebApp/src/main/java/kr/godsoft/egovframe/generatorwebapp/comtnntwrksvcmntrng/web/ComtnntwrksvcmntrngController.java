@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngService;
+import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngService;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngVO;
 
 /**
  * @Class Name : ComtnntwrksvcmntrngController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.Comtnntw
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnntwrksvcmntrngController {
 	
     /**
 	 * comtnntwrksvcmntrng 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnntwrksvcmntrngDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnntwrksvcmntrngVO
 	 * @return "/comtnntwrksvcmntrng/ComtnntwrksvcmntrngList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnntwrksvcmntrng/ComtnntwrksvcmntrngList.do")
-    public String selectComtnntwrksvcmntrngList(@ModelAttribute("searchVO") ComtnntwrksvcmntrngDefaultVO searchVO, 
+    public String selectComtnntwrksvcmntrngList(@ModelAttribute("searchVO") ComtnntwrksvcmntrngVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnntwrksvcmntrngController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnntwrksvcmntrngList = comtnntwrksvcmntrngService.selectComtnntwrksvcmntrngList(searchVO);
+        List<EgovMap> comtnntwrksvcmntrngList = comtnntwrksvcmntrngService.selectComtnntwrksvcmntrngList(searchVO);
         model.addAttribute("resultList", comtnntwrksvcmntrngList);
         
         int totCnt = comtnntwrksvcmntrngService.selectComtnntwrksvcmntrngListTotCnt(searchVO);

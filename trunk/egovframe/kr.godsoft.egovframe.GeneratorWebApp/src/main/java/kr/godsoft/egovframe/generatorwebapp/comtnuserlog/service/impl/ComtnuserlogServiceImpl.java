@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogService;
+import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogService;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.impl.ComtnuserlogDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnuserlogServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.impl.Comtnuserl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnuserlogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnuserlog 목록
 	 * @exception Exception
 	 */
-    public List selectComtnuserlogList(ComtnuserlogDefaultVO searchVO) throws Exception {
-        return comtnuserlogDAO.selectComtnuserlogList(searchVO);
+    public List<EgovMap> selectComtnuserlogList(ComtnuserlogVO vo) throws Exception {
+        return comtnuserlogDAO.selectComtnuserlogList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnuserlogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnuserlog 총 갯수
 	 * @exception
 	 */
-    public int selectComtnuserlogListTotCnt(ComtnuserlogDefaultVO searchVO) {
-		return comtnuserlogDAO.selectComtnuserlogListTotCnt(searchVO);
+    public int selectComtnuserlogListTotCnt(ComtnuserlogVO vo) {
+		return comtnuserlogDAO.selectComtnuserlogListTotCnt(vo);
 	}
     
 }

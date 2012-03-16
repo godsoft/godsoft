@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogService;
+import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogService;
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
 
 /**
  * @Class Name : ComtnweblogController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnweblogController {
 	
     /**
 	 * comtnweblog 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnweblogDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnweblogVO
 	 * @return "/comtnweblog/ComtnweblogList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnweblog/ComtnweblogList.do")
-    public String selectComtnweblogList(@ModelAttribute("searchVO") ComtnweblogDefaultVO searchVO, 
+    public String selectComtnweblogList(@ModelAttribute("searchVO") ComtnweblogVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnweblogController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnweblogList = comtnweblogService.selectComtnweblogList(searchVO);
+        List<EgovMap> comtnweblogList = comtnweblogService.selectComtnweblogList(searchVO);
         model.addAttribute("resultList", comtnweblogList);
         
         int totCnt = comtnweblogService.selectComtnweblogListTotCnt(searchVO);

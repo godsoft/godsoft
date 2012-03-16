@@ -6,64 +6,64 @@ package kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnvcatnmanageVO extends ComtnvcatnmanageDefaultVO{
+public class ComtnvcatnmanageVO extends ComtnvcatnmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** APPLCNT_ID */
     private String applcntId;
     
-    /**  */
+    /** VCATN_SE */
     private String vcatnSe;
     
-    /**  */
+    /** BGNDE */
     private String bgnde;
     
-    /**  */
+    /** ENDDE */
     private String endde;
     
-    /**  */
+    /** VCATN_RESN */
     private String vcatnResn;
     
-    /**  */
+    /** REQST_DE */
     private String reqstDe;
     
-    /**  */
+    /** OCCRRNC_YEAR */
     private String occrrncYear;
     
-    /**  */
+    /** SANCTNER_ID */
     private String sanctnerId;
     
-    /**  */
+    /** CONFM_AT */
     private String confmAt;
     
-    /**  */
+    /** SANCTN_DT */
     private String sanctnDt;
     
-    /**  */
+    /** RETURN_RESN */
     private String returnResn;
     
-    /**  */
+    /** INFRML_SANCTN_ID */
     private String infrmlSanctnId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** NOON_SE */
     private String noonSe;
     
     public String getApplcntId() {

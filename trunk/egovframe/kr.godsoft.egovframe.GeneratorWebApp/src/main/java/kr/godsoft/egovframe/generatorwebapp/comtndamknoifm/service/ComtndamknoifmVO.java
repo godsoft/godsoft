@@ -6,67 +6,67 @@ package kr.godsoft.egovframe.generatorwebapp.comtndamknoifm.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndamknoifmVO extends ComtndamknoifmDefaultVO{
+public class ComtndamknoifmVO extends ComtndamknoifmDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** KNWLDG_ID */
     private String knwldgId;
     
-    /**  */
+    /** KNWLDG_TY_CODE */
     private String knwldgTyCode;
     
-    /**  */
+    /** ORGNZT_ID */
     private String orgnztId;
     
-    /**  */
+    /** EXPERT_ID */
     private String expertId;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
-    /**  */
+    /** KNWLDG_NM */
     private String knwldgNm;
     
-    /**  */
+    /** KNWLDG_CN */
     private String knwldgCn;
     
-    /**  */
+    /** KWRD */
     private String kwrd;
     
-    /**  */
+    /** OTHBC_AT */
     private String othbcAt;
     
-    /**  */
+    /** KNWLDG_EVL */
     private String knwldgEvl;
     
-    /**  */
+    /** COLCT_DE */
     private String colctDe;
     
-    /**  */
+    /** EVL_DE */
     private String evlDe;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** DSUSE_DE */
     private String dsuseDe;
     
     public String getKnwldgId() {

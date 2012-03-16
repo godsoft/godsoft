@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnservereqpmninfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.Comtnse
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnservereqpmninfoService {
 	 * @return comtnservereqpmninfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnservereqpmninfoList(ComtnservereqpmninfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnservereqpmninfoList(ComtnservereqpmninfoVO vo) throws Exception;
     
     /**
 	 * comtnservereqpmninfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnservereqpmninfoService {
 	 * @return comtnservereqpmninfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnservereqpmninfoListTotCnt(ComtnservereqpmninfoDefaultVO searchVO);
+    int selectComtnservereqpmninfoListTotCnt(ComtnservereqpmninfoVO vo);
     
 }

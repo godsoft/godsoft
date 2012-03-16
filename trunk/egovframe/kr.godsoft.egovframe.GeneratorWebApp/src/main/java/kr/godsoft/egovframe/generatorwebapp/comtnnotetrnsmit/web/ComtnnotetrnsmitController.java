@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitService;
+import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitVO;
 
 /**
  * @Class Name : ComtnnotetrnsmitController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.Comtnnotetr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnnotetrnsmitController {
 	
     /**
 	 * comtnnotetrnsmit 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnnotetrnsmitDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnnotetrnsmitVO
 	 * @return "/comtnnotetrnsmit/ComtnnotetrnsmitList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnnotetrnsmit/ComtnnotetrnsmitList.do")
-    public String selectComtnnotetrnsmitList(@ModelAttribute("searchVO") ComtnnotetrnsmitDefaultVO searchVO, 
+    public String selectComtnnotetrnsmitList(@ModelAttribute("searchVO") ComtnnotetrnsmitVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnnotetrnsmitController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnnotetrnsmitList = comtnnotetrnsmitService.selectComtnnotetrnsmitList(searchVO);
+        List<EgovMap> comtnnotetrnsmitList = comtnnotetrnsmitService.selectComtnnotetrnsmitList(searchVO);
         model.addAttribute("resultList", comtnnotetrnsmitList);
         
         int totCnt = comtnnotetrnsmitService.selectComtnnotetrnsmitListTotCnt(searchVO);

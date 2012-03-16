@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.impl.ComtnstplatinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnstplatinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.impl.Comtnst
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnstplatinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnstplatinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnstplatinfoList(ComtnstplatinfoDefaultVO searchVO) throws Exception {
-        return comtnstplatinfoDAO.selectComtnstplatinfoList(searchVO);
+    public List<EgovMap> selectComtnstplatinfoList(ComtnstplatinfoVO vo) throws Exception {
+        return comtnstplatinfoDAO.selectComtnstplatinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnstplatinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnstplatinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnstplatinfoListTotCnt(ComtnstplatinfoDefaultVO searchVO) {
-		return comtnstplatinfoDAO.selectComtnstplatinfoListTotCnt(searchVO);
+    public int selectComtnstplatinfoListTotCnt(ComtnstplatinfoVO vo) {
+		return comtnstplatinfoDAO.selectComtnstplatinfoListTotCnt(vo);
 	}
     
 }

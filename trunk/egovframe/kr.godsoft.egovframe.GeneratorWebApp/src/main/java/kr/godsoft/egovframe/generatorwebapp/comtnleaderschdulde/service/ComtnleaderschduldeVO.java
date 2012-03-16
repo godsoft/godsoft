@@ -6,19 +6,19 @@ package kr.godsoft.egovframe.generatorwebapp.comtnleaderschdulde.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnleaderschduldeVO extends ComtnleaderschduldeDefaultVO{
+public class ComtnleaderschduldeVO extends ComtnleaderschduldeDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SCHDUL_ID */
     private String schdulId;
     
-    /**  */
+    /** SCHDUL_DE */
     private String schdulDe;
     
     public String getSchdulId() {

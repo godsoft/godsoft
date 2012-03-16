@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.impl.ComtnannvrsrymanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnannvrsrymanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnannvrsrymanageServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnannvrsrymanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnannvrsrymanageList(ComtnannvrsrymanageDefaultVO searchVO) throws Exception {
-        return comtnannvrsrymanageDAO.selectComtnannvrsrymanageList(searchVO);
+    public List<EgovMap> selectComtnannvrsrymanageList(ComtnannvrsrymanageVO vo) throws Exception {
+        return comtnannvrsrymanageDAO.selectComtnannvrsrymanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnannvrsrymanageServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnannvrsrymanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageDefaultVO searchVO) {
-		return comtnannvrsrymanageDAO.selectComtnannvrsrymanageListTotCnt(searchVO);
+    public int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageVO vo) {
+		return comtnannvrsrymanageDAO.selectComtnannvrsrymanageListTotCnt(vo);
 	}
     
 }

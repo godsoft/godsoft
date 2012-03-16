@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnonlinemanualVO extends ComtnonlinemanualDefaultVO{
+public class ComtnonlinemanualVO extends ComtnonlinemanualDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ONLINE_MNL_ID */
     private String onlineMnlId;
     
-    /**  */
+    /** ONLINE_MNL_SE_CODE */
     private String onlineMnlSeCode;
     
-    /**  */
-    private int onlineMnlDfn;
+    /** ONLINE_MNL_DFN */
+    private String onlineMnlDfn;
     
-    /**  */
-    private int onlineMnlDc;
+    /** ONLINE_MNL_DC */
+    private String onlineMnlDc;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** ONLINE_MNL_NM */
     private String onlineMnlNm;
     
     public String getOnlineMnlId() {
@@ -58,19 +58,19 @@ public class ComtnonlinemanualVO extends ComtnonlinemanualDefaultVO{
         this.onlineMnlSeCode = onlineMnlSeCode;
     }
     
-    public int getOnlineMnlDfn() {
+    public String getOnlineMnlDfn() {
         return this.onlineMnlDfn;
     }
     
-    public void setOnlineMnlDfn(int onlineMnlDfn) {
+    public void setOnlineMnlDfn(String onlineMnlDfn) {
         this.onlineMnlDfn = onlineMnlDfn;
     }
     
-    public int getOnlineMnlDc() {
+    public String getOnlineMnlDc() {
         return this.onlineMnlDc;
     }
     
-    public void setOnlineMnlDc(int onlineMnlDc) {
+    public void setOnlineMnlDc(String onlineMnlDc) {
         this.onlineMnlDc = onlineMnlDc;
     }
     

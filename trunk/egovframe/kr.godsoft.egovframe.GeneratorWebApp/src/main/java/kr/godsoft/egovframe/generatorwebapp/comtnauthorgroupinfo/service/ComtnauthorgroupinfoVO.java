@@ -6,25 +6,25 @@ package kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnauthorgroupinfoVO extends ComtnauthorgroupinfoDefaultVO{
+public class ComtnauthorgroupinfoVO extends ComtnauthorgroupinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** GROUP_ID */
     private String groupId;
     
-    /**  */
+    /** GROUP_NM */
     private String groupNm;
     
-    /**  */
+    /** GROUP_CREAT_DE */
     private String groupCreatDe;
     
-    /**  */
+    /** GROUP_DC */
     private String groupDc;
     
     public String getGroupId() {

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempService;
+import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempService;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempVO;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.impl.ImgtempDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ImgtempServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.impl.ImgtempDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ImgtempServiceImpl extends AbstractServiceImpl implements
 	 * @return imgtemp 목록
 	 * @exception Exception
 	 */
-    public List selectImgtempList(ImgtempDefaultVO searchVO) throws Exception {
-        return imgtempDAO.selectImgtempList(searchVO);
+    public List<EgovMap> selectImgtempList(ImgtempVO vo) throws Exception {
+        return imgtempDAO.selectImgtempList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ImgtempServiceImpl extends AbstractServiceImpl implements
 	 * @return imgtemp 총 갯수
 	 * @exception
 	 */
-    public int selectImgtempListTotCnt(ImgtempDefaultVO searchVO) {
-		return imgtempDAO.selectImgtempListTotCnt(searchVO);
+    public int selectImgtempListTotCnt(ImgtempVO vo) {
+		return imgtempDAO.selectImgtempListTotCnt(vo);
 	}
     
 }

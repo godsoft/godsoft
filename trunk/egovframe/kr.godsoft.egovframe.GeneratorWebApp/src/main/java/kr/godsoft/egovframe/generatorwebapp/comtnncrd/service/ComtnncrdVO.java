@@ -6,91 +6,91 @@ package kr.godsoft.egovframe.generatorwebapp.comtnncrd.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnncrdVO extends ComtnncrdDefaultVO{
+public class ComtnncrdVO extends ComtnncrdDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** NCRD_ID */
     private String ncrdId;
     
-    /**  */
+    /** NCRD_TRGTER_ID */
     private String ncrdTrgterId;
     
-    /**  */
+    /** NM */
     private String nm;
     
-    /**  */
+    /** TELNO */
     private String telno;
     
-    /**  */
+    /** NATION_NO */
     private String nationNo;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** MIDDLE_TELNO */
     private String middleTelno;
     
-    /**  */
+    /** END_TELNO */
     private String endTelno;
     
-    /**  */
+    /** MBTLNUM */
     private String mbtlnum;
     
-    /**  */
+    /** IDNTFC_NO */
     private String idntfcNo;
     
-    /**  */
+    /** MIDDLE_MBTLNUM */
     private String middleMbtlnum;
     
-    /**  */
+    /** END_MBTLNUM */
     private String endMbtlnum;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** CMPNY_NM */
     private String cmpnyNm;
     
-    /**  */
+    /** DEPT_NM */
     private String deptNm;
     
-    /**  */
+    /** ADRES */
     private String adres;
     
-    /**  */
+    /** DETAIL_ADRES */
     private String detailAdres;
     
-    /**  */
+    /** OFCPS_NM */
     private String ofcpsNm;
     
-    /**  */
+    /** CLSF_NM */
     private String clsfNm;
     
-    /**  */
+    /** EXTRL_USER_AT */
     private String extrlUserAt;
     
-    /**  */
+    /** OTHBC_AT */
     private String othbcAt;
     
-    /**  */
+    /** RM */
     private String rm;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getNcrdId() {

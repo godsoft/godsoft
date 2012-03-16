@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeService;
+import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeService;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeVO;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.impl.ComtccmmncodeDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtccmmncodeServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.impl.Comtccmmn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtccmmncodeServiceImpl extends AbstractServiceImpl implements
 	 * @return comtccmmncode 목록
 	 * @exception Exception
 	 */
-    public List selectComtccmmncodeList(ComtccmmncodeDefaultVO searchVO) throws Exception {
-        return comtccmmncodeDAO.selectComtccmmncodeList(searchVO);
+    public List<EgovMap> selectComtccmmncodeList(ComtccmmncodeVO vo) throws Exception {
+        return comtccmmncodeDAO.selectComtccmmncodeList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtccmmncodeServiceImpl extends AbstractServiceImpl implements
 	 * @return comtccmmncode 총 갯수
 	 * @exception
 	 */
-    public int selectComtccmmncodeListTotCnt(ComtccmmncodeDefaultVO searchVO) {
-		return comtccmmncodeDAO.selectComtccmmncodeListTotCnt(searchVO);
+    public int selectComtccmmncodeListTotCnt(ComtccmmncodeVO vo) {
+		return comtccmmncodeDAO.selectComtccmmncodeListTotCnt(vo);
 	}
     
 }

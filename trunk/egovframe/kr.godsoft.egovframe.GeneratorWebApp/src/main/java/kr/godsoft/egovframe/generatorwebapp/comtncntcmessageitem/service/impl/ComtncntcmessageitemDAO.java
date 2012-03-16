@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemDefaultVO;
 
 /**
  * @Class Name : ComtncntcmessageitemDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.Comtncn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
 	 * @return comtncntcmessageitem 목록
 	 * @exception Exception
 	 */
-    public List selectComtncntcmessageitemList(ComtncntcmessageitemDefaultVO searchVO) throws Exception {
-        return list("comtncntcmessageitemDAO.selectComtncntcmessageitemList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtncntcmessageitemList(ComtncntcmessageitemVO vo) throws Exception {
+        return list("comtncntcmessageitemDAO.selectComtncntcmessageitemList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
 	 * @return comtncntcmessageitem 총 갯수
 	 * @exception
 	 */
-    public int selectComtncntcmessageitemListTotCnt(ComtncntcmessageitemDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtncntcmessageitemDAO.selectComtncntcmessageitemListTotCnt_S", searchVO);
+    public int selectComtncntcmessageitemListTotCnt(ComtncntcmessageitemVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtncntcmessageitemDAO.selectComtncntcmessageitemListTotCnt_S", vo);
     }
 
 }

@@ -4,140 +4,141 @@
 <sqlMap namespace="Comtnadministrationword">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnadministrationwordSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordDefaultVO"/>
+	<typeAlias  alias="ComtnadministrationwordVO" type="kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO"/>
 	
 	<resultMap id="comtnadministrationword" class="kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO">
-		<result property="administWordId" column="ADMINIST_WORD_ID" columnIndex="1"/> <!--  -->
-		<result property="administWordNm" column="ADMINIST_WORD_NM" columnIndex="2"/> <!--  -->
-		<result property="administWordEngNm" column="ADMINIST_WORD_ENG_NM" columnIndex="3"/> <!--  -->
-		<result property="administWordAbrvNm" column="ADMINIST_WORD_ABRV_NM" columnIndex="4"/> <!--  -->
-		<result property="themaRelm" column="THEMA_RELM" columnIndex="5"/> <!--  -->
-		<result property="wordSe" column="WORD_SE" columnIndex="6"/> <!--  -->
-		<result property="relateStdWord" column="RELATE_STD_WORD" columnIndex="7"/> <!--  -->
-		<result property="administWordDfn" column="ADMINIST_WORD_DFN" columnIndex="8"/> <!--  -->
-		<result property="administWordDc" column="ADMINIST_WORD_DC" columnIndex="9"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="administWordId" column="administ_word_id" columnIndex="1"/>
+		<result property="administWordNm" column="administ_word_nm" columnIndex="2"/>
+		<result property="administWordEngNm" column="administ_word_eng_nm" columnIndex="3"/>
+		<result property="administWordAbrvNm" column="administ_word_abrv_nm" columnIndex="4"/>
+		<result property="themaRelm" column="thema_relm" columnIndex="5"/>
+		<result property="wordSe" column="word_se" columnIndex="6"/>
+		<result property="relateStdWord" column="relate_std_word" columnIndex="7"/>
+		<result property="administWordDfn" column="administ_word_dfn" columnIndex="8"/>
+		<result property="administWordDc" column="administ_word_dc" columnIndex="9"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="10"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="11"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="12"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="13"/>
 	</resultMap>
 	
 	<insert id="comtnadministrationwordDAO.insertComtnadministrationword_S">
 		<![CDATA[
 			INSERT INTO comtnadministrationword 
-				( ADMINIST_WORD_ID /*  */
-				  , ADMINIST_WORD_NM /*  */
-				  , ADMINIST_WORD_ENG_NM /*  */
-				  , ADMINIST_WORD_ABRV_NM /*  */
-				  , THEMA_RELM /*  */
-				  , WORD_SE /*  */
-				  , RELATE_STD_WORD /*  */
-				  , ADMINIST_WORD_DFN /*  */
-				  , ADMINIST_WORD_DC /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #administWordId# /*  */
-					  , #administWordNm# /*  */
-						  , #administWordEngNm# /*  */
-						  , #administWordAbrvNm# /*  */
-						  , #themaRelm# /*  */
-						  , #wordSe# /*  */
-						  , #relateStdWord# /*  */
-						  , #administWordDfn# /*  */
-						  , #administWordDc# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( ADMINIST_WORD_ID
+				  , administ_word_nm
+				  , administ_word_eng_nm
+				  , administ_word_abrv_nm
+				  , thema_relm
+				  , word_se
+				  , relate_std_word
+				  , administ_word_dfn
+				  , administ_word_dc
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #administWordId#
+				  , #administWordNm#
+				  , #administWordEngNm#
+				  , #administWordAbrvNm#
+				  , #themaRelm#
+				  , #wordSe#
+				  , #relateStdWord#
+				  , #administWordDfn#
+				  , #administWordDc#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnadministrationwordDAO.updateComtnadministrationword_S">
 		<![CDATA[
 			UPDATE comtnadministrationword
-			SET ADMINIST_WORD_ID=#administWordId# /*  */
-				, ADMINIST_WORD_NM=#administWordNm# /*  */
-				, ADMINIST_WORD_ENG_NM=#administWordEngNm# /*  */
-				, ADMINIST_WORD_ABRV_NM=#administWordAbrvNm# /*  */
-				, THEMA_RELM=#themaRelm# /*  */
-				, WORD_SE=#wordSe# /*  */
-				, RELATE_STD_WORD=#relateStdWord# /*  */
-				, ADMINIST_WORD_DFN=#administWordDfn# /*  */
-				, ADMINIST_WORD_DC=#administWordDc# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE ADMINIST_WORD_ID=#administWordId# /*  */
+			SET administ_word_id = #administWordId#
+				, administ_word_nm = #administWordNm#
+				, administ_word_eng_nm = #administWordEngNm#
+				, administ_word_abrv_nm = #administWordAbrvNm#
+				, thema_relm = #themaRelm#
+				, word_se = #wordSe#
+				, relate_std_word = #relateStdWord#
+				, administ_word_dfn = #administWordDfn#
+				, administ_word_dc = #administWordDc#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE administ_word_id = #administWordId#
 		]]>
 	</update>
 	
 	<delete id="comtnadministrationwordDAO.deleteComtnadministrationword_S">
 		<![CDATA[
 			DELETE FROM comtnadministrationword 
-			WHERE ADMINIST_WORD_ID=#administWordId# /*  */
+			WHERE administ_word_id = #administWordId#
 		]]>
 	</delete>
 	
 	<select id="comtnadministrationwordDAO.selectComtnadministrationword_S" resultMap="comtnadministrationword">
 		<![CDATA[
 			SELECT
-				ADMINIST_WORD_ID /*  */
-				, ADMINIST_WORD_NM /*  */
-				, ADMINIST_WORD_ENG_NM /*  */
-				, ADMINIST_WORD_ABRV_NM /*  */
-				, THEMA_RELM /*  */
-				, WORD_SE /*  */
-				, RELATE_STD_WORD /*  */
-				, ADMINIST_WORD_DFN /*  */
-				, ADMINIST_WORD_DC /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				administ_word_id
+				, administ_word_nm
+				, administ_word_eng_nm
+				, administ_word_abrv_nm
+				, thema_relm
+				, word_se
+				, relate_std_word
+				, administ_word_dfn
+				, administ_word_dc
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnadministrationword
-			WHERE ADMINIST_WORD_ID=#administWordId# /*  */
+			WHERE administ_word_id = #administWordId#
 		]]>
 	</select>
 	
-	<select id="comtnadministrationwordDAO.selectComtnadministrationwordList_D" parameterClass="comtnadministrationwordSerarchVO" resultClass="egovMap">
+	<select id="comtnadministrationwordDAO.selectComtnadministrationwordList_D" parameterClass="ComtnadministrationwordVO" resultClass="egovMap">
 			SELECT
-								ADMINIST_WORD_ID /*  */
-								, ADMINIST_WORD_NM /*  */
-								, ADMINIST_WORD_ENG_NM /*  */
-								, ADMINIST_WORD_ABRV_NM /*  */
-								, THEMA_RELM /*  */
-								, WORD_SE /*  */
-								, RELATE_STD_WORD /*  */
-								, ADMINIST_WORD_DFN /*  */
-								, ADMINIST_WORD_DC /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								administ_word_id
+								, administ_word_nm
+								, administ_word_eng_nm
+								, administ_word_abrv_nm
+								, thema_relm
+								, word_se
+								, relate_std_word
+								, administ_word_dfn
+								, administ_word_dc
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnadministrationword
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ADMINIST_WORD_ID = #searchKeyword# /*  */
+				administ_word_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADMINIST_WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				administ_word_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							ADMINIST_WORD_ID DESC /*  */
+							administ_word_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt_S" parameterClass="comtnadministrationwordSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt_S" parameterClass="ComtnadministrationwordVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnadministrationword
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ADMINIST_WORD_ID = #searchKeyword# /*  */
+				administ_word_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADMINIST_WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				administ_word_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

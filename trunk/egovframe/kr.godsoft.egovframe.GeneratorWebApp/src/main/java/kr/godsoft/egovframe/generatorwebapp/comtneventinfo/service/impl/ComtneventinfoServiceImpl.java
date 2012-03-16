@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.ComtneventinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.impl.ComtneventinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtneventinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service.impl.Comtneve
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtneventinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtneventinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtneventinfoList(ComtneventinfoDefaultVO searchVO) throws Exception {
-        return comtneventinfoDAO.selectComtneventinfoList(searchVO);
+    public List<EgovMap> selectComtneventinfoList(ComtneventinfoVO vo) throws Exception {
+        return comtneventinfoDAO.selectComtneventinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtneventinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtneventinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtneventinfoListTotCnt(ComtneventinfoDefaultVO searchVO) {
-		return comtneventinfoDAO.selectComtneventinfoListTotCnt(searchVO);
+    public int selectComtneventinfoListTotCnt(ComtneventinfoVO vo) {
+		return comtneventinfoDAO.selectComtneventinfoListTotCnt(vo);
 	}
     
 }

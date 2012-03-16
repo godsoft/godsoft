@@ -4,78 +4,79 @@
 <sqlMap namespace="Comtnleaderschdulde">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnleaderschduldeSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdulde.service.ComtnleaderschduldeDefaultVO"/>
+	<typeAlias  alias="ComtnleaderschduldeVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdulde.service.ComtnleaderschduldeVO"/>
 	
 	<resultMap id="comtnleaderschdulde" class="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdulde.service.ComtnleaderschduldeVO">
-		<result property="schdulId" column="SCHDUL_ID" columnIndex="1"/> <!--  -->
-		<result property="schdulDe" column="SCHDUL_DE" columnIndex="2"/> <!--  -->
+		<result property="schdulId" column="schdul_id" columnIndex="1"/>
+		<result property="schdulDe" column="schdul_de" columnIndex="2"/>
 	</resultMap>
 	
 	<insert id="comtnleaderschduldeDAO.insertComtnleaderschdulde_S">
 		<![CDATA[
 			INSERT INTO comtnleaderschdulde 
-				( SCHDUL_ID /*  */
-				  , SCHDUL_DE /*  */ )
-			VALUES ( #schdulId# /*  */
-				  , #schdulDe# /*  */ )
+				( SCHDUL_ID
+				  , schdul_de )
+			VALUES ( #schdulId#
+				  , #schdulDe# )
 		]]>
 	</insert>
 	
 	<update id="comtnleaderschduldeDAO.updateComtnleaderschdulde_S">
 		<![CDATA[
 			UPDATE comtnleaderschdulde
-			SET SCHDUL_ID=#schdulId# /*  */
-				, SCHDUL_DE=#schdulDe# /*  */
-			WHERE SCHDUL_ID=#schdulId# /*  */
-				AND SCHDUL_DE=#schdulDe# /*  */
+			SET schdul_id = #schdulId#
+				, schdul_de = #schdulDe#
+			WHERE schdul_id = #schdulId#
+				AND schdul_de = #schdulDe#
 		]]>
 	</update>
 	
 	<delete id="comtnleaderschduldeDAO.deleteComtnleaderschdulde_S">
 		<![CDATA[
 			DELETE FROM comtnleaderschdulde 
-			WHERE SCHDUL_ID=#schdulId# /*  */
-				AND SCHDUL_DE=#schdulDe# /*  */
+			WHERE schdul_id = #schdulId#
+				AND schdul_de = #schdulDe#
 		]]>
 	</delete>
 	
 	<select id="comtnleaderschduldeDAO.selectComtnleaderschdulde_S" resultMap="comtnleaderschdulde">
 		<![CDATA[
 			SELECT
-				SCHDUL_ID /*  */
-				, SCHDUL_DE /*  */
+				schdul_id
+				, schdul_de
 			FROM comtnleaderschdulde
-			WHERE SCHDUL_ID=#schdulId# /*  */
-				AND SCHDUL_DE=#schdulDe# /*  */
+			WHERE schdul_id = #schdulId#
+				AND schdul_de = #schdulDe#
 		]]>
 	</select>
 	
-	<select id="comtnleaderschduldeDAO.selectComtnleaderschduldeList_D" parameterClass="comtnleaderschduldeSerarchVO" resultClass="egovMap">
+	<select id="comtnleaderschduldeDAO.selectComtnleaderschduldeList_D" parameterClass="ComtnleaderschduldeVO" resultClass="egovMap">
 			SELECT
-								SCHDUL_ID /*  */
-								, SCHDUL_DE /*  */
+								schdul_id
+								, schdul_de
 					FROM comtnleaderschdulde
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SCHDUL_ID = #searchKeyword# /*  */
+				schdul_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SCHDUL_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				schdul_de LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SCHDUL_ID DESC /*  */
-							, SCHDUL_DE DESC /*  */
+							schdul_id DESC
+							, schdul_de DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnleaderschduldeDAO.selectComtnleaderschduldeListTotCnt_S" parameterClass="comtnleaderschduldeSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnleaderschduldeDAO.selectComtnleaderschduldeListTotCnt_S" parameterClass="ComtnleaderschduldeVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnleaderschdulde
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SCHDUL_ID = #searchKeyword# /*  */
+				schdul_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SCHDUL_DE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				schdul_de LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

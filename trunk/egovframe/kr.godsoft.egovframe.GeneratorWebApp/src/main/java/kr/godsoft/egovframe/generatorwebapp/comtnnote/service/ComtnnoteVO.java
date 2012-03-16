@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnnote.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnnoteVO extends ComtnnoteDefaultVO{
+public class ComtnnoteVO extends ComtnnoteDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** NOTE_ID */
     private String noteId;
     
-    /**  */
+    /** NOTE_SJ */
     private String noteSj;
     
-    /**  */
+    /** NOTE_CN */
     private String noteCn;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getNoteId() {

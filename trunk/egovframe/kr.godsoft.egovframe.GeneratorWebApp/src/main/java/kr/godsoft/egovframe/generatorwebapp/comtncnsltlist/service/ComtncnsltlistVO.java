@@ -6,85 +6,85 @@ package kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtncnsltlistVO extends ComtncnsltlistDefaultVO{
+public class ComtncnsltlistVO extends ComtncnsltlistDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CNSLT_ID */
     private String cnsltId;
     
-    /**  */
+    /** CNSLT_SJ */
     private String cnsltSj;
     
-    /**  */
+    /** OTHBC_AT */
     private String othbcAt;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** CNSLT_CN */
     private String cnsltCn;
     
-    /**  */
+    /** MANAGT_CN */
     private String managtCn;
     
-    /**  */
+    /** MANAGT_DE */
     private String managtDe;
     
-    /**  */
+    /** RDCNT */
     private int rdcnt;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** MIDDLE_TELNO */
     private String middleTelno;
     
-    /**  */
+    /** END_TELNO */
     private String endTelno;
     
-    /**  */
+    /** FRST_MBTLNUM */
     private String frstMbtlnum;
     
-    /**  */
+    /** MIDDLE_MBTLNUM */
     private String middleMbtlnum;
     
-    /**  */
+    /** END_MBTLNUM */
     private String endMbtlnum;
     
-    /**  */
+    /** WRITNG_DE */
     private String writngDe;
     
-    /**  */
+    /** WRTER_NM */
     private String wrterNm;
     
-    /**  */
+    /** EMAIL_ANSWER_AT */
     private String emailAnswerAt;
     
-    /**  */
+    /** QNA_PROCESS_STTUS_CODE */
     private String qnaProcessSttusCode;
     
-    /**  */
+    /** WRITNG_PASSWORD */
     private String writngPassword;
     
     public String getCnsltId() {

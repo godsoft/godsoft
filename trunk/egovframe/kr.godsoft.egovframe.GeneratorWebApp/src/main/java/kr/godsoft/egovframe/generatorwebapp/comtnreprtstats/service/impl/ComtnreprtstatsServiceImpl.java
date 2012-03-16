@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.impl.ComtnreprtstatsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnreprtstatsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.impl.Comtnre
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnreprtstats 목록
 	 * @exception Exception
 	 */
-    public List selectComtnreprtstatsList(ComtnreprtstatsDefaultVO searchVO) throws Exception {
-        return comtnreprtstatsDAO.selectComtnreprtstatsList(searchVO);
+    public List<EgovMap> selectComtnreprtstatsList(ComtnreprtstatsVO vo) throws Exception {
+        return comtnreprtstatsDAO.selectComtnreprtstatsList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnreprtstats 총 갯수
 	 * @exception
 	 */
-    public int selectComtnreprtstatsListTotCnt(ComtnreprtstatsDefaultVO searchVO) {
-		return comtnreprtstatsDAO.selectComtnreprtstatsListTotCnt(searchVO);
+    public int selectComtnreprtstatsListTotCnt(ComtnreprtstatsVO vo) {
+		return comtnreprtstatsDAO.selectComtnreprtstatsListTotCnt(vo);
 	}
     
 }

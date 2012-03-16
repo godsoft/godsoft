@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtneventinfoVO.eventId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtneventinfoVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtneventinfoVO" name="detailForm" id="detailForm">
+<form:form commandName="comtneventinfoVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>EVENT_ID *</th>
 			<td>
 				<form:input path="eventId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>EVENT_ID *</th>
 			<td>
 				<form:input path="eventId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,152 +93,107 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>BSNS_YEAR</th>
 			<td>
-	
 				<form:input path="bsnsYear" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="bsnsYear" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>BSNS_CODE</th>
 			<td>
-	
 				<form:input path="bsnsCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="bsnsCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EVENT_CN</th>
 			<td>
-	
 				<form:input path="eventCn" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="eventCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EVENT_SVC_BGNDE</th>
 			<td>
-	
 				<form:input path="eventSvcBgnde" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="eventSvcBgnde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SVC_USE_NMPR_CO</th>
 			<td>
-	
 				<form:input path="svcUseNmprCo" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="svcUseNmprCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CHARGER_NM</th>
 			<td>
-	
 				<form:input path="chargerNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="chargerNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>PRPARETG_CN</th>
 			<td>
-	
 				<form:input path="prparetgCn" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="prparetgCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGIST_PNTTM</th>
 			<td>
-	
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGISTER_ID</th>
 			<td>
-	
 				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDT_PNTTM</th>
 			<td>
-	
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDUSR_ID</th>
 			<td>
-	
 				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EVENT_SVC_ENDDE</th>
 			<td>
-	
 				<form:input path="eventSvcEndde" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="eventSvcEndde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EVENT_TY_CODE</th>
 			<td>
-	
 				<form:input path="eventTyCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="eventTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EVENT_CONFM_AT</th>
 			<td>
-	
 				<form:input path="eventConfmAt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="eventConfmAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EVENT_CONFM_DE</th>
 			<td>
-	
 				<form:input path="eventConfmDe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="eventConfmDe" />
 			</td>
 		</tr>	

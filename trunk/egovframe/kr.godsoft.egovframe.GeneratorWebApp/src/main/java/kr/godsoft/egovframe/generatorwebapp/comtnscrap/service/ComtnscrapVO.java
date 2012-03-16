@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtnscrap.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnscrapVO extends ComtnscrapDefaultVO{
+public class ComtnscrapVO extends ComtnscrapDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SCRAP_ID */
     private String scrapId;
     
-    /**  */
+    /** NTT_ID */
     private int nttId;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
+    /** SCRAP_NM */
     private String scrapNm;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getScrapId() {

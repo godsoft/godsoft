@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO;
 
 /**
  * @Class Name : ComtnonlinemanualController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.Comtnonlin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnonlinemanualController {
 	
     /**
 	 * comtnonlinemanual 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinemanualDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinemanualVO
 	 * @return "/comtnonlinemanual/ComtnonlinemanualList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnonlinemanual/ComtnonlinemanualList.do")
-    public String selectComtnonlinemanualList(@ModelAttribute("searchVO") ComtnonlinemanualDefaultVO searchVO, 
+    public String selectComtnonlinemanualList(@ModelAttribute("searchVO") ComtnonlinemanualVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnonlinemanualController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnonlinemanualList = comtnonlinemanualService.selectComtnonlinemanualList(searchVO);
+        List<EgovMap> comtnonlinemanualList = comtnonlinemanualService.selectComtnonlinemanualList(searchVO);
         model.addAttribute("resultList", comtnonlinemanualList);
         
         int totCnt = comtnonlinemanualService.selectComtnonlinemanualListTotCnt(searchVO);

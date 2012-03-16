@@ -4,92 +4,93 @@
 <sqlMap namespace="Comtnsms">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnsmsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsDefaultVO"/>
+	<typeAlias  alias="ComtnsmsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO"/>
 	
 	<resultMap id="comtnsms" class="kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO">
-		<result property="smsId" column="SMS_ID" columnIndex="1"/> <!--  -->
-		<result property="trnsmisTelno" column="TRNSMIS_TELNO" columnIndex="2"/> <!--  -->
-		<result property="trnsmisCn" column="TRNSMIS_CN" columnIndex="3"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="4"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
+		<result property="smsId" column="sms_id" columnIndex="1"/>
+		<result property="trnsmisTelno" column="trnsmis_telno" columnIndex="2"/>
+		<result property="trnsmisCn" column="trnsmis_cn" columnIndex="3"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="4"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="5"/>
 	</resultMap>
 	
 	<insert id="comtnsmsDAO.insertComtnsms_S">
 		<![CDATA[
 			INSERT INTO comtnsms 
-				( SMS_ID /*  */
-				  , TRNSMIS_TELNO /*  */
-				  , TRNSMIS_CN /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */ )
-			VALUES ( #smsId# /*  */
-					  , #trnsmisTelno# /*  */
-						  , #trnsmisCn# /*  */
-						  , SYSDATE() /*  */
-					  , #frstRegisterId# /*  */ )
+				( SMS_ID
+				  , trnsmis_telno
+				  , trnsmis_cn
+				  , frst_regist_pnttm
+				  , frst_register_id )
+			VALUES ( #smsId#
+				  , #trnsmisTelno#
+				  , #trnsmisCn#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId# )
 		]]>
 	</insert>
 	
 	<update id="comtnsmsDAO.updateComtnsms_S">
 		<![CDATA[
 			UPDATE comtnsms
-			SET SMS_ID=#smsId# /*  */
-				, TRNSMIS_TELNO=#trnsmisTelno# /*  */
-				, TRNSMIS_CN=#trnsmisCn# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-			WHERE SMS_ID=#smsId# /*  */
+			SET sms_id = #smsId#
+				, trnsmis_telno = #trnsmisTelno#
+				, trnsmis_cn = #trnsmisCn#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+			WHERE sms_id = #smsId#
 		]]>
 	</update>
 	
 	<delete id="comtnsmsDAO.deleteComtnsms_S">
 		<![CDATA[
 			DELETE FROM comtnsms 
-			WHERE SMS_ID=#smsId# /*  */
+			WHERE sms_id = #smsId#
 		]]>
 	</delete>
 	
 	<select id="comtnsmsDAO.selectComtnsms_S" resultMap="comtnsms">
 		<![CDATA[
 			SELECT
-				SMS_ID /*  */
-				, TRNSMIS_TELNO /*  */
-				, TRNSMIS_CN /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
+				sms_id
+				, trnsmis_telno
+				, trnsmis_cn
+				, frst_regist_pnttm
+				, frst_register_id
 			FROM comtnsms
-			WHERE SMS_ID=#smsId# /*  */
+			WHERE sms_id = #smsId#
 		]]>
 	</select>
 	
-	<select id="comtnsmsDAO.selectComtnsmsList_D" parameterClass="comtnsmsSerarchVO" resultClass="egovMap">
+	<select id="comtnsmsDAO.selectComtnsmsList_D" parameterClass="ComtnsmsVO" resultClass="egovMap">
 			SELECT
-								SMS_ID /*  */
-								, TRNSMIS_TELNO /*  */
-								, TRNSMIS_CN /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
+								sms_id
+								, trnsmis_telno
+								, trnsmis_cn
+								, frst_regist_pnttm
+								, frst_register_id
 					FROM comtnsms
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SMS_ID = #searchKeyword# /*  */
+				sms_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				TRNSMIS_TELNO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				trnsmis_telno LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SMS_ID DESC /*  */
+							sms_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnsmsDAO.selectComtnsmsListTotCnt_S" parameterClass="comtnsmsSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnsmsDAO.selectComtnsmsListTotCnt_S" parameterClass="ComtnsmsVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnsms
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SMS_ID = #searchKeyword# /*  */
+				sms_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				TRNSMIS_TELNO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				trnsmis_telno LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

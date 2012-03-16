@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageVO;
 
 /**
  * @Class Name : ComtnpopupmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.Comtnpopupm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnpopupmanageController {
 	
     /**
 	 * comtnpopupmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnpopupmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnpopupmanageVO
 	 * @return "/comtnpopupmanage/ComtnpopupmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnpopupmanage/ComtnpopupmanageList.do")
-    public String selectComtnpopupmanageList(@ModelAttribute("searchVO") ComtnpopupmanageDefaultVO searchVO, 
+    public String selectComtnpopupmanageList(@ModelAttribute("searchVO") ComtnpopupmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnpopupmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnpopupmanageList = comtnpopupmanageService.selectComtnpopupmanageList(searchVO);
+        List<EgovMap> comtnpopupmanageList = comtnpopupmanageService.selectComtnpopupmanageList(searchVO);
         model.addAttribute("resultList", comtnpopupmanageList);
         
         int totCnt = comtnpopupmanageService.selectComtnpopupmanageListTotCnt(searchVO);

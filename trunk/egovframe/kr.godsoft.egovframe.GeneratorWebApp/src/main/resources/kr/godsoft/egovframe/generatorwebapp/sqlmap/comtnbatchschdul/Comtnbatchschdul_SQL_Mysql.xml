@@ -4,128 +4,129 @@
 <sqlMap namespace="Comtnbatchschdul">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnbatchschdulSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulDefaultVO"/>
+	<typeAlias  alias="ComtnbatchschdulVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO"/>
 	
 	<resultMap id="comtnbatchschdul" class="kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO">
-		<result property="batchSchdulId" column="BATCH_SCHDUL_ID" columnIndex="1"/> <!--  -->
-		<result property="batchOpertId" column="BATCH_OPERT_ID" columnIndex="2"/> <!--  -->
-		<result property="executCycle" column="EXECUT_CYCLE" columnIndex="3"/> <!--  -->
-		<result property="executSchdulDe" column="EXECUT_SCHDUL_DE" columnIndex="4"/> <!--  -->
-		<result property="executSchdulHour" column="EXECUT_SCHDUL_HOUR" columnIndex="5"/> <!--  -->
-		<result property="executSchdulMnt" column="EXECUT_SCHDUL_MNT" columnIndex="6"/> <!--  -->
-		<result property="executSchdulSecnd" column="EXECUT_SCHDUL_SECND" columnIndex="7"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="8"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="9"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="batchSchdulId" column="batch_schdul_id" columnIndex="1"/>
+		<result property="batchOpertId" column="batch_opert_id" columnIndex="2"/>
+		<result property="executCycle" column="execut_cycle" columnIndex="3"/>
+		<result property="executSchdulDe" column="execut_schdul_de" columnIndex="4"/>
+		<result property="executSchdulHour" column="execut_schdul_hour" columnIndex="5"/>
+		<result property="executSchdulMnt" column="execut_schdul_mnt" columnIndex="6"/>
+		<result property="executSchdulSecnd" column="execut_schdul_secnd" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
 	</resultMap>
 	
 	<insert id="comtnbatchschdulDAO.insertComtnbatchschdul_S">
 		<![CDATA[
 			INSERT INTO comtnbatchschdul 
-				( BATCH_SCHDUL_ID /*  */
-				  , BATCH_OPERT_ID /*  */
-				  , EXECUT_CYCLE /*  */
-				  , EXECUT_SCHDUL_DE /*  */
-				  , EXECUT_SCHDUL_HOUR /*  */
-				  , EXECUT_SCHDUL_MNT /*  */
-				  , EXECUT_SCHDUL_SECND /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #batchSchdulId# /*  */
-					  , #batchOpertId# /*  */
-						  , #executCycle# /*  */
-						  , #executSchdulDe# /*  */
-						  , #executSchdulHour# /*  */
-						  , #executSchdulMnt# /*  */
-						  , #executSchdulSecnd# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( BATCH_SCHDUL_ID
+				  , batch_opert_id
+				  , execut_cycle
+				  , execut_schdul_de
+				  , execut_schdul_hour
+				  , execut_schdul_mnt
+				  , execut_schdul_secnd
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #batchSchdulId#
+				  , #batchOpertId#
+				  , #executCycle#
+				  , #executSchdulDe#
+				  , #executSchdulHour#
+				  , #executSchdulMnt#
+				  , #executSchdulSecnd#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnbatchschdulDAO.updateComtnbatchschdul_S">
 		<![CDATA[
 			UPDATE comtnbatchschdul
-			SET BATCH_SCHDUL_ID=#batchSchdulId# /*  */
-				, BATCH_OPERT_ID=#batchOpertId# /*  */
-				, EXECUT_CYCLE=#executCycle# /*  */
-				, EXECUT_SCHDUL_DE=#executSchdulDe# /*  */
-				, EXECUT_SCHDUL_HOUR=#executSchdulHour# /*  */
-				, EXECUT_SCHDUL_MNT=#executSchdulMnt# /*  */
-				, EXECUT_SCHDUL_SECND=#executSchdulSecnd# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+			SET batch_schdul_id = #batchSchdulId#
+				, batch_opert_id = #batchOpertId#
+				, execut_cycle = #executCycle#
+				, execut_schdul_de = #executSchdulDe#
+				, execut_schdul_hour = #executSchdulHour#
+				, execut_schdul_mnt = #executSchdulMnt#
+				, execut_schdul_secnd = #executSchdulSecnd#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE batch_schdul_id = #batchSchdulId#
 		]]>
 	</update>
 	
 	<delete id="comtnbatchschdulDAO.deleteComtnbatchschdul_S">
 		<![CDATA[
 			DELETE FROM comtnbatchschdul 
-			WHERE BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+			WHERE batch_schdul_id = #batchSchdulId#
 		]]>
 	</delete>
 	
 	<select id="comtnbatchschdulDAO.selectComtnbatchschdul_S" resultMap="comtnbatchschdul">
 		<![CDATA[
 			SELECT
-				BATCH_SCHDUL_ID /*  */
-				, BATCH_OPERT_ID /*  */
-				, EXECUT_CYCLE /*  */
-				, EXECUT_SCHDUL_DE /*  */
-				, EXECUT_SCHDUL_HOUR /*  */
-				, EXECUT_SCHDUL_MNT /*  */
-				, EXECUT_SCHDUL_SECND /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				batch_schdul_id
+				, batch_opert_id
+				, execut_cycle
+				, execut_schdul_de
+				, execut_schdul_hour
+				, execut_schdul_mnt
+				, execut_schdul_secnd
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnbatchschdul
-			WHERE BATCH_SCHDUL_ID=#batchSchdulId# /*  */
+			WHERE batch_schdul_id = #batchSchdulId#
 		]]>
 	</select>
 	
-	<select id="comtnbatchschdulDAO.selectComtnbatchschdulList_D" parameterClass="comtnbatchschdulSerarchVO" resultClass="egovMap">
+	<select id="comtnbatchschdulDAO.selectComtnbatchschdulList_D" parameterClass="ComtnbatchschdulVO" resultClass="egovMap">
 			SELECT
-								BATCH_SCHDUL_ID /*  */
-								, BATCH_OPERT_ID /*  */
-								, EXECUT_CYCLE /*  */
-								, EXECUT_SCHDUL_DE /*  */
-								, EXECUT_SCHDUL_HOUR /*  */
-								, EXECUT_SCHDUL_MNT /*  */
-								, EXECUT_SCHDUL_SECND /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								batch_schdul_id
+								, batch_opert_id
+								, execut_cycle
+								, execut_schdul_de
+								, execut_schdul_hour
+								, execut_schdul_mnt
+								, execut_schdul_secnd
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnbatchschdul
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BATCH_SCHDUL_ID = #searchKeyword# /*  */
+				batch_schdul_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				BATCH_OPERT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				batch_opert_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							BATCH_SCHDUL_ID DESC /*  */
+							batch_schdul_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt_S" parameterClass="comtnbatchschdulSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt_S" parameterClass="ComtnbatchschdulVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnbatchschdul
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BATCH_SCHDUL_ID = #searchKeyword# /*  */
+				batch_schdul_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				BATCH_OPERT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				batch_opert_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.impl.ComtnauthorgroupinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnauthorgroupinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnauthorgroupinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnauthorgroupinfoList(ComtnauthorgroupinfoDefaultVO searchVO) throws Exception {
-        return comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoList(searchVO);
+    public List<EgovMap> selectComtnauthorgroupinfoList(ComtnauthorgroupinfoVO vo) throws Exception {
+        return comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnauthorgroupinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoDefaultVO searchVO) {
-		return comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoListTotCnt(searchVO);
+    public int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoVO vo) {
+		return comtnauthorgroupinfoDAO.selectComtnauthorgroupinfoListTotCnt(vo);
 	}
     
 }

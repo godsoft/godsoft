@@ -6,73 +6,73 @@ package kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtneventmanageVO extends ComtneventmanageDefaultVO{
+public class ComtneventmanageVO extends ComtneventmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EVENT_ID */
     private String eventId;
     
-    /**  */
+    /** EVENT_SE */
     private String eventSe;
     
-    /**  */
+    /** EVENT_NM */
     private String eventNm;
     
-    /**  */
+    /** EVENT_PURPS */
     private String eventPurps;
     
-    /**  */
+    /** EVENT_BGNDE */
     private String eventBgnde;
     
-    /**  */
+    /** EVENT_ENDDE */
     private String eventEndde;
     
-    /**  */
+    /** EVENT_AUSPC_INSTT_NM */
     private String eventAuspcInsttNm;
     
-    /**  */
+    /** EVENT_MNGT_INSTT_NM */
     private String eventMngtInsttNm;
     
-    /**  */
+    /** EVENT_PLACE */
     private String eventPlace;
     
-    /**  */
+    /** EVENT_CN */
     private String eventCn;
     
-    /**  */
+    /** CT_OCCRRNC_AT */
     private String ctOccrrncAt;
     
-    /**  */
+    /** PARTCPT_CT */
     private int partcptCt;
     
-    /**  */
+    /** GARDEN */
     private int garden;
     
-    /**  */
+    /** REFRN_URL */
     private String refrnUrl;
     
-    /**  */
+    /** RCEPT_BGNDE */
     private String rceptBgnde;
     
-    /**  */
+    /** RCEPT_ENDDE */
     private String rceptEndde;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getEventId() {

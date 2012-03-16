@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtncntcmessageitemVO extends ComtncntcmessageitemDefaultVO{
+public class ComtncntcmessageitemVO extends ComtncntcmessageitemDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CNTC_MSSAGE_ID */
     private String cntcMssageId;
     
-    /**  */
+    /** IEM_ID */
     private String iemId;
     
-    /**  */
+    /** IEM_NM */
     private String iemNm;
     
-    /**  */
+    /** IEM_TY */
     private String iemTy;
     
-    /**  */
+    /** IEM_LT */
     private int iemLt;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getCntcMssageId() {

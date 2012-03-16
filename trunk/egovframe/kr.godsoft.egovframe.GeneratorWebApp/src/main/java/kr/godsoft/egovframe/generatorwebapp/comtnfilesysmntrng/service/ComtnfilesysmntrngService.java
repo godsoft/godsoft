@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnfilesysmntrngService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.Comtnfile
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnfilesysmntrngService {
 	 * @return comtnfilesysmntrng 목록
 	 * @exception Exception
 	 */
-    List selectComtnfilesysmntrngList(ComtnfilesysmntrngDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnfilesysmntrngList(ComtnfilesysmntrngVO vo) throws Exception;
     
     /**
 	 * comtnfilesysmntrng 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnfilesysmntrngService {
 	 * @return comtnfilesysmntrng 총 갯수
 	 * @exception
 	 */
-    int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngDefaultVO searchVO);
+    int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngVO vo);
     
 }

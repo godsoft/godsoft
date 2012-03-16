@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnindvdlyrycmanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.Comtni
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnindvdlyrycmanageService {
 	 * @return comtnindvdlyrycmanage 목록
 	 * @exception Exception
 	 */
-    List selectComtnindvdlyrycmanageList(ComtnindvdlyrycmanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnindvdlyrycmanageList(ComtnindvdlyrycmanageVO vo) throws Exception;
     
     /**
 	 * comtnindvdlyrycmanage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnindvdlyrycmanageService {
 	 * @return comtnindvdlyrycmanage 총 갯수
 	 * @exception
 	 */
-    int selectComtnindvdlyrycmanageListTotCnt(ComtnindvdlyrycmanageDefaultVO searchVO);
+    int selectComtnindvdlyrycmanageListTotCnt(ComtnindvdlyrycmanageVO vo);
     
 }

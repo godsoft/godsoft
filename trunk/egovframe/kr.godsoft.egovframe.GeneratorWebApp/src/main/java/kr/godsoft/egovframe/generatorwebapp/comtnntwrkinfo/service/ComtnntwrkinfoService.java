@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service.ComtnntwrkinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service.ComtnntwrkinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnntwrkinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service.Comtnntwrkinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnntwrkinfoService {
 	 * @return comtnntwrkinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnntwrkinfoList(ComtnntwrkinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnntwrkinfoList(ComtnntwrkinfoVO vo) throws Exception;
     
     /**
 	 * comtnntwrkinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnntwrkinfoService {
 	 * @return comtnntwrkinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnntwrkinfoListTotCnt(ComtnntwrkinfoDefaultVO searchVO);
+    int selectComtnntwrkinfoListTotCnt(ComtnntwrkinfoVO vo);
     
 }

@@ -4,98 +4,99 @@
 <sqlMap namespace="Comtnleadersttus">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnleadersttusSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusDefaultVO"/>
+	<typeAlias  alias="ComtnleadersttusVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusVO"/>
 	
 	<resultMap id="comtnleadersttus" class="kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusVO">
-		<result property="leaderId" column="LEADER_ID" columnIndex="1"/> <!--  -->
-		<result property="leaderSttus" column="LEADER_STTUS" columnIndex="2"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="3"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="5"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
+		<result property="leaderId" column="leader_id" columnIndex="1"/>
+		<result property="leaderSttus" column="leader_sttus" columnIndex="2"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="3"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="4"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="5"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="6"/>
 	</resultMap>
 	
 	<insert id="comtnleadersttusDAO.insertComtnleadersttus_S">
 		<![CDATA[
 			INSERT INTO comtnleadersttus 
-				( LEADER_ID /*  */
-				  , LEADER_STTUS /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #leaderId# /*  */
-					  , #leaderSttus# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-					  , #lastUpdusrId# /*  */ )
+				( LEADER_ID
+				  , leader_sttus
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #leaderId#
+				  , #leaderSttus#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtnleadersttusDAO.updateComtnleadersttus_S">
 		<![CDATA[
 			UPDATE comtnleadersttus
-			SET LEADER_ID=#leaderId# /*  */
-				, LEADER_STTUS=#leaderSttus# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE LEADER_ID=#leaderId# /*  */
+			SET leader_id = #leaderId#
+				, leader_sttus = #leaderSttus#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE leader_id = #leaderId#
 		]]>
 	</update>
 	
 	<delete id="comtnleadersttusDAO.deleteComtnleadersttus_S">
 		<![CDATA[
 			DELETE FROM comtnleadersttus 
-			WHERE LEADER_ID=#leaderId# /*  */
+			WHERE leader_id = #leaderId#
 		]]>
 	</delete>
 	
 	<select id="comtnleadersttusDAO.selectComtnleadersttus_S" resultMap="comtnleadersttus">
 		<![CDATA[
 			SELECT
-				LEADER_ID /*  */
-				, LEADER_STTUS /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
+				leader_id
+				, leader_sttus
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtnleadersttus
-			WHERE LEADER_ID=#leaderId# /*  */
+			WHERE leader_id = #leaderId#
 		]]>
 	</select>
 	
-	<select id="comtnleadersttusDAO.selectComtnleadersttusList_D" parameterClass="comtnleadersttusSerarchVO" resultClass="egovMap">
+	<select id="comtnleadersttusDAO.selectComtnleadersttusList_D" parameterClass="ComtnleadersttusVO" resultClass="egovMap">
 			SELECT
-								LEADER_ID /*  */
-								, LEADER_STTUS /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
+								leader_id
+								, leader_sttus
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtnleadersttus
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				LEADER_ID = #searchKeyword# /*  */
+				leader_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				LEADER_STTUS LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				leader_sttus LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							LEADER_ID DESC /*  */
+							leader_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnleadersttusDAO.selectComtnleadersttusListTotCnt_S" parameterClass="comtnleadersttusSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnleadersttusDAO.selectComtnleadersttusListTotCnt_S" parameterClass="ComtnleadersttusVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnleadersttus
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				LEADER_ID = #searchKeyword# /*  */
+				leader_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				LEADER_STTUS LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				leader_sttus LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

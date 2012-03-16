@@ -6,31 +6,31 @@ package kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgecntnts.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnindvdlpgecntntsVO extends ComtnindvdlpgecntntsDefaultVO{
+public class ComtnindvdlpgecntntsVO extends ComtnindvdlpgecntntsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CNTNTS_ID */
     private String cntntsId;
     
-    /**  */
+    /** CNTNTS_NM */
     private String cntntsNm;
     
-    /**  */
+    /** CNTC_URL */
     private String cntcUrl;
     
-    /**  */
+    /** CNTNTS_USE_AT */
     private String cntntsUseAt;
     
-    /**  */
+    /** CNTNTS_LINK_URL */
     private String cntntsLinkUrl;
     
-    /**  */
+    /** CNTNTS_DC */
     private String cntntsDc;
     
     public String getCntntsId() {

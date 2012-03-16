@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsVO;
 
 /**
  * @Class Name : ComtnemplyrscrtyestbsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.Comtne
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnemplyrscrtyestbsController {
 	
     /**
 	 * comtnemplyrscrtyestbs 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnemplyrscrtyestbsDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnemplyrscrtyestbsVO
 	 * @return "/comtnemplyrscrtyestbs/ComtnemplyrscrtyestbsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnemplyrscrtyestbs/ComtnemplyrscrtyestbsList.do")
-    public String selectComtnemplyrscrtyestbsList(@ModelAttribute("searchVO") ComtnemplyrscrtyestbsDefaultVO searchVO, 
+    public String selectComtnemplyrscrtyestbsList(@ModelAttribute("searchVO") ComtnemplyrscrtyestbsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnemplyrscrtyestbsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnemplyrscrtyestbsList = comtnemplyrscrtyestbsService.selectComtnemplyrscrtyestbsList(searchVO);
+        List<EgovMap> comtnemplyrscrtyestbsList = comtnemplyrscrtyestbsService.selectComtnemplyrscrtyestbsList(searchVO);
         model.addAttribute("resultList", comtnemplyrscrtyestbsList);
         
         int totCnt = comtnemplyrscrtyestbsService.selectComtnemplyrscrtyestbsListTotCnt(searchVO);

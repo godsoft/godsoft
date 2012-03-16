@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnrwardmanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.Comtnrwardm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnrwardmanageService {
 	 * @return comtnrwardmanage 목록
 	 * @exception Exception
 	 */
-    List selectComtnrwardmanageList(ComtnrwardmanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnrwardmanageList(ComtnrwardmanageVO vo) throws Exception;
     
     /**
 	 * comtnrwardmanage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnrwardmanageService {
 	 * @return comtnrwardmanage 총 갯수
 	 * @exception
 	 */
-    int selectComtnrwardmanageListTotCnt(ComtnrwardmanageDefaultVO searchVO);
+    int selectComtnrwardmanageListTotCnt(ComtnrwardmanageVO vo);
     
 }

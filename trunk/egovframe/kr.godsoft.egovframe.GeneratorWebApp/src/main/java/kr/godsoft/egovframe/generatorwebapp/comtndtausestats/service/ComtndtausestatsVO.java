@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndtausestatsVO extends ComtndtausestatsDefaultVO{
+public class ComtndtausestatsVO extends ComtndtausestatsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** DTA_USE_STATS_ID */
     private String dtaUseStatsId;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
+    /** NTT_ID */
     private int nttId;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FILE_SN */
     private int fileSn;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getDtaUseStatsId() {

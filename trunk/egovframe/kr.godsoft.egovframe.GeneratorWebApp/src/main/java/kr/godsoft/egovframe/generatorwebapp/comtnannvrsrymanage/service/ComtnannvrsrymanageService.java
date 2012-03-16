@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnannvrsrymanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.Comtnann
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnannvrsrymanageService {
 	 * @return comtnannvrsrymanage 목록
 	 * @exception Exception
 	 */
-    List selectComtnannvrsrymanageList(ComtnannvrsrymanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnannvrsrymanageList(ComtnannvrsrymanageVO vo) throws Exception;
     
     /**
 	 * comtnannvrsrymanage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnannvrsrymanageService {
 	 * @return comtnannvrsrymanage 총 갯수
 	 * @exception
 	 */
-    int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageDefaultVO searchVO);
+    int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageVO vo);
     
 }

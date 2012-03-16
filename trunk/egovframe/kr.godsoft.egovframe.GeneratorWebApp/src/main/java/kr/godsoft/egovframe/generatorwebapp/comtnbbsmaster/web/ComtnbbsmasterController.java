@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterVO;
 
 /**
  * @Class Name : ComtnbbsmasterController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.Comtnbbsmaste
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbbsmasterController {
 	
     /**
 	 * comtnbbsmaster 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbbsmasterDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbbsmasterVO
 	 * @return "/comtnbbsmaster/ComtnbbsmasterList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbbsmaster/ComtnbbsmasterList.do")
-    public String selectComtnbbsmasterList(@ModelAttribute("searchVO") ComtnbbsmasterDefaultVO searchVO, 
+    public String selectComtnbbsmasterList(@ModelAttribute("searchVO") ComtnbbsmasterVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbbsmasterController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbbsmasterList = comtnbbsmasterService.selectComtnbbsmasterList(searchVO);
+        List<EgovMap> comtnbbsmasterList = comtnbbsmasterService.selectComtnbbsmasterList(searchVO);
         model.addAttribute("resultList", comtnbbsmasterList);
         
         int totCnt = comtnbbsmasterService.selectComtnbbsmasterListTotCnt(searchVO);

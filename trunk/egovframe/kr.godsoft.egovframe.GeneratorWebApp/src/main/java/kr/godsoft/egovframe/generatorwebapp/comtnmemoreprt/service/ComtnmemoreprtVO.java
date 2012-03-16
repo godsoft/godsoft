@@ -6,55 +6,55 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmemoreprtVO extends ComtnmemoreprtDefaultVO{
+public class ComtnmemoreprtVO extends ComtnmemoreprtDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** REPRT_SJ */
     private String reprtSj;
     
-    /**  */
+    /** REPORT_DE */
     private String reportDe;
     
-    /**  */
+    /** WRTER_ID */
     private String wrterId;
     
-    /**  */
+    /** REPORTR_ID */
     private String reportrId;
     
-    /**  */
+    /** REPORT_CN */
     private String reportCn;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** DRCT_MATTER */
     private String drctMatter;
     
-    /**  */
+    /** DRCT_MATTER_REGIST_DT */
     private String drctMatterRegistDt;
     
-    /**  */
+    /** REPORTR_INQIRE_DT */
     private String reportrInqireDt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** REPRT_ID */
     private String reprtId;
     
     public String getReprtSj() {

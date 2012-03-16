@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service.ComtncnsltlistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service.ComtncnsltlistVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtncnsltlistService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service.Comtncnsltlis
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtncnsltlistService {
 	 * @return comtncnsltlist 목록
 	 * @exception Exception
 	 */
-    List selectComtncnsltlistList(ComtncnsltlistDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtncnsltlistList(ComtncnsltlistVO vo) throws Exception;
     
     /**
 	 * comtncnsltlist 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtncnsltlistService {
 	 * @return comtncnsltlist 총 갯수
 	 * @exception
 	 */
-    int selectComtncnsltlistListTotCnt(ComtncnsltlistDefaultVO searchVO);
+    int selectComtncnsltlistListTotCnt(ComtncnsltlistVO vo);
     
 }

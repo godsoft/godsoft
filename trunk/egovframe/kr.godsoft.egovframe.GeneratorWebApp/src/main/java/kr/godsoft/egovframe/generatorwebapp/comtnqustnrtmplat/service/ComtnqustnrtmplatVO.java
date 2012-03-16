@@ -6,41 +6,41 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqustnrtmplatVO extends ComtnqustnrtmplatDefaultVO{
+public class ComtnqustnrtmplatVO extends ComtnqustnrtmplatDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QUSTNR_TMPLAT_ID */
     private String qustnrTmplatId;
     
-    /**  */
+    /** QUSTNR_TMPLAT_TY */
     private String qustnrTmplatTy;
     
-    /**  */
+    /** QUSTNR_TMPLAT_DC */
     private String qustnrTmplatDc;
     
-    /**  */
+    /** QUSTNR_TMPLAT_PATH_NM */
     private String qustnrTmplatPathNm;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
-    private int qustnrTmplatImageInfo;
+    /** QUSTNR_TMPLAT_IMAGE_INFO */
+    private String qustnrTmplatImageInfo;
     
     public String getQustnrTmplatId() {
         return this.qustnrTmplatId;
@@ -106,11 +106,11 @@ public class ComtnqustnrtmplatVO extends ComtnqustnrtmplatDefaultVO{
         this.lastUpdusrId = lastUpdusrId;
     }
     
-    public int getQustnrTmplatImageInfo() {
+    public String getQustnrTmplatImageInfo() {
         return this.qustnrTmplatImageInfo;
     }
     
-    public void setQustnrTmplatImageInfo(int qustnrTmplatImageInfo) {
+    public void setQustnrTmplatImageInfo(String qustnrTmplatImageInfo) {
         this.qustnrTmplatImageInfo = qustnrTmplatImageInfo;
     }
     

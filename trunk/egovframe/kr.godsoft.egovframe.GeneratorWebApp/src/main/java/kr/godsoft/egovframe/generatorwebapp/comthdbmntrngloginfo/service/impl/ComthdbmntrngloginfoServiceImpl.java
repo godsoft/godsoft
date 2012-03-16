@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.impl.ComthdbmntrngloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComthdbmntrngloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComthdbmntrngloginfoServiceImpl extends AbstractServiceImpl impleme
 	 * @return comthdbmntrngloginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComthdbmntrngloginfoList(ComthdbmntrngloginfoDefaultVO searchVO) throws Exception {
-        return comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoList(searchVO);
+    public List<EgovMap> selectComthdbmntrngloginfoList(ComthdbmntrngloginfoVO vo) throws Exception {
+        return comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComthdbmntrngloginfoServiceImpl extends AbstractServiceImpl impleme
 	 * @return comthdbmntrngloginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComthdbmntrngloginfoListTotCnt(ComthdbmntrngloginfoDefaultVO searchVO) {
-		return comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoListTotCnt(searchVO);
+    public int selectComthdbmntrngloginfoListTotCnt(ComthdbmntrngloginfoVO vo) {
+		return comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoListTotCnt(vo);
 	}
     
 }

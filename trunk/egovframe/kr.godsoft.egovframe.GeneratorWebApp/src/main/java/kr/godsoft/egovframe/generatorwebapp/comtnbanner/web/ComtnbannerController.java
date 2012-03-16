@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
 
 /**
  * @Class Name : ComtnbannerController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbannerController {
 	
     /**
 	 * comtnbanner 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbannerDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbannerVO
 	 * @return "/comtnbanner/ComtnbannerList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbanner/ComtnbannerList.do")
-    public String selectComtnbannerList(@ModelAttribute("searchVO") ComtnbannerDefaultVO searchVO, 
+    public String selectComtnbannerList(@ModelAttribute("searchVO") ComtnbannerVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbannerController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbannerList = comtnbannerService.selectComtnbannerList(searchVO);
+        List<EgovMap> comtnbannerList = comtnbannerService.selectComtnbannerList(searchVO);
         model.addAttribute("resultList", comtnbannerList);
         
         int totCnt = comtnbannerService.selectComtnbannerListTotCnt(searchVO);

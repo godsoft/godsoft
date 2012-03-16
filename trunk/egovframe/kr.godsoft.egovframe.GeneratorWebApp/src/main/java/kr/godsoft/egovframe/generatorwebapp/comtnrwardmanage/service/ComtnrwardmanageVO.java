@@ -6,61 +6,61 @@ package kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnrwardmanageVO extends ComtnrwardmanageDefaultVO{
+public class ComtnrwardmanageVO extends ComtnrwardmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** RWARD_ID */
     private String rwardId;
     
-    /**  */
+    /** RWARDWNR_ID */
     private String rwardwnrId;
     
-    /**  */
+    /** RWARD_CODE */
     private String rwardCode;
     
-    /**  */
+    /** RWARD_DE */
     private String rwardDe;
     
-    /**  */
+    /** RWARD_NM */
     private String rwardNm;
     
-    /**  */
+    /** PBLEN_CN */
     private String pblenCn;
     
-    /**  */
+    /** SANCTNER_ID */
     private String sanctnerId;
     
-    /**  */
+    /** CONFM_AT */
     private String confmAt;
     
-    /**  */
+    /** SANCTN_DT */
     private String sanctnDt;
     
-    /**  */
+    /** RETURN_RESN */
     private String returnResn;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** INFRML_SANCTN_ID */
     private String infrmlSanctnId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getRwardId() {

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbbsmasteroptn.service.ComtnbbsmasteroptnVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsmasteroptn.service.ComtnbbsmasteroptnDefaultVO;
 
 /**
  * @Class Name : ComtnbbsmasteroptnDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsmasteroptn.service.Comtnbbsm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
 	 * @return comtnbbsmasteroptn 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbbsmasteroptnList(ComtnbbsmasteroptnDefaultVO searchVO) throws Exception {
-        return list("comtnbbsmasteroptnDAO.selectComtnbbsmasteroptnList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbbsmasteroptnList(ComtnbbsmasteroptnVO vo) throws Exception {
+        return list("comtnbbsmasteroptnDAO.selectComtnbbsmasteroptnList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
 	 * @return comtnbbsmasteroptn 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbbsmasteroptnListTotCnt(ComtnbbsmasteroptnDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbbsmasteroptnDAO.selectComtnbbsmasteroptnListTotCnt_S", searchVO);
+    public int selectComtnbbsmasteroptnListTotCnt(ComtnbbsmasteroptnVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbbsmasteroptnDAO.selectComtnbbsmasteroptnListTotCnt_S", vo);
     }
 
 }

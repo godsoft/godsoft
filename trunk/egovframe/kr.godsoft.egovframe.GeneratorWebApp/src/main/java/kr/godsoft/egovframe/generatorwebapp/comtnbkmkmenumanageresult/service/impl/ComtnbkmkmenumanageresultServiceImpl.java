@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.ComtnbkmkmenumanageresultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.impl.ComtnbkmkmenumanageresultDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbkmkmenumanageresultServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service.im
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbkmkmenumanageresultServiceImpl extends AbstractServiceImpl im
 	 * @return comtnbkmkmenumanageresult 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbkmkmenumanageresultList(ComtnbkmkmenumanageresultDefaultVO searchVO) throws Exception {
-        return comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultList(searchVO);
+    public List<EgovMap> selectComtnbkmkmenumanageresultList(ComtnbkmkmenumanageresultVO vo) throws Exception {
+        return comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbkmkmenumanageresultServiceImpl extends AbstractServiceImpl im
 	 * @return comtnbkmkmenumanageresult 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbkmkmenumanageresultListTotCnt(ComtnbkmkmenumanageresultDefaultVO searchVO) {
-		return comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultListTotCnt(searchVO);
+    public int selectComtnbkmkmenumanageresultListTotCnt(ComtnbkmkmenumanageresultVO vo) {
+		return comtnbkmkmenumanageresultDAO.selectComtnbkmkmenumanageresultListTotCnt(vo);
 	}
     
 }

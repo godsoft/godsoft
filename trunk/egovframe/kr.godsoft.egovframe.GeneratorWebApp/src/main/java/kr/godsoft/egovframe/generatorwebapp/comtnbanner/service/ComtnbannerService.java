@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbanner.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbannerService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbannerService {
 	 * @return comtnbanner 목록
 	 * @exception Exception
 	 */
-    List selectComtnbannerList(ComtnbannerDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbannerList(ComtnbannerVO vo) throws Exception;
     
     /**
 	 * comtnbanner 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbannerService {
 	 * @return comtnbanner 총 갯수
 	 * @exception
 	 */
-    int selectComtnbannerListTotCnt(ComtnbannerDefaultVO searchVO);
+    int selectComtnbannerListTotCnt(ComtnbannerVO vo);
     
 }

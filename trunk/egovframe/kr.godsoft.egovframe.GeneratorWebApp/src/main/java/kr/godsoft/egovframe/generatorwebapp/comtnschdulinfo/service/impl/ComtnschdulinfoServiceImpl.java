@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.impl.ComtnschdulinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnschdulinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.impl.Comtnsc
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnschdulinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnschdulinfoList(ComtnschdulinfoDefaultVO searchVO) throws Exception {
-        return comtnschdulinfoDAO.selectComtnschdulinfoList(searchVO);
+    public List<EgovMap> selectComtnschdulinfoList(ComtnschdulinfoVO vo) throws Exception {
+        return comtnschdulinfoDAO.selectComtnschdulinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnschdulinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnschdulinfoListTotCnt(ComtnschdulinfoDefaultVO searchVO) {
-		return comtnschdulinfoDAO.selectComtnschdulinfoListTotCnt(searchVO);
+    public int selectComtnschdulinfoListTotCnt(ComtnschdulinfoVO vo) {
+		return comtnschdulinfoDAO.selectComtnschdulinfoListTotCnt(vo);
 	}
     
 }

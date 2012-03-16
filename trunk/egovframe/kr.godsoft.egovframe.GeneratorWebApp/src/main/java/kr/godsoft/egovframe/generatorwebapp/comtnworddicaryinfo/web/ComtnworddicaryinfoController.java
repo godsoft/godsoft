@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO;
 
 /**
  * @Class Name : ComtnworddicaryinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.Comtnwor
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnworddicaryinfoController {
 	
     /**
 	 * comtnworddicaryinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnworddicaryinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnworddicaryinfoVO
 	 * @return "/comtnworddicaryinfo/ComtnworddicaryinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnworddicaryinfo/ComtnworddicaryinfoList.do")
-    public String selectComtnworddicaryinfoList(@ModelAttribute("searchVO") ComtnworddicaryinfoDefaultVO searchVO, 
+    public String selectComtnworddicaryinfoList(@ModelAttribute("searchVO") ComtnworddicaryinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnworddicaryinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnworddicaryinfoList = comtnworddicaryinfoService.selectComtnworddicaryinfoList(searchVO);
+        List<EgovMap> comtnworddicaryinfoList = comtnworddicaryinfoService.selectComtnworddicaryinfoList(searchVO);
         model.addAttribute("resultList", comtnworddicaryinfoList);
         
         int totCnt = comtnworddicaryinfoService.selectComtnworddicaryinfoListTotCnt(searchVO);

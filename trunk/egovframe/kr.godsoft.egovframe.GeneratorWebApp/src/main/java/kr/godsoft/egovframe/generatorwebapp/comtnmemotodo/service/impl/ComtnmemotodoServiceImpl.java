@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.impl.ComtnmemotodoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmemotodoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.impl.Comtnmemo
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnmemotodoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnmemotodo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmemotodoList(ComtnmemotodoDefaultVO searchVO) throws Exception {
-        return comtnmemotodoDAO.selectComtnmemotodoList(searchVO);
+    public List<EgovMap> selectComtnmemotodoList(ComtnmemotodoVO vo) throws Exception {
+        return comtnmemotodoDAO.selectComtnmemotodoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnmemotodoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnmemotodo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmemotodoListTotCnt(ComtnmemotodoDefaultVO searchVO) {
-		return comtnmemotodoDAO.selectComtnmemotodoListTotCnt(searchVO);
+    public int selectComtnmemotodoListTotCnt(ComtnmemotodoVO vo) {
+		return comtnmemotodoDAO.selectComtnmemotodoListTotCnt(vo);
 	}
     
 }

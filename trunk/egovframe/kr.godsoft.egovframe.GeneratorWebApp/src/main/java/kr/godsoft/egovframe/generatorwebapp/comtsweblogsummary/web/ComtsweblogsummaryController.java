@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryVO;
 
 /**
  * @Class Name : ComtsweblogsummaryController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.Comtswebl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtsweblogsummaryController {
 	
     /**
 	 * comtsweblogsummary 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtsweblogsummaryDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtsweblogsummaryVO
 	 * @return "/comtsweblogsummary/ComtsweblogsummaryList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtsweblogsummary/ComtsweblogsummaryList.do")
-    public String selectComtsweblogsummaryList(@ModelAttribute("searchVO") ComtsweblogsummaryDefaultVO searchVO, 
+    public String selectComtsweblogsummaryList(@ModelAttribute("searchVO") ComtsweblogsummaryVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtsweblogsummaryController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtsweblogsummaryList = comtsweblogsummaryService.selectComtsweblogsummaryList(searchVO);
+        List<EgovMap> comtsweblogsummaryList = comtsweblogsummaryService.selectComtsweblogsummaryList(searchVO);
         model.addAttribute("resultList", comtsweblogsummaryList);
         
         int totCnt = comtsweblogsummaryService.selectComtsweblogsummaryListTotCnt(searchVO);

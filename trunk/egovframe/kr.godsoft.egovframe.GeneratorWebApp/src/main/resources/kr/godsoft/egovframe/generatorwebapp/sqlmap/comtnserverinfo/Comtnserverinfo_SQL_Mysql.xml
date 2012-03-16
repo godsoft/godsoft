@@ -4,110 +4,111 @@
 <sqlMap namespace="Comtnserverinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnserverinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoDefaultVO"/>
+	<typeAlias  alias="ComtnserverinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoVO"/>
 	
 	<resultMap id="comtnserverinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoVO">
-		<result property="serverId" column="SERVER_ID" columnIndex="1"/> <!--  -->
-		<result property="serverNm" column="SERVER_NM" columnIndex="2"/> <!--  -->
-		<result property="serverKnd" column="SERVER_KND" columnIndex="3"/> <!--  -->
-		<result property="rgsde" column="RGSDE" columnIndex="4"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="serverId" column="server_id" columnIndex="1"/>
+		<result property="serverNm" column="server_nm" columnIndex="2"/>
+		<result property="serverKnd" column="server_knd" columnIndex="3"/>
+		<result property="rgsde" column="rgsde" columnIndex="4"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
 	</resultMap>
 	
 	<insert id="comtnserverinfoDAO.insertComtnserverinfo_S">
 		<![CDATA[
 			INSERT INTO comtnserverinfo 
-				( SERVER_ID /*  */
-				  , SERVER_NM /*  */
-				  , SERVER_KND /*  */
-				  , RGSDE /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #serverId# /*  */
-					  , #serverNm# /*  */
-						  , #serverKnd# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( SERVER_ID
+				  , server_nm
+				  , server_knd
+				  , rgsde
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #serverId#
+				  , #serverNm#
+				  , #serverKnd#
+				  , #rgsde#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnserverinfoDAO.updateComtnserverinfo_S">
 		<![CDATA[
 			UPDATE comtnserverinfo
-			SET SERVER_ID=#serverId# /*  */
-				, SERVER_NM=#serverNm# /*  */
-				, SERVER_KND=#serverKnd# /*  */
-				, RGSDE=#rgsde# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE SERVER_ID=#serverId# /*  */
+			SET server_id = #serverId#
+				, server_nm = #serverNm#
+				, server_knd = #serverKnd#
+				, rgsde = #rgsde#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE server_id = #serverId#
 		]]>
 	</update>
 	
 	<delete id="comtnserverinfoDAO.deleteComtnserverinfo_S">
 		<![CDATA[
 			DELETE FROM comtnserverinfo 
-			WHERE SERVER_ID=#serverId# /*  */
+			WHERE server_id = #serverId#
 		]]>
 	</delete>
 	
 	<select id="comtnserverinfoDAO.selectComtnserverinfo_S" resultMap="comtnserverinfo">
 		<![CDATA[
 			SELECT
-				SERVER_ID /*  */
-				, SERVER_NM /*  */
-				, SERVER_KND /*  */
-				, RGSDE /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				server_id
+				, server_nm
+				, server_knd
+				, rgsde
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnserverinfo
-			WHERE SERVER_ID=#serverId# /*  */
+			WHERE server_id = #serverId#
 		]]>
 	</select>
 	
-	<select id="comtnserverinfoDAO.selectComtnserverinfoList_D" parameterClass="comtnserverinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnserverinfoDAO.selectComtnserverinfoList_D" parameterClass="ComtnserverinfoVO" resultClass="egovMap">
 			SELECT
-								SERVER_ID /*  */
-								, SERVER_NM /*  */
-								, SERVER_KND /*  */
-								, RGSDE /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								server_id
+								, server_nm
+								, server_knd
+								, rgsde
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnserverinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SERVER_ID = #searchKeyword# /*  */
+				server_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SERVER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				server_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SERVER_ID DESC /*  */
+							server_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnserverinfoDAO.selectComtnserverinfoListTotCnt_S" parameterClass="comtnserverinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnserverinfoDAO.selectComtnserverinfoListTotCnt_S" parameterClass="ComtnserverinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnserverinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SERVER_ID = #searchKeyword# /*  */
+				server_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SERVER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				server_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

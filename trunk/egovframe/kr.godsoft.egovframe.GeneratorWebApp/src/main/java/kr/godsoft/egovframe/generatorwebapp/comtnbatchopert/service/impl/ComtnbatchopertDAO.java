@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertDefaultVO;
 
 /**
  * @Class Name : ComtnbatchopertDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.Comtnbatchop
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
 	 * @return comtnbatchopert 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbatchopertList(ComtnbatchopertDefaultVO searchVO) throws Exception {
-        return list("comtnbatchopertDAO.selectComtnbatchopertList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbatchopertList(ComtnbatchopertVO vo) throws Exception {
+        return list("comtnbatchopertDAO.selectComtnbatchopertList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
 	 * @return comtnbatchopert 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbatchopertListTotCnt(ComtnbatchopertDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbatchopertDAO.selectComtnbatchopertListTotCnt_S", searchVO);
+    public int selectComtnbatchopertListTotCnt(ComtnbatchopertVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbatchopertDAO.selectComtnbatchopertListTotCnt_S", vo);
     }
 
 }

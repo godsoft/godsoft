@@ -6,28 +6,28 @@ package kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnprogrmlistVO extends ComtnprogrmlistDefaultVO{
+public class ComtnprogrmlistVO extends ComtnprogrmlistDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** PROGRM_FILE_NM */
     private String progrmFileNm;
     
-    /**  */
+    /** PROGRM_STRE_PATH */
     private String progrmStrePath;
     
-    /**  */
+    /** PROGRM_KOREAN_NM */
     private String progrmKoreanNm;
     
-    /**  */
+    /** PROGRM_DC */
     private String progrmDc;
     
-    /**  */
+    /** URL */
     private String url;
     
     public String getProgrmFileNm() {

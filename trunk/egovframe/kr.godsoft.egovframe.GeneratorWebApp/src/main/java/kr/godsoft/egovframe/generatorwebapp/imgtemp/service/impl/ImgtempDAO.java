@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempVO;
-import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempDefaultVO;
 
 /**
  * @Class Name : ImgtempDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.imgtemp.service.ImgtempDefaultVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ImgtempDAO extends EgovAbstractDAO {
 	 * @return imgtemp 목록
 	 * @exception Exception
 	 */
-    public List selectImgtempList(ImgtempDefaultVO searchVO) throws Exception {
-        return list("imgtempDAO.selectImgtempList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectImgtempList(ImgtempVO vo) throws Exception {
+        return list("imgtempDAO.selectImgtempList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ImgtempDAO extends EgovAbstractDAO {
 	 * @return imgtemp 총 갯수
 	 * @exception
 	 */
-    public int selectImgtempListTotCnt(ImgtempDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("imgtempDAO.selectImgtempListTotCnt_S", searchVO);
+    public int selectImgtempListTotCnt(ImgtempVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("imgtempDAO.selectImgtempListTotCnt_S", vo);
     }
 
 }

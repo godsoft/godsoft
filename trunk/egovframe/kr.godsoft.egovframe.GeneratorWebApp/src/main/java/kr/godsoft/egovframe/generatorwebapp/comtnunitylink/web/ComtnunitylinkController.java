@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkService;
+import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkService;
-import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkVO;
 
 /**
  * @Class Name : ComtnunitylinkController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.Comtnunitylin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnunitylinkController {
 	
     /**
 	 * comtnunitylink 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnunitylinkDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnunitylinkVO
 	 * @return "/comtnunitylink/ComtnunitylinkList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnunitylink/ComtnunitylinkList.do")
-    public String selectComtnunitylinkList(@ModelAttribute("searchVO") ComtnunitylinkDefaultVO searchVO, 
+    public String selectComtnunitylinkList(@ModelAttribute("searchVO") ComtnunitylinkVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnunitylinkController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnunitylinkList = comtnunitylinkService.selectComtnunitylinkList(searchVO);
+        List<EgovMap> comtnunitylinkList = comtnunitylinkService.selectComtnunitylinkList(searchVO);
         model.addAttribute("resultList", comtnunitylinkList);
         
         int totCnt = comtnunitylinkService.selectComtnunitylinkListTotCnt(searchVO);

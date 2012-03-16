@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnsynchrnserverinfoVO extends ComtnsynchrnserverinfoDefaultVO{
+public class ComtnsynchrnserverinfoVO extends ComtnsynchrnserverinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SERVER_ID */
     private String serverId;
     
-    /**  */
+    /** SERVER_NM */
     private String serverNm;
     
-    /**  */
+    /** SERVER_IP */
     private String serverIp;
     
-    /**  */
+    /** SERVER_PORT */
     private String serverPort;
     
-    /**  */
+    /** FTP_ID */
     private String ftpId;
     
-    /**  */
+    /** FTP_PASSWORD */
     private String ftpPassword;
     
-    /**  */
+    /** SYNCHRN_LC */
     private String synchrnLc;
     
-    /**  */
+    /** REFLCT_AT */
     private String reflctAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getServerId() {

@@ -6,67 +6,67 @@ package kr.godsoft.egovframe.generatorwebapp.comtnrss.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnrssVO extends ComtnrssDefaultVO{
+public class ComtnrssVO extends ComtnrssDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** RSS_ID */
     private String rssId;
     
-    /**  */
+    /** TRGET_SVC_NM */
     private String trgetSvcNm;
     
-    /**  */
+    /** TRGET_SVC_TABLE */
     private String trgetSvcTable;
     
-    /**  */
+    /** TRGET_SVC_LIST_CO */
     private int trgetSvcListCo;
     
-    /**  */
+    /** HDER_TITLE */
     private String hderTitle;
     
-    /**  */
+    /** HDER_LINK */
     private String hderLink;
     
-    /**  */
+    /** HDER_DC */
     private String hderDc;
     
-    /**  */
+    /** HDER_TAG */
     private String hderTag;
     
-    /**  */
+    /** HDER_ETC */
     private String hderEtc;
     
-    /**  */
+    /** BDT_TITLE */
     private String bdtTitle;
     
-    /**  */
+    /** BDT_LINK */
     private String bdtLink;
     
-    /**  */
+    /** BDT_DC */
     private String bdtDc;
     
-    /**  */
+    /** BDT_TAG */
     private String bdtTag;
     
-    /**  */
+    /** BDT_ETC_TAG */
     private String bdtEtcTag;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getRssId() {

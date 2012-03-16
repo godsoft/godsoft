@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnprocessmonloginfoVO extends ComtnprocessmonloginfoDefaultVO{
+public class ComtnprocessmonloginfoVO extends ComtnprocessmonloginfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** PROCS_ID */
     private String procsId;
     
-    /**  */
+    /** PROCS_NM */
     private String procsNm;
     
-    /**  */
+    /** PROCS_STTUS */
     private String procsSttus;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** LOG_INFO */
     private String logInfo;
     
-    /**  */
+    /** MNGR_NM */
     private String mngrNm;
     
-    /**  */
+    /** MNGR_EMAIL_ADRES */
     private String mngrEmailAdres;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LOG_ID */
     private String logId;
     
     public String getProcsId() {

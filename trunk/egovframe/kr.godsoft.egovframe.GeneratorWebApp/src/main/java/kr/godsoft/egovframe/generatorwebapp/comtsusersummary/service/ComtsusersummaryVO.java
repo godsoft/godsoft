@@ -6,25 +6,25 @@ package kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtsusersummaryVO extends ComtsusersummaryDefaultVO{
+public class ComtsusersummaryVO extends ComtsusersummaryDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** STATS_SE */
     private String statsSe;
     
-    /**  */
+    /** DETAIL_STATS_SE */
     private String detailStatsSe;
     
-    /**  */
+    /** USER_CO */
     private int userCo;
     
     public String getOccrrncDe() {

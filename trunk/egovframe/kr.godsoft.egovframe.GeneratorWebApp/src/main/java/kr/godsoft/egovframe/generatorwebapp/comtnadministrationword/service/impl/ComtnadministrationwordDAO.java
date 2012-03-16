@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordDefaultVO;
 
 /**
  * @Class Name : ComtnadministrationwordDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnadministrationwordDAO extends EgovAbstractDAO {
 	 * @return comtnadministrationword 목록
 	 * @exception Exception
 	 */
-    public List selectComtnadministrationwordList(ComtnadministrationwordDefaultVO searchVO) throws Exception {
-        return list("comtnadministrationwordDAO.selectComtnadministrationwordList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnadministrationwordList(ComtnadministrationwordVO vo) throws Exception {
+        return list("comtnadministrationwordDAO.selectComtnadministrationwordList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnadministrationwordDAO extends EgovAbstractDAO {
 	 * @return comtnadministrationword 총 갯수
 	 * @exception
 	 */
-    public int selectComtnadministrationwordListTotCnt(ComtnadministrationwordDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt_S", searchVO);
+    public int selectComtnadministrationwordListTotCnt(ComtnadministrationwordVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt_S", vo);
     }
 
 }

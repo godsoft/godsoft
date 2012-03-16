@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.ComtnschdulinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnschdulinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service.Comtnschduli
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnschdulinfoService {
 	 * @return comtnschdulinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnschdulinfoList(ComtnschdulinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnschdulinfoList(ComtnschdulinfoVO vo) throws Exception;
     
     /**
 	 * comtnschdulinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnschdulinfoService {
 	 * @return comtnschdulinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnschdulinfoListTotCnt(ComtnschdulinfoDefaultVO searchVO);
+    int selectComtnschdulinfoListTotCnt(ComtnschdulinfoVO vo);
     
 }

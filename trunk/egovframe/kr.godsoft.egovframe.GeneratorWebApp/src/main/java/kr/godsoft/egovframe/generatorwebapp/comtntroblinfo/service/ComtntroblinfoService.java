@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtntroblinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.Comtntroblinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtntroblinfoService {
 	 * @return comtntroblinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtntroblinfoList(ComtntroblinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtntroblinfoList(ComtntroblinfoVO vo) throws Exception;
     
     /**
 	 * comtntroblinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtntroblinfoService {
 	 * @return comtntroblinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtntroblinfoListTotCnt(ComtntroblinfoDefaultVO searchVO);
+    int selectComtntroblinfoListTotCnt(ComtntroblinfoVO vo);
     
 }

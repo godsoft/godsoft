@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyService;
+import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyService;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.impl.ComtnrolesHierarchyDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnrolesHierarchyServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnrolesHierarchyServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnroles_hierarchy 목록
 	 * @exception Exception
 	 */
-    public List selectComtnrolesHierarchyList(ComtnrolesHierarchyDefaultVO searchVO) throws Exception {
-        return comtnrolesHierarchyDAO.selectComtnrolesHierarchyList(searchVO);
+    public List<EgovMap> selectComtnrolesHierarchyList(ComtnrolesHierarchyVO vo) throws Exception {
+        return comtnrolesHierarchyDAO.selectComtnrolesHierarchyList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnrolesHierarchyServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnroles_hierarchy 총 갯수
 	 * @exception
 	 */
-    public int selectComtnrolesHierarchyListTotCnt(ComtnrolesHierarchyDefaultVO searchVO) {
-		return comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt(searchVO);
+    public int selectComtnrolesHierarchyListTotCnt(ComtnrolesHierarchyVO vo) {
+		return comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt(vo);
 	}
     
 }

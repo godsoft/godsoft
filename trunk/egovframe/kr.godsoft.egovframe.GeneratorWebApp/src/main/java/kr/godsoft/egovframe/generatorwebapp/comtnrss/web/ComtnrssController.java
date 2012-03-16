@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssVO;
 
 /**
  * @Class Name : ComtnrssController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnrssController {
 	
     /**
 	 * comtnrss 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnrssDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnrssVO
 	 * @return "/comtnrss/ComtnrssList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnrss/ComtnrssList.do")
-    public String selectComtnrssList(@ModelAttribute("searchVO") ComtnrssDefaultVO searchVO, 
+    public String selectComtnrssList(@ModelAttribute("searchVO") ComtnrssVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnrssController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnrssList = comtnrssService.selectComtnrssList(searchVO);
+        List<EgovMap> comtnrssList = comtnrssService.selectComtnrssList(searchVO);
         model.addAttribute("resultList", comtnrssList);
         
         int totCnt = comtnrssService.selectComtnrssListTotCnt(searchVO);

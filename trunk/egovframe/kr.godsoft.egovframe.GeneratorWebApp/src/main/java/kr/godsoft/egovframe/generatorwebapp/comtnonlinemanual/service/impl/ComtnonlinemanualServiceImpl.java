@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.impl.ComtnonlinemanualDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnonlinemanualServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.impl.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnonlinemanualServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnonlinemanual 목록
 	 * @exception Exception
 	 */
-    public List selectComtnonlinemanualList(ComtnonlinemanualDefaultVO searchVO) throws Exception {
-        return comtnonlinemanualDAO.selectComtnonlinemanualList(searchVO);
+    public List<EgovMap> selectComtnonlinemanualList(ComtnonlinemanualVO vo) throws Exception {
+        return comtnonlinemanualDAO.selectComtnonlinemanualList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnonlinemanualServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnonlinemanual 총 갯수
 	 * @exception
 	 */
-    public int selectComtnonlinemanualListTotCnt(ComtnonlinemanualDefaultVO searchVO) {
-		return comtnonlinemanualDAO.selectComtnonlinemanualListTotCnt(searchVO);
+    public int selectComtnonlinemanualListTotCnt(ComtnonlinemanualVO vo) {
+		return comtnonlinemanualDAO.selectComtnonlinemanualListTotCnt(vo);
 	}
     
 }

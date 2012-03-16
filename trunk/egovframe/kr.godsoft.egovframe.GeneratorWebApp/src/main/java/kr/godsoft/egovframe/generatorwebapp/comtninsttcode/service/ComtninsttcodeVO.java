@@ -6,91 +6,91 @@ package kr.godsoft.egovframe.generatorwebapp.comtninsttcode.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtninsttcodeVO extends ComtninsttcodeDefaultVO{
+public class ComtninsttcodeVO extends ComtninsttcodeDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** INSTT_CODE */
     private String insttCode;
     
-    /**  */
+    /** ALL_INSTT_NM */
     private String allInsttNm;
     
-    /**  */
+    /** LOWEST_INSTT_NM */
     private String lowestInsttNm;
     
-    /**  */
+    /** INSTT_ABRV_NM */
     private String insttAbrvNm;
     
-    /**  */
+    /** ODR */
     private String odr;
     
-    /**  */
+    /** ORD */
     private String ord;
     
-    /**  */
+    /** INSTT_ODR */
     private String insttOdr;
     
-    /**  */
+    /** UPPER_INSTT_CODE */
     private String upperInsttCode;
     
-    /**  */
+    /** BEST_INSTT_CODE */
     private String bestInsttCode;
     
-    /**  */
+    /** REPRSNT_INSTT_CODE */
     private String reprsntInsttCode;
     
-    /**  */
+    /** INSTT_TY_LCLAS */
     private String insttTyLclas;
     
-    /**  */
+    /** INSTT_TY_MLSFC */
     private String insttTyMlsfc;
     
-    /**  */
+    /** INSTT_TY_SCLAS */
     private String insttTySclas;
     
-    /**  */
+    /** TELNO */
     private String telno;
     
-    /**  */
+    /** FXNUM */
     private String fxnum;
     
-    /**  */
+    /** CREAT_DE */
     private String creatDe;
     
-    /**  */
+    /** ABL_DE */
     private String ablDe;
     
-    /**  */
+    /** ABL_ENNC */
     private String ablEnnc;
     
-    /**  */
+    /** CHANGE_DE */
     private String changeDe;
     
-    /**  */
+    /** CHANGE_TIME */
     private String changeTime;
     
-    /**  */
+    /** BSIS_DE */
     private String bsisDe;
     
-    /**  */
+    /** SORT_ORDR */
     private int sortOrdr;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getInsttCode() {

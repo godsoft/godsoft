@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.impl.ComtnindvdlyrycmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnindvdlyrycmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.impl.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnindvdlyrycmanageServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnindvdlyrycmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnindvdlyrycmanageList(ComtnindvdlyrycmanageDefaultVO searchVO) throws Exception {
-        return comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanageList(searchVO);
+    public List<EgovMap> selectComtnindvdlyrycmanageList(ComtnindvdlyrycmanageVO vo) throws Exception {
+        return comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnindvdlyrycmanageServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnindvdlyrycmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnindvdlyrycmanageListTotCnt(ComtnindvdlyrycmanageDefaultVO searchVO) {
-		return comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanageListTotCnt(searchVO);
+    public int selectComtnindvdlyrycmanageListTotCnt(ComtnindvdlyrycmanageVO vo) {
+		return comtnindvdlyrycmanageDAO.selectComtnindvdlyrycmanageListTotCnt(vo);
 	}
     
 }

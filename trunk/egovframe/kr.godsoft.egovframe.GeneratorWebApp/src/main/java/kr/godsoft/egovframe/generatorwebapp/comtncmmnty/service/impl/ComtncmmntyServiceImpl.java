@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyService;
+import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyService;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.impl.ComtncmmntyDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncmmntyServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.impl.Comtncmmnty
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtncmmntyServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncmmnty 목록
 	 * @exception Exception
 	 */
-    public List selectComtncmmntyList(ComtncmmntyDefaultVO searchVO) throws Exception {
-        return comtncmmntyDAO.selectComtncmmntyList(searchVO);
+    public List<EgovMap> selectComtncmmntyList(ComtncmmntyVO vo) throws Exception {
+        return comtncmmntyDAO.selectComtncmmntyList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtncmmntyServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncmmnty 총 갯수
 	 * @exception
 	 */
-    public int selectComtncmmntyListTotCnt(ComtncmmntyDefaultVO searchVO) {
-		return comtncmmntyDAO.selectComtncmmntyListTotCnt(searchVO);
+    public int selectComtncmmntyListTotCnt(ComtncmmntyVO vo) {
+		return comtncmmntyDAO.selectComtncmmntyListTotCnt(vo);
 	}
     
 }

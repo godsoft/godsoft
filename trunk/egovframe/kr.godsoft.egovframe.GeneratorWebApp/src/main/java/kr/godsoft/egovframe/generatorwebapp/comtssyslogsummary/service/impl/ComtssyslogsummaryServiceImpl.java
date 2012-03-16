@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.impl.ComtssyslogsummaryDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtssyslogsummaryServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.impl.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtssyslogsummaryServiceImpl extends AbstractServiceImpl implement
 	 * @return comtssyslogsummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtssyslogsummaryList(ComtssyslogsummaryDefaultVO searchVO) throws Exception {
-        return comtssyslogsummaryDAO.selectComtssyslogsummaryList(searchVO);
+    public List<EgovMap> selectComtssyslogsummaryList(ComtssyslogsummaryVO vo) throws Exception {
+        return comtssyslogsummaryDAO.selectComtssyslogsummaryList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtssyslogsummaryServiceImpl extends AbstractServiceImpl implement
 	 * @return comtssyslogsummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtssyslogsummaryListTotCnt(ComtssyslogsummaryDefaultVO searchVO) {
-		return comtssyslogsummaryDAO.selectComtssyslogsummaryListTotCnt(searchVO);
+    public int selectComtssyslogsummaryListTotCnt(ComtssyslogsummaryVO vo) {
+		return comtssyslogsummaryDAO.selectComtssyslogsummaryListTotCnt(vo);
 	}
     
 }

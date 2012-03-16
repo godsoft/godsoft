@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistService;
+import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistVO;
 
 /**
  * @Class Name : ComtnprogrmlistController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.Comtnprogrml
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnprogrmlistController {
 	
     /**
 	 * comtnprogrmlist 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnprogrmlistDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnprogrmlistVO
 	 * @return "/comtnprogrmlist/ComtnprogrmlistList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnprogrmlist/ComtnprogrmlistList.do")
-    public String selectComtnprogrmlistList(@ModelAttribute("searchVO") ComtnprogrmlistDefaultVO searchVO, 
+    public String selectComtnprogrmlistList(@ModelAttribute("searchVO") ComtnprogrmlistVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnprogrmlistController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnprogrmlistList = comtnprogrmlistService.selectComtnprogrmlistList(searchVO);
+        List<EgovMap> comtnprogrmlistList = comtnprogrmlistService.selectComtnprogrmlistList(searchVO);
         model.addAttribute("resultList", comtnprogrmlistList);
         
         int totCnt = comtnprogrmlistService.selectComtnprogrmlistListTotCnt(searchVO);

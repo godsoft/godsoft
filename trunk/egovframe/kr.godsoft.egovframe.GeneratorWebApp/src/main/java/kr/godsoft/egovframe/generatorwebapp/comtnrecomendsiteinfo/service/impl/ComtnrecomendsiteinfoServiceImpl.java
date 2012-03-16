@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.impl.ComtnrecomendsiteinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnrecomendsiteinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.impl.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnrecomendsiteinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoDefaultVO searchVO) throws Exception {
-        return comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoList(searchVO);
+    public List<EgovMap> selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoVO vo) throws Exception {
+        return comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnrecomendsiteinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoDefaultVO searchVO) {
-		return comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoListTotCnt(searchVO);
+    public int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoVO vo) {
+		return comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoListTotCnt(vo);
 	}
     
 }

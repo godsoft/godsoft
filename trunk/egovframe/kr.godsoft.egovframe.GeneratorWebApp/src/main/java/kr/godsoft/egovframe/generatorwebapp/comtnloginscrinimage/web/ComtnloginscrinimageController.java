@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageVO;
 
 /**
  * @Class Name : ComtnloginscrinimageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.Comtnlo
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnloginscrinimageController {
 	
     /**
 	 * comtnloginscrinimage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnloginscrinimageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnloginscrinimageVO
 	 * @return "/comtnloginscrinimage/ComtnloginscrinimageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnloginscrinimage/ComtnloginscrinimageList.do")
-    public String selectComtnloginscrinimageList(@ModelAttribute("searchVO") ComtnloginscrinimageDefaultVO searchVO, 
+    public String selectComtnloginscrinimageList(@ModelAttribute("searchVO") ComtnloginscrinimageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnloginscrinimageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnloginscrinimageList = comtnloginscrinimageService.selectComtnloginscrinimageList(searchVO);
+        List<EgovMap> comtnloginscrinimageList = comtnloginscrinimageService.selectComtnloginscrinimageList(searchVO);
         model.addAttribute("resultList", comtnloginscrinimageList);
         
         int totCnt = comtnloginscrinimageService.selectComtnloginscrinimageListTotCnt(searchVO);

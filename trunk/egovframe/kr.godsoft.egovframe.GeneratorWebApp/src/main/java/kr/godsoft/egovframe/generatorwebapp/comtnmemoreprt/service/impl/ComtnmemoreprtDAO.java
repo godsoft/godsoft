@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtDefaultVO;
 
 /**
  * @Class Name : ComtnmemoreprtDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.Comtnmemorepr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnmemoreprtDAO extends EgovAbstractDAO {
 	 * @return comtnmemoreprt 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmemoreprtList(ComtnmemoreprtDefaultVO searchVO) throws Exception {
-        return list("comtnmemoreprtDAO.selectComtnmemoreprtList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnmemoreprtList(ComtnmemoreprtVO vo) throws Exception {
+        return list("comtnmemoreprtDAO.selectComtnmemoreprtList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnmemoreprtDAO extends EgovAbstractDAO {
 	 * @return comtnmemoreprt 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmemoreprtListTotCnt(ComtnmemoreprtDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmemoreprtDAO.selectComtnmemoreprtListTotCnt_S", searchVO);
+    public int selectComtnmemoreprtListTotCnt(ComtnmemoreprtVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmemoreprtDAO.selectComtnmemoreprtListTotCnt_S", vo);
     }
 
 }

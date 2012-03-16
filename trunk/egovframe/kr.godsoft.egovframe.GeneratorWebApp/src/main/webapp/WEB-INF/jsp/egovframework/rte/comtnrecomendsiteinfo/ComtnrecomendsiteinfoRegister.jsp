@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnrecomendsiteinfoVO.recomendSiteId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnrecomendsiteinfoVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnrecomendsiteinfoVO" name="detailForm" id="detailForm">
+<form:form commandName="comtnrecomendsiteinfoVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>RECOMEND_SITE_ID *</th>
 			<td>
 				<form:input path="recomendSiteId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>RECOMEND_SITE_ID *</th>
 			<td>
 				<form:input path="recomendSiteId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,102 +93,72 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>RECOMEND_SITE_NM</th>
 			<td>
-	
 				<form:input path="recomendSiteNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="recomendSiteNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RECOMEND_SITE_URL</th>
 			<td>
-	
 				<form:input path="recomendSiteUrl" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="recomendSiteUrl" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RECOMEND_SITE_DC</th>
 			<td>
-	
 				<form:input path="recomendSiteDc" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="recomendSiteDc" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RECOMEND_RESN_CN</th>
 			<td>
-	
 				<form:input path="recomendResnCn" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="recomendResnCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RECOMEND_CONFM_AT</th>
 			<td>
-	
 				<form:input path="recomendConfmAt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="recomendConfmAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CONFM_DE</th>
 			<td>
-	
 				<form:input path="confmDe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="confmDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGIST_PNTTM</th>
 			<td>
-	
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGISTER_ID</th>
 			<td>
-	
 				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDT_PNTTM</th>
 			<td>
-	
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDUSR_ID</th>
 			<td>
-	
 				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	

@@ -4,170 +4,171 @@
 <sqlMap namespace="Comtndamknoifm">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtndamknoifmSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndamknoifm.service.ComtndamknoifmDefaultVO"/>
+	<typeAlias  alias="ComtndamknoifmVO" type="kr.godsoft.egovframe.generatorwebapp.comtndamknoifm.service.ComtndamknoifmVO"/>
 	
 	<resultMap id="comtndamknoifm" class="kr.godsoft.egovframe.generatorwebapp.comtndamknoifm.service.ComtndamknoifmVO">
-		<result property="knwldgId" column="KNWLDG_ID" columnIndex="1"/> <!--  -->
-		<result property="knwldgTyCode" column="KNWLDG_TY_CODE" columnIndex="2"/> <!--  -->
-		<result property="orgnztId" column="ORGNZT_ID" columnIndex="3"/> <!--  -->
-		<result property="expertId" column="EXPERT_ID" columnIndex="4"/> <!--  -->
-		<result property="emplyrId" column="EMPLYR_ID" columnIndex="5"/> <!--  -->
-		<result property="knwldgNm" column="KNWLDG_NM" columnIndex="6"/> <!--  -->
-		<result property="knwldgCn" column="KNWLDG_CN" columnIndex="7"/> <!--  -->
-		<result property="kwrd" column="KWRD" columnIndex="8"/> <!--  -->
-		<result property="othbcAt" column="OTHBC_AT" columnIndex="9"/> <!--  -->
-		<result property="knwldgEvl" column="KNWLDG_EVL" columnIndex="10"/> <!--  -->
-		<result property="colctDe" column="COLCT_DE" columnIndex="11"/> <!--  -->
-		<result property="evlDe" column="EVL_DE" columnIndex="12"/> <!--  -->
-		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="13"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="14"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="15"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="16"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="17"/> <!--  -->
-		<result property="dsuseDe" column="DSUSE_DE" columnIndex="18"/> <!--  -->
+		<result property="knwldgId" column="knwldg_id" columnIndex="1"/>
+		<result property="knwldgTyCode" column="knwldg_ty_code" columnIndex="2"/>
+		<result property="orgnztId" column="orgnzt_id" columnIndex="3"/>
+		<result property="expertId" column="expert_id" columnIndex="4"/>
+		<result property="emplyrId" column="emplyr_id" columnIndex="5"/>
+		<result property="knwldgNm" column="knwldg_nm" columnIndex="6"/>
+		<result property="knwldgCn" column="knwldg_cn" columnIndex="7"/>
+		<result property="kwrd" column="kwrd" columnIndex="8"/>
+		<result property="othbcAt" column="othbc_at" columnIndex="9"/>
+		<result property="knwldgEvl" column="knwldg_evl" columnIndex="10"/>
+		<result property="colctDe" column="colct_de" columnIndex="11"/>
+		<result property="evlDe" column="evl_de" columnIndex="12"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="13"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="14"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="15"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="16"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="17"/>
+		<result property="dsuseDe" column="dsuse_de" columnIndex="18"/>
 	</resultMap>
 	
 	<insert id="comtndamknoifmDAO.insertComtndamknoifm_S">
 		<![CDATA[
 			INSERT INTO comtndamknoifm 
-				( KNWLDG_ID /*  */
-				  , KNWLDG_TY_CODE /*  */
-				  , ORGNZT_ID /*  */
-				  , EXPERT_ID /*  */
-				  , EMPLYR_ID /*  */
-				  , KNWLDG_NM /*  */
-				  , KNWLDG_CN /*  */
-				  , KWRD /*  */
-				  , OTHBC_AT /*  */
-				  , KNWLDG_EVL /*  */
-				  , COLCT_DE /*  */
-				  , EVL_DE /*  */
-				  , ATCH_FILE_ID /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , DSUSE_DE /*  */ )
-			VALUES ( #knwldgId# /*  */
-					  , #knwldgTyCode# /*  */
-						  , #orgnztId# /*  */
-						  , #expertId# /*  */
-						  , #emplyrId# /*  */
-						  , #knwldgNm# /*  */
-						  , #knwldgCn# /*  */
-						  , #kwrd# /*  */
-						  , #othbcAt# /*  */
-						  , #knwldgEvl# /*  */
-						  , #colctDe# /*  */
-						  , #evlDe# /*  */
-						  , #atchFileId# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #dsuseDe# /*  */ )
+				( KNWLDG_ID
+				  , knwldg_ty_code
+				  , orgnzt_id
+				  , expert_id
+				  , emplyr_id
+				  , knwldg_nm
+				  , knwldg_cn
+				  , kwrd
+				  , othbc_at
+				  , knwldg_evl
+				  , colct_de
+				  , evl_de
+				  , atch_file_id
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , dsuse_de )
+			VALUES ( #knwldgId#
+				  , #knwldgTyCode#
+				  , #orgnztId#
+				  , #expertId#
+				  , #emplyrId#
+				  , #knwldgNm#
+				  , #knwldgCn#
+				  , #kwrd#
+				  , #othbcAt#
+				  , #knwldgEvl#
+				  , #colctDe#
+				  , #evlDe#
+				  , #atchFileId#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #dsuseDe# )
 		]]>
 	</insert>
 	
 	<update id="comtndamknoifmDAO.updateComtndamknoifm_S">
 		<![CDATA[
 			UPDATE comtndamknoifm
-			SET KNWLDG_ID=#knwldgId# /*  */
-				, KNWLDG_TY_CODE=#knwldgTyCode# /*  */
-				, ORGNZT_ID=#orgnztId# /*  */
-				, EXPERT_ID=#expertId# /*  */
-				, EMPLYR_ID=#emplyrId# /*  */
-				, KNWLDG_NM=#knwldgNm# /*  */
-				, KNWLDG_CN=#knwldgCn# /*  */
-				, KWRD=#kwrd# /*  */
-				, OTHBC_AT=#othbcAt# /*  */
-				, KNWLDG_EVL=#knwldgEvl# /*  */
-				, COLCT_DE=#colctDe# /*  */
-				, EVL_DE=#evlDe# /*  */
-				, ATCH_FILE_ID=#atchFileId# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, DSUSE_DE=#dsuseDe# /*  */
-			WHERE KNWLDG_ID=#knwldgId# /*  */
+			SET knwldg_id = #knwldgId#
+				, knwldg_ty_code = #knwldgTyCode#
+				, orgnzt_id = #orgnztId#
+				, expert_id = #expertId#
+				, emplyr_id = #emplyrId#
+				, knwldg_nm = #knwldgNm#
+				, knwldg_cn = #knwldgCn#
+				, kwrd = #kwrd#
+				, othbc_at = #othbcAt#
+				, knwldg_evl = #knwldgEvl#
+				, colct_de = #colctDe#
+				, evl_de = #evlDe#
+				, atch_file_id = #atchFileId#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, dsuse_de = #dsuseDe#
+			WHERE knwldg_id = #knwldgId#
 		]]>
 	</update>
 	
 	<delete id="comtndamknoifmDAO.deleteComtndamknoifm_S">
 		<![CDATA[
 			DELETE FROM comtndamknoifm 
-			WHERE KNWLDG_ID=#knwldgId# /*  */
+			WHERE knwldg_id = #knwldgId#
 		]]>
 	</delete>
 	
 	<select id="comtndamknoifmDAO.selectComtndamknoifm_S" resultMap="comtndamknoifm">
 		<![CDATA[
 			SELECT
-				KNWLDG_ID /*  */
-				, KNWLDG_TY_CODE /*  */
-				, ORGNZT_ID /*  */
-				, EXPERT_ID /*  */
-				, EMPLYR_ID /*  */
-				, KNWLDG_NM /*  */
-				, KNWLDG_CN /*  */
-				, KWRD /*  */
-				, OTHBC_AT /*  */
-				, KNWLDG_EVL /*  */
-				, COLCT_DE /*  */
-				, EVL_DE /*  */
-				, ATCH_FILE_ID /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, DSUSE_DE /*  */
+				knwldg_id
+				, knwldg_ty_code
+				, orgnzt_id
+				, expert_id
+				, emplyr_id
+				, knwldg_nm
+				, knwldg_cn
+				, kwrd
+				, othbc_at
+				, knwldg_evl
+				, colct_de
+				, evl_de
+				, atch_file_id
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, dsuse_de
 			FROM comtndamknoifm
-			WHERE KNWLDG_ID=#knwldgId# /*  */
+			WHERE knwldg_id = #knwldgId#
 		]]>
 	</select>
 	
-	<select id="comtndamknoifmDAO.selectComtndamknoifmList_D" parameterClass="comtndamknoifmSerarchVO" resultClass="egovMap">
+	<select id="comtndamknoifmDAO.selectComtndamknoifmList_D" parameterClass="ComtndamknoifmVO" resultClass="egovMap">
 			SELECT
-								KNWLDG_ID /*  */
-								, KNWLDG_TY_CODE /*  */
-								, ORGNZT_ID /*  */
-								, EXPERT_ID /*  */
-								, EMPLYR_ID /*  */
-								, KNWLDG_NM /*  */
-								, KNWLDG_CN /*  */
-								, KWRD /*  */
-								, OTHBC_AT /*  */
-								, KNWLDG_EVL /*  */
-								, COLCT_DE /*  */
-								, EVL_DE /*  */
-								, ATCH_FILE_ID /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, DSUSE_DE /*  */
+								knwldg_id
+								, knwldg_ty_code
+								, orgnzt_id
+								, expert_id
+								, emplyr_id
+								, knwldg_nm
+								, knwldg_cn
+								, kwrd
+								, othbc_at
+								, knwldg_evl
+								, colct_de
+								, evl_de
+								, atch_file_id
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, dsuse_de
 					FROM comtndamknoifm
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				KNWLDG_ID = #searchKeyword# /*  */
+				knwldg_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				KNWLDG_TY_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				knwldg_ty_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							KNWLDG_ID DESC /*  */
+							knwldg_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtndamknoifmDAO.selectComtndamknoifmListTotCnt_S" parameterClass="comtndamknoifmSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtndamknoifmDAO.selectComtndamknoifmListTotCnt_S" parameterClass="ComtndamknoifmVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtndamknoifm
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				KNWLDG_ID = #searchKeyword# /*  */
+				knwldg_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				KNWLDG_TY_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				knwldg_ty_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.impl.ComtnmainimageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmainimageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.impl.Comtnmai
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnmainimageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnmainimage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmainimageList(ComtnmainimageDefaultVO searchVO) throws Exception {
-        return comtnmainimageDAO.selectComtnmainimageList(searchVO);
+    public List<EgovMap> selectComtnmainimageList(ComtnmainimageVO vo) throws Exception {
+        return comtnmainimageDAO.selectComtnmainimageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnmainimageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnmainimage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmainimageListTotCnt(ComtnmainimageDefaultVO searchVO) {
-		return comtnmainimageDAO.selectComtnmainimageListTotCnt(searchVO);
+    public int selectComtnmainimageListTotCnt(ComtnmainimageVO vo) {
+		return comtnmainimageDAO.selectComtnmainimageListTotCnt(vo);
 	}
     
 }

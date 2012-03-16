@@ -4,92 +4,93 @@
 <sqlMap namespace="Comtnindvdlpgeestbs">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnindvdlpgeestbsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsDefaultVO"/>
+	<typeAlias  alias="ComtnindvdlpgeestbsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsVO"/>
 	
 	<resultMap id="comtnindvdlpgeestbs" class="kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsVO">
-		<result property="emplyrId" column="EMPLYR_ID" columnIndex="1"/> <!--  -->
-		<result property="upendImage" column="UPEND_IMAGE" columnIndex="2"/> <!--  -->
-		<result property="titlebarColor" column="TITLEBAR_COLOR" columnIndex="3"/> <!--  -->
-		<result property="algnMthd" column="ALGN_MTHD" columnIndex="4"/> <!--  -->
-		<result property="algnCo" column="ALGN_CO" columnIndex="5"/> <!--  -->
+		<result property="emplyrId" column="emplyr_id" columnIndex="1"/>
+		<result property="upendImage" column="upend_image" columnIndex="2"/>
+		<result property="titlebarColor" column="titlebar_color" columnIndex="3"/>
+		<result property="algnMthd" column="algn_mthd" columnIndex="4"/>
+		<result property="algnCo" column="algn_co" columnIndex="5"/>
 	</resultMap>
 	
 	<insert id="comtnindvdlpgeestbsDAO.insertComtnindvdlpgeestbs_S">
 		<![CDATA[
 			INSERT INTO comtnindvdlpgeestbs 
-				( EMPLYR_ID /*  */
-				  , UPEND_IMAGE /*  */
-				  , TITLEBAR_COLOR /*  */
-				  , ALGN_MTHD /*  */
-				  , ALGN_CO /*  */ )
-			VALUES ( #emplyrId# /*  */
-					  , #upendImage# /*  */
-						  , #titlebarColor# /*  */
-						  , #algnMthd# /*  */
-					  , #algnCo# /*  */ )
+				( EMPLYR_ID
+				  , upend_image
+				  , titlebar_color
+				  , algn_mthd
+				  , algn_co )
+			VALUES ( #emplyrId#
+				  , #upendImage#
+				  , #titlebarColor#
+				  , #algnMthd#
+				  , #algnCo# )
 		]]>
 	</insert>
 	
 	<update id="comtnindvdlpgeestbsDAO.updateComtnindvdlpgeestbs_S">
 		<![CDATA[
 			UPDATE comtnindvdlpgeestbs
-			SET EMPLYR_ID=#emplyrId# /*  */
-				, UPEND_IMAGE=#upendImage# /*  */
-				, TITLEBAR_COLOR=#titlebarColor# /*  */
-				, ALGN_MTHD=#algnMthd# /*  */
-				, ALGN_CO=#algnCo# /*  */
-			WHERE EMPLYR_ID=#emplyrId# /*  */
+			SET emplyr_id = #emplyrId#
+				, upend_image = #upendImage#
+				, titlebar_color = #titlebarColor#
+				, algn_mthd = #algnMthd#
+				, algn_co = #algnCo#
+			WHERE emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnindvdlpgeestbsDAO.deleteComtnindvdlpgeestbs_S">
 		<![CDATA[
 			DELETE FROM comtnindvdlpgeestbs 
-			WHERE EMPLYR_ID=#emplyrId# /*  */
+			WHERE emplyr_id = #emplyrId#
 		]]>
 	</delete>
 	
 	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbs_S" resultMap="comtnindvdlpgeestbs">
 		<![CDATA[
 			SELECT
-				EMPLYR_ID /*  */
-				, UPEND_IMAGE /*  */
-				, TITLEBAR_COLOR /*  */
-				, ALGN_MTHD /*  */
-				, ALGN_CO /*  */
+				emplyr_id
+				, upend_image
+				, titlebar_color
+				, algn_mthd
+				, algn_co
 			FROM comtnindvdlpgeestbs
-			WHERE EMPLYR_ID=#emplyrId# /*  */
+			WHERE emplyr_id = #emplyrId#
 		]]>
 	</select>
 	
-	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsList_D" parameterClass="comtnindvdlpgeestbsSerarchVO" resultClass="egovMap">
+	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsList_D" parameterClass="ComtnindvdlpgeestbsVO" resultClass="egovMap">
 			SELECT
-								EMPLYR_ID /*  */
-								, UPEND_IMAGE /*  */
-								, TITLEBAR_COLOR /*  */
-								, ALGN_MTHD /*  */
-								, ALGN_CO /*  */
+								emplyr_id
+								, upend_image
+								, titlebar_color
+								, algn_mthd
+								, algn_co
 					FROM comtnindvdlpgeestbs
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				EMPLYR_ID = #searchKeyword# /*  */
+				emplyr_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				UPEND_IMAGE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				upend_image LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							EMPLYR_ID DESC /*  */
+							emplyr_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsListTotCnt_S" parameterClass="comtnindvdlpgeestbsSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsListTotCnt_S" parameterClass="ComtnindvdlpgeestbsVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnindvdlpgeestbs
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				EMPLYR_ID = #searchKeyword# /*  */
+				emplyr_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				UPEND_IMAGE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				upend_image LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

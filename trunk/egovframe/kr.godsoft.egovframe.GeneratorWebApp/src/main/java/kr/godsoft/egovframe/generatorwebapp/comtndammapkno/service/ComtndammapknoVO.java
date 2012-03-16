@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndammapknoVO extends ComtndammapknoDefaultVO{
+public class ComtndammapknoVO extends ComtndammapknoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** KNWLDG_TY_CODE */
     private String knwldgTyCode;
     
-    /**  */
+    /** ORGNZT_ID */
     private String orgnztId;
     
-    /**  */
+    /** EXPERT_ID */
     private String expertId;
     
-    /**  */
+    /** KNWLDG_TY_NM */
     private String knwldgTyNm;
     
-    /**  */
+    /** CL_DE */
     private String clDe;
     
-    /**  */
+    /** KNWLDG_URL */
     private String knwldgUrl;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getKnwldgTyCode() {

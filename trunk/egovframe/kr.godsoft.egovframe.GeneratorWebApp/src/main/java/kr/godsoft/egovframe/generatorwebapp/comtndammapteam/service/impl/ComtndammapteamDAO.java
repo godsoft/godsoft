@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamDefaultVO;
 
 /**
  * @Class Name : ComtndammapteamDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.Comtndammapt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
 	 * @return comtndammapteam 목록
 	 * @exception Exception
 	 */
-    public List selectComtndammapteamList(ComtndammapteamDefaultVO searchVO) throws Exception {
-        return list("comtndammapteamDAO.selectComtndammapteamList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtndammapteamList(ComtndammapteamVO vo) throws Exception {
+        return list("comtndammapteamDAO.selectComtndammapteamList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
 	 * @return comtndammapteam 총 갯수
 	 * @exception
 	 */
-    public int selectComtndammapteamListTotCnt(ComtndammapteamDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtndammapteamDAO.selectComtndammapteamListTotCnt_S", searchVO);
+    public int selectComtndammapteamListTotCnt(ComtndammapteamVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtndammapteamDAO.selectComtndammapteamListTotCnt_S", vo);
     }
 
 }

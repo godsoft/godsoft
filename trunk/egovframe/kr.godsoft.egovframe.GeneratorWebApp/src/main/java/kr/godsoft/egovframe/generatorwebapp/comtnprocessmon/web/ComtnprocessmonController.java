@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonService;
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO;
 
 /**
  * @Class Name : ComtnprocessmonController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.Comtnprocess
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnprocessmonController {
 	
     /**
 	 * comtnprocessmon 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnprocessmonDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnprocessmonVO
 	 * @return "/comtnprocessmon/ComtnprocessmonList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnprocessmon/ComtnprocessmonList.do")
-    public String selectComtnprocessmonList(@ModelAttribute("searchVO") ComtnprocessmonDefaultVO searchVO, 
+    public String selectComtnprocessmonList(@ModelAttribute("searchVO") ComtnprocessmonVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnprocessmonController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnprocessmonList = comtnprocessmonService.selectComtnprocessmonList(searchVO);
+        List<EgovMap> comtnprocessmonList = comtnprocessmonService.selectComtnprocessmonList(searchVO);
         model.addAttribute("resultList", comtnprocessmonList);
         
         int totCnt = comtnprocessmonService.selectComtnprocessmonListTotCnt(searchVO);

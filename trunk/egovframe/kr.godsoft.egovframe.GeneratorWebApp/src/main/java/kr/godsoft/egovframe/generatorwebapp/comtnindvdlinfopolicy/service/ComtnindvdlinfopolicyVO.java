@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnindvdlinfopolicy.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnindvdlinfopolicyVO extends ComtnindvdlinfopolicyDefaultVO{
+public class ComtnindvdlinfopolicyVO extends ComtnindvdlinfopolicyDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** INDVDL_INFO_POLICY_ID */
     private String indvdlInfoPolicyId;
     
-    /**  */
+    /** INDVDL_INFO_POLICY_CN */
     private String indvdlInfoPolicyCn;
     
-    /**  */
+    /** INDVDL_INFO_POLICY_AGRE_AT */
     private String indvdlInfoPolicyAgreAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** INDVDL_INFO_POLICY_NM */
     private String indvdlInfoPolicyNm;
     
     public String getIndvdlInfoPolicyId() {

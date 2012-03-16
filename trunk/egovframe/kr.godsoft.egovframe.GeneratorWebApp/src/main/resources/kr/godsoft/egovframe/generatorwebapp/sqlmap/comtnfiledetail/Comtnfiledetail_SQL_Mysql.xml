@@ -4,114 +4,115 @@
 <sqlMap namespace="Comtnfiledetail">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnfiledetailSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailDefaultVO"/>
+	<typeAlias  alias="ComtnfiledetailVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO"/>
 	
 	<resultMap id="comtnfiledetail" class="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO">
-		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="1"/> <!--  -->
-		<result property="fileSn" column="FILE_SN" columnIndex="2"/> <!--  -->
-		<result property="fileStreCours" column="FILE_STRE_COURS" columnIndex="3"/> <!--  -->
-		<result property="streFileNm" column="STRE_FILE_NM" columnIndex="4"/> <!--  -->
-		<result property="orignlFileNm" column="ORIGNL_FILE_NM" columnIndex="5"/> <!--  -->
-		<result property="fileExtsn" column="FILE_EXTSN" columnIndex="6"/> <!--  -->
-		<result property="fileCn" column="FILE_CN" columnIndex="7"/> <!--  -->
-		<result property="fileSize" column="FILE_SIZE" columnIndex="8"/> <!--  -->
+		<result property="atchFileId" column="atch_file_id" columnIndex="1"/>
+		<result property="fileSn" column="file_sn" columnIndex="2"/>
+		<result property="fileStreCours" column="file_stre_cours" columnIndex="3"/>
+		<result property="streFileNm" column="stre_file_nm" columnIndex="4"/>
+		<result property="orignlFileNm" column="orignl_file_nm" columnIndex="5"/>
+		<result property="fileExtsn" column="file_extsn" columnIndex="6"/>
+		<result property="fileCn" column="file_cn" columnIndex="7"/>
+		<result property="fileSize" column="file_size" columnIndex="8"/>
 	</resultMap>
 	
 	<insert id="comtnfiledetailDAO.insertComtnfiledetail_S">
 		<![CDATA[
 			INSERT INTO comtnfiledetail 
-				( ATCH_FILE_ID /*  */
-				  , FILE_SN /*  */
-				  , FILE_STRE_COURS /*  */
-				  , STRE_FILE_NM /*  */
-				  , ORIGNL_FILE_NM /*  */
-				  , FILE_EXTSN /*  */
-				  , FILE_CN /*  */
-				  , FILE_SIZE /*  */ )
-			VALUES ( #atchFileId# /*  */
-					  , #fileSn# /*  */
-						  , #fileStreCours# /*  */
-						  , #streFileNm# /*  */
-						  , #orignlFileNm# /*  */
-						  , #fileExtsn# /*  */
-						  , #fileCn# /*  */
-					  , #fileSize# /*  */ )
+				( ATCH_FILE_ID
+				  , file_sn
+				  , file_stre_cours
+				  , stre_file_nm
+				  , orignl_file_nm
+				  , file_extsn
+				  , file_cn
+				  , file_size )
+			VALUES ( #atchFileId#
+				  , #fileSn#
+				  , #fileStreCours#
+				  , #streFileNm#
+				  , #orignlFileNm#
+				  , #fileExtsn#
+				  , #fileCn#
+				  , #fileSize# )
 		]]>
 	</insert>
 	
 	<update id="comtnfiledetailDAO.updateComtnfiledetail_S">
 		<![CDATA[
 			UPDATE comtnfiledetail
-			SET ATCH_FILE_ID=#atchFileId# /*  */
-				, FILE_SN=#fileSn# /*  */
-				, FILE_STRE_COURS=#fileStreCours# /*  */
-				, STRE_FILE_NM=#streFileNm# /*  */
-				, ORIGNL_FILE_NM=#orignlFileNm# /*  */
-				, FILE_EXTSN=#fileExtsn# /*  */
-				, FILE_CN=#fileCn# /*  */
-				, FILE_SIZE=#fileSize# /*  */
-			WHERE ATCH_FILE_ID=#atchFileId# /*  */
-				AND FILE_SN=#fileSn# /*  */
+			SET atch_file_id = #atchFileId#
+				, file_sn = #fileSn#
+				, file_stre_cours = #fileStreCours#
+				, stre_file_nm = #streFileNm#
+				, orignl_file_nm = #orignlFileNm#
+				, file_extsn = #fileExtsn#
+				, file_cn = #fileCn#
+				, file_size = #fileSize#
+			WHERE atch_file_id = #atchFileId#
+				AND file_sn = #fileSn#
 		]]>
 	</update>
 	
 	<delete id="comtnfiledetailDAO.deleteComtnfiledetail_S">
 		<![CDATA[
 			DELETE FROM comtnfiledetail 
-			WHERE ATCH_FILE_ID=#atchFileId# /*  */
-				AND FILE_SN=#fileSn# /*  */
+			WHERE atch_file_id = #atchFileId#
+				AND file_sn = #fileSn#
 		]]>
 	</delete>
 	
 	<select id="comtnfiledetailDAO.selectComtnfiledetail_S" resultMap="comtnfiledetail">
 		<![CDATA[
 			SELECT
-				ATCH_FILE_ID /*  */
-				, FILE_SN /*  */
-				, FILE_STRE_COURS /*  */
-				, STRE_FILE_NM /*  */
-				, ORIGNL_FILE_NM /*  */
-				, FILE_EXTSN /*  */
-				, FILE_CN /*  */
-				, FILE_SIZE /*  */
+				atch_file_id
+				, file_sn
+				, file_stre_cours
+				, stre_file_nm
+				, orignl_file_nm
+				, file_extsn
+				, file_cn
+				, file_size
 			FROM comtnfiledetail
-			WHERE ATCH_FILE_ID=#atchFileId# /*  */
-				AND FILE_SN=#fileSn# /*  */
+			WHERE atch_file_id = #atchFileId#
+				AND file_sn = #fileSn#
 		]]>
 	</select>
 	
-	<select id="comtnfiledetailDAO.selectComtnfiledetailList_D" parameterClass="comtnfiledetailSerarchVO" resultClass="egovMap">
+	<select id="comtnfiledetailDAO.selectComtnfiledetailList_D" parameterClass="ComtnfiledetailVO" resultClass="egovMap">
 			SELECT
-								ATCH_FILE_ID /*  */
-								, FILE_SN /*  */
-								, FILE_STRE_COURS /*  */
-								, STRE_FILE_NM /*  */
-								, ORIGNL_FILE_NM /*  */
-								, FILE_EXTSN /*  */
-								, FILE_CN /*  */
-								, FILE_SIZE /*  */
+								atch_file_id
+								, file_sn
+								, file_stre_cours
+								, stre_file_nm
+								, orignl_file_nm
+								, file_extsn
+								, file_cn
+								, file_size
 					FROM comtnfiledetail
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ATCH_FILE_ID = #searchKeyword# /*  */
+				atch_file_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				FILE_SN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				file_sn LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							ATCH_FILE_ID DESC /*  */
-							, FILE_SN DESC /*  */
+							atch_file_id DESC
+							, file_sn DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnfiledetailDAO.selectComtnfiledetailListTotCnt_S" parameterClass="comtnfiledetailSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnfiledetailDAO.selectComtnfiledetailListTotCnt_S" parameterClass="ComtnfiledetailVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnfiledetail
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ATCH_FILE_ID = #searchKeyword# /*  */
+				atch_file_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				FILE_SN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				file_sn LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

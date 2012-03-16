@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnprocessmonService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.Comtnprocess
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnprocessmonService {
 	 * @return comtnprocessmon 목록
 	 * @exception Exception
 	 */
-    List selectComtnprocessmonList(ComtnprocessmonDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnprocessmonList(ComtnprocessmonVO vo) throws Exception;
     
     /**
 	 * comtnprocessmon 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnprocessmonService {
 	 * @return comtnprocessmon 총 갯수
 	 * @exception
 	 */
-    int selectComtnprocessmonListTotCnt(ComtnprocessmonDefaultVO searchVO);
+    int selectComtnprocessmonListTotCnt(ComtnprocessmonVO vo);
     
 }

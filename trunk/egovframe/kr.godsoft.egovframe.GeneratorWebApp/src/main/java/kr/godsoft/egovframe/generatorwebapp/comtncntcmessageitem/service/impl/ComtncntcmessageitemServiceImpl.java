@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemService;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.impl.ComtncntcmessageitemDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncntcmessageitemServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtncntcmessageitemServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtncntcmessageitem 목록
 	 * @exception Exception
 	 */
-    public List selectComtncntcmessageitemList(ComtncntcmessageitemDefaultVO searchVO) throws Exception {
-        return comtncntcmessageitemDAO.selectComtncntcmessageitemList(searchVO);
+    public List<EgovMap> selectComtncntcmessageitemList(ComtncntcmessageitemVO vo) throws Exception {
+        return comtncntcmessageitemDAO.selectComtncntcmessageitemList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtncntcmessageitemServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtncntcmessageitem 총 갯수
 	 * @exception
 	 */
-    public int selectComtncntcmessageitemListTotCnt(ComtncntcmessageitemDefaultVO searchVO) {
-		return comtncntcmessageitemDAO.selectComtncntcmessageitemListTotCnt(searchVO);
+    public int selectComtncntcmessageitemListTotCnt(ComtncntcmessageitemVO vo) {
+		return comtncntcmessageitemDAO.selectComtncntcmessageitemListTotCnt(vo);
 	}
     
 }

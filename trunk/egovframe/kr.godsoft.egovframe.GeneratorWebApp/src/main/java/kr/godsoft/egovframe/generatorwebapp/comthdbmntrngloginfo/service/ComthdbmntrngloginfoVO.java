@@ -6,55 +6,55 @@ package kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComthdbmntrngloginfoVO extends ComthdbmntrngloginfoDefaultVO{
+public class ComthdbmntrngloginfoVO extends ComthdbmntrngloginfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** DATA_SOURC_NM */
     private String dataSourcNm;
     
-    /**  */
+    /** SERVER_NM */
     private String serverNm;
     
-    /**  */
+    /** DBMS_KND */
     private String dbmsKnd;
     
-    /**  */
+    /** CECK_SQL */
     private String ceckSql;
     
-    /**  */
+    /** MNGR_NM */
     private String mngrNm;
     
-    /**  */
+    /** MNGR_EMAIL_ADRES */
     private String mngrEmailAdres;
     
-    /**  */
+    /** MNTRNG_STTUS */
     private String mntrngSttus;
     
-    /**  */
+    /** LOG_INFO */
     private String logInfo;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LOG_ID */
     private String logId;
     
     public String getDataSourcNm() {

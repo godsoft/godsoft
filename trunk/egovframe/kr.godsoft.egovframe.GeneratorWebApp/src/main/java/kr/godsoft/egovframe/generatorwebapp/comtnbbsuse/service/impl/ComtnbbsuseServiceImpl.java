@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.impl.ComtnbbsuseDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbbsuseServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.impl.Comtnbbsuse
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbbsuseServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbbsuse 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbbsuseList(ComtnbbsuseDefaultVO searchVO) throws Exception {
-        return comtnbbsuseDAO.selectComtnbbsuseList(searchVO);
+    public List<EgovMap> selectComtnbbsuseList(ComtnbbsuseVO vo) throws Exception {
+        return comtnbbsuseDAO.selectComtnbbsuseList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbbsuseServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbbsuse 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbbsuseListTotCnt(ComtnbbsuseDefaultVO searchVO) {
-		return comtnbbsuseDAO.selectComtnbbsuseListTotCnt(searchVO);
+    public int selectComtnbbsuseListTotCnt(ComtnbbsuseVO vo) {
+		return comtnbbsuseDAO.selectComtnbbsuseListTotCnt(vo);
 	}
     
 }

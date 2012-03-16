@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnfileVO.atchFileId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnfileVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnfileVO" name="detailForm" id="detailForm">
+<form:form commandName="comtnfileVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>ATCH_FILE_ID *</th>
 			<td>
 				<form:input path="atchFileId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>ATCH_FILE_ID *</th>
 			<td>
 				<form:input path="atchFileId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,22 +93,16 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>CREAT_DT</th>
 			<td>
-	
 				<form:input path="creatDt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="creatDt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>USE_AT</th>
 			<td>
-
-				<form:input path="useAt" cssClass="txt" value="Y"/>
-
-
+				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	

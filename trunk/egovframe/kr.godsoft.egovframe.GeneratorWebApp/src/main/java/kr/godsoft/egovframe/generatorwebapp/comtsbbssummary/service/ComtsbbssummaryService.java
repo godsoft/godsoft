@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtsbbssummaryService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.Comtsbbssumm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtsbbssummaryService {
 	 * @return comtsbbssummary 목록
 	 * @exception Exception
 	 */
-    List selectComtsbbssummaryList(ComtsbbssummaryDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtsbbssummaryList(ComtsbbssummaryVO vo) throws Exception;
     
     /**
 	 * comtsbbssummary 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtsbbssummaryService {
 	 * @return comtsbbssummary 총 갯수
 	 * @exception
 	 */
-    int selectComtsbbssummaryListTotCnt(ComtsbbssummaryDefaultVO searchVO);
+    int selectComtsbbssummaryListTotCnt(ComtsbbssummaryVO vo);
     
 }

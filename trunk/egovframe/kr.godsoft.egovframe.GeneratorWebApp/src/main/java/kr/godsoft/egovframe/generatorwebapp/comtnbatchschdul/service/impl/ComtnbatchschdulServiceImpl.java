@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.impl.ComtnbatchschdulDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbatchschdulServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.impl.Comtnb
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbatchschdulServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbatchschdul 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbatchschdulList(ComtnbatchschdulDefaultVO searchVO) throws Exception {
-        return comtnbatchschdulDAO.selectComtnbatchschdulList(searchVO);
+    public List<EgovMap> selectComtnbatchschdulList(ComtnbatchschdulVO vo) throws Exception {
+        return comtnbatchschdulDAO.selectComtnbatchschdulList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbatchschdulServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbatchschdul 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbatchschdulListTotCnt(ComtnbatchschdulDefaultVO searchVO) {
-		return comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt(searchVO);
+    public int selectComtnbatchschdulListTotCnt(ComtnbatchschdulVO vo) {
+		return comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt(vo);
 	}
     
 }

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnpopupmanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.Comtnpopupm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnpopupmanageService {
 	 * @return comtnpopupmanage 목록
 	 * @exception Exception
 	 */
-    List selectComtnpopupmanageList(ComtnpopupmanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnpopupmanageList(ComtnpopupmanageVO vo) throws Exception;
     
     /**
 	 * comtnpopupmanage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnpopupmanageService {
 	 * @return comtnpopupmanage 총 갯수
 	 * @exception
 	 */
-    int selectComtnpopupmanageListTotCnt(ComtnpopupmanageDefaultVO searchVO);
+    int selectComtnpopupmanageListTotCnt(ComtnpopupmanageVO vo);
     
 }

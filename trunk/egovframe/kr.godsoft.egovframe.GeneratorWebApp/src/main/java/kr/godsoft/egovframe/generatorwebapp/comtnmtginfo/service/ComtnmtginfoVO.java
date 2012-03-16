@@ -6,88 +6,88 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmtginfoVO extends ComtnmtginfoDefaultVO{
+public class ComtnmtginfoVO extends ComtnmtginfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** MTG_ID */
     private String mtgId;
     
-    /**  */
+    /** MTG_NM */
     private String mtgNm;
     
-    /**  */
+    /** MTG_MTR_CN */
     private String mtgMtrCn;
     
-    /**  */
+    /** MTG_SN */
     private int mtgSn;
     
-    /**  */
+    /** MTG_CO */
     private int mtgCo;
     
-    /**  */
+    /** MTG_DE */
     private String mtgDe;
     
-    /**  */
+    /** MTG_PLACE */
     private String mtgPlace;
     
-    /**  */
+    /** MTG_BEGIN_TM */
     private String mtgBeginTm;
     
-    /**  */
+    /** MTG_END_TM */
     private String mtgEndTm;
     
-    /**  */
+    /** CLSDR_MTG_AT */
     private String clsdrMtgAt;
     
-    /**  */
+    /** READNG_BGNDE */
     private String readngBgnde;
     
-    /**  */
+    /** READNG_AT */
     private String readngAt;
     
-    /**  */
+    /** MTG_RESULT_CN */
     private String mtgResultCn;
     
-    /**  */
+    /** MTG_RESULT_ENNC */
     private String mtgResultEnnc;
     
-    /**  */
+    /** ETC_MATTER */
     private String etcMatter;
     
-    /**  */
+    /** MNGT_DEPT_ID */
     private String mngtDeptId;
     
-    /**  */
+    /** MNAER_ID */
     private String mnaerId;
     
-    /**  */
+    /** MNAER_DEPT_ID */
     private String mnaerDeptId;
     
-    /**  */
+    /** MTG_AT */
     private String mtgAt;
     
-    /**  */
+    /** NONATDRN_CO */
     private int nonatdrnCo;
     
-    /**  */
+    /** ATDRN_CO */
     private int atdrnCo;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getMtgId() {

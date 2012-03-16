@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertVO;
 
 /**
  * @Class Name : ComtnbatchopertController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.Comtnbatchop
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbatchopertController {
 	
     /**
 	 * comtnbatchopert 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbatchopertDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbatchopertVO
 	 * @return "/comtnbatchopert/ComtnbatchopertList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbatchopert/ComtnbatchopertList.do")
-    public String selectComtnbatchopertList(@ModelAttribute("searchVO") ComtnbatchopertDefaultVO searchVO, 
+    public String selectComtnbatchopertList(@ModelAttribute("searchVO") ComtnbatchopertVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbatchopertController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbatchopertList = comtnbatchopertService.selectComtnbatchopertList(searchVO);
+        List<EgovMap> comtnbatchopertList = comtnbatchopertService.selectComtnbatchopertList(searchVO);
         model.addAttribute("resultList", comtnbatchopertList);
         
         int totCnt = comtnbatchopertService.selectComtnbatchopertListTotCnt(searchVO);

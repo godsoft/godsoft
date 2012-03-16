@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnrestde.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnrestdeService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnrestdeService {
 	 * @return comtnrestde 목록
 	 * @exception Exception
 	 */
-    List selectComtnrestdeList(ComtnrestdeDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnrestdeList(ComtnrestdeVO vo) throws Exception;
     
     /**
 	 * comtnrestde 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnrestdeService {
 	 * @return comtnrestde 총 갯수
 	 * @exception
 	 */
-    int selectComtnrestdeListTotCnt(ComtnrestdeDefaultVO searchVO);
+    int selectComtnrestdeListTotCnt(ComtnrestdeVO vo);
     
 }

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.impl.ComtneventmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtneventmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.impl.Comtne
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtneventmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtneventmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtneventmanageList(ComtneventmanageDefaultVO searchVO) throws Exception {
-        return comtneventmanageDAO.selectComtneventmanageList(searchVO);
+    public List<EgovMap> selectComtneventmanageList(ComtneventmanageVO vo) throws Exception {
+        return comtneventmanageDAO.selectComtneventmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtneventmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtneventmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtneventmanageListTotCnt(ComtneventmanageDefaultVO searchVO) {
-		return comtneventmanageDAO.selectComtneventmanageListTotCnt(searchVO);
+    public int selectComtneventmanageListTotCnt(ComtneventmanageVO vo) {
+		return comtneventmanageDAO.selectComtneventmanageListTotCnt(vo);
 	}
     
 }

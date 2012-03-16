@@ -6,70 +6,70 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqainfoVO extends ComtnqainfoDefaultVO{
+public class ComtnqainfoVO extends ComtnqainfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QA_ID */
     private String qaId;
     
-    /**  */
+    /** QESTN_SJ */
     private String qestnSj;
     
-    /**  */
+    /** QESTN_CN */
     private String qestnCn;
     
-    /**  */
+    /** WRITNG_DE */
     private String writngDe;
     
-    /**  */
+    /** RDCNT */
     private int rdcnt;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** QNA_PROCESS_STTUS_CODE */
     private String qnaProcessSttusCode;
     
-    /**  */
+    /** WRTER_NM */
     private String wrterNm;
     
-    /**  */
+    /** ANSWER_CN */
     private String answerCn;
     
-    /**  */
+    /** WRITNG_PASSWORD */
     private String writngPassword;
     
-    /**  */
+    /** ANSWER_DE */
     private String answerDe;
     
-    /**  */
+    /** EMAIL_ANSWER_AT */
     private String emailAnswerAt;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** MIDDLE_TELNO */
     private String middleTelno;
     
-    /**  */
+    /** END_TELNO */
     private String endTelno;
     
     public String getQaId() {

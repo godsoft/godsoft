@@ -4,78 +4,79 @@
 <sqlMap namespace="ComtnrolesHierarchy">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnrolesHierarchySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO"/>
+	<typeAlias  alias="ComtnrolesHierarchyVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO"/>
 	
 	<resultMap id="comtnrolesHierarchy" class="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO">
-		<result property="parntsRole" column="PARNTS_ROLE" columnIndex="1"/> <!--  -->
-		<result property="chldrnRole" column="CHLDRN_ROLE" columnIndex="2"/> <!--  -->
+		<result property="parntsRole" column="parnts_role" columnIndex="1"/>
+		<result property="chldrnRole" column="chldrn_role" columnIndex="2"/>
 	</resultMap>
 	
 	<insert id="comtnrolesHierarchyDAO.insertComtnrolesHierarchy_S">
 		<![CDATA[
 			INSERT INTO comtnroles_hierarchy 
-				( PARNTS_ROLE /*  */
-				  , CHLDRN_ROLE /*  */ )
-			VALUES ( #parntsRole# /*  */
-				  , #chldrnRole# /*  */ )
+				( PARNTS_ROLE
+				  , chldrn_role )
+			VALUES ( #parntsRole#
+				  , #chldrnRole# )
 		]]>
 	</insert>
 	
 	<update id="comtnrolesHierarchyDAO.updateComtnrolesHierarchy_S">
 		<![CDATA[
 			UPDATE comtnroles_hierarchy
-			SET PARNTS_ROLE=#parntsRole# /*  */
-				, CHLDRN_ROLE=#chldrnRole# /*  */
-			WHERE PARNTS_ROLE=#parntsRole# /*  */
-				AND CHLDRN_ROLE=#chldrnRole# /*  */
+			SET parnts_role = #parntsRole#
+				, chldrn_role = #chldrnRole#
+			WHERE parnts_role = #parntsRole#
+				AND chldrn_role = #chldrnRole#
 		]]>
 	</update>
 	
 	<delete id="comtnrolesHierarchyDAO.deleteComtnrolesHierarchy_S">
 		<![CDATA[
 			DELETE FROM comtnroles_hierarchy 
-			WHERE PARNTS_ROLE=#parntsRole# /*  */
-				AND CHLDRN_ROLE=#chldrnRole# /*  */
+			WHERE parnts_role = #parntsRole#
+				AND chldrn_role = #chldrnRole#
 		]]>
 	</delete>
 	
 	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchy_S" resultMap="comtnrolesHierarchy">
 		<![CDATA[
 			SELECT
-				PARNTS_ROLE /*  */
-				, CHLDRN_ROLE /*  */
+				parnts_role
+				, chldrn_role
 			FROM comtnroles_hierarchy
-			WHERE PARNTS_ROLE=#parntsRole# /*  */
-				AND CHLDRN_ROLE=#chldrnRole# /*  */
+			WHERE parnts_role = #parntsRole#
+				AND chldrn_role = #chldrnRole#
 		]]>
 	</select>
 	
-	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyList_D" parameterClass="comtnrolesHierarchySerarchVO" resultClass="egovMap">
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyList_D" parameterClass="ComtnrolesHierarchyVO" resultClass="egovMap">
 			SELECT
-								PARNTS_ROLE /*  */
-								, CHLDRN_ROLE /*  */
+								parnts_role
+								, chldrn_role
 					FROM comtnroles_hierarchy
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				PARNTS_ROLE = #searchKeyword# /*  */
+				parnts_role = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CHLDRN_ROLE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				chldrn_role LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							PARNTS_ROLE DESC /*  */
-							, CHLDRN_ROLE DESC /*  */
+							parnts_role DESC
+							, chldrn_role DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt_S" parameterClass="comtnrolesHierarchySerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt_S" parameterClass="ComtnrolesHierarchyVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnroles_hierarchy
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				PARNTS_ROLE = #searchKeyword# /*  */
+				parnts_role = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CHLDRN_ROLE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				chldrn_role LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageDefaultVO;
 
 /**
  * @Class Name : ComtnrwardmanageDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.Comtnrwardm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnrwardmanageDAO extends EgovAbstractDAO {
 	 * @return comtnrwardmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnrwardmanageList(ComtnrwardmanageDefaultVO searchVO) throws Exception {
-        return list("comtnrwardmanageDAO.selectComtnrwardmanageList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnrwardmanageList(ComtnrwardmanageVO vo) throws Exception {
+        return list("comtnrwardmanageDAO.selectComtnrwardmanageList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnrwardmanageDAO extends EgovAbstractDAO {
 	 * @return comtnrwardmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnrwardmanageListTotCnt(ComtnrwardmanageDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnrwardmanageDAO.selectComtnrwardmanageListTotCnt_S", searchVO);
+    public int selectComtnrwardmanageListTotCnt(ComtnrwardmanageVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnrwardmanageDAO.selectComtnrwardmanageListTotCnt_S", vo);
     }
 
 }

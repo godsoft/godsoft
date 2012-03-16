@@ -4,122 +4,123 @@
 <sqlMap namespace="Comthconfmhistory">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comthconfmhistorySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryDefaultVO"/>
+	<typeAlias  alias="ComthconfmhistoryVO" type="kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryVO"/>
 	
 	<resultMap id="comthconfmhistory" class="kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryVO">
-		<result property="confmNo" column="CONFM_NO" columnIndex="1"/> <!--  -->
-		<result property="confmRqesterId" column="CONFM_RQESTER_ID" columnIndex="2"/> <!--  -->
-		<result property="confmerId" column="CONFMER_ID" columnIndex="3"/> <!--  -->
-		<result property="confmDe" column="CONFM_DE" columnIndex="4"/> <!--  -->
-		<result property="confmTyCode" column="CONFM_TY_CODE" columnIndex="5"/> <!--  -->
-		<result property="confmSttusCode" column="CONFM_STTUS_CODE" columnIndex="6"/> <!--  -->
-		<result property="opertTyCode" column="OPERT_TY_CODE" columnIndex="7"/> <!--  -->
-		<result property="opertId" column="OPERT_ID" columnIndex="8"/> <!--  -->
-		<result property="trgetJobTyCode" column="TRGET_JOB_TY_CODE" columnIndex="9"/> <!--  -->
-		<result property="trgetJobId" column="TRGET_JOB_ID" columnIndex="10"/> <!--  -->
+		<result property="confmNo" column="confm_no" columnIndex="1"/>
+		<result property="confmRqesterId" column="confm_rqester_id" columnIndex="2"/>
+		<result property="confmerId" column="confmer_id" columnIndex="3"/>
+		<result property="confmDe" column="confm_de" columnIndex="4"/>
+		<result property="confmTyCode" column="confm_ty_code" columnIndex="5"/>
+		<result property="confmSttusCode" column="confm_sttus_code" columnIndex="6"/>
+		<result property="opertTyCode" column="opert_ty_code" columnIndex="7"/>
+		<result property="opertId" column="opert_id" columnIndex="8"/>
+		<result property="trgetJobTyCode" column="trget_job_ty_code" columnIndex="9"/>
+		<result property="trgetJobId" column="trget_job_id" columnIndex="10"/>
 	</resultMap>
 	
 	<insert id="comthconfmhistoryDAO.insertComthconfmhistory_S">
 		<![CDATA[
 			INSERT INTO comthconfmhistory 
-				( CONFM_NO /*  */
-				  , CONFM_RQESTER_ID /*  */
-				  , CONFMER_ID /*  */
-				  , CONFM_DE /*  */
-				  , CONFM_TY_CODE /*  */
-				  , CONFM_STTUS_CODE /*  */
-				  , OPERT_TY_CODE /*  */
-				  , OPERT_ID /*  */
-				  , TRGET_JOB_TY_CODE /*  */
-				  , TRGET_JOB_ID /*  */ )
-			VALUES ( #confmNo# /*  */
-					  , #confmRqesterId# /*  */
-						  , #confmerId# /*  */
-						  , #confmDe# /*  */
-						  , #confmTyCode# /*  */
-						  , #confmSttusCode# /*  */
-						  , #opertTyCode# /*  */
-						  , #opertId# /*  */
-						  , #trgetJobTyCode# /*  */
-					  , #trgetJobId# /*  */ )
+				( CONFM_NO
+				  , confm_rqester_id
+				  , confmer_id
+				  , confm_de
+				  , confm_ty_code
+				  , confm_sttus_code
+				  , opert_ty_code
+				  , opert_id
+				  , trget_job_ty_code
+				  , trget_job_id )
+			VALUES ( #confmNo#
+				  , #confmRqesterId#
+				  , #confmerId#
+				  , #confmDe#
+				  , #confmTyCode#
+				  , #confmSttusCode#
+				  , #opertTyCode#
+				  , #opertId#
+				  , #trgetJobTyCode#
+				  , #trgetJobId# )
 		]]>
 	</insert>
 	
 	<update id="comthconfmhistoryDAO.updateComthconfmhistory_S">
 		<![CDATA[
 			UPDATE comthconfmhistory
-			SET CONFM_NO=#confmNo# /*  */
-				, CONFM_RQESTER_ID=#confmRqesterId# /*  */
-				, CONFMER_ID=#confmerId# /*  */
-				, CONFM_DE=#confmDe# /*  */
-				, CONFM_TY_CODE=#confmTyCode# /*  */
-				, CONFM_STTUS_CODE=#confmSttusCode# /*  */
-				, OPERT_TY_CODE=#opertTyCode# /*  */
-				, OPERT_ID=#opertId# /*  */
-				, TRGET_JOB_TY_CODE=#trgetJobTyCode# /*  */
-				, TRGET_JOB_ID=#trgetJobId# /*  */
-			WHERE CONFM_NO=#confmNo# /*  */
+			SET confm_no = #confmNo#
+				, confm_rqester_id = #confmRqesterId#
+				, confmer_id = #confmerId#
+				, confm_de = #confmDe#
+				, confm_ty_code = #confmTyCode#
+				, confm_sttus_code = #confmSttusCode#
+				, opert_ty_code = #opertTyCode#
+				, opert_id = #opertId#
+				, trget_job_ty_code = #trgetJobTyCode#
+				, trget_job_id = #trgetJobId#
+			WHERE confm_no = #confmNo#
 		]]>
 	</update>
 	
 	<delete id="comthconfmhistoryDAO.deleteComthconfmhistory_S">
 		<![CDATA[
 			DELETE FROM comthconfmhistory 
-			WHERE CONFM_NO=#confmNo# /*  */
+			WHERE confm_no = #confmNo#
 		]]>
 	</delete>
 	
 	<select id="comthconfmhistoryDAO.selectComthconfmhistory_S" resultMap="comthconfmhistory">
 		<![CDATA[
 			SELECT
-				CONFM_NO /*  */
-				, CONFM_RQESTER_ID /*  */
-				, CONFMER_ID /*  */
-				, CONFM_DE /*  */
-				, CONFM_TY_CODE /*  */
-				, CONFM_STTUS_CODE /*  */
-				, OPERT_TY_CODE /*  */
-				, OPERT_ID /*  */
-				, TRGET_JOB_TY_CODE /*  */
-				, TRGET_JOB_ID /*  */
+				confm_no
+				, confm_rqester_id
+				, confmer_id
+				, confm_de
+				, confm_ty_code
+				, confm_sttus_code
+				, opert_ty_code
+				, opert_id
+				, trget_job_ty_code
+				, trget_job_id
 			FROM comthconfmhistory
-			WHERE CONFM_NO=#confmNo# /*  */
+			WHERE confm_no = #confmNo#
 		]]>
 	</select>
 	
-	<select id="comthconfmhistoryDAO.selectComthconfmhistoryList_D" parameterClass="comthconfmhistorySerarchVO" resultClass="egovMap">
+	<select id="comthconfmhistoryDAO.selectComthconfmhistoryList_D" parameterClass="ComthconfmhistoryVO" resultClass="egovMap">
 			SELECT
-								CONFM_NO /*  */
-								, CONFM_RQESTER_ID /*  */
-								, CONFMER_ID /*  */
-								, CONFM_DE /*  */
-								, CONFM_TY_CODE /*  */
-								, CONFM_STTUS_CODE /*  */
-								, OPERT_TY_CODE /*  */
-								, OPERT_ID /*  */
-								, TRGET_JOB_TY_CODE /*  */
-								, TRGET_JOB_ID /*  */
+								confm_no
+								, confm_rqester_id
+								, confmer_id
+								, confm_de
+								, confm_ty_code
+								, confm_sttus_code
+								, opert_ty_code
+								, opert_id
+								, trget_job_ty_code
+								, trget_job_id
 					FROM comthconfmhistory
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				CONFM_NO = #searchKeyword# /*  */
+				confm_no = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CONFM_RQESTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				confm_rqester_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							CONFM_NO DESC /*  */
+							confm_no DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt_S" parameterClass="comthconfmhistorySerarchVO" resultClass="int">
+	</select>
+
+	<select id="comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt_S" parameterClass="ComthconfmhistoryVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comthconfmhistory
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				CONFM_NO = #searchKeyword# /*  */
+				confm_no = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CONFM_RQESTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				confm_rqester_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

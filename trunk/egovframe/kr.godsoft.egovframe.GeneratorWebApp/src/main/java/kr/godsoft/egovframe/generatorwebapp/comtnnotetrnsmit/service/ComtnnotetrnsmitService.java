@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.ComtnnotetrnsmitVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnnotetrnsmitService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnotetrnsmit.service.Comtnnotetr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnnotetrnsmitService {
 	 * @return comtnnotetrnsmit 목록
 	 * @exception Exception
 	 */
-    List selectComtnnotetrnsmitList(ComtnnotetrnsmitDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnnotetrnsmitList(ComtnnotetrnsmitVO vo) throws Exception;
     
     /**
 	 * comtnnotetrnsmit 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnnotetrnsmitService {
 	 * @return comtnnotetrnsmit 총 갯수
 	 * @exception
 	 */
-    int selectComtnnotetrnsmitListTotCnt(ComtnnotetrnsmitDefaultVO searchVO);
+    int selectComtnnotetrnsmitListTotCnt(ComtnnotetrnsmitVO vo);
     
 }

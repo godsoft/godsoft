@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnreprtstatsVO extends ComtnreprtstatsDefaultVO{
+public class ComtnreprtstatsVO extends ComtnreprtstatsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** REPRT_ID */
     private String reprtId;
     
-    /**  */
+    /** REPRT_NM */
     private String reprtNm;
     
-    /**  */
+    /** REPRT_STTUS */
     private String reprtSttus;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** REPRT_TY */
     private String reprtTy;
     
     public String getReprtId() {

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulDefaultVO;
 
 /**
  * @Class Name : ComtnbatchschdulDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.Comtnbatchs
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
 	 * @return comtnbatchschdul 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbatchschdulList(ComtnbatchschdulDefaultVO searchVO) throws Exception {
-        return list("comtnbatchschdulDAO.selectComtnbatchschdulList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnbatchschdulList(ComtnbatchschdulVO vo) throws Exception {
+        return list("comtnbatchschdulDAO.selectComtnbatchschdulList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
 	 * @return comtnbatchschdul 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbatchschdulListTotCnt(ComtnbatchschdulDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt_S", searchVO);
+    public int selectComtnbatchschdulListTotCnt(ComtnbatchschdulVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt_S", vo);
     }
 
 }

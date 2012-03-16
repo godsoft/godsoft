@@ -6,25 +6,25 @@ package kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnfxtrsmanageVO extends ComtnfxtrsmanageDefaultVO{
+public class ComtnfxtrsmanageVO extends ComtnfxtrsmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** FXTRS_CODE */
     private String fxtrsCode;
     
-    /**  */
+    /** FXTRS_NM */
     private String fxtrsNm;
     
-    /**  */
+    /** MAKR_NM */
     private String makrNm;
     
-    /**  */
+    /** PRICE */
     private int price;
     
     public String getFxtrsCode() {

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoVO;
 
 /**
  * @Class Name : ComtnstplatinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.Comtnstplati
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnstplatinfoController {
 	
     /**
 	 * comtnstplatinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnstplatinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnstplatinfoVO
 	 * @return "/comtnstplatinfo/ComtnstplatinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnstplatinfo/ComtnstplatinfoList.do")
-    public String selectComtnstplatinfoList(@ModelAttribute("searchVO") ComtnstplatinfoDefaultVO searchVO, 
+    public String selectComtnstplatinfoList(@ModelAttribute("searchVO") ComtnstplatinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnstplatinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnstplatinfoList = comtnstplatinfoService.selectComtnstplatinfoList(searchVO);
+        List<EgovMap> comtnstplatinfoList = comtnstplatinfoService.selectComtnstplatinfoList(searchVO);
         model.addAttribute("resultList", comtnstplatinfoList);
         
         int totCnt = comtnstplatinfoService.selectComtnstplatinfoListTotCnt(searchVO);

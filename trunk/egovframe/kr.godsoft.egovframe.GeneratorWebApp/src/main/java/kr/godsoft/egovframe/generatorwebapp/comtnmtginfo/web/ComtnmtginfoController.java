@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoVO;
 
 /**
  * @Class Name : ComtnmtginfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnmtginfoController {
 	
     /**
 	 * comtnmtginfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmtginfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmtginfoVO
 	 * @return "/comtnmtginfo/ComtnmtginfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmtginfo/ComtnmtginfoList.do")
-    public String selectComtnmtginfoList(@ModelAttribute("searchVO") ComtnmtginfoDefaultVO searchVO, 
+    public String selectComtnmtginfoList(@ModelAttribute("searchVO") ComtnmtginfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnmtginfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmtginfoList = comtnmtginfoService.selectComtnmtginfoList(searchVO);
+        List<EgovMap> comtnmtginfoList = comtnmtginfoService.selectComtnmtginfoList(searchVO);
         model.addAttribute("resultList", comtnmtginfoList);
         
         int totCnt = comtnmtginfoService.selectComtnmtginfoListTotCnt(searchVO);

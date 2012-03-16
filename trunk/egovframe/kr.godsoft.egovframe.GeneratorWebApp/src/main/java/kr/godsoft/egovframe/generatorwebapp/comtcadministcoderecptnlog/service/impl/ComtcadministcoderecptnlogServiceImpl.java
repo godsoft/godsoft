@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogService;
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogService;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogVO;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.impl.ComtcadministcoderecptnlogDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtcadministcoderecptnlogServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.i
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtcadministcoderecptnlogServiceImpl extends AbstractServiceImpl i
 	 * @return comtcadministcoderecptnlog 목록
 	 * @exception Exception
 	 */
-    public List selectComtcadministcoderecptnlogList(ComtcadministcoderecptnlogDefaultVO searchVO) throws Exception {
-        return comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogList(searchVO);
+    public List<EgovMap> selectComtcadministcoderecptnlogList(ComtcadministcoderecptnlogVO vo) throws Exception {
+        return comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtcadministcoderecptnlogServiceImpl extends AbstractServiceImpl i
 	 * @return comtcadministcoderecptnlog 총 갯수
 	 * @exception
 	 */
-    public int selectComtcadministcoderecptnlogListTotCnt(ComtcadministcoderecptnlogDefaultVO searchVO) {
-		return comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogListTotCnt(searchVO);
+    public int selectComtcadministcoderecptnlogListTotCnt(ComtcadministcoderecptnlogVO vo) {
+		return comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogListTotCnt(vo);
 	}
     
 }

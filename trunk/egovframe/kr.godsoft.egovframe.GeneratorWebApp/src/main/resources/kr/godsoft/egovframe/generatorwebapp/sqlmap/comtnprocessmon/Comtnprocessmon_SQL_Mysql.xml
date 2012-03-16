@@ -4,122 +4,123 @@
 <sqlMap namespace="Comtnprocessmon">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnprocessmonSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonDefaultVO"/>
+	<typeAlias  alias="ComtnprocessmonVO" type="kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO"/>
 	
 	<resultMap id="comtnprocessmon" class="kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO">
-		<result property="procsId" column="PROCS_ID" columnIndex="1"/> <!--  -->
-		<result property="procsNm" column="PROCS_NM" columnIndex="2"/> <!--  -->
-		<result property="procsSttus" column="PROCS_STTUS" columnIndex="3"/> <!--  -->
-		<result property="creatDt" column="CREAT_DT" columnIndex="4"/> <!--  -->
-		<result property="mngrNm" column="MNGR_NM" columnIndex="5"/> <!--  -->
-		<result property="mngrEmailAdres" column="MNGR_EMAIL_ADRES" columnIndex="6"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="procsId" column="procs_id" columnIndex="1"/>
+		<result property="procsNm" column="procs_nm" columnIndex="2"/>
+		<result property="procsSttus" column="procs_sttus" columnIndex="3"/>
+		<result property="creatDt" column="creat_dt" columnIndex="4"/>
+		<result property="mngrNm" column="mngr_nm" columnIndex="5"/>
+		<result property="mngrEmailAdres" column="mngr_email_adres" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
 	</resultMap>
 	
 	<insert id="comtnprocessmonDAO.insertComtnprocessmon_S">
 		<![CDATA[
 			INSERT INTO comtnprocessmon 
-				( PROCS_ID /*  */
-				  , PROCS_NM /*  */
-				  , PROCS_STTUS /*  */
-				  , CREAT_DT /*  */
-				  , MNGR_NM /*  */
-				  , MNGR_EMAIL_ADRES /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #procsId# /*  */
-					  , #procsNm# /*  */
-						  , #procsSttus# /*  */
-						  , SYSDATE() /*  */
-						  , #mngrNm# /*  */
-						  , #mngrEmailAdres# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( PROCS_ID
+				  , procs_nm
+				  , procs_sttus
+				  , creat_dt
+				  , mngr_nm
+				  , mngr_email_adres
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #procsId#
+				  , #procsNm#
+				  , #procsSttus#
+				  , #creatDt#
+				  , #mngrNm#
+				  , #mngrEmailAdres#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnprocessmonDAO.updateComtnprocessmon_S">
 		<![CDATA[
 			UPDATE comtnprocessmon
-			SET PROCS_ID=#procsId# /*  */
-				, PROCS_NM=#procsNm# /*  */
-				, PROCS_STTUS=#procsSttus# /*  */
-				, CREAT_DT=#creatDt# /*  */
-				, MNGR_NM=#mngrNm# /*  */
-				, MNGR_EMAIL_ADRES=#mngrEmailAdres# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE PROCS_ID=#procsId# /*  */
+			SET procs_id = #procsId#
+				, procs_nm = #procsNm#
+				, procs_sttus = #procsSttus#
+				, creat_dt = #creatDt#
+				, mngr_nm = #mngrNm#
+				, mngr_email_adres = #mngrEmailAdres#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE procs_id = #procsId#
 		]]>
 	</update>
 	
 	<delete id="comtnprocessmonDAO.deleteComtnprocessmon_S">
 		<![CDATA[
 			DELETE FROM comtnprocessmon 
-			WHERE PROCS_ID=#procsId# /*  */
+			WHERE procs_id = #procsId#
 		]]>
 	</delete>
 	
 	<select id="comtnprocessmonDAO.selectComtnprocessmon_S" resultMap="comtnprocessmon">
 		<![CDATA[
 			SELECT
-				PROCS_ID /*  */
-				, PROCS_NM /*  */
-				, PROCS_STTUS /*  */
-				, CREAT_DT /*  */
-				, MNGR_NM /*  */
-				, MNGR_EMAIL_ADRES /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				procs_id
+				, procs_nm
+				, procs_sttus
+				, creat_dt
+				, mngr_nm
+				, mngr_email_adres
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnprocessmon
-			WHERE PROCS_ID=#procsId# /*  */
+			WHERE procs_id = #procsId#
 		]]>
 	</select>
 	
-	<select id="comtnprocessmonDAO.selectComtnprocessmonList_D" parameterClass="comtnprocessmonSerarchVO" resultClass="egovMap">
+	<select id="comtnprocessmonDAO.selectComtnprocessmonList_D" parameterClass="ComtnprocessmonVO" resultClass="egovMap">
 			SELECT
-								PROCS_ID /*  */
-								, PROCS_NM /*  */
-								, PROCS_STTUS /*  */
-								, CREAT_DT /*  */
-								, MNGR_NM /*  */
-								, MNGR_EMAIL_ADRES /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								procs_id
+								, procs_nm
+								, procs_sttus
+								, creat_dt
+								, mngr_nm
+								, mngr_email_adres
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnprocessmon
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				PROCS_ID = #searchKeyword# /*  */
+				procs_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				PROCS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				procs_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							PROCS_ID DESC /*  */
+							procs_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnprocessmonDAO.selectComtnprocessmonListTotCnt_S" parameterClass="comtnprocessmonSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnprocessmonDAO.selectComtnprocessmonListTotCnt_S" parameterClass="ComtnprocessmonVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnprocessmon
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				PROCS_ID = #searchKeyword# /*  */
+				procs_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				PROCS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				procs_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

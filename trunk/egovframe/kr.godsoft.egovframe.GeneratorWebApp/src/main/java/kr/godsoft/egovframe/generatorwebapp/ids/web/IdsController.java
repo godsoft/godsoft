@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsService;
+import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsService;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
 
 /**
  * @Class Name : IdsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class IdsController {
 	
     /**
 	 * ids 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 IdsDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 IdsVO
 	 * @return "/ids/IdsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/ids/IdsList.do")
-    public String selectIdsList(@ModelAttribute("searchVO") IdsDefaultVO searchVO, 
+    public String selectIdsList(@ModelAttribute("searchVO") IdsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class IdsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List idsList = idsService.selectIdsList(searchVO);
+        List<EgovMap> idsList = idsService.selectIdsList(searchVO);
         model.addAttribute("resultList", idsList);
         
         int totCnt = idsService.selectIdsListTotCnt(searchVO);
@@ -99,11 +100,11 @@ public class IdsController {
     
     @RequestMapping("/ids/updateIdsView.do")
     public String updateIdsView(
-            @RequestParam("idgenTableNm") String idgenTableNm ,
+            @RequestParam("tableName") String tableName ,
             @ModelAttribute("searchVO") IdsDefaultVO searchVO, Model model)
             throws Exception {
         IdsVO idsVO = new IdsVO();
-        idsVO.setIdgenTableNm(idgenTableNm);
+        idsVO.setTableName(tableName);
 ;        
         // 변수명은 CoC 에 따라 idsVO
         model.addAttribute(selectIds(idsVO, searchVO));

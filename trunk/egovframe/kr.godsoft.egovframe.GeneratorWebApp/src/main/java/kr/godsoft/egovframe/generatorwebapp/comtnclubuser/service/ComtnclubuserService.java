@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnclubuser.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnclubuser.service.ComtnclubuserDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnclubuser.service.ComtnclubuserVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnclubuserService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnclubuser.service.ComtnclubuserV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnclubuserService {
 	 * @return comtnclubuser 목록
 	 * @exception Exception
 	 */
-    List selectComtnclubuserList(ComtnclubuserDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnclubuserList(ComtnclubuserVO vo) throws Exception;
     
     /**
 	 * comtnclubuser 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnclubuserService {
 	 * @return comtnclubuser 총 갯수
 	 * @exception
 	 */
-    int selectComtnclubuserListTotCnt(ComtnclubuserDefaultVO searchVO);
+    int selectComtnclubuserListTotCnt(ComtnclubuserVO vo);
     
 }

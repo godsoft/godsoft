@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnscrap.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnscrapService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnscrapService {
 	 * @return comtnscrap 목록
 	 * @exception Exception
 	 */
-    List selectComtnscrapList(ComtnscrapDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnscrapList(ComtnscrapVO vo) throws Exception;
     
     /**
 	 * comtnscrap 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnscrapService {
 	 * @return comtnscrap 총 갯수
 	 * @exception
 	 */
-    int selectComtnscrapListTotCnt(ComtnscrapDefaultVO searchVO);
+    int selectComtnscrapListTotCnt(ComtnscrapVO vo);
     
 }

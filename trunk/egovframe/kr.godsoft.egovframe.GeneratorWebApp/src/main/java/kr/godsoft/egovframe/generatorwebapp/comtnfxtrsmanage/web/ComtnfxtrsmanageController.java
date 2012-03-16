@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO;
 
 /**
  * @Class Name : ComtnfxtrsmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.Comtnfxtrsm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnfxtrsmanageController {
 	
     /**
 	 * comtnfxtrsmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnfxtrsmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnfxtrsmanageVO
 	 * @return "/comtnfxtrsmanage/ComtnfxtrsmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnfxtrsmanage/ComtnfxtrsmanageList.do")
-    public String selectComtnfxtrsmanageList(@ModelAttribute("searchVO") ComtnfxtrsmanageDefaultVO searchVO, 
+    public String selectComtnfxtrsmanageList(@ModelAttribute("searchVO") ComtnfxtrsmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnfxtrsmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnfxtrsmanageList = comtnfxtrsmanageService.selectComtnfxtrsmanageList(searchVO);
+        List<EgovMap> comtnfxtrsmanageList = comtnfxtrsmanageService.selectComtnfxtrsmanageList(searchVO);
         model.addAttribute("resultList", comtnfxtrsmanageList);
         
         int totCnt = comtnfxtrsmanageService.selectComtnfxtrsmanageListTotCnt(searchVO);

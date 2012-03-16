@@ -4,140 +4,141 @@
 <sqlMap namespace="Comtnproxyinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnproxyinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoDefaultVO"/>
+	<typeAlias  alias="ComtnproxyinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoVO"/>
 	
 	<resultMap id="comtnproxyinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoVO">
-		<result property="proxyId" column="PROXY_ID" columnIndex="1"/> <!--  -->
-		<result property="proxyNm" column="PROXY_NM" columnIndex="2"/> <!--  -->
-		<result property="proxyIp" column="PROXY_IP" columnIndex="3"/> <!--  -->
-		<result property="proxyPort" column="PROXY_PORT" columnIndex="4"/> <!--  -->
-		<result property="trgetSvcNm" column="TRGET_SVC_NM" columnIndex="5"/> <!--  -->
-		<result property="svcDc" column="SVC_DC" columnIndex="6"/> <!--  -->
-		<result property="svcIp" column="SVC_IP" columnIndex="7"/> <!--  -->
-		<result property="svcPort" column="SVC_PORT" columnIndex="8"/> <!--  -->
-		<result property="svcSttus" column="SVC_STTUS" columnIndex="9"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="12"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
+		<result property="proxyId" column="proxy_id" columnIndex="1"/>
+		<result property="proxyNm" column="proxy_nm" columnIndex="2"/>
+		<result property="proxyIp" column="proxy_ip" columnIndex="3"/>
+		<result property="proxyPort" column="proxy_port" columnIndex="4"/>
+		<result property="trgetSvcNm" column="trget_svc_nm" columnIndex="5"/>
+		<result property="svcDc" column="svc_dc" columnIndex="6"/>
+		<result property="svcIp" column="svc_ip" columnIndex="7"/>
+		<result property="svcPort" column="svc_port" columnIndex="8"/>
+		<result property="svcSttus" column="svc_sttus" columnIndex="9"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="10"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="11"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="12"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="13"/>
 	</resultMap>
 	
 	<insert id="comtnproxyinfoDAO.insertComtnproxyinfo_S">
 		<![CDATA[
 			INSERT INTO comtnproxyinfo 
-				( PROXY_ID /*  */
-				  , PROXY_NM /*  */
-				  , PROXY_IP /*  */
-				  , PROXY_PORT /*  */
-				  , TRGET_SVC_NM /*  */
-				  , SVC_DC /*  */
-				  , SVC_IP /*  */
-				  , SVC_PORT /*  */
-				  , SVC_STTUS /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #proxyId# /*  */
-					  , #proxyNm# /*  */
-						  , #proxyIp# /*  */
-						  , #proxyPort# /*  */
-						  , #trgetSvcNm# /*  */
-						  , #svcDc# /*  */
-						  , #svcIp# /*  */
-						  , #svcPort# /*  */
-						  , #svcSttus# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( PROXY_ID
+				  , proxy_nm
+				  , proxy_ip
+				  , proxy_port
+				  , trget_svc_nm
+				  , svc_dc
+				  , svc_ip
+				  , svc_port
+				  , svc_sttus
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #proxyId#
+				  , #proxyNm#
+				  , #proxyIp#
+				  , #proxyPort#
+				  , #trgetSvcNm#
+				  , #svcDc#
+				  , #svcIp#
+				  , #svcPort#
+				  , #svcSttus#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnproxyinfoDAO.updateComtnproxyinfo_S">
 		<![CDATA[
 			UPDATE comtnproxyinfo
-			SET PROXY_ID=#proxyId# /*  */
-				, PROXY_NM=#proxyNm# /*  */
-				, PROXY_IP=#proxyIp# /*  */
-				, PROXY_PORT=#proxyPort# /*  */
-				, TRGET_SVC_NM=#trgetSvcNm# /*  */
-				, SVC_DC=#svcDc# /*  */
-				, SVC_IP=#svcIp# /*  */
-				, SVC_PORT=#svcPort# /*  */
-				, SVC_STTUS=#svcSttus# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE PROXY_ID=#proxyId# /*  */
+			SET proxy_id = #proxyId#
+				, proxy_nm = #proxyNm#
+				, proxy_ip = #proxyIp#
+				, proxy_port = #proxyPort#
+				, trget_svc_nm = #trgetSvcNm#
+				, svc_dc = #svcDc#
+				, svc_ip = #svcIp#
+				, svc_port = #svcPort#
+				, svc_sttus = #svcSttus#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE proxy_id = #proxyId#
 		]]>
 	</update>
 	
 	<delete id="comtnproxyinfoDAO.deleteComtnproxyinfo_S">
 		<![CDATA[
 			DELETE FROM comtnproxyinfo 
-			WHERE PROXY_ID=#proxyId# /*  */
+			WHERE proxy_id = #proxyId#
 		]]>
 	</delete>
 	
 	<select id="comtnproxyinfoDAO.selectComtnproxyinfo_S" resultMap="comtnproxyinfo">
 		<![CDATA[
 			SELECT
-				PROXY_ID /*  */
-				, PROXY_NM /*  */
-				, PROXY_IP /*  */
-				, PROXY_PORT /*  */
-				, TRGET_SVC_NM /*  */
-				, SVC_DC /*  */
-				, SVC_IP /*  */
-				, SVC_PORT /*  */
-				, SVC_STTUS /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				proxy_id
+				, proxy_nm
+				, proxy_ip
+				, proxy_port
+				, trget_svc_nm
+				, svc_dc
+				, svc_ip
+				, svc_port
+				, svc_sttus
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnproxyinfo
-			WHERE PROXY_ID=#proxyId# /*  */
+			WHERE proxy_id = #proxyId#
 		]]>
 	</select>
 	
-	<select id="comtnproxyinfoDAO.selectComtnproxyinfoList_D" parameterClass="comtnproxyinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnproxyinfoDAO.selectComtnproxyinfoList_D" parameterClass="ComtnproxyinfoVO" resultClass="egovMap">
 			SELECT
-								PROXY_ID /*  */
-								, PROXY_NM /*  */
-								, PROXY_IP /*  */
-								, PROXY_PORT /*  */
-								, TRGET_SVC_NM /*  */
-								, SVC_DC /*  */
-								, SVC_IP /*  */
-								, SVC_PORT /*  */
-								, SVC_STTUS /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								proxy_id
+								, proxy_nm
+								, proxy_ip
+								, proxy_port
+								, trget_svc_nm
+								, svc_dc
+								, svc_ip
+								, svc_port
+								, svc_sttus
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnproxyinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				PROXY_ID = #searchKeyword# /*  */
+				proxy_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				PROXY_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				proxy_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							PROXY_ID DESC /*  */
+							proxy_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnproxyinfoDAO.selectComtnproxyinfoListTotCnt_S" parameterClass="comtnproxyinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnproxyinfoDAO.selectComtnproxyinfoListTotCnt_S" parameterClass="ComtnproxyinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnproxyinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				PROXY_ID = #searchKeyword# /*  */
+				proxy_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				PROXY_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				proxy_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

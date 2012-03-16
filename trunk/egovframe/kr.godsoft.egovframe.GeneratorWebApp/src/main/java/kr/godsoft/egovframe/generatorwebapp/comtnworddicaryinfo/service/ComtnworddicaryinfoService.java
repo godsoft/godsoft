@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnworddicaryinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.Comtnwor
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnworddicaryinfoService {
 	 * @return comtnworddicaryinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnworddicaryinfoList(ComtnworddicaryinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnworddicaryinfoList(ComtnworddicaryinfoVO vo) throws Exception;
     
     /**
 	 * comtnworddicaryinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnworddicaryinfoService {
 	 * @return comtnworddicaryinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnworddicaryinfoListTotCnt(ComtnworddicaryinfoDefaultVO searchVO);
+    int selectComtnworddicaryinfoListTotCnt(ComtnworddicaryinfoVO vo);
     
 }

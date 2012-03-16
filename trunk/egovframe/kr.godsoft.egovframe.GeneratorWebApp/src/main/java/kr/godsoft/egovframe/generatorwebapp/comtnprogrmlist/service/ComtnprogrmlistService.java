@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnprogrmlistService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.Comtnprogrml
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnprogrmlistService {
 	 * @return comtnprogrmlist 목록
 	 * @exception Exception
 	 */
-    List selectComtnprogrmlistList(ComtnprogrmlistDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnprogrmlistList(ComtnprogrmlistVO vo) throws Exception;
     
     /**
 	 * comtnprogrmlist 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnprogrmlistService {
 	 * @return comtnprogrmlist 총 갯수
 	 * @exception
 	 */
-    int selectComtnprogrmlistListTotCnt(ComtnprogrmlistDefaultVO searchVO);
+    int selectComtnprogrmlistListTotCnt(ComtnprogrmlistVO vo);
     
 }

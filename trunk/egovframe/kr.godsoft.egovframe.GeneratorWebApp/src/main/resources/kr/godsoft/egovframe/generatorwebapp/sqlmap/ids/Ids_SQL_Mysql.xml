@@ -4,74 +4,75 @@
 <sqlMap namespace="Ids">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="idsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO"/>
+	<typeAlias  alias="IdsVO" type="kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO"/>
 	
 	<resultMap id="ids" class="kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO">
-		<result property="idgenTableNm" column="IDGEN_TABLE_NM" columnIndex="1"/> <!--  -->
-		<result property="idgenNextId" column="IDGEN_NEXT_ID" columnIndex="2"/> <!--  -->
+		<result property="tableName" column="table_name" columnIndex="1"/>
+		<result property="nextId" column="next_id" columnIndex="2"/>
 	</resultMap>
 	
 	<insert id="idsDAO.insertIds_S">
 		<![CDATA[
 			INSERT INTO ids 
-				( IDGEN_TABLE_NM /*  */
-				  , IDGEN_NEXT_ID /*  */ )
-			VALUES ( #idgenTableNm# /*  */
-				  , #idgenNextId# /*  */ )
+				( TABLE_NAME
+				  , next_id )
+			VALUES ( #tableName#
+				  , #nextId# )
 		]]>
 	</insert>
 	
 	<update id="idsDAO.updateIds_S">
 		<![CDATA[
 			UPDATE ids
-			SET IDGEN_TABLE_NM=#idgenTableNm# /*  */
-				, IDGEN_NEXT_ID=#idgenNextId# /*  */
-			WHERE IDGEN_TABLE_NM=#idgenTableNm# /*  */
+			SET table_name = #tableName#
+				, next_id = #nextId#
+			WHERE table_name = #tableName#
 		]]>
 	</update>
 	
 	<delete id="idsDAO.deleteIds_S">
 		<![CDATA[
 			DELETE FROM ids 
-			WHERE IDGEN_TABLE_NM=#idgenTableNm# /*  */
+			WHERE table_name = #tableName#
 		]]>
 	</delete>
 	
 	<select id="idsDAO.selectIds_S" resultMap="ids">
 		<![CDATA[
 			SELECT
-				IDGEN_TABLE_NM /*  */
-				, IDGEN_NEXT_ID /*  */
+				table_name
+				, next_id
 			FROM ids
-			WHERE IDGEN_TABLE_NM=#idgenTableNm# /*  */
+			WHERE table_name = #tableName#
 		]]>
 	</select>
 	
-	<select id="idsDAO.selectIdsList_D" parameterClass="idsSerarchVO" resultClass="egovMap">
+	<select id="idsDAO.selectIdsList_D" parameterClass="IdsVO" resultClass="egovMap">
 			SELECT
-								IDGEN_TABLE_NM /*  */
-								, IDGEN_NEXT_ID /*  */
+								table_name
+								, next_id
 					FROM ids
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				IDGEN_TABLE_NM = #searchKeyword# /*  */
+				table_name = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				IDGEN_NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				next_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							IDGEN_TABLE_NM DESC /*  */
+							table_name DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="idsDAO.selectIdsListTotCnt_S" parameterClass="idsSerarchVO" resultClass="int">
+	</select>
+
+	<select id="idsDAO.selectIdsListTotCnt_S" parameterClass="IdsVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM ids
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				IDGEN_TABLE_NM = #searchKeyword# /*  */
+				table_name = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				IDGEN_NEXT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				next_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnService;
+import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnService;
-import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnVO;
 
 /**
  * @Class Name : ComtninfrmlsanctnController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.Comtninfrm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtninfrmlsanctnController {
 	
     /**
 	 * comtninfrmlsanctn 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtninfrmlsanctnDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtninfrmlsanctnVO
 	 * @return "/comtninfrmlsanctn/ComtninfrmlsanctnList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtninfrmlsanctn/ComtninfrmlsanctnList.do")
-    public String selectComtninfrmlsanctnList(@ModelAttribute("searchVO") ComtninfrmlsanctnDefaultVO searchVO, 
+    public String selectComtninfrmlsanctnList(@ModelAttribute("searchVO") ComtninfrmlsanctnVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtninfrmlsanctnController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtninfrmlsanctnList = comtninfrmlsanctnService.selectComtninfrmlsanctnList(searchVO);
+        List<EgovMap> comtninfrmlsanctnList = comtninfrmlsanctnService.selectComtninfrmlsanctnList(searchVO);
         model.addAttribute("resultList", comtninfrmlsanctnList);
         
         int totCnt = comtninfrmlsanctnService.selectComtninfrmlsanctnListTotCnt(searchVO);

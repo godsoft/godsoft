@@ -6,25 +6,25 @@ package kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnsitemapVO extends ComtnsitemapDefaultVO{
+public class ComtnsitemapVO extends ComtnsitemapDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** MAPNG_CREAT_ID */
     private String mapngCreatId;
     
-    /**  */
+    /** CREATR_ID */
     private String creatrId;
     
-    /**  */
+    /** MAPNG_FILE_NM */
     private String mapngFileNm;
     
-    /**  */
+    /** MAPNG_FILE_PATH */
     private String mapngFilePath;
     
     public String getMapngCreatId() {

@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtndbmntrng.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndbmntrngVO extends ComtndbmntrngDefaultVO{
+public class ComtndbmntrngVO extends ComtndbmntrngDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** DATA_SOURC_NM */
     private String dataSourcNm;
     
-    /**  */
+    /** SERVER_NM */
     private String serverNm;
     
-    /**  */
+    /** DBMS_KND */
     private String dbmsKnd;
     
-    /**  */
+    /** CECK_SQL */
     private String ceckSql;
     
-    /**  */
+    /** MNGR_NM */
     private String mngrNm;
     
-    /**  */
+    /** MNGR_EMAIL_ADRES */
     private String mngrEmailAdres;
     
-    /**  */
+    /** MNTRNG_STTUS */
     private String mntrngSttus;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getDataSourcNm() {

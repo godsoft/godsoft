@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.ComtnmtgplacemanageDefaultVO;
 
 /**
  * @Class Name : ComtnmtgplacemanageDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service.Comtnmtg
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnmtgplacemanageDAO extends EgovAbstractDAO {
 	 * @return comtnmtgplacemanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmtgplacemanageList(ComtnmtgplacemanageDefaultVO searchVO) throws Exception {
-        return list("comtnmtgplacemanageDAO.selectComtnmtgplacemanageList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnmtgplacemanageList(ComtnmtgplacemanageVO vo) throws Exception {
+        return list("comtnmtgplacemanageDAO.selectComtnmtgplacemanageList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnmtgplacemanageDAO extends EgovAbstractDAO {
 	 * @return comtnmtgplacemanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmtgplacemanageListTotCnt(ComtnmtgplacemanageDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmtgplacemanageDAO.selectComtnmtgplacemanageListTotCnt_S", searchVO);
+    public int selectComtnmtgplacemanageListTotCnt(ComtnmtgplacemanageVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmtgplacemanageDAO.selectComtnmtgplacemanageListTotCnt_S", vo);
     }
 
 }

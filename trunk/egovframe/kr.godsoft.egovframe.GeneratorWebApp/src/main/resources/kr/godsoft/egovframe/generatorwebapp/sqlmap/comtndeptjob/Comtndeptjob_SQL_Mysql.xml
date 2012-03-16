@@ -4,128 +4,129 @@
 <sqlMap namespace="Comtndeptjob">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtndeptjobSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobDefaultVO"/>
+	<typeAlias  alias="ComtndeptjobVO" type="kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO"/>
 	
 	<resultMap id="comtndeptjob" class="kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO">
-		<result property="deptJobId" column="DEPT_JOB_ID" columnIndex="1"/> <!--  -->
-		<result property="deptJobbxId" column="DEPT_JOBBX_ID" columnIndex="2"/> <!--  -->
-		<result property="deptJobNm" column="DEPT_JOB_NM" columnIndex="3"/> <!--  -->
-		<result property="deptJobCn" column="DEPT_JOB_CN" columnIndex="4"/> <!--  -->
-		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="5"/> <!--  -->
-		<result property="chargerId" column="CHARGER_ID" columnIndex="6"/> <!--  -->
-		<result property="priort" column="PRIORT" columnIndex="7"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="8"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="9"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="10"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="11"/> <!--  -->
+		<result property="deptJobId" column="dept_job_id" columnIndex="1"/>
+		<result property="deptJobbxId" column="dept_jobbx_id" columnIndex="2"/>
+		<result property="deptJobNm" column="dept_job_nm" columnIndex="3"/>
+		<result property="deptJobCn" column="dept_job_cn" columnIndex="4"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="5"/>
+		<result property="chargerId" column="charger_id" columnIndex="6"/>
+		<result property="priort" column="priort" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
 	</resultMap>
 	
 	<insert id="comtndeptjobDAO.insertComtndeptjob_S">
 		<![CDATA[
 			INSERT INTO comtndeptjob 
-				( DEPT_JOB_ID /*  */
-				  , DEPT_JOBBX_ID /*  */
-				  , DEPT_JOB_NM /*  */
-				  , DEPT_JOB_CN /*  */
-				  , ATCH_FILE_ID /*  */
-				  , CHARGER_ID /*  */
-				  , PRIORT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #deptJobId# /*  */
-					  , #deptJobbxId# /*  */
-						  , #deptJobNm# /*  */
-						  , #deptJobCn# /*  */
-						  , #atchFileId# /*  */
-						  , #chargerId# /*  */
-						  , #priort# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( DEPT_JOB_ID
+				  , dept_jobbx_id
+				  , dept_job_nm
+				  , dept_job_cn
+				  , atch_file_id
+				  , charger_id
+				  , priort
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #deptJobId#
+				  , #deptJobbxId#
+				  , #deptJobNm#
+				  , #deptJobCn#
+				  , #atchFileId#
+				  , #chargerId#
+				  , #priort#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtndeptjobDAO.updateComtndeptjob_S">
 		<![CDATA[
 			UPDATE comtndeptjob
-			SET DEPT_JOB_ID=#deptJobId# /*  */
-				, DEPT_JOBBX_ID=#deptJobbxId# /*  */
-				, DEPT_JOB_NM=#deptJobNm# /*  */
-				, DEPT_JOB_CN=#deptJobCn# /*  */
-				, ATCH_FILE_ID=#atchFileId# /*  */
-				, CHARGER_ID=#chargerId# /*  */
-				, PRIORT=#priort# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE DEPT_JOB_ID=#deptJobId# /*  */
+			SET dept_job_id = #deptJobId#
+				, dept_jobbx_id = #deptJobbxId#
+				, dept_job_nm = #deptJobNm#
+				, dept_job_cn = #deptJobCn#
+				, atch_file_id = #atchFileId#
+				, charger_id = #chargerId#
+				, priort = #priort#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE dept_job_id = #deptJobId#
 		]]>
 	</update>
 	
 	<delete id="comtndeptjobDAO.deleteComtndeptjob_S">
 		<![CDATA[
 			DELETE FROM comtndeptjob 
-			WHERE DEPT_JOB_ID=#deptJobId# /*  */
+			WHERE dept_job_id = #deptJobId#
 		]]>
 	</delete>
 	
 	<select id="comtndeptjobDAO.selectComtndeptjob_S" resultMap="comtndeptjob">
 		<![CDATA[
 			SELECT
-				DEPT_JOB_ID /*  */
-				, DEPT_JOBBX_ID /*  */
-				, DEPT_JOB_NM /*  */
-				, DEPT_JOB_CN /*  */
-				, ATCH_FILE_ID /*  */
-				, CHARGER_ID /*  */
-				, PRIORT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				dept_job_id
+				, dept_jobbx_id
+				, dept_job_nm
+				, dept_job_cn
+				, atch_file_id
+				, charger_id
+				, priort
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtndeptjob
-			WHERE DEPT_JOB_ID=#deptJobId# /*  */
+			WHERE dept_job_id = #deptJobId#
 		]]>
 	</select>
 	
-	<select id="comtndeptjobDAO.selectComtndeptjobList_D" parameterClass="comtndeptjobSerarchVO" resultClass="egovMap">
+	<select id="comtndeptjobDAO.selectComtndeptjobList_D" parameterClass="ComtndeptjobVO" resultClass="egovMap">
 			SELECT
-								DEPT_JOB_ID /*  */
-								, DEPT_JOBBX_ID /*  */
-								, DEPT_JOB_NM /*  */
-								, DEPT_JOB_CN /*  */
-								, ATCH_FILE_ID /*  */
-								, CHARGER_ID /*  */
-								, PRIORT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								dept_job_id
+								, dept_jobbx_id
+								, dept_job_nm
+								, dept_job_cn
+								, atch_file_id
+								, charger_id
+								, priort
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtndeptjob
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				DEPT_JOB_ID = #searchKeyword# /*  */
+				dept_job_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				DEPT_JOBBX_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				dept_jobbx_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							DEPT_JOB_ID DESC /*  */
+							dept_job_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtndeptjobDAO.selectComtndeptjobListTotCnt_S" parameterClass="comtndeptjobSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtndeptjobDAO.selectComtndeptjobListTotCnt_S" parameterClass="ComtndeptjobVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtndeptjob
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				DEPT_JOB_ID = #searchKeyword# /*  */
+				dept_job_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				DEPT_JOBBX_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				dept_jobbx_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

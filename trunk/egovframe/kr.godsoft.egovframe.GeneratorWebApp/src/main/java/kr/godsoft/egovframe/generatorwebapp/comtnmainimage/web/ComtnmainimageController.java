@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO;
 
 /**
  * @Class Name : ComtnmainimageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.Comtnmainimag
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnmainimageController {
 	
     /**
 	 * comtnmainimage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmainimageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmainimageVO
 	 * @return "/comtnmainimage/ComtnmainimageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmainimage/ComtnmainimageList.do")
-    public String selectComtnmainimageList(@ModelAttribute("searchVO") ComtnmainimageDefaultVO searchVO, 
+    public String selectComtnmainimageList(@ModelAttribute("searchVO") ComtnmainimageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnmainimageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmainimageList = comtnmainimageService.selectComtnmainimageList(searchVO);
+        List<EgovMap> comtnmainimageList = comtnmainimageService.selectComtnmainimageList(searchVO);
         model.addAttribute("resultList", comtnmainimageList);
         
         int totCnt = comtnmainimageService.selectComtnmainimageListTotCnt(searchVO);

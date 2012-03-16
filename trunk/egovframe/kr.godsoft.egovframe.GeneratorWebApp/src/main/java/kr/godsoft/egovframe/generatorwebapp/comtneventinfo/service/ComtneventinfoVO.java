@@ -6,61 +6,61 @@ package kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtneventinfoVO extends ComtneventinfoDefaultVO{
+public class ComtneventinfoVO extends ComtneventinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EVENT_ID */
     private String eventId;
     
-    /**  */
+    /** BSNS_YEAR */
     private String bsnsYear;
     
-    /**  */
+    /** BSNS_CODE */
     private String bsnsCode;
     
-    /**  */
+    /** EVENT_CN */
     private String eventCn;
     
-    /**  */
+    /** EVENT_SVC_BGNDE */
     private String eventSvcBgnde;
     
-    /**  */
+    /** SVC_USE_NMPR_CO */
     private int svcUseNmprCo;
     
-    /**  */
+    /** CHARGER_NM */
     private String chargerNm;
     
-    /**  */
+    /** PRPARETG_CN */
     private String prparetgCn;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** EVENT_SVC_ENDDE */
     private String eventSvcEndde;
     
-    /**  */
+    /** EVENT_TY_CODE */
     private String eventTyCode;
     
-    /**  */
+    /** EVENT_CONFM_AT */
     private String eventConfmAt;
     
-    /**  */
+    /** EVENT_CONFM_DE */
     private String eventConfmDe;
     
     public String getEventId() {

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoVO;
 
 /**
  * @Class Name : ComtnsynchrnserverinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnsynchrnserverinfoController {
 	
     /**
 	 * comtnsynchrnserverinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnsynchrnserverinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnsynchrnserverinfoVO
 	 * @return "/comtnsynchrnserverinfo/ComtnsynchrnserverinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnsynchrnserverinfo/ComtnsynchrnserverinfoList.do")
-    public String selectComtnsynchrnserverinfoList(@ModelAttribute("searchVO") ComtnsynchrnserverinfoDefaultVO searchVO, 
+    public String selectComtnsynchrnserverinfoList(@ModelAttribute("searchVO") ComtnsynchrnserverinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnsynchrnserverinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnsynchrnserverinfoList = comtnsynchrnserverinfoService.selectComtnsynchrnserverinfoList(searchVO);
+        List<EgovMap> comtnsynchrnserverinfoList = comtnsynchrnserverinfoService.selectComtnsynchrnserverinfoList(searchVO);
         model.addAttribute("resultList", comtnsynchrnserverinfoList);
         
         int totCnt = comtnsynchrnserverinfoService.selectComtnsynchrnserverinfoListTotCnt(searchVO);

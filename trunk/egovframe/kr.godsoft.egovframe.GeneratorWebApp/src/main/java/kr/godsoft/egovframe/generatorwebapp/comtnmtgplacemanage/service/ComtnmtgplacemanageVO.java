@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmtgplacemanageVO extends ComtnmtgplacemanageDefaultVO{
+public class ComtnmtgplacemanageVO extends ComtnmtgplacemanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** MTGRUM_ID */
     private String mtgrumId;
     
-    /**  */
+    /** MTGRUM_NM */
     private String mtgrumNm;
     
-    /**  */
+    /** OPN_BEGIN_TM */
     private String opnBeginTm;
     
-    /**  */
+    /** OPN_END_TM */
     private String opnEndTm;
     
-    /**  */
+    /** ACEPTNC_POSBL_NMPR */
     private int aceptncPosblNmpr;
     
-    /**  */
+    /** LC_SE */
     private String lcSe;
     
-    /**  */
+    /** LC_DETAIL */
     private String lcDetail;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getMtgrumId() {

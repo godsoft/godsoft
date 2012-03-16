@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoVO;
 
 /**
  * @Class Name : ComtnhpcminfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnhpcminfo.service.ComtnhpcminfoV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnhpcminfoController {
 	
     /**
 	 * comtnhpcminfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnhpcminfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnhpcminfoVO
 	 * @return "/comtnhpcminfo/ComtnhpcminfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnhpcminfo/ComtnhpcminfoList.do")
-    public String selectComtnhpcminfoList(@ModelAttribute("searchVO") ComtnhpcminfoDefaultVO searchVO, 
+    public String selectComtnhpcminfoList(@ModelAttribute("searchVO") ComtnhpcminfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnhpcminfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnhpcminfoList = comtnhpcminfoService.selectComtnhpcminfoList(searchVO);
+        List<EgovMap> comtnhpcminfoList = comtnhpcminfoService.selectComtnhpcminfoList(searchVO);
         model.addAttribute("resultList", comtnhpcminfoList);
         
         int totCnt = comtnhpcminfoService.selectComtnhpcminfoListTotCnt(searchVO);

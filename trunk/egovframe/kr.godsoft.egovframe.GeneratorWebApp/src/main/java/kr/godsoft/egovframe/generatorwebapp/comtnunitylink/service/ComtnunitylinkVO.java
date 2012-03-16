@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnunitylinkVO extends ComtnunitylinkDefaultVO{
+public class ComtnunitylinkVO extends ComtnunitylinkDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** UNITY_LINK_ID */
     private String unityLinkId;
     
-    /**  */
+    /** UNITY_LINK_GROUP */
     private String unityLinkGroup;
     
-    /**  */
+    /** UNITY_LINK_NM */
     private String unityLinkNm;
     
-    /**  */
+    /** UNITY_LINK_URL */
     private String unityLinkUrl;
     
-    /**  */
+    /** UNITY_LINK_DC */
     private String unityLinkDc;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** UNITY_LINK_SE_CODE */
     private String unityLinkSeCode;
     
     public String getUnityLinkId() {

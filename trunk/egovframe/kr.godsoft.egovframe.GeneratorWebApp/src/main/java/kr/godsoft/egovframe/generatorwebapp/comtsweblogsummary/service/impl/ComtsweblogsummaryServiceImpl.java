@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.impl.ComtsweblogsummaryDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtsweblogsummaryServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.impl.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtsweblogsummaryServiceImpl extends AbstractServiceImpl implement
 	 * @return comtsweblogsummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtsweblogsummaryList(ComtsweblogsummaryDefaultVO searchVO) throws Exception {
-        return comtsweblogsummaryDAO.selectComtsweblogsummaryList(searchVO);
+    public List<EgovMap> selectComtsweblogsummaryList(ComtsweblogsummaryVO vo) throws Exception {
+        return comtsweblogsummaryDAO.selectComtsweblogsummaryList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtsweblogsummaryServiceImpl extends AbstractServiceImpl implement
 	 * @return comtsweblogsummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtsweblogsummaryListTotCnt(ComtsweblogsummaryDefaultVO searchVO) {
-		return comtsweblogsummaryDAO.selectComtsweblogsummaryListTotCnt(searchVO);
+    public int selectComtsweblogsummaryListTotCnt(ComtsweblogsummaryVO vo) {
+		return comtsweblogsummaryDAO.selectComtsweblogsummaryListTotCnt(vo);
 	}
     
 }

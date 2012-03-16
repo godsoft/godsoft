@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.ComtnbndtmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.impl.ComtnbndtmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbndtmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtmanage.service.impl.Comtnbn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbndtmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbndtmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbndtmanageList(ComtnbndtmanageDefaultVO searchVO) throws Exception {
-        return comtnbndtmanageDAO.selectComtnbndtmanageList(searchVO);
+    public List<EgovMap> selectComtnbndtmanageList(ComtnbndtmanageVO vo) throws Exception {
+        return comtnbndtmanageDAO.selectComtnbndtmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbndtmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbndtmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbndtmanageListTotCnt(ComtnbndtmanageDefaultVO searchVO) {
-		return comtnbndtmanageDAO.selectComtnbndtmanageListTotCnt(searchVO);
+    public int selectComtnbndtmanageListTotCnt(ComtnbndtmanageVO vo) {
+		return comtnbndtmanageDAO.selectComtnbndtmanageListTotCnt(vo);
 	}
     
 }

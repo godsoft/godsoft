@@ -6,22 +6,22 @@ package kr.godsoft.egovframe.generatorwebapp.comtnfile.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnfileVO extends ComtnfileDefaultVO{
+public class ComtnfileVO extends ComtnfileDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
     public String getAtchFileId() {

@@ -6,34 +6,34 @@ package kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnroleinfoVO extends ComtnroleinfoDefaultVO{
+public class ComtnroleinfoVO extends ComtnroleinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ROLE_CODE */
     private String roleCode;
     
-    /**  */
+    /** ROLE_NM */
     private String roleNm;
     
-    /**  */
+    /** ROLE_PTTRN */
     private String rolePttrn;
     
-    /**  */
+    /** ROLE_DC */
     private String roleDc;
     
-    /**  */
+    /** ROLE_TY */
     private String roleTy;
     
-    /**  */
+    /** ROLE_SORT */
     private String roleSort;
     
-    /**  */
+    /** ROLE_CREAT_DE */
     private String roleCreatDe;
     
     public String getRoleCode() {

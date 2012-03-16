@@ -4,134 +4,135 @@
 <sqlMap namespace="Comtninfrmlsanctn">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtninfrmlsanctnSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnDefaultVO"/>
+	<typeAlias  alias="ComtninfrmlsanctnVO" type="kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnVO"/>
 	
 	<resultMap id="comtninfrmlsanctn" class="kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service.ComtninfrmlsanctnVO">
-		<result property="infrmlSanctnId" column="INFRML_SANCTN_ID" columnIndex="1"/> <!--  -->
-		<result property="jobSeCode" column="JOB_SE_CODE" columnIndex="2"/> <!--  -->
-		<result property="applcntId" column="APPLCNT_ID" columnIndex="3"/> <!--  -->
-		<result property="reqstDe" column="REQST_DE" columnIndex="4"/> <!--  -->
-		<result property="sanctnerId" column="SANCTNER_ID" columnIndex="5"/> <!--  -->
-		<result property="confmAt" column="CONFM_AT" columnIndex="6"/> <!--  -->
-		<result property="sanctnDt" column="SANCTN_DT" columnIndex="7"/> <!--  -->
-		<result property="returnResn" column="RETURN_RESN" columnIndex="8"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="9"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="10"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="11"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="12"/> <!--  -->
+		<result property="infrmlSanctnId" column="infrml_sanctn_id" columnIndex="1"/>
+		<result property="jobSeCode" column="job_se_code" columnIndex="2"/>
+		<result property="applcntId" column="applcnt_id" columnIndex="3"/>
+		<result property="reqstDe" column="reqst_de" columnIndex="4"/>
+		<result property="sanctnerId" column="sanctner_id" columnIndex="5"/>
+		<result property="confmAt" column="confm_at" columnIndex="6"/>
+		<result property="sanctnDt" column="sanctn_dt" columnIndex="7"/>
+		<result property="returnResn" column="return_resn" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="10"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="11"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="12"/>
 	</resultMap>
 	
 	<insert id="comtninfrmlsanctnDAO.insertComtninfrmlsanctn_S">
 		<![CDATA[
 			INSERT INTO comtninfrmlsanctn 
-				( INFRML_SANCTN_ID /*  */
-				  , JOB_SE_CODE /*  */
-				  , APPLCNT_ID /*  */
-				  , REQST_DE /*  */
-				  , SANCTNER_ID /*  */
-				  , CONFM_AT /*  */
-				  , SANCTN_DT /*  */
-				  , RETURN_RESN /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #infrmlSanctnId# /*  */
-					  , #jobSeCode# /*  */
-						  , #applcntId# /*  */
-						  , #reqstDe# /*  */
-						  , #sanctnerId# /*  */
-						  , #confmAt# /*  */
-						  , SYSDATE() /*  */
-						  , #returnResn# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( INFRML_SANCTN_ID
+				  , job_se_code
+				  , applcnt_id
+				  , reqst_de
+				  , sanctner_id
+				  , confm_at
+				  , sanctn_dt
+				  , return_resn
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #infrmlSanctnId#
+				  , #jobSeCode#
+				  , #applcntId#
+				  , #reqstDe#
+				  , #sanctnerId#
+				  , #confmAt#
+				  , #sanctnDt#
+				  , #returnResn#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtninfrmlsanctnDAO.updateComtninfrmlsanctn_S">
 		<![CDATA[
 			UPDATE comtninfrmlsanctn
-			SET INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
-				, JOB_SE_CODE=#jobSeCode# /*  */
-				, APPLCNT_ID=#applcntId# /*  */
-				, REQST_DE=#reqstDe# /*  */
-				, SANCTNER_ID=#sanctnerId# /*  */
-				, CONFM_AT=#confmAt# /*  */
-				, SANCTN_DT=#sanctnDt# /*  */
-				, RETURN_RESN=#returnResn# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+			SET infrml_sanctn_id = #infrmlSanctnId#
+				, job_se_code = #jobSeCode#
+				, applcnt_id = #applcntId#
+				, reqst_de = #reqstDe#
+				, sanctner_id = #sanctnerId#
+				, confm_at = #confmAt#
+				, sanctn_dt = #sanctnDt#
+				, return_resn = #returnResn#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE infrml_sanctn_id = #infrmlSanctnId#
 		]]>
 	</update>
 	
 	<delete id="comtninfrmlsanctnDAO.deleteComtninfrmlsanctn_S">
 		<![CDATA[
 			DELETE FROM comtninfrmlsanctn 
-			WHERE INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+			WHERE infrml_sanctn_id = #infrmlSanctnId#
 		]]>
 	</delete>
 	
 	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctn_S" resultMap="comtninfrmlsanctn">
 		<![CDATA[
 			SELECT
-				INFRML_SANCTN_ID /*  */
-				, JOB_SE_CODE /*  */
-				, APPLCNT_ID /*  */
-				, REQST_DE /*  */
-				, SANCTNER_ID /*  */
-				, CONFM_AT /*  */
-				, SANCTN_DT /*  */
-				, RETURN_RESN /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				infrml_sanctn_id
+				, job_se_code
+				, applcnt_id
+				, reqst_de
+				, sanctner_id
+				, confm_at
+				, sanctn_dt
+				, return_resn
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtninfrmlsanctn
-			WHERE INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
+			WHERE infrml_sanctn_id = #infrmlSanctnId#
 		]]>
 	</select>
 	
-	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctnList_D" parameterClass="comtninfrmlsanctnSerarchVO" resultClass="egovMap">
+	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctnList_D" parameterClass="ComtninfrmlsanctnVO" resultClass="egovMap">
 			SELECT
-								INFRML_SANCTN_ID /*  */
-								, JOB_SE_CODE /*  */
-								, APPLCNT_ID /*  */
-								, REQST_DE /*  */
-								, SANCTNER_ID /*  */
-								, CONFM_AT /*  */
-								, SANCTN_DT /*  */
-								, RETURN_RESN /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								infrml_sanctn_id
+								, job_se_code
+								, applcnt_id
+								, reqst_de
+								, sanctner_id
+								, confm_at
+								, sanctn_dt
+								, return_resn
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtninfrmlsanctn
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				INFRML_SANCTN_ID = #searchKeyword# /*  */
+				infrml_sanctn_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				JOB_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				job_se_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							INFRML_SANCTN_ID DESC /*  */
+							infrml_sanctn_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctnListTotCnt_S" parameterClass="comtninfrmlsanctnSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtninfrmlsanctnDAO.selectComtninfrmlsanctnListTotCnt_S" parameterClass="ComtninfrmlsanctnVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtninfrmlsanctn
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				INFRML_SANCTN_ID = #searchKeyword# /*  */
+				infrml_sanctn_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				JOB_SE_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				job_se_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

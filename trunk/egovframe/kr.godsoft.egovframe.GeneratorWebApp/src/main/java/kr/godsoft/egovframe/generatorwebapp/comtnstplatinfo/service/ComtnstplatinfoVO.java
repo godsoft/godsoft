@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnstplatinfoVO extends ComtnstplatinfoDefaultVO{
+public class ComtnstplatinfoVO extends ComtnstplatinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** USE_STPLAT_ID */
     private String useStplatId;
     
-    /**  */
+    /** USE_STPLAT_NM */
     private String useStplatNm;
     
-    /**  */
-    private int useStplatCn;
+    /** USE_STPLAT_CN */
+    private String useStplatCn;
     
-    /**  */
-    private int infoProvdAgreCn;
+    /** INFO_PROVD_AGRE_CN */
+    private String infoProvdAgreCn;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getUseStplatId() {
@@ -55,19 +55,19 @@ public class ComtnstplatinfoVO extends ComtnstplatinfoDefaultVO{
         this.useStplatNm = useStplatNm;
     }
     
-    public int getUseStplatCn() {
+    public String getUseStplatCn() {
         return this.useStplatCn;
     }
     
-    public void setUseStplatCn(int useStplatCn) {
+    public void setUseStplatCn(String useStplatCn) {
         this.useStplatCn = useStplatCn;
     }
     
-    public int getInfoProvdAgreCn() {
+    public String getInfoProvdAgreCn() {
         return this.infoProvdAgreCn;
     }
     
-    public void setInfoProvdAgreCn(int infoProvdAgreCn) {
+    public void setInfoProvdAgreCn(String infoProvdAgreCn) {
         this.infoProvdAgreCn = infoProvdAgreCn;
     }
     

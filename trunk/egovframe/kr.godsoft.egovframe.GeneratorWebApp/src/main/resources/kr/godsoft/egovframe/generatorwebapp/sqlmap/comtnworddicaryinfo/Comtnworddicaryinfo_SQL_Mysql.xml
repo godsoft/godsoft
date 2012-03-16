@@ -4,116 +4,117 @@
 <sqlMap namespace="Comtnworddicaryinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnworddicaryinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoDefaultVO"/>
+	<typeAlias  alias="ComtnworddicaryinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO"/>
 	
 	<resultMap id="comtnworddicaryinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO">
-		<result property="wordId" column="WORD_ID" columnIndex="1"/> <!--  -->
-		<result property="wordNm" column="WORD_NM" columnIndex="2"/> <!--  -->
-		<result property="engNm" column="ENG_NM" columnIndex="3"/> <!--  -->
-		<result property="wordDc" column="WORD_DC" columnIndex="4"/> <!--  -->
-		<result property="synonm" column="SYNONM" columnIndex="5"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+		<result property="wordId" column="word_id" columnIndex="1"/>
+		<result property="wordNm" column="word_nm" columnIndex="2"/>
+		<result property="engNm" column="eng_nm" columnIndex="3"/>
+		<result property="wordDc" column="word_dc" columnIndex="4"/>
+		<result property="synonm" column="synonm" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
 	</resultMap>
 	
 	<insert id="comtnworddicaryinfoDAO.insertComtnworddicaryinfo_S">
 		<![CDATA[
 			INSERT INTO comtnworddicaryinfo 
-				( WORD_ID /*  */
-				  , WORD_NM /*  */
-				  , ENG_NM /*  */
-				  , WORD_DC /*  */
-				  , SYNONM /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #wordId# /*  */
-					  , #wordNm# /*  */
-						  , #engNm# /*  */
-						  , #wordDc# /*  */
-						  , #synonm# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-					  , #lastUpdusrId# /*  */ )
+				( WORD_ID
+				  , word_nm
+				  , eng_nm
+				  , word_dc
+				  , synonm
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #wordId#
+				  , #wordNm#
+				  , #engNm#
+				  , #wordDc#
+				  , #synonm#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtnworddicaryinfoDAO.updateComtnworddicaryinfo_S">
 		<![CDATA[
 			UPDATE comtnworddicaryinfo
-			SET WORD_ID=#wordId# /*  */
-				, WORD_NM=#wordNm# /*  */
-				, ENG_NM=#engNm# /*  */
-				, WORD_DC=#wordDc# /*  */
-				, SYNONM=#synonm# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE WORD_ID=#wordId# /*  */
+			SET word_id = #wordId#
+				, word_nm = #wordNm#
+				, eng_nm = #engNm#
+				, word_dc = #wordDc#
+				, synonm = #synonm#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE word_id = #wordId#
 		]]>
 	</update>
 	
 	<delete id="comtnworddicaryinfoDAO.deleteComtnworddicaryinfo_S">
 		<![CDATA[
 			DELETE FROM comtnworddicaryinfo 
-			WHERE WORD_ID=#wordId# /*  */
+			WHERE word_id = #wordId#
 		]]>
 	</delete>
 	
 	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfo_S" resultMap="comtnworddicaryinfo">
 		<![CDATA[
 			SELECT
-				WORD_ID /*  */
-				, WORD_NM /*  */
-				, ENG_NM /*  */
-				, WORD_DC /*  */
-				, SYNONM /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
+				word_id
+				, word_nm
+				, eng_nm
+				, word_dc
+				, synonm
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtnworddicaryinfo
-			WHERE WORD_ID=#wordId# /*  */
+			WHERE word_id = #wordId#
 		]]>
 	</select>
 	
-	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfoList_D" parameterClass="comtnworddicaryinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfoList_D" parameterClass="ComtnworddicaryinfoVO" resultClass="egovMap">
 			SELECT
-								WORD_ID /*  */
-								, WORD_NM /*  */
-								, ENG_NM /*  */
-								, WORD_DC /*  */
-								, SYNONM /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
+								word_id
+								, word_nm
+								, eng_nm
+								, word_dc
+								, synonm
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtnworddicaryinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				WORD_ID = #searchKeyword# /*  */
+				word_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				word_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							WORD_ID DESC /*  */
+							word_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfoListTotCnt_S" parameterClass="comtnworddicaryinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnworddicaryinfoDAO.selectComtnworddicaryinfoListTotCnt_S" parameterClass="ComtnworddicaryinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnworddicaryinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				WORD_ID = #searchKeyword# /*  */
+				word_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				WORD_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				word_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

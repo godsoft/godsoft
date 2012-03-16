@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveDefaultVO;
 
 /**
  * @Class Name : ComtnmtgplaceresveDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.Comtnmtgp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnmtgplaceresveDAO extends EgovAbstractDAO {
 	 * @return comtnmtgplaceresve 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmtgplaceresveList(ComtnmtgplaceresveDefaultVO searchVO) throws Exception {
-        return list("comtnmtgplaceresveDAO.selectComtnmtgplaceresveList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnmtgplaceresveList(ComtnmtgplaceresveVO vo) throws Exception {
+        return list("comtnmtgplaceresveDAO.selectComtnmtgplaceresveList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnmtgplaceresveDAO extends EgovAbstractDAO {
 	 * @return comtnmtgplaceresve 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmtgplaceresveListTotCnt(ComtnmtgplaceresveDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmtgplaceresveDAO.selectComtnmtgplaceresveListTotCnt_S", searchVO);
+    public int selectComtnmtgplaceresveListTotCnt(ComtnmtgplaceresveVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmtgplaceresveDAO.selectComtnmtgplaceresveListTotCnt_S", vo);
     }
 
 }

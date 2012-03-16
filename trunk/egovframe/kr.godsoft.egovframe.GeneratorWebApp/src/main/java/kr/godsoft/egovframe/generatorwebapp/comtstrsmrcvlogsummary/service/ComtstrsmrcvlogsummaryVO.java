@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtstrsmrcvlogsummaryVO extends ComtstrsmrcvlogsummaryDefaultVO{
+public class ComtstrsmrcvlogsummaryVO extends ComtstrsmrcvlogsummaryDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** TRSMRCV_SE_CODE */
     private String trsmrcvSeCode;
     
-    /**  */
+    /** PROVD_INSTT_ID */
     private String provdInsttId;
     
-    /**  */
+    /** PROVD_SYS_ID */
     private String provdSysId;
     
-    /**  */
+    /** PROVD_SVC_ID */
     private String provdSvcId;
     
-    /**  */
+    /** REQUST_INSTT_ID */
     private String requstInsttId;
     
-    /**  */
+    /** REQUST_SYS_ID */
     private String requstSysId;
     
-    /**  */
+    /** RDCNT */
     private int rdcnt;
     
-    /**  */
+    /** ERROR_CO */
     private int errorCo;
     
     public String getOccrrncDe() {

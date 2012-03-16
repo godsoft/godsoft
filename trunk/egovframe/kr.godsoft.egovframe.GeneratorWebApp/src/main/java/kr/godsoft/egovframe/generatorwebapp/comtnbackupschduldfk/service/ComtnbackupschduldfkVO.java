@@ -6,19 +6,19 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbackupschduldfkVO extends ComtnbackupschduldfkDefaultVO{
+public class ComtnbackupschduldfkVO extends ComtnbackupschduldfkDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BACKUP_OPERT_ID */
     private String backupOpertId;
     
-    /**  */
+    /** EXECUT_SCHDUL_DFK_SE */
     private String executSchdulDfkSe;
     
     public String getBackupOpertId() {

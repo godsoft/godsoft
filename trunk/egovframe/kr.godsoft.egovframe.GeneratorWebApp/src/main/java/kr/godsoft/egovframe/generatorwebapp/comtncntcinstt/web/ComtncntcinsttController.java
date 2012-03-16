@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.ComtncntcinsttService;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.ComtncntcinsttDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.ComtncntcinsttVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.ComtncntcinsttService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.ComtncntcinsttDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.ComtncntcinsttVO;
 
 /**
  * @Class Name : ComtncntcinsttController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.Comtncntcinst
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtncntcinsttController {
 	
     /**
 	 * comtncntcinstt 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtncntcinsttDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtncntcinsttVO
 	 * @return "/comtncntcinstt/ComtncntcinsttList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtncntcinstt/ComtncntcinsttList.do")
-    public String selectComtncntcinsttList(@ModelAttribute("searchVO") ComtncntcinsttDefaultVO searchVO, 
+    public String selectComtncntcinsttList(@ModelAttribute("searchVO") ComtncntcinsttVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtncntcinsttController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtncntcinsttList = comtncntcinsttService.selectComtncntcinsttList(searchVO);
+        List<EgovMap> comtncntcinsttList = comtncntcinsttService.selectComtncntcinsttList(searchVO);
         model.addAttribute("resultList", comtncntcinsttList);
         
         int totCnt = comtncntcinsttService.selectComtncntcinsttListTotCnt(searchVO);

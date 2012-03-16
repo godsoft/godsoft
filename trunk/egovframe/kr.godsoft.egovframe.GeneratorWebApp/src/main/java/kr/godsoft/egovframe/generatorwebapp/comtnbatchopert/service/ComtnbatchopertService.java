@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbatchopertService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.Comtnbatchop
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbatchopertService {
 	 * @return comtnbatchopert 목록
 	 * @exception Exception
 	 */
-    List selectComtnbatchopertList(ComtnbatchopertDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbatchopertList(ComtnbatchopertVO vo) throws Exception;
     
     /**
 	 * comtnbatchopert 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbatchopertService {
 	 * @return comtnbatchopert 총 갯수
 	 * @exception
 	 */
-    int selectComtnbatchopertListTotCnt(ComtnbatchopertDefaultVO searchVO);
+    int selectComtnbatchopertListTotCnt(ComtnbatchopertVO vo);
     
 }

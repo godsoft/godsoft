@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnprocessmonloginfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnprocessmonloginfoService {
 	 * @return comtnprocessmonloginfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnprocessmonloginfoList(ComtnprocessmonloginfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnprocessmonloginfoList(ComtnprocessmonloginfoVO vo) throws Exception;
     
     /**
 	 * comtnprocessmonloginfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnprocessmonloginfoService {
 	 * @return comtnprocessmonloginfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnprocessmonloginfoListTotCnt(ComtnprocessmonloginfoDefaultVO searchVO);
+    int selectComtnprocessmonloginfoListTotCnt(ComtnprocessmonloginfoVO vo);
     
 }

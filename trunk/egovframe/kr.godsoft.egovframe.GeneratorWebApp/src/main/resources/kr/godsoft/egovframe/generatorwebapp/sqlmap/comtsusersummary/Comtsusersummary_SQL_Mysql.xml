@@ -4,94 +4,95 @@
 <sqlMap namespace="Comtsusersummary">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtsusersummarySerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryDefaultVO"/>
+	<typeAlias  alias="ComtsusersummaryVO" type="kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO"/>
 	
 	<resultMap id="comtsusersummary" class="kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO">
-		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
-		<result property="statsSe" column="STATS_SE" columnIndex="2"/> <!--  -->
-		<result property="detailStatsSe" column="DETAIL_STATS_SE" columnIndex="3"/> <!--  -->
-		<result property="userCo" column="USER_CO" columnIndex="4"/> <!--  -->
+		<result property="occrrncDe" column="occrrnc_de" columnIndex="1"/>
+		<result property="statsSe" column="stats_se" columnIndex="2"/>
+		<result property="detailStatsSe" column="detail_stats_se" columnIndex="3"/>
+		<result property="userCo" column="user_co" columnIndex="4"/>
 	</resultMap>
 	
 	<insert id="comtsusersummaryDAO.insertComtsusersummary_S">
 		<![CDATA[
 			INSERT INTO comtsusersummary 
-				( OCCRRNC_DE /*  */
-				  , STATS_SE /*  */
-				  , DETAIL_STATS_SE /*  */
-				  , USER_CO /*  */ )
-			VALUES ( #occrrncDe# /*  */
-					  , #statsSe# /*  */
-						  , #detailStatsSe# /*  */
-					  , #userCo# /*  */ )
+				( OCCRRNC_DE
+				  , stats_se
+				  , detail_stats_se
+				  , user_co )
+			VALUES ( #occrrncDe#
+				  , #statsSe#
+				  , #detailStatsSe#
+				  , #userCo# )
 		]]>
 	</insert>
 	
 	<update id="comtsusersummaryDAO.updateComtsusersummary_S">
 		<![CDATA[
 			UPDATE comtsusersummary
-			SET OCCRRNC_DE=#occrrncDe# /*  */
-				, STATS_SE=#statsSe# /*  */
-				, DETAIL_STATS_SE=#detailStatsSe# /*  */
-				, USER_CO=#userCo# /*  */
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND STATS_SE=#statsSe# /*  */
-				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+			SET occrrnc_de = #occrrncDe#
+				, stats_se = #statsSe#
+				, detail_stats_se = #detailStatsSe#
+				, user_co = #userCo#
+			WHERE occrrnc_de = #occrrncDe#
+				AND stats_se = #statsSe#
+				AND detail_stats_se = #detailStatsSe#
 		]]>
 	</update>
 	
 	<delete id="comtsusersummaryDAO.deleteComtsusersummary_S">
 		<![CDATA[
 			DELETE FROM comtsusersummary 
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND STATS_SE=#statsSe# /*  */
-				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+			WHERE occrrnc_de = #occrrncDe#
+				AND stats_se = #statsSe#
+				AND detail_stats_se = #detailStatsSe#
 		]]>
 	</delete>
 	
 	<select id="comtsusersummaryDAO.selectComtsusersummary_S" resultMap="comtsusersummary">
 		<![CDATA[
 			SELECT
-				OCCRRNC_DE /*  */
-				, STATS_SE /*  */
-				, DETAIL_STATS_SE /*  */
-				, USER_CO /*  */
+				occrrnc_de
+				, stats_se
+				, detail_stats_se
+				, user_co
 			FROM comtsusersummary
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND STATS_SE=#statsSe# /*  */
-				AND DETAIL_STATS_SE=#detailStatsSe# /*  */
+			WHERE occrrnc_de = #occrrncDe#
+				AND stats_se = #statsSe#
+				AND detail_stats_se = #detailStatsSe#
 		]]>
 	</select>
 	
-	<select id="comtsusersummaryDAO.selectComtsusersummaryList_D" parameterClass="comtsusersummarySerarchVO" resultClass="egovMap">
+	<select id="comtsusersummaryDAO.selectComtsusersummaryList_D" parameterClass="ComtsusersummaryVO" resultClass="egovMap">
 			SELECT
-								OCCRRNC_DE /*  */
-								, STATS_SE /*  */
-								, DETAIL_STATS_SE /*  */
-								, USER_CO /*  */
+								occrrnc_de
+								, stats_se
+								, detail_stats_se
+								, user_co
 					FROM comtsusersummary
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				OCCRRNC_DE = #searchKeyword# /*  */
+				occrrnc_de = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				stats_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							OCCRRNC_DE DESC /*  */
-							, STATS_SE DESC /*  */
-							, DETAIL_STATS_SE DESC /*  */
+							occrrnc_de DESC
+							, stats_se DESC
+							, detail_stats_se DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtsusersummaryDAO.selectComtsusersummaryListTotCnt_S" parameterClass="comtsusersummarySerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtsusersummaryDAO.selectComtsusersummaryListTotCnt_S" parameterClass="ComtsusersummaryVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtsusersummary
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				OCCRRNC_DE = #searchKeyword# /*  */
+				occrrnc_de = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				STATS_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				stats_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

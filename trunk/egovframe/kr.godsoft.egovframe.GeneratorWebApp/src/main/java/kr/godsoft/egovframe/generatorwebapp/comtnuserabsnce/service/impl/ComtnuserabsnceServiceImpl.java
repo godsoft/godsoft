@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceService;
+import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceService;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.impl.ComtnuserabsnceDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnuserabsnceServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.impl.Comtnus
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnuserabsnceServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnuserabsnce 목록
 	 * @exception Exception
 	 */
-    public List selectComtnuserabsnceList(ComtnuserabsnceDefaultVO searchVO) throws Exception {
-        return comtnuserabsnceDAO.selectComtnuserabsnceList(searchVO);
+    public List<EgovMap> selectComtnuserabsnceList(ComtnuserabsnceVO vo) throws Exception {
+        return comtnuserabsnceDAO.selectComtnuserabsnceList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnuserabsnceServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnuserabsnce 총 갯수
 	 * @exception
 	 */
-    public int selectComtnuserabsnceListTotCnt(ComtnuserabsnceDefaultVO searchVO) {
-		return comtnuserabsnceDAO.selectComtnuserabsnceListTotCnt(searchVO);
+    public int selectComtnuserabsnceListTotCnt(ComtnuserabsnceVO vo) {
+		return comtnuserabsnceDAO.selectComtnuserabsnceListTotCnt(vo);
 	}
     
 }

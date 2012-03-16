@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.ComtsbbssummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.impl.ComtsbbssummaryDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtsbbssummaryServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service.impl.Comtsbb
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtsbbssummaryServiceImpl extends AbstractServiceImpl implements
 	 * @return comtsbbssummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtsbbssummaryList(ComtsbbssummaryDefaultVO searchVO) throws Exception {
-        return comtsbbssummaryDAO.selectComtsbbssummaryList(searchVO);
+    public List<EgovMap> selectComtsbbssummaryList(ComtsbbssummaryVO vo) throws Exception {
+        return comtsbbssummaryDAO.selectComtsbbssummaryList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtsbbssummaryServiceImpl extends AbstractServiceImpl implements
 	 * @return comtsbbssummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtsbbssummaryListTotCnt(ComtsbbssummaryDefaultVO searchVO) {
-		return comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt(searchVO);
+    public int selectComtsbbssummaryListTotCnt(ComtsbbssummaryVO vo) {
+		return comtsbbssummaryDAO.selectComtsbbssummaryListTotCnt(vo);
 	}
     
 }

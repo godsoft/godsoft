@@ -4,188 +4,189 @@
 <sqlMap namespace="Comtcadministcoderecptnlog">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtcadministcoderecptnlogSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogDefaultVO"/>
+	<typeAlias  alias="ComtcadministcoderecptnlogVO" type="kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogVO"/>
 	
 	<resultMap id="comtcadministcoderecptnlog" class="kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service.ComtcadministcoderecptnlogVO">
-		<result property="occrrncDe" column="OCCRRNC_DE" columnIndex="1"/> <!--  -->
-		<result property="administZoneSe" column="ADMINIST_ZONE_SE" columnIndex="2"/> <!--  -->
-		<result property="administZoneCode" column="ADMINIST_ZONE_CODE" columnIndex="3"/> <!--  -->
-		<result property="opertSn" column="OPERT_SN" columnIndex="4"/> <!--  -->
-		<result property="changeSeCode" column="CHANGE_SE_CODE" columnIndex="5"/> <!--  -->
-		<result property="processSe" column="PROCESS_SE" columnIndex="6"/> <!--  -->
-		<result property="administZoneNm" column="ADMINIST_ZONE_NM" columnIndex="7"/> <!--  -->
-		<result property="lowestAdministZoneNm" column="LOWEST_ADMINIST_ZONE_NM" columnIndex="8"/> <!--  -->
-		<result property="ctprvnCode" column="CTPRVN_CODE" columnIndex="9"/> <!--  -->
-		<result property="signguCode" column="SIGNGU_CODE" columnIndex="10"/> <!--  -->
-		<result property="emdCode" column="EMD_CODE" columnIndex="11"/> <!--  -->
-		<result property="liCode" column="LI_CODE" columnIndex="12"/> <!--  -->
-		<result property="creatDe" column="CREAT_DE" columnIndex="13"/> <!--  -->
-		<result property="ablDe" column="ABL_DE" columnIndex="14"/> <!--  -->
-		<result property="ablEnnc" column="ABL_ENNC" columnIndex="15"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="16"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="17"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="18"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="19"/> <!--  -->
+		<result property="occrrncDe" column="occrrnc_de" columnIndex="1"/>
+		<result property="administZoneSe" column="administ_zone_se" columnIndex="2"/>
+		<result property="administZoneCode" column="administ_zone_code" columnIndex="3"/>
+		<result property="opertSn" column="opert_sn" columnIndex="4"/>
+		<result property="changeSeCode" column="change_se_code" columnIndex="5"/>
+		<result property="processSe" column="process_se" columnIndex="6"/>
+		<result property="administZoneNm" column="administ_zone_nm" columnIndex="7"/>
+		<result property="lowestAdministZoneNm" column="lowest_administ_zone_nm" columnIndex="8"/>
+		<result property="ctprvnCode" column="ctprvn_code" columnIndex="9"/>
+		<result property="signguCode" column="signgu_code" columnIndex="10"/>
+		<result property="emdCode" column="emd_code" columnIndex="11"/>
+		<result property="liCode" column="li_code" columnIndex="12"/>
+		<result property="creatDe" column="creat_de" columnIndex="13"/>
+		<result property="ablDe" column="abl_de" columnIndex="14"/>
+		<result property="ablEnnc" column="abl_ennc" columnIndex="15"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="16"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="17"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="18"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="19"/>
 	</resultMap>
 	
 	<insert id="comtcadministcoderecptnlogDAO.insertComtcadministcoderecptnlog_S">
 		<![CDATA[
 			INSERT INTO comtcadministcoderecptnlog 
-				( OCCRRNC_DE /*  */
-				  , ADMINIST_ZONE_SE /*  */
-				  , ADMINIST_ZONE_CODE /*  */
-				  , OPERT_SN /*  */
-				  , CHANGE_SE_CODE /*  */
-				  , PROCESS_SE /*  */
-				  , ADMINIST_ZONE_NM /*  */
-				  , LOWEST_ADMINIST_ZONE_NM /*  */
-				  , CTPRVN_CODE /*  */
-				  , SIGNGU_CODE /*  */
-				  , EMD_CODE /*  */
-				  , LI_CODE /*  */
-				  , CREAT_DE /*  */
-				  , ABL_DE /*  */
-				  , ABL_ENNC /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #occrrncDe# /*  */
-					  , #administZoneSe# /*  */
-						  , #administZoneCode# /*  */
-						  , #opertSn# /*  */
-						  , #changeSeCode# /*  */
-						  , #processSe# /*  */
-						  , #administZoneNm# /*  */
-						  , #lowestAdministZoneNm# /*  */
-						  , #ctprvnCode# /*  */
-						  , #signguCode# /*  */
-						  , #emdCode# /*  */
-						  , #liCode# /*  */
-						  , #creatDe# /*  */
-						  , #ablDe# /*  */
-						  , #ablEnnc# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( OCCRRNC_DE
+				  , administ_zone_se
+				  , administ_zone_code
+				  , opert_sn
+				  , change_se_code
+				  , process_se
+				  , administ_zone_nm
+				  , lowest_administ_zone_nm
+				  , ctprvn_code
+				  , signgu_code
+				  , emd_code
+				  , li_code
+				  , creat_de
+				  , abl_de
+				  , abl_ennc
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #occrrncDe#
+				  , #administZoneSe#
+				  , #administZoneCode#
+				  , #opertSn#
+				  , #changeSeCode#
+				  , #processSe#
+				  , #administZoneNm#
+				  , #lowestAdministZoneNm#
+				  , #ctprvnCode#
+				  , #signguCode#
+				  , #emdCode#
+				  , #liCode#
+				  , #creatDe#
+				  , #ablDe#
+				  , #ablEnnc#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtcadministcoderecptnlogDAO.updateComtcadministcoderecptnlog_S">
 		<![CDATA[
 			UPDATE comtcadministcoderecptnlog
-			SET OCCRRNC_DE=#occrrncDe# /*  */
-				, ADMINIST_ZONE_SE=#administZoneSe# /*  */
-				, ADMINIST_ZONE_CODE=#administZoneCode# /*  */
-				, OPERT_SN=#opertSn# /*  */
-				, CHANGE_SE_CODE=#changeSeCode# /*  */
-				, PROCESS_SE=#processSe# /*  */
-				, ADMINIST_ZONE_NM=#administZoneNm# /*  */
-				, LOWEST_ADMINIST_ZONE_NM=#lowestAdministZoneNm# /*  */
-				, CTPRVN_CODE=#ctprvnCode# /*  */
-				, SIGNGU_CODE=#signguCode# /*  */
-				, EMD_CODE=#emdCode# /*  */
-				, LI_CODE=#liCode# /*  */
-				, CREAT_DE=#creatDe# /*  */
-				, ABL_DE=#ablDe# /*  */
-				, ABL_ENNC=#ablEnnc# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND ADMINIST_ZONE_SE=#administZoneSe# /*  */
-				AND ADMINIST_ZONE_CODE=#administZoneCode# /*  */
-				AND OPERT_SN=#opertSn# /*  */
+			SET occrrnc_de = #occrrncDe#
+				, administ_zone_se = #administZoneSe#
+				, administ_zone_code = #administZoneCode#
+				, opert_sn = #opertSn#
+				, change_se_code = #changeSeCode#
+				, process_se = #processSe#
+				, administ_zone_nm = #administZoneNm#
+				, lowest_administ_zone_nm = #lowestAdministZoneNm#
+				, ctprvn_code = #ctprvnCode#
+				, signgu_code = #signguCode#
+				, emd_code = #emdCode#
+				, li_code = #liCode#
+				, creat_de = #creatDe#
+				, abl_de = #ablDe#
+				, abl_ennc = #ablEnnc#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE occrrnc_de = #occrrncDe#
+				AND administ_zone_se = #administZoneSe#
+				AND administ_zone_code = #administZoneCode#
+				AND opert_sn = #opertSn#
 		]]>
 	</update>
 	
 	<delete id="comtcadministcoderecptnlogDAO.deleteComtcadministcoderecptnlog_S">
 		<![CDATA[
 			DELETE FROM comtcadministcoderecptnlog 
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND ADMINIST_ZONE_SE=#administZoneSe# /*  */
-				AND ADMINIST_ZONE_CODE=#administZoneCode# /*  */
-				AND OPERT_SN=#opertSn# /*  */
+			WHERE occrrnc_de = #occrrncDe#
+				AND administ_zone_se = #administZoneSe#
+				AND administ_zone_code = #administZoneCode#
+				AND opert_sn = #opertSn#
 		]]>
 	</delete>
 	
 	<select id="comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlog_S" resultMap="comtcadministcoderecptnlog">
 		<![CDATA[
 			SELECT
-				OCCRRNC_DE /*  */
-				, ADMINIST_ZONE_SE /*  */
-				, ADMINIST_ZONE_CODE /*  */
-				, OPERT_SN /*  */
-				, CHANGE_SE_CODE /*  */
-				, PROCESS_SE /*  */
-				, ADMINIST_ZONE_NM /*  */
-				, LOWEST_ADMINIST_ZONE_NM /*  */
-				, CTPRVN_CODE /*  */
-				, SIGNGU_CODE /*  */
-				, EMD_CODE /*  */
-				, LI_CODE /*  */
-				, CREAT_DE /*  */
-				, ABL_DE /*  */
-				, ABL_ENNC /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				occrrnc_de
+				, administ_zone_se
+				, administ_zone_code
+				, opert_sn
+				, change_se_code
+				, process_se
+				, administ_zone_nm
+				, lowest_administ_zone_nm
+				, ctprvn_code
+				, signgu_code
+				, emd_code
+				, li_code
+				, creat_de
+				, abl_de
+				, abl_ennc
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtcadministcoderecptnlog
-			WHERE OCCRRNC_DE=#occrrncDe# /*  */
-				AND ADMINIST_ZONE_SE=#administZoneSe# /*  */
-				AND ADMINIST_ZONE_CODE=#administZoneCode# /*  */
-				AND OPERT_SN=#opertSn# /*  */
+			WHERE occrrnc_de = #occrrncDe#
+				AND administ_zone_se = #administZoneSe#
+				AND administ_zone_code = #administZoneCode#
+				AND opert_sn = #opertSn#
 		]]>
 	</select>
 	
-	<select id="comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogList_D" parameterClass="comtcadministcoderecptnlogSerarchVO" resultClass="egovMap">
+	<select id="comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogList_D" parameterClass="ComtcadministcoderecptnlogVO" resultClass="egovMap">
 			SELECT
-								OCCRRNC_DE /*  */
-								, ADMINIST_ZONE_SE /*  */
-								, ADMINIST_ZONE_CODE /*  */
-								, OPERT_SN /*  */
-								, CHANGE_SE_CODE /*  */
-								, PROCESS_SE /*  */
-								, ADMINIST_ZONE_NM /*  */
-								, LOWEST_ADMINIST_ZONE_NM /*  */
-								, CTPRVN_CODE /*  */
-								, SIGNGU_CODE /*  */
-								, EMD_CODE /*  */
-								, LI_CODE /*  */
-								, CREAT_DE /*  */
-								, ABL_DE /*  */
-								, ABL_ENNC /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								occrrnc_de
+								, administ_zone_se
+								, administ_zone_code
+								, opert_sn
+								, change_se_code
+								, process_se
+								, administ_zone_nm
+								, lowest_administ_zone_nm
+								, ctprvn_code
+								, signgu_code
+								, emd_code
+								, li_code
+								, creat_de
+								, abl_de
+								, abl_ennc
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtcadministcoderecptnlog
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				OCCRRNC_DE = #searchKeyword# /*  */
+				occrrnc_de = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADMINIST_ZONE_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				administ_zone_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							OCCRRNC_DE DESC /*  */
-							, ADMINIST_ZONE_SE DESC /*  */
-							, ADMINIST_ZONE_CODE DESC /*  */
-							, OPERT_SN DESC /*  */
+							occrrnc_de DESC
+							, administ_zone_se DESC
+							, administ_zone_code DESC
+							, opert_sn DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogListTotCnt_S" parameterClass="comtcadministcoderecptnlogSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtcadministcoderecptnlogDAO.selectComtcadministcoderecptnlogListTotCnt_S" parameterClass="ComtcadministcoderecptnlogVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtcadministcoderecptnlog
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				OCCRRNC_DE = #searchKeyword# /*  */
+				occrrnc_de = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ADMINIST_ZONE_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				administ_zone_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

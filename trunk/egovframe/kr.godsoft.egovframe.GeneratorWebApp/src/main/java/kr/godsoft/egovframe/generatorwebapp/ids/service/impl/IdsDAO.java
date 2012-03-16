@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO;
 
 /**
  * @Class Name : IdsDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class IdsDAO extends EgovAbstractDAO {
 	 * @return ids 목록
 	 * @exception Exception
 	 */
-    public List selectIdsList(IdsDefaultVO searchVO) throws Exception {
-        return list("idsDAO.selectIdsList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectIdsList(IdsVO vo) throws Exception {
+        return list("idsDAO.selectIdsList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class IdsDAO extends EgovAbstractDAO {
 	 * @return ids 총 갯수
 	 * @exception
 	 */
-    public int selectIdsListTotCnt(IdsDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("idsDAO.selectIdsListTotCnt_S", searchVO);
+    public int selectIdsListTotCnt(IdsVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("idsDAO.selectIdsListTotCnt_S", vo);
     }
 
 }

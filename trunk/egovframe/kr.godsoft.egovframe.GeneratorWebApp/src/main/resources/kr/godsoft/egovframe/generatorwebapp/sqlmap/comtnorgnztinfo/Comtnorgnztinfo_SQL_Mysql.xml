@@ -4,80 +4,81 @@
 <sqlMap namespace="Comtnorgnztinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnorgnztinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoDefaultVO"/>
+	<typeAlias  alias="ComtnorgnztinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO"/>
 	
 	<resultMap id="comtnorgnztinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO">
-		<result property="orgnztId" column="ORGNZT_ID" columnIndex="1"/> <!--  -->
-		<result property="orgnztNm" column="ORGNZT_NM" columnIndex="2"/> <!--  -->
-		<result property="orgnztDc" column="ORGNZT_DC" columnIndex="3"/> <!--  -->
+		<result property="orgnztId" column="orgnzt_id" columnIndex="1"/>
+		<result property="orgnztNm" column="orgnzt_nm" columnIndex="2"/>
+		<result property="orgnztDc" column="orgnzt_dc" columnIndex="3"/>
 	</resultMap>
 	
 	<insert id="comtnorgnztinfoDAO.insertComtnorgnztinfo_S">
 		<![CDATA[
 			INSERT INTO comtnorgnztinfo 
-				( ORGNZT_ID /*  */
-				  , ORGNZT_NM /*  */
-				  , ORGNZT_DC /*  */ )
-			VALUES ( #orgnztId# /*  */
-					  , #orgnztNm# /*  */
-					  , #orgnztDc# /*  */ )
+				( ORGNZT_ID
+				  , orgnzt_nm
+				  , orgnzt_dc )
+			VALUES ( #orgnztId#
+				  , #orgnztNm#
+				  , #orgnztDc# )
 		]]>
 	</insert>
 	
 	<update id="comtnorgnztinfoDAO.updateComtnorgnztinfo_S">
 		<![CDATA[
 			UPDATE comtnorgnztinfo
-			SET ORGNZT_ID=#orgnztId# /*  */
-				, ORGNZT_NM=#orgnztNm# /*  */
-				, ORGNZT_DC=#orgnztDc# /*  */
-			WHERE ORGNZT_ID=#orgnztId# /*  */
+			SET orgnzt_id = #orgnztId#
+				, orgnzt_nm = #orgnztNm#
+				, orgnzt_dc = #orgnztDc#
+			WHERE orgnzt_id = #orgnztId#
 		]]>
 	</update>
 	
 	<delete id="comtnorgnztinfoDAO.deleteComtnorgnztinfo_S">
 		<![CDATA[
 			DELETE FROM comtnorgnztinfo 
-			WHERE ORGNZT_ID=#orgnztId# /*  */
+			WHERE orgnzt_id = #orgnztId#
 		]]>
 	</delete>
 	
 	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfo_S" resultMap="comtnorgnztinfo">
 		<![CDATA[
 			SELECT
-				ORGNZT_ID /*  */
-				, ORGNZT_NM /*  */
-				, ORGNZT_DC /*  */
+				orgnzt_id
+				, orgnzt_nm
+				, orgnzt_dc
 			FROM comtnorgnztinfo
-			WHERE ORGNZT_ID=#orgnztId# /*  */
+			WHERE orgnzt_id = #orgnztId#
 		]]>
 	</select>
 	
-	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfoList_D" parameterClass="comtnorgnztinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfoList_D" parameterClass="ComtnorgnztinfoVO" resultClass="egovMap">
 			SELECT
-								ORGNZT_ID /*  */
-								, ORGNZT_NM /*  */
-								, ORGNZT_DC /*  */
+								orgnzt_id
+								, orgnzt_nm
+								, orgnzt_dc
 					FROM comtnorgnztinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ORGNZT_ID = #searchKeyword# /*  */
+				orgnzt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ORGNZT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				orgnzt_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							ORGNZT_ID DESC /*  */
+							orgnzt_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfoListTotCnt_S" parameterClass="comtnorgnztinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnorgnztinfoDAO.selectComtnorgnztinfoListTotCnt_S" parameterClass="ComtnorgnztinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnorgnztinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ORGNZT_ID = #searchKeyword# /*  */
+				orgnzt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ORGNZT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				orgnzt_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

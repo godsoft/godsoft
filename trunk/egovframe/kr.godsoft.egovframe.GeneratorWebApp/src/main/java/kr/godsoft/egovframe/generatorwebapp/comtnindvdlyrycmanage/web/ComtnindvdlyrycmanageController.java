@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.ComtnindvdlyrycmanageVO;
 
 /**
  * @Class Name : ComtnindvdlyrycmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.Comtni
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnindvdlyrycmanageController {
 	
     /**
 	 * comtnindvdlyrycmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnindvdlyrycmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnindvdlyrycmanageVO
 	 * @return "/comtnindvdlyrycmanage/ComtnindvdlyrycmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnindvdlyrycmanage/ComtnindvdlyrycmanageList.do")
-    public String selectComtnindvdlyrycmanageList(@ModelAttribute("searchVO") ComtnindvdlyrycmanageDefaultVO searchVO, 
+    public String selectComtnindvdlyrycmanageList(@ModelAttribute("searchVO") ComtnindvdlyrycmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnindvdlyrycmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnindvdlyrycmanageList = comtnindvdlyrycmanageService.selectComtnindvdlyrycmanageList(searchVO);
+        List<EgovMap> comtnindvdlyrycmanageList = comtnindvdlyrycmanageService.selectComtnindvdlyrycmanageList(searchVO);
         model.addAttribute("resultList", comtnindvdlyrycmanageList);
         
         int totCnt = comtnindvdlyrycmanageService.selectComtnindvdlyrycmanageListTotCnt(searchVO);

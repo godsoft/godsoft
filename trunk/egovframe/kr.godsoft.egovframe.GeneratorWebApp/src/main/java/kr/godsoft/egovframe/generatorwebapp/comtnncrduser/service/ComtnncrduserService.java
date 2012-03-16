@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnncrduserService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnncrduserService {
 	 * @return comtnncrduser 목록
 	 * @exception Exception
 	 */
-    List selectComtnncrduserList(ComtnncrduserDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnncrduserList(ComtnncrduserVO vo) throws Exception;
     
     /**
 	 * comtnncrduser 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnncrduserService {
 	 * @return comtnncrduser 총 갯수
 	 * @exception
 	 */
-    int selectComtnncrduserListTotCnt(ComtnncrduserDefaultVO searchVO);
+    int selectComtnncrduserListTotCnt(ComtnncrduserVO vo);
     
 }

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceService;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.impl.ComtncntcserviceDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncntcserviceServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.impl.Comtnc
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtncntcserviceServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncntcservice 목록
 	 * @exception Exception
 	 */
-    public List selectComtncntcserviceList(ComtncntcserviceDefaultVO searchVO) throws Exception {
-        return comtncntcserviceDAO.selectComtncntcserviceList(searchVO);
+    public List<EgovMap> selectComtncntcserviceList(ComtncntcserviceVO vo) throws Exception {
+        return comtncntcserviceDAO.selectComtncntcserviceList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtncntcserviceServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncntcservice 총 갯수
 	 * @exception
 	 */
-    public int selectComtncntcserviceListTotCnt(ComtncntcserviceDefaultVO searchVO) {
-		return comtncntcserviceDAO.selectComtncntcserviceListTotCnt(searchVO);
+    public int selectComtncntcserviceListTotCnt(ComtncntcserviceVO vo) {
+		return comtncntcserviceDAO.selectComtncntcserviceListTotCnt(vo);
 	}
     
 }

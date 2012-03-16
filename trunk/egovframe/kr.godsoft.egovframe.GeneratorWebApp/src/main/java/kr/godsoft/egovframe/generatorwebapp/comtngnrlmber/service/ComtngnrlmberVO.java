@@ -6,73 +6,73 @@ package kr.godsoft.egovframe.generatorwebapp.comtngnrlmber.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtngnrlmberVO extends ComtngnrlmberDefaultVO{
+public class ComtngnrlmberVO extends ComtngnrlmberDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** MBER_ID */
     private String mberId;
     
-    /**  */
+    /** PASSWORD */
     private String password;
     
-    /**  */
+    /** PASSWORD_HINT */
     private String passwordHint;
     
-    /**  */
+    /** PASSWORD_CNSR */
     private String passwordCnsr;
     
-    /**  */
+    /** IHIDNUM */
     private String ihidnum;
     
-    /**  */
+    /** MBER_NM */
     private String mberNm;
     
-    /**  */
+    /** ZIP */
     private String zip;
     
-    /**  */
+    /** ADRES */
     private String adres;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** MBER_STTUS */
     private String mberSttus;
     
-    /**  */
+    /** DETAIL_ADRES */
     private String detailAdres;
     
-    /**  */
+    /** END_TELNO */
     private String endTelno;
     
-    /**  */
+    /** MBTLNUM */
     private String mbtlnum;
     
-    /**  */
+    /** GROUP_ID */
     private String groupId;
     
-    /**  */
+    /** MBER_FXNUM */
     private String mberFxnum;
     
-    /**  */
+    /** MBER_EMAIL_ADRES */
     private String mberEmailAdres;
     
-    /**  */
+    /** MIDDLE_TELNO */
     private String middleTelno;
     
-    /**  */
+    /** SBSCRB_DE */
     private String sbscrbDe;
     
-    /**  */
+    /** SEXDSTN_CODE */
     private String sexdstnCode;
     
-    /**  */
+    /** ESNTL_ID */
     private String esntlId;
     
     public String getMberId() {

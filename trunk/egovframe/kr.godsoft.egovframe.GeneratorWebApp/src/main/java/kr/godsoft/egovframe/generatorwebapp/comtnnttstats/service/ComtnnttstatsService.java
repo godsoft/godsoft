@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service.ComtnnttstatsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service.ComtnnttstatsVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnnttstatsService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service.ComtnnttstatsV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnnttstatsService {
 	 * @return comtnnttstats 목록
 	 * @exception Exception
 	 */
-    List selectComtnnttstatsList(ComtnnttstatsDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnnttstatsList(ComtnnttstatsVO vo) throws Exception;
     
     /**
 	 * comtnnttstats 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnnttstatsService {
 	 * @return comtnnttstats 총 갯수
 	 * @exception
 	 */
-    int selectComtnnttstatsListTotCnt(ComtnnttstatsDefaultVO searchVO);
+    int selectComtnnttstatsListTotCnt(ComtnnttstatsVO vo);
     
 }

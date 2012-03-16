@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogService;
+import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogService;
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.impl.ComtnweblogDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnweblogServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.impl.Comtnweblog
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnweblogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnweblog 목록
 	 * @exception Exception
 	 */
-    public List selectComtnweblogList(ComtnweblogDefaultVO searchVO) throws Exception {
-        return comtnweblogDAO.selectComtnweblogList(searchVO);
+    public List<EgovMap> selectComtnweblogList(ComtnweblogVO vo) throws Exception {
+        return comtnweblogDAO.selectComtnweblogList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnweblogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnweblog 총 갯수
 	 * @exception
 	 */
-    public int selectComtnweblogListTotCnt(ComtnweblogDefaultVO searchVO) {
-		return comtnweblogDAO.selectComtnweblogListTotCnt(searchVO);
+    public int selectComtnweblogListTotCnt(ComtnweblogVO vo) {
+		return comtnweblogDAO.selectComtnweblogListTotCnt(vo);
 	}
     
 }

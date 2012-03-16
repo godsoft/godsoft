@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbackupopertService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.Comtnbackup
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbackupopertService {
 	 * @return comtnbackupopert 목록
 	 * @exception Exception
 	 */
-    List selectComtnbackupopertList(ComtnbackupopertDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbackupopertList(ComtnbackupopertVO vo) throws Exception;
     
     /**
 	 * comtnbackupopert 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbackupopertService {
 	 * @return comtnbackupopert 총 갯수
 	 * @exception
 	 */
-    int selectComtnbackupopertListTotCnt(ComtnbackupopertDefaultVO searchVO);
+    int selectComtnbackupopertListTotCnt(ComtnbackupopertVO vo);
     
 }

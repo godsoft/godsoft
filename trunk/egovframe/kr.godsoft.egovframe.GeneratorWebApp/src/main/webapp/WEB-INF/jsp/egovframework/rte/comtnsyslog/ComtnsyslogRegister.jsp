@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnsyslogVO.requstId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnsyslogVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnsyslogVO" name="detailForm" id="detailForm">
+<form:form commandName="comtnsyslogVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>REQUST_ID *</th>
 			<td>
 				<form:input path="requstId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>REQUST_ID *</th>
 			<td>
 				<form:input path="requstId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,152 +93,107 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>JOB_SE_CODE</th>
 			<td>
-	
 				<form:input path="jobSeCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="jobSeCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>INSTT_CODE</th>
 			<td>
-	
 				<form:input path="insttCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="insttCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>OCCRRNC_DE</th>
 			<td>
-	
 				<form:input path="occrrncDe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="occrrncDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RQESTER_IP</th>
 			<td>
-	
 				<form:input path="rqesterIp" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="rqesterIp" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RQESTER_ID</th>
 			<td>
-	
 				<form:input path="rqesterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="rqesterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>TRGET_MENU_NM</th>
 			<td>
-	
 				<form:input path="trgetMenuNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="trgetMenuNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SVC_NM</th>
 			<td>
-	
 				<form:input path="svcNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="svcNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>METHOD_NM</th>
 			<td>
-	
 				<form:input path="methodNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="methodNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>PROCESS_SE_CODE</th>
 			<td>
-	
 				<form:input path="processSeCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="processSeCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>PROCESS_CO</th>
 			<td>
-	
 				<form:input path="processCo" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="processCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>PROCESS_TIME</th>
 			<td>
-	
 				<form:input path="processTime" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="processTime" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>RSPNS_CODE</th>
 			<td>
-	
 				<form:input path="rspnsCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="rspnsCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ERROR_SE</th>
 			<td>
-	
 				<form:input path="errorSe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="errorSe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ERROR_CO</th>
 			<td>
-	
 				<form:input path="errorCo" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="errorCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ERROR_CODE</th>
 			<td>
-	
 				<form:input path="errorCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="errorCode" />
 			</td>
 		</tr>	

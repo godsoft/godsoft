@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndeptjobVO extends ComtndeptjobDefaultVO{
+public class ComtndeptjobVO extends ComtndeptjobDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** DEPT_JOB_ID */
     private String deptJobId;
     
-    /**  */
+    /** DEPT_JOBBX_ID */
     private String deptJobbxId;
     
-    /**  */
+    /** DEPT_JOB_NM */
     private String deptJobNm;
     
-    /**  */
+    /** DEPT_JOB_CN */
     private String deptJobCn;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** CHARGER_ID */
     private String chargerId;
     
-    /**  */
+    /** PRIORT */
     private String priort;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getDeptJobId() {

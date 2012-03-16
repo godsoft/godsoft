@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemService;
+import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.ComtncntcsystemVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.impl.ComtncntcsystemDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncntcsystemServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcsystem.service.impl.Comtncn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtncntcsystemServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncntcsystem 목록
 	 * @exception Exception
 	 */
-    public List selectComtncntcsystemList(ComtncntcsystemDefaultVO searchVO) throws Exception {
-        return comtncntcsystemDAO.selectComtncntcsystemList(searchVO);
+    public List<EgovMap> selectComtncntcsystemList(ComtncntcsystemVO vo) throws Exception {
+        return comtncntcsystemDAO.selectComtncntcsystemList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtncntcsystemServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncntcsystem 총 갯수
 	 * @exception
 	 */
-    public int selectComtncntcsystemListTotCnt(ComtncntcsystemDefaultVO searchVO) {
-		return comtncntcsystemDAO.selectComtncntcsystemListTotCnt(searchVO);
+    public int selectComtncntcsystemListTotCnt(ComtncntcsystemVO vo) {
+		return comtncntcsystemDAO.selectComtncntcsystemListTotCnt(vo);
 	}
     
 }

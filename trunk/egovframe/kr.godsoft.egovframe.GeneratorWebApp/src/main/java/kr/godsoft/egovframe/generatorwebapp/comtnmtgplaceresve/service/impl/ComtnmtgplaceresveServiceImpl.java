@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.impl.ComtnmtgplaceresveDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmtgplaceresveServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.impl.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnmtgplaceresveServiceImpl extends AbstractServiceImpl implement
 	 * @return comtnmtgplaceresve 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmtgplaceresveList(ComtnmtgplaceresveDefaultVO searchVO) throws Exception {
-        return comtnmtgplaceresveDAO.selectComtnmtgplaceresveList(searchVO);
+    public List<EgovMap> selectComtnmtgplaceresveList(ComtnmtgplaceresveVO vo) throws Exception {
+        return comtnmtgplaceresveDAO.selectComtnmtgplaceresveList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnmtgplaceresveServiceImpl extends AbstractServiceImpl implement
 	 * @return comtnmtgplaceresve 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmtgplaceresveListTotCnt(ComtnmtgplaceresveDefaultVO searchVO) {
-		return comtnmtgplaceresveDAO.selectComtnmtgplaceresveListTotCnt(searchVO);
+    public int selectComtnmtgplaceresveListTotCnt(ComtnmtgplaceresveVO vo) {
+		return comtnmtgplaceresveDAO.selectComtnmtgplaceresveListTotCnt(vo);
 	}
     
 }

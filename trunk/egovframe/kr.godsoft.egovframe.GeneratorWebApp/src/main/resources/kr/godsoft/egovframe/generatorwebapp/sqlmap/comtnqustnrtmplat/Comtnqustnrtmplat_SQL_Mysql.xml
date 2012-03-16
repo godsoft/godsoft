@@ -4,116 +4,117 @@
 <sqlMap namespace="Comtnqustnrtmplat">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnqustnrtmplatSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatDefaultVO"/>
+	<typeAlias  alias="ComtnqustnrtmplatVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatVO"/>
 	
 	<resultMap id="comtnqustnrtmplat" class="kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatVO">
-		<result property="qustnrTmplatId" column="QUSTNR_TMPLAT_ID" columnIndex="1"/> <!--  -->
-		<result property="qustnrTmplatTy" column="QUSTNR_TMPLAT_TY" columnIndex="2"/> <!--  -->
-		<result property="qustnrTmplatDc" column="QUSTNR_TMPLAT_DC" columnIndex="3"/> <!--  -->
-		<result property="qustnrTmplatPathNm" column="QUSTNR_TMPLAT_PATH_NM" columnIndex="4"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="6"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="8"/> <!--  -->
-		<result property="qustnrTmplatImageInfo" column="QUSTNR_TMPLAT_IMAGE_INFO" columnIndex="9"/> <!--  -->
+		<result property="qustnrTmplatId" column="qustnr_tmplat_id" columnIndex="1"/>
+		<result property="qustnrTmplatTy" column="qustnr_tmplat_ty" columnIndex="2"/>
+		<result property="qustnrTmplatDc" column="qustnr_tmplat_dc" columnIndex="3"/>
+		<result property="qustnrTmplatPathNm" column="qustnr_tmplat_path_nm" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="8"/>
+		<result property="qustnrTmplatImageInfo" column="qustnr_tmplat_image_info" columnIndex="9"/>
 	</resultMap>
 	
 	<insert id="comtnqustnrtmplatDAO.insertComtnqustnrtmplat_S">
 		<![CDATA[
 			INSERT INTO comtnqustnrtmplat 
-				( QUSTNR_TMPLAT_ID /*  */
-				  , QUSTNR_TMPLAT_TY /*  */
-				  , QUSTNR_TMPLAT_DC /*  */
-				  , QUSTNR_TMPLAT_PATH_NM /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , QUSTNR_TMPLAT_IMAGE_INFO /*  */ )
-			VALUES ( #qustnrTmplatId# /*  */
-					  , #qustnrTmplatTy# /*  */
-						  , #qustnrTmplatDc# /*  */
-						  , #qustnrTmplatPathNm# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #qustnrTmplatImageInfo# /*  */ )
+				( QUSTNR_TMPLAT_ID
+				  , qustnr_tmplat_ty
+				  , qustnr_tmplat_dc
+				  , qustnr_tmplat_path_nm
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id
+				  , qustnr_tmplat_image_info )
+			VALUES ( #qustnrTmplatId#
+				  , #qustnrTmplatTy#
+				  , #qustnrTmplatDc#
+				  , #qustnrTmplatPathNm#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId#
+				  , #qustnrTmplatImageInfo# )
 		]]>
 	</insert>
 	
 	<update id="comtnqustnrtmplatDAO.updateComtnqustnrtmplat_S">
 		<![CDATA[
 			UPDATE comtnqustnrtmplat
-			SET QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
-				, QUSTNR_TMPLAT_TY=#qustnrTmplatTy# /*  */
-				, QUSTNR_TMPLAT_DC=#qustnrTmplatDc# /*  */
-				, QUSTNR_TMPLAT_PATH_NM=#qustnrTmplatPathNm# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, QUSTNR_TMPLAT_IMAGE_INFO=#qustnrTmplatImageInfo# /*  */
-			WHERE QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+			SET qustnr_tmplat_id = #qustnrTmplatId#
+				, qustnr_tmplat_ty = #qustnrTmplatTy#
+				, qustnr_tmplat_dc = #qustnrTmplatDc#
+				, qustnr_tmplat_path_nm = #qustnrTmplatPathNm#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, qustnr_tmplat_image_info = #qustnrTmplatImageInfo#
+			WHERE qustnr_tmplat_id = #qustnrTmplatId#
 		]]>
 	</update>
 	
 	<delete id="comtnqustnrtmplatDAO.deleteComtnqustnrtmplat_S">
 		<![CDATA[
 			DELETE FROM comtnqustnrtmplat 
-			WHERE QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+			WHERE qustnr_tmplat_id = #qustnrTmplatId#
 		]]>
 	</delete>
 	
 	<select id="comtnqustnrtmplatDAO.selectComtnqustnrtmplat_S" resultMap="comtnqustnrtmplat">
 		<![CDATA[
 			SELECT
-				QUSTNR_TMPLAT_ID /*  */
-				, QUSTNR_TMPLAT_TY /*  */
-				, QUSTNR_TMPLAT_DC /*  */
-				, QUSTNR_TMPLAT_PATH_NM /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, QUSTNR_TMPLAT_IMAGE_INFO /*  */
+				qustnr_tmplat_id
+				, qustnr_tmplat_ty
+				, qustnr_tmplat_dc
+				, qustnr_tmplat_path_nm
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+				, qustnr_tmplat_image_info
 			FROM comtnqustnrtmplat
-			WHERE QUSTNR_TMPLAT_ID=#qustnrTmplatId# /*  */
+			WHERE qustnr_tmplat_id = #qustnrTmplatId#
 		]]>
 	</select>
 	
-	<select id="comtnqustnrtmplatDAO.selectComtnqustnrtmplatList_D" parameterClass="comtnqustnrtmplatSerarchVO" resultClass="egovMap">
+	<select id="comtnqustnrtmplatDAO.selectComtnqustnrtmplatList_D" parameterClass="ComtnqustnrtmplatVO" resultClass="egovMap">
 			SELECT
-								QUSTNR_TMPLAT_ID /*  */
-								, QUSTNR_TMPLAT_TY /*  */
-								, QUSTNR_TMPLAT_DC /*  */
-								, QUSTNR_TMPLAT_PATH_NM /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, QUSTNR_TMPLAT_IMAGE_INFO /*  */
+								qustnr_tmplat_id
+								, qustnr_tmplat_ty
+								, qustnr_tmplat_dc
+								, qustnr_tmplat_path_nm
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
+								, qustnr_tmplat_image_info
 					FROM comtnqustnrtmplat
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				QUSTNR_TMPLAT_ID = #searchKeyword# /*  */
+				qustnr_tmplat_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				QUSTNR_TMPLAT_TY LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				qustnr_tmplat_ty LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							QUSTNR_TMPLAT_ID DESC /*  */
+							qustnr_tmplat_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnqustnrtmplatDAO.selectComtnqustnrtmplatListTotCnt_S" parameterClass="comtnqustnrtmplatSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnqustnrtmplatDAO.selectComtnqustnrtmplatListTotCnt_S" parameterClass="ComtnqustnrtmplatVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnqustnrtmplat
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				QUSTNR_TMPLAT_ID = #searchKeyword# /*  */
+				qustnr_tmplat_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				QUSTNR_TMPLAT_TY LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				qustnr_tmplat_ty LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

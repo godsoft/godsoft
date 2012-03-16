@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnonlinemanualService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.Comtnonlin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnonlinemanualService {
 	 * @return comtnonlinemanual 목록
 	 * @exception Exception
 	 */
-    List selectComtnonlinemanualList(ComtnonlinemanualDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnonlinemanualList(ComtnonlinemanualVO vo) throws Exception;
     
     /**
 	 * comtnonlinemanual 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnonlinemanualService {
 	 * @return comtnonlinemanual 총 갯수
 	 * @exception
 	 */
-    int selectComtnonlinemanualListTotCnt(ComtnonlinemanualDefaultVO searchVO);
+    int selectComtnonlinemanualListTotCnt(ComtnonlinemanualVO vo);
     
 }

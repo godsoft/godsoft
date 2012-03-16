@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service.ComtrdnmadrzipDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service.ComtrdnmadrzipVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtrdnmadrzipService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service.Comtrdnmadrzi
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtrdnmadrzipService {
 	 * @return comtrdnmadrzip 목록
 	 * @exception Exception
 	 */
-    List selectComtrdnmadrzipList(ComtrdnmadrzipDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtrdnmadrzipList(ComtrdnmadrzipVO vo) throws Exception;
     
     /**
 	 * comtrdnmadrzip 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtrdnmadrzipService {
 	 * @return comtrdnmadrzip 총 갯수
 	 * @exception
 	 */
-    int selectComtrdnmadrzipListTotCnt(ComtrdnmadrzipDefaultVO searchVO);
+    int selectComtrdnmadrzipListTotCnt(ComtrdnmadrzipVO vo);
     
 }

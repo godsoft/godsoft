@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnonlinepollmanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.Comtno
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnonlinepollmanageService {
 	 * @return comtnonlinepollmanage 목록
 	 * @exception Exception
 	 */
-    List selectComtnonlinepollmanageList(ComtnonlinepollmanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnonlinepollmanageList(ComtnonlinepollmanageVO vo) throws Exception;
     
     /**
 	 * comtnonlinepollmanage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnonlinepollmanageService {
 	 * @return comtnonlinepollmanage 총 갯수
 	 * @exception
 	 */
-    int selectComtnonlinepollmanageListTotCnt(ComtnonlinepollmanageDefaultVO searchVO);
+    int selectComtnonlinepollmanageListTotCnt(ComtnonlinepollmanageVO vo);
     
 }

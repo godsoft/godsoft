@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoVO;
 
 /**
  * @Class Name : ComtnmemotodoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service.ComtnmemotodoV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnmemotodoController {
 	
     /**
 	 * comtnmemotodo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmemotodoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmemotodoVO
 	 * @return "/comtnmemotodo/ComtnmemotodoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmemotodo/ComtnmemotodoList.do")
-    public String selectComtnmemotodoList(@ModelAttribute("searchVO") ComtnmemotodoDefaultVO searchVO, 
+    public String selectComtnmemotodoList(@ModelAttribute("searchVO") ComtnmemotodoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnmemotodoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmemotodoList = comtnmemotodoService.selectComtnmemotodoList(searchVO);
+        List<EgovMap> comtnmemotodoList = comtnmemotodoService.selectComtnmemotodoList(searchVO);
         model.addAttribute("resultList", comtnmemotodoList);
         
         int totCnt = comtnmemotodoService.selectComtnmemotodoListTotCnt(searchVO);

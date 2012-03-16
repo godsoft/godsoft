@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamService;
+import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamService;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.impl.ComtndammapteamDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtndammapteamServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.impl.Comtnda
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtndammapteamServiceImpl extends AbstractServiceImpl implements
 	 * @return comtndammapteam 목록
 	 * @exception Exception
 	 */
-    public List selectComtndammapteamList(ComtndammapteamDefaultVO searchVO) throws Exception {
-        return comtndammapteamDAO.selectComtndammapteamList(searchVO);
+    public List<EgovMap> selectComtndammapteamList(ComtndammapteamVO vo) throws Exception {
+        return comtndammapteamDAO.selectComtndammapteamList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtndammapteamServiceImpl extends AbstractServiceImpl implements
 	 * @return comtndammapteam 총 갯수
 	 * @exception
 	 */
-    public int selectComtndammapteamListTotCnt(ComtndammapteamDefaultVO searchVO) {
-		return comtndammapteamDAO.selectComtndammapteamListTotCnt(searchVO);
+    public int selectComtndammapteamListTotCnt(ComtndammapteamVO vo) {
+		return comtndammapteamDAO.selectComtndammapteamListTotCnt(vo);
 	}
     
 }

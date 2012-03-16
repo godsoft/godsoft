@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtndampro.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtndamproService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtndamproService {
 	 * @return comtndampro 목록
 	 * @exception Exception
 	 */
-    List selectComtndamproList(ComtndamproDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtndamproList(ComtndamproVO vo) throws Exception;
     
     /**
 	 * comtndampro 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtndamproService {
 	 * @return comtndampro 총 갯수
 	 * @exception
 	 */
-    int selectComtndamproListTotCnt(ComtndamproDefaultVO searchVO);
+    int selectComtndamproListTotCnt(ComtndamproVO vo);
     
 }

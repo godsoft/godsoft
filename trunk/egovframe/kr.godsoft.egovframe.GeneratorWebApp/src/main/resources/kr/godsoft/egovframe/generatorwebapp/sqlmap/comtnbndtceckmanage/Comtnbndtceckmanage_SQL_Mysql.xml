@@ -4,114 +4,115 @@
 <sqlMap namespace="Comtnbndtceckmanage">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnbndtceckmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageDefaultVO"/>
+	<typeAlias  alias="ComtnbndtceckmanageVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO"/>
 	
 	<resultMap id="comtnbndtceckmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO">
-		<result property="bndtCeckSe" column="BNDT_CECK_SE" columnIndex="1"/> <!--  -->
-		<result property="bndtCeckCode" column="BNDT_CECK_CODE" columnIndex="2"/> <!--  -->
-		<result property="bndtCeckCodeNm" column="BNDT_CECK_CODE_NM" columnIndex="3"/> <!--  -->
-		<result property="useAt" column="USE_AT" columnIndex="4"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="5"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="7"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
+		<result property="bndtCeckSe" column="bndt_ceck_se" columnIndex="1"/>
+		<result property="bndtCeckCode" column="bndt_ceck_code" columnIndex="2"/>
+		<result property="bndtCeckCodeNm" column="bndt_ceck_code_nm" columnIndex="3"/>
+		<result property="useAt" column="use_at" columnIndex="4"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
 	</resultMap>
 	
 	<insert id="comtnbndtceckmanageDAO.insertComtnbndtceckmanage_S">
 		<![CDATA[
 			INSERT INTO comtnbndtceckmanage 
-				( BNDT_CECK_SE /*  */
-				  , BNDT_CECK_CODE /*  */
-				  , BNDT_CECK_CODE_NM /*  */
-				  , USE_AT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #bndtCeckSe# /*  */
-					  , #bndtCeckCode# /*  */
-						  , #bndtCeckCodeNm# /*  */
-						  , #useAt# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( BNDT_CECK_SE
+				  , bndt_ceck_code
+				  , bndt_ceck_code_nm
+				  , use_at
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #bndtCeckSe#
+				  , #bndtCeckCode#
+				  , #bndtCeckCodeNm#
+				  , #useAt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnbndtceckmanageDAO.updateComtnbndtceckmanage_S">
 		<![CDATA[
 			UPDATE comtnbndtceckmanage
-			SET BNDT_CECK_SE=#bndtCeckSe# /*  */
-				, BNDT_CECK_CODE=#bndtCeckCode# /*  */
-				, BNDT_CECK_CODE_NM=#bndtCeckCodeNm# /*  */
-				, USE_AT=#useAt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE BNDT_CECK_SE=#bndtCeckSe# /*  */
-				AND BNDT_CECK_CODE=#bndtCeckCode# /*  */
+			SET bndt_ceck_se = #bndtCeckSe#
+				, bndt_ceck_code = #bndtCeckCode#
+				, bndt_ceck_code_nm = #bndtCeckCodeNm#
+				, use_at = #useAt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE bndt_ceck_se = #bndtCeckSe#
+				AND bndt_ceck_code = #bndtCeckCode#
 		]]>
 	</update>
 	
 	<delete id="comtnbndtceckmanageDAO.deleteComtnbndtceckmanage_S">
 		<![CDATA[
 			DELETE FROM comtnbndtceckmanage 
-			WHERE BNDT_CECK_SE=#bndtCeckSe# /*  */
-				AND BNDT_CECK_CODE=#bndtCeckCode# /*  */
+			WHERE bndt_ceck_se = #bndtCeckSe#
+				AND bndt_ceck_code = #bndtCeckCode#
 		]]>
 	</delete>
 	
 	<select id="comtnbndtceckmanageDAO.selectComtnbndtceckmanage_S" resultMap="comtnbndtceckmanage">
 		<![CDATA[
 			SELECT
-				BNDT_CECK_SE /*  */
-				, BNDT_CECK_CODE /*  */
-				, BNDT_CECK_CODE_NM /*  */
-				, USE_AT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				bndt_ceck_se
+				, bndt_ceck_code
+				, bndt_ceck_code_nm
+				, use_at
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnbndtceckmanage
-			WHERE BNDT_CECK_SE=#bndtCeckSe# /*  */
-				AND BNDT_CECK_CODE=#bndtCeckCode# /*  */
+			WHERE bndt_ceck_se = #bndtCeckSe#
+				AND bndt_ceck_code = #bndtCeckCode#
 		]]>
 	</select>
 	
-	<select id="comtnbndtceckmanageDAO.selectComtnbndtceckmanageList_D" parameterClass="comtnbndtceckmanageSerarchVO" resultClass="egovMap">
+	<select id="comtnbndtceckmanageDAO.selectComtnbndtceckmanageList_D" parameterClass="ComtnbndtceckmanageVO" resultClass="egovMap">
 			SELECT
-								BNDT_CECK_SE /*  */
-								, BNDT_CECK_CODE /*  */
-								, BNDT_CECK_CODE_NM /*  */
-								, USE_AT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								bndt_ceck_se
+								, bndt_ceck_code
+								, bndt_ceck_code_nm
+								, use_at
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnbndtceckmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BNDT_CECK_SE = #searchKeyword# /*  */
+				bndt_ceck_se = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				BNDT_CECK_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				bndt_ceck_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							BNDT_CECK_SE DESC /*  */
-							, BNDT_CECK_CODE DESC /*  */
+							bndt_ceck_se DESC
+							, bndt_ceck_code DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnbndtceckmanageDAO.selectComtnbndtceckmanageListTotCnt_S" parameterClass="comtnbndtceckmanageSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnbndtceckmanageDAO.selectComtnbndtceckmanageListTotCnt_S" parameterClass="ComtnbndtceckmanageVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnbndtceckmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BNDT_CECK_SE = #searchKeyword# /*  */
+				bndt_ceck_se = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				BNDT_CECK_CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				bndt_ceck_code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

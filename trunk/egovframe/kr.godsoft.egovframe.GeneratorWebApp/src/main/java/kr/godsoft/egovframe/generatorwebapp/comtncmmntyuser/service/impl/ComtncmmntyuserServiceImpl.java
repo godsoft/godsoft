@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.ComtncmmntyuserService;
+import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.ComtncmmntyuserVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.ComtncmmntyuserService;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.ComtncmmntyuserDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.ComtncmmntyuserVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.impl.ComtncmmntyuserDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncmmntyuserServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncmmntyuser.service.impl.Comtncm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncmmntyuser 목록
 	 * @exception Exception
 	 */
-    public List selectComtncmmntyuserList(ComtncmmntyuserDefaultVO searchVO) throws Exception {
-        return comtncmmntyuserDAO.selectComtncmmntyuserList(searchVO);
+    public List<EgovMap> selectComtncmmntyuserList(ComtncmmntyuserVO vo) throws Exception {
+        return comtncmmntyuserDAO.selectComtncmmntyuserList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
 	 * @return comtncmmntyuser 총 갯수
 	 * @exception
 	 */
-    public int selectComtncmmntyuserListTotCnt(ComtncmmntyuserDefaultVO searchVO) {
-		return comtncmmntyuserDAO.selectComtncmmntyuserListTotCnt(searchVO);
+    public int selectComtncmmntyuserListTotCnt(ComtncmmntyuserVO vo) {
+		return comtncmmntyuserDAO.selectComtncmmntyuserListTotCnt(vo);
 	}
     
 }

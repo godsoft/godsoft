@@ -6,58 +6,58 @@ package kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtntroblinfoVO extends ComtntroblinfoDefaultVO{
+public class ComtntroblinfoVO extends ComtntroblinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** TROBL_ID */
     private String troblId;
     
-    /**  */
+    /** TROBL_NM */
     private String troblNm;
     
-    /**  */
+    /** TROBL_KND */
     private String troblKnd;
     
-    /**  */
+    /** TROBL_DC */
     private String troblDc;
     
-    /**  */
+    /** TROBL_OCCRRNC_TIME */
     private String troblOccrrncTime;
     
-    /**  */
+    /** TROBL_RQESTER_NM */
     private String troblRqesterNm;
     
-    /**  */
+    /** TROBL_REQUST_TIME */
     private String troblRequstTime;
     
-    /**  */
+    /** TROBL_PROCESS_RESULT */
     private String troblProcessResult;
     
-    /**  */
+    /** TROBL_OPETR_NM */
     private String troblOpetrNm;
     
-    /**  */
+    /** TROBL_PROCESS_TIME */
     private String troblProcessTime;
     
-    /**  */
+    /** PROCESS_STTUS */
     private String processSttus;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getTroblId() {

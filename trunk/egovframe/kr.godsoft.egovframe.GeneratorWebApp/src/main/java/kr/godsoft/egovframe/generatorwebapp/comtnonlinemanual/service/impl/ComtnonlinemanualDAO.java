@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.ComtnonlinemanualDefaultVO;
 
 /**
  * @Class Name : ComtnonlinemanualDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.Comtnonlin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
 	 * @return comtnonlinemanual 목록
 	 * @exception Exception
 	 */
-    public List selectComtnonlinemanualList(ComtnonlinemanualDefaultVO searchVO) throws Exception {
-        return list("comtnonlinemanualDAO.selectComtnonlinemanualList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnonlinemanualList(ComtnonlinemanualVO vo) throws Exception {
+        return list("comtnonlinemanualDAO.selectComtnonlinemanualList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
 	 * @return comtnonlinemanual 총 갯수
 	 * @exception
 	 */
-    public int selectComtnonlinemanualListTotCnt(ComtnonlinemanualDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnonlinemanualDAO.selectComtnonlinemanualListTotCnt_S", searchVO);
+    public int selectComtnonlinemanualListTotCnt(ComtnonlinemanualVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnonlinemanualDAO.selectComtnonlinemanualListTotCnt_S", vo);
     }
 
 }

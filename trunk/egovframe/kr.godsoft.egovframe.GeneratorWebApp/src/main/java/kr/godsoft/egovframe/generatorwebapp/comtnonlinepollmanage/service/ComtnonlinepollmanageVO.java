@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnonlinepollmanageVO extends ComtnonlinepollmanageDefaultVO{
+public class ComtnonlinepollmanageVO extends ComtnonlinepollmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** POLL_ID */
     private String pollId;
     
-    /**  */
+    /** POLL_NM */
     private String pollNm;
     
-    /**  */
+    /** POLL_BGNDE */
     private String pollBgnde;
     
-    /**  */
+    /** POLL_ENDDE */
     private String pollEndde;
     
-    /**  */
+    /** POLL_KND */
     private String pollKnd;
     
-    /**  */
+    /** POLL_DSUSE_ENNC */
     private String pollDsuseEnnc;
     
-    /**  */
+    /** POLL_ATMC_DSUSE_ENNC */
     private String pollAtmcDsuseEnnc;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getPollId() {

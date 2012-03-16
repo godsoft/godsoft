@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.ComthtrsmrcvmntrngloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.ComthtrsmrcvmntrngloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.ComthtrsmrcvmntrngloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.ComthtrsmrcvmntrngloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.ComthtrsmrcvmntrngloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.impl.ComthtrsmrcvmntrngloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComthtrsmrcvmntrngloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthtrsmrcvmntrngloginfo.service.im
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
 	 * @return comthtrsmrcvmntrngloginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComthtrsmrcvmntrngloginfoList(ComthtrsmrcvmntrngloginfoDefaultVO searchVO) throws Exception {
-        return comthtrsmrcvmntrngloginfoDAO.selectComthtrsmrcvmntrngloginfoList(searchVO);
+    public List<EgovMap> selectComthtrsmrcvmntrngloginfoList(ComthtrsmrcvmntrngloginfoVO vo) throws Exception {
+        return comthtrsmrcvmntrngloginfoDAO.selectComthtrsmrcvmntrngloginfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
 	 * @return comthtrsmrcvmntrngloginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComthtrsmrcvmntrngloginfoListTotCnt(ComthtrsmrcvmntrngloginfoDefaultVO searchVO) {
-		return comthtrsmrcvmntrngloginfoDAO.selectComthtrsmrcvmntrngloginfoListTotCnt(searchVO);
+    public int selectComthtrsmrcvmntrngloginfoListTotCnt(ComthtrsmrcvmntrngloginfoVO vo) {
+		return comthtrsmrcvmntrngloginfoDAO.selectComthtrsmrcvmntrngloginfoListTotCnt(vo);
 	}
     
 }

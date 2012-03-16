@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogService;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.ComtnloginlogVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.impl.ComtnloginlogDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnloginlogServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service.impl.Comtnlogi
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnloginlogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnloginlog 목록
 	 * @exception Exception
 	 */
-    public List selectComtnloginlogList(ComtnloginlogDefaultVO searchVO) throws Exception {
-        return comtnloginlogDAO.selectComtnloginlogList(searchVO);
+    public List<EgovMap> selectComtnloginlogList(ComtnloginlogVO vo) throws Exception {
+        return comtnloginlogDAO.selectComtnloginlogList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnloginlogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnloginlog 총 갯수
 	 * @exception
 	 */
-    public int selectComtnloginlogListTotCnt(ComtnloginlogDefaultVO searchVO) {
-		return comtnloginlogDAO.selectComtnloginlogListTotCnt(searchVO);
+    public int selectComtnloginlogListTotCnt(ComtnloginlogVO vo) {
+		return comtnloginlogDAO.selectComtnloginlogListTotCnt(vo);
 	}
     
 }

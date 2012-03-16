@@ -6,58 +6,58 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbackupopertVO extends ComtnbackupopertDefaultVO{
+public class ComtnbackupopertVO extends ComtnbackupopertDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BACKUP_OPERT_ID */
     private String backupOpertId;
     
-    /**  */
+    /** BACKUP_OPERT_NM */
     private String backupOpertNm;
     
-    /**  */
+    /** BACKUP_ORGINL_DRCTRY */
     private String backupOrginlDrctry;
     
-    /**  */
+    /** BACKUP_STRE_DRCTRY */
     private String backupStreDrctry;
     
-    /**  */
+    /** CMPRS_SE */
     private String cmprsSe;
     
-    /**  */
+    /** EXECUT_CYCLE */
     private String executCycle;
     
-    /**  */
+    /** EXECUT_SCHDUL_DE */
     private String executSchdulDe;
     
-    /**  */
+    /** EXECUT_SCHDUL_HOUR */
     private String executSchdulHour;
     
-    /**  */
+    /** EXECUT_SCHDUL_MNT */
     private String executSchdulMnt;
     
-    /**  */
+    /** EXECUT_SCHDUL_SECND */
     private String executSchdulSecnd;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getBackupOpertId() {

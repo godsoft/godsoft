@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.impl.ComtnfilesysmntrngDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnfilesysmntrngServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.impl.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnfilesysmntrngServiceImpl extends AbstractServiceImpl implement
 	 * @return comtnfilesysmntrng 목록
 	 * @exception Exception
 	 */
-    public List selectComtnfilesysmntrngList(ComtnfilesysmntrngDefaultVO searchVO) throws Exception {
-        return comtnfilesysmntrngDAO.selectComtnfilesysmntrngList(searchVO);
+    public List<EgovMap> selectComtnfilesysmntrngList(ComtnfilesysmntrngVO vo) throws Exception {
+        return comtnfilesysmntrngDAO.selectComtnfilesysmntrngList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnfilesysmntrngServiceImpl extends AbstractServiceImpl implement
 	 * @return comtnfilesysmntrng 총 갯수
 	 * @exception
 	 */
-    public int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngDefaultVO searchVO) {
-		return comtnfilesysmntrngDAO.selectComtnfilesysmntrngListTotCnt(searchVO);
+    public int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngVO vo) {
+		return comtnfilesysmntrngDAO.selectComtnfilesysmntrngListTotCnt(vo);
 	}
     
 }

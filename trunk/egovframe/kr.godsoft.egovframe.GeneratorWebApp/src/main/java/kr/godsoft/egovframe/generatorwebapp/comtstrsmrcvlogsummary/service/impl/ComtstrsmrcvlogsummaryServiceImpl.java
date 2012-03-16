@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.impl.ComtstrsmrcvlogsummaryDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtstrsmrcvlogsummaryServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.impl.
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtstrsmrcvlogsummaryServiceImpl extends AbstractServiceImpl imple
 	 * @return comtstrsmrcvlogsummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtstrsmrcvlogsummaryList(ComtstrsmrcvlogsummaryDefaultVO searchVO) throws Exception {
-        return comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummaryList(searchVO);
+    public List<EgovMap> selectComtstrsmrcvlogsummaryList(ComtstrsmrcvlogsummaryVO vo) throws Exception {
+        return comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummaryList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtstrsmrcvlogsummaryServiceImpl extends AbstractServiceImpl imple
 	 * @return comtstrsmrcvlogsummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtstrsmrcvlogsummaryListTotCnt(ComtstrsmrcvlogsummaryDefaultVO searchVO) {
-		return comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummaryListTotCnt(searchVO);
+    public int selectComtstrsmrcvlogsummaryListTotCnt(ComtstrsmrcvlogsummaryVO vo) {
+		return comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummaryListTotCnt(vo);
 	}
     
 }

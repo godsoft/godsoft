@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnntwrksvcmntrngService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.Comtnntw
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnntwrksvcmntrngService {
 	 * @return comtnntwrksvcmntrng 목록
 	 * @exception Exception
 	 */
-    List selectComtnntwrksvcmntrngList(ComtnntwrksvcmntrngDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnntwrksvcmntrngList(ComtnntwrksvcmntrngVO vo) throws Exception;
     
     /**
 	 * comtnntwrksvcmntrng 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnntwrksvcmntrngService {
 	 * @return comtnntwrksvcmntrng 총 갯수
 	 * @exception
 	 */
-    int selectComtnntwrksvcmntrngListTotCnt(ComtnntwrksvcmntrngDefaultVO searchVO);
+    int selectComtnntwrksvcmntrngListTotCnt(ComtnntwrksvcmntrngVO vo);
     
 }

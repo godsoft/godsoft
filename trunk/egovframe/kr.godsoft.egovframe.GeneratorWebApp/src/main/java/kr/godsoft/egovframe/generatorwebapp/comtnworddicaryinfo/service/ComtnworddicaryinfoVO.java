@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnworddicaryinfoVO extends ComtnworddicaryinfoDefaultVO{
+public class ComtnworddicaryinfoVO extends ComtnworddicaryinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** WORD_ID */
     private String wordId;
     
-    /**  */
+    /** WORD_NM */
     private String wordNm;
     
-    /**  */
+    /** ENG_NM */
     private String engNm;
     
-    /**  */
+    /** WORD_DC */
     private String wordDc;
     
-    /**  */
+    /** SYNONM */
     private String synonm;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getWordId() {

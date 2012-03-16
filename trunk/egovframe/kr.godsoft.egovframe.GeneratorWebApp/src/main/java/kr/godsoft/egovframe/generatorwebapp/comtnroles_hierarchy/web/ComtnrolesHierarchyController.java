@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyService;
+import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyService;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO;
 
 /**
  * @Class Name : ComtnrolesHierarchyController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.Comtnro
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnrolesHierarchyController {
 	
     /**
 	 * comtnroles_hierarchy 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnrolesHierarchyDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnrolesHierarchyVO
 	 * @return "/comtnrolesHierarchy/ComtnrolesHierarchyList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnrolesHierarchy/ComtnrolesHierarchyList.do")
-    public String selectComtnrolesHierarchyList(@ModelAttribute("searchVO") ComtnrolesHierarchyDefaultVO searchVO, 
+    public String selectComtnrolesHierarchyList(@ModelAttribute("searchVO") ComtnrolesHierarchyVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnrolesHierarchyController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnrolesHierarchyList = comtnrolesHierarchyService.selectComtnrolesHierarchyList(searchVO);
+        List<EgovMap> comtnrolesHierarchyList = comtnrolesHierarchyService.selectComtnrolesHierarchyList(searchVO);
         model.addAttribute("resultList", comtnrolesHierarchyList);
         
         int totCnt = comtnrolesHierarchyService.selectComtnrolesHierarchyListTotCnt(searchVO);

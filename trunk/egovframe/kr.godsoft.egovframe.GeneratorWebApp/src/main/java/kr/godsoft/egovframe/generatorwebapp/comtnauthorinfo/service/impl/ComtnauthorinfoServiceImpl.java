@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.impl.ComtnauthorinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnauthorinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.impl.Comtnau
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnauthorinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnauthorinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnauthorinfoList(ComtnauthorinfoDefaultVO searchVO) throws Exception {
-        return comtnauthorinfoDAO.selectComtnauthorinfoList(searchVO);
+    public List<EgovMap> selectComtnauthorinfoList(ComtnauthorinfoVO vo) throws Exception {
+        return comtnauthorinfoDAO.selectComtnauthorinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnauthorinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnauthorinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnauthorinfoListTotCnt(ComtnauthorinfoDefaultVO searchVO) {
-		return comtnauthorinfoDAO.selectComtnauthorinfoListTotCnt(searchVO);
+    public int selectComtnauthorinfoListTotCnt(ComtnauthorinfoVO vo) {
+		return comtnauthorinfoDAO.selectComtnauthorinfoListTotCnt(vo);
 	}
     
 }

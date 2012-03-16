@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbbsuseService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbbsuseService {
 	 * @return comtnbbsuse 목록
 	 * @exception Exception
 	 */
-    List selectComtnbbsuseList(ComtnbbsuseDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbbsuseList(ComtnbbsuseVO vo) throws Exception;
     
     /**
 	 * comtnbbsuse 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbbsuseService {
 	 * @return comtnbbsuse 총 갯수
 	 * @exception
 	 */
-    int selectComtnbbsuseListTotCnt(ComtnbbsuseDefaultVO searchVO);
+    int selectComtnbbsuseListTotCnt(ComtnbbsuseVO vo);
     
 }

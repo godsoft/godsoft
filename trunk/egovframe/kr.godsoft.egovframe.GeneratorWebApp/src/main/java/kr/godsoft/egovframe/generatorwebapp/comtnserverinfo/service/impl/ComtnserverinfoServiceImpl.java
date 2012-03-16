@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.ComtnserverinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.impl.ComtnserverinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnserverinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service.impl.Comtnse
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnserverinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnserverinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnserverinfoList(ComtnserverinfoDefaultVO searchVO) throws Exception {
-        return comtnserverinfoDAO.selectComtnserverinfoList(searchVO);
+    public List<EgovMap> selectComtnserverinfoList(ComtnserverinfoVO vo) throws Exception {
+        return comtnserverinfoDAO.selectComtnserverinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnserverinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnserverinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnserverinfoListTotCnt(ComtnserverinfoDefaultVO searchVO) {
-		return comtnserverinfoDAO.selectComtnserverinfoListTotCnt(searchVO);
+    public int selectComtnserverinfoListTotCnt(ComtnserverinfoVO vo) {
+		return comtnserverinfoDAO.selectComtnserverinfoListTotCnt(vo);
 	}
     
 }

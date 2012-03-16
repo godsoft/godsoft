@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeService;
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeService;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeVO;
 
 /**
  * @Class Name : ComtcadministcodeController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.Comtcadmin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtcadministcodeController {
 	
     /**
 	 * comtcadministcode 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtcadministcodeDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtcadministcodeVO
 	 * @return "/comtcadministcode/ComtcadministcodeList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtcadministcode/ComtcadministcodeList.do")
-    public String selectComtcadministcodeList(@ModelAttribute("searchVO") ComtcadministcodeDefaultVO searchVO, 
+    public String selectComtcadministcodeList(@ModelAttribute("searchVO") ComtcadministcodeVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtcadministcodeController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtcadministcodeList = comtcadministcodeService.selectComtcadministcodeList(searchVO);
+        List<EgovMap> comtcadministcodeList = comtcadministcodeService.selectComtcadministcodeList(searchVO);
         model.addAttribute("resultList", comtcadministcodeList);
         
         int totCnt = comtcadministcodeService.selectComtcadministcodeListTotCnt(searchVO);

@@ -6,34 +6,34 @@ package kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtncntcinsttVO extends ComtncntcinsttDefaultVO{
+public class ComtncntcinsttVO extends ComtncntcinsttDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** INSTT_ID */
     private String insttId;
     
-    /**  */
+    /** INSTT_NM */
     private String insttNm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
     public String getInsttId() {

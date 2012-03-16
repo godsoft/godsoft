@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtccmmnclcodeVO extends ComtccmmnclcodeDefaultVO{
+public class ComtccmmnclcodeVO extends ComtccmmnclcodeDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /** 분류코드 */
+    /** CL_CODE */
     private String clCode;
     
-    /**  */
+    /** CL_CODE_NM */
     private String clCodeNm;
     
-    /**  */
+    /** CL_CODE_DC */
     private String clCodeDc;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getClCode() {

@@ -6,34 +6,34 @@ package kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnwikibkmkVO extends ComtnwikibkmkDefaultVO{
+public class ComtnwikibkmkVO extends ComtnwikibkmkDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** WIKI_BKMK_ID */
     private String wikiBkmkId;
     
-    /**  */
+    /** USER_ID */
     private String userId;
     
-    /**  */
+    /** WIKI_BKMK_NM */
     private String wikiBkmkNm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getWikiBkmkId() {

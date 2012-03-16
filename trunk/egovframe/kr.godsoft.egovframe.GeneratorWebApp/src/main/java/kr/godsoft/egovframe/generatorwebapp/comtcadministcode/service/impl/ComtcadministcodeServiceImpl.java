@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeService;
+import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeService;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.ComtcadministcodeVO;
-import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.impl.ComtcadministcodeDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtcadministcodeServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.impl.Comtc
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtcadministcodeServiceImpl extends AbstractServiceImpl implements
 	 * @return comtcadministcode 목록
 	 * @exception Exception
 	 */
-    public List selectComtcadministcodeList(ComtcadministcodeDefaultVO searchVO) throws Exception {
-        return comtcadministcodeDAO.selectComtcadministcodeList(searchVO);
+    public List<EgovMap> selectComtcadministcodeList(ComtcadministcodeVO vo) throws Exception {
+        return comtcadministcodeDAO.selectComtcadministcodeList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtcadministcodeServiceImpl extends AbstractServiceImpl implements
 	 * @return comtcadministcode 총 갯수
 	 * @exception
 	 */
-    public int selectComtcadministcodeListTotCnt(ComtcadministcodeDefaultVO searchVO) {
-		return comtcadministcodeDAO.selectComtcadministcodeListTotCnt(searchVO);
+    public int selectComtcadministcodeListTotCnt(ComtcadministcodeVO vo) {
+		return comtcadministcodeDAO.selectComtcadministcodeListTotCnt(vo);
 	}
     
 }

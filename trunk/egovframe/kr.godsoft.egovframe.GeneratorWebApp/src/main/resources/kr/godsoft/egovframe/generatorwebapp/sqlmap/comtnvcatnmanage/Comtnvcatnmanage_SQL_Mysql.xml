@@ -4,176 +4,177 @@
 <sqlMap namespace="Comtnvcatnmanage">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnvcatnmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageDefaultVO"/>
+	<typeAlias  alias="ComtnvcatnmanageVO" type="kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageVO"/>
 	
 	<resultMap id="comtnvcatnmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageVO">
-		<result property="applcntId" column="APPLCNT_ID" columnIndex="1"/> <!--  -->
-		<result property="vcatnSe" column="VCATN_SE" columnIndex="2"/> <!--  -->
-		<result property="bgnde" column="BGNDE" columnIndex="3"/> <!--  -->
-		<result property="endde" column="ENDDE" columnIndex="4"/> <!--  -->
-		<result property="vcatnResn" column="VCATN_RESN" columnIndex="5"/> <!--  -->
-		<result property="reqstDe" column="REQST_DE" columnIndex="6"/> <!--  -->
-		<result property="occrrncYear" column="OCCRRNC_YEAR" columnIndex="7"/> <!--  -->
-		<result property="sanctnerId" column="SANCTNER_ID" columnIndex="8"/> <!--  -->
-		<result property="confmAt" column="CONFM_AT" columnIndex="9"/> <!--  -->
-		<result property="sanctnDt" column="SANCTN_DT" columnIndex="10"/> <!--  -->
-		<result property="returnResn" column="RETURN_RESN" columnIndex="11"/> <!--  -->
-		<result property="infrmlSanctnId" column="INFRML_SANCTN_ID" columnIndex="12"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="13"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="14"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="15"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="16"/> <!--  -->
-		<result property="noonSe" column="NOON_SE" columnIndex="17"/> <!--  -->
+		<result property="applcntId" column="applcnt_id" columnIndex="1"/>
+		<result property="vcatnSe" column="vcatn_se" columnIndex="2"/>
+		<result property="bgnde" column="bgnde" columnIndex="3"/>
+		<result property="endde" column="endde" columnIndex="4"/>
+		<result property="vcatnResn" column="vcatn_resn" columnIndex="5"/>
+		<result property="reqstDe" column="reqst_de" columnIndex="6"/>
+		<result property="occrrncYear" column="occrrnc_year" columnIndex="7"/>
+		<result property="sanctnerId" column="sanctner_id" columnIndex="8"/>
+		<result property="confmAt" column="confm_at" columnIndex="9"/>
+		<result property="sanctnDt" column="sanctn_dt" columnIndex="10"/>
+		<result property="returnResn" column="return_resn" columnIndex="11"/>
+		<result property="infrmlSanctnId" column="infrml_sanctn_id" columnIndex="12"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="13"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="14"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="15"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="16"/>
+		<result property="noonSe" column="noon_se" columnIndex="17"/>
 	</resultMap>
 	
 	<insert id="comtnvcatnmanageDAO.insertComtnvcatnmanage_S">
 		<![CDATA[
 			INSERT INTO comtnvcatnmanage 
-				( APPLCNT_ID /*  */
-				  , VCATN_SE /*  */
-				  , BGNDE /*  */
-				  , ENDDE /*  */
-				  , VCATN_RESN /*  */
-				  , REQST_DE /*  */
-				  , OCCRRNC_YEAR /*  */
-				  , SANCTNER_ID /*  */
-				  , CONFM_AT /*  */
-				  , SANCTN_DT /*  */
-				  , RETURN_RESN /*  */
-				  , INFRML_SANCTN_ID /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , NOON_SE /*  */ )
-			VALUES ( #applcntId# /*  */
-					  , #vcatnSe# /*  */
-						  , #bgnde# /*  */
-						  , #endde# /*  */
-						  , #vcatnResn# /*  */
-						  , #reqstDe# /*  */
-						  , #occrrncYear# /*  */
-						  , #sanctnerId# /*  */
-						  , #confmAt# /*  */
-						  , SYSDATE() /*  */
-						  , #returnResn# /*  */
-						  , #infrmlSanctnId# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #noonSe# /*  */ )
+				( APPLCNT_ID
+				  , vcatn_se
+				  , bgnde
+				  , endde
+				  , vcatn_resn
+				  , reqst_de
+				  , occrrnc_year
+				  , sanctner_id
+				  , confm_at
+				  , sanctn_dt
+				  , return_resn
+				  , infrml_sanctn_id
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , noon_se )
+			VALUES ( #applcntId#
+				  , #vcatnSe#
+				  , #bgnde#
+				  , #endde#
+				  , #vcatnResn#
+				  , #reqstDe#
+				  , #occrrncYear#
+				  , #sanctnerId#
+				  , #confmAt#
+				  , #sanctnDt#
+				  , #returnResn#
+				  , #infrmlSanctnId#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #noonSe# )
 		]]>
 	</insert>
 	
 	<update id="comtnvcatnmanageDAO.updateComtnvcatnmanage_S">
 		<![CDATA[
 			UPDATE comtnvcatnmanage
-			SET APPLCNT_ID=#applcntId# /*  */
-				, VCATN_SE=#vcatnSe# /*  */
-				, BGNDE=#bgnde# /*  */
-				, ENDDE=#endde# /*  */
-				, VCATN_RESN=#vcatnResn# /*  */
-				, REQST_DE=#reqstDe# /*  */
-				, OCCRRNC_YEAR=#occrrncYear# /*  */
-				, SANCTNER_ID=#sanctnerId# /*  */
-				, CONFM_AT=#confmAt# /*  */
-				, SANCTN_DT=#sanctnDt# /*  */
-				, RETURN_RESN=#returnResn# /*  */
-				, INFRML_SANCTN_ID=#infrmlSanctnId# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, NOON_SE=#noonSe# /*  */
-			WHERE APPLCNT_ID=#applcntId# /*  */
-				AND VCATN_SE=#vcatnSe# /*  */
-				AND BGNDE=#bgnde# /*  */
-				AND ENDDE=#endde# /*  */
+			SET applcnt_id = #applcntId#
+				, vcatn_se = #vcatnSe#
+				, bgnde = #bgnde#
+				, endde = #endde#
+				, vcatn_resn = #vcatnResn#
+				, reqst_de = #reqstDe#
+				, occrrnc_year = #occrrncYear#
+				, sanctner_id = #sanctnerId#
+				, confm_at = #confmAt#
+				, sanctn_dt = #sanctnDt#
+				, return_resn = #returnResn#
+				, infrml_sanctn_id = #infrmlSanctnId#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, noon_se = #noonSe#
+			WHERE applcnt_id = #applcntId#
+				AND vcatn_se = #vcatnSe#
+				AND bgnde = #bgnde#
+				AND endde = #endde#
 		]]>
 	</update>
 	
 	<delete id="comtnvcatnmanageDAO.deleteComtnvcatnmanage_S">
 		<![CDATA[
 			DELETE FROM comtnvcatnmanage 
-			WHERE APPLCNT_ID=#applcntId# /*  */
-				AND VCATN_SE=#vcatnSe# /*  */
-				AND BGNDE=#bgnde# /*  */
-				AND ENDDE=#endde# /*  */
+			WHERE applcnt_id = #applcntId#
+				AND vcatn_se = #vcatnSe#
+				AND bgnde = #bgnde#
+				AND endde = #endde#
 		]]>
 	</delete>
 	
 	<select id="comtnvcatnmanageDAO.selectComtnvcatnmanage_S" resultMap="comtnvcatnmanage">
 		<![CDATA[
 			SELECT
-				APPLCNT_ID /*  */
-				, VCATN_SE /*  */
-				, BGNDE /*  */
-				, ENDDE /*  */
-				, VCATN_RESN /*  */
-				, REQST_DE /*  */
-				, OCCRRNC_YEAR /*  */
-				, SANCTNER_ID /*  */
-				, CONFM_AT /*  */
-				, SANCTN_DT /*  */
-				, RETURN_RESN /*  */
-				, INFRML_SANCTN_ID /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, NOON_SE /*  */
+				applcnt_id
+				, vcatn_se
+				, bgnde
+				, endde
+				, vcatn_resn
+				, reqst_de
+				, occrrnc_year
+				, sanctner_id
+				, confm_at
+				, sanctn_dt
+				, return_resn
+				, infrml_sanctn_id
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, noon_se
 			FROM comtnvcatnmanage
-			WHERE APPLCNT_ID=#applcntId# /*  */
-				AND VCATN_SE=#vcatnSe# /*  */
-				AND BGNDE=#bgnde# /*  */
-				AND ENDDE=#endde# /*  */
+			WHERE applcnt_id = #applcntId#
+				AND vcatn_se = #vcatnSe#
+				AND bgnde = #bgnde#
+				AND endde = #endde#
 		]]>
 	</select>
 	
-	<select id="comtnvcatnmanageDAO.selectComtnvcatnmanageList_D" parameterClass="comtnvcatnmanageSerarchVO" resultClass="egovMap">
+	<select id="comtnvcatnmanageDAO.selectComtnvcatnmanageList_D" parameterClass="ComtnvcatnmanageVO" resultClass="egovMap">
 			SELECT
-								APPLCNT_ID /*  */
-								, VCATN_SE /*  */
-								, BGNDE /*  */
-								, ENDDE /*  */
-								, VCATN_RESN /*  */
-								, REQST_DE /*  */
-								, OCCRRNC_YEAR /*  */
-								, SANCTNER_ID /*  */
-								, CONFM_AT /*  */
-								, SANCTN_DT /*  */
-								, RETURN_RESN /*  */
-								, INFRML_SANCTN_ID /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, NOON_SE /*  */
+								applcnt_id
+								, vcatn_se
+								, bgnde
+								, endde
+								, vcatn_resn
+								, reqst_de
+								, occrrnc_year
+								, sanctner_id
+								, confm_at
+								, sanctn_dt
+								, return_resn
+								, infrml_sanctn_id
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, noon_se
 					FROM comtnvcatnmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				APPLCNT_ID = #searchKeyword# /*  */
+				applcnt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				VCATN_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				vcatn_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							APPLCNT_ID DESC /*  */
-							, VCATN_SE DESC /*  */
-							, BGNDE DESC /*  */
-							, ENDDE DESC /*  */
+							applcnt_id DESC
+							, vcatn_se DESC
+							, bgnde DESC
+							, endde DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnvcatnmanageDAO.selectComtnvcatnmanageListTotCnt_S" parameterClass="comtnvcatnmanageSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnvcatnmanageDAO.selectComtnvcatnmanageListTotCnt_S" parameterClass="ComtnvcatnmanageVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnvcatnmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				APPLCNT_ID = #searchKeyword# /*  */
+				applcnt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				VCATN_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				vcatn_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

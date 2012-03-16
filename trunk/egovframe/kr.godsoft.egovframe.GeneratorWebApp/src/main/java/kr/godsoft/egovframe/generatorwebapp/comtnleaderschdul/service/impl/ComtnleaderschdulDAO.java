@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulDefaultVO;
 
 /**
  * @Class Name : ComtnleaderschdulDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.Comtnleade
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnleaderschdulDAO extends EgovAbstractDAO {
 	 * @return comtnleaderschdul 목록
 	 * @exception Exception
 	 */
-    public List selectComtnleaderschdulList(ComtnleaderschdulDefaultVO searchVO) throws Exception {
-        return list("comtnleaderschdulDAO.selectComtnleaderschdulList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnleaderschdulList(ComtnleaderschdulVO vo) throws Exception {
+        return list("comtnleaderschdulDAO.selectComtnleaderschdulList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnleaderschdulDAO extends EgovAbstractDAO {
 	 * @return comtnleaderschdul 총 갯수
 	 * @exception
 	 */
-    public int selectComtnleaderschdulListTotCnt(ComtnleaderschdulDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt_S", searchVO);
+    public int selectComtnleaderschdulListTotCnt(ComtnleaderschdulVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt_S", vo);
     }
 
 }

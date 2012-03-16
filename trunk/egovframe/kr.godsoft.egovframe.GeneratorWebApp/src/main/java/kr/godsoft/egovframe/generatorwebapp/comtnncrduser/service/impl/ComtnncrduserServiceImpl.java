@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserService;
+import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserService;
-import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.impl.ComtnncrduserDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnncrduserServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.impl.Comtnncrd
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnncrduserServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnncrduser 목록
 	 * @exception Exception
 	 */
-    public List selectComtnncrduserList(ComtnncrduserDefaultVO searchVO) throws Exception {
-        return comtnncrduserDAO.selectComtnncrduserList(searchVO);
+    public List<EgovMap> selectComtnncrduserList(ComtnncrduserVO vo) throws Exception {
+        return comtnncrduserDAO.selectComtnncrduserList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnncrduserServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnncrduser 총 갯수
 	 * @exception
 	 */
-    public int selectComtnncrduserListTotCnt(ComtnncrduserDefaultVO searchVO) {
-		return comtnncrduserDAO.selectComtnncrduserListTotCnt(searchVO);
+    public int selectComtnncrduserListTotCnt(ComtnncrduserVO vo) {
+		return comtnncrduserDAO.selectComtnncrduserListTotCnt(vo);
 	}
     
 }

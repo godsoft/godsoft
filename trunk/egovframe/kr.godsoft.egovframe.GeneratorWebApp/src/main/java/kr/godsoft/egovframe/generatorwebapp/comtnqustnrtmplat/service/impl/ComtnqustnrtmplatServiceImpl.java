@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.ComtnqustnrtmplatVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.impl.ComtnqustnrtmplatDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnqustnrtmplatServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrtmplat.service.impl.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnqustnrtmplatServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnqustnrtmplat 목록
 	 * @exception Exception
 	 */
-    public List selectComtnqustnrtmplatList(ComtnqustnrtmplatDefaultVO searchVO) throws Exception {
-        return comtnqustnrtmplatDAO.selectComtnqustnrtmplatList(searchVO);
+    public List<EgovMap> selectComtnqustnrtmplatList(ComtnqustnrtmplatVO vo) throws Exception {
+        return comtnqustnrtmplatDAO.selectComtnqustnrtmplatList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnqustnrtmplatServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnqustnrtmplat 총 갯수
 	 * @exception
 	 */
-    public int selectComtnqustnrtmplatListTotCnt(ComtnqustnrtmplatDefaultVO searchVO) {
-		return comtnqustnrtmplatDAO.selectComtnqustnrtmplatListTotCnt(searchVO);
+    public int selectComtnqustnrtmplatListTotCnt(ComtnqustnrtmplatVO vo) {
+		return comtnqustnrtmplatDAO.selectComtnqustnrtmplatListTotCnt(vo);
 	}
     
 }

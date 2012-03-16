@@ -4,98 +4,99 @@
 <sqlMap namespace="Comtnuserabsnce">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnuserabsnceSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceDefaultVO"/>
+	<typeAlias  alias="ComtnuserabsnceVO" type="kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceVO"/>
 	
 	<resultMap id="comtnuserabsnce" class="kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceVO">
-		<result property="emplyrId" column="EMPLYR_ID" columnIndex="1"/> <!--  -->
-		<result property="userAbsnceAt" column="USER_ABSNCE_AT" columnIndex="2"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="3"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="4"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="5"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="6"/> <!--  -->
+		<result property="emplyrId" column="emplyr_id" columnIndex="1"/>
+		<result property="userAbsnceAt" column="user_absnce_at" columnIndex="2"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="3"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="4"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="5"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="6"/>
 	</resultMap>
 	
 	<insert id="comtnuserabsnceDAO.insertComtnuserabsnce_S">
 		<![CDATA[
 			INSERT INTO comtnuserabsnce 
-				( EMPLYR_ID /*  */
-				  , USER_ABSNCE_AT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #emplyrId# /*  */
-					  , #userAbsnceAt# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( EMPLYR_ID
+				  , user_absnce_at
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #emplyrId#
+				  , #userAbsnceAt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnuserabsnceDAO.updateComtnuserabsnce_S">
 		<![CDATA[
 			UPDATE comtnuserabsnce
-			SET EMPLYR_ID=#emplyrId# /*  */
-				, USER_ABSNCE_AT=#userAbsnceAt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE EMPLYR_ID=#emplyrId# /*  */
+			SET emplyr_id = #emplyrId#
+				, user_absnce_at = #userAbsnceAt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnuserabsnceDAO.deleteComtnuserabsnce_S">
 		<![CDATA[
 			DELETE FROM comtnuserabsnce 
-			WHERE EMPLYR_ID=#emplyrId# /*  */
+			WHERE emplyr_id = #emplyrId#
 		]]>
 	</delete>
 	
 	<select id="comtnuserabsnceDAO.selectComtnuserabsnce_S" resultMap="comtnuserabsnce">
 		<![CDATA[
 			SELECT
-				EMPLYR_ID /*  */
-				, USER_ABSNCE_AT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				emplyr_id
+				, user_absnce_at
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnuserabsnce
-			WHERE EMPLYR_ID=#emplyrId# /*  */
+			WHERE emplyr_id = #emplyrId#
 		]]>
 	</select>
 	
-	<select id="comtnuserabsnceDAO.selectComtnuserabsnceList_D" parameterClass="comtnuserabsnceSerarchVO" resultClass="egovMap">
+	<select id="comtnuserabsnceDAO.selectComtnuserabsnceList_D" parameterClass="ComtnuserabsnceVO" resultClass="egovMap">
 			SELECT
-								EMPLYR_ID /*  */
-								, USER_ABSNCE_AT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								emplyr_id
+								, user_absnce_at
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnuserabsnce
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				EMPLYR_ID = #searchKeyword# /*  */
+				emplyr_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				USER_ABSNCE_AT LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				user_absnce_at LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							EMPLYR_ID DESC /*  */
+							emplyr_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnuserabsnceDAO.selectComtnuserabsnceListTotCnt_S" parameterClass="comtnuserabsnceSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnuserabsnceDAO.selectComtnuserabsnceListTotCnt_S" parameterClass="ComtnuserabsnceVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnuserabsnce
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				EMPLYR_ID = #searchKeyword# /*  */
+				emplyr_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				USER_ABSNCE_AT LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				user_absnce_at LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.ComtncpyrhtinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtncpyrhtinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service.Comtncpyrhti
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtncpyrhtinfoService {
 	 * @return comtncpyrhtinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtncpyrhtinfoList(ComtncpyrhtinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtncpyrhtinfoList(ComtncpyrhtinfoVO vo) throws Exception;
     
     /**
 	 * comtncpyrhtinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtncpyrhtinfoService {
 	 * @return comtncpyrhtinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtncpyrhtinfoListTotCnt(ComtncpyrhtinfoDefaultVO searchVO);
+    int selectComtncpyrhtinfoListTotCnt(ComtncpyrhtinfoVO vo);
     
 }

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoService;
+import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoService;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.ComtndammapknoVO;
 
 /**
  * @Class Name : ComtndammapknoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndammapkno.service.Comtndammapkn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtndammapknoController {
 	
     /**
 	 * comtndammapkno 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtndammapknoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtndammapknoVO
 	 * @return "/comtndammapkno/ComtndammapknoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtndammapkno/ComtndammapknoList.do")
-    public String selectComtndammapknoList(@ModelAttribute("searchVO") ComtndammapknoDefaultVO searchVO, 
+    public String selectComtndammapknoList(@ModelAttribute("searchVO") ComtndammapknoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtndammapknoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtndammapknoList = comtndammapknoService.selectComtndammapknoList(searchVO);
+        List<EgovMap> comtndammapknoList = comtndammapknoService.selectComtndammapknoList(searchVO);
         model.addAttribute("resultList", comtndammapknoList);
         
         int totCnt = comtndammapknoService.selectComtndammapknoListTotCnt(searchVO);

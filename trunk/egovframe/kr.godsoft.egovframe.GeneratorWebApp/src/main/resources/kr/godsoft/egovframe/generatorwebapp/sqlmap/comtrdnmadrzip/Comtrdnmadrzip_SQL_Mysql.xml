@@ -4,146 +4,147 @@
 <sqlMap namespace="Comtrdnmadrzip">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtrdnmadrzipSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service.ComtrdnmadrzipDefaultVO"/>
+	<typeAlias  alias="ComtrdnmadrzipVO" type="kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service.ComtrdnmadrzipVO"/>
 	
 	<resultMap id="comtrdnmadrzip" class="kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service.ComtrdnmadrzipVO">
-		<result property="rdmnCode" column="RDMN_CODE" columnIndex="1"/> <!--  -->
-		<result property="sn" column="SN" columnIndex="2"/> <!--  -->
-		<result property="ctprvnNm" column="CTPRVN_NM" columnIndex="3"/> <!--  -->
-		<result property="signguNm" column="SIGNGU_NM" columnIndex="4"/> <!--  -->
-		<result property="rdmn" column="RDMN" columnIndex="5"/> <!--  -->
-		<result property="bdnbrMnnm" column="BDNBR_MNNM" columnIndex="6"/> <!--  -->
-		<result property="bdnbrSlno" column="BDNBR_SLNO" columnIndex="7"/> <!--  -->
-		<result property="buldNm" column="BULD_NM" columnIndex="8"/> <!--  -->
-		<result property="detailBuldNm" column="DETAIL_BULD_NM" columnIndex="9"/> <!--  -->
-		<result property="zip" column="ZIP" columnIndex="10"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="12"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="13"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="14"/> <!--  -->
+		<result property="rdmnCode" column="rdmn_code" columnIndex="1"/>
+		<result property="sn" column="sn" columnIndex="2"/>
+		<result property="ctprvnNm" column="ctprvn_nm" columnIndex="3"/>
+		<result property="signguNm" column="signgu_nm" columnIndex="4"/>
+		<result property="rdmn" column="rdmn" columnIndex="5"/>
+		<result property="bdnbrMnnm" column="bdnbr_mnnm" columnIndex="6"/>
+		<result property="bdnbrSlno" column="bdnbr_slno" columnIndex="7"/>
+		<result property="buldNm" column="buld_nm" columnIndex="8"/>
+		<result property="detailBuldNm" column="detail_buld_nm" columnIndex="9"/>
+		<result property="zip" column="zip" columnIndex="10"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
 	</resultMap>
 	
 	<insert id="comtrdnmadrzipDAO.insertComtrdnmadrzip_S">
 		<![CDATA[
 			INSERT INTO comtrdnmadrzip 
-				( RDMN_CODE /*  */
-				  , SN /*  */
-				  , CTPRVN_NM /*  */
-				  , SIGNGU_NM /*  */
-				  , RDMN /*  */
-				  , BDNBR_MNNM /*  */
-				  , BDNBR_SLNO /*  */
-				  , BULD_NM /*  */
-				  , DETAIL_BULD_NM /*  */
-				  , ZIP /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #rdmnCode# /*  */
-					  , #sn# /*  */
-						  , #ctprvnNm# /*  */
-						  , #signguNm# /*  */
-						  , #rdmn# /*  */
-						  , #bdnbrMnnm# /*  */
-						  , #bdnbrSlno# /*  */
-						  , #buldNm# /*  */
-						  , #detailBuldNm# /*  */
-						  , #zip# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-					  , #lastUpdusrId# /*  */ )
+				( RDMN_CODE
+				  , sn
+				  , ctprvn_nm
+				  , signgu_nm
+				  , rdmn
+				  , bdnbr_mnnm
+				  , bdnbr_slno
+				  , buld_nm
+				  , detail_buld_nm
+				  , zip
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #rdmnCode#
+				  , #sn#
+				  , #ctprvnNm#
+				  , #signguNm#
+				  , #rdmn#
+				  , #bdnbrMnnm#
+				  , #bdnbrSlno#
+				  , #buldNm#
+				  , #detailBuldNm#
+				  , #zip#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtrdnmadrzipDAO.updateComtrdnmadrzip_S">
 		<![CDATA[
 			UPDATE comtrdnmadrzip
-			SET RDMN_CODE=#rdmnCode# /*  */
-				, SN=#sn# /*  */
-				, CTPRVN_NM=#ctprvnNm# /*  */
-				, SIGNGU_NM=#signguNm# /*  */
-				, RDMN=#rdmn# /*  */
-				, BDNBR_MNNM=#bdnbrMnnm# /*  */
-				, BDNBR_SLNO=#bdnbrSlno# /*  */
-				, BULD_NM=#buldNm# /*  */
-				, DETAIL_BULD_NM=#detailBuldNm# /*  */
-				, ZIP=#zip# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE SN=#sn# /*  */
+			SET rdmn_code = #rdmnCode#
+				, sn = #sn#
+				, ctprvn_nm = #ctprvnNm#
+				, signgu_nm = #signguNm#
+				, rdmn = #rdmn#
+				, bdnbr_mnnm = #bdnbrMnnm#
+				, bdnbr_slno = #bdnbrSlno#
+				, buld_nm = #buldNm#
+				, detail_buld_nm = #detailBuldNm#
+				, zip = #zip#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE sn = #sn#
 		]]>
 	</update>
 	
 	<delete id="comtrdnmadrzipDAO.deleteComtrdnmadrzip_S">
 		<![CDATA[
 			DELETE FROM comtrdnmadrzip 
-			WHERE SN=#sn# /*  */
+			WHERE sn = #sn#
 		]]>
 	</delete>
 	
 	<select id="comtrdnmadrzipDAO.selectComtrdnmadrzip_S" resultMap="comtrdnmadrzip">
 		<![CDATA[
 			SELECT
-				RDMN_CODE /*  */
-				, SN /*  */
-				, CTPRVN_NM /*  */
-				, SIGNGU_NM /*  */
-				, RDMN /*  */
-				, BDNBR_MNNM /*  */
-				, BDNBR_SLNO /*  */
-				, BULD_NM /*  */
-				, DETAIL_BULD_NM /*  */
-				, ZIP /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
+				rdmn_code
+				, sn
+				, ctprvn_nm
+				, signgu_nm
+				, rdmn
+				, bdnbr_mnnm
+				, bdnbr_slno
+				, buld_nm
+				, detail_buld_nm
+				, zip
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtrdnmadrzip
-			WHERE SN=#sn# /*  */
+			WHERE sn = #sn#
 		]]>
 	</select>
 	
-	<select id="comtrdnmadrzipDAO.selectComtrdnmadrzipList_D" parameterClass="comtrdnmadrzipSerarchVO" resultClass="egovMap">
+	<select id="comtrdnmadrzipDAO.selectComtrdnmadrzipList_D" parameterClass="ComtrdnmadrzipVO" resultClass="egovMap">
 			SELECT
-								RDMN_CODE /*  */
-								, SN /*  */
-								, CTPRVN_NM /*  */
-								, SIGNGU_NM /*  */
-								, RDMN /*  */
-								, BDNBR_MNNM /*  */
-								, BDNBR_SLNO /*  */
-								, BULD_NM /*  */
-								, DETAIL_BULD_NM /*  */
-								, ZIP /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
+								rdmn_code
+								, sn
+								, ctprvn_nm
+								, signgu_nm
+								, rdmn
+								, bdnbr_mnnm
+								, bdnbr_slno
+								, buld_nm
+								, detail_buld_nm
+								, zip
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtrdnmadrzip
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				RDMN_CODE = #searchKeyword# /*  */
+				rdmn_code = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				sn LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SN DESC /*  */
+							sn DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtrdnmadrzipDAO.selectComtrdnmadrzipListTotCnt_S" parameterClass="comtrdnmadrzipSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtrdnmadrzipDAO.selectComtrdnmadrzipListTotCnt_S" parameterClass="ComtrdnmadrzipVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtrdnmadrzip
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				RDMN_CODE = #searchKeyword# /*  */
+				rdmn_code = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SN LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				sn LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

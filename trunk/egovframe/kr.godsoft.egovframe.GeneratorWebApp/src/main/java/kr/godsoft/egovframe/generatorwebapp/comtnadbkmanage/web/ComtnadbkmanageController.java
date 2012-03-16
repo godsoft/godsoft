@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.ComtnadbkmanageVO;
 
 /**
  * @Class Name : ComtnadbkmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadbkmanage.service.Comtnadbkman
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnadbkmanageController {
 	
     /**
 	 * comtnadbkmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnadbkmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnadbkmanageVO
 	 * @return "/comtnadbkmanage/ComtnadbkmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnadbkmanage/ComtnadbkmanageList.do")
-    public String selectComtnadbkmanageList(@ModelAttribute("searchVO") ComtnadbkmanageDefaultVO searchVO, 
+    public String selectComtnadbkmanageList(@ModelAttribute("searchVO") ComtnadbkmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnadbkmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnadbkmanageList = comtnadbkmanageService.selectComtnadbkmanageList(searchVO);
+        List<EgovMap> comtnadbkmanageList = comtnadbkmanageService.selectComtnadbkmanageList(searchVO);
         model.addAttribute("resultList", comtnadbkmanageList);
         
         int totCnt = comtnadbkmanageService.selectComtnadbkmanageListTotCnt(searchVO);

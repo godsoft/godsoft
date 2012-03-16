@@ -6,58 +6,58 @@ package kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnpopupmanageVO extends ComtnpopupmanageDefaultVO{
+public class ComtnpopupmanageVO extends ComtnpopupmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** POPUP_ID */
     private String popupId;
     
-    /**  */
+    /** POPUP_SJ_NM */
     private String popupSjNm;
     
-    /**  */
+    /** FILE_URL */
     private String fileUrl;
     
-    /**  */
+    /** POPUP_WIDTH_LC */
     private String popupWidthLc;
     
-    /**  */
+    /** POPUP_WIDTH_SIZE */
     private int popupWidthSize;
     
-    /**  */
+    /** NTCE_BGNDE */
     private String ntceBgnde;
     
-    /**  */
+    /** NTCE_ENDDE */
     private String ntceEndde;
     
-    /**  */
+    /** STOPVEW_SETUP_AT */
     private String stopvewSetupAt;
     
-    /**  */
+    /** NTCE_AT */
     private String ntceAt;
     
-    /**  */
+    /** POPUP_VRTICL_LC */
     private String popupVrticlLc;
     
-    /**  */
+    /** POPUP_VRTICL_SIZE */
     private int popupVrticlSize;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getPopupId() {

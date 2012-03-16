@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmemotodo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmemotodoVO extends ComtnmemotodoDefaultVO{
+public class ComtnmemotodoVO extends ComtnmemotodoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** TODO_ID */
     private String todoId;
     
-    /**  */
+    /** TODO_SJ */
     private String todoSj;
     
-    /**  */
+    /** TODO_BEGIN_TIME */
     private String todoBeginTime;
     
-    /**  */
+    /** TODO_END_TIME */
     private String todoEndTime;
     
-    /**  */
+    /** WRTER_ID */
     private String wrterId;
     
-    /**  */
+    /** TODO_CN */
     private String todoCn;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getTodoId() {

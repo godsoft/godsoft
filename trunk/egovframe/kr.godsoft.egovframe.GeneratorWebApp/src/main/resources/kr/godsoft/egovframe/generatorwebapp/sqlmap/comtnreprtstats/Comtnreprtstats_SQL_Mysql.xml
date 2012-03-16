@@ -4,110 +4,111 @@
 <sqlMap namespace="Comtnreprtstats">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnreprtstatsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsDefaultVO"/>
+	<typeAlias  alias="ComtnreprtstatsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO"/>
 	
 	<resultMap id="comtnreprtstats" class="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO">
-		<result property="reprtId" column="REPRT_ID" columnIndex="1"/> <!--  -->
-		<result property="reprtNm" column="REPRT_NM" columnIndex="2"/> <!--  -->
-		<result property="reprtSttus" column="REPRT_STTUS" columnIndex="3"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
-		<result property="reprtTy" column="REPRT_TY" columnIndex="8"/> <!--  -->
+		<result property="reprtId" column="reprt_id" columnIndex="1"/>
+		<result property="reprtNm" column="reprt_nm" columnIndex="2"/>
+		<result property="reprtSttus" column="reprt_sttus" columnIndex="3"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+		<result property="reprtTy" column="reprt_ty" columnIndex="8"/>
 	</resultMap>
 	
 	<insert id="comtnreprtstatsDAO.insertComtnreprtstats_S">
 		<![CDATA[
 			INSERT INTO comtnreprtstats 
-				( REPRT_ID /*  */
-				  , REPRT_NM /*  */
-				  , REPRT_STTUS /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , REPRT_TY /*  */ )
-			VALUES ( #reprtId# /*  */
-					  , #reprtNm# /*  */
-						  , #reprtSttus# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #reprtTy# /*  */ )
+				( REPRT_ID
+				  , reprt_nm
+				  , reprt_sttus
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , reprt_ty )
+			VALUES ( #reprtId#
+				  , #reprtNm#
+				  , #reprtSttus#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #reprtTy# )
 		]]>
 	</insert>
 	
 	<update id="comtnreprtstatsDAO.updateComtnreprtstats_S">
 		<![CDATA[
 			UPDATE comtnreprtstats
-			SET REPRT_ID=#reprtId# /*  */
-				, REPRT_NM=#reprtNm# /*  */
-				, REPRT_STTUS=#reprtSttus# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, REPRT_TY=#reprtTy# /*  */
-			WHERE REPRT_ID=#reprtId# /*  */
+			SET reprt_id = #reprtId#
+				, reprt_nm = #reprtNm#
+				, reprt_sttus = #reprtSttus#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, reprt_ty = #reprtTy#
+			WHERE reprt_id = #reprtId#
 		]]>
 	</update>
 	
 	<delete id="comtnreprtstatsDAO.deleteComtnreprtstats_S">
 		<![CDATA[
 			DELETE FROM comtnreprtstats 
-			WHERE REPRT_ID=#reprtId# /*  */
+			WHERE reprt_id = #reprtId#
 		]]>
 	</delete>
 	
 	<select id="comtnreprtstatsDAO.selectComtnreprtstats_S" resultMap="comtnreprtstats">
 		<![CDATA[
 			SELECT
-				REPRT_ID /*  */
-				, REPRT_NM /*  */
-				, REPRT_STTUS /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, REPRT_TY /*  */
+				reprt_id
+				, reprt_nm
+				, reprt_sttus
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, reprt_ty
 			FROM comtnreprtstats
-			WHERE REPRT_ID=#reprtId# /*  */
+			WHERE reprt_id = #reprtId#
 		]]>
 	</select>
 	
-	<select id="comtnreprtstatsDAO.selectComtnreprtstatsList_D" parameterClass="comtnreprtstatsSerarchVO" resultClass="egovMap">
+	<select id="comtnreprtstatsDAO.selectComtnreprtstatsList_D" parameterClass="ComtnreprtstatsVO" resultClass="egovMap">
 			SELECT
-								REPRT_ID /*  */
-								, REPRT_NM /*  */
-								, REPRT_STTUS /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, REPRT_TY /*  */
+								reprt_id
+								, reprt_nm
+								, reprt_sttus
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, reprt_ty
 					FROM comtnreprtstats
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				REPRT_ID = #searchKeyword# /*  */
+				reprt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				REPRT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				reprt_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							REPRT_ID DESC /*  */
+							reprt_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnreprtstatsDAO.selectComtnreprtstatsListTotCnt_S" parameterClass="comtnreprtstatsSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnreprtstatsDAO.selectComtnreprtstatsListTotCnt_S" parameterClass="ComtnreprtstatsVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnreprtstats
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				REPRT_ID = #searchKeyword# /*  */
+				reprt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				REPRT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				reprt_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

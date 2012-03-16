@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnproxyinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.Comtnproxyinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnproxyinfoService {
 	 * @return comtnproxyinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnproxyinfoList(ComtnproxyinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnproxyinfoList(ComtnproxyinfoVO vo) throws Exception;
     
     /**
 	 * comtnproxyinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnproxyinfoService {
 	 * @return comtnproxyinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnproxyinfoListTotCnt(ComtnproxyinfoDefaultVO searchVO);
+    int selectComtnproxyinfoListTotCnt(ComtnproxyinfoVO vo);
     
 }

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty idsVO.idgenTableNm ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty idsVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="idsVO" name="detailForm" id="detailForm">
+<form:form commandName="idsVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,29 +77,26 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>TABLE_NAME *</th>
 			<td>
-				<form:input path="idgenTableNm" cssClass="essentiality" readonly="true" />
+				<form:input path="tableName" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>TABLE_NAME *</th>
 			<td>
-				<form:input path="idgenTableNm" cssClass="txt" readonly="false" />
+				<form:input path="tableName" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>NEXT_ID</th>
 			<td>
-	
-				<form:input path="idgenNextId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="idgenNextId" />
+				<form:input path="nextId" cssClass="txt"/>
+				&nbsp;<form:errors path="nextId" />
 			</td>
 		</tr>	
 	</table>

@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comthsyshist.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComthsyshistVO extends ComthsyshistDefaultVO{
+public class ComthsyshistVO extends ComthsyshistDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** HIST_ID */
     private String histId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** HIST_SE_CODE */
     private String histSeCode;
     
-    /**  */
+    /** HIST_CN */
     private String histCn;
     
-    /**  */
+    /** SYS_NM */
     private String sysNm;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
     public String getHistId() {

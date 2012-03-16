@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistService;
+import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.ComtnprogrmlistVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.impl.ComtnprogrmlistDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnprogrmlistServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.impl.Comtnpr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnprogrmlistServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnprogrmlist 목록
 	 * @exception Exception
 	 */
-    public List selectComtnprogrmlistList(ComtnprogrmlistDefaultVO searchVO) throws Exception {
-        return comtnprogrmlistDAO.selectComtnprogrmlistList(searchVO);
+    public List<EgovMap> selectComtnprogrmlistList(ComtnprogrmlistVO vo) throws Exception {
+        return comtnprogrmlistDAO.selectComtnprogrmlistList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnprogrmlistServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnprogrmlist 총 갯수
 	 * @exception
 	 */
-    public int selectComtnprogrmlistListTotCnt(ComtnprogrmlistDefaultVO searchVO) {
-		return comtnprogrmlistDAO.selectComtnprogrmlistListTotCnt(searchVO);
+    public int selectComtnprogrmlistListTotCnt(ComtnprogrmlistVO vo) {
+		return comtnprogrmlistDAO.selectComtnprogrmlistListTotCnt(vo);
 	}
     
 }

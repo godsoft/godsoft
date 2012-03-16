@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnnewsinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnnewsinfoService {
 	 * @return comtnnewsinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnnewsinfoList(ComtnnewsinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnnewsinfoList(ComtnnewsinfoVO vo) throws Exception;
     
     /**
 	 * comtnnewsinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnnewsinfoService {
 	 * @return comtnnewsinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnnewsinfoListTotCnt(ComtnnewsinfoDefaultVO searchVO);
+    int selectComtnnewsinfoListTotCnt(ComtnnewsinfoVO vo);
     
 }

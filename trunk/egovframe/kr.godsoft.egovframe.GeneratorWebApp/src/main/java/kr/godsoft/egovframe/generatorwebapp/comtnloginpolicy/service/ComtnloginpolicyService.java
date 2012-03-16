@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnloginpolicyService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.Comtnloginp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnloginpolicyService {
 	 * @return comtnloginpolicy 목록
 	 * @exception Exception
 	 */
-    List selectComtnloginpolicyList(ComtnloginpolicyDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnloginpolicyList(ComtnloginpolicyVO vo) throws Exception;
     
     /**
 	 * comtnloginpolicy 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnloginpolicyService {
 	 * @return comtnloginpolicy 총 갯수
 	 * @exception
 	 */
-    int selectComtnloginpolicyListTotCnt(ComtnloginpolicyDefaultVO searchVO);
+    int selectComtnloginpolicyListTotCnt(ComtnloginpolicyVO vo);
     
 }

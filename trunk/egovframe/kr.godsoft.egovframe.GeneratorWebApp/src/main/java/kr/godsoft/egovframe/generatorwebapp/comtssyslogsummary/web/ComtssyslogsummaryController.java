@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryVO;
 
 /**
  * @Class Name : ComtssyslogsummaryController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.Comtssysl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtssyslogsummaryController {
 	
     /**
 	 * comtssyslogsummary 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtssyslogsummaryDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtssyslogsummaryVO
 	 * @return "/comtssyslogsummary/ComtssyslogsummaryList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtssyslogsummary/ComtssyslogsummaryList.do")
-    public String selectComtssyslogsummaryList(@ModelAttribute("searchVO") ComtssyslogsummaryDefaultVO searchVO, 
+    public String selectComtssyslogsummaryList(@ModelAttribute("searchVO") ComtssyslogsummaryVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtssyslogsummaryController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtssyslogsummaryList = comtssyslogsummaryService.selectComtssyslogsummaryList(searchVO);
+        List<EgovMap> comtssyslogsummaryList = comtssyslogsummaryService.selectComtssyslogsummaryList(searchVO);
         model.addAttribute("resultList", comtssyslogsummaryList);
         
         int totCnt = comtssyslogsummaryService.selectComtssyslogsummaryListTotCnt(searchVO);

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapService;
+import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapService;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
 
 /**
  * @Class Name : ComtnsitemapController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnsitemapController {
 	
     /**
 	 * comtnsitemap 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnsitemapDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnsitemapVO
 	 * @return "/comtnsitemap/ComtnsitemapList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnsitemap/ComtnsitemapList.do")
-    public String selectComtnsitemapList(@ModelAttribute("searchVO") ComtnsitemapDefaultVO searchVO, 
+    public String selectComtnsitemapList(@ModelAttribute("searchVO") ComtnsitemapVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnsitemapController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnsitemapList = comtnsitemapService.selectComtnsitemapList(searchVO);
+        List<EgovMap> comtnsitemapList = comtnsitemapService.selectComtnsitemapList(searchVO);
         model.addAttribute("resultList", comtnsitemapList);
         
         int totCnt = comtnsitemapService.selectComtnsitemapListTotCnt(searchVO);

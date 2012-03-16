@@ -6,28 +6,28 @@ package kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnncrduserVO extends ComtnncrduserDefaultVO{
+public class ComtnncrduserVO extends ComtnncrduserDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** NCRD_ID */
     private String ncrdId;
     
-    /**  */
+    /** REGIST_SE_CODE */
     private String registSeCode;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
     public String getNcrdId() {

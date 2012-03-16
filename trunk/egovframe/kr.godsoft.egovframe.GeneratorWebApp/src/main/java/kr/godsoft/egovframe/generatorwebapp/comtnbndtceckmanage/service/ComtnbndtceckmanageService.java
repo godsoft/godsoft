@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbndtceckmanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.Comtnbnd
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbndtceckmanageService {
 	 * @return comtnbndtceckmanage 목록
 	 * @exception Exception
 	 */
-    List selectComtnbndtceckmanageList(ComtnbndtceckmanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbndtceckmanageList(ComtnbndtceckmanageVO vo) throws Exception;
     
     /**
 	 * comtnbndtceckmanage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbndtceckmanageService {
 	 * @return comtnbndtceckmanage 총 갯수
 	 * @exception
 	 */
-    int selectComtnbndtceckmanageListTotCnt(ComtnbndtceckmanageDefaultVO searchVO);
+    int selectComtnbndtceckmanageListTotCnt(ComtnbndtceckmanageVO vo);
     
 }

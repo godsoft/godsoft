@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtcadministcodeVO.administZoneSe ? '등록' : '수정'}"/>
-<title>행정코드 <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtcadministcodeVO.id ? '등록' : '수정'}"/>
+<title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtcadministcodeVO" name="detailForm" id="detailForm">
+<form:form commandName="comtcadministcodeVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" />행정코드 <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,13 +77,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>행정구역구분 *</th>
+			<th>ADMINIST_ZONE_SE *</th>
 			<td>
 				<form:input path="administZoneSe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>행정구역코드 *</th>
+			<th>ADMINIST_ZONE_CODE *</th>
 			<td>
 				<form:input path="administZoneCode" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +91,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>행정구역구분 *</th>
+			<th>ADMINIST_ZONE_SE *</th>
 			<td>
 				<form:input path="administZoneSe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>행정구역코드 *</th>
+			<th>ADMINIST_ZONE_CODE *</th>
 			<td>
 				<form:input path="administZoneCode" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,92 +105,65 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>사용여부</th>
+			<th>USE_AT</th>
 			<td>
-
-				<form:input path="useAt" cssClass="txt" value="Y"/>
-
-
+				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>행정구역명</th>
+			<th>ADMINIST_ZONE_NM</th>
 			<td>
-	
 				<form:input path="administZoneNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="administZoneNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>상위행정구역코드</th>
+			<th>UPPER_ADMINIST_ZONE_CODE</th>
 			<td>
-	
 				<form:input path="upperAdministZoneCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="upperAdministZoneCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>생성일자</th>
+			<th>CREAT_DE</th>
 			<td>
-	
 				<form:input path="creatDe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="creatDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>폐지일자</th>
+			<th>ABL_DE</th>
 			<td>
-	
 				<form:input path="ablDe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="ablDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>최초등록시점</th>
+			<th>FRST_REGIST_PNTTM</th>
 			<td>
-	
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>최초등록자ID</th>
+			<th>FRST_REGISTER_ID</th>
 			<td>
-	
 				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>최종수정시점</th>
+			<th>LAST_UPDT_PNTTM</th>
 			<td>
-	
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>최종수정자ID</th>
+			<th>LAST_UPDUSR_ID</th>
 			<td>
-	
 				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	

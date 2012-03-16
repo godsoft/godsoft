@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnsmsrecptn.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnsmsrecptn.service.ComtnsmsrecptnDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsmsrecptn.service.ComtnsmsrecptnVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnsmsrecptnService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsmsrecptn.service.Comtnsmsrecpt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnsmsrecptnService {
 	 * @return comtnsmsrecptn 목록
 	 * @exception Exception
 	 */
-    List selectComtnsmsrecptnList(ComtnsmsrecptnDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnsmsrecptnList(ComtnsmsrecptnVO vo) throws Exception;
     
     /**
 	 * comtnsmsrecptn 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnsmsrecptnService {
 	 * @return comtnsmsrecptn 총 갯수
 	 * @exception
 	 */
-    int selectComtnsmsrecptnListTotCnt(ComtnsmsrecptnDefaultVO searchVO);
+    int selectComtnsmsrecptnListTotCnt(ComtnsmsrecptnVO vo);
     
 }

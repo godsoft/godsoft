@@ -6,19 +6,19 @@ package kr.godsoft.egovframe.generatorwebapp.comtecopseq.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtecopseqVO extends ComtecopseqDefaultVO{
+public class ComtecopseqVO extends ComtecopseqDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** TABLE_NAME */
     private String tableName;
     
-    /**  */
+    /** NEXT_ID */
     private int nextId;
     
     public String getTableName() {

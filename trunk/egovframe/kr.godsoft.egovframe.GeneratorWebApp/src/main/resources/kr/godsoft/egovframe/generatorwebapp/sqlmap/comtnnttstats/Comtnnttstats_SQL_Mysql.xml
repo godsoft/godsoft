@@ -4,98 +4,99 @@
 <sqlMap namespace="Comtnnttstats">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnnttstatsSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service.ComtnnttstatsDefaultVO"/>
+	<typeAlias  alias="ComtnnttstatsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service.ComtnnttstatsVO"/>
 	
 	<resultMap id="comtnnttstats" class="kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service.ComtnnttstatsVO">
-		<result property="statsId" column="STATS_ID" columnIndex="1"/> <!--  -->
-		<result property="ntceCo" column="NTCE_CO" columnIndex="2"/> <!--  -->
-		<result property="avrgRdcnt" column="AVRG_RDCNT" columnIndex="3"/> <!--  -->
-		<result property="topRdcnt" column="TOP_RDCNT" columnIndex="4"/> <!--  -->
-		<result property="mummRdcnt" column="MUMM_RDCNT" columnIndex="5"/> <!--  -->
-		<result property="topNtcrId" column="TOP_NTCR_ID" columnIndex="6"/> <!--  -->
+		<result property="statsId" column="stats_id" columnIndex="1"/>
+		<result property="ntceCo" column="ntce_co" columnIndex="2"/>
+		<result property="avrgRdcnt" column="avrg_rdcnt" columnIndex="3"/>
+		<result property="topRdcnt" column="top_rdcnt" columnIndex="4"/>
+		<result property="mummRdcnt" column="mumm_rdcnt" columnIndex="5"/>
+		<result property="topNtcrId" column="top_ntcr_id" columnIndex="6"/>
 	</resultMap>
 	
 	<insert id="comtnnttstatsDAO.insertComtnnttstats_S">
 		<![CDATA[
 			INSERT INTO comtnnttstats 
-				( STATS_ID /*  */
-				  , NTCE_CO /*  */
-				  , AVRG_RDCNT /*  */
-				  , TOP_RDCNT /*  */
-				  , MUMM_RDCNT /*  */
-				  , TOP_NTCR_ID /*  */ )
-			VALUES ( #statsId# /*  */
-					  , #ntceCo# /*  */
-						  , #avrgRdcnt# /*  */
-						  , #topRdcnt# /*  */
-						  , #mummRdcnt# /*  */
-					  , #topNtcrId# /*  */ )
+				( STATS_ID
+				  , ntce_co
+				  , avrg_rdcnt
+				  , top_rdcnt
+				  , mumm_rdcnt
+				  , top_ntcr_id )
+			VALUES ( #statsId#
+				  , #ntceCo#
+				  , #avrgRdcnt#
+				  , #topRdcnt#
+				  , #mummRdcnt#
+				  , #topNtcrId# )
 		]]>
 	</insert>
 	
 	<update id="comtnnttstatsDAO.updateComtnnttstats_S">
 		<![CDATA[
 			UPDATE comtnnttstats
-			SET STATS_ID=#statsId# /*  */
-				, NTCE_CO=#ntceCo# /*  */
-				, AVRG_RDCNT=#avrgRdcnt# /*  */
-				, TOP_RDCNT=#topRdcnt# /*  */
-				, MUMM_RDCNT=#mummRdcnt# /*  */
-				, TOP_NTCR_ID=#topNtcrId# /*  */
-			WHERE STATS_ID=#statsId# /*  */
+			SET stats_id = #statsId#
+				, ntce_co = #ntceCo#
+				, avrg_rdcnt = #avrgRdcnt#
+				, top_rdcnt = #topRdcnt#
+				, mumm_rdcnt = #mummRdcnt#
+				, top_ntcr_id = #topNtcrId#
+			WHERE stats_id = #statsId#
 		]]>
 	</update>
 	
 	<delete id="comtnnttstatsDAO.deleteComtnnttstats_S">
 		<![CDATA[
 			DELETE FROM comtnnttstats 
-			WHERE STATS_ID=#statsId# /*  */
+			WHERE stats_id = #statsId#
 		]]>
 	</delete>
 	
 	<select id="comtnnttstatsDAO.selectComtnnttstats_S" resultMap="comtnnttstats">
 		<![CDATA[
 			SELECT
-				STATS_ID /*  */
-				, NTCE_CO /*  */
-				, AVRG_RDCNT /*  */
-				, TOP_RDCNT /*  */
-				, MUMM_RDCNT /*  */
-				, TOP_NTCR_ID /*  */
+				stats_id
+				, ntce_co
+				, avrg_rdcnt
+				, top_rdcnt
+				, mumm_rdcnt
+				, top_ntcr_id
 			FROM comtnnttstats
-			WHERE STATS_ID=#statsId# /*  */
+			WHERE stats_id = #statsId#
 		]]>
 	</select>
 	
-	<select id="comtnnttstatsDAO.selectComtnnttstatsList_D" parameterClass="comtnnttstatsSerarchVO" resultClass="egovMap">
+	<select id="comtnnttstatsDAO.selectComtnnttstatsList_D" parameterClass="ComtnnttstatsVO" resultClass="egovMap">
 			SELECT
-								STATS_ID /*  */
-								, NTCE_CO /*  */
-								, AVRG_RDCNT /*  */
-								, TOP_RDCNT /*  */
-								, MUMM_RDCNT /*  */
-								, TOP_NTCR_ID /*  */
+								stats_id
+								, ntce_co
+								, avrg_rdcnt
+								, top_rdcnt
+								, mumm_rdcnt
+								, top_ntcr_id
 					FROM comtnnttstats
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				STATS_ID = #searchKeyword# /*  */
+				stats_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				NTCE_CO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				ntce_co LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							STATS_ID DESC /*  */
+							stats_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnnttstatsDAO.selectComtnnttstatsListTotCnt_S" parameterClass="comtnnttstatsSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnnttstatsDAO.selectComtnnttstatsListTotCnt_S" parameterClass="ComtnnttstatsVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnnttstats
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				STATS_ID = #searchKeyword# /*  */
+				stats_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				NTCE_CO LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				ntce_co LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

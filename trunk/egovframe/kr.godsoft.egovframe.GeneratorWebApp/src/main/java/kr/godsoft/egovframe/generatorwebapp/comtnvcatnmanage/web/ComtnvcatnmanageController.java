@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.ComtnvcatnmanageVO;
 
 /**
  * @Class Name : ComtnvcatnmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnvcatnmanage.service.Comtnvcatnm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnvcatnmanageController {
 	
     /**
 	 * comtnvcatnmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnvcatnmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnvcatnmanageVO
 	 * @return "/comtnvcatnmanage/ComtnvcatnmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnvcatnmanage/ComtnvcatnmanageList.do")
-    public String selectComtnvcatnmanageList(@ModelAttribute("searchVO") ComtnvcatnmanageDefaultVO searchVO, 
+    public String selectComtnvcatnmanageList(@ModelAttribute("searchVO") ComtnvcatnmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnvcatnmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnvcatnmanageList = comtnvcatnmanageService.selectComtnvcatnmanageList(searchVO);
+        List<EgovMap> comtnvcatnmanageList = comtnvcatnmanageService.selectComtnvcatnmanageList(searchVO);
         model.addAttribute("resultList", comtnvcatnmanageList);
         
         int totCnt = comtnvcatnmanageService.selectComtnvcatnmanageListTotCnt(searchVO);

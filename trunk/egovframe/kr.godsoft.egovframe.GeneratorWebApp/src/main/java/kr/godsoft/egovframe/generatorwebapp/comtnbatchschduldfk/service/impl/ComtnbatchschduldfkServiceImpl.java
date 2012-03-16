@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.ComtnbatchschduldfkVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.impl.ComtnbatchschduldfkDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbatchschduldfkServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschduldfk.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbatchschduldfkServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnbatchschduldfk 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbatchschduldfkList(ComtnbatchschduldfkDefaultVO searchVO) throws Exception {
-        return comtnbatchschduldfkDAO.selectComtnbatchschduldfkList(searchVO);
+    public List<EgovMap> selectComtnbatchschduldfkList(ComtnbatchschduldfkVO vo) throws Exception {
+        return comtnbatchschduldfkDAO.selectComtnbatchschduldfkList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbatchschduldfkServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnbatchschduldfk 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbatchschduldfkListTotCnt(ComtnbatchschduldfkDefaultVO searchVO) {
-		return comtnbatchschduldfkDAO.selectComtnbatchschduldfkListTotCnt(searchVO);
+    public int selectComtnbatchschduldfkListTotCnt(ComtnbatchschduldfkVO vo) {
+		return comtnbatchschduldfkDAO.selectComtnbatchschduldfkListTotCnt(vo);
 	}
     
 }

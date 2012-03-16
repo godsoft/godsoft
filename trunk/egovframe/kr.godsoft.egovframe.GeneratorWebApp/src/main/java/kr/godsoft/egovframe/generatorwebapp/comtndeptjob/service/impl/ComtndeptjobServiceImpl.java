@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobService;
+import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobService;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.impl.ComtndeptjobDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtndeptjobServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.impl.Comtndeptj
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtndeptjobServiceImpl extends AbstractServiceImpl implements
 	 * @return comtndeptjob 목록
 	 * @exception Exception
 	 */
-    public List selectComtndeptjobList(ComtndeptjobDefaultVO searchVO) throws Exception {
-        return comtndeptjobDAO.selectComtndeptjobList(searchVO);
+    public List<EgovMap> selectComtndeptjobList(ComtndeptjobVO vo) throws Exception {
+        return comtndeptjobDAO.selectComtndeptjobList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtndeptjobServiceImpl extends AbstractServiceImpl implements
 	 * @return comtndeptjob 총 갯수
 	 * @exception
 	 */
-    public int selectComtndeptjobListTotCnt(ComtndeptjobDefaultVO searchVO) {
-		return comtndeptjobDAO.selectComtndeptjobListTotCnt(searchVO);
+    public int selectComtndeptjobListTotCnt(ComtndeptjobVO vo) {
+		return comtndeptjobDAO.selectComtndeptjobListTotCnt(vo);
 	}
     
 }

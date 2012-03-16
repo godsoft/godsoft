@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoDefaultVO;
 
 /**
  * @Class Name : ComtnproxyinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.Comtnproxyinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
 	 * @return comtnproxyinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnproxyinfoList(ComtnproxyinfoDefaultVO searchVO) throws Exception {
-        return list("comtnproxyinfoDAO.selectComtnproxyinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnproxyinfoList(ComtnproxyinfoVO vo) throws Exception {
+        return list("comtnproxyinfoDAO.selectComtnproxyinfoList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
 	 * @return comtnproxyinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnproxyinfoListTotCnt(ComtnproxyinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnproxyinfoDAO.selectComtnproxyinfoListTotCnt_S", searchVO);
+    public int selectComtnproxyinfoListTotCnt(ComtnproxyinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnproxyinfoDAO.selectComtnproxyinfoListTotCnt_S", vo);
     }
 
 }

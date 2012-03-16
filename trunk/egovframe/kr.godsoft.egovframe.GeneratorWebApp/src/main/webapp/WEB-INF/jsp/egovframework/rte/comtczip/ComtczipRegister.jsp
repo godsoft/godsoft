@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtczipVO.zip ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtczipVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtczipVO" name="detailForm" id="detailForm">
+<form:form commandName="comtczipVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,13 +77,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>ZIP *</th>
 			<td>
 				<form:input path="zip" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>테스트 *</th>
+			<th>SN *</th>
 			<td>
 				<form:input path="sn" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +91,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>ZIP *</th>
 			<td>
 				<form:input path="zip" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>테스트 *</th>
+			<th>SN *</th>
 			<td>
 				<form:input path="sn" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,92 +105,65 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>CTPRVN_NM</th>
 			<td>
-	
 				<form:input path="ctprvnNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="ctprvnNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SIGNGU_NM</th>
 			<td>
-	
 				<form:input path="signguNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="signguNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>EMD_NM</th>
 			<td>
-	
 				<form:input path="emdNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="emdNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LI_BULD_NM</th>
 			<td>
-	
 				<form:input path="liBuldNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="liBuldNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LNBR_DONG_HO</th>
 			<td>
-	
 				<form:input path="lnbrDongHo" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lnbrDongHo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGIST_PNTTM</th>
 			<td>
-	
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGISTER_ID</th>
 			<td>
-	
 				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDT_PNTTM</th>
 			<td>
-	
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDUSR_ID</th>
 			<td>
-	
 				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	

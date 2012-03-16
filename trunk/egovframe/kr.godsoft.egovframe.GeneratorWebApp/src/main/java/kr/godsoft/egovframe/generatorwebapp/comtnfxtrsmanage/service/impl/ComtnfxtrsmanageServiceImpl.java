@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.impl.ComtnfxtrsmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnfxtrsmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.impl.Comtnf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnfxtrsmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnfxtrsmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnfxtrsmanageList(ComtnfxtrsmanageDefaultVO searchVO) throws Exception {
-        return comtnfxtrsmanageDAO.selectComtnfxtrsmanageList(searchVO);
+    public List<EgovMap> selectComtnfxtrsmanageList(ComtnfxtrsmanageVO vo) throws Exception {
+        return comtnfxtrsmanageDAO.selectComtnfxtrsmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnfxtrsmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnfxtrsmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnfxtrsmanageListTotCnt(ComtnfxtrsmanageDefaultVO searchVO) {
-		return comtnfxtrsmanageDAO.selectComtnfxtrsmanageListTotCnt(searchVO);
+    public int selectComtnfxtrsmanageListTotCnt(ComtnfxtrsmanageVO vo) {
+		return comtnfxtrsmanageDAO.selectComtnfxtrsmanageListTotCnt(vo);
 	}
     
 }

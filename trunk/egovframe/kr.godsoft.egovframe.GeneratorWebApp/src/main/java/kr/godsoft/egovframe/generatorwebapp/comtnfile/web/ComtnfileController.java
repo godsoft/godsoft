@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileVO;
 
 /**
  * @Class Name : ComtnfileController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfile.service.ComtnfileVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnfileController {
 	
     /**
 	 * comtnfile 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnfileDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnfileVO
 	 * @return "/comtnfile/ComtnfileList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnfile/ComtnfileList.do")
-    public String selectComtnfileList(@ModelAttribute("searchVO") ComtnfileDefaultVO searchVO, 
+    public String selectComtnfileList(@ModelAttribute("searchVO") ComtnfileVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnfileController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnfileList = comtnfileService.selectComtnfileList(searchVO);
+        List<EgovMap> comtnfileList = comtnfileService.selectComtnfileList(searchVO);
         model.addAttribute("resultList", comtnfileList);
         
         int totCnt = comtnfileService.selectComtnfileListTotCnt(searchVO);

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.impl.ComtnindvdlpgeestbsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnindvdlpgeestbsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnindvdlpgeestbs 목록
 	 * @exception Exception
 	 */
-    public List selectComtnindvdlpgeestbsList(ComtnindvdlpgeestbsDefaultVO searchVO) throws Exception {
-        return comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsList(searchVO);
+    public List<EgovMap> selectComtnindvdlpgeestbsList(ComtnindvdlpgeestbsVO vo) throws Exception {
+        return comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnindvdlpgeestbs 총 갯수
 	 * @exception
 	 */
-    public int selectComtnindvdlpgeestbsListTotCnt(ComtnindvdlpgeestbsDefaultVO searchVO) {
-		return comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsListTotCnt(searchVO);
+    public int selectComtnindvdlpgeestbsListTotCnt(ComtnindvdlpgeestbsVO vo) {
+		return comtnindvdlpgeestbsDAO.selectComtnindvdlpgeestbsListTotCnt(vo);
 	}
     
 }

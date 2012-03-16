@@ -4,158 +4,159 @@
 <sqlMap namespace="Comtndamcalres">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtndamcalresSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresDefaultVO"/>
+	<typeAlias  alias="ComtndamcalresVO" type="kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresVO"/>
 	
 	<resultMap id="comtndamcalres" class="kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresVO">
-		<result property="orgnztId" column="ORGNZT_ID" columnIndex="1"/> <!--  -->
-		<result property="expertId" column="EXPERT_ID" columnIndex="2"/> <!--  -->
-		<result property="knwldgTyCode" column="KNWLDG_TY_CODE" columnIndex="3"/> <!--  -->
-		<result property="emplyrId" column="EMPLYR_ID" columnIndex="4"/> <!--  -->
-		<result property="knwldgNm" column="KNWLDG_NM" columnIndex="5"/> <!--  -->
-		<result property="knwldgCn" column="KNWLDG_CN" columnIndex="6"/> <!--  -->
-		<result property="atchFileId" column="ATCH_FILE_ID" columnIndex="7"/> <!--  -->
-		<result property="parntsKnwldgId" column="PARNTS_KNWLDG_ID" columnIndex="8"/> <!--  -->
-		<result property="answerDp" column="ANSWER_DP" columnIndex="9"/> <!--  -->
-		<result property="answerOrdr" column="ANSWER_ORDR" columnIndex="10"/> <!--  -->
-		<result property="answerGroupNo" column="ANSWER_GROUP_NO" columnIndex="11"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="12"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="13"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="14"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="15"/> <!--  -->
-		<result property="knwldgId" column="KNWLDG_ID" columnIndex="16"/> <!--  -->
+		<result property="orgnztId" column="orgnzt_id" columnIndex="1"/>
+		<result property="expertId" column="expert_id" columnIndex="2"/>
+		<result property="knwldgTyCode" column="knwldg_ty_code" columnIndex="3"/>
+		<result property="emplyrId" column="emplyr_id" columnIndex="4"/>
+		<result property="knwldgNm" column="knwldg_nm" columnIndex="5"/>
+		<result property="knwldgCn" column="knwldg_cn" columnIndex="6"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="7"/>
+		<result property="parntsKnwldgId" column="parnts_knwldg_id" columnIndex="8"/>
+		<result property="answerDp" column="answer_dp" columnIndex="9"/>
+		<result property="answerOrdr" column="answer_ordr" columnIndex="10"/>
+		<result property="answerGroupNo" column="answer_group_no" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="15"/>
+		<result property="knwldgId" column="knwldg_id" columnIndex="16"/>
 	</resultMap>
 	
 	<insert id="comtndamcalresDAO.insertComtndamcalres_S">
 		<![CDATA[
 			INSERT INTO comtndamcalres 
-				( ORGNZT_ID /*  */
-				  , EXPERT_ID /*  */
-				  , KNWLDG_TY_CODE /*  */
-				  , EMPLYR_ID /*  */
-				  , KNWLDG_NM /*  */
-				  , KNWLDG_CN /*  */
-				  , ATCH_FILE_ID /*  */
-				  , PARNTS_KNWLDG_ID /*  */
-				  , ANSWER_DP /*  */
-				  , ANSWER_ORDR /*  */
-				  , ANSWER_GROUP_NO /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , KNWLDG_ID /*  */ )
-			VALUES ( #orgnztId# /*  */
-					  , #expertId# /*  */
-						  , #knwldgTyCode# /*  */
-						  , #emplyrId# /*  */
-						  , #knwldgNm# /*  */
-						  , #knwldgCn# /*  */
-						  , #atchFileId# /*  */
-						  , #parntsKnwldgId# /*  */
-						  , #answerDp# /*  */
-						  , #answerOrdr# /*  */
-						  , #answerGroupNo# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #knwldgId# /*  */ )
+				( ORGNZT_ID
+				  , expert_id
+				  , knwldg_ty_code
+				  , emplyr_id
+				  , knwldg_nm
+				  , knwldg_cn
+				  , atch_file_id
+				  , parnts_knwldg_id
+				  , answer_dp
+				  , answer_ordr
+				  , answer_group_no
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , knwldg_id )
+			VALUES ( #orgnztId#
+				  , #expertId#
+				  , #knwldgTyCode#
+				  , #emplyrId#
+				  , #knwldgNm#
+				  , #knwldgCn#
+				  , #atchFileId#
+				  , #parntsKnwldgId#
+				  , #answerDp#
+				  , #answerOrdr#
+				  , #answerGroupNo#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #knwldgId# )
 		]]>
 	</insert>
 	
 	<update id="comtndamcalresDAO.updateComtndamcalres_S">
 		<![CDATA[
 			UPDATE comtndamcalres
-			SET ORGNZT_ID=#orgnztId# /*  */
-				, EXPERT_ID=#expertId# /*  */
-				, KNWLDG_TY_CODE=#knwldgTyCode# /*  */
-				, EMPLYR_ID=#emplyrId# /*  */
-				, KNWLDG_NM=#knwldgNm# /*  */
-				, KNWLDG_CN=#knwldgCn# /*  */
-				, ATCH_FILE_ID=#atchFileId# /*  */
-				, PARNTS_KNWLDG_ID=#parntsKnwldgId# /*  */
-				, ANSWER_DP=#answerDp# /*  */
-				, ANSWER_ORDR=#answerOrdr# /*  */
-				, ANSWER_GROUP_NO=#answerGroupNo# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, KNWLDG_ID=#knwldgId# /*  */
-			WHERE KNWLDG_ID=#knwldgId# /*  */
+			SET orgnzt_id = #orgnztId#
+				, expert_id = #expertId#
+				, knwldg_ty_code = #knwldgTyCode#
+				, emplyr_id = #emplyrId#
+				, knwldg_nm = #knwldgNm#
+				, knwldg_cn = #knwldgCn#
+				, atch_file_id = #atchFileId#
+				, parnts_knwldg_id = #parntsKnwldgId#
+				, answer_dp = #answerDp#
+				, answer_ordr = #answerOrdr#
+				, answer_group_no = #answerGroupNo#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, knwldg_id = #knwldgId#
+			WHERE knwldg_id = #knwldgId#
 		]]>
 	</update>
 	
 	<delete id="comtndamcalresDAO.deleteComtndamcalres_S">
 		<![CDATA[
 			DELETE FROM comtndamcalres 
-			WHERE KNWLDG_ID=#knwldgId# /*  */
+			WHERE knwldg_id = #knwldgId#
 		]]>
 	</delete>
 	
 	<select id="comtndamcalresDAO.selectComtndamcalres_S" resultMap="comtndamcalres">
 		<![CDATA[
 			SELECT
-				ORGNZT_ID /*  */
-				, EXPERT_ID /*  */
-				, KNWLDG_TY_CODE /*  */
-				, EMPLYR_ID /*  */
-				, KNWLDG_NM /*  */
-				, KNWLDG_CN /*  */
-				, ATCH_FILE_ID /*  */
-				, PARNTS_KNWLDG_ID /*  */
-				, ANSWER_DP /*  */
-				, ANSWER_ORDR /*  */
-				, ANSWER_GROUP_NO /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, KNWLDG_ID /*  */
+				orgnzt_id
+				, expert_id
+				, knwldg_ty_code
+				, emplyr_id
+				, knwldg_nm
+				, knwldg_cn
+				, atch_file_id
+				, parnts_knwldg_id
+				, answer_dp
+				, answer_ordr
+				, answer_group_no
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, knwldg_id
 			FROM comtndamcalres
-			WHERE KNWLDG_ID=#knwldgId# /*  */
+			WHERE knwldg_id = #knwldgId#
 		]]>
 	</select>
 	
-	<select id="comtndamcalresDAO.selectComtndamcalresList_D" parameterClass="comtndamcalresSerarchVO" resultClass="egovMap">
+	<select id="comtndamcalresDAO.selectComtndamcalresList_D" parameterClass="ComtndamcalresVO" resultClass="egovMap">
 			SELECT
-								ORGNZT_ID /*  */
-								, EXPERT_ID /*  */
-								, KNWLDG_TY_CODE /*  */
-								, EMPLYR_ID /*  */
-								, KNWLDG_NM /*  */
-								, KNWLDG_CN /*  */
-								, ATCH_FILE_ID /*  */
-								, PARNTS_KNWLDG_ID /*  */
-								, ANSWER_DP /*  */
-								, ANSWER_ORDR /*  */
-								, ANSWER_GROUP_NO /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, KNWLDG_ID /*  */
+								orgnzt_id
+								, expert_id
+								, knwldg_ty_code
+								, emplyr_id
+								, knwldg_nm
+								, knwldg_cn
+								, atch_file_id
+								, parnts_knwldg_id
+								, answer_dp
+								, answer_ordr
+								, answer_group_no
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, knwldg_id
 					FROM comtndamcalres
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ORGNZT_ID = #searchKeyword# /*  */
+				orgnzt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				EXPERT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				expert_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							KNWLDG_ID DESC /*  */
+							knwldg_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtndamcalresDAO.selectComtndamcalresListTotCnt_S" parameterClass="comtndamcalresSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtndamcalresDAO.selectComtndamcalresListTotCnt_S" parameterClass="ComtndamcalresVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtndamcalres
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ORGNZT_ID = #searchKeyword# /*  */
+				orgnzt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				EXPERT_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				expert_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

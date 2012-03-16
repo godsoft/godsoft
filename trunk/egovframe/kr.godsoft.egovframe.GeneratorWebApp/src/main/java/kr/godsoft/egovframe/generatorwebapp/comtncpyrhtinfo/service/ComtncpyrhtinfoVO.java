@@ -6,31 +6,31 @@ package kr.godsoft.egovframe.generatorwebapp.comtncpyrhtinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtncpyrhtinfoVO extends ComtncpyrhtinfoDefaultVO{
+public class ComtncpyrhtinfoVO extends ComtncpyrhtinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CPYRHT_ID */
     private String cpyrhtId;
     
-    /**  */
+    /** CPYRHT_PRTC_POLICY_CN */
     private String cpyrhtPrtcPolicyCn;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getCpyrhtId() {

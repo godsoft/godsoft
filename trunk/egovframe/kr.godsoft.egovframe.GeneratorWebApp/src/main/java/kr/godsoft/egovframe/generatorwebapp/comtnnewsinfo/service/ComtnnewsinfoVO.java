@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnnewsinfoVO extends ComtnnewsinfoDefaultVO{
+public class ComtnnewsinfoVO extends ComtnnewsinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** NEWS_ID */
     private String newsId;
     
-    /**  */
+    /** NEWS_SJ */
     private String newsSj;
     
-    /**  */
+    /** NEWS_CN */
     private String newsCn;
     
-    /**  */
+    /** NEWS_ORIGIN */
     private String newsOrigin;
     
-    /**  */
+    /** NTCE_AT */
     private String ntceAt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** NTCE_DE */
     private String ntceDe;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
     public String getNewsId() {

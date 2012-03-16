@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtccmmncodeVO extends ComtccmmncodeDefaultVO{
+public class ComtccmmncodeVO extends ComtccmmncodeDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CODE_ID */
     private String codeId;
     
-    /**  */
+    /** CODE_ID_NM */
     private String codeIdNm;
     
-    /**  */
+    /** CODE_ID_DC */
     private String codeIdDc;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** CL_CODE */
     private String clCode;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getCodeId() {

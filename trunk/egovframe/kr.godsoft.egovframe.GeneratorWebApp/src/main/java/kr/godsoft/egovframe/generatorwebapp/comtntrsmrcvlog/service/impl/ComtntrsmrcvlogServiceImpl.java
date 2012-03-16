@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogService;
+import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogService;
-import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.impl.ComtntrsmrcvlogDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtntrsmrcvlogServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.impl.Comtntr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtntrsmrcvlog 목록
 	 * @exception Exception
 	 */
-    public List selectComtntrsmrcvlogList(ComtntrsmrcvlogDefaultVO searchVO) throws Exception {
-        return comtntrsmrcvlogDAO.selectComtntrsmrcvlogList(searchVO);
+    public List<EgovMap> selectComtntrsmrcvlogList(ComtntrsmrcvlogVO vo) throws Exception {
+        return comtntrsmrcvlogDAO.selectComtntrsmrcvlogList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
 	 * @return comtntrsmrcvlog 총 갯수
 	 * @exception
 	 */
-    public int selectComtntrsmrcvlogListTotCnt(ComtntrsmrcvlogDefaultVO searchVO) {
-		return comtntrsmrcvlogDAO.selectComtntrsmrcvlogListTotCnt(searchVO);
+    public int selectComtntrsmrcvlogListTotCnt(ComtntrsmrcvlogVO vo) {
+		return comtntrsmrcvlogDAO.selectComtntrsmrcvlogListTotCnt(vo);
 	}
     
 }

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.ComtssyslogsummaryVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtssyslogsummaryService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtssyslogsummary.service.Comtssysl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtssyslogsummaryService {
 	 * @return comtssyslogsummary 목록
 	 * @exception Exception
 	 */
-    List selectComtssyslogsummaryList(ComtssyslogsummaryDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtssyslogsummaryList(ComtssyslogsummaryVO vo) throws Exception;
     
     /**
 	 * comtssyslogsummary 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtssyslogsummaryService {
 	 * @return comtssyslogsummary 총 갯수
 	 * @exception
 	 */
-    int selectComtssyslogsummaryListTotCnt(ComtssyslogsummaryDefaultVO searchVO);
+    int selectComtssyslogsummaryListTotCnt(ComtssyslogsummaryVO vo);
     
 }

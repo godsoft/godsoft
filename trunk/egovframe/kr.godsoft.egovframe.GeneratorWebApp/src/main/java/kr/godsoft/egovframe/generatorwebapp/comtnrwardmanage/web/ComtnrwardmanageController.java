@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.ComtnrwardmanageVO;
 
 /**
  * @Class Name : ComtnrwardmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrwardmanage.service.Comtnrwardm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnrwardmanageController {
 	
     /**
 	 * comtnrwardmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnrwardmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnrwardmanageVO
 	 * @return "/comtnrwardmanage/ComtnrwardmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnrwardmanage/ComtnrwardmanageList.do")
-    public String selectComtnrwardmanageList(@ModelAttribute("searchVO") ComtnrwardmanageDefaultVO searchVO, 
+    public String selectComtnrwardmanageList(@ModelAttribute("searchVO") ComtnrwardmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnrwardmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnrwardmanageList = comtnrwardmanageService.selectComtnrwardmanageList(searchVO);
+        List<EgovMap> comtnrwardmanageList = comtnrwardmanageService.selectComtnrwardmanageList(searchVO);
         model.addAttribute("resultList", comtnrwardmanageList);
         
         int totCnt = comtnrwardmanageService.selectComtnrwardmanageListTotCnt(searchVO);

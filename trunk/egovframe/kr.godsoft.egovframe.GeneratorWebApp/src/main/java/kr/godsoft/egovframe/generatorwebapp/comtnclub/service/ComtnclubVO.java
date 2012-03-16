@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnclub.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnclubVO extends ComtnclubDefaultVO{
+public class ComtnclubVO extends ComtnclubDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CLB_ID */
     private String clbId;
     
-    /**  */
+    /** CMMNTY_ID */
     private String cmmntyId;
     
-    /**  */
+    /** CLB_NM */
     private String clbNm;
     
-    /**  */
+    /** CLB_INTRCN */
     private String clbIntrcn;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** REGIST_SE_CODE */
     private String registSeCode;
     
-    /**  */
+    /** TMPLAT_ID */
     private String tmplatId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getClbId() {

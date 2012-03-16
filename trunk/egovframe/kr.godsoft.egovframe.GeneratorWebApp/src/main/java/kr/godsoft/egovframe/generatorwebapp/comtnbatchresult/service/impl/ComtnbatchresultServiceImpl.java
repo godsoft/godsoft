@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.ComtnbatchresultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.impl.ComtnbatchresultDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbatchresultServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchresult.service.impl.Comtnb
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbatchresult 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbatchresultList(ComtnbatchresultDefaultVO searchVO) throws Exception {
-        return comtnbatchresultDAO.selectComtnbatchresultList(searchVO);
+    public List<EgovMap> selectComtnbatchresultList(ComtnbatchresultVO vo) throws Exception {
+        return comtnbatchresultDAO.selectComtnbatchresultList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbatchresult 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbatchresultListTotCnt(ComtnbatchresultDefaultVO searchVO) {
-		return comtnbatchresultDAO.selectComtnbatchresultListTotCnt(searchVO);
+    public int selectComtnbatchresultListTotCnt(ComtnbatchresultVO vo) {
+		return comtnbatchresultDAO.selectComtnbatchresultListTotCnt(vo);
 	}
     
 }

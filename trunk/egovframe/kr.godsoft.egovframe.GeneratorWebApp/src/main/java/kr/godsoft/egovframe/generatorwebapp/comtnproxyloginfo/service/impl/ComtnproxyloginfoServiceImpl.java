@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.ComtnproxyloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.impl.ComtnproxyloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnproxyloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnproxyloginfo.service.impl.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnproxyloginfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnproxyloginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnproxyloginfoList(ComtnproxyloginfoDefaultVO searchVO) throws Exception {
-        return comtnproxyloginfoDAO.selectComtnproxyloginfoList(searchVO);
+    public List<EgovMap> selectComtnproxyloginfoList(ComtnproxyloginfoVO vo) throws Exception {
+        return comtnproxyloginfoDAO.selectComtnproxyloginfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnproxyloginfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnproxyloginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnproxyloginfoListTotCnt(ComtnproxyloginfoDefaultVO searchVO) {
-		return comtnproxyloginfoDAO.selectComtnproxyloginfoListTotCnt(searchVO);
+    public int selectComtnproxyloginfoListTotCnt(ComtnproxyloginfoVO vo) {
+		return comtnproxyloginfoDAO.selectComtnproxyloginfoListTotCnt(vo);
 	}
     
 }

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonService;
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.ComtnprocessmonVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.impl.ComtnprocessmonDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnprocessmonServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprocessmon.service.impl.Comtnpr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnprocessmonServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnprocessmon 목록
 	 * @exception Exception
 	 */
-    public List selectComtnprocessmonList(ComtnprocessmonDefaultVO searchVO) throws Exception {
-        return comtnprocessmonDAO.selectComtnprocessmonList(searchVO);
+    public List<EgovMap> selectComtnprocessmonList(ComtnprocessmonVO vo) throws Exception {
+        return comtnprocessmonDAO.selectComtnprocessmonList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnprocessmonServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnprocessmon 총 갯수
 	 * @exception
 	 */
-    public int selectComtnprocessmonListTotCnt(ComtnprocessmonDefaultVO searchVO) {
-		return comtnprocessmonDAO.selectComtnprocessmonListTotCnt(searchVO);
+    public int selectComtnprocessmonListTotCnt(ComtnprocessmonVO vo) {
+		return comtnprocessmonDAO.selectComtnprocessmonListTotCnt(vo);
 	}
     
 }

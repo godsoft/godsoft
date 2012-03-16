@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtnrestde.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnrestdeVO extends ComtnrestdeDefaultVO{
+public class ComtnrestdeVO extends ComtnrestdeDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** RESTDE_NO */
     private int restdeNo;
     
-    /**  */
+    /** RESTDE */
     private String restde;
     
-    /**  */
+    /** RESTDE_NM */
     private String restdeNm;
     
-    /**  */
+    /** RESTDE_DC */
     private String restdeDc;
     
-    /**  */
+    /** RESTDE_SE_CODE */
     private String restdeSeCode;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public int getRestdeNo() {

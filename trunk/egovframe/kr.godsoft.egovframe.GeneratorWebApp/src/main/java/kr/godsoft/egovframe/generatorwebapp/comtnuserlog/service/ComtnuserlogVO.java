@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnuserlogVO extends ComtnuserlogDefaultVO{
+public class ComtnuserlogVO extends ComtnuserlogDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** RQESTER_ID */
     private String rqesterId;
     
-    /**  */
+    /** SVC_NM */
     private String svcNm;
     
-    /**  */
+    /** METHOD_NM */
     private String methodNm;
     
-    /**  */
+    /** CREAT_CO */
     private int creatCo;
     
-    /**  */
+    /** UPDT_CO */
     private int updtCo;
     
-    /**  */
+    /** RDCNT */
     private int rdcnt;
     
-    /**  */
+    /** DELETE_CO */
     private int deleteCo;
     
-    /**  */
+    /** OUTPT_CO */
     private int outptCo;
     
-    /**  */
+    /** ERROR_CO */
     private int errorCo;
     
     public String getOccrrncDe() {

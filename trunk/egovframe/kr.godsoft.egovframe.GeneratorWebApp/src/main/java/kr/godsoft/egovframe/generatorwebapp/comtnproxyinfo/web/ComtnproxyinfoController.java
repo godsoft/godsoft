@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.ComtnproxyinfoVO;
 
 /**
  * @Class Name : ComtnproxyinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.Comtnproxyinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnproxyinfoController {
 	
     /**
 	 * comtnproxyinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnproxyinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnproxyinfoVO
 	 * @return "/comtnproxyinfo/ComtnproxyinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnproxyinfo/ComtnproxyinfoList.do")
-    public String selectComtnproxyinfoList(@ModelAttribute("searchVO") ComtnproxyinfoDefaultVO searchVO, 
+    public String selectComtnproxyinfoList(@ModelAttribute("searchVO") ComtnproxyinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnproxyinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnproxyinfoList = comtnproxyinfoService.selectComtnproxyinfoList(searchVO);
+        List<EgovMap> comtnproxyinfoList = comtnproxyinfoService.selectComtnproxyinfoList(searchVO);
         model.addAttribute("resultList", comtnproxyinfoList);
         
         int totCnt = comtnproxyinfoService.selectComtnproxyinfoListTotCnt(searchVO);

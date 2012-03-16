@@ -6,28 +6,28 @@ package kr.godsoft.egovframe.generatorwebapp.comtnweblog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnweblogVO extends ComtnweblogDefaultVO{
+public class ComtnweblogVO extends ComtnweblogDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** REQUST_ID */
     private String requstId;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** URL */
     private String url;
     
-    /**  */
+    /** RQESTER_ID */
     private String rqesterId;
     
-    /**  */
+    /** RQESTER_IP */
     private String rqesterIp;
     
     public String getRequstId() {

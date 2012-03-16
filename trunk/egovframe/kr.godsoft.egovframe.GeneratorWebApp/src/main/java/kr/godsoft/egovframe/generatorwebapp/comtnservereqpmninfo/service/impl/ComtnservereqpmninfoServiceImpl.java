@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.impl.ComtnservereqpmninfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnservereqpmninfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnservereqpmninfoServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnservereqpmninfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnservereqpmninfoList(ComtnservereqpmninfoDefaultVO searchVO) throws Exception {
-        return comtnservereqpmninfoDAO.selectComtnservereqpmninfoList(searchVO);
+    public List<EgovMap> selectComtnservereqpmninfoList(ComtnservereqpmninfoVO vo) throws Exception {
+        return comtnservereqpmninfoDAO.selectComtnservereqpmninfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnservereqpmninfoServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnservereqpmninfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnservereqpmninfoListTotCnt(ComtnservereqpmninfoDefaultVO searchVO) {
-		return comtnservereqpmninfoDAO.selectComtnservereqpmninfoListTotCnt(searchVO);
+    public int selectComtnservereqpmninfoListTotCnt(ComtnservereqpmninfoVO vo) {
+		return comtnservereqpmninfoDAO.selectComtnservereqpmninfoListTotCnt(vo);
 	}
     
 }

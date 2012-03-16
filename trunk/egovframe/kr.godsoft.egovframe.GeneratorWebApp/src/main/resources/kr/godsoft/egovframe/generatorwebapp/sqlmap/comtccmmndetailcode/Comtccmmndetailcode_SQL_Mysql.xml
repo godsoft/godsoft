@@ -4,120 +4,121 @@
 <sqlMap namespace="Comtccmmndetailcode">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtccmmndetailcodeSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeDefaultVO"/>
+	<typeAlias  alias="ComtccmmndetailcodeVO" type="kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeVO"/>
 	
 	<resultMap id="comtccmmndetailcode" class="kr.godsoft.egovframe.generatorwebapp.comtccmmndetailcode.service.ComtccmmndetailcodeVO">
-		<result property="codeId" column="CODE_ID" columnIndex="1"/> <!--  -->
-		<result property="code" column="CODE" columnIndex="2"/> <!--  -->
-		<result property="codeNm" column="CODE_NM" columnIndex="3"/> <!--  -->
-		<result property="codeDc" column="CODE_DC" columnIndex="4"/> <!--  -->
-		<result property="useAt" column="USE_AT" columnIndex="5"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="6"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
+		<result property="codeId" column="code_id" columnIndex="1"/>
+		<result property="code" column="code" columnIndex="2"/>
+		<result property="codeNm" column="code_nm" columnIndex="3"/>
+		<result property="codeDc" column="code_dc" columnIndex="4"/>
+		<result property="useAt" column="use_at" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
 	</resultMap>
 	
 	<insert id="comtccmmndetailcodeDAO.insertComtccmmndetailcode_S">
 		<![CDATA[
 			INSERT INTO comtccmmndetailcode 
-				( CODE_ID /*  */
-				  , CODE /*  */
-				  , CODE_NM /*  */
-				  , CODE_DC /*  */
-				  , USE_AT /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #codeId# /*  */
-					  , #code# /*  */
-						  , #codeNm# /*  */
-						  , #codeDc# /*  */
-						  , #useAt# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-					  , #lastUpdusrId# /*  */ )
+				( CODE_ID
+				  , code
+				  , code_nm
+				  , code_dc
+				  , use_at
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #codeId#
+				  , #code#
+				  , #codeNm#
+				  , #codeDc#
+				  , #useAt#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtccmmndetailcodeDAO.updateComtccmmndetailcode_S">
 		<![CDATA[
 			UPDATE comtccmmndetailcode
-			SET CODE_ID=#codeId# /*  */
-				, CODE=#code# /*  */
-				, CODE_NM=#codeNm# /*  */
-				, CODE_DC=#codeDc# /*  */
-				, USE_AT=#useAt# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE CODE_ID=#codeId# /*  */
-				AND CODE=#code# /*  */
+			SET code_id = #codeId#
+				, code = #code#
+				, code_nm = #codeNm#
+				, code_dc = #codeDc#
+				, use_at = #useAt#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE code_id = #codeId#
+				AND code = #code#
 		]]>
 	</update>
 	
 	<delete id="comtccmmndetailcodeDAO.deleteComtccmmndetailcode_S">
 		<![CDATA[
 			DELETE FROM comtccmmndetailcode 
-			WHERE CODE_ID=#codeId# /*  */
-				AND CODE=#code# /*  */
+			WHERE code_id = #codeId#
+				AND code = #code#
 		]]>
 	</delete>
 	
 	<select id="comtccmmndetailcodeDAO.selectComtccmmndetailcode_S" resultMap="comtccmmndetailcode">
 		<![CDATA[
 			SELECT
-				CODE_ID /*  */
-				, CODE /*  */
-				, CODE_NM /*  */
-				, CODE_DC /*  */
-				, USE_AT /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
+				code_id
+				, code
+				, code_nm
+				, code_dc
+				, use_at
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtccmmndetailcode
-			WHERE CODE_ID=#codeId# /*  */
-				AND CODE=#code# /*  */
+			WHERE code_id = #codeId#
+				AND code = #code#
 		]]>
 	</select>
 	
-	<select id="comtccmmndetailcodeDAO.selectComtccmmndetailcodeList_D" parameterClass="comtccmmndetailcodeSerarchVO" resultClass="egovMap">
+	<select id="comtccmmndetailcodeDAO.selectComtccmmndetailcodeList_D" parameterClass="ComtccmmndetailcodeVO" resultClass="egovMap">
 			SELECT
-								CODE_ID /*  */
-								, CODE /*  */
-								, CODE_NM /*  */
-								, CODE_DC /*  */
-								, USE_AT /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
+								code_id
+								, code
+								, code_nm
+								, code_dc
+								, use_at
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtccmmndetailcode
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				CODE_ID = #searchKeyword# /*  */
+				code_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							CODE_ID DESC /*  */
-							, CODE DESC /*  */
+							code_id DESC
+							, code DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtccmmndetailcodeDAO.selectComtccmmndetailcodeListTotCnt_S" parameterClass="comtccmmndetailcodeSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtccmmndetailcodeDAO.selectComtccmmndetailcodeListTotCnt_S" parameterClass="ComtccmmndetailcodeVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtccmmndetailcode
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				CODE_ID = #searchKeyword# /*  */
+				code_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CODE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				code LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

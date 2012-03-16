@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.impl.ComtnorgnztinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnorgnztinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.impl.Comtnor
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnorgnztinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnorgnztinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnorgnztinfoList(ComtnorgnztinfoDefaultVO searchVO) throws Exception {
-        return comtnorgnztinfoDAO.selectComtnorgnztinfoList(searchVO);
+    public List<EgovMap> selectComtnorgnztinfoList(ComtnorgnztinfoVO vo) throws Exception {
+        return comtnorgnztinfoDAO.selectComtnorgnztinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnorgnztinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnorgnztinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnorgnztinfoListTotCnt(ComtnorgnztinfoDefaultVO searchVO) {
-		return comtnorgnztinfoDAO.selectComtnorgnztinfoListTotCnt(searchVO);
+    public int selectComtnorgnztinfoListTotCnt(ComtnorgnztinfoVO vo) {
+		return comtnorgnztinfoDAO.selectComtnorgnztinfoListTotCnt(vo);
 	}
     
 }

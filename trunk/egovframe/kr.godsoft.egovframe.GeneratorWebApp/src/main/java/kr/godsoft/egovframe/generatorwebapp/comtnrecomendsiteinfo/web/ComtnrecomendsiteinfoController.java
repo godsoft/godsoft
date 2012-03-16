@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO;
 
 /**
  * @Class Name : ComtnrecomendsiteinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.Comtnr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnrecomendsiteinfoController {
 	
     /**
 	 * comtnrecomendsiteinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnrecomendsiteinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnrecomendsiteinfoVO
 	 * @return "/comtnrecomendsiteinfo/ComtnrecomendsiteinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnrecomendsiteinfo/ComtnrecomendsiteinfoList.do")
-    public String selectComtnrecomendsiteinfoList(@ModelAttribute("searchVO") ComtnrecomendsiteinfoDefaultVO searchVO, 
+    public String selectComtnrecomendsiteinfoList(@ModelAttribute("searchVO") ComtnrecomendsiteinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnrecomendsiteinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnrecomendsiteinfoList = comtnrecomendsiteinfoService.selectComtnrecomendsiteinfoList(searchVO);
+        List<EgovMap> comtnrecomendsiteinfoList = comtnrecomendsiteinfoService.selectComtnrecomendsiteinfoList(searchVO);
         model.addAttribute("resultList", comtnrecomendsiteinfoList);
         
         int totCnt = comtnrecomendsiteinfoService.selectComtnrecomendsiteinfoListTotCnt(searchVO);

@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbanner.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbannerVO extends ComtnbannerDefaultVO{
+public class ComtnbannerVO extends ComtnbannerDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BANNER_ID */
     private String bannerId;
     
-    /**  */
+    /** BANNER_NM */
     private String bannerNm;
     
-    /**  */
+    /** LINK_URL */
     private String linkUrl;
     
-    /**  */
+    /** BANNER_IMAGE */
     private String bannerImage;
     
-    /**  */
+    /** BANNER_DC */
     private String bannerDc;
     
-    /**  */
+    /** REFLCT_AT */
     private String reflctAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** BANNER_IMAGE_FILE */
     private String bannerImageFile;
     
-    /**  */
+    /** SORT_ORDR */
     private int sortOrdr;
     
     public String getBannerId() {

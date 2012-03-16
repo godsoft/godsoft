@@ -4,136 +4,137 @@
 <sqlMap namespace="Comtncntcservice">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtncntcserviceSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceDefaultVO"/>
+	<typeAlias  alias="ComtncntcserviceVO" type="kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceVO"/>
 	
 	<resultMap id="comtncntcservice" class="kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.ComtncntcserviceVO">
-		<result property="insttId" column="INSTT_ID" columnIndex="1"/> <!--  -->
-		<result property="sysId" column="SYS_ID" columnIndex="2"/> <!--  -->
-		<result property="svcId" column="SVC_ID" columnIndex="3"/> <!--  -->
-		<result property="svcNm" column="SVC_NM" columnIndex="4"/> <!--  -->
-		<result property="requstMssageId" column="REQUST_MSSAGE_ID" columnIndex="5"/> <!--  -->
-		<result property="rspnsMssageId" column="RSPNS_MSSAGE_ID" columnIndex="6"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
-		<result property="useAt" column="USE_AT" columnIndex="11"/> <!--  -->
+		<result property="insttId" column="instt_id" columnIndex="1"/>
+		<result property="sysId" column="sys_id" columnIndex="2"/>
+		<result property="svcId" column="svc_id" columnIndex="3"/>
+		<result property="svcNm" column="svc_nm" columnIndex="4"/>
+		<result property="requstMssageId" column="requst_mssage_id" columnIndex="5"/>
+		<result property="rspnsMssageId" column="rspns_mssage_id" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
+		<result property="useAt" column="use_at" columnIndex="11"/>
 	</resultMap>
 	
 	<insert id="comtncntcserviceDAO.insertComtncntcservice_S">
 		<![CDATA[
 			INSERT INTO comtncntcservice 
-				( INSTT_ID /*  */
-				  , SYS_ID /*  */
-				  , SVC_ID /*  */
-				  , SVC_NM /*  */
-				  , REQUST_MSSAGE_ID /*  */
-				  , RSPNS_MSSAGE_ID /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , USE_AT /*  */ )
-			VALUES ( #insttId# /*  */
-					  , #sysId# /*  */
-						  , #svcId# /*  */
-						  , #svcNm# /*  */
-						  , #requstMssageId# /*  */
-						  , #rspnsMssageId# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #useAt# /*  */ )
+				( INSTT_ID
+				  , sys_id
+				  , svc_id
+				  , svc_nm
+				  , requst_mssage_id
+				  , rspns_mssage_id
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , use_at )
+			VALUES ( #insttId#
+				  , #sysId#
+				  , #svcId#
+				  , #svcNm#
+				  , #requstMssageId#
+				  , #rspnsMssageId#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #useAt# )
 		]]>
 	</insert>
 	
 	<update id="comtncntcserviceDAO.updateComtncntcservice_S">
 		<![CDATA[
 			UPDATE comtncntcservice
-			SET INSTT_ID=#insttId# /*  */
-				, SYS_ID=#sysId# /*  */
-				, SVC_ID=#svcId# /*  */
-				, SVC_NM=#svcNm# /*  */
-				, REQUST_MSSAGE_ID=#requstMssageId# /*  */
-				, RSPNS_MSSAGE_ID=#rspnsMssageId# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, USE_AT=#useAt# /*  */
-			WHERE INSTT_ID=#insttId# /*  */
-				AND SYS_ID=#sysId# /*  */
-				AND SVC_ID=#svcId# /*  */
+			SET instt_id = #insttId#
+				, sys_id = #sysId#
+				, svc_id = #svcId#
+				, svc_nm = #svcNm#
+				, requst_mssage_id = #requstMssageId#
+				, rspns_mssage_id = #rspnsMssageId#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, use_at = #useAt#
+			WHERE instt_id = #insttId#
+				AND sys_id = #sysId#
+				AND svc_id = #svcId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcserviceDAO.deleteComtncntcservice_S">
 		<![CDATA[
 			DELETE FROM comtncntcservice 
-			WHERE INSTT_ID=#insttId# /*  */
-				AND SYS_ID=#sysId# /*  */
-				AND SVC_ID=#svcId# /*  */
+			WHERE instt_id = #insttId#
+				AND sys_id = #sysId#
+				AND svc_id = #svcId#
 		]]>
 	</delete>
 	
 	<select id="comtncntcserviceDAO.selectComtncntcservice_S" resultMap="comtncntcservice">
 		<![CDATA[
 			SELECT
-				INSTT_ID /*  */
-				, SYS_ID /*  */
-				, SVC_ID /*  */
-				, SVC_NM /*  */
-				, REQUST_MSSAGE_ID /*  */
-				, RSPNS_MSSAGE_ID /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, USE_AT /*  */
+				instt_id
+				, sys_id
+				, svc_id
+				, svc_nm
+				, requst_mssage_id
+				, rspns_mssage_id
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, use_at
 			FROM comtncntcservice
-			WHERE INSTT_ID=#insttId# /*  */
-				AND SYS_ID=#sysId# /*  */
-				AND SVC_ID=#svcId# /*  */
+			WHERE instt_id = #insttId#
+				AND sys_id = #sysId#
+				AND svc_id = #svcId#
 		]]>
 	</select>
 	
-	<select id="comtncntcserviceDAO.selectComtncntcserviceList_D" parameterClass="comtncntcserviceSerarchVO" resultClass="egovMap">
+	<select id="comtncntcserviceDAO.selectComtncntcserviceList_D" parameterClass="ComtncntcserviceVO" resultClass="egovMap">
 			SELECT
-								INSTT_ID /*  */
-								, SYS_ID /*  */
-								, SVC_ID /*  */
-								, SVC_NM /*  */
-								, REQUST_MSSAGE_ID /*  */
-								, RSPNS_MSSAGE_ID /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, USE_AT /*  */
+								instt_id
+								, sys_id
+								, svc_id
+								, svc_nm
+								, requst_mssage_id
+								, rspns_mssage_id
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, use_at
 					FROM comtncntcservice
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				INSTT_ID = #searchKeyword# /*  */
+				instt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SYS_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				sys_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							INSTT_ID DESC /*  */
-							, SYS_ID DESC /*  */
-							, SVC_ID DESC /*  */
+							instt_id DESC
+							, sys_id DESC
+							, svc_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtncntcserviceDAO.selectComtncntcserviceListTotCnt_S" parameterClass="comtncntcserviceSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtncntcserviceDAO.selectComtncntcserviceListTotCnt_S" parameterClass="ComtncntcserviceVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtncntcservice
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				INSTT_ID = #searchKeyword# /*  */
+				instt_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SYS_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				sys_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

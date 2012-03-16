@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.ComtnpopupmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.impl.ComtnpopupmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnpopupmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service.impl.Comtnp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnpopupmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnpopupmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnpopupmanageList(ComtnpopupmanageDefaultVO searchVO) throws Exception {
-        return comtnpopupmanageDAO.selectComtnpopupmanageList(searchVO);
+    public List<EgovMap> selectComtnpopupmanageList(ComtnpopupmanageVO vo) throws Exception {
+        return comtnpopupmanageDAO.selectComtnpopupmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnpopupmanageServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnpopupmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnpopupmanageListTotCnt(ComtnpopupmanageDefaultVO searchVO) {
-		return comtnpopupmanageDAO.selectComtnpopupmanageListTotCnt(searchVO);
+    public int selectComtnpopupmanageListTotCnt(ComtnpopupmanageVO vo) {
+		return comtnpopupmanageDAO.selectComtnpopupmanageListTotCnt(vo);
 	}
     
 }

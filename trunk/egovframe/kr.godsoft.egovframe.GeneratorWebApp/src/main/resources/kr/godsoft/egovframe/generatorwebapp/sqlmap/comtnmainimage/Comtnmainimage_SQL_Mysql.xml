@@ -4,122 +4,123 @@
 <sqlMap namespace="Comtnmainimage">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnmainimageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageDefaultVO"/>
+	<typeAlias  alias="ComtnmainimageVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO"/>
 	
 	<resultMap id="comtnmainimage" class="kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO">
-		<result property="imageId" column="IMAGE_ID" columnIndex="1"/> <!--  -->
-		<result property="imageNm" column="IMAGE_NM" columnIndex="2"/> <!--  -->
-		<result property="image" column="IMAGE" columnIndex="3"/> <!--  -->
-		<result property="imageDc" column="IMAGE_DC" columnIndex="4"/> <!--  -->
-		<result property="reflctAt" column="REFLCT_AT" columnIndex="5"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="6"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="7"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="8"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="9"/> <!--  -->
-		<result property="imageFile" column="IMAGE_FILE" columnIndex="10"/> <!--  -->
+		<result property="imageId" column="image_id" columnIndex="1"/>
+		<result property="imageNm" column="image_nm" columnIndex="2"/>
+		<result property="image" column="image" columnIndex="3"/>
+		<result property="imageDc" column="image_dc" columnIndex="4"/>
+		<result property="reflctAt" column="reflct_at" columnIndex="5"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+		<result property="imageFile" column="image_file" columnIndex="10"/>
 	</resultMap>
 	
 	<insert id="comtnmainimageDAO.insertComtnmainimage_S">
 		<![CDATA[
 			INSERT INTO comtnmainimage 
-				( IMAGE_ID /*  */
-				  , IMAGE_NM /*  */
-				  , IMAGE /*  */
-				  , IMAGE_DC /*  */
-				  , REFLCT_AT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , IMAGE_FILE /*  */ )
-			VALUES ( #imageId# /*  */
-					  , #imageNm# /*  */
-						  , #image# /*  */
-						  , #imageDc# /*  */
-						  , #reflctAt# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #imageFile# /*  */ )
+				( IMAGE_ID
+				  , image_nm
+				  , image
+				  , image_dc
+				  , reflct_at
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , image_file )
+			VALUES ( #imageId#
+				  , #imageNm#
+				  , #image#
+				  , #imageDc#
+				  , #reflctAt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #imageFile# )
 		]]>
 	</insert>
 	
 	<update id="comtnmainimageDAO.updateComtnmainimage_S">
 		<![CDATA[
 			UPDATE comtnmainimage
-			SET IMAGE_ID=#imageId# /*  */
-				, IMAGE_NM=#imageNm# /*  */
-				, IMAGE=#image# /*  */
-				, IMAGE_DC=#imageDc# /*  */
-				, REFLCT_AT=#reflctAt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, IMAGE_FILE=#imageFile# /*  */
-			WHERE IMAGE_ID=#imageId# /*  */
+			SET image_id = #imageId#
+				, image_nm = #imageNm#
+				, image = #image#
+				, image_dc = #imageDc#
+				, reflct_at = #reflctAt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, image_file = #imageFile#
+			WHERE image_id = #imageId#
 		]]>
 	</update>
 	
 	<delete id="comtnmainimageDAO.deleteComtnmainimage_S">
 		<![CDATA[
 			DELETE FROM comtnmainimage 
-			WHERE IMAGE_ID=#imageId# /*  */
+			WHERE image_id = #imageId#
 		]]>
 	</delete>
 	
 	<select id="comtnmainimageDAO.selectComtnmainimage_S" resultMap="comtnmainimage">
 		<![CDATA[
 			SELECT
-				IMAGE_ID /*  */
-				, IMAGE_NM /*  */
-				, IMAGE /*  */
-				, IMAGE_DC /*  */
-				, REFLCT_AT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, IMAGE_FILE /*  */
+				image_id
+				, image_nm
+				, image
+				, image_dc
+				, reflct_at
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, image_file
 			FROM comtnmainimage
-			WHERE IMAGE_ID=#imageId# /*  */
+			WHERE image_id = #imageId#
 		]]>
 	</select>
 	
-	<select id="comtnmainimageDAO.selectComtnmainimageList_D" parameterClass="comtnmainimageSerarchVO" resultClass="egovMap">
+	<select id="comtnmainimageDAO.selectComtnmainimageList_D" parameterClass="ComtnmainimageVO" resultClass="egovMap">
 			SELECT
-								IMAGE_ID /*  */
-								, IMAGE_NM /*  */
-								, IMAGE /*  */
-								, IMAGE_DC /*  */
-								, REFLCT_AT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, IMAGE_FILE /*  */
+								image_id
+								, image_nm
+								, image
+								, image_dc
+								, reflct_at
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, image_file
 					FROM comtnmainimage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				IMAGE_ID = #searchKeyword# /*  */
+				image_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				IMAGE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				image_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							IMAGE_ID DESC /*  */
+							image_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnmainimageDAO.selectComtnmainimageListTotCnt_S" parameterClass="comtnmainimageSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnmainimageDAO.selectComtnmainimageListTotCnt_S" parameterClass="ComtnmainimageVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnmainimage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				IMAGE_ID = #searchKeyword# /*  */
+				image_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				IMAGE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				image_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

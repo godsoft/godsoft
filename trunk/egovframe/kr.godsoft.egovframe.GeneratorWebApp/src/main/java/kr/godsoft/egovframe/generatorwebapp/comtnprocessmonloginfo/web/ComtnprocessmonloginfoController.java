@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO;
 
 /**
  * @Class Name : ComtnprocessmonloginfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnprocessmonloginfoController {
 	
     /**
 	 * comtnprocessmonloginfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnprocessmonloginfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnprocessmonloginfoVO
 	 * @return "/comtnprocessmonloginfo/ComtnprocessmonloginfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnprocessmonloginfo/ComtnprocessmonloginfoList.do")
-    public String selectComtnprocessmonloginfoList(@ModelAttribute("searchVO") ComtnprocessmonloginfoDefaultVO searchVO, 
+    public String selectComtnprocessmonloginfoList(@ModelAttribute("searchVO") ComtnprocessmonloginfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnprocessmonloginfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnprocessmonloginfoList = comtnprocessmonloginfoService.selectComtnprocessmonloginfoList(searchVO);
+        List<EgovMap> comtnprocessmonloginfoList = comtnprocessmonloginfoService.selectComtnprocessmonloginfoList(searchVO);
         model.addAttribute("resultList", comtnprocessmonloginfoList);
         
         int totCnt = comtnprocessmonloginfoService.selectComtnprocessmonloginfoListTotCnt(searchVO);

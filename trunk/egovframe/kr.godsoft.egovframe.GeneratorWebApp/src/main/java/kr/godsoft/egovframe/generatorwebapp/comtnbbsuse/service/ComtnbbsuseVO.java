@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbbsuseVO extends ComtnbbsuseDefaultVO{
+public class ComtnbbsuseVO extends ComtnbbsuseDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
+    /** TRGET_ID */
     private String trgetId;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** REGIST_SE_CODE */
     private String registSeCode;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getBbsId() {

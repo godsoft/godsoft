@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.impl.ComtnbndtceckmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbndtceckmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbndtceckmanageServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnbndtceckmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbndtceckmanageList(ComtnbndtceckmanageDefaultVO searchVO) throws Exception {
-        return comtnbndtceckmanageDAO.selectComtnbndtceckmanageList(searchVO);
+    public List<EgovMap> selectComtnbndtceckmanageList(ComtnbndtceckmanageVO vo) throws Exception {
+        return comtnbndtceckmanageDAO.selectComtnbndtceckmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbndtceckmanageServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnbndtceckmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbndtceckmanageListTotCnt(ComtnbndtceckmanageDefaultVO searchVO) {
-		return comtnbndtceckmanageDAO.selectComtnbndtceckmanageListTotCnt(searchVO);
+    public int selectComtnbndtceckmanageListTotCnt(ComtnbndtceckmanageVO vo) {
+		return comtnbndtceckmanageDAO.selectComtnbndtceckmanageListTotCnt(vo);
 	}
     
 }

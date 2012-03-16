@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrngloginfo.service.ComtnntwrksvcmntrngloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrngloginfo.service.ComtnntwrksvcmntrngloginfoDefaultVO;
 
 /**
  * @Class Name : ComtnntwrksvcmntrngloginfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrngloginfo.service.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnntwrksvcmntrngloginfoDAO extends EgovAbstractDAO {
 	 * @return comtnntwrksvcmntrngloginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnntwrksvcmntrngloginfoList(ComtnntwrksvcmntrngloginfoDefaultVO searchVO) throws Exception {
-        return list("comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnntwrksvcmntrngloginfoList(ComtnntwrksvcmntrngloginfoVO vo) throws Exception {
+        return list("comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnntwrksvcmntrngloginfoDAO extends EgovAbstractDAO {
 	 * @return comtnntwrksvcmntrngloginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnntwrksvcmntrngloginfoListTotCnt(ComtnntwrksvcmntrngloginfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoListTotCnt_S", searchVO);
+    public int selectComtnntwrksvcmntrngloginfoListTotCnt(ComtnntwrksvcmntrngloginfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoListTotCnt_S", vo);
     }
 
 }

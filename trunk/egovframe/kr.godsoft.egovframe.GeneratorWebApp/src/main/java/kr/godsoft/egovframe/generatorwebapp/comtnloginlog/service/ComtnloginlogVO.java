@@ -6,34 +6,34 @@ package kr.godsoft.egovframe.generatorwebapp.comtnloginlog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnloginlogVO extends ComtnloginlogDefaultVO{
+public class ComtnloginlogVO extends ComtnloginlogDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** LOG_ID */
     private String logId;
     
-    /**  */
+    /** CONECT_ID */
     private String conectId;
     
-    /**  */
+    /** CONECT_IP */
     private String conectIp;
     
-    /**  */
+    /** CONECT_MTHD */
     private String conectMthd;
     
-    /**  */
+    /** ERROR_OCCRRNC_AT */
     private String errorOccrrncAt;
     
-    /**  */
+    /** ERROR_CODE */
     private String errorCode;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
     public String getLogId() {

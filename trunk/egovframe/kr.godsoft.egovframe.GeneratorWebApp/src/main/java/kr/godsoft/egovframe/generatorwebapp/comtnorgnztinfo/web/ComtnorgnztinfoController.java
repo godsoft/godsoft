@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.ComtnorgnztinfoVO;
 
 /**
  * @Class Name : ComtnorgnztinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnorgnztinfo.service.Comtnorgnzti
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnorgnztinfoController {
 	
     /**
 	 * comtnorgnztinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnorgnztinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnorgnztinfoVO
 	 * @return "/comtnorgnztinfo/ComtnorgnztinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnorgnztinfo/ComtnorgnztinfoList.do")
-    public String selectComtnorgnztinfoList(@ModelAttribute("searchVO") ComtnorgnztinfoDefaultVO searchVO, 
+    public String selectComtnorgnztinfoList(@ModelAttribute("searchVO") ComtnorgnztinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnorgnztinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnorgnztinfoList = comtnorgnztinfoService.selectComtnorgnztinfoList(searchVO);
+        List<EgovMap> comtnorgnztinfoList = comtnorgnztinfoService.selectComtnorgnztinfoList(searchVO);
         model.addAttribute("resultList", comtnorgnztinfoList);
         
         int totCnt = comtnorgnztinfoService.selectComtnorgnztinfoListTotCnt(searchVO);

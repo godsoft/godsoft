@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistService;
+import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistService;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
 
 /**
  * @Class Name : ComthsyshistController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComthsyshistController {
 	
     /**
 	 * comthsyshist 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComthsyshistDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComthsyshistVO
 	 * @return "/comthsyshist/ComthsyshistList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comthsyshist/ComthsyshistList.do")
-    public String selectComthsyshistList(@ModelAttribute("searchVO") ComthsyshistDefaultVO searchVO, 
+    public String selectComthsyshistList(@ModelAttribute("searchVO") ComthsyshistVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComthsyshistController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comthsyshistList = comthsyshistService.selectComthsyshistList(searchVO);
+        List<EgovMap> comthsyshistList = comthsyshistService.selectComthsyshistList(searchVO);
         model.addAttribute("resultList", comthsyshistList);
         
         int totCnt = comthsyshistService.selectComthsyshistListTotCnt(searchVO);

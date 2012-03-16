@@ -6,22 +6,22 @@ package kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnemplyrscrtyestbsVO extends ComtnemplyrscrtyestbsDefaultVO{
+public class ComtnemplyrscrtyestbsVO extends ComtnemplyrscrtyestbsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SCRTY_DTRMN_TRGET_ID */
     private String scrtyDtrmnTrgetId;
     
-    /**  */
+    /** MBER_TY_CODE */
     private String mberTyCode;
     
-    /**  */
+    /** AUTHOR_CODE */
     private String authorCode;
     
     public String getScrtyDtrmnTrgetId() {

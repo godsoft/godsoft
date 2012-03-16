@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.ComtnannvrsrymanageVO;
 
 /**
  * @Class Name : ComtnannvrsrymanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnannvrsrymanage.service.Comtnann
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnannvrsrymanageController {
 	
     /**
 	 * comtnannvrsrymanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnannvrsrymanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnannvrsrymanageVO
 	 * @return "/comtnannvrsrymanage/ComtnannvrsrymanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnannvrsrymanage/ComtnannvrsrymanageList.do")
-    public String selectComtnannvrsrymanageList(@ModelAttribute("searchVO") ComtnannvrsrymanageDefaultVO searchVO, 
+    public String selectComtnannvrsrymanageList(@ModelAttribute("searchVO") ComtnannvrsrymanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnannvrsrymanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnannvrsrymanageList = comtnannvrsrymanageService.selectComtnannvrsrymanageList(searchVO);
+        List<EgovMap> comtnannvrsrymanageList = comtnannvrsrymanageService.selectComtnannvrsrymanageList(searchVO);
         model.addAttribute("resultList", comtnannvrsrymanageList);
         
         int totCnt = comtnannvrsrymanageService.selectComtnannvrsrymanageListTotCnt(searchVO);

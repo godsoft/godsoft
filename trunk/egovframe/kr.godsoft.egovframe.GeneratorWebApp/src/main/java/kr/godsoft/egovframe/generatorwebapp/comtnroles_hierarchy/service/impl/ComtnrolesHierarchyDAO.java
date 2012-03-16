@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyDefaultVO;
 
 /**
  * @Class Name : ComtnrolesHierarchyDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.Comtnro
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnrolesHierarchyDAO extends EgovAbstractDAO {
 	 * @return comtnroles_hierarchy 목록
 	 * @exception Exception
 	 */
-    public List selectComtnrolesHierarchyList(ComtnrolesHierarchyDefaultVO searchVO) throws Exception {
-        return list("comtnrolesHierarchyDAO.selectComtnrolesHierarchyList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnrolesHierarchyList(ComtnrolesHierarchyVO vo) throws Exception {
+        return list("comtnrolesHierarchyDAO.selectComtnrolesHierarchyList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnrolesHierarchyDAO extends EgovAbstractDAO {
 	 * @return comtnroles_hierarchy 총 갯수
 	 * @exception
 	 */
-    public int selectComtnrolesHierarchyListTotCnt(ComtnrolesHierarchyDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt_S", searchVO);
+    public int selectComtnrolesHierarchyListTotCnt(ComtnrolesHierarchyVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt_S", vo);
     }
 
 }

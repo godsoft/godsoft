@@ -6,70 +6,70 @@ package kr.godsoft.egovframe.generatorwebapp.comtnctsnnmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnctsnnmanageVO extends ComtnctsnnmanageDefaultVO{
+public class ComtnctsnnmanageVO extends ComtnctsnnmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CTSNN_ID */
     private String ctsnnId;
     
-    /**  */
+    /** USER_ID */
     private String userId;
     
-    /**  */
+    /** CTSNN_CODE */
     private String ctsnnCode;
     
-    /**  */
+    /** REQST_DE */
     private String reqstDe;
     
-    /**  */
+    /** CTSNN_NM */
     private String ctsnnNm;
     
-    /**  */
+    /** TRGTER_NM */
     private String trgterNm;
     
-    /**  */
+    /** BRTHDY */
     private String brthdy;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** RELATE */
     private String relate;
     
-    /**  */
+    /** RM */
     private String rm;
     
-    /**  */
+    /** SANCTNER_ID */
     private String sanctnerId;
     
-    /**  */
+    /** CONFM_AT */
     private String confmAt;
     
-    /**  */
+    /** SANCTN_DT */
     private String sanctnDt;
     
-    /**  */
+    /** RETURN_RESN */
     private String returnResn;
     
-    /**  */
+    /** INFRML_SANCTN_ID */
     private String infrmlSanctnId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getCtsnnId() {

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonService;
+import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonService;
-import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.impl.ComtnhttpmonDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnhttpmonServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.impl.Comtnhttpm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnhttpmonServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnhttpmon 목록
 	 * @exception Exception
 	 */
-    public List selectComtnhttpmonList(ComtnhttpmonDefaultVO searchVO) throws Exception {
-        return comtnhttpmonDAO.selectComtnhttpmonList(searchVO);
+    public List<EgovMap> selectComtnhttpmonList(ComtnhttpmonVO vo) throws Exception {
+        return comtnhttpmonDAO.selectComtnhttpmonList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnhttpmonServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnhttpmon 총 갯수
 	 * @exception
 	 */
-    public int selectComtnhttpmonListTotCnt(ComtnhttpmonDefaultVO searchVO) {
-		return comtnhttpmonDAO.selectComtnhttpmonListTotCnt(searchVO);
+    public int selectComtnhttpmonListTotCnt(ComtnhttpmonVO vo) {
+		return comtnhttpmonDAO.selectComtnhttpmonListTotCnt(vo);
 	}
     
 }

@@ -4,156 +4,157 @@
 <sqlMap namespace="Comtnextrlhrinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnextrlhrinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoDefaultVO"/>
+	<typeAlias  alias="ComtnextrlhrinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoVO"/>
 	
 	<resultMap id="comtnextrlhrinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoVO">
-		<result property="eventId" column="EVENT_ID" columnIndex="1"/> <!--  -->
-		<result property="extrlHrId" column="EXTRL_HR_ID" columnIndex="2"/> <!--  -->
-		<result property="sexdstnCode" column="SEXDSTN_CODE" columnIndex="3"/> <!--  -->
-		<result property="extrlHrNm" column="EXTRL_HR_NM" columnIndex="4"/> <!--  -->
-		<result property="occpTyCode" column="OCCP_TY_CODE" columnIndex="5"/> <!--  -->
-		<result property="psitnInsttNm" column="PSITN_INSTT_NM" columnIndex="6"/> <!--  -->
-		<result property="brthdy" column="BRTHDY" columnIndex="7"/> <!--  -->
-		<result property="areaNo" column="AREA_NO" columnIndex="8"/> <!--  -->
-		<result property="middleTelno" column="MIDDLE_TELNO" columnIndex="9"/> <!--  -->
-		<result property="endTelno" column="END_TELNO" columnIndex="10"/> <!--  -->
-		<result property="emailAdres" column="EMAIL_ADRES" columnIndex="11"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="12"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="13"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="14"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="15"/> <!--  -->
+		<result property="eventId" column="event_id" columnIndex="1"/>
+		<result property="extrlHrId" column="extrl_hr_id" columnIndex="2"/>
+		<result property="sexdstnCode" column="sexdstn_code" columnIndex="3"/>
+		<result property="extrlHrNm" column="extrl_hr_nm" columnIndex="4"/>
+		<result property="occpTyCode" column="occp_ty_code" columnIndex="5"/>
+		<result property="psitnInsttNm" column="psitn_instt_nm" columnIndex="6"/>
+		<result property="brthdy" column="brthdy" columnIndex="7"/>
+		<result property="areaNo" column="area_no" columnIndex="8"/>
+		<result property="middleTelno" column="middle_telno" columnIndex="9"/>
+		<result property="endTelno" column="end_telno" columnIndex="10"/>
+		<result property="emailAdres" column="email_adres" columnIndex="11"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="12"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="13"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="14"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="15"/>
 	</resultMap>
 	
 	<insert id="comtnextrlhrinfoDAO.insertComtnextrlhrinfo_S">
 		<![CDATA[
 			INSERT INTO comtnextrlhrinfo 
-				( EVENT_ID /*  */
-				  , EXTRL_HR_ID /*  */
-				  , SEXDSTN_CODE /*  */
-				  , EXTRL_HR_NM /*  */
-				  , OCCP_TY_CODE /*  */
-				  , PSITN_INSTT_NM /*  */
-				  , BRTHDY /*  */
-				  , AREA_NO /*  */
-				  , MIDDLE_TELNO /*  */
-				  , END_TELNO /*  */
-				  , EMAIL_ADRES /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #eventId# /*  */
-					  , #extrlHrId# /*  */
-						  , #sexdstnCode# /*  */
-						  , #extrlHrNm# /*  */
-						  , #occpTyCode# /*  */
-						  , #psitnInsttNm# /*  */
-						  , #brthdy# /*  */
-						  , #areaNo# /*  */
-						  , #middleTelno# /*  */
-						  , #endTelno# /*  */
-						  , #emailAdres# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-					  , #lastUpdusrId# /*  */ )
+				( EVENT_ID
+				  , extrl_hr_id
+				  , sexdstn_code
+				  , extrl_hr_nm
+				  , occp_ty_code
+				  , psitn_instt_nm
+				  , brthdy
+				  , area_no
+				  , middle_telno
+				  , end_telno
+				  , email_adres
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #eventId#
+				  , #extrlHrId#
+				  , #sexdstnCode#
+				  , #extrlHrNm#
+				  , #occpTyCode#
+				  , #psitnInsttNm#
+				  , #brthdy#
+				  , #areaNo#
+				  , #middleTelno#
+				  , #endTelno#
+				  , #emailAdres#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtnextrlhrinfoDAO.updateComtnextrlhrinfo_S">
 		<![CDATA[
 			UPDATE comtnextrlhrinfo
-			SET EVENT_ID=#eventId# /*  */
-				, EXTRL_HR_ID=#extrlHrId# /*  */
-				, SEXDSTN_CODE=#sexdstnCode# /*  */
-				, EXTRL_HR_NM=#extrlHrNm# /*  */
-				, OCCP_TY_CODE=#occpTyCode# /*  */
-				, PSITN_INSTT_NM=#psitnInsttNm# /*  */
-				, BRTHDY=#brthdy# /*  */
-				, AREA_NO=#areaNo# /*  */
-				, MIDDLE_TELNO=#middleTelno# /*  */
-				, END_TELNO=#endTelno# /*  */
-				, EMAIL_ADRES=#emailAdres# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE EVENT_ID=#eventId# /*  */
-				AND EXTRL_HR_ID=#extrlHrId# /*  */
+			SET event_id = #eventId#
+				, extrl_hr_id = #extrlHrId#
+				, sexdstn_code = #sexdstnCode#
+				, extrl_hr_nm = #extrlHrNm#
+				, occp_ty_code = #occpTyCode#
+				, psitn_instt_nm = #psitnInsttNm#
+				, brthdy = #brthdy#
+				, area_no = #areaNo#
+				, middle_telno = #middleTelno#
+				, end_telno = #endTelno#
+				, email_adres = #emailAdres#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE event_id = #eventId#
+				AND extrl_hr_id = #extrlHrId#
 		]]>
 	</update>
 	
 	<delete id="comtnextrlhrinfoDAO.deleteComtnextrlhrinfo_S">
 		<![CDATA[
 			DELETE FROM comtnextrlhrinfo 
-			WHERE EVENT_ID=#eventId# /*  */
-				AND EXTRL_HR_ID=#extrlHrId# /*  */
+			WHERE event_id = #eventId#
+				AND extrl_hr_id = #extrlHrId#
 		]]>
 	</delete>
 	
 	<select id="comtnextrlhrinfoDAO.selectComtnextrlhrinfo_S" resultMap="comtnextrlhrinfo">
 		<![CDATA[
 			SELECT
-				EVENT_ID /*  */
-				, EXTRL_HR_ID /*  */
-				, SEXDSTN_CODE /*  */
-				, EXTRL_HR_NM /*  */
-				, OCCP_TY_CODE /*  */
-				, PSITN_INSTT_NM /*  */
-				, BRTHDY /*  */
-				, AREA_NO /*  */
-				, MIDDLE_TELNO /*  */
-				, END_TELNO /*  */
-				, EMAIL_ADRES /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
+				event_id
+				, extrl_hr_id
+				, sexdstn_code
+				, extrl_hr_nm
+				, occp_ty_code
+				, psitn_instt_nm
+				, brthdy
+				, area_no
+				, middle_telno
+				, end_telno
+				, email_adres
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtnextrlhrinfo
-			WHERE EVENT_ID=#eventId# /*  */
-				AND EXTRL_HR_ID=#extrlHrId# /*  */
+			WHERE event_id = #eventId#
+				AND extrl_hr_id = #extrlHrId#
 		]]>
 	</select>
 	
-	<select id="comtnextrlhrinfoDAO.selectComtnextrlhrinfoList_D" parameterClass="comtnextrlhrinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnextrlhrinfoDAO.selectComtnextrlhrinfoList_D" parameterClass="ComtnextrlhrinfoVO" resultClass="egovMap">
 			SELECT
-								EVENT_ID /*  */
-								, EXTRL_HR_ID /*  */
-								, SEXDSTN_CODE /*  */
-								, EXTRL_HR_NM /*  */
-								, OCCP_TY_CODE /*  */
-								, PSITN_INSTT_NM /*  */
-								, BRTHDY /*  */
-								, AREA_NO /*  */
-								, MIDDLE_TELNO /*  */
-								, END_TELNO /*  */
-								, EMAIL_ADRES /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
+								event_id
+								, extrl_hr_id
+								, sexdstn_code
+								, extrl_hr_nm
+								, occp_ty_code
+								, psitn_instt_nm
+								, brthdy
+								, area_no
+								, middle_telno
+								, end_telno
+								, email_adres
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtnextrlhrinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				EVENT_ID = #searchKeyword# /*  */
+				event_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				EXTRL_HR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				extrl_hr_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							EVENT_ID DESC /*  */
-							, EXTRL_HR_ID DESC /*  */
+							event_id DESC
+							, extrl_hr_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnextrlhrinfoDAO.selectComtnextrlhrinfoListTotCnt_S" parameterClass="comtnextrlhrinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnextrlhrinfoDAO.selectComtnextrlhrinfoListTotCnt_S" parameterClass="ComtnextrlhrinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnextrlhrinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				EVENT_ID = #searchKeyword# /*  */
+				event_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				EXTRL_HR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				extrl_hr_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

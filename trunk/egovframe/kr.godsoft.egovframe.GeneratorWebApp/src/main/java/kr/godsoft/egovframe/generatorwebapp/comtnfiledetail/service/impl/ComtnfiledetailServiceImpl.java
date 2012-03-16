@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.impl.ComtnfiledetailDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnfiledetailServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.impl.Comtnfi
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnfiledetailServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnfiledetail 목록
 	 * @exception Exception
 	 */
-    public List selectComtnfiledetailList(ComtnfiledetailDefaultVO searchVO) throws Exception {
-        return comtnfiledetailDAO.selectComtnfiledetailList(searchVO);
+    public List<EgovMap> selectComtnfiledetailList(ComtnfiledetailVO vo) throws Exception {
+        return comtnfiledetailDAO.selectComtnfiledetailList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnfiledetailServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnfiledetail 총 갯수
 	 * @exception
 	 */
-    public int selectComtnfiledetailListTotCnt(ComtnfiledetailDefaultVO searchVO) {
-		return comtnfiledetailDAO.selectComtnfiledetailListTotCnt(searchVO);
+    public int selectComtnfiledetailListTotCnt(ComtnfiledetailVO vo) {
+		return comtnfiledetailDAO.selectComtnfiledetailListTotCnt(vo);
 	}
     
 }

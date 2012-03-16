@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngVO;
 
 /**
  * @Class Name : ComtnfilesysmntrngController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.Comtnfile
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnfilesysmntrngController {
 	
     /**
 	 * comtnfilesysmntrng 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnfilesysmntrngDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return "/comtnfilesysmntrng/ComtnfilesysmntrngList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnfilesysmntrng/ComtnfilesysmntrngList.do")
-    public String selectComtnfilesysmntrngList(@ModelAttribute("searchVO") ComtnfilesysmntrngDefaultVO searchVO, 
+    public String selectComtnfilesysmntrngList(@ModelAttribute("searchVO") ComtnfilesysmntrngVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnfilesysmntrngController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnfilesysmntrngList = comtnfilesysmntrngService.selectComtnfilesysmntrngList(searchVO);
+        List<EgovMap> comtnfilesysmntrngList = comtnfilesysmntrngService.selectComtnfilesysmntrngList(searchVO);
         model.addAttribute("resultList", comtnfilesysmntrngList);
         
         int totCnt = comtnfilesysmntrngService.selectComtnfilesysmntrngListTotCnt(searchVO);

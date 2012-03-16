@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryVO;
-import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryDefaultVO;
 
 /**
  * @Class Name : ComthconfmhistoryDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.Comthconfm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
 	 * @return comthconfmhistory 목록
 	 * @exception Exception
 	 */
-    public List selectComthconfmhistoryList(ComthconfmhistoryDefaultVO searchVO) throws Exception {
-        return list("comthconfmhistoryDAO.selectComthconfmhistoryList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComthconfmhistoryList(ComthconfmhistoryVO vo) throws Exception {
+        return list("comthconfmhistoryDAO.selectComthconfmhistoryList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
 	 * @return comthconfmhistory 총 갯수
 	 * @exception
 	 */
-    public int selectComthconfmhistoryListTotCnt(ComthconfmhistoryDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt_S", searchVO);
+    public int selectComthconfmhistoryListTotCnt(ComthconfmhistoryVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt_S", vo);
     }
 
 }

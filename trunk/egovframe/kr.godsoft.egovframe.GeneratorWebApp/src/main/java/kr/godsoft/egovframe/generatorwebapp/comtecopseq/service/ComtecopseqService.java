@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtecopseq.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtecopseqService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtecopseqService {
 	 * @return comtecopseq 목록
 	 * @exception Exception
 	 */
-    List selectComtecopseqList(ComtecopseqDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtecopseqList(ComtecopseqVO vo) throws Exception;
     
     /**
 	 * comtecopseq 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtecopseqService {
 	 * @return comtecopseq 총 갯수
 	 * @exception
 	 */
-    int selectComtecopseqListTotCnt(ComtecopseqDefaultVO searchVO);
+    int selectComtecopseqListTotCnt(ComtecopseqVO vo);
     
 }

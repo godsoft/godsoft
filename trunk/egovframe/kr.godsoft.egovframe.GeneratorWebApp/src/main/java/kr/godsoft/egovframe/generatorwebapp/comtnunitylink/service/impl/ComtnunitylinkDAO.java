@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkDefaultVO;
 
 /**
  * @Class Name : ComtnunitylinkDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.Comtnunitylin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
 	 * @return comtnunitylink 목록
 	 * @exception Exception
 	 */
-    public List selectComtnunitylinkList(ComtnunitylinkDefaultVO searchVO) throws Exception {
-        return list("comtnunitylinkDAO.selectComtnunitylinkList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnunitylinkList(ComtnunitylinkVO vo) throws Exception {
+        return list("comtnunitylinkDAO.selectComtnunitylinkList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
 	 * @return comtnunitylink 총 갯수
 	 * @exception
 	 */
-    public int selectComtnunitylinkListTotCnt(ComtnunitylinkDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnunitylinkDAO.selectComtnunitylinkListTotCnt_S", searchVO);
+    public int selectComtnunitylinkListTotCnt(ComtnunitylinkVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnunitylinkDAO.selectComtnunitylinkListTotCnt_S", vo);
     }
 
 }

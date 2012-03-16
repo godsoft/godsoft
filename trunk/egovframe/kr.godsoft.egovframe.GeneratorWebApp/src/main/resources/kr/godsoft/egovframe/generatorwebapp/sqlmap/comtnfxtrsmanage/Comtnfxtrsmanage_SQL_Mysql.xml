@@ -4,86 +4,87 @@
 <sqlMap namespace="Comtnfxtrsmanage">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnfxtrsmanageSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageDefaultVO"/>
+	<typeAlias  alias="ComtnfxtrsmanageVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO"/>
 	
 	<resultMap id="comtnfxtrsmanage" class="kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service.ComtnfxtrsmanageVO">
-		<result property="fxtrsCode" column="FXTRS_CODE" columnIndex="1"/> <!--  -->
-		<result property="fxtrsNm" column="FXTRS_NM" columnIndex="2"/> <!--  -->
-		<result property="makrNm" column="MAKR_NM" columnIndex="3"/> <!--  -->
-		<result property="price" column="PRICE" columnIndex="4"/> <!--  -->
+		<result property="fxtrsCode" column="fxtrs_code" columnIndex="1"/>
+		<result property="fxtrsNm" column="fxtrs_nm" columnIndex="2"/>
+		<result property="makrNm" column="makr_nm" columnIndex="3"/>
+		<result property="price" column="price" columnIndex="4"/>
 	</resultMap>
 	
 	<insert id="comtnfxtrsmanageDAO.insertComtnfxtrsmanage_S">
 		<![CDATA[
 			INSERT INTO comtnfxtrsmanage 
-				( FXTRS_CODE /*  */
-				  , FXTRS_NM /*  */
-				  , MAKR_NM /*  */
-				  , PRICE /*  */ )
-			VALUES ( #fxtrsCode# /*  */
-					  , #fxtrsNm# /*  */
-						  , #makrNm# /*  */
-					  , #price# /*  */ )
+				( FXTRS_CODE
+				  , fxtrs_nm
+				  , makr_nm
+				  , price )
+			VALUES ( #fxtrsCode#
+				  , #fxtrsNm#
+				  , #makrNm#
+				  , #price# )
 		]]>
 	</insert>
 	
 	<update id="comtnfxtrsmanageDAO.updateComtnfxtrsmanage_S">
 		<![CDATA[
 			UPDATE comtnfxtrsmanage
-			SET FXTRS_CODE=#fxtrsCode# /*  */
-				, FXTRS_NM=#fxtrsNm# /*  */
-				, MAKR_NM=#makrNm# /*  */
-				, PRICE=#price# /*  */
-			WHERE FXTRS_CODE=#fxtrsCode# /*  */
+			SET fxtrs_code = #fxtrsCode#
+				, fxtrs_nm = #fxtrsNm#
+				, makr_nm = #makrNm#
+				, price = #price#
+			WHERE fxtrs_code = #fxtrsCode#
 		]]>
 	</update>
 	
 	<delete id="comtnfxtrsmanageDAO.deleteComtnfxtrsmanage_S">
 		<![CDATA[
 			DELETE FROM comtnfxtrsmanage 
-			WHERE FXTRS_CODE=#fxtrsCode# /*  */
+			WHERE fxtrs_code = #fxtrsCode#
 		]]>
 	</delete>
 	
 	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanage_S" resultMap="comtnfxtrsmanage">
 		<![CDATA[
 			SELECT
-				FXTRS_CODE /*  */
-				, FXTRS_NM /*  */
-				, MAKR_NM /*  */
-				, PRICE /*  */
+				fxtrs_code
+				, fxtrs_nm
+				, makr_nm
+				, price
 			FROM comtnfxtrsmanage
-			WHERE FXTRS_CODE=#fxtrsCode# /*  */
+			WHERE fxtrs_code = #fxtrsCode#
 		]]>
 	</select>
 	
-	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanageList_D" parameterClass="comtnfxtrsmanageSerarchVO" resultClass="egovMap">
+	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanageList_D" parameterClass="ComtnfxtrsmanageVO" resultClass="egovMap">
 			SELECT
-								FXTRS_CODE /*  */
-								, FXTRS_NM /*  */
-								, MAKR_NM /*  */
-								, PRICE /*  */
+								fxtrs_code
+								, fxtrs_nm
+								, makr_nm
+								, price
 					FROM comtnfxtrsmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				FXTRS_CODE = #searchKeyword# /*  */
+				fxtrs_code = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				FXTRS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				fxtrs_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							FXTRS_CODE DESC /*  */
+							fxtrs_code DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanageListTotCnt_S" parameterClass="comtnfxtrsmanageSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnfxtrsmanageDAO.selectComtnfxtrsmanageListTotCnt_S" parameterClass="ComtnfxtrsmanageVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnfxtrsmanage
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				FXTRS_CODE = #searchKeyword# /*  */
+				fxtrs_code = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				FXTRS_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				fxtrs_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

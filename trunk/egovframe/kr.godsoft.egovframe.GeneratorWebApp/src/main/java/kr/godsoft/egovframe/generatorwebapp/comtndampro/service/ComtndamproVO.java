@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtndampro.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndamproVO extends ComtndamproDefaultVO{
+public class ComtndamproVO extends ComtndamproDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EXPERT_ID */
     private String expertId;
     
-    /**  */
+    /** KNWLDG_TY_CODE */
     private String knwldgTyCode;
     
-    /**  */
+    /** EXPERT_GRAD */
     private String expertGrad;
     
-    /**  */
+    /** EXPERT_CONFM_DE */
     private String expertConfmDe;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** EXPERT_DC */
     private String expertDc;
     
     public String getExpertId() {

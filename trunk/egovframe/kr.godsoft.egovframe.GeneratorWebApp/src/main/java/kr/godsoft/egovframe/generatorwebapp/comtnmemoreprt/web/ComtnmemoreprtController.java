@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.ComtnmemoreprtVO;
 
 /**
  * @Class Name : ComtnmemoreprtController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmemoreprt.service.Comtnmemorepr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnmemoreprtController {
 	
     /**
 	 * comtnmemoreprt 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmemoreprtDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmemoreprtVO
 	 * @return "/comtnmemoreprt/ComtnmemoreprtList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmemoreprt/ComtnmemoreprtList.do")
-    public String selectComtnmemoreprtList(@ModelAttribute("searchVO") ComtnmemoreprtDefaultVO searchVO, 
+    public String selectComtnmemoreprtList(@ModelAttribute("searchVO") ComtnmemoreprtVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnmemoreprtController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmemoreprtList = comtnmemoreprtService.selectComtnmemoreprtList(searchVO);
+        List<EgovMap> comtnmemoreprtList = comtnmemoreprtService.selectComtnmemoreprtList(searchVO);
         model.addAttribute("resultList", comtnmemoreprtList);
         
         int totCnt = comtnmemoreprtService.selectComtnmemoreprtListTotCnt(searchVO);

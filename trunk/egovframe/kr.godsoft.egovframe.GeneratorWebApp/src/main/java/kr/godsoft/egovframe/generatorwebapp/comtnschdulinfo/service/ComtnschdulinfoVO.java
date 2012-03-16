@@ -6,64 +6,64 @@ package kr.godsoft.egovframe.generatorwebapp.comtnschdulinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnschdulinfoVO extends ComtnschdulinfoDefaultVO{
+public class ComtnschdulinfoVO extends ComtnschdulinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SCHDUL_ID */
     private String schdulId;
     
-    /**  */
+    /** SCHDUL_SE */
     private String schdulSe;
     
-    /**  */
+    /** SCHDUL_DEPT_ID */
     private String schdulDeptId;
     
-    /**  */
+    /** SCHDUL_KND_CODE */
     private String schdulKndCode;
     
-    /**  */
+    /** SCHDUL_BGNDE */
     private String schdulBgnde;
     
-    /**  */
+    /** SCHDUL_ENDDE */
     private String schdulEndde;
     
-    /**  */
+    /** SCHDUL_NM */
     private String schdulNm;
     
-    /**  */
+    /** SCHDUL_CN */
     private String schdulCn;
     
-    /**  */
+    /** SCHDUL_PLACE */
     private String schdulPlace;
     
-    /**  */
+    /** SCHDUL_IPCR_CODE */
     private String schdulIpcrCode;
     
-    /**  */
+    /** SCHDUL_CHARGER_ID */
     private String schdulChargerId;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** REPTIT_SE_CODE */
     private String reptitSeCode;
     
     public String getSchdulId() {

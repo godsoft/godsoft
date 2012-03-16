@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtncntcmessage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessage.service.ComtncntcmessageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntcmessage.service.ComtncntcmessageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtncntcmessageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcmessage.service.Comtncntcme
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtncntcmessageService {
 	 * @return comtncntcmessage 목록
 	 * @exception Exception
 	 */
-    List selectComtncntcmessageList(ComtncntcmessageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtncntcmessageList(ComtncntcmessageVO vo) throws Exception;
     
     /**
 	 * comtncntcmessage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtncntcmessageService {
 	 * @return comtncntcmessage 총 갯수
 	 * @exception
 	 */
-    int selectComtncntcmessageListTotCnt(ComtncntcmessageDefaultVO searchVO);
+    int selectComtncntcmessageListTotCnt(ComtncntcmessageVO vo);
     
 }

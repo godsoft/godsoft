@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtsbbssummaryVO extends ComtsbbssummaryDefaultVO{
+public class ComtsbbssummaryVO extends ComtsbbssummaryDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** STATS_SE */
     private String statsSe;
     
-    /**  */
+    /** DETAIL_STATS_SE */
     private String detailStatsSe;
     
-    /**  */
+    /** CREAT_CO */
     private int creatCo;
     
-    /**  */
+    /** TOT_RDCNT */
     private int totRdcnt;
     
-    /**  */
+    /** AVRG_RDCNT */
     private int avrgRdcnt;
     
-    /**  */
+    /** TOP_INQIRE_BBSCTT_ID */
     private String topInqireBbscttId;
     
-    /**  */
+    /** MUMM_INQIRE_BBSCTT_ID */
     private String mummInqireBbscttId;
     
-    /**  */
+    /** TOP_NTCR_ID */
     private String topNtcrId;
     
     public String getOccrrncDe() {

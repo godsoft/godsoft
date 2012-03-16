@@ -6,52 +6,52 @@ package kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnproxyinfoVO extends ComtnproxyinfoDefaultVO{
+public class ComtnproxyinfoVO extends ComtnproxyinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** PROXY_ID */
     private String proxyId;
     
-    /**  */
+    /** PROXY_NM */
     private String proxyNm;
     
-    /**  */
+    /** PROXY_IP */
     private String proxyIp;
     
-    /**  */
+    /** PROXY_PORT */
     private String proxyPort;
     
-    /**  */
+    /** TRGET_SVC_NM */
     private String trgetSvcNm;
     
-    /**  */
+    /** SVC_DC */
     private String svcDc;
     
-    /**  */
+    /** SVC_IP */
     private String svcIp;
     
-    /**  */
+    /** SVC_PORT */
     private String svcPort;
     
-    /**  */
+    /** SVC_STTUS */
     private String svcSttus;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getProxyId() {

@@ -4,104 +4,105 @@
 <sqlMap namespace="Comtnroleinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnroleinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoDefaultVO"/>
+	<typeAlias  alias="ComtnroleinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoVO"/>
 	
 	<resultMap id="comtnroleinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoVO">
-		<result property="roleCode" column="ROLE_CODE" columnIndex="1"/> <!--  -->
-		<result property="roleNm" column="ROLE_NM" columnIndex="2"/> <!--  -->
-		<result property="rolePttrn" column="ROLE_PTTRN" columnIndex="3"/> <!--  -->
-		<result property="roleDc" column="ROLE_DC" columnIndex="4"/> <!--  -->
-		<result property="roleTy" column="ROLE_TY" columnIndex="5"/> <!--  -->
-		<result property="roleSort" column="ROLE_SORT" columnIndex="6"/> <!--  -->
-		<result property="roleCreatDe" column="ROLE_CREAT_DE" columnIndex="7"/> <!--  -->
+		<result property="roleCode" column="role_code" columnIndex="1"/>
+		<result property="roleNm" column="role_nm" columnIndex="2"/>
+		<result property="rolePttrn" column="role_pttrn" columnIndex="3"/>
+		<result property="roleDc" column="role_dc" columnIndex="4"/>
+		<result property="roleTy" column="role_ty" columnIndex="5"/>
+		<result property="roleSort" column="role_sort" columnIndex="6"/>
+		<result property="roleCreatDe" column="role_creat_de" columnIndex="7"/>
 	</resultMap>
 	
 	<insert id="comtnroleinfoDAO.insertComtnroleinfo_S">
 		<![CDATA[
 			INSERT INTO comtnroleinfo 
-				( ROLE_CODE /*  */
-				  , ROLE_NM /*  */
-				  , ROLE_PTTRN /*  */
-				  , ROLE_DC /*  */
-				  , ROLE_TY /*  */
-				  , ROLE_SORT /*  */
-				  , ROLE_CREAT_DE /*  */ )
-			VALUES ( #roleCode# /*  */
-					  , #roleNm# /*  */
-						  , #rolePttrn# /*  */
-						  , #roleDc# /*  */
-						  , #roleTy# /*  */
-						  , #roleSort# /*  */
-					  , #roleCreatDe# /*  */ )
+				( ROLE_CODE
+				  , role_nm
+				  , role_pttrn
+				  , role_dc
+				  , role_ty
+				  , role_sort
+				  , role_creat_de )
+			VALUES ( #roleCode#
+				  , #roleNm#
+				  , #rolePttrn#
+				  , #roleDc#
+				  , #roleTy#
+				  , #roleSort#
+				  , #roleCreatDe# )
 		]]>
 	</insert>
 	
 	<update id="comtnroleinfoDAO.updateComtnroleinfo_S">
 		<![CDATA[
 			UPDATE comtnroleinfo
-			SET ROLE_CODE=#roleCode# /*  */
-				, ROLE_NM=#roleNm# /*  */
-				, ROLE_PTTRN=#rolePttrn# /*  */
-				, ROLE_DC=#roleDc# /*  */
-				, ROLE_TY=#roleTy# /*  */
-				, ROLE_SORT=#roleSort# /*  */
-				, ROLE_CREAT_DE=#roleCreatDe# /*  */
-			WHERE ROLE_CODE=#roleCode# /*  */
+			SET role_code = #roleCode#
+				, role_nm = #roleNm#
+				, role_pttrn = #rolePttrn#
+				, role_dc = #roleDc#
+				, role_ty = #roleTy#
+				, role_sort = #roleSort#
+				, role_creat_de = #roleCreatDe#
+			WHERE role_code = #roleCode#
 		]]>
 	</update>
 	
 	<delete id="comtnroleinfoDAO.deleteComtnroleinfo_S">
 		<![CDATA[
 			DELETE FROM comtnroleinfo 
-			WHERE ROLE_CODE=#roleCode# /*  */
+			WHERE role_code = #roleCode#
 		]]>
 	</delete>
 	
 	<select id="comtnroleinfoDAO.selectComtnroleinfo_S" resultMap="comtnroleinfo">
 		<![CDATA[
 			SELECT
-				ROLE_CODE /*  */
-				, ROLE_NM /*  */
-				, ROLE_PTTRN /*  */
-				, ROLE_DC /*  */
-				, ROLE_TY /*  */
-				, ROLE_SORT /*  */
-				, ROLE_CREAT_DE /*  */
+				role_code
+				, role_nm
+				, role_pttrn
+				, role_dc
+				, role_ty
+				, role_sort
+				, role_creat_de
 			FROM comtnroleinfo
-			WHERE ROLE_CODE=#roleCode# /*  */
+			WHERE role_code = #roleCode#
 		]]>
 	</select>
 	
-	<select id="comtnroleinfoDAO.selectComtnroleinfoList_D" parameterClass="comtnroleinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnroleinfoDAO.selectComtnroleinfoList_D" parameterClass="ComtnroleinfoVO" resultClass="egovMap">
 			SELECT
-								ROLE_CODE /*  */
-								, ROLE_NM /*  */
-								, ROLE_PTTRN /*  */
-								, ROLE_DC /*  */
-								, ROLE_TY /*  */
-								, ROLE_SORT /*  */
-								, ROLE_CREAT_DE /*  */
+								role_code
+								, role_nm
+								, role_pttrn
+								, role_dc
+								, role_ty
+								, role_sort
+								, role_creat_de
 					FROM comtnroleinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ROLE_CODE = #searchKeyword# /*  */
+				role_code = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ROLE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				role_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							ROLE_CODE DESC /*  */
+							role_code DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnroleinfoDAO.selectComtnroleinfoListTotCnt_S" parameterClass="comtnroleinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnroleinfoDAO.selectComtnroleinfoListTotCnt_S" parameterClass="ComtnroleinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnroleinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				ROLE_CODE = #searchKeyword# /*  */
+				role_code = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				ROLE_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				role_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

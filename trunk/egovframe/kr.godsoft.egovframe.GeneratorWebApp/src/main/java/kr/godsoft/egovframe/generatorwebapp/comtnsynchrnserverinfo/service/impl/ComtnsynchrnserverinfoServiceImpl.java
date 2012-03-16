@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.ComtnsynchrnserverinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.impl.ComtnsynchrnserverinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnsynchrnserverinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsynchrnserverinfo.service.impl.
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnsynchrnserverinfoServiceImpl extends AbstractServiceImpl imple
 	 * @return comtnsynchrnserverinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnsynchrnserverinfoList(ComtnsynchrnserverinfoDefaultVO searchVO) throws Exception {
-        return comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfoList(searchVO);
+    public List<EgovMap> selectComtnsynchrnserverinfoList(ComtnsynchrnserverinfoVO vo) throws Exception {
+        return comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnsynchrnserverinfoServiceImpl extends AbstractServiceImpl imple
 	 * @return comtnsynchrnserverinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnsynchrnserverinfoListTotCnt(ComtnsynchrnserverinfoDefaultVO searchVO) {
-		return comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfoListTotCnt(searchVO);
+    public int selectComtnsynchrnserverinfoListTotCnt(ComtnsynchrnserverinfoVO vo) {
+		return comtnsynchrnserverinfoDAO.selectComtnsynchrnserverinfoListTotCnt(vo);
 	}
     
 }

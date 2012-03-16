@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnfiledetailService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.Comtnfiledet
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnfiledetailService {
 	 * @return comtnfiledetail 목록
 	 * @exception Exception
 	 */
-    List selectComtnfiledetailList(ComtnfiledetailDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnfiledetailList(ComtnfiledetailVO vo) throws Exception;
     
     /**
 	 * comtnfiledetail 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnfiledetailService {
 	 * @return comtnfiledetail 총 갯수
 	 * @exception
 	 */
-    int selectComtnfiledetailListTotCnt(ComtnfiledetailDefaultVO searchVO);
+    int selectComtnfiledetailListTotCnt(ComtnfiledetailVO vo);
     
 }

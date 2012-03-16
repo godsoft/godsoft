@@ -4,78 +4,79 @@
 <sqlMap namespace="Comtnbackupschduldfk">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnbackupschduldfkSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkDefaultVO"/>
+	<typeAlias  alias="ComtnbackupschduldfkVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO"/>
 	
 	<resultMap id="comtnbackupschduldfk" class="kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO">
-		<result property="backupOpertId" column="BACKUP_OPERT_ID" columnIndex="1"/> <!--  -->
-		<result property="executSchdulDfkSe" column="EXECUT_SCHDUL_DFK_SE" columnIndex="2"/> <!--  -->
+		<result property="backupOpertId" column="backup_opert_id" columnIndex="1"/>
+		<result property="executSchdulDfkSe" column="execut_schdul_dfk_se" columnIndex="2"/>
 	</resultMap>
 	
 	<insert id="comtnbackupschduldfkDAO.insertComtnbackupschduldfk_S">
 		<![CDATA[
 			INSERT INTO comtnbackupschduldfk 
-				( BACKUP_OPERT_ID /*  */
-				  , EXECUT_SCHDUL_DFK_SE /*  */ )
-			VALUES ( #backupOpertId# /*  */
-				  , #executSchdulDfkSe# /*  */ )
+				( BACKUP_OPERT_ID
+				  , execut_schdul_dfk_se )
+			VALUES ( #backupOpertId#
+				  , #executSchdulDfkSe# )
 		]]>
 	</insert>
 	
 	<update id="comtnbackupschduldfkDAO.updateComtnbackupschduldfk_S">
 		<![CDATA[
 			UPDATE comtnbackupschduldfk
-			SET BACKUP_OPERT_ID=#backupOpertId# /*  */
-				, EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
-			WHERE BACKUP_OPERT_ID=#backupOpertId# /*  */
-				AND EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+			SET backup_opert_id = #backupOpertId#
+				, execut_schdul_dfk_se = #executSchdulDfkSe#
+			WHERE backup_opert_id = #backupOpertId#
+				AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</update>
 	
 	<delete id="comtnbackupschduldfkDAO.deleteComtnbackupschduldfk_S">
 		<![CDATA[
 			DELETE FROM comtnbackupschduldfk 
-			WHERE BACKUP_OPERT_ID=#backupOpertId# /*  */
-				AND EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+			WHERE backup_opert_id = #backupOpertId#
+				AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</delete>
 	
 	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfk_S" resultMap="comtnbackupschduldfk">
 		<![CDATA[
 			SELECT
-				BACKUP_OPERT_ID /*  */
-				, EXECUT_SCHDUL_DFK_SE /*  */
+				backup_opert_id
+				, execut_schdul_dfk_se
 			FROM comtnbackupschduldfk
-			WHERE BACKUP_OPERT_ID=#backupOpertId# /*  */
-				AND EXECUT_SCHDUL_DFK_SE=#executSchdulDfkSe# /*  */
+			WHERE backup_opert_id = #backupOpertId#
+				AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</select>
 	
-	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfkList_D" parameterClass="comtnbackupschduldfkSerarchVO" resultClass="egovMap">
+	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfkList_D" parameterClass="ComtnbackupschduldfkVO" resultClass="egovMap">
 			SELECT
-								BACKUP_OPERT_ID /*  */
-								, EXECUT_SCHDUL_DFK_SE /*  */
+								backup_opert_id
+								, execut_schdul_dfk_se
 					FROM comtnbackupschduldfk
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BACKUP_OPERT_ID = #searchKeyword# /*  */
+				backup_opert_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				EXECUT_SCHDUL_DFK_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				execut_schdul_dfk_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							BACKUP_OPERT_ID DESC /*  */
-							, EXECUT_SCHDUL_DFK_SE DESC /*  */
+							backup_opert_id DESC
+							, execut_schdul_dfk_se DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfkListTotCnt_S" parameterClass="comtnbackupschduldfkSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfkListTotCnt_S" parameterClass="ComtnbackupschduldfkVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnbackupschduldfk
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BACKUP_OPERT_ID = #searchKeyword# /*  */
+				backup_opert_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				EXECUT_SCHDUL_DFK_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				execut_schdul_dfk_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

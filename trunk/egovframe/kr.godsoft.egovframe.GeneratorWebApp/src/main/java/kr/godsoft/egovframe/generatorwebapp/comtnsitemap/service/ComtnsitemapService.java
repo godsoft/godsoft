@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnsitemapService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnsitemapService {
 	 * @return comtnsitemap 목록
 	 * @exception Exception
 	 */
-    List selectComtnsitemapList(ComtnsitemapDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnsitemapList(ComtnsitemapVO vo) throws Exception;
     
     /**
 	 * comtnsitemap 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnsitemapService {
 	 * @return comtnsitemap 총 갯수
 	 * @exception
 	 */
-    int selectComtnsitemapListTotCnt(ComtnsitemapDefaultVO searchVO);
+    int selectComtnsitemapListTotCnt(ComtnsitemapVO vo);
     
 }

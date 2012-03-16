@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.ComtnemplyrscrtyestbsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.impl.ComtnemplyrscrtyestbsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnemplyrscrtyestbsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnemplyrscrtyestbs.service.impl.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnemplyrscrtyestbsServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnemplyrscrtyestbs 목록
 	 * @exception Exception
 	 */
-    public List selectComtnemplyrscrtyestbsList(ComtnemplyrscrtyestbsDefaultVO searchVO) throws Exception {
-        return comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbsList(searchVO);
+    public List<EgovMap> selectComtnemplyrscrtyestbsList(ComtnemplyrscrtyestbsVO vo) throws Exception {
+        return comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbsList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnemplyrscrtyestbsServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnemplyrscrtyestbs 총 갯수
 	 * @exception
 	 */
-    public int selectComtnemplyrscrtyestbsListTotCnt(ComtnemplyrscrtyestbsDefaultVO searchVO) {
-		return comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbsListTotCnt(searchVO);
+    public int selectComtnemplyrscrtyestbsListTotCnt(ComtnemplyrscrtyestbsVO vo) {
+		return comtnemplyrscrtyestbsDAO.selectComtnemplyrscrtyestbsListTotCnt(vo);
 	}
     
 }

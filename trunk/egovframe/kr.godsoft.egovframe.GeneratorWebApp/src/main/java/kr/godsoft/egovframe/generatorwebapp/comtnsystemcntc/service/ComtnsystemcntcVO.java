@@ -6,61 +6,61 @@ package kr.godsoft.egovframe.generatorwebapp.comtnsystemcntc.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnsystemcntcVO extends ComtnsystemcntcDefaultVO{
+public class ComtnsystemcntcVO extends ComtnsystemcntcDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CNTC_ID */
     private String cntcId;
     
-    /**  */
+    /** CNTC_NM */
     private String cntcNm;
     
-    /**  */
+    /** PROVD_INSTT_ID */
     private String provdInsttId;
     
-    /**  */
+    /** PROVD_SYS_ID */
     private String provdSysId;
     
-    /**  */
+    /** PROVD_SVC_ID */
     private String provdSvcId;
     
-    /**  */
+    /** REQUST_INSTT_ID */
     private String requstInsttId;
     
-    /**  */
+    /** REQUST_SYS_ID */
     private String requstSysId;
     
-    /**  */
+    /** CONFM_AT */
     private String confmAt;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** VALID_BGNDE */
     private String validBgnde;
     
-    /**  */
+    /** VALID_ENDDE */
     private String validEndde;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** CNTC_TY */
     private String cntcTy;
     
     public String getCntcId() {

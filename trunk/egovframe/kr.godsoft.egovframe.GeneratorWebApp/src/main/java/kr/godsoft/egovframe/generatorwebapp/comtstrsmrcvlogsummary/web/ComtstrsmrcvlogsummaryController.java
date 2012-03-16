@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryVO;
 
 /**
  * @Class Name : ComtstrsmrcvlogsummaryController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.Comts
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtstrsmrcvlogsummaryController {
 	
     /**
 	 * comtstrsmrcvlogsummary 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtstrsmrcvlogsummaryDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtstrsmrcvlogsummaryVO
 	 * @return "/comtstrsmrcvlogsummary/ComtstrsmrcvlogsummaryList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtstrsmrcvlogsummary/ComtstrsmrcvlogsummaryList.do")
-    public String selectComtstrsmrcvlogsummaryList(@ModelAttribute("searchVO") ComtstrsmrcvlogsummaryDefaultVO searchVO, 
+    public String selectComtstrsmrcvlogsummaryList(@ModelAttribute("searchVO") ComtstrsmrcvlogsummaryVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtstrsmrcvlogsummaryController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtstrsmrcvlogsummaryList = comtstrsmrcvlogsummaryService.selectComtstrsmrcvlogsummaryList(searchVO);
+        List<EgovMap> comtstrsmrcvlogsummaryList = comtstrsmrcvlogsummaryService.selectComtstrsmrcvlogsummaryList(searchVO);
         model.addAttribute("resultList", comtstrsmrcvlogsummaryList);
         
         int totCnt = comtstrsmrcvlogsummaryService.selectComtstrsmrcvlogsummaryListTotCnt(searchVO);

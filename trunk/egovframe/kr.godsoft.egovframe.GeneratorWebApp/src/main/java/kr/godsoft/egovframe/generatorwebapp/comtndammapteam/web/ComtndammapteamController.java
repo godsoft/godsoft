@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamService;
+import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamService;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.ComtndammapteamVO;
 
 /**
  * @Class Name : ComtndammapteamController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.Comtndammapt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtndammapteamController {
 	
     /**
 	 * comtndammapteam 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtndammapteamDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtndammapteamVO
 	 * @return "/comtndammapteam/ComtndammapteamList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtndammapteam/ComtndammapteamList.do")
-    public String selectComtndammapteamList(@ModelAttribute("searchVO") ComtndammapteamDefaultVO searchVO, 
+    public String selectComtndammapteamList(@ModelAttribute("searchVO") ComtndammapteamVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtndammapteamController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtndammapteamList = comtndammapteamService.selectComtndammapteamList(searchVO);
+        List<EgovMap> comtndammapteamList = comtndammapteamService.selectComtndammapteamList(searchVO);
         model.addAttribute("resultList", comtndammapteamList);
         
         int totCnt = comtndammapteamService.selectComtndammapteamListTotCnt(searchVO);

@@ -6,61 +6,61 @@ package kr.godsoft.egovframe.generatorwebapp.comtnsyslog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnsyslogVO extends ComtnsyslogDefaultVO{
+public class ComtnsyslogVO extends ComtnsyslogDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** REQUST_ID */
     private String requstId;
     
-    /**  */
+    /** JOB_SE_CODE */
     private String jobSeCode;
     
-    /**  */
+    /** INSTT_CODE */
     private String insttCode;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** RQESTER_IP */
     private String rqesterIp;
     
-    /**  */
+    /** RQESTER_ID */
     private String rqesterId;
     
-    /**  */
+    /** TRGET_MENU_NM */
     private String trgetMenuNm;
     
-    /**  */
+    /** SVC_NM */
     private String svcNm;
     
-    /**  */
+    /** METHOD_NM */
     private String methodNm;
     
-    /**  */
+    /** PROCESS_SE_CODE */
     private String processSeCode;
     
-    /**  */
+    /** PROCESS_CO */
     private int processCo;
     
-    /**  */
+    /** PROCESS_TIME */
     private String processTime;
     
-    /**  */
+    /** RSPNS_CODE */
     private String rspnsCode;
     
-    /**  */
+    /** ERROR_SE */
     private String errorSe;
     
-    /**  */
+    /** ERROR_CO */
     private int errorCo;
     
-    /**  */
+    /** ERROR_CODE */
     private String errorCode;
     
     public String getRequstId() {

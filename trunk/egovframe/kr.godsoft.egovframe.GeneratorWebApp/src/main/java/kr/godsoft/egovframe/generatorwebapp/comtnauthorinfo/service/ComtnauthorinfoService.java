@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.ComtnauthorinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnauthorinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service.Comtnauthori
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnauthorinfoService {
 	 * @return comtnauthorinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnauthorinfoList(ComtnauthorinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnauthorinfoList(ComtnauthorinfoVO vo) throws Exception;
     
     /**
 	 * comtnauthorinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnauthorinfoService {
 	 * @return comtnauthorinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnauthorinfoListTotCnt(ComtnauthorinfoDefaultVO searchVO);
+    int selectComtnauthorinfoListTotCnt(ComtnauthorinfoVO vo);
     
 }

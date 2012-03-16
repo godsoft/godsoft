@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.ComtndeptjobbxVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtndeptjobbxService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service.Comtndeptjobb
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtndeptjobbxService {
 	 * @return comtndeptjobbx 목록
 	 * @exception Exception
 	 */
-    List selectComtndeptjobbxList(ComtndeptjobbxDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtndeptjobbxList(ComtndeptjobbxVO vo) throws Exception;
     
     /**
 	 * comtndeptjobbx 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtndeptjobbxService {
 	 * @return comtndeptjobbx 총 갯수
 	 * @exception
 	 */
-    int selectComtndeptjobbxListTotCnt(ComtndeptjobbxDefaultVO searchVO);
+    int selectComtndeptjobbxListTotCnt(ComtndeptjobbxVO vo);
     
 }

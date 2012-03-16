@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO;
 
 /**
  * @Class Name : ComtsusersummaryController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.Comtsusersu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtsusersummaryController {
 	
     /**
 	 * comtsusersummary 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtsusersummaryDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtsusersummaryVO
 	 * @return "/comtsusersummary/ComtsusersummaryList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtsusersummary/ComtsusersummaryList.do")
-    public String selectComtsusersummaryList(@ModelAttribute("searchVO") ComtsusersummaryDefaultVO searchVO, 
+    public String selectComtsusersummaryList(@ModelAttribute("searchVO") ComtsusersummaryVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtsusersummaryController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtsusersummaryList = comtsusersummaryService.selectComtsusersummaryList(searchVO);
+        List<EgovMap> comtsusersummaryList = comtsusersummaryService.selectComtsusersummaryList(searchVO);
         model.addAttribute("resultList", comtsusersummaryList);
         
         int totCnt = comtsusersummaryService.selectComtsusersummaryListTotCnt(searchVO);

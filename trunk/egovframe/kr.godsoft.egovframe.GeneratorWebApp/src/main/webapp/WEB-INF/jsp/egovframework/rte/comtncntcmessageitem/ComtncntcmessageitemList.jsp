@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> 목록</title>
+<title>목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -50,14 +50,14 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" method="post">
 	<input type="hidden" name="cntcMssageId" />
 	<input type="hidden" name="iemId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" />  목록</li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" /> List </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,22 +77,22 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
+								<th align="center">CntcMssageId</th>
+								<th align="center">IemId</th>
+								<th align="center">IemNm</th>
+								<th align="center">IemTy</th>
+								<th align="center">IemLt</th>
+								<th align="center">UseAt</th>
+								<th align="center">FrstRegisterId</th>
+								<th align="center">FrstRegistPnttm</th>
+								<th align="center">LastUpdusrId</th>
+								<th align="center">LastUpdtPnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																							
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.cntcMssageId}"/>', '<c:out value="${result.iemId}"/>')"><c:out value="${result.cntcMssageId}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.cntcMssageId}"/>', '<c:out value="${result.iemId}"/>')"><c:out value="${result.iemId}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.cntcMssageId}"/>, <c:out value="{D}{result.iemId}"/>')"><c:out value="${result.cntcMssageId}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.cntcMssageId}"/>, <c:out value="{D}{result.iemId}"/>')"><c:out value="${result.iemId}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.iemNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.iemTy}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.iemLt}"/>&nbsp;</td>

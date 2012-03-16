@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnmainimageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.Comtnmainimag
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnmainimageService {
 	 * @return comtnmainimage 목록
 	 * @exception Exception
 	 */
-    List selectComtnmainimageList(ComtnmainimageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnmainimageList(ComtnmainimageVO vo) throws Exception;
     
     /**
 	 * comtnmainimage 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnmainimageService {
 	 * @return comtnmainimage 총 갯수
 	 * @exception
 	 */
-    int selectComtnmainimageListTotCnt(ComtnmainimageDefaultVO searchVO);
+    int selectComtnmainimageListTotCnt(ComtnmainimageVO vo);
     
 }

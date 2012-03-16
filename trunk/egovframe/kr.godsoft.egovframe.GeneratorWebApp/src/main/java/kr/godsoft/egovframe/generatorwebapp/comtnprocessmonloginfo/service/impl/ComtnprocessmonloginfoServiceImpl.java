@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.impl.ComtnprocessmonloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnprocessmonloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.impl.
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
 	 * @return comtnprocessmonloginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnprocessmonloginfoList(ComtnprocessmonloginfoDefaultVO searchVO) throws Exception {
-        return comtnprocessmonloginfoDAO.selectComtnprocessmonloginfoList(searchVO);
+    public List<EgovMap> selectComtnprocessmonloginfoList(ComtnprocessmonloginfoVO vo) throws Exception {
+        return comtnprocessmonloginfoDAO.selectComtnprocessmonloginfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
 	 * @return comtnprocessmonloginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnprocessmonloginfoListTotCnt(ComtnprocessmonloginfoDefaultVO searchVO) {
-		return comtnprocessmonloginfoDAO.selectComtnprocessmonloginfoListTotCnt(searchVO);
+    public int selectComtnprocessmonloginfoListTotCnt(ComtnprocessmonloginfoVO vo) {
+		return comtnprocessmonloginfoDAO.selectComtnprocessmonloginfoListTotCnt(vo);
 	}
     
 }

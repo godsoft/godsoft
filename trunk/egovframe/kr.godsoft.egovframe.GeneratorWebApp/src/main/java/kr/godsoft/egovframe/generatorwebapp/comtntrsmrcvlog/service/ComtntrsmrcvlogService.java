@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.ComtntrsmrcvlogVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtntrsmrcvlogService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service.Comtntrsmrcv
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtntrsmrcvlogService {
 	 * @return comtntrsmrcvlog 목록
 	 * @exception Exception
 	 */
-    List selectComtntrsmrcvlogList(ComtntrsmrcvlogDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtntrsmrcvlogList(ComtntrsmrcvlogVO vo) throws Exception;
     
     /**
 	 * comtntrsmrcvlog 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtntrsmrcvlogService {
 	 * @return comtntrsmrcvlog 총 갯수
 	 * @exception
 	 */
-    int selectComtntrsmrcvlogListTotCnt(ComtntrsmrcvlogDefaultVO searchVO);
+    int selectComtntrsmrcvlogListTotCnt(ComtntrsmrcvlogVO vo);
     
 }

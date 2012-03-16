@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapService;
+import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapService;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.impl.ComtnscrapDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnscrapServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.impl.ComtnscrapDA
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnscrapServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnscrap 목록
 	 * @exception Exception
 	 */
-    public List selectComtnscrapList(ComtnscrapDefaultVO searchVO) throws Exception {
-        return comtnscrapDAO.selectComtnscrapList(searchVO);
+    public List<EgovMap> selectComtnscrapList(ComtnscrapVO vo) throws Exception {
+        return comtnscrapDAO.selectComtnscrapList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnscrapServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnscrap 총 갯수
 	 * @exception
 	 */
-    public int selectComtnscrapListTotCnt(ComtnscrapDefaultVO searchVO) {
-		return comtnscrapDAO.selectComtnscrapListTotCnt(searchVO);
+    public int selectComtnscrapListTotCnt(ComtnscrapVO vo) {
+		return comtnscrapDAO.selectComtnscrapListTotCnt(vo);
 	}
     
 }

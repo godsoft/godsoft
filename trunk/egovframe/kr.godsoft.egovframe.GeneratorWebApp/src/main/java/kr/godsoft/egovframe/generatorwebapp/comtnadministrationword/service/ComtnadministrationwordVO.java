@@ -6,52 +6,52 @@ package kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnadministrationwordVO extends ComtnadministrationwordDefaultVO{
+public class ComtnadministrationwordVO extends ComtnadministrationwordDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ADMINIST_WORD_ID */
     private String administWordId;
     
-    /**  */
+    /** ADMINIST_WORD_NM */
     private String administWordNm;
     
-    /**  */
+    /** ADMINIST_WORD_ENG_NM */
     private String administWordEngNm;
     
-    /**  */
+    /** ADMINIST_WORD_ABRV_NM */
     private String administWordAbrvNm;
     
-    /**  */
+    /** THEMA_RELM */
     private String themaRelm;
     
-    /**  */
+    /** WORD_SE */
     private String wordSe;
     
-    /**  */
+    /** RELATE_STD_WORD */
     private String relateStdWord;
     
-    /**  */
+    /** ADMINIST_WORD_DFN */
     private String administWordDfn;
     
-    /**  */
+    /** ADMINIST_WORD_DC */
     private String administWordDc;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getAdministWordId() {

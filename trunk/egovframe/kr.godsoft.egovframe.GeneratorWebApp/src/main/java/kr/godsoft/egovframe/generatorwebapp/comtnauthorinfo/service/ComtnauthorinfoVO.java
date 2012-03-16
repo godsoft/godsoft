@@ -6,25 +6,25 @@ package kr.godsoft.egovframe.generatorwebapp.comtnauthorinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnauthorinfoVO extends ComtnauthorinfoDefaultVO{
+public class ComtnauthorinfoVO extends ComtnauthorinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** AUTHOR_CODE */
     private String authorCode;
     
-    /**  */
+    /** AUTHOR_NM */
     private String authorNm;
     
-    /**  */
+    /** AUTHOR_DC */
     private String authorDc;
     
-    /**  */
+    /** AUTHOR_CREAT_DE */
     private String authorCreatDe;
     
     public String getAuthorCode() {

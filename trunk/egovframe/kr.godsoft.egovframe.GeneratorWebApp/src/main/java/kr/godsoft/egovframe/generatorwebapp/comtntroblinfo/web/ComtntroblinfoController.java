@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoVO;
 
 /**
  * @Class Name : ComtntroblinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.Comtntroblinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtntroblinfoController {
 	
     /**
 	 * comtntroblinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtntroblinfoDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtntroblinfoVO
 	 * @return "/comtntroblinfo/ComtntroblinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtntroblinfo/ComtntroblinfoList.do")
-    public String selectComtntroblinfoList(@ModelAttribute("searchVO") ComtntroblinfoDefaultVO searchVO, 
+    public String selectComtntroblinfoList(@ModelAttribute("searchVO") ComtntroblinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtntroblinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtntroblinfoList = comtntroblinfoService.selectComtntroblinfoList(searchVO);
+        List<EgovMap> comtntroblinfoList = comtntroblinfoService.selectComtntroblinfoList(searchVO);
         model.addAttribute("resultList", comtntroblinfoList);
         
         int totCnt = comtntroblinfoService.selectComtntroblinfoListTotCnt(searchVO);

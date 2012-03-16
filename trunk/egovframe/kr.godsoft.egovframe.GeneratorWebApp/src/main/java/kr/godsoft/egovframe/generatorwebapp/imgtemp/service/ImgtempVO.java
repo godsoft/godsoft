@@ -6,25 +6,25 @@ package kr.godsoft.egovframe.generatorwebapp.imgtemp.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ImgtempVO extends ImgtempDefaultVO{
+public class ImgtempVO extends ImgtempDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ORGNZT_CODE */
     private String orgnztCode;
     
-    /**  */
+    /** ERNCSL_SE */
     private String erncslSe;
     
-    /**  */
-    private int imageInfo;
+    /** IMAGE_INFO */
+    private String imageInfo;
     
-    /**  */
+    /** IMAGE_TY */
     private String imageTy;
     
     public String getOrgnztCode() {
@@ -43,11 +43,11 @@ public class ImgtempVO extends ImgtempDefaultVO{
         this.erncslSe = erncslSe;
     }
     
-    public int getImageInfo() {
+    public String getImageInfo() {
         return this.imageInfo;
     }
     
-    public void setImageInfo(int imageInfo) {
+    public void setImageInfo(String imageInfo) {
         this.imageInfo = imageInfo;
     }
     

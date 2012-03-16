@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberService;
+import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberService;
-import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.impl.ComtnentrprsmberDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnentrprsmberServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.impl.Comtne
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnentrprsmber 목록
 	 * @exception Exception
 	 */
-    public List selectComtnentrprsmberList(ComtnentrprsmberDefaultVO searchVO) throws Exception {
-        return comtnentrprsmberDAO.selectComtnentrprsmberList(searchVO);
+    public List<EgovMap> selectComtnentrprsmberList(ComtnentrprsmberVO vo) throws Exception {
+        return comtnentrprsmberDAO.selectComtnentrprsmberList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnentrprsmber 총 갯수
 	 * @exception
 	 */
-    public int selectComtnentrprsmberListTotCnt(ComtnentrprsmberDefaultVO searchVO) {
-		return comtnentrprsmberDAO.selectComtnentrprsmberListTotCnt(searchVO);
+    public int selectComtnentrprsmberListTotCnt(ComtnentrprsmberVO vo) {
+		return comtnentrprsmberDAO.selectComtnentrprsmberListTotCnt(vo);
 	}
     
 }

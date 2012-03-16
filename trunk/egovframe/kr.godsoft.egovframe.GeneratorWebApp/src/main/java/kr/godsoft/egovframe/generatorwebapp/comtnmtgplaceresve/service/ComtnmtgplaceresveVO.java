@@ -6,52 +6,52 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmtgplaceresveVO extends ComtnmtgplaceresveDefaultVO{
+public class ComtnmtgplaceresveVO extends ComtnmtgplaceresveDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** RESVE_ID */
     private String resveId;
     
-    /**  */
+    /** MTGRUM_ID */
     private String mtgrumId;
     
-    /**  */
+    /** MTG_SJ */
     private String mtgSj;
     
-    /**  */
+    /** RSVCTM_ID */
     private String rsvctmId;
     
-    /**  */
+    /** RESVE_DE */
     private String resveDe;
     
-    /**  */
+    /** RESVE_BEGIN_TM */
     private String resveBeginTm;
     
-    /**  */
+    /** RESVE_END_TM */
     private String resveEndTm;
     
-    /**  */
+    /** ATNDNC_NMPR */
     private int atndncNmpr;
     
-    /**  */
+    /** MTG_CN */
     private String mtgCn;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getResveId() {

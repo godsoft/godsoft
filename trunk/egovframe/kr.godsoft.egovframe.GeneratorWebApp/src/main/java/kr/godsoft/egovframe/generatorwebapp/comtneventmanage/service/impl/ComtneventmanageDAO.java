@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.ComtneventmanageDefaultVO;
 
 /**
  * @Class Name : ComtneventmanageDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service.Comtneventm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtneventmanageDAO extends EgovAbstractDAO {
 	 * @return comtneventmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtneventmanageList(ComtneventmanageDefaultVO searchVO) throws Exception {
-        return list("comtneventmanageDAO.selectComtneventmanageList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtneventmanageList(ComtneventmanageVO vo) throws Exception {
+        return list("comtneventmanageDAO.selectComtneventmanageList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtneventmanageDAO extends EgovAbstractDAO {
 	 * @return comtneventmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtneventmanageListTotCnt(ComtneventmanageDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtneventmanageDAO.selectComtneventmanageListTotCnt_S", searchVO);
+    public int selectComtneventmanageListTotCnt(ComtneventmanageVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtneventmanageDAO.selectComtneventmanageListTotCnt_S", vo);
     }
 
 }

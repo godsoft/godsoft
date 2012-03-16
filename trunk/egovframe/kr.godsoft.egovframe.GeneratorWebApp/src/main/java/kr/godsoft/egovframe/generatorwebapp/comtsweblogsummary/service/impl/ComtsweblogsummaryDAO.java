@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.ComtsweblogsummaryDefaultVO;
 
 /**
  * @Class Name : ComtsweblogsummaryDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service.Comtswebl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtsweblogsummaryDAO extends EgovAbstractDAO {
 	 * @return comtsweblogsummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtsweblogsummaryList(ComtsweblogsummaryDefaultVO searchVO) throws Exception {
-        return list("comtsweblogsummaryDAO.selectComtsweblogsummaryList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtsweblogsummaryList(ComtsweblogsummaryVO vo) throws Exception {
+        return list("comtsweblogsummaryDAO.selectComtsweblogsummaryList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtsweblogsummaryDAO extends EgovAbstractDAO {
 	 * @return comtsweblogsummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtsweblogsummaryListTotCnt(ComtsweblogsummaryDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtsweblogsummaryDAO.selectComtsweblogsummaryListTotCnt_S", searchVO);
+    public int selectComtsweblogsummaryListTotCnt(ComtsweblogsummaryVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtsweblogsummaryDAO.selectComtsweblogsummaryListTotCnt_S", vo);
     }
 
 }

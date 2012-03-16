@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulService;
+import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulService;
-import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.impl.ComtnleaderschdulDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnleaderschdulServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.impl.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnleaderschdulServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnleaderschdul 목록
 	 * @exception Exception
 	 */
-    public List selectComtnleaderschdulList(ComtnleaderschdulDefaultVO searchVO) throws Exception {
-        return comtnleaderschdulDAO.selectComtnleaderschdulList(searchVO);
+    public List<EgovMap> selectComtnleaderschdulList(ComtnleaderschdulVO vo) throws Exception {
+        return comtnleaderschdulDAO.selectComtnleaderschdulList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnleaderschdulServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnleaderschdul 총 갯수
 	 * @exception
 	 */
-    public int selectComtnleaderschdulListTotCnt(ComtnleaderschdulDefaultVO searchVO) {
-		return comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt(searchVO);
+    public int selectComtnleaderschdulListTotCnt(ComtnleaderschdulVO vo) {
+		return comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt(vo);
 	}
     
 }

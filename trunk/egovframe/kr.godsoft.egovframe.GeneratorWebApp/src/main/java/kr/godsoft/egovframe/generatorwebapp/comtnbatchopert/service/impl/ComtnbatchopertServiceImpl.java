@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.ComtnbatchopertVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.impl.ComtnbatchopertDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbatchopertServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.impl.Comtnba
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbatchopertServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbatchopert 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbatchopertList(ComtnbatchopertDefaultVO searchVO) throws Exception {
-        return comtnbatchopertDAO.selectComtnbatchopertList(searchVO);
+    public List<EgovMap> selectComtnbatchopertList(ComtnbatchopertVO vo) throws Exception {
+        return comtnbatchopertDAO.selectComtnbatchopertList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbatchopertServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnbatchopert 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbatchopertListTotCnt(ComtnbatchopertDefaultVO searchVO) {
-		return comtnbatchopertDAO.selectComtnbatchopertListTotCnt(searchVO);
+    public int selectComtnbatchopertListTotCnt(ComtnbatchopertVO vo) {
+		return comtnbatchopertDAO.selectComtnbatchopertListTotCnt(vo);
 	}
     
 }

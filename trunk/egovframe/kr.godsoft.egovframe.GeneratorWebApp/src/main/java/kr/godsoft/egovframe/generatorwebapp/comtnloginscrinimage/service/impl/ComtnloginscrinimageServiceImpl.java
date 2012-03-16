@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.ComtnloginscrinimageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.impl.ComtnloginscrinimageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnloginscrinimageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnloginscrinimageServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnloginscrinimage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnloginscrinimageList(ComtnloginscrinimageDefaultVO searchVO) throws Exception {
-        return comtnloginscrinimageDAO.selectComtnloginscrinimageList(searchVO);
+    public List<EgovMap> selectComtnloginscrinimageList(ComtnloginscrinimageVO vo) throws Exception {
+        return comtnloginscrinimageDAO.selectComtnloginscrinimageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnloginscrinimageServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnloginscrinimage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnloginscrinimageListTotCnt(ComtnloginscrinimageDefaultVO searchVO) {
-		return comtnloginscrinimageDAO.selectComtnloginscrinimageListTotCnt(searchVO);
+    public int selectComtnloginscrinimageListTotCnt(ComtnloginscrinimageVO vo) {
+		return comtnloginscrinimageDAO.selectComtnloginscrinimageListTotCnt(vo);
 	}
     
 }

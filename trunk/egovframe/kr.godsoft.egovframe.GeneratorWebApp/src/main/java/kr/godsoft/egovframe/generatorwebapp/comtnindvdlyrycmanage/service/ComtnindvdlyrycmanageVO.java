@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnindvdlyrycmanageVO extends ComtnindvdlyrycmanageDefaultVO{
+public class ComtnindvdlyrycmanageVO extends ComtnindvdlyrycmanageDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** OCCRRNC_YEAR */
     private String occrrncYear;
     
-    /**  */
+    /** YRYC_OCCRRNC_CO */
     private int yrycOccrrncCo;
     
-    /**  */
+    /** USE_YRYC_CO */
     private int useYrycCo;
     
-    /**  */
+    /** REMNDR_YRYC_CO */
     private int remndrYrycCo;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** USER_ID */
     private String userId;
     
     public String getOccrrncYear() {

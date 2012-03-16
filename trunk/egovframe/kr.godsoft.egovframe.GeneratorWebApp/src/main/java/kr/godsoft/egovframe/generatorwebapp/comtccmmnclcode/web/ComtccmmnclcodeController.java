@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.ComtccmmnclcodeService;
+import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.ComtccmmnclcodeDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.ComtccmmnclcodeVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.ComtccmmnclcodeService;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.ComtccmmnclcodeDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.ComtccmmnclcodeVO;
 
 /**
  * @Class Name : ComtccmmnclcodeController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtccmmnclcode.service.Comtccmmnclc
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtccmmnclcodeController {
 	
     /**
 	 * comtccmmnclcode 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtccmmnclcodeDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtccmmnclcodeVO
 	 * @return "/comtccmmnclcode/ComtccmmnclcodeList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtccmmnclcode/ComtccmmnclcodeList.do")
-    public String selectComtccmmnclcodeList(@ModelAttribute("searchVO") ComtccmmnclcodeDefaultVO searchVO, 
+    public String selectComtccmmnclcodeList(@ModelAttribute("searchVO") ComtccmmnclcodeVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtccmmnclcodeController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtccmmnclcodeList = comtccmmnclcodeService.selectComtccmmnclcodeList(searchVO);
+        List<EgovMap> comtccmmnclcodeList = comtccmmnclcodeService.selectComtccmmnclcodeList(searchVO);
         model.addAttribute("resultList", comtccmmnclcodeList);
         
         int totCnt = comtccmmnclcodeService.selectComtccmmnclcodeListTotCnt(searchVO);

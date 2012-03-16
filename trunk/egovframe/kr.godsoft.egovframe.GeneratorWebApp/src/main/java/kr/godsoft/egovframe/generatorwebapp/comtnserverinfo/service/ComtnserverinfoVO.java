@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnserverinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnserverinfoVO extends ComtnserverinfoDefaultVO{
+public class ComtnserverinfoVO extends ComtnserverinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SERVER_ID */
     private String serverId;
     
-    /**  */
+    /** SERVER_NM */
     private String serverNm;
     
-    /**  */
+    /** SERVER_KND */
     private String serverKnd;
     
-    /**  */
+    /** RGSDE */
     private String rgsde;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getServerId() {

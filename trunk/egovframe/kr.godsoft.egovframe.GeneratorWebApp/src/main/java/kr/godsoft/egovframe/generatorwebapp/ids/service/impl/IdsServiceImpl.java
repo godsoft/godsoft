@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsService;
+import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsService;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.IdsVO;
-import kr.godsoft.egovframe.generatorwebapp.ids.service.impl.IdsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : IdsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.ids.service.impl.IdsDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class IdsServiceImpl extends AbstractServiceImpl implements
 	 * @return ids 목록
 	 * @exception Exception
 	 */
-    public List selectIdsList(IdsDefaultVO searchVO) throws Exception {
-        return idsDAO.selectIdsList(searchVO);
+    public List<EgovMap> selectIdsList(IdsVO vo) throws Exception {
+        return idsDAO.selectIdsList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class IdsServiceImpl extends AbstractServiceImpl implements
 	 * @return ids 총 갯수
 	 * @exception
 	 */
-    public int selectIdsListTotCnt(IdsDefaultVO searchVO) {
-		return idsDAO.selectIdsListTotCnt(searchVO);
+    public int selectIdsListTotCnt(IdsVO vo) {
+		return idsDAO.selectIdsListTotCnt(vo);
 	}
     
 }

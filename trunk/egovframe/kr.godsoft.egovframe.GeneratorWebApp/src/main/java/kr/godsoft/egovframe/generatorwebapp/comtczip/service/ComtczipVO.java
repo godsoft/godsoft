@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtczip.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtczipVO extends ComtczipDefaultVO{
+public class ComtczipVO extends ComtczipDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ZIP */
     private String zip;
     
-    /** 테스트 */
+    /** SN */
     private int sn;
     
-    /**  */
+    /** CTPRVN_NM */
     private String ctprvnNm;
     
-    /**  */
+    /** SIGNGU_NM */
     private String signguNm;
     
-    /**  */
+    /** EMD_NM */
     private String emdNm;
     
-    /**  */
+    /** LI_BULD_NM */
     private String liBuldNm;
     
-    /**  */
+    /** LNBR_DONG_HO */
     private String lnbrDongHo;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getZip() {

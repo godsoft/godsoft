@@ -4,152 +4,153 @@
 <sqlMap namespace="Comtnbackupopert">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnbackupopertSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertDefaultVO"/>
+	<typeAlias  alias="ComtnbackupopertVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertVO"/>
 	
 	<resultMap id="comtnbackupopert" class="kr.godsoft.egovframe.generatorwebapp.comtnbackupopert.service.ComtnbackupopertVO">
-		<result property="backupOpertId" column="BACKUP_OPERT_ID" columnIndex="1"/> <!--  -->
-		<result property="backupOpertNm" column="BACKUP_OPERT_NM" columnIndex="2"/> <!--  -->
-		<result property="backupOrginlDrctry" column="BACKUP_ORGINL_DRCTRY" columnIndex="3"/> <!--  -->
-		<result property="backupStreDrctry" column="BACKUP_STRE_DRCTRY" columnIndex="4"/> <!--  -->
-		<result property="cmprsSe" column="CMPRS_SE" columnIndex="5"/> <!--  -->
-		<result property="executCycle" column="EXECUT_CYCLE" columnIndex="6"/> <!--  -->
-		<result property="executSchdulDe" column="EXECUT_SCHDUL_DE" columnIndex="7"/> <!--  -->
-		<result property="executSchdulHour" column="EXECUT_SCHDUL_HOUR" columnIndex="8"/> <!--  -->
-		<result property="executSchdulMnt" column="EXECUT_SCHDUL_MNT" columnIndex="9"/> <!--  -->
-		<result property="executSchdulSecnd" column="EXECUT_SCHDUL_SECND" columnIndex="10"/> <!--  -->
-		<result property="useAt" column="USE_AT" columnIndex="11"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="12"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="13"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="14"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="15"/> <!--  -->
+		<result property="backupOpertId" column="backup_opert_id" columnIndex="1"/>
+		<result property="backupOpertNm" column="backup_opert_nm" columnIndex="2"/>
+		<result property="backupOrginlDrctry" column="backup_orginl_drctry" columnIndex="3"/>
+		<result property="backupStreDrctry" column="backup_stre_drctry" columnIndex="4"/>
+		<result property="cmprsSe" column="cmprs_se" columnIndex="5"/>
+		<result property="executCycle" column="execut_cycle" columnIndex="6"/>
+		<result property="executSchdulDe" column="execut_schdul_de" columnIndex="7"/>
+		<result property="executSchdulHour" column="execut_schdul_hour" columnIndex="8"/>
+		<result property="executSchdulMnt" column="execut_schdul_mnt" columnIndex="9"/>
+		<result property="executSchdulSecnd" column="execut_schdul_secnd" columnIndex="10"/>
+		<result property="useAt" column="use_at" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="15"/>
 	</resultMap>
 	
 	<insert id="comtnbackupopertDAO.insertComtnbackupopert_S">
 		<![CDATA[
 			INSERT INTO comtnbackupopert 
-				( BACKUP_OPERT_ID /*  */
-				  , BACKUP_OPERT_NM /*  */
-				  , BACKUP_ORGINL_DRCTRY /*  */
-				  , BACKUP_STRE_DRCTRY /*  */
-				  , CMPRS_SE /*  */
-				  , EXECUT_CYCLE /*  */
-				  , EXECUT_SCHDUL_DE /*  */
-				  , EXECUT_SCHDUL_HOUR /*  */
-				  , EXECUT_SCHDUL_MNT /*  */
-				  , EXECUT_SCHDUL_SECND /*  */
-				  , USE_AT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #backupOpertId# /*  */
-					  , #backupOpertNm# /*  */
-						  , #backupOrginlDrctry# /*  */
-						  , #backupStreDrctry# /*  */
-						  , #cmprsSe# /*  */
-						  , #executCycle# /*  */
-						  , #executSchdulDe# /*  */
-						  , #executSchdulHour# /*  */
-						  , #executSchdulMnt# /*  */
-						  , #executSchdulSecnd# /*  */
-						  , #useAt# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( BACKUP_OPERT_ID
+				  , backup_opert_nm
+				  , backup_orginl_drctry
+				  , backup_stre_drctry
+				  , cmprs_se
+				  , execut_cycle
+				  , execut_schdul_de
+				  , execut_schdul_hour
+				  , execut_schdul_mnt
+				  , execut_schdul_secnd
+				  , use_at
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #backupOpertId#
+				  , #backupOpertNm#
+				  , #backupOrginlDrctry#
+				  , #backupStreDrctry#
+				  , #cmprsSe#
+				  , #executCycle#
+				  , #executSchdulDe#
+				  , #executSchdulHour#
+				  , #executSchdulMnt#
+				  , #executSchdulSecnd#
+				  , #useAt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnbackupopertDAO.updateComtnbackupopert_S">
 		<![CDATA[
 			UPDATE comtnbackupopert
-			SET BACKUP_OPERT_ID=#backupOpertId# /*  */
-				, BACKUP_OPERT_NM=#backupOpertNm# /*  */
-				, BACKUP_ORGINL_DRCTRY=#backupOrginlDrctry# /*  */
-				, BACKUP_STRE_DRCTRY=#backupStreDrctry# /*  */
-				, CMPRS_SE=#cmprsSe# /*  */
-				, EXECUT_CYCLE=#executCycle# /*  */
-				, EXECUT_SCHDUL_DE=#executSchdulDe# /*  */
-				, EXECUT_SCHDUL_HOUR=#executSchdulHour# /*  */
-				, EXECUT_SCHDUL_MNT=#executSchdulMnt# /*  */
-				, EXECUT_SCHDUL_SECND=#executSchdulSecnd# /*  */
-				, USE_AT=#useAt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE BACKUP_OPERT_ID=#backupOpertId# /*  */
+			SET backup_opert_id = #backupOpertId#
+				, backup_opert_nm = #backupOpertNm#
+				, backup_orginl_drctry = #backupOrginlDrctry#
+				, backup_stre_drctry = #backupStreDrctry#
+				, cmprs_se = #cmprsSe#
+				, execut_cycle = #executCycle#
+				, execut_schdul_de = #executSchdulDe#
+				, execut_schdul_hour = #executSchdulHour#
+				, execut_schdul_mnt = #executSchdulMnt#
+				, execut_schdul_secnd = #executSchdulSecnd#
+				, use_at = #useAt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE backup_opert_id = #backupOpertId#
 		]]>
 	</update>
 	
 	<delete id="comtnbackupopertDAO.deleteComtnbackupopert_S">
 		<![CDATA[
 			DELETE FROM comtnbackupopert 
-			WHERE BACKUP_OPERT_ID=#backupOpertId# /*  */
+			WHERE backup_opert_id = #backupOpertId#
 		]]>
 	</delete>
 	
 	<select id="comtnbackupopertDAO.selectComtnbackupopert_S" resultMap="comtnbackupopert">
 		<![CDATA[
 			SELECT
-				BACKUP_OPERT_ID /*  */
-				, BACKUP_OPERT_NM /*  */
-				, BACKUP_ORGINL_DRCTRY /*  */
-				, BACKUP_STRE_DRCTRY /*  */
-				, CMPRS_SE /*  */
-				, EXECUT_CYCLE /*  */
-				, EXECUT_SCHDUL_DE /*  */
-				, EXECUT_SCHDUL_HOUR /*  */
-				, EXECUT_SCHDUL_MNT /*  */
-				, EXECUT_SCHDUL_SECND /*  */
-				, USE_AT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				backup_opert_id
+				, backup_opert_nm
+				, backup_orginl_drctry
+				, backup_stre_drctry
+				, cmprs_se
+				, execut_cycle
+				, execut_schdul_de
+				, execut_schdul_hour
+				, execut_schdul_mnt
+				, execut_schdul_secnd
+				, use_at
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnbackupopert
-			WHERE BACKUP_OPERT_ID=#backupOpertId# /*  */
+			WHERE backup_opert_id = #backupOpertId#
 		]]>
 	</select>
 	
-	<select id="comtnbackupopertDAO.selectComtnbackupopertList_D" parameterClass="comtnbackupopertSerarchVO" resultClass="egovMap">
+	<select id="comtnbackupopertDAO.selectComtnbackupopertList_D" parameterClass="ComtnbackupopertVO" resultClass="egovMap">
 			SELECT
-								BACKUP_OPERT_ID /*  */
-								, BACKUP_OPERT_NM /*  */
-								, BACKUP_ORGINL_DRCTRY /*  */
-								, BACKUP_STRE_DRCTRY /*  */
-								, CMPRS_SE /*  */
-								, EXECUT_CYCLE /*  */
-								, EXECUT_SCHDUL_DE /*  */
-								, EXECUT_SCHDUL_HOUR /*  */
-								, EXECUT_SCHDUL_MNT /*  */
-								, EXECUT_SCHDUL_SECND /*  */
-								, USE_AT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								backup_opert_id
+								, backup_opert_nm
+								, backup_orginl_drctry
+								, backup_stre_drctry
+								, cmprs_se
+								, execut_cycle
+								, execut_schdul_de
+								, execut_schdul_hour
+								, execut_schdul_mnt
+								, execut_schdul_secnd
+								, use_at
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnbackupopert
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BACKUP_OPERT_ID = #searchKeyword# /*  */
+				backup_opert_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				BACKUP_OPERT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				backup_opert_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							BACKUP_OPERT_ID DESC /*  */
+							backup_opert_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnbackupopertDAO.selectComtnbackupopertListTotCnt_S" parameterClass="comtnbackupopertSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnbackupopertDAO.selectComtnbackupopertListTotCnt_S" parameterClass="ComtnbackupopertVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnbackupopert
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				BACKUP_OPERT_ID = #searchKeyword# /*  */
+				backup_opert_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				BACKUP_OPERT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				backup_opert_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnfilesysmntrngVO.fileSysId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnfilesysmntrngVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnfilesysmntrngVO" name="detailForm" id="detailForm">
+<form:form commandName="comtnfilesysmntrngVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>FILE_SYS_ID *</th>
 			<td>
 				<form:input path="fileSysId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>FILE_SYS_ID *</th>
 			<td>
 				<form:input path="fileSysId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,132 +93,93 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>FILE_SYS_NM</th>
 			<td>
-	
 				<form:input path="fileSysNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="fileSysNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FILE_SYS_MANAGE_NM</th>
 			<td>
-	
 				<form:input path="fileSysManageNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="fileSysManageNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FILE_SYS_SIZE</th>
 			<td>
-	
 				<form:input path="fileSysSize" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="fileSysSize" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FILE_SYS_THRHLD</th>
 			<td>
-	
 				<form:input path="fileSysThrhld" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="fileSysThrhld" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FILE_SYS_USGQTY</th>
 			<td>
-	
 				<form:input path="fileSysUsgqty" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="fileSysUsgqty" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>MNGR_NM</th>
 			<td>
-	
 				<form:input path="mngrNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="mngrNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>MNGR_EMAIL_ADRES</th>
 			<td>
-	
 				<form:input path="mngrEmailAdres" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="mngrEmailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>MNTRNG_STTUS</th>
 			<td>
-	
 				<form:input path="mntrngSttus" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="mntrngSttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CREAT_DT</th>
 			<td>
-	
 				<form:input path="creatDt" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="creatDt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGISTER_ID</th>
 			<td>
-	
 				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGIST_PNTTM</th>
 			<td>
-	
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDUSR_ID</th>
 			<td>
-	
 				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDT_PNTTM</th>
 			<td>
-	
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	

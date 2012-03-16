@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogDefaultVO;
 
 /**
  * @Class Name : ComtnuserlogDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogDef
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnuserlogDAO extends EgovAbstractDAO {
 	 * @return comtnuserlog 목록
 	 * @exception Exception
 	 */
-    public List selectComtnuserlogList(ComtnuserlogDefaultVO searchVO) throws Exception {
-        return list("comtnuserlogDAO.selectComtnuserlogList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnuserlogList(ComtnuserlogVO vo) throws Exception {
+        return list("comtnuserlogDAO.selectComtnuserlogList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnuserlogDAO extends EgovAbstractDAO {
 	 * @return comtnuserlog 총 갯수
 	 * @exception
 	 */
-    public int selectComtnuserlogListTotCnt(ComtnuserlogDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnuserlogDAO.selectComtnuserlogListTotCnt_S", searchVO);
+    public int selectComtnuserlogListTotCnt(ComtnuserlogVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnuserlogDAO.selectComtnuserlogListTotCnt_S", vo);
     }
 
 }

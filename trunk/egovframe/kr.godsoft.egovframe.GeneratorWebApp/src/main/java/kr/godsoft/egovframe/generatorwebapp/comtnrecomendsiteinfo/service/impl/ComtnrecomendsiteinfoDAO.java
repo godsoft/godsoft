@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoDefaultVO;
 
 /**
  * @Class Name : ComtnrecomendsiteinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.Comtnr
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnrecomendsiteinfoDAO extends EgovAbstractDAO {
 	 * @return comtnrecomendsiteinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoDefaultVO searchVO) throws Exception {
-        return list("comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoVO vo) throws Exception {
+        return list("comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnrecomendsiteinfoDAO extends EgovAbstractDAO {
 	 * @return comtnrecomendsiteinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoListTotCnt_S", searchVO);
+    public int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoListTotCnt_S", vo);
     }
 
 }

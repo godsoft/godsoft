@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.ComtnleadersttusVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnleadersttusService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.Comtnleader
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnleadersttusService {
 	 * @return comtnleadersttus 목록
 	 * @exception Exception
 	 */
-    List selectComtnleadersttusList(ComtnleadersttusDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnleadersttusList(ComtnleadersttusVO vo) throws Exception;
     
     /**
 	 * comtnleadersttus 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnleadersttusService {
 	 * @return comtnleadersttus 총 갯수
 	 * @exception
 	 */
-    int selectComtnleadersttusListTotCnt(ComtnleadersttusDefaultVO searchVO);
+    int selectComtnleadersttusListTotCnt(ComtnleadersttusVO vo);
     
 }

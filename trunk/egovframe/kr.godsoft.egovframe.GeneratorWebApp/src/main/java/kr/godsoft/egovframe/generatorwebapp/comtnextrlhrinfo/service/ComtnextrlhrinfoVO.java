@@ -6,58 +6,58 @@ package kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnextrlhrinfoVO extends ComtnextrlhrinfoDefaultVO{
+public class ComtnextrlhrinfoVO extends ComtnextrlhrinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EVENT_ID */
     private String eventId;
     
-    /**  */
+    /** EXTRL_HR_ID */
     private String extrlHrId;
     
-    /**  */
+    /** SEXDSTN_CODE */
     private String sexdstnCode;
     
-    /**  */
+    /** EXTRL_HR_NM */
     private String extrlHrNm;
     
-    /**  */
+    /** OCCP_TY_CODE */
     private String occpTyCode;
     
-    /**  */
+    /** PSITN_INSTT_NM */
     private String psitnInsttNm;
     
-    /**  */
+    /** BRTHDY */
     private String brthdy;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** MIDDLE_TELNO */
     private String middleTelno;
     
-    /**  */
+    /** END_TELNO */
     private String endTelno;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getEventId() {

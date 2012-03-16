@@ -6,35 +6,35 @@ package kr.godsoft.egovframe.generatorwebapp.ids.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class IdsVO extends IdsDefaultVO{
+public class IdsVO extends IdsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
-    private String idgenTableNm;
+    /** TABLE_NAME */
+    private String tableName;
     
-    /**  */
-    private int idgenNextId;
+    /** NEXT_ID */
+    private int nextId;
     
-    public String getIdgenTableNm() {
-        return this.idgenTableNm;
+    public String getTableName() {
+        return this.tableName;
     }
     
-    public void setIdgenTableNm(String idgenTableNm) {
-        this.idgenTableNm = idgenTableNm;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
     
-    public int getIdgenNextId() {
-        return this.idgenNextId;
+    public int getNextId() {
+        return this.nextId;
     }
     
-    public void setIdgenNextId(int idgenNextId) {
-        this.idgenNextId = idgenNextId;
+    public void setNextId(int nextId) {
+        this.nextId = nextId;
     }
     
 }

@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.ComtnunitylinkVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnunitylinkService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.Comtnunitylin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnunitylinkService {
 	 * @return comtnunitylink 목록
 	 * @exception Exception
 	 */
-    List selectComtnunitylinkList(ComtnunitylinkDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnunitylinkList(ComtnunitylinkVO vo) throws Exception;
     
     /**
 	 * comtnunitylink 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnunitylinkService {
 	 * @return comtnunitylink 총 갯수
 	 * @exception
 	 */
-    int selectComtnunitylinkListTotCnt(ComtnunitylinkDefaultVO searchVO);
+    int selectComtnunitylinkListTotCnt(ComtnunitylinkVO vo);
     
 }

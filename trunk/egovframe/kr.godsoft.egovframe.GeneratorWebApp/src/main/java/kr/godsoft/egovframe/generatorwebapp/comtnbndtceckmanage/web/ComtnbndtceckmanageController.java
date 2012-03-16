@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.ComtnbndtceckmanageVO;
 
 /**
  * @Class Name : ComtnbndtceckmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.Comtnbnd
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbndtceckmanageController {
 	
     /**
 	 * comtnbndtceckmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbndtceckmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbndtceckmanageVO
 	 * @return "/comtnbndtceckmanage/ComtnbndtceckmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbndtceckmanage/ComtnbndtceckmanageList.do")
-    public String selectComtnbndtceckmanageList(@ModelAttribute("searchVO") ComtnbndtceckmanageDefaultVO searchVO, 
+    public String selectComtnbndtceckmanageList(@ModelAttribute("searchVO") ComtnbndtceckmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbndtceckmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbndtceckmanageList = comtnbndtceckmanageService.selectComtnbndtceckmanageList(searchVO);
+        List<EgovMap> comtnbndtceckmanageList = comtnbndtceckmanageService.selectComtnbndtceckmanageList(searchVO);
         model.addAttribute("resultList", comtnbndtceckmanageList);
         
         int totCnt = comtnbndtceckmanageService.selectComtnbndtceckmanageListTotCnt(searchVO);

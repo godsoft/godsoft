@@ -4,110 +4,111 @@
 <sqlMap namespace="Comtnstplatinfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnstplatinfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoDefaultVO"/>
+	<typeAlias  alias="ComtnstplatinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoVO"/>
 	
 	<resultMap id="comtnstplatinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnstplatinfo.service.ComtnstplatinfoVO">
-		<result property="useStplatId" column="USE_STPLAT_ID" columnIndex="1"/> <!--  -->
-		<result property="useStplatNm" column="USE_STPLAT_NM" columnIndex="2"/> <!--  -->
-		<result property="useStplatCn" column="USE_STPLAT_CN" columnIndex="3"/> <!--  -->
-		<result property="infoProvdAgreCn" column="INFO_PROVD_AGRE_CN" columnIndex="4"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="6"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="8"/> <!--  -->
+		<result property="useStplatId" column="use_stplat_id" columnIndex="1"/>
+		<result property="useStplatNm" column="use_stplat_nm" columnIndex="2"/>
+		<result property="useStplatCn" column="use_stplat_cn" columnIndex="3"/>
+		<result property="infoProvdAgreCn" column="info_provd_agre_cn" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="8"/>
 	</resultMap>
 	
 	<insert id="comtnstplatinfoDAO.insertComtnstplatinfo_S">
 		<![CDATA[
 			INSERT INTO comtnstplatinfo 
-				( USE_STPLAT_ID /*  */
-				  , USE_STPLAT_NM /*  */
-				  , USE_STPLAT_CN /*  */
-				  , INFO_PROVD_AGRE_CN /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */ )
-			VALUES ( #useStplatId# /*  */
-					  , #useStplatNm# /*  */
-						  , #useStplatCn# /*  */
-						  , #infoProvdAgreCn# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-					  , #lastUpdusrId# /*  */ )
+				( USE_STPLAT_ID
+				  , use_stplat_nm
+				  , use_stplat_cn
+				  , info_provd_agre_cn
+				  , frst_regist_pnttm
+				  , frst_register_id
+				  , last_updt_pnttm
+				  , last_updusr_id )
+			VALUES ( #useStplatId#
+				  , #useStplatNm#
+				  , #useStplatCn#
+				  , #infoProvdAgreCn#
+				  , #frstRegistPnttm#
+				  , #frstRegisterId#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId# )
 		]]>
 	</insert>
 	
 	<update id="comtnstplatinfoDAO.updateComtnstplatinfo_S">
 		<![CDATA[
 			UPDATE comtnstplatinfo
-			SET USE_STPLAT_ID=#useStplatId# /*  */
-				, USE_STPLAT_NM=#useStplatNm# /*  */
-				, USE_STPLAT_CN=#useStplatCn# /*  */
-				, INFO_PROVD_AGRE_CN=#infoProvdAgreCn# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-			WHERE USE_STPLAT_ID=#useStplatId# /*  */
+			SET use_stplat_id = #useStplatId#
+				, use_stplat_nm = #useStplatNm#
+				, use_stplat_cn = #useStplatCn#
+				, info_provd_agre_cn = #infoProvdAgreCn#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, frst_register_id = #frstRegisterId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+			WHERE use_stplat_id = #useStplatId#
 		]]>
 	</update>
 	
 	<delete id="comtnstplatinfoDAO.deleteComtnstplatinfo_S">
 		<![CDATA[
 			DELETE FROM comtnstplatinfo 
-			WHERE USE_STPLAT_ID=#useStplatId# /*  */
+			WHERE use_stplat_id = #useStplatId#
 		]]>
 	</delete>
 	
 	<select id="comtnstplatinfoDAO.selectComtnstplatinfo_S" resultMap="comtnstplatinfo">
 		<![CDATA[
 			SELECT
-				USE_STPLAT_ID /*  */
-				, USE_STPLAT_NM /*  */
-				, USE_STPLAT_CN /*  */
-				, INFO_PROVD_AGRE_CN /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, FRST_REGISTER_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
+				use_stplat_id
+				, use_stplat_nm
+				, use_stplat_cn
+				, info_provd_agre_cn
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
 			FROM comtnstplatinfo
-			WHERE USE_STPLAT_ID=#useStplatId# /*  */
+			WHERE use_stplat_id = #useStplatId#
 		]]>
 	</select>
 	
-	<select id="comtnstplatinfoDAO.selectComtnstplatinfoList_D" parameterClass="comtnstplatinfoSerarchVO" resultClass="egovMap">
+	<select id="comtnstplatinfoDAO.selectComtnstplatinfoList_D" parameterClass="ComtnstplatinfoVO" resultClass="egovMap">
 			SELECT
-								USE_STPLAT_ID /*  */
-								, USE_STPLAT_NM /*  */
-								, USE_STPLAT_CN /*  */
-								, INFO_PROVD_AGRE_CN /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, FRST_REGISTER_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
+								use_stplat_id
+								, use_stplat_nm
+								, use_stplat_cn
+								, info_provd_agre_cn
+								, frst_regist_pnttm
+								, frst_register_id
+								, last_updt_pnttm
+								, last_updusr_id
 					FROM comtnstplatinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				USE_STPLAT_ID = #searchKeyword# /*  */
+				use_stplat_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				USE_STPLAT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				use_stplat_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							USE_STPLAT_ID DESC /*  */
+							use_stplat_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnstplatinfoDAO.selectComtnstplatinfoListTotCnt_S" parameterClass="comtnstplatinfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnstplatinfoDAO.selectComtnstplatinfoListTotCnt_S" parameterClass="ComtnstplatinfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnstplatinfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				USE_STPLAT_ID = #searchKeyword# /*  */
+				use_stplat_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				USE_STPLAT_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				use_stplat_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

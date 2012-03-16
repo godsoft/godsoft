@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngService;
+import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngService;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.ComtnntwrksvcmntrngVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.impl.ComtnntwrksvcmntrngDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnntwrksvcmntrngServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnntwrksvcmntrngServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnntwrksvcmntrng 목록
 	 * @exception Exception
 	 */
-    public List selectComtnntwrksvcmntrngList(ComtnntwrksvcmntrngDefaultVO searchVO) throws Exception {
-        return comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrngList(searchVO);
+    public List<EgovMap> selectComtnntwrksvcmntrngList(ComtnntwrksvcmntrngVO vo) throws Exception {
+        return comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrngList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnntwrksvcmntrngServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnntwrksvcmntrng 총 갯수
 	 * @exception
 	 */
-    public int selectComtnntwrksvcmntrngListTotCnt(ComtnntwrksvcmntrngDefaultVO searchVO) {
-		return comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrngListTotCnt(searchVO);
+    public int selectComtnntwrksvcmntrngListTotCnt(ComtnntwrksvcmntrngVO vo) {
+		return comtnntwrksvcmntrngDAO.selectComtnntwrksvcmntrngListTotCnt(vo);
 	}
     
 }

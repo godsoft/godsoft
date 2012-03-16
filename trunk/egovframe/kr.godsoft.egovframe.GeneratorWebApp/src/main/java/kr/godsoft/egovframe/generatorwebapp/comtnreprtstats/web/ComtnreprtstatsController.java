@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO;
 
 /**
  * @Class Name : ComtnreprtstatsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.Comtnreprtst
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnreprtstatsController {
 	
     /**
 	 * comtnreprtstats 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnreprtstatsDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnreprtstatsVO
 	 * @return "/comtnreprtstats/ComtnreprtstatsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnreprtstats/ComtnreprtstatsList.do")
-    public String selectComtnreprtstatsList(@ModelAttribute("searchVO") ComtnreprtstatsDefaultVO searchVO, 
+    public String selectComtnreprtstatsList(@ModelAttribute("searchVO") ComtnreprtstatsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnreprtstatsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnreprtstatsList = comtnreprtstatsService.selectComtnreprtstatsList(searchVO);
+        List<EgovMap> comtnreprtstatsList = comtnreprtstatsService.selectComtnreprtstatsList(searchVO);
         model.addAttribute("resultList", comtnreprtstatsList);
         
         int totCnt = comtnreprtstatsService.selectComtnreprtstatsListTotCnt(searchVO);

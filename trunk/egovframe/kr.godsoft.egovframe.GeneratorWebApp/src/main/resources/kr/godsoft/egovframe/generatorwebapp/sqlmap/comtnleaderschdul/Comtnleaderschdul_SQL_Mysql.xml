@@ -4,146 +4,147 @@
 <sqlMap namespace="Comtnleaderschdul">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnleaderschdulSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulDefaultVO"/>
+	<typeAlias  alias="ComtnleaderschdulVO" type="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulVO"/>
 	
 	<resultMap id="comtnleaderschdul" class="kr.godsoft.egovframe.generatorwebapp.comtnleaderschdul.service.ComtnleaderschdulVO">
-		<result property="schdulId" column="SCHDUL_ID" columnIndex="1"/> <!--  -->
-		<result property="schdulSe" column="SCHDUL_SE" columnIndex="2"/> <!--  -->
-		<result property="schdulNm" column="SCHDUL_NM" columnIndex="3"/> <!--  -->
-		<result property="schdulCn" column="SCHDUL_CN" columnIndex="4"/> <!--  -->
-		<result property="schdulPlace" column="SCHDUL_PLACE" columnIndex="5"/> <!--  -->
-		<result property="leaderId" column="LEADER_ID" columnIndex="6"/> <!--  -->
-		<result property="reptitSeCode" column="REPTIT_SE_CODE" columnIndex="7"/> <!--  -->
-		<result property="schdulBgnde" column="SCHDUL_BGNDE" columnIndex="8"/> <!--  -->
-		<result property="schdulEndde" column="SCHDUL_ENDDE" columnIndex="9"/> <!--  -->
-		<result property="schdulChargerId" column="SCHDUL_CHARGER_ID" columnIndex="10"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="11"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="12"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="13"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="14"/> <!--  -->
+		<result property="schdulId" column="schdul_id" columnIndex="1"/>
+		<result property="schdulSe" column="schdul_se" columnIndex="2"/>
+		<result property="schdulNm" column="schdul_nm" columnIndex="3"/>
+		<result property="schdulCn" column="schdul_cn" columnIndex="4"/>
+		<result property="schdulPlace" column="schdul_place" columnIndex="5"/>
+		<result property="leaderId" column="leader_id" columnIndex="6"/>
+		<result property="reptitSeCode" column="reptit_se_code" columnIndex="7"/>
+		<result property="schdulBgnde" column="schdul_bgnde" columnIndex="8"/>
+		<result property="schdulEndde" column="schdul_endde" columnIndex="9"/>
+		<result property="schdulChargerId" column="schdul_charger_id" columnIndex="10"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="11"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="12"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="13"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="14"/>
 	</resultMap>
 	
 	<insert id="comtnleaderschdulDAO.insertComtnleaderschdul_S">
 		<![CDATA[
 			INSERT INTO comtnleaderschdul 
-				( SCHDUL_ID /*  */
-				  , SCHDUL_SE /*  */
-				  , SCHDUL_NM /*  */
-				  , SCHDUL_CN /*  */
-				  , SCHDUL_PLACE /*  */
-				  , LEADER_ID /*  */
-				  , REPTIT_SE_CODE /*  */
-				  , SCHDUL_BGNDE /*  */
-				  , SCHDUL_ENDDE /*  */
-				  , SCHDUL_CHARGER_ID /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #schdulId# /*  */
-					  , #schdulSe# /*  */
-						  , #schdulNm# /*  */
-						  , #schdulCn# /*  */
-						  , #schdulPlace# /*  */
-						  , #leaderId# /*  */
-						  , #reptitSeCode# /*  */
-						  , #schdulBgnde# /*  */
-						  , #schdulEndde# /*  */
-						  , #schdulChargerId# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( SCHDUL_ID
+				  , schdul_se
+				  , schdul_nm
+				  , schdul_cn
+				  , schdul_place
+				  , leader_id
+				  , reptit_se_code
+				  , schdul_bgnde
+				  , schdul_endde
+				  , schdul_charger_id
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #schdulId#
+				  , #schdulSe#
+				  , #schdulNm#
+				  , #schdulCn#
+				  , #schdulPlace#
+				  , #leaderId#
+				  , #reptitSeCode#
+				  , #schdulBgnde#
+				  , #schdulEndde#
+				  , #schdulChargerId#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtnleaderschdulDAO.updateComtnleaderschdul_S">
 		<![CDATA[
 			UPDATE comtnleaderschdul
-			SET SCHDUL_ID=#schdulId# /*  */
-				, SCHDUL_SE=#schdulSe# /*  */
-				, SCHDUL_NM=#schdulNm# /*  */
-				, SCHDUL_CN=#schdulCn# /*  */
-				, SCHDUL_PLACE=#schdulPlace# /*  */
-				, LEADER_ID=#leaderId# /*  */
-				, REPTIT_SE_CODE=#reptitSeCode# /*  */
-				, SCHDUL_BGNDE=#schdulBgnde# /*  */
-				, SCHDUL_ENDDE=#schdulEndde# /*  */
-				, SCHDUL_CHARGER_ID=#schdulChargerId# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE SCHDUL_ID=#schdulId# /*  */
+			SET schdul_id = #schdulId#
+				, schdul_se = #schdulSe#
+				, schdul_nm = #schdulNm#
+				, schdul_cn = #schdulCn#
+				, schdul_place = #schdulPlace#
+				, leader_id = #leaderId#
+				, reptit_se_code = #reptitSeCode#
+				, schdul_bgnde = #schdulBgnde#
+				, schdul_endde = #schdulEndde#
+				, schdul_charger_id = #schdulChargerId#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE schdul_id = #schdulId#
 		]]>
 	</update>
 	
 	<delete id="comtnleaderschdulDAO.deleteComtnleaderschdul_S">
 		<![CDATA[
 			DELETE FROM comtnleaderschdul 
-			WHERE SCHDUL_ID=#schdulId# /*  */
+			WHERE schdul_id = #schdulId#
 		]]>
 	</delete>
 	
 	<select id="comtnleaderschdulDAO.selectComtnleaderschdul_S" resultMap="comtnleaderschdul">
 		<![CDATA[
 			SELECT
-				SCHDUL_ID /*  */
-				, SCHDUL_SE /*  */
-				, SCHDUL_NM /*  */
-				, SCHDUL_CN /*  */
-				, SCHDUL_PLACE /*  */
-				, LEADER_ID /*  */
-				, REPTIT_SE_CODE /*  */
-				, SCHDUL_BGNDE /*  */
-				, SCHDUL_ENDDE /*  */
-				, SCHDUL_CHARGER_ID /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				schdul_id
+				, schdul_se
+				, schdul_nm
+				, schdul_cn
+				, schdul_place
+				, leader_id
+				, reptit_se_code
+				, schdul_bgnde
+				, schdul_endde
+				, schdul_charger_id
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtnleaderschdul
-			WHERE SCHDUL_ID=#schdulId# /*  */
+			WHERE schdul_id = #schdulId#
 		]]>
 	</select>
 	
-	<select id="comtnleaderschdulDAO.selectComtnleaderschdulList_D" parameterClass="comtnleaderschdulSerarchVO" resultClass="egovMap">
+	<select id="comtnleaderschdulDAO.selectComtnleaderschdulList_D" parameterClass="ComtnleaderschdulVO" resultClass="egovMap">
 			SELECT
-								SCHDUL_ID /*  */
-								, SCHDUL_SE /*  */
-								, SCHDUL_NM /*  */
-								, SCHDUL_CN /*  */
-								, SCHDUL_PLACE /*  */
-								, LEADER_ID /*  */
-								, REPTIT_SE_CODE /*  */
-								, SCHDUL_BGNDE /*  */
-								, SCHDUL_ENDDE /*  */
-								, SCHDUL_CHARGER_ID /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								schdul_id
+								, schdul_se
+								, schdul_nm
+								, schdul_cn
+								, schdul_place
+								, leader_id
+								, reptit_se_code
+								, schdul_bgnde
+								, schdul_endde
+								, schdul_charger_id
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtnleaderschdul
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SCHDUL_ID = #searchKeyword# /*  */
+				schdul_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SCHDUL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				schdul_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SCHDUL_ID DESC /*  */
+							schdul_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt_S" parameterClass="comtnleaderschdulSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnleaderschdulDAO.selectComtnleaderschdulListTotCnt_S" parameterClass="ComtnleaderschdulVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnleaderschdul
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SCHDUL_ID = #searchKeyword# /*  */
+				schdul_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SCHDUL_SE LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				schdul_se LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

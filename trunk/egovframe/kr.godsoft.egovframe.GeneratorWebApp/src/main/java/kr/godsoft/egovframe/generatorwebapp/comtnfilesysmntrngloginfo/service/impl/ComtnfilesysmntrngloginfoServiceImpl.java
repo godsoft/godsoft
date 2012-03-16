@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.ComtnfilesysmntrngloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.impl.ComtnfilesysmntrngloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnfilesysmntrngloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service.im
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
 	 * @return comtnfilesysmntrngloginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnfilesysmntrngloginfoList(ComtnfilesysmntrngloginfoDefaultVO searchVO) throws Exception {
-        return comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfoList(searchVO);
+    public List<EgovMap> selectComtnfilesysmntrngloginfoList(ComtnfilesysmntrngloginfoVO vo) throws Exception {
+        return comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
 	 * @return comtnfilesysmntrngloginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnfilesysmntrngloginfoListTotCnt(ComtnfilesysmntrngloginfoDefaultVO searchVO) {
-		return comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfoListTotCnt(searchVO);
+    public int selectComtnfilesysmntrngloginfoListTotCnt(ComtnfilesysmntrngloginfoVO vo) {
+		return comtnfilesysmntrngloginfoDAO.selectComtnfilesysmntrngloginfoListTotCnt(vo);
 	}
     
 }

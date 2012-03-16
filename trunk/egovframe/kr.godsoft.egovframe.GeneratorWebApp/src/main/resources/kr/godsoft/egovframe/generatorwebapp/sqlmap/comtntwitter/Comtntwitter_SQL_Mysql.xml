@@ -4,104 +4,105 @@
 <sqlMap namespace="Comtntwitter">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtntwitterSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterDefaultVO"/>
+	<typeAlias  alias="ComtntwitterVO" type="kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterVO"/>
 	
 	<resultMap id="comtntwitter" class="kr.godsoft.egovframe.generatorwebapp.comtntwitter.service.ComtntwitterVO">
-		<result property="userId" column="USER_ID" columnIndex="1"/> <!--  -->
-		<result property="cnsmrKey" column="CNSMR_KEY" columnIndex="2"/> <!--  -->
-		<result property="cnsmrSecret" column="CNSMR_SECRET" columnIndex="3"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="4"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="5"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="6"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="7"/> <!--  -->
+		<result property="userId" column="user_id" columnIndex="1"/>
+		<result property="cnsmrKey" column="cnsmr_key" columnIndex="2"/>
+		<result property="cnsmrSecret" column="cnsmr_secret" columnIndex="3"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
 	</resultMap>
 	
 	<insert id="comtntwitterDAO.insertComtntwitter_S">
 		<![CDATA[
 			INSERT INTO comtntwitter 
-				( USER_ID /*  */
-				  , CNSMR_KEY /*  */
-				  , CNSMR_SECRET /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #userId# /*  */
-					  , #cnsmrKey# /*  */
-						  , #cnsmrSecret# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( USER_ID
+				  , cnsmr_key
+				  , cnsmr_secret
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #userId#
+				  , #cnsmrKey#
+				  , #cnsmrSecret#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtntwitterDAO.updateComtntwitter_S">
 		<![CDATA[
 			UPDATE comtntwitter
-			SET USER_ID=#userId# /*  */
-				, CNSMR_KEY=#cnsmrKey# /*  */
-				, CNSMR_SECRET=#cnsmrSecret# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE USER_ID=#userId# /*  */
+			SET user_id = #userId#
+				, cnsmr_key = #cnsmrKey#
+				, cnsmr_secret = #cnsmrSecret#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE user_id = #userId#
 		]]>
 	</update>
 	
 	<delete id="comtntwitterDAO.deleteComtntwitter_S">
 		<![CDATA[
 			DELETE FROM comtntwitter 
-			WHERE USER_ID=#userId# /*  */
+			WHERE user_id = #userId#
 		]]>
 	</delete>
 	
 	<select id="comtntwitterDAO.selectComtntwitter_S" resultMap="comtntwitter">
 		<![CDATA[
 			SELECT
-				USER_ID /*  */
-				, CNSMR_KEY /*  */
-				, CNSMR_SECRET /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				user_id
+				, cnsmr_key
+				, cnsmr_secret
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtntwitter
-			WHERE USER_ID=#userId# /*  */
+			WHERE user_id = #userId#
 		]]>
 	</select>
 	
-	<select id="comtntwitterDAO.selectComtntwitterList_D" parameterClass="comtntwitterSerarchVO" resultClass="egovMap">
+	<select id="comtntwitterDAO.selectComtntwitterList_D" parameterClass="ComtntwitterVO" resultClass="egovMap">
 			SELECT
-								USER_ID /*  */
-								, CNSMR_KEY /*  */
-								, CNSMR_SECRET /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								user_id
+								, cnsmr_key
+								, cnsmr_secret
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtntwitter
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				USER_ID = #searchKeyword# /*  */
+				user_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CNSMR_KEY LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				cnsmr_key LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							USER_ID DESC /*  */
+							user_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtntwitterDAO.selectComtntwitterListTotCnt_S" parameterClass="comtntwitterSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtntwitterDAO.selectComtntwitterListTotCnt_S" parameterClass="ComtntwitterVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtntwitter
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				USER_ID = #searchKeyword# /*  */
+				user_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CNSMR_KEY LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				cnsmr_key LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

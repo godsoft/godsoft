@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.ComtndamcalresVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtndamcalresService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service.Comtndamcalre
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtndamcalresService {
 	 * @return comtndamcalres 목록
 	 * @exception Exception
 	 */
-    List selectComtndamcalresList(ComtndamcalresDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtndamcalresList(ComtndamcalresVO vo) throws Exception;
     
     /**
 	 * comtndamcalres 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtndamcalresService {
 	 * @return comtndamcalres 총 갯수
 	 * @exception
 	 */
-    int selectComtndamcalresListTotCnt(ComtndamcalresDefaultVO searchVO);
+    int selectComtndamcalresListTotCnt(ComtndamcalresVO vo);
     
 }

@@ -6,28 +6,28 @@ package kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnindvdlpgeestbsVO extends ComtnindvdlpgeestbsDefaultVO{
+public class ComtnindvdlpgeestbsVO extends ComtnindvdlpgeestbsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
-    /**  */
+    /** UPEND_IMAGE */
     private String upendImage;
     
-    /**  */
+    /** TITLEBAR_COLOR */
     private String titlebarColor;
     
-    /**  */
+    /** ALGN_MTHD */
     private String algnMthd;
     
-    /**  */
+    /** ALGN_CO */
     private int algnCo;
     
     public String getEmplyrId() {

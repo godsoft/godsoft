@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> 목록</title>
+<title>목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -50,14 +50,14 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" method="post">
 	<input type="hidden" name="sysIp" />
 	<input type="hidden" name="sysPort" />
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" />  목록</li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" /> List </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -78,23 +78,23 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
+								<th align="center">SysIp</th>
+								<th align="center">SysPort</th>
+								<th align="center">SysNm</th>
+								<th align="center">MngrNm</th>
+								<th align="center">MngrEmailAdres</th>
+								<th align="center">MntrngSttus</th>
+								<th align="center">CreatDt</th>
+								<th align="center">FrstRegisterId</th>
+								<th align="center">FrstRegistPnttm</th>
+								<th align="center">LastUpdusrId</th>
+								<th align="center">LastUpdtPnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																							
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.sysIp}"/>', '<c:out value="${result.sysPort}"/>')"><c:out value="${result.sysIp}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.sysIp}"/>', '<c:out value="${result.sysPort}"/>')"><c:out value="${result.sysPort}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.sysIp}"/>, <c:out value="{D}{result.sysPort}"/>')"><c:out value="${result.sysIp}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.sysIp}"/>, <c:out value="{D}{result.sysPort}"/>')"><c:out value="${result.sysPort}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.sysNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.mngrNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.mngrEmailAdres}"/>&nbsp;</td>

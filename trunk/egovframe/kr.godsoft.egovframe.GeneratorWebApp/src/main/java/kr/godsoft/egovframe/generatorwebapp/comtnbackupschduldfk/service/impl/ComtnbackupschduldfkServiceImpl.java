@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.impl.ComtnbackupschduldfkDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbackupschduldfkServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.impl.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnbackupschduldfkServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnbackupschduldfk 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbackupschduldfkList(ComtnbackupschduldfkDefaultVO searchVO) throws Exception {
-        return comtnbackupschduldfkDAO.selectComtnbackupschduldfkList(searchVO);
+    public List<EgovMap> selectComtnbackupschduldfkList(ComtnbackupschduldfkVO vo) throws Exception {
+        return comtnbackupschduldfkDAO.selectComtnbackupschduldfkList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnbackupschduldfkServiceImpl extends AbstractServiceImpl impleme
 	 * @return comtnbackupschduldfk 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbackupschduldfkListTotCnt(ComtnbackupschduldfkDefaultVO searchVO) {
-		return comtnbackupschduldfkDAO.selectComtnbackupschduldfkListTotCnt(searchVO);
+    public int selectComtnbackupschduldfkListTotCnt(ComtnbackupschduldfkVO vo) {
+		return comtnbackupschduldfkDAO.selectComtnbackupschduldfkListTotCnt(vo);
 	}
     
 }

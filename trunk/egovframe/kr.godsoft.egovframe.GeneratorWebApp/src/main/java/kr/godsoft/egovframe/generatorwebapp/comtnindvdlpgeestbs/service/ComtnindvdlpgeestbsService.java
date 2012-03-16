@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.ComtnindvdlpgeestbsVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnindvdlpgeestbsService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service.Comtnind
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnindvdlpgeestbsService {
 	 * @return comtnindvdlpgeestbs 목록
 	 * @exception Exception
 	 */
-    List selectComtnindvdlpgeestbsList(ComtnindvdlpgeestbsDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnindvdlpgeestbsList(ComtnindvdlpgeestbsVO vo) throws Exception;
     
     /**
 	 * comtnindvdlpgeestbs 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnindvdlpgeestbsService {
 	 * @return comtnindvdlpgeestbs 총 갯수
 	 * @exception
 	 */
-    int selectComtnindvdlpgeestbsListTotCnt(ComtnindvdlpgeestbsDefaultVO searchVO);
+    int selectComtnindvdlpgeestbsListTotCnt(ComtnindvdlpgeestbsVO vo);
     
 }

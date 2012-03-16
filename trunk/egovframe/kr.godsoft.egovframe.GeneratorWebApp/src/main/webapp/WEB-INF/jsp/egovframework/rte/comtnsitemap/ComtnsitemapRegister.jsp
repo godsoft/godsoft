@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnsitemapVO.mapngCreatId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnsitemapVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnsitemapVO" name="detailForm" id="detailForm">
+<form:form commandName="comtnsitemapVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>MAPNG_CREAT_ID *</th>
 			<td>
 				<form:input path="mapngCreatId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>MAPNG_CREAT_ID *</th>
 			<td>
 				<form:input path="mapngCreatId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,32 +93,23 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>CREATR_ID</th>
 			<td>
-	
 				<form:input path="creatrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="creatrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>MAPNG_FILE_NM</th>
 			<td>
-	
 				<form:input path="mapngFileNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="mapngFileNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>MAPNG_FILE_PATH</th>
 			<td>
-	
 				<form:input path="mapngFilePath" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="mapngFilePath" />
 			</td>
 		</tr>	

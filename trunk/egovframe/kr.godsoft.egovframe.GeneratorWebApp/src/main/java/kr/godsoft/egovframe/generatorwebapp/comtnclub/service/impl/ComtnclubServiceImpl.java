@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubService;
+import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubService;
-import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.ComtnclubVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.impl.ComtnclubDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnclubServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnclub.service.impl.ComtnclubDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnclub 목록
 	 * @exception Exception
 	 */
-    public List selectComtnclubList(ComtnclubDefaultVO searchVO) throws Exception {
-        return comtnclubDAO.selectComtnclubList(searchVO);
+    public List<EgovMap> selectComtnclubList(ComtnclubVO vo) throws Exception {
+        return comtnclubDAO.selectComtnclubList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnclub 총 갯수
 	 * @exception
 	 */
-    public int selectComtnclubListTotCnt(ComtnclubDefaultVO searchVO) {
-		return comtnclubDAO.selectComtnclubListTotCnt(searchVO);
+    public int selectComtnclubListTotCnt(ComtnclubVO vo) {
+		return comtnclubDAO.selectComtnclubListTotCnt(vo);
 	}
     
 }

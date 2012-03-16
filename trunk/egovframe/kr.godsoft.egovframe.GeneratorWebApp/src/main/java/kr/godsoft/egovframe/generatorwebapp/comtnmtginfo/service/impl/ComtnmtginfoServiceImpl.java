@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.ComtnmtginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.impl.ComtnmtginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmtginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service.impl.Comtnmtgin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnmtginfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnmtginfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmtginfoList(ComtnmtginfoDefaultVO searchVO) throws Exception {
-        return comtnmtginfoDAO.selectComtnmtginfoList(searchVO);
+    public List<EgovMap> selectComtnmtginfoList(ComtnmtginfoVO vo) throws Exception {
+        return comtnmtginfoDAO.selectComtnmtginfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnmtginfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnmtginfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmtginfoListTotCnt(ComtnmtginfoDefaultVO searchVO) {
-		return comtnmtginfoDAO.selectComtnmtginfoListTotCnt(searchVO);
+    public int selectComtnmtginfoListTotCnt(ComtnmtginfoVO vo) {
+		return comtnmtginfoDAO.selectComtnmtginfoListTotCnt(vo);
 	}
     
 }

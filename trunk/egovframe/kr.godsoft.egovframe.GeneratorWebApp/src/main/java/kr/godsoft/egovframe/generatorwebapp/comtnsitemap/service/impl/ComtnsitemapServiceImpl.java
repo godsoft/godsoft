@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapService;
+import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapService;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.impl.ComtnsitemapDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnsitemapServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.impl.Comtnsitem
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnsitemapServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnsitemap 목록
 	 * @exception Exception
 	 */
-    public List selectComtnsitemapList(ComtnsitemapDefaultVO searchVO) throws Exception {
-        return comtnsitemapDAO.selectComtnsitemapList(searchVO);
+    public List<EgovMap> selectComtnsitemapList(ComtnsitemapVO vo) throws Exception {
+        return comtnsitemapDAO.selectComtnsitemapList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnsitemapServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnsitemap 총 갯수
 	 * @exception
 	 */
-    public int selectComtnsitemapListTotCnt(ComtnsitemapDefaultVO searchVO) {
-		return comtnsitemapDAO.selectComtnsitemapListTotCnt(searchVO);
+    public int selectComtnsitemapListTotCnt(ComtnsitemapVO vo) {
+		return comtnsitemapDAO.selectComtnsitemapListTotCnt(vo);
 	}
     
 }

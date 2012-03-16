@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO;
 
 /**
  * @Class Name : ComtnsitemapDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDef
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
 	 * @return comtnsitemap 목록
 	 * @exception Exception
 	 */
-    public List selectComtnsitemapList(ComtnsitemapDefaultVO searchVO) throws Exception {
-        return list("comtnsitemapDAO.selectComtnsitemapList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnsitemapList(ComtnsitemapVO vo) throws Exception {
+        return list("comtnsitemapDAO.selectComtnsitemapList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
 	 * @return comtnsitemap 총 갯수
 	 * @exception
 	 */
-    public int selectComtnsitemapListTotCnt(ComtnsitemapDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnsitemapDAO.selectComtnsitemapListTotCnt_S", searchVO);
+    public int selectComtnsitemapListTotCnt(ComtnsitemapVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnsitemapDAO.selectComtnsitemapListTotCnt_S", vo);
     }
 
 }

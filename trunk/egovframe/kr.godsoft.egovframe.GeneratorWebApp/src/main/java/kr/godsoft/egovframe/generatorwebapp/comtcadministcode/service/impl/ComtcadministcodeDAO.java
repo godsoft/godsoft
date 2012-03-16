@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtcadministcode.service.Comtcadmin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-15
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  

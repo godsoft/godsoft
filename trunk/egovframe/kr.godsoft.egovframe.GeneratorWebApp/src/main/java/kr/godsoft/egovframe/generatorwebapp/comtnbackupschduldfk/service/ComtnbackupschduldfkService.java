@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbackupschduldfkService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.Comtnba
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbackupschduldfkService {
 	 * @return comtnbackupschduldfk 목록
 	 * @exception Exception
 	 */
-    List selectComtnbackupschduldfkList(ComtnbackupschduldfkDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbackupschduldfkList(ComtnbackupschduldfkVO vo) throws Exception;
     
     /**
 	 * comtnbackupschduldfk 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbackupschduldfkService {
 	 * @return comtnbackupschduldfk 총 갯수
 	 * @exception
 	 */
-    int selectComtnbackupschduldfkListTotCnt(ComtnbackupschduldfkDefaultVO searchVO);
+    int selectComtnbackupschduldfkListTotCnt(ComtnbackupschduldfkVO vo);
     
 }

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
 
 /**
  * @Class Name : ComtnbbsuseController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnbbsuseController {
 	
     /**
 	 * comtnbbsuse 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbbsuseDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbbsuseVO
 	 * @return "/comtnbbsuse/ComtnbbsuseList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbbsuse/ComtnbbsuseList.do")
-    public String selectComtnbbsuseList(@ModelAttribute("searchVO") ComtnbbsuseDefaultVO searchVO, 
+    public String selectComtnbbsuseList(@ModelAttribute("searchVO") ComtnbbsuseVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnbbsuseController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbbsuseList = comtnbbsuseService.selectComtnbbsuseList(searchVO);
+        List<EgovMap> comtnbbsuseList = comtnbbsuseService.selectComtnbbsuseList(searchVO);
         model.addAttribute("resultList", comtnbbsuseList);
         
         int totCnt = comtnbbsuseService.selectComtnbbsuseListTotCnt(searchVO);

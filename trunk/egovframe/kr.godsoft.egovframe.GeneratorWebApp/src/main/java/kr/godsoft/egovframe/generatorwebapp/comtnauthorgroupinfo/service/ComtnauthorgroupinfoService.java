@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.ComtnauthorgroupinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnauthorgroupinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorgroupinfo.service.Comtnau
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnauthorgroupinfoService {
 	 * @return comtnauthorgroupinfo 목록
 	 * @exception Exception
 	 */
-    List selectComtnauthorgroupinfoList(ComtnauthorgroupinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnauthorgroupinfoList(ComtnauthorgroupinfoVO vo) throws Exception;
     
     /**
 	 * comtnauthorgroupinfo 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnauthorgroupinfoService {
 	 * @return comtnauthorgroupinfo 총 갯수
 	 * @exception
 	 */
-    int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoDefaultVO searchVO);
+    int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoVO vo);
     
 }

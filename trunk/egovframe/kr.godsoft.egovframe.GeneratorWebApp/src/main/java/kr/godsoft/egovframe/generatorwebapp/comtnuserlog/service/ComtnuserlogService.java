@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnuserlogService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserlog.service.ComtnuserlogVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnuserlogService {
 	 * @return comtnuserlog 목록
 	 * @exception Exception
 	 */
-    List selectComtnuserlogList(ComtnuserlogDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnuserlogList(ComtnuserlogVO vo) throws Exception;
     
     /**
 	 * comtnuserlog 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnuserlogService {
 	 * @return comtnuserlog 총 갯수
 	 * @exception
 	 */
-    int selectComtnuserlogListTotCnt(ComtnuserlogDefaultVO searchVO);
+    int selectComtnuserlogListTotCnt(ComtnuserlogVO vo);
     
 }

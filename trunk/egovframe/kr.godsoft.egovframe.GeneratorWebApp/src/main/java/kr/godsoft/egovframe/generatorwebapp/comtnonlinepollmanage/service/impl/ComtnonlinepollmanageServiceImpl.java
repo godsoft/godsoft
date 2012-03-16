@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.ComtnonlinepollmanageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.impl.ComtnonlinepollmanageDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnonlinepollmanageServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollmanage.service.impl.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnonlinepollmanage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnonlinepollmanageList(ComtnonlinepollmanageDefaultVO searchVO) throws Exception {
-        return comtnonlinepollmanageDAO.selectComtnonlinepollmanageList(searchVO);
+    public List<EgovMap> selectComtnonlinepollmanageList(ComtnonlinepollmanageVO vo) throws Exception {
+        return comtnonlinepollmanageDAO.selectComtnonlinepollmanageList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
 	 * @return comtnonlinepollmanage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnonlinepollmanageListTotCnt(ComtnonlinepollmanageDefaultVO searchVO) {
-		return comtnonlinepollmanageDAO.selectComtnonlinepollmanageListTotCnt(searchVO);
+    public int selectComtnonlinepollmanageListTotCnt(ComtnonlinepollmanageVO vo) {
+		return comtnonlinepollmanageDAO.selectComtnonlinepollmanageListTotCnt(vo);
 	}
     
 }

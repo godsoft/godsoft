@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistService;
+import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistService;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
-import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.impl.ComthsyshistDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComthsyshistServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.impl.Comthsyshi
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComthsyshistServiceImpl extends AbstractServiceImpl implements
 	 * @return comthsyshist 목록
 	 * @exception Exception
 	 */
-    public List selectComthsyshistList(ComthsyshistDefaultVO searchVO) throws Exception {
-        return comthsyshistDAO.selectComthsyshistList(searchVO);
+    public List<EgovMap> selectComthsyshistList(ComthsyshistVO vo) throws Exception {
+        return comthsyshistDAO.selectComthsyshistList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComthsyshistServiceImpl extends AbstractServiceImpl implements
 	 * @return comthsyshist 총 갯수
 	 * @exception
 	 */
-    public int selectComthsyshistListTotCnt(ComthsyshistDefaultVO searchVO) {
-		return comthsyshistDAO.selectComthsyshistListTotCnt(searchVO);
+    public int selectComthsyshistListTotCnt(ComthsyshistVO vo) {
+		return comthsyshistDAO.selectComthsyshistListTotCnt(vo);
 	}
     
 }

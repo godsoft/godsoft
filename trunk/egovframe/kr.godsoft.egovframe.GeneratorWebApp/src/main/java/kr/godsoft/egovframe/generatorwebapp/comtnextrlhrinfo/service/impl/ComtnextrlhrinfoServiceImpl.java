@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.ComtnextrlhrinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.impl.ComtnextrlhrinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnextrlhrinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnextrlhrinfo.service.impl.Comtne
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnextrlhrinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnextrlhrinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnextrlhrinfoList(ComtnextrlhrinfoDefaultVO searchVO) throws Exception {
-        return comtnextrlhrinfoDAO.selectComtnextrlhrinfoList(searchVO);
+    public List<EgovMap> selectComtnextrlhrinfoList(ComtnextrlhrinfoVO vo) throws Exception {
+        return comtnextrlhrinfoDAO.selectComtnextrlhrinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnextrlhrinfoServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnextrlhrinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnextrlhrinfoListTotCnt(ComtnextrlhrinfoDefaultVO searchVO) {
-		return comtnextrlhrinfoDAO.selectComtnextrlhrinfoListTotCnt(searchVO);
+    public int selectComtnextrlhrinfoListTotCnt(ComtnextrlhrinfoVO vo) {
+		return comtnextrlhrinfoDAO.selectComtnextrlhrinfoListTotCnt(vo);
 	}
     
 }

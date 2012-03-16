@@ -6,85 +6,85 @@ package kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnentrprsmberVO extends ComtnentrprsmberDefaultVO{
+public class ComtnentrprsmberVO extends ComtnentrprsmberDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ENTRPRS_MBER_ID */
     private String entrprsMberId;
     
-    /**  */
+    /** ENTRPRS_SE_CODE */
     private String entrprsSeCode;
     
-    /**  */
+    /** BIZRNO */
     private String bizrno;
     
-    /**  */
+    /** JURIRNO */
     private String jurirno;
     
-    /**  */
+    /** CMPNY_NM */
     private String cmpnyNm;
     
-    /**  */
+    /** CXFC */
     private String cxfc;
     
-    /**  */
+    /** ZIP */
     private String zip;
     
-    /**  */
+    /** ADRES */
     private String adres;
     
-    /**  */
+    /** ENTRPRS_MIDDLE_TELNO */
     private String entrprsMiddleTelno;
     
-    /**  */
+    /** FXNUM */
     private String fxnum;
     
-    /**  */
+    /** INDUTY_CODE */
     private String indutyCode;
     
-    /**  */
+    /** APPLCNT_NM */
     private String applcntNm;
     
-    /**  */
+    /** APPLCNT_IHIDNUM */
     private String applcntIhidnum;
     
-    /**  */
+    /** SBSCRB_DE */
     private String sbscrbDe;
     
-    /**  */
+    /** ENTRPRS_MBER_STTUS */
     private String entrprsMberSttus;
     
-    /**  */
+    /** ENTRPRS_MBER_PASSWORD */
     private String entrprsMberPassword;
     
-    /**  */
+    /** ENTRPRS_MBER_PASSWORD_HINT */
     private String entrprsMberPasswordHint;
     
-    /**  */
+    /** ENTRPRS_MBER_PASSWORD_CNSR */
     private String entrprsMberPasswordCnsr;
     
-    /**  */
+    /** GROUP_ID */
     private String groupId;
     
-    /**  */
+    /** DETAIL_ADRES */
     private String detailAdres;
     
-    /**  */
+    /** ENTRPRS_END_TELNO */
     private String entrprsEndTelno;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** APPLCNT_EMAIL_ADRES */
     private String applcntEmailAdres;
     
-    /**  */
+    /** ESNTL_ID */
     private String esntlId;
     
     public String getEntrprsMberId() {

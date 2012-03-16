@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyDefaultVO;
 
 /**
  * @Class Name : ComtncmmntyDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyDefau
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtncmmntyDAO extends EgovAbstractDAO {
 	 * @return comtncmmnty 목록
 	 * @exception Exception
 	 */
-    public List selectComtncmmntyList(ComtncmmntyDefaultVO searchVO) throws Exception {
-        return list("comtncmmntyDAO.selectComtncmmntyList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtncmmntyList(ComtncmmntyVO vo) throws Exception {
+        return list("comtncmmntyDAO.selectComtncmmntyList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtncmmntyDAO extends EgovAbstractDAO {
 	 * @return comtncmmnty 총 갯수
 	 * @exception
 	 */
-    public int selectComtncmmntyListTotCnt(ComtncmmntyDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtncmmntyDAO.selectComtncmmntyListTotCnt_S", searchVO);
+    public int selectComtncmmntyListTotCnt(ComtncmmntyVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtncmmntyDAO.selectComtncmmntyListTotCnt_S", vo);
     }
 
 }

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordService;
+import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordService;
-import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.ComtnadministrationwordVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.impl.ComtnadministrationwordDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnadministrationwordServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadministrationword.service.impl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnadministrationwordServiceImpl extends AbstractServiceImpl impl
 	 * @return comtnadministrationword 목록
 	 * @exception Exception
 	 */
-    public List selectComtnadministrationwordList(ComtnadministrationwordDefaultVO searchVO) throws Exception {
-        return comtnadministrationwordDAO.selectComtnadministrationwordList(searchVO);
+    public List<EgovMap> selectComtnadministrationwordList(ComtnadministrationwordVO vo) throws Exception {
+        return comtnadministrationwordDAO.selectComtnadministrationwordList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnadministrationwordServiceImpl extends AbstractServiceImpl impl
 	 * @return comtnadministrationword 총 갯수
 	 * @exception
 	 */
-    public int selectComtnadministrationwordListTotCnt(ComtnadministrationwordDefaultVO searchVO) {
-		return comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt(searchVO);
+    public int selectComtnadministrationwordListTotCnt(ComtnadministrationwordVO vo) {
+		return comtnadministrationwordDAO.selectComtnadministrationwordListTotCnt(vo);
 	}
     
 }

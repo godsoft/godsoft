@@ -4,146 +4,147 @@
 <sqlMap namespace="Comthdbmntrngloginfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comthdbmntrngloginfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoDefaultVO"/>
+	<typeAlias  alias="ComthdbmntrngloginfoVO" type="kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoVO"/>
 	
 	<resultMap id="comthdbmntrngloginfo" class="kr.godsoft.egovframe.generatorwebapp.comthdbmntrngloginfo.service.ComthdbmntrngloginfoVO">
-		<result property="dataSourcNm" column="DATA_SOURC_NM" columnIndex="1"/> <!--  -->
-		<result property="serverNm" column="SERVER_NM" columnIndex="2"/> <!--  -->
-		<result property="dbmsKnd" column="DBMS_KND" columnIndex="3"/> <!--  -->
-		<result property="ceckSql" column="CECK_SQL" columnIndex="4"/> <!--  -->
-		<result property="mngrNm" column="MNGR_NM" columnIndex="5"/> <!--  -->
-		<result property="mngrEmailAdres" column="MNGR_EMAIL_ADRES" columnIndex="6"/> <!--  -->
-		<result property="mntrngSttus" column="MNTRNG_STTUS" columnIndex="7"/> <!--  -->
-		<result property="logInfo" column="LOG_INFO" columnIndex="8"/> <!--  -->
-		<result property="creatDt" column="CREAT_DT" columnIndex="9"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="10"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="11"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="12"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="13"/> <!--  -->
-		<result property="logId" column="LOG_ID" columnIndex="14"/> <!--  -->
+		<result property="dataSourcNm" column="data_sourc_nm" columnIndex="1"/>
+		<result property="serverNm" column="server_nm" columnIndex="2"/>
+		<result property="dbmsKnd" column="dbms_knd" columnIndex="3"/>
+		<result property="ceckSql" column="ceck_sql" columnIndex="4"/>
+		<result property="mngrNm" column="mngr_nm" columnIndex="5"/>
+		<result property="mngrEmailAdres" column="mngr_email_adres" columnIndex="6"/>
+		<result property="mntrngSttus" column="mntrng_sttus" columnIndex="7"/>
+		<result property="logInfo" column="log_info" columnIndex="8"/>
+		<result property="creatDt" column="creat_dt" columnIndex="9"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="10"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="11"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="12"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="13"/>
+		<result property="logId" column="log_id" columnIndex="14"/>
 	</resultMap>
 	
 	<insert id="comthdbmntrngloginfoDAO.insertComthdbmntrngloginfo_S">
 		<![CDATA[
 			INSERT INTO comthdbmntrngloginfo 
-				( DATA_SOURC_NM /*  */
-				  , SERVER_NM /*  */
-				  , DBMS_KND /*  */
-				  , CECK_SQL /*  */
-				  , MNGR_NM /*  */
-				  , MNGR_EMAIL_ADRES /*  */
-				  , MNTRNG_STTUS /*  */
-				  , LOG_INFO /*  */
-				  , CREAT_DT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LOG_ID /*  */ )
-			VALUES ( #dataSourcNm# /*  */
-					  , #serverNm# /*  */
-						  , #dbmsKnd# /*  */
-						  , #ceckSql# /*  */
-						  , #mngrNm# /*  */
-						  , #mngrEmailAdres# /*  */
-						  , #mntrngSttus# /*  */
-						  , #logInfo# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #logId# /*  */ )
+				( DATA_SOURC_NM
+				  , server_nm
+				  , dbms_knd
+				  , ceck_sql
+				  , mngr_nm
+				  , mngr_email_adres
+				  , mntrng_sttus
+				  , log_info
+				  , creat_dt
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updt_pnttm
+				  , last_updusr_id
+				  , log_id )
+			VALUES ( #dataSourcNm#
+				  , #serverNm#
+				  , #dbmsKnd#
+				  , #ceckSql#
+				  , #mngrNm#
+				  , #mngrEmailAdres#
+				  , #mntrngSttus#
+				  , #logInfo#
+				  , #creatDt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdtPnttm#
+				  , #lastUpdusrId#
+				  , #logId# )
 		]]>
 	</insert>
 	
 	<update id="comthdbmntrngloginfoDAO.updateComthdbmntrngloginfo_S">
 		<![CDATA[
 			UPDATE comthdbmntrngloginfo
-			SET DATA_SOURC_NM=#dataSourcNm# /*  */
-				, SERVER_NM=#serverNm# /*  */
-				, DBMS_KND=#dbmsKnd# /*  */
-				, CECK_SQL=#ceckSql# /*  */
-				, MNGR_NM=#mngrNm# /*  */
-				, MNGR_EMAIL_ADRES=#mngrEmailAdres# /*  */
-				, MNTRNG_STTUS=#mntrngSttus# /*  */
-				, LOG_INFO=#logInfo# /*  */
-				, CREAT_DT=#creatDt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LOG_ID=#logId# /*  */
-			WHERE LOG_ID=#logId# /*  */
+			SET data_sourc_nm = #dataSourcNm#
+				, server_nm = #serverNm#
+				, dbms_knd = #dbmsKnd#
+				, ceck_sql = #ceckSql#
+				, mngr_nm = #mngrNm#
+				, mngr_email_adres = #mngrEmailAdres#
+				, mntrng_sttus = #mntrngSttus#
+				, log_info = #logInfo#
+				, creat_dt = #creatDt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, log_id = #logId#
+			WHERE log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comthdbmntrngloginfoDAO.deleteComthdbmntrngloginfo_S">
 		<![CDATA[
 			DELETE FROM comthdbmntrngloginfo 
-			WHERE LOG_ID=#logId# /*  */
+			WHERE log_id = #logId#
 		]]>
 	</delete>
 	
 	<select id="comthdbmntrngloginfoDAO.selectComthdbmntrngloginfo_S" resultMap="comthdbmntrngloginfo">
 		<![CDATA[
 			SELECT
-				DATA_SOURC_NM /*  */
-				, SERVER_NM /*  */
-				, DBMS_KND /*  */
-				, CECK_SQL /*  */
-				, MNGR_NM /*  */
-				, MNGR_EMAIL_ADRES /*  */
-				, MNTRNG_STTUS /*  */
-				, LOG_INFO /*  */
-				, CREAT_DT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LOG_ID /*  */
+				data_sourc_nm
+				, server_nm
+				, dbms_knd
+				, ceck_sql
+				, mngr_nm
+				, mngr_email_adres
+				, mntrng_sttus
+				, log_info
+				, creat_dt
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updt_pnttm
+				, last_updusr_id
+				, log_id
 			FROM comthdbmntrngloginfo
-			WHERE LOG_ID=#logId# /*  */
+			WHERE log_id = #logId#
 		]]>
 	</select>
 	
-	<select id="comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoList_D" parameterClass="comthdbmntrngloginfoSerarchVO" resultClass="egovMap">
+	<select id="comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoList_D" parameterClass="ComthdbmntrngloginfoVO" resultClass="egovMap">
 			SELECT
-								DATA_SOURC_NM /*  */
-								, SERVER_NM /*  */
-								, DBMS_KND /*  */
-								, CECK_SQL /*  */
-								, MNGR_NM /*  */
-								, MNGR_EMAIL_ADRES /*  */
-								, MNTRNG_STTUS /*  */
-								, LOG_INFO /*  */
-								, CREAT_DT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LOG_ID /*  */
+								data_sourc_nm
+								, server_nm
+								, dbms_knd
+								, ceck_sql
+								, mngr_nm
+								, mngr_email_adres
+								, mntrng_sttus
+								, log_info
+								, creat_dt
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updt_pnttm
+								, last_updusr_id
+								, log_id
 					FROM comthdbmntrngloginfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				DATA_SOURC_NM = #searchKeyword# /*  */
+				data_sourc_nm = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SERVER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				server_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							LOG_ID DESC /*  */
+							log_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoListTotCnt_S" parameterClass="comthdbmntrngloginfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comthdbmntrngloginfoDAO.selectComthdbmntrngloginfoListTotCnt_S" parameterClass="ComthdbmntrngloginfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comthdbmntrngloginfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				DATA_SOURC_NM = #searchKeyword# /*  */
+				data_sourc_nm = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SERVER_NM LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				server_nm LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

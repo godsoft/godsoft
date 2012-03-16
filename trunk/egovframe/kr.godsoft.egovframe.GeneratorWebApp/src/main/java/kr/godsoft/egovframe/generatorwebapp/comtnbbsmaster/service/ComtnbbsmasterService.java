@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.ComtnbbsmasterVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnbbsmasterService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service.Comtnbbsmaste
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnbbsmasterService {
 	 * @return comtnbbsmaster 목록
 	 * @exception Exception
 	 */
-    List selectComtnbbsmasterList(ComtnbbsmasterDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnbbsmasterList(ComtnbbsmasterVO vo) throws Exception;
     
     /**
 	 * comtnbbsmaster 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnbbsmasterService {
 	 * @return comtnbbsmaster 총 갯수
 	 * @exception
 	 */
-    int selectComtnbbsmasterListTotCnt(ComtnbbsmasterDefaultVO searchVO);
+    int selectComtnbbsmasterListTotCnt(ComtnbbsmasterVO vo);
     
 }

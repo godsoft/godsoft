@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.ComtnuserabsnceVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnuserabsnceService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.Comtnuserabs
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnuserabsnceService {
 	 * @return comtnuserabsnce 목록
 	 * @exception Exception
 	 */
-    List selectComtnuserabsnceList(ComtnuserabsnceDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnuserabsnceList(ComtnuserabsnceVO vo) throws Exception;
     
     /**
 	 * comtnuserabsnce 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnuserabsnceService {
 	 * @return comtnuserabsnce 총 갯수
 	 * @exception
 	 */
-    int selectComtnuserabsnceListTotCnt(ComtnuserabsnceDefaultVO searchVO);
+    int selectComtnuserabsnceListTotCnt(ComtnuserabsnceVO vo);
     
 }

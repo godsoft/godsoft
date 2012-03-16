@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comthconfmhistoryVO.confmNo ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comthconfmhistoryVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comthconfmhistoryVO" name="detailForm" id="detailForm">
+<form:form commandName="comthconfmhistoryVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>CONFM_NO *</th>
 			<td>
 				<form:input path="confmNo" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>CONFM_NO *</th>
 			<td>
 				<form:input path="confmNo" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,92 +93,65 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>CONFM_RQESTER_ID</th>
 			<td>
-	
 				<form:input path="confmRqesterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="confmRqesterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CONFMER_ID</th>
 			<td>
-	
 				<form:input path="confmerId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="confmerId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CONFM_DE</th>
 			<td>
-	
 				<form:input path="confmDe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="confmDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CONFM_TY_CODE</th>
 			<td>
-	
 				<form:input path="confmTyCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="confmTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>CONFM_STTUS_CODE</th>
 			<td>
-	
 				<form:input path="confmSttusCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="confmSttusCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>OPERT_TY_CODE</th>
 			<td>
-	
 				<form:input path="opertTyCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="opertTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>OPERT_ID</th>
 			<td>
-	
 				<form:input path="opertId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="opertId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>TRGET_JOB_TY_CODE</th>
 			<td>
-	
 				<form:input path="trgetJobTyCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="trgetJobTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>TRGET_JOB_ID</th>
 			<td>
-	
 				<form:input path="trgetJobId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="trgetJobId" />
 			</td>
 		</tr>	

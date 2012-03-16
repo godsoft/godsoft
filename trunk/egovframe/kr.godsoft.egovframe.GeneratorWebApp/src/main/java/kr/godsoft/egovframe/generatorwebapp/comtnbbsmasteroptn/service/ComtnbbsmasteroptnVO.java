@@ -6,34 +6,34 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbbsmasteroptn.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbbsmasteroptnVO extends ComtnbbsmasteroptnDefaultVO{
+public class ComtnbbsmasteroptnVO extends ComtnbbsmasteroptnDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
+    /** ANSWER_AT */
     private String answerAt;
     
-    /**  */
+    /** STSFDG_AT */
     private String stsfdgAt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getBbsId() {

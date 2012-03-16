@@ -6,52 +6,52 @@ package kr.godsoft.egovframe.generatorwebapp.comtnntwrkinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnntwrkinfoVO extends ComtnntwrkinfoDefaultVO{
+public class ComtnntwrkinfoVO extends ComtnntwrkinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** NTWRK_ID */
     private String ntwrkId;
     
-    /**  */
+    /** NTWRK_IP */
     private String ntwrkIp;
     
-    /**  */
+    /** GTWY */
     private String gtwy;
     
-    /**  */
+    /** SUBNET */
     private String subnet;
     
-    /**  */
+    /** DOMN_NM_SERVER */
     private String domnNmServer;
     
-    /**  */
+    /** MANAGE_IEM */
     private String manageIem;
     
-    /**  */
+    /** USER_NM */
     private String userNm;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** RGSDE */
     private String rgsde;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getNtwrkId() {

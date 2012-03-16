@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtninfrmlsanctn.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtninfrmlsanctnVO extends ComtninfrmlsanctnDefaultVO{
+public class ComtninfrmlsanctnVO extends ComtninfrmlsanctnDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** INFRML_SANCTN_ID */
     private String infrmlSanctnId;
     
-    /**  */
+    /** JOB_SE_CODE */
     private String jobSeCode;
     
-    /**  */
+    /** APPLCNT_ID */
     private String applcntId;
     
-    /**  */
+    /** REQST_DE */
     private String reqstDe;
     
-    /**  */
+    /** SANCTNER_ID */
     private String sanctnerId;
     
-    /**  */
+    /** CONFM_AT */
     private String confmAt;
     
-    /**  */
+    /** SANCTN_DT */
     private String sanctnDt;
     
-    /**  */
+    /** RETURN_RESN */
     private String returnResn;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getInfrmlSanctnId() {

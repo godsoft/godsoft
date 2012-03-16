@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnwikibkmkService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtnwikibkmkService {
 	 * @return comtnwikibkmk 목록
 	 * @exception Exception
 	 */
-    List selectComtnwikibkmkList(ComtnwikibkmkDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnwikibkmkList(ComtnwikibkmkVO vo) throws Exception;
     
     /**
 	 * comtnwikibkmk 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtnwikibkmkService {
 	 * @return comtnwikibkmk 총 갯수
 	 * @exception
 	 */
-    int selectComtnwikibkmkListTotCnt(ComtnwikibkmkDefaultVO searchVO);
+    int selectComtnwikibkmkListTotCnt(ComtnwikibkmkVO vo);
     
 }

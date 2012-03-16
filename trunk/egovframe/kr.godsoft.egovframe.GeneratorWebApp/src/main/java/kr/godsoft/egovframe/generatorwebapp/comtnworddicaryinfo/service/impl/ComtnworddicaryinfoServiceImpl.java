@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.ComtnworddicaryinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.impl.ComtnworddicaryinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnworddicaryinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnworddicaryinfoServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnworddicaryinfo 목록
 	 * @exception Exception
 	 */
-    public List selectComtnworddicaryinfoList(ComtnworddicaryinfoDefaultVO searchVO) throws Exception {
-        return comtnworddicaryinfoDAO.selectComtnworddicaryinfoList(searchVO);
+    public List<EgovMap> selectComtnworddicaryinfoList(ComtnworddicaryinfoVO vo) throws Exception {
+        return comtnworddicaryinfoDAO.selectComtnworddicaryinfoList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnworddicaryinfoServiceImpl extends AbstractServiceImpl implemen
 	 * @return comtnworddicaryinfo 총 갯수
 	 * @exception
 	 */
-    public int selectComtnworddicaryinfoListTotCnt(ComtnworddicaryinfoDefaultVO searchVO) {
-		return comtnworddicaryinfoDAO.selectComtnworddicaryinfoListTotCnt(searchVO);
+    public int selectComtnworddicaryinfoListTotCnt(ComtnworddicaryinfoVO vo) {
+		return comtnworddicaryinfoDAO.selectComtnworddicaryinfoListTotCnt(vo);
 	}
     
 }

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipService;
+import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipService;
-import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO;
-import kr.godsoft.egovframe.generatorwebapp.comtczip.service.impl.ComtczipDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtczipServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtczip.service.impl.ComtczipDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtczipServiceImpl extends AbstractServiceImpl implements
 	 * @return comtczip 목록
 	 * @exception Exception
 	 */
-    public List selectComtczipList(ComtczipDefaultVO searchVO) throws Exception {
-        return comtczipDAO.selectComtczipList(searchVO);
+    public List<EgovMap> selectComtczipList(ComtczipVO vo) throws Exception {
+        return comtczipDAO.selectComtczipList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtczipServiceImpl extends AbstractServiceImpl implements
 	 * @return comtczip 총 갯수
 	 * @exception
 	 */
-    public int selectComtczipListTotCnt(ComtczipDefaultVO searchVO) {
-		return comtczipDAO.selectComtczipListTotCnt(searchVO);
+    public int selectComtczipListTotCnt(ComtczipVO vo) {
+		return comtczipDAO.selectComtczipListTotCnt(vo);
 	}
     
 }

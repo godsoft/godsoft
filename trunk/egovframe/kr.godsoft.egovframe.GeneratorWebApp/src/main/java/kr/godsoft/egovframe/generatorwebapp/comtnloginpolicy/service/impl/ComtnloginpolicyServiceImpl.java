@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyService;
+import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyService;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.ComtnloginpolicyVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.impl.ComtnloginpolicyDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnloginpolicyServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.impl.Comtnl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnloginpolicyServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnloginpolicy 목록
 	 * @exception Exception
 	 */
-    public List selectComtnloginpolicyList(ComtnloginpolicyDefaultVO searchVO) throws Exception {
-        return comtnloginpolicyDAO.selectComtnloginpolicyList(searchVO);
+    public List<EgovMap> selectComtnloginpolicyList(ComtnloginpolicyVO vo) throws Exception {
+        return comtnloginpolicyDAO.selectComtnloginpolicyList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnloginpolicyServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnloginpolicy 총 갯수
 	 * @exception
 	 */
-    public int selectComtnloginpolicyListTotCnt(ComtnloginpolicyDefaultVO searchVO) {
-		return comtnloginpolicyDAO.selectComtnloginpolicyListTotCnt(searchVO);
+    public int selectComtnloginpolicyListTotCnt(ComtnloginpolicyVO vo) {
+		return comtnloginpolicyDAO.selectComtnloginpolicyListTotCnt(vo);
 	}
     
 }

@@ -6,64 +6,64 @@ package kr.godsoft.egovframe.generatorwebapp.comtnwikmnthngreprt.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnwikmnthngreprtVO extends ComtnwikmnthngreprtDefaultVO{
+public class ComtnwikmnthngreprtVO extends ComtnwikmnthngreprtDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** REPRT_ID */
     private String reprtId;
     
-    /**  */
+    /** REPRT_SE */
     private String reprtSe;
     
-    /**  */
+    /** REPRT_SJ */
     private String reprtSj;
     
-    /**  */
+    /** REPORT_DE */
     private String reportDe;
     
-    /**  */
+    /** WRTER_ID */
     private String wrterId;
     
-    /**  */
+    /** REPORTR_ID */
     private String reportrId;
     
-    /**  */
+    /** REPORT_BGNDE */
     private String reportBgnde;
     
-    /**  */
+    /** REPORT_ENDDE */
     private String reportEndde;
     
-    /**  */
-    private int thswikReportCn;
+    /** THSWIK_REPORT_CN */
+    private String thswikReportCn;
     
-    /**  */
-    private int nextwikReportCn;
+    /** NEXTWIK_REPORT_CN */
+    private String nextwikReportCn;
     
-    /**  */
+    /** PARTCLR_MATTER */
     private String partclrMatter;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** CONFM_DT */
     private String confmDt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getReprtId() {
@@ -130,19 +130,19 @@ public class ComtnwikmnthngreprtVO extends ComtnwikmnthngreprtDefaultVO{
         this.reportEndde = reportEndde;
     }
     
-    public int getThswikReportCn() {
+    public String getThswikReportCn() {
         return this.thswikReportCn;
     }
     
-    public void setThswikReportCn(int thswikReportCn) {
+    public void setThswikReportCn(String thswikReportCn) {
         this.thswikReportCn = thswikReportCn;
     }
     
-    public int getNextwikReportCn() {
+    public String getNextwikReportCn() {
         return this.nextwikReportCn;
     }
     
-    public void setNextwikReportCn(int nextwikReportCn) {
+    public void setNextwikReportCn(String nextwikReportCn) {
         this.nextwikReportCn = nextwikReportCn;
     }
     

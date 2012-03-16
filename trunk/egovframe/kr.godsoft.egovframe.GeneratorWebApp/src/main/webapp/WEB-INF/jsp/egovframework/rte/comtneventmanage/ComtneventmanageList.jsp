@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> 목록</title>
+<title>목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,13 +49,13 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" method="post">
 	<input type="hidden" name="eventId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" />  목록</li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" /> List </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -85,26 +85,26 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
+								<th align="center">EventId</th>
+								<th align="center">EventSe</th>
+								<th align="center">EventNm</th>
+								<th align="center">EventPurps</th>
+								<th align="center">EventBgnde</th>
+								<th align="center">EventEndde</th>
+								<th align="center">EventAuspcInsttNm</th>
+								<th align="center">EventMngtInsttNm</th>
+								<th align="center">EventPlace</th>
+								<th align="center">EventCn</th>
+								<th align="center">CtOccrrncAt</th>
+								<th align="center">PartcptCt</th>
+								<th align="center">Garden</th>
+								<th align="center">RefrnUrl</th>
+								<th align="center">RceptBgnde</th>
+								<th align="center">RceptEndde</th>
+								<th align="center">FrstRegisterId</th>
+								<th align="center">FrstRegistPnttm</th>
+								<th align="center">LastUpdusrId</th>
+								<th align="center">LastUpdtPnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

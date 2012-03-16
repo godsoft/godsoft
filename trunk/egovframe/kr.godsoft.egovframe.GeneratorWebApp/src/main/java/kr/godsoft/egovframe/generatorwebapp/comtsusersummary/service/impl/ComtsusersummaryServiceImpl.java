@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.impl.ComtsusersummaryDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtsusersummaryServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.impl.Comtsu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtsusersummaryServiceImpl extends AbstractServiceImpl implements
 	 * @return comtsusersummary 목록
 	 * @exception Exception
 	 */
-    public List selectComtsusersummaryList(ComtsusersummaryDefaultVO searchVO) throws Exception {
-        return comtsusersummaryDAO.selectComtsusersummaryList(searchVO);
+    public List<EgovMap> selectComtsusersummaryList(ComtsusersummaryVO vo) throws Exception {
+        return comtsusersummaryDAO.selectComtsusersummaryList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtsusersummaryServiceImpl extends AbstractServiceImpl implements
 	 * @return comtsusersummary 총 갯수
 	 * @exception
 	 */
-    public int selectComtsusersummaryListTotCnt(ComtsusersummaryDefaultVO searchVO) {
-		return comtsusersummaryDAO.selectComtsusersummaryListTotCnt(searchVO);
+    public int selectComtsusersummaryListTotCnt(ComtsusersummaryVO vo) {
+		return comtsusersummaryDAO.selectComtsusersummaryListTotCnt(vo);
 	}
     
 }

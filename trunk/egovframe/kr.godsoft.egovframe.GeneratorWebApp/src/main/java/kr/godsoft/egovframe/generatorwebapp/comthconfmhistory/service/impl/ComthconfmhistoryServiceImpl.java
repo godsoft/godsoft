@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryService;
+import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryService;
-import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.ComthconfmhistoryVO;
-import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.impl.ComthconfmhistoryDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComthconfmhistoryServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.impl.Comth
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComthconfmhistoryServiceImpl extends AbstractServiceImpl implements
 	 * @return comthconfmhistory 목록
 	 * @exception Exception
 	 */
-    public List selectComthconfmhistoryList(ComthconfmhistoryDefaultVO searchVO) throws Exception {
-        return comthconfmhistoryDAO.selectComthconfmhistoryList(searchVO);
+    public List<EgovMap> selectComthconfmhistoryList(ComthconfmhistoryVO vo) throws Exception {
+        return comthconfmhistoryDAO.selectComthconfmhistoryList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComthconfmhistoryServiceImpl extends AbstractServiceImpl implements
 	 * @return comthconfmhistory 총 갯수
 	 * @exception
 	 */
-    public int selectComthconfmhistoryListTotCnt(ComthconfmhistoryDefaultVO searchVO) {
-		return comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt(searchVO);
+    public int selectComthconfmhistoryListTotCnt(ComthconfmhistoryVO vo) {
+		return comthconfmhistoryDAO.selectComthconfmhistoryListTotCnt(vo);
 	}
     
 }

@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnrecomendsiteinfoVO extends ComtnrecomendsiteinfoDefaultVO{
+public class ComtnrecomendsiteinfoVO extends ComtnrecomendsiteinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** RECOMEND_SITE_ID */
     private String recomendSiteId;
     
-    /**  */
+    /** RECOMEND_SITE_NM */
     private String recomendSiteNm;
     
-    /**  */
+    /** RECOMEND_SITE_URL */
     private String recomendSiteUrl;
     
-    /**  */
+    /** RECOMEND_SITE_DC */
     private String recomendSiteDc;
     
-    /**  */
+    /** RECOMEND_RESN_CN */
     private String recomendResnCn;
     
-    /**  */
+    /** RECOMEND_CONFM_AT */
     private String recomendConfmAt;
     
-    /**  */
+    /** CONFM_DE */
     private String confmDe;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getRecomendSiteId() {

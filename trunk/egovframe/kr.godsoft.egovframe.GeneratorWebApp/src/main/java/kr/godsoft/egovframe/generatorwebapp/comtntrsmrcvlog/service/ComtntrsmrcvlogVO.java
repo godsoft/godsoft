@@ -6,64 +6,64 @@ package kr.godsoft.egovframe.generatorwebapp.comtntrsmrcvlog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtntrsmrcvlogVO extends ComtntrsmrcvlogDefaultVO{
+public class ComtntrsmrcvlogVO extends ComtntrsmrcvlogDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** REQUST_ID */
     private String requstId;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** TRSMRCV_SE_CODE */
     private String trsmrcvSeCode;
     
-    /**  */
+    /** CNTC_ID */
     private String cntcId;
     
-    /**  */
+    /** PROVD_INSTT_ID */
     private String provdInsttId;
     
-    /**  */
+    /** PROVD_SYS_ID */
     private String provdSysId;
     
-    /**  */
+    /** PROVD_SVC_ID */
     private String provdSvcId;
     
-    /**  */
+    /** REQUST_INSTT_ID */
     private String requstInsttId;
     
-    /**  */
+    /** REQUST_SYS_ID */
     private String requstSysId;
     
-    /**  */
+    /** REQUST_TRNSMIT_TM */
     private String requstTrnsmitTm;
     
-    /**  */
+    /** REQUST_RECPTN_TM */
     private String requstRecptnTm;
     
-    /**  */
+    /** RSPNS_TRNSMIT_TM */
     private String rspnsTrnsmitTm;
     
-    /**  */
+    /** RSPNS_RECPTN_TM */
     private String rspnsRecptnTm;
     
-    /**  */
+    /** RESULT_CODE */
     private String resultCode;
     
-    /**  */
+    /** RESULT_MSSAGE */
     private String resultMssage;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** RQESTER_ID */
     private String rqesterId;
     
     public String getRequstId() {

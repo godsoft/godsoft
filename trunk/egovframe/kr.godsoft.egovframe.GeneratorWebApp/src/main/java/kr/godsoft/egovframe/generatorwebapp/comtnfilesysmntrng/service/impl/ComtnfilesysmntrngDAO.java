@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.ComtnfilesysmntrngDefaultVO;
 
 /**
  * @Class Name : ComtnfilesysmntrngDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.Comtnfile
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
 	 * @return comtnfilesysmntrng 목록
 	 * @exception Exception
 	 */
-    public List selectComtnfilesysmntrngList(ComtnfilesysmntrngDefaultVO searchVO) throws Exception {
-        return list("comtnfilesysmntrngDAO.selectComtnfilesysmntrngList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnfilesysmntrngList(ComtnfilesysmntrngVO vo) throws Exception {
+        return list("comtnfilesysmntrngDAO.selectComtnfilesysmntrngList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
 	 * @return comtnfilesysmntrng 총 갯수
 	 * @exception
 	 */
-    public int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnfilesysmntrngDAO.selectComtnfilesysmntrngListTotCnt_S", searchVO);
+    public int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnfilesysmntrngDAO.selectComtnfilesysmntrngListTotCnt_S", vo);
     }
 
 }

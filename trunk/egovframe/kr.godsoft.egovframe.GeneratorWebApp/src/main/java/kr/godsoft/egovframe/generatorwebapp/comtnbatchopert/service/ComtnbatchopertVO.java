@@ -6,40 +6,40 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbatchopertVO extends ComtnbatchopertDefaultVO{
+public class ComtnbatchopertVO extends ComtnbatchopertDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** BATCH_OPERT_ID */
     private String batchOpertId;
     
-    /**  */
+    /** BATCH_OPERT_NM */
     private String batchOpertNm;
     
-    /**  */
+    /** BATCH_PROGRM */
     private String batchProgrm;
     
-    /**  */
+    /** PARAMTR */
     private String paramtr;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getBatchOpertId() {

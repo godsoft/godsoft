@@ -4,126 +4,127 @@
 <sqlMap namespace="Comtncntcmessageitem">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtncntcmessageitemSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemDefaultVO"/>
+	<typeAlias  alias="ComtncntcmessageitemVO" type="kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemVO"/>
 	
 	<resultMap id="comtncntcmessageitem" class="kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.ComtncntcmessageitemVO">
-		<result property="cntcMssageId" column="CNTC_MSSAGE_ID" columnIndex="1"/> <!--  -->
-		<result property="iemId" column="IEM_ID" columnIndex="2"/> <!--  -->
-		<result property="iemNm" column="IEM_NM" columnIndex="3"/> <!--  -->
-		<result property="iemTy" column="IEM_TY" columnIndex="4"/> <!--  -->
-		<result property="iemLt" column="IEM_LT" columnIndex="5"/> <!--  -->
-		<result property="useAt" column="USE_AT" columnIndex="6"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
+		<result property="cntcMssageId" column="cntc_mssage_id" columnIndex="1"/>
+		<result property="iemId" column="iem_id" columnIndex="2"/>
+		<result property="iemNm" column="iem_nm" columnIndex="3"/>
+		<result property="iemTy" column="iem_ty" columnIndex="4"/>
+		<result property="iemLt" column="iem_lt" columnIndex="5"/>
+		<result property="useAt" column="use_at" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
 	</resultMap>
 	
 	<insert id="comtncntcmessageitemDAO.insertComtncntcmessageitem_S">
 		<![CDATA[
 			INSERT INTO comtncntcmessageitem 
-				( CNTC_MSSAGE_ID /*  */
-				  , IEM_ID /*  */
-				  , IEM_NM /*  */
-				  , IEM_TY /*  */
-				  , IEM_LT /*  */
-				  , USE_AT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */ )
-			VALUES ( #cntcMssageId# /*  */
-					  , #iemId# /*  */
-						  , #iemNm# /*  */
-						  , #iemTy# /*  */
-						  , #iemLt# /*  */
-						  , #useAt# /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-					  , #lastUpdtPnttm# /*  */ )
+				( CNTC_MSSAGE_ID
+				  , iem_id
+				  , iem_nm
+				  , iem_ty
+				  , iem_lt
+				  , use_at
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm )
+			VALUES ( #cntcMssageId#
+				  , #iemId#
+				  , #iemNm#
+				  , #iemTy#
+				  , #iemLt#
+				  , #useAt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm# )
 		]]>
 	</insert>
 	
 	<update id="comtncntcmessageitemDAO.updateComtncntcmessageitem_S">
 		<![CDATA[
 			UPDATE comtncntcmessageitem
-			SET CNTC_MSSAGE_ID=#cntcMssageId# /*  */
-				, IEM_ID=#iemId# /*  */
-				, IEM_NM=#iemNm# /*  */
-				, IEM_TY=#iemTy# /*  */
-				, IEM_LT=#iemLt# /*  */
-				, USE_AT=#useAt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-			WHERE CNTC_MSSAGE_ID=#cntcMssageId# /*  */
-				AND IEM_ID=#iemId# /*  */
+			SET cntc_mssage_id = #cntcMssageId#
+				, iem_id = #iemId#
+				, iem_nm = #iemNm#
+				, iem_ty = #iemTy#
+				, iem_lt = #iemLt#
+				, use_at = #useAt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+			WHERE cntc_mssage_id = #cntcMssageId#
+				AND iem_id = #iemId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcmessageitemDAO.deleteComtncntcmessageitem_S">
 		<![CDATA[
 			DELETE FROM comtncntcmessageitem 
-			WHERE CNTC_MSSAGE_ID=#cntcMssageId# /*  */
-				AND IEM_ID=#iemId# /*  */
+			WHERE cntc_mssage_id = #cntcMssageId#
+				AND iem_id = #iemId#
 		]]>
 	</delete>
 	
 	<select id="comtncntcmessageitemDAO.selectComtncntcmessageitem_S" resultMap="comtncntcmessageitem">
 		<![CDATA[
 			SELECT
-				CNTC_MSSAGE_ID /*  */
-				, IEM_ID /*  */
-				, IEM_NM /*  */
-				, IEM_TY /*  */
-				, IEM_LT /*  */
-				, USE_AT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
+				cntc_mssage_id
+				, iem_id
+				, iem_nm
+				, iem_ty
+				, iem_lt
+				, use_at
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
 			FROM comtncntcmessageitem
-			WHERE CNTC_MSSAGE_ID=#cntcMssageId# /*  */
-				AND IEM_ID=#iemId# /*  */
+			WHERE cntc_mssage_id = #cntcMssageId#
+				AND iem_id = #iemId#
 		]]>
 	</select>
 	
-	<select id="comtncntcmessageitemDAO.selectComtncntcmessageitemList_D" parameterClass="comtncntcmessageitemSerarchVO" resultClass="egovMap">
+	<select id="comtncntcmessageitemDAO.selectComtncntcmessageitemList_D" parameterClass="ComtncntcmessageitemVO" resultClass="egovMap">
 			SELECT
-								CNTC_MSSAGE_ID /*  */
-								, IEM_ID /*  */
-								, IEM_NM /*  */
-								, IEM_TY /*  */
-								, IEM_LT /*  */
-								, USE_AT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
+								cntc_mssage_id
+								, iem_id
+								, iem_nm
+								, iem_ty
+								, iem_lt
+								, use_at
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
 					FROM comtncntcmessageitem
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				CNTC_MSSAGE_ID = #searchKeyword# /*  */
+				cntc_mssage_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				IEM_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				iem_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							CNTC_MSSAGE_ID DESC /*  */
-							, IEM_ID DESC /*  */
+							cntc_mssage_id DESC
+							, iem_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtncntcmessageitemDAO.selectComtncntcmessageitemListTotCnt_S" parameterClass="comtncntcmessageitemSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtncntcmessageitemDAO.selectComtncntcmessageitemListTotCnt_S" parameterClass="ComtncntcmessageitemVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtncntcmessageitem
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				CNTC_MSSAGE_ID = #searchKeyword# /*  */
+				cntc_mssage_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				IEM_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				iem_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

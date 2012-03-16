@@ -6,55 +6,55 @@ package kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtrdnmadrzipVO extends ComtrdnmadrzipDefaultVO{
+public class ComtrdnmadrzipVO extends ComtrdnmadrzipDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** RDMN_CODE */
     private String rdmnCode;
     
-    /**  */
+    /** SN */
     private int sn;
     
-    /**  */
+    /** CTPRVN_NM */
     private String ctprvnNm;
     
-    /**  */
+    /** SIGNGU_NM */
     private String signguNm;
     
-    /**  */
+    /** RDMN */
     private String rdmn;
     
-    /**  */
+    /** BDNBR_MNNM */
     private String bdnbrMnnm;
     
-    /**  */
+    /** BDNBR_SLNO */
     private String bdnbrSlno;
     
-    /**  */
+    /** BULD_NM */
     private String buldNm;
     
-    /**  */
+    /** DETAIL_BULD_NM */
     private String detailBuldNm;
     
-    /**  */
+    /** ZIP */
     private String zip;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getRdmnCode() {

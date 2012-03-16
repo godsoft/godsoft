@@ -6,70 +6,70 @@ package kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtcadministcoderecptnlogVO extends ComtcadministcoderecptnlogDefaultVO{
+public class ComtcadministcoderecptnlogVO extends ComtcadministcoderecptnlogDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** OCCRRNC_DE */
     private String occrrncDe;
     
-    /**  */
+    /** ADMINIST_ZONE_SE */
     private String administZoneSe;
     
-    /**  */
+    /** ADMINIST_ZONE_CODE */
     private String administZoneCode;
     
-    /**  */
+    /** OPERT_SN */
     private int opertSn;
     
-    /**  */
+    /** CHANGE_SE_CODE */
     private String changeSeCode;
     
-    /**  */
+    /** PROCESS_SE */
     private String processSe;
     
-    /**  */
+    /** ADMINIST_ZONE_NM */
     private String administZoneNm;
     
-    /**  */
+    /** LOWEST_ADMINIST_ZONE_NM */
     private String lowestAdministZoneNm;
     
-    /**  */
+    /** CTPRVN_CODE */
     private String ctprvnCode;
     
-    /**  */
+    /** SIGNGU_CODE */
     private String signguCode;
     
-    /**  */
+    /** EMD_CODE */
     private String emdCode;
     
-    /**  */
+    /** LI_CODE */
     private String liCode;
     
-    /**  */
+    /** CREAT_DE */
     private String creatDe;
     
-    /**  */
+    /** ABL_DE */
     private String ablDe;
     
-    /**  */
+    /** ABL_ENNC */
     private String ablEnnc;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getOccrrncDe() {

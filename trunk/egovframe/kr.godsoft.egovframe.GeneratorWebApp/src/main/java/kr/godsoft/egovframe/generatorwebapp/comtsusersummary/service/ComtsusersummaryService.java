@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.ComtsusersummaryVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtsusersummaryService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.Comtsusersu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -56,7 +56,7 @@ public interface ComtsusersummaryService {
 	 * @return comtsusersummary 목록
 	 * @exception Exception
 	 */
-    List selectComtsusersummaryList(ComtsusersummaryDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtsusersummaryList(ComtsusersummaryVO vo) throws Exception;
     
     /**
 	 * comtsusersummary 총 갯수를 조회한다.
@@ -64,6 +64,6 @@ public interface ComtsusersummaryService {
 	 * @return comtsusersummary 총 갯수
 	 * @exception
 	 */
-    int selectComtsusersummaryListTotCnt(ComtsusersummaryDefaultVO searchVO);
+    int selectComtsusersummaryListTotCnt(ComtsusersummaryVO vo);
     
 }

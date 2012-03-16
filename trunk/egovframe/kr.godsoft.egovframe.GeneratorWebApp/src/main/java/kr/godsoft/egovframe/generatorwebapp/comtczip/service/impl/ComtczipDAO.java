@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO;
-import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipDefaultVO;
 
 /**
  * @Class Name : ComtczipDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipDefaultVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtczipDAO extends EgovAbstractDAO {
 	 * @return comtczip 목록
 	 * @exception Exception
 	 */
-    public List selectComtczipList(ComtczipDefaultVO searchVO) throws Exception {
-        return list("comtczipDAO.selectComtczipList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtczipList(ComtczipVO vo) throws Exception {
+        return list("comtczipDAO.selectComtczipList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtczipDAO extends EgovAbstractDAO {
 	 * @return comtczip 총 갯수
 	 * @exception
 	 */
-    public int selectComtczipListTotCnt(ComtczipDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtczipDAO.selectComtczipListTotCnt_S", searchVO);
+    public int selectComtczipListTotCnt(ComtczipVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtczipDAO.selectComtczipListTotCnt_S", vo);
     }
 
 }

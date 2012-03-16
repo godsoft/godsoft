@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkService;
+import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkService;
-import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.ComtnwikibkmkVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.impl.ComtnwikibkmkDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnwikibkmkServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnwikibkmk.service.impl.Comtnwiki
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -96,8 +96,8 @@ public class ComtnwikibkmkServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnwikibkmk 목록
 	 * @exception Exception
 	 */
-    public List selectComtnwikibkmkList(ComtnwikibkmkDefaultVO searchVO) throws Exception {
-        return comtnwikibkmkDAO.selectComtnwikibkmkList(searchVO);
+    public List<EgovMap> selectComtnwikibkmkList(ComtnwikibkmkVO vo) throws Exception {
+        return comtnwikibkmkDAO.selectComtnwikibkmkList(vo);
     }
 
     /**
@@ -106,8 +106,8 @@ public class ComtnwikibkmkServiceImpl extends AbstractServiceImpl implements
 	 * @return comtnwikibkmk 총 갯수
 	 * @exception
 	 */
-    public int selectComtnwikibkmkListTotCnt(ComtnwikibkmkDefaultVO searchVO) {
-		return comtnwikibkmkDAO.selectComtnwikibkmkListTotCnt(searchVO);
+    public int selectComtnwikibkmkListTotCnt(ComtnwikibkmkVO vo) {
+		return comtnwikibkmkDAO.selectComtnwikibkmkListTotCnt(vo);
 	}
     
 }

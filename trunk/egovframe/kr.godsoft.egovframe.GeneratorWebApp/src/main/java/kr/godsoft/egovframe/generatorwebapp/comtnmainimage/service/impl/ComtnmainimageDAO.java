@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.ComtnmainimageDefaultVO;
 
 /**
  * @Class Name : ComtnmainimageDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmainimage.service.Comtnmainimag
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -70,8 +70,9 @@ public class ComtnmainimageDAO extends EgovAbstractDAO {
 	 * @return comtnmainimage 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmainimageList(ComtnmainimageDefaultVO searchVO) throws Exception {
-        return list("comtnmainimageDAO.selectComtnmainimageList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnmainimageList(ComtnmainimageVO vo) throws Exception {
+        return list("comtnmainimageDAO.selectComtnmainimageList_D", vo);
     }
 
     /**
@@ -80,8 +81,8 @@ public class ComtnmainimageDAO extends EgovAbstractDAO {
 	 * @return comtnmainimage 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmainimageListTotCnt(ComtnmainimageDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmainimageDAO.selectComtnmainimageListTotCnt_S", searchVO);
+    public int selectComtnmainimageListTotCnt(ComtnmainimageVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmainimageDAO.selectComtnmainimageListTotCnt_S", vo);
     }
 
 }

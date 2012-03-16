@@ -6,52 +6,52 @@ package kr.godsoft.egovframe.generatorwebapp.comtnstsfdg.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnstsfdgVO extends ComtnstsfdgDefaultVO{
+public class ComtnstsfdgVO extends ComtnstsfdgDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** STSFDG_NO */
     private int stsfdgNo;
     
-    /**  */
+    /** NTT_ID */
     private int nttId;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
+    /** WRTER_ID */
     private String wrterId;
     
-    /**  */
+    /** WRTER_NM */
     private String wrterNm;
     
-    /**  */
+    /** PASSWORD */
     private String password;
     
-    /**  */
+    /** STSFDG */
     private int stsfdg;
     
-    /**  */
+    /** STSFDG_CN */
     private String stsfdgCn;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public int getStsfdgNo() {

@@ -4,86 +4,87 @@
 <sqlMap namespace="Comtnsitemap">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnsitemapSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapDefaultVO"/>
+	<typeAlias  alias="ComtnsitemapVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO"/>
 	
 	<resultMap id="comtnsitemap" class="kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO">
-		<result property="mapngCreatId" column="MAPNG_CREAT_ID" columnIndex="1"/> <!--  -->
-		<result property="creatrId" column="CREATR_ID" columnIndex="2"/> <!--  -->
-		<result property="mapngFileNm" column="MAPNG_FILE_NM" columnIndex="3"/> <!--  -->
-		<result property="mapngFilePath" column="MAPNG_FILE_PATH" columnIndex="4"/> <!--  -->
+		<result property="mapngCreatId" column="mapng_creat_id" columnIndex="1"/>
+		<result property="creatrId" column="creatr_id" columnIndex="2"/>
+		<result property="mapngFileNm" column="mapng_file_nm" columnIndex="3"/>
+		<result property="mapngFilePath" column="mapng_file_path" columnIndex="4"/>
 	</resultMap>
 	
 	<insert id="comtnsitemapDAO.insertComtnsitemap_S">
 		<![CDATA[
 			INSERT INTO comtnsitemap 
-				( MAPNG_CREAT_ID /*  */
-				  , CREATR_ID /*  */
-				  , MAPNG_FILE_NM /*  */
-				  , MAPNG_FILE_PATH /*  */ )
-			VALUES ( #mapngCreatId# /*  */
-					  , #creatrId# /*  */
-						  , #mapngFileNm# /*  */
-					  , #mapngFilePath# /*  */ )
+				( MAPNG_CREAT_ID
+				  , creatr_id
+				  , mapng_file_nm
+				  , mapng_file_path )
+			VALUES ( #mapngCreatId#
+				  , #creatrId#
+				  , #mapngFileNm#
+				  , #mapngFilePath# )
 		]]>
 	</insert>
 	
 	<update id="comtnsitemapDAO.updateComtnsitemap_S">
 		<![CDATA[
 			UPDATE comtnsitemap
-			SET MAPNG_CREAT_ID=#mapngCreatId# /*  */
-				, CREATR_ID=#creatrId# /*  */
-				, MAPNG_FILE_NM=#mapngFileNm# /*  */
-				, MAPNG_FILE_PATH=#mapngFilePath# /*  */
-			WHERE MAPNG_CREAT_ID=#mapngCreatId# /*  */
+			SET mapng_creat_id = #mapngCreatId#
+				, creatr_id = #creatrId#
+				, mapng_file_nm = #mapngFileNm#
+				, mapng_file_path = #mapngFilePath#
+			WHERE mapng_creat_id = #mapngCreatId#
 		]]>
 	</update>
 	
 	<delete id="comtnsitemapDAO.deleteComtnsitemap_S">
 		<![CDATA[
 			DELETE FROM comtnsitemap 
-			WHERE MAPNG_CREAT_ID=#mapngCreatId# /*  */
+			WHERE mapng_creat_id = #mapngCreatId#
 		]]>
 	</delete>
 	
 	<select id="comtnsitemapDAO.selectComtnsitemap_S" resultMap="comtnsitemap">
 		<![CDATA[
 			SELECT
-				MAPNG_CREAT_ID /*  */
-				, CREATR_ID /*  */
-				, MAPNG_FILE_NM /*  */
-				, MAPNG_FILE_PATH /*  */
+				mapng_creat_id
+				, creatr_id
+				, mapng_file_nm
+				, mapng_file_path
 			FROM comtnsitemap
-			WHERE MAPNG_CREAT_ID=#mapngCreatId# /*  */
+			WHERE mapng_creat_id = #mapngCreatId#
 		]]>
 	</select>
 	
-	<select id="comtnsitemapDAO.selectComtnsitemapList_D" parameterClass="comtnsitemapSerarchVO" resultClass="egovMap">
+	<select id="comtnsitemapDAO.selectComtnsitemapList_D" parameterClass="ComtnsitemapVO" resultClass="egovMap">
 			SELECT
-								MAPNG_CREAT_ID /*  */
-								, CREATR_ID /*  */
-								, MAPNG_FILE_NM /*  */
-								, MAPNG_FILE_PATH /*  */
+								mapng_creat_id
+								, creatr_id
+								, mapng_file_nm
+								, mapng_file_path
 					FROM comtnsitemap
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				MAPNG_CREAT_ID = #searchKeyword# /*  */
+				mapng_creat_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CREATR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				creatr_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							MAPNG_CREAT_ID DESC /*  */
+							mapng_creat_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnsitemapDAO.selectComtnsitemapListTotCnt_S" parameterClass="comtnsitemapSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnsitemapDAO.selectComtnsitemapListTotCnt_S" parameterClass="ComtnsitemapVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnsitemap
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				MAPNG_CREAT_ID = #searchKeyword# /*  */
+				mapng_creat_id = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				CREATR_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				creatr_id LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

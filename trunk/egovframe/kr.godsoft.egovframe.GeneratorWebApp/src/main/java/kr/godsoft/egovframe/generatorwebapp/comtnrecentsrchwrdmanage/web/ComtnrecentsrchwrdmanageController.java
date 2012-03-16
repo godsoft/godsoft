@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.ComtnrecentsrchwrdmanageVO;
 
 /**
  * @Class Name : ComtnrecentsrchwrdmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrdmanage.service.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-16
  * @version 1.0
  * @see
  *  
@@ -46,12 +47,12 @@ public class ComtnrecentsrchwrdmanageController {
 	
     /**
 	 * comtnrecentsrchwrdmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnrecentsrchwrdmanageDefaultVO
+	 * @param searchVO - 조회할 정보가 담긴 ComtnrecentsrchwrdmanageVO
 	 * @return "/comtnrecentsrchwrdmanage/ComtnrecentsrchwrdmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnrecentsrchwrdmanage/ComtnrecentsrchwrdmanageList.do")
-    public String selectComtnrecentsrchwrdmanageList(@ModelAttribute("searchVO") ComtnrecentsrchwrdmanageDefaultVO searchVO, 
+    public String selectComtnrecentsrchwrdmanageList(@ModelAttribute("searchVO") ComtnrecentsrchwrdmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +70,7 @@ public class ComtnrecentsrchwrdmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnrecentsrchwrdmanageList = comtnrecentsrchwrdmanageService.selectComtnrecentsrchwrdmanageList(searchVO);
+        List<EgovMap> comtnrecentsrchwrdmanageList = comtnrecentsrchwrdmanageService.selectComtnrecentsrchwrdmanageList(searchVO);
         model.addAttribute("resultList", comtnrecentsrchwrdmanageList);
         
         int totCnt = comtnrecentsrchwrdmanageService.selectComtnrecentsrchwrdmanageListTotCnt(searchVO);

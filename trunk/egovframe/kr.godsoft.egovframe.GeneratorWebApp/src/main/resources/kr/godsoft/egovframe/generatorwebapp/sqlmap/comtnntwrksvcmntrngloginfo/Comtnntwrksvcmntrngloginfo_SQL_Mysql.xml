@@ -4,136 +4,137 @@
 <sqlMap namespace="Comtnntwrksvcmntrngloginfo">
 	
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="comtnntwrksvcmntrngloginfoSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrngloginfo.service.ComtnntwrksvcmntrngloginfoDefaultVO"/>
+	<typeAlias  alias="ComtnntwrksvcmntrngloginfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrngloginfo.service.ComtnntwrksvcmntrngloginfoVO"/>
 	
 	<resultMap id="comtnntwrksvcmntrngloginfo" class="kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrngloginfo.service.ComtnntwrksvcmntrngloginfoVO">
-		<result property="sysIp" column="SYS_IP" columnIndex="1"/> <!--  -->
-		<result property="sysPort" column="SYS_PORT" columnIndex="2"/> <!--  -->
-		<result property="sysNm" column="SYS_NM" columnIndex="3"/> <!--  -->
-		<result property="mntrngSttus" column="MNTRNG_STTUS" columnIndex="4"/> <!--  -->
-		<result property="logInfo" column="LOG_INFO" columnIndex="5"/> <!--  -->
-		<result property="creatDt" column="CREAT_DT" columnIndex="6"/> <!--  -->
-		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="7"/> <!--  -->
-		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="8"/> <!--  -->
-		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="9"/> <!--  -->
-		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="10"/> <!--  -->
-		<result property="logId" column="LOG_ID" columnIndex="11"/> <!--  -->
+		<result property="sysIp" column="sys_ip" columnIndex="1"/>
+		<result property="sysPort" column="sys_port" columnIndex="2"/>
+		<result property="sysNm" column="sys_nm" columnIndex="3"/>
+		<result property="mntrngSttus" column="mntrng_sttus" columnIndex="4"/>
+		<result property="logInfo" column="log_info" columnIndex="5"/>
+		<result property="creatDt" column="creat_dt" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
+		<result property="logId" column="log_id" columnIndex="11"/>
 	</resultMap>
 	
 	<insert id="comtnntwrksvcmntrngloginfoDAO.insertComtnntwrksvcmntrngloginfo_S">
 		<![CDATA[
 			INSERT INTO comtnntwrksvcmntrngloginfo 
-				( SYS_IP /*  */
-				  , SYS_PORT /*  */
-				  , SYS_NM /*  */
-				  , MNTRNG_STTUS /*  */
-				  , LOG_INFO /*  */
-				  , CREAT_DT /*  */
-				  , FRST_REGISTER_ID /*  */
-				  , FRST_REGIST_PNTTM /*  */
-				  , LAST_UPDUSR_ID /*  */
-				  , LAST_UPDT_PNTTM /*  */
-				  , LOG_ID /*  */ )
-			VALUES ( #sysIp# /*  */
-					  , #sysPort# /*  */
-						  , #sysNm# /*  */
-						  , #mntrngSttus# /*  */
-						  , #logInfo# /*  */
-						  , SYSDATE() /*  */
-						  , #frstRegisterId# /*  */
-						  , SYSDATE() /*  */
-						  , #lastUpdusrId# /*  */
-						  , SYSDATE() /*  */
-					  , #logId# /*  */ )
+				( SYS_IP
+				  , sys_port
+				  , sys_nm
+				  , mntrng_sttus
+				  , log_info
+				  , creat_dt
+				  , frst_register_id
+				  , frst_regist_pnttm
+				  , last_updusr_id
+				  , last_updt_pnttm
+				  , log_id )
+			VALUES ( #sysIp#
+				  , #sysPort#
+				  , #sysNm#
+				  , #mntrngSttus#
+				  , #logInfo#
+				  , #creatDt#
+				  , #frstRegisterId#
+				  , #frstRegistPnttm#
+				  , #lastUpdusrId#
+				  , #lastUpdtPnttm#
+				  , #logId# )
 		]]>
 	</insert>
 	
 	<update id="comtnntwrksvcmntrngloginfoDAO.updateComtnntwrksvcmntrngloginfo_S">
 		<![CDATA[
 			UPDATE comtnntwrksvcmntrngloginfo
-			SET SYS_IP=#sysIp# /*  */
-				, SYS_PORT=#sysPort# /*  */
-				, SYS_NM=#sysNm# /*  */
-				, MNTRNG_STTUS=#mntrngSttus# /*  */
-				, LOG_INFO=#logInfo# /*  */
-				, CREAT_DT=#creatDt# /*  */
-				, FRST_REGISTER_ID=#frstRegisterId# /*  */
-				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
-				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
-				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
-				, LOG_ID=#logId# /*  */
-			WHERE SYS_IP=#sysIp# /*  */
-				AND SYS_PORT=#sysPort# /*  */
-				AND LOG_ID=#logId# /*  */
+			SET sys_ip = #sysIp#
+				, sys_port = #sysPort#
+				, sys_nm = #sysNm#
+				, mntrng_sttus = #mntrngSttus#
+				, log_info = #logInfo#
+				, creat_dt = #creatDt#
+				, frst_register_id = #frstRegisterId#
+				, frst_regist_pnttm = #frstRegistPnttm#
+				, last_updusr_id = #lastUpdusrId#
+				, last_updt_pnttm = #lastUpdtPnttm#
+				, log_id = #logId#
+			WHERE sys_ip = #sysIp#
+				AND sys_port = #sysPort#
+				AND log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comtnntwrksvcmntrngloginfoDAO.deleteComtnntwrksvcmntrngloginfo_S">
 		<![CDATA[
 			DELETE FROM comtnntwrksvcmntrngloginfo 
-			WHERE SYS_IP=#sysIp# /*  */
-				AND SYS_PORT=#sysPort# /*  */
-				AND LOG_ID=#logId# /*  */
+			WHERE sys_ip = #sysIp#
+				AND sys_port = #sysPort#
+				AND log_id = #logId#
 		]]>
 	</delete>
 	
 	<select id="comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfo_S" resultMap="comtnntwrksvcmntrngloginfo">
 		<![CDATA[
 			SELECT
-				SYS_IP /*  */
-				, SYS_PORT /*  */
-				, SYS_NM /*  */
-				, MNTRNG_STTUS /*  */
-				, LOG_INFO /*  */
-				, CREAT_DT /*  */
-				, FRST_REGISTER_ID /*  */
-				, FRST_REGIST_PNTTM /*  */
-				, LAST_UPDUSR_ID /*  */
-				, LAST_UPDT_PNTTM /*  */
-				, LOG_ID /*  */
+				sys_ip
+				, sys_port
+				, sys_nm
+				, mntrng_sttus
+				, log_info
+				, creat_dt
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, log_id
 			FROM comtnntwrksvcmntrngloginfo
-			WHERE SYS_IP=#sysIp# /*  */
-				AND SYS_PORT=#sysPort# /*  */
-				AND LOG_ID=#logId# /*  */
+			WHERE sys_ip = #sysIp#
+				AND sys_port = #sysPort#
+				AND log_id = #logId#
 		]]>
 	</select>
 	
-	<select id="comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoList_D" parameterClass="comtnntwrksvcmntrngloginfoSerarchVO" resultClass="egovMap">
+	<select id="comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoList_D" parameterClass="ComtnntwrksvcmntrngloginfoVO" resultClass="egovMap">
 			SELECT
-								SYS_IP /*  */
-								, SYS_PORT /*  */
-								, SYS_NM /*  */
-								, MNTRNG_STTUS /*  */
-								, LOG_INFO /*  */
-								, CREAT_DT /*  */
-								, FRST_REGISTER_ID /*  */
-								, FRST_REGIST_PNTTM /*  */
-								, LAST_UPDUSR_ID /*  */
-								, LAST_UPDT_PNTTM /*  */
-								, LOG_ID /*  */
+								sys_ip
+								, sys_port
+								, sys_nm
+								, mntrng_sttus
+								, log_info
+								, creat_dt
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+								, log_id
 					FROM comtnntwrksvcmntrngloginfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SYS_IP = #searchKeyword# /*  */
+				sys_ip = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SYS_PORT LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				sys_port LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 				ORDER BY 
-							SYS_IP DESC /*  */
-							, SYS_PORT DESC /*  */
-							, LOG_ID DESC /*  */
+							sys_ip DESC
+							, sys_port DESC
+							, log_id DESC
 					limit #firstIndex#, #recordCountPerPage#	
-	</select>	
-	<select id="comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoListTotCnt_S" parameterClass="comtnntwrksvcmntrngloginfoSerarchVO" resultClass="int">
+	</select>
+
+	<select id="comtnntwrksvcmntrngloginfoDAO.selectComtnntwrksvcmntrngloginfoListTotCnt_S" parameterClass="ComtnntwrksvcmntrngloginfoVO" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM comtnntwrksvcmntrngloginfo
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				SYS_IP = #searchKeyword# /*  */
+				sys_ip = #searchKeyword#
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				SYS_PORT LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+				sys_port LIKE CONCAT('%',#searchKeyword#,'%')
 			</isEqual>
 	</select>
 

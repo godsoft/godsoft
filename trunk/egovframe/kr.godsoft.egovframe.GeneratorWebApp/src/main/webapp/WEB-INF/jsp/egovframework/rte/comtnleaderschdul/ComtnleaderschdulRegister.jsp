@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-16
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnleaderschdulVO.schdulId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnleaderschdulVO.id ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,12 +59,12 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnleaderschdulVO" name="detailForm" id="detailForm">
+<form:form commandName="comtnleaderschdulVO" name="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>SCHDUL_ID *</th>
 			<td>
 				<form:input path="schdulId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>SCHDUL_ID *</th>
 			<td>
 				<form:input path="schdulId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,132 +93,93 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>SCHDUL_SE</th>
 			<td>
-	
 				<form:input path="schdulSe" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulSe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SCHDUL_NM</th>
 			<td>
-	
 				<form:input path="schdulNm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SCHDUL_CN</th>
 			<td>
-	
 				<form:input path="schdulCn" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SCHDUL_PLACE</th>
 			<td>
-	
 				<form:input path="schdulPlace" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulPlace" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LEADER_ID</th>
 			<td>
-	
 				<form:input path="leaderId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="leaderId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>REPTIT_SE_CODE</th>
 			<td>
-	
 				<form:input path="reptitSeCode" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="reptitSeCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SCHDUL_BGNDE</th>
 			<td>
-	
 				<form:input path="schdulBgnde" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulBgnde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SCHDUL_ENDDE</th>
 			<td>
-	
 				<form:input path="schdulEndde" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulEndde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>SCHDUL_CHARGER_ID</th>
 			<td>
-	
 				<form:input path="schdulChargerId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="schdulChargerId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGISTER_ID</th>
 			<td>
-	
 				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>FRST_REGIST_PNTTM</th>
 			<td>
-	
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDUSR_ID</th>
 			<td>
-	
 				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>LAST_UPDT_PNTTM</th>
 			<td>
-	
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
