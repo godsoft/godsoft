@@ -1,7 +1,9 @@
 package kr.godsoft.egovframe.egovframegenerator;
 
 import java.io.File;
+import java.util.List;
 
+import model.Attribute;
 import model.DataModelContext;
 import operation.CrudCodeGen;
 
@@ -78,17 +80,74 @@ public class CrudCodeGenServiceImpl {
 	}
 
 	public void genSQLMap(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
-
-		String data = crudCodeGen.generate(dataModelContext, templateFile);
-
-		crudCodeGenPath.setSqlMapPath(dataModelContext);
+		String insertQuery = insertQuery(dataModelContext);
 
 		if (log.isDebugEnabled()) {
-			log.debug("SqlMapPath=" + crudCodeGenPath.getSqlMapPath());
+			log.debug("insertQuery=" + insertQuery);
 		}
 
-		writeStringToFile(crudCodeGenPath.getSqlMapPath(), data);
+		// String templateFile =
+		// "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+		//
+		// String data = crudCodeGen.generate(dataModelContext, templateFile);
+		//
+		// crudCodeGenPath.setSqlMapPath(dataModelContext);
+		//
+		// if (log.isDebugEnabled()) {
+		// log.debug("SqlMapPath=" + crudCodeGenPath.getSqlMapPath());
+		// }
+		//
+		// writeStringToFile(crudCodeGenPath.getSqlMapPath(), data);
+	}
+
+	private String insertQuery(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		List<Attribute> attributes = dataModelContext.getAttributes();
+
+		sb.append("INSERT INTO ");
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append(" (\n");
+
+		for (int i = 0; i < attributes.size(); i++) {
+			Attribute attribute = attributes.get(i);
+
+			if (i == 0) {
+				sb.append("    ");
+				sb.append(attribute.getLcName());
+			} else {
+				if ("last_updt_pnttm".equals(attribute.getLcName())
+						|| "last_updusr_id".equals(attribute.getLcName())) {
+
+				} else {
+					sb.append(",\n    ");
+					sb.append(attribute.getLcName());
+				}
+			}
+		}
+
+		sb.append("\n) VALUES (\n");
+
+		for (int i = 0; i < attributes.size(); i++) {
+			Attribute attribute = attributes.get(i);
+
+			if (i == 0) {
+				sb.append("    ");
+				sb.append(attribute.getCcName());
+			} else {
+				if ("last_updt_pnttm".equals(attribute.getLcName())
+						|| "last_updusr_id".equals(attribute.getLcName())) {
+
+				} else {
+					sb.append(",\n    ");
+					sb.append(attribute.getCcName());
+				}
+			}
+		}
+
+		sb.append("\n)\n");
+
+		return sb.toString();
 	}
 
 	public void genDao(DataModelContext dataModelContext) throws Exception {

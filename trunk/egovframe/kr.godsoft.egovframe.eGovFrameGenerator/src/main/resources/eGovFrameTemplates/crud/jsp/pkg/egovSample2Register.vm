@@ -41,7 +41,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.id ? '등록' : '수정'}"/>
+#foreach($attribute in $model.primaryKeys)
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${attribute.ccName} ? '등록' : '수정'}"/>
+#end
 <title> <c:out value="${D}{registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -79,7 +81,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="${voInstanceName}" name="detailForm">
+<form:form commandName="${voInstanceName}" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">

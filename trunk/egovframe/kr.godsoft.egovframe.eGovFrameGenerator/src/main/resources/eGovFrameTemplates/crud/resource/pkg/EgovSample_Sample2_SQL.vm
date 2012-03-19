@@ -50,24 +50,38 @@
 #if($i == 0)
 				( ${attribute.name}
 #elseif($i < ($model.attributes.size() - 1))
+	#if(${attribute.lcName} == "last_updt_pnttm" || ${attribute.lcName} == "last_updusr_id")
+	#else
 				  , ${attribute.lcName}
+	#end
 #else
-				  , ${attribute.lcName} )
+	#if(${attribute.lcName} == "last_updt_pnttm" || ${attribute.lcName} == "last_updusr_id")
+	#else
+				  , ${attribute.lcName}
+	#end
 #end
 #set($i=$i+1)
 #end
+ )
 ##
 #set($i=0)	
 #foreach($attribute in $model.attributes)
 #if($i == 0)
-			VALUES ( #${attribute.ccName}#
+			VALUES ( ${attribute.expression}
 #elseif($i < ($model.attributes.size() - 1))
-				  , #${attribute.ccName}#
+	#if(${attribute.lcName} == "last_updt_pnttm" || ${attribute.lcName} == "last_updusr_id")
+	#else
+				  , ${attribute.expression}
+	#end
 #else
-				  , #${attribute.ccName}# )
+	#if(${attribute.lcName} == "last_updt_pnttm" || ${attribute.lcName} == "last_updusr_id")
+	#else
+				  , ${attribute.expression}
+	#end
 #end
 #set($i=$i+1)
 #end
+ )
 		]]>
 	</insert>
 	
@@ -78,9 +92,12 @@
 #set($i=0)	
 #foreach($attribute in $model.attributes)
 #if($i == 0)
-			SET ${attribute.lcName} = #${attribute.ccName}#
+			SET ${attribute.lcName} = ${attribute.expression}
 #else
-				, ${attribute.lcName} = #${attribute.ccName}#
+	#if(${attribute.lcName} == "frst_regist_pnttm" || ${attribute.lcName} == "frst_register_id")
+	#else
+				, ${attribute.lcName} = ${attribute.expression}
+	#end
 #end
 #set($i=$i+1)
 #end	

@@ -251,6 +251,7 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 		attribute.setJavaType(getJavaType(dataType));
 		attribute.setPrimaryKey(getPrimaryKey(columnKey));
 		attribute.setColumnComment(columnComment);
+		attribute.setExpression(getExpression(egovMap, attribute));
 
 		return attribute;
 	}
@@ -272,6 +273,21 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			javaType = "String";
 		}
 		return javaType;
+	}
+
+	private String getExpression(EgovMap egovMap, Attribute attribute) {
+		StringBuilder sb = new StringBuilder();
+
+		String dataType = (String) egovMap.get("dataType");
+
+		if ("datetime".equals(dataType)) {
+			sb.append("SYSDATE()");
+		} else {
+			sb.append("#");
+			sb.append(attribute.getCcName());
+			sb.append("#");
+		}
+		return sb.toString();
 	}
 
 }

@@ -44,6 +44,8 @@ public class Attribute extends NameCasing {
 
 	private String columnComment;
 
+	private String expression;
+
 	/**
 	 * 자바 타입 정보 가져오기
 	 * 
@@ -95,4 +97,13 @@ public class Attribute extends NameCasing {
 	public void setColumnComment(String columnComment) {
 		this.columnComment = columnComment;
 	}
+
+	public String getExpression() {
+		return expression;
+	}
+
+	public void setExpression(String expression) {
+		this.expression = expression;
+	}
+
 }

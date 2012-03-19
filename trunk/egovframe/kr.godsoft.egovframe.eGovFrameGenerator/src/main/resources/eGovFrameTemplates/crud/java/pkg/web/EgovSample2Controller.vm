@@ -84,7 +84,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  */
 
 @Controller
-@SessionAttributes(types=${voClassName}.class)
+##@SessionAttributes(types=${voClassName}.class)
 public class ${controllerClassName} {
 
     @Resource(name = "${serviceName}")
