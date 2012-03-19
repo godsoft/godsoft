@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-16
+ * @since 2012-03-19
  * @version 1.0
  * @see
  *  

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-19
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtcadministcodeVO.id ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtcadministcodeVO.administZoneSe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtcadministcodeVO.administZoneCode ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtcadministcodeVO" name="detailForm">
+<form:form commandName="comtcadministcodeVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">

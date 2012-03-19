@@ -24,27 +24,25 @@
 		<![CDATA[
 			INSERT INTO comtcadministcode 
 				( ADMINIST_ZONE_SE
-				  , administ_zone_code
-				  , use_at
-				  , administ_zone_nm
-				  , upper_administ_zone_code
-				  , creat_de
-				  , abl_de
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
+					  , administ_zone_code
+						  , use_at
+						  , administ_zone_nm
+						  , upper_administ_zone_code
+						  , creat_de
+						  , abl_de
+						  , frst_regist_pnttm
+						  , frst_register_id
+					 )
 			VALUES ( #administZoneSe#
-				  , #administZoneCode#
-				  , #useAt#
-				  , #administZoneNm#
-				  , #upperAdministZoneCode#
-				  , #creatDe#
-				  , #ablDe#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+					  , #administZoneCode#
+						  , #useAt#
+						  , #administZoneNm#
+						  , #upperAdministZoneCode#
+						  , #creatDe#
+						  , #ablDe#
+						  , SYSDATE()
+						  , #frstRegisterId#
+					 )
 		]]>
 	</insert>
 	
@@ -52,17 +50,15 @@
 		<![CDATA[
 			UPDATE comtcadministcode
 			SET administ_zone_se = #administZoneSe#
-				, administ_zone_code = #administZoneCode#
-				, use_at = #useAt#
-				, administ_zone_nm = #administZoneNm#
-				, upper_administ_zone_code = #upperAdministZoneCode#
-				, creat_de = #creatDe#
-				, abl_de = #ablDe#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE administ_zone_se = #administZoneSe#
+					, administ_zone_code = #administZoneCode#
+						, use_at = #useAt#
+						, administ_zone_nm = #administZoneNm#
+						, upper_administ_zone_code = #upperAdministZoneCode#
+						, creat_de = #creatDe#
+						, abl_de = #ablDe#
+										, last_updt_pnttm = SYSDATE()
+						, last_updusr_id = #lastUpdusrId#
+				WHERE administ_zone_se = #administZoneSe#
 				AND administ_zone_code = #administZoneCode#
 		]]>
 	</update>

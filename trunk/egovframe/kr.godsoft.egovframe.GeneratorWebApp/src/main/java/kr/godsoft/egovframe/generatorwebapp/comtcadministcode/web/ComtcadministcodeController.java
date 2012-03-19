@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-16
+ * @since 2012-03-19
  * @version 1.0
  * @see
  *  
@@ -35,7 +35,6 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  */
 
 @Controller
-@SessionAttributes(types=ComtcadministcodeVO.class)
 public class ComtcadministcodeController {
 
     @Resource(name = "comtcadministcodeService")
@@ -52,7 +51,7 @@ public class ComtcadministcodeController {
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtcadministcode/ComtcadministcodeList.do")
-    public String selectComtcadministcodeList(@ModelAttribute("vo") ComtcadministcodeVO searchVO, 
+    public String selectComtcadministcodeList(@ModelAttribute("searchVO") ComtcadministcodeVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
