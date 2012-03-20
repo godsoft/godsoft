@@ -43,7 +43,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>${model.entity.title} 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -105,7 +105,7 @@ function fn_egov_link_page(pageNo){
 			</colgroup>		  
 			<tr>
 				#foreach($attribute in $model.attributes)
-				<th align="center">${attribute.pcName}</th>
+				<th align="center">${attribute.tableHeaderCell}</th>
 				#end			
 			</tr>
 			<c:forEach var="result" items="${D}{resultList}" varStatus="status">
@@ -116,7 +116,7 @@ function fn_egov_link_page(pageNo){
 				#if($i == 0)
 				  #set($linkParams="<c:out value=${Q}${D}{result.${attribute.ccName}}${Q}/>")
 				#else
-				  #set($linkParams="$linkParams, <c:out value=${Q}{D}{result.${attribute.ccName}}${Q}/>")
+				  #set($linkParams="$linkParams', '<c:out value=${Q}${D}{result.${attribute.ccName}}${Q}/>")
 				#end
 				#set($i=$i+1)					
 				#end

@@ -1,9 +1,11 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
@@ -150,12 +152,17 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 
 		Set<String> tableNames = new HashSet<String>();
 
+		Map<String, Object> tableComments = new HashMap<String, Object>();
+
 		for (int i = 0; i < columns.size(); i++) {
 			EgovMap egovMap = columns.get(i);
 
 			String tableName = (String) egovMap.get("tableName");
+			String tableComment = (String) egovMap.get("tableComment");
 
 			tableNames.add(tableName);
+
+			tableComments.put(tableName, tableComment);
 		}
 
 		// if (log.isDebugEnabled()) {
@@ -176,7 +183,9 @@ public class ColumnsServiceImpl extends AbstractServiceImpl implements
 			dataModelContext = (DataModelContext) BeanUtils
 					.cloneBean(dataModelContext);
 
-			dataModelContext.setEntity(new Entity(tableName));
+			Entity entity = new Entity(tableName);
+			entity.setTableComment((String) tableComments.get(tableName));
+			dataModelContext.setEntity(entity);
 
 			dataModelContext.setAttributes(getAttributes(columns, tableName));
 

@@ -165,32 +165,37 @@
 	</select>
 
 	<select id="columnsDAO.selectColumnsList_D_ColumnsVO" parameterClass="columnsVO" resultClass="egovMap">
-			SELECT
-								TABLE_CATALOG
-								, TABLE_SCHEMA
-								, TABLE_NAME
-								, COLUMN_NAME
-								, ORDINAL_POSITION
-								, COLUMN_DEFAULT
-								, IS_NULLABLE
-								, DATA_TYPE
-								, CHARACTER_MAXIMUM_LENGTH
-								, CHARACTER_OCTET_LENGTH
-								, NUMERIC_PRECISION
-								, NUMERIC_SCALE
-								, CHARACTER_SET_NAME
-								, COLLATION_NAME
-								, COLUMN_TYPE
-								, COLUMN_KEY
-								, EXTRA
-								, PRIVILEGES
-								, COLUMN_COMMENT
-					FROM information_schema.COLUMNS
+		SELECT
+			columns.table_catalog
+			, columns.table_schema
+			, columns.table_name
+			, tables.table_comment
+			, columns.column_name
+			, columns.ordinal_position
+			, columns.column_default
+			, columns.is_nullable
+			, columns.data_type
+			, columns.character_maximum_length
+			, columns.character_octet_length
+			, columns.numeric_precision
+			, columns.numeric_scale
+			, columns.character_set_name
+			, columns.collation_name
+			, columns.column_type
+			, columns.column_key
+			, columns.extra
+			, columns.privileges
+			, columns.column_comment
+			FROM information_schema.COLUMNS
+			LEFT OUTER JOIN information_schema.tables ON 1 = 1
+			    AND tables.table_catalog = columns.table_catalog
+			    AND tables.table_schema = columns.table_schema
+			    AND tables.table_name = columns.table_name
 			WHERE 1 = 1
-			AND table_schema = #tableSchema#
+			AND columns.table_schema = #tableSchema#
 
 			<isNotNull property="tableNames" >
-				<iterate prepend="AND table_name IN " property="tableNames"
+				<iterate prepend="AND columns.table_name IN " property="tableNames"
 				  open="(" close=")" conjunction=",">
 				  #tableNames[]#
 				</iterate>

@@ -187,6 +187,8 @@ public class DataModelContext {
 
 	private String str;
 
+	private Query query;
+
 	public String getVender() {
 		return vender;
 	}
@@ -201,6 +203,14 @@ public class DataModelContext {
 
 	public void setStr(String str) {
 		this.str = str;
+	}
+
+	public Query getQuery() {
+		return query;
+	}
+
+	public void setQuery(Query query) {
+		this.query = query;
 	}
 
 	@Override

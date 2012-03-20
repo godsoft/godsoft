@@ -106,4 +106,12 @@ public class Attribute extends NameCasing {
 		this.expression = expression;
 	}
 
+	public String getTableHeaderCell() {
+		if (getColumnComment() == null || "".equals(getColumnComment())) {
+			return getLcName();
+		} else {
+			return getColumnComment();
+		}
+	}
+
 }

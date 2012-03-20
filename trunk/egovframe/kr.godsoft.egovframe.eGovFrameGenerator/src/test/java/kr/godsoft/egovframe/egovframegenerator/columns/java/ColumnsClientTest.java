@@ -46,21 +46,22 @@ public class ColumnsClientTest {
 		}
 	}
 
-	// @Test
+	@Test
 	public void getTablesTest() throws Exception {
 		if (columns != null) {
 			Set<String> tables = new HashSet<String>();
+
+			Map<String, Object> tableComments = new HashMap<String, Object>();
 
 			for (int i = 0; i < columns.size(); i++) {
 				EgovMap egovMap = columns.get(i);
 
 				String tableName = (String) egovMap.get("tableName");
-				String columnName = (String) egovMap.get("columnName");
-
-				// System.out.println("tableName=" + tableName);
-				// System.out.println("columnName=" + columnName);
+				String tableComment = (String) egovMap.get("tableComment");
 
 				tables.add(tableName);
+
+				tableComments.put(tableName, tableComment);
 			}
 
 			System.out.println("tables=" + tables);
@@ -70,12 +71,15 @@ public class ColumnsClientTest {
 			for (String tableName : tables) {
 				System.out.println("tables[" + i + "]=" + tableName);
 
+				System.out.println("tableComments[" + i + "]="
+						+ tableComments.get(tableName));
+
 				i++;
 			}
 		}
 	}
 
-	@Test
+	// @Test
 	public void getColumnsTest() throws Exception {
 		if (columns != null) {
 			Set<String> tables = new HashSet<String>();

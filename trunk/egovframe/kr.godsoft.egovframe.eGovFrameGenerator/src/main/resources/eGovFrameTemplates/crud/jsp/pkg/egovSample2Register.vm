@@ -44,7 +44,7 @@
 #foreach($attribute in $model.primaryKeys)
 <c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${attribute.ccName} ? '등록' : '수정'}"/>
 #end
-<title> <c:out value="${D}{registerFlag}"/> </title>
+<title>${model.entity.title} <c:out value="${D}{registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -100,7 +100,7 @@ function fn_egov_save() {
 		<c:if test="${D}{registerFlag == '수정'}">
 #foreach($attribute in $model.primaryKeys)
 		<tr>
-			<th>${attribute.name} *</th>
+			<th>${attribute.tableHeaderCell} *</th>
 			<td>
 				<form:input path="${attribute.ccName}" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -110,7 +110,7 @@ function fn_egov_save() {
 		<c:if test="${D}{registerFlag == '등록'}">
 #foreach($attribute in $model.primaryKeys)
 		<tr>
-			<th>${attribute.name} *</th>
+			<th>${attribute.tableHeaderCell} *</th>
 			<td>
 				<form:input path="${attribute.ccName}" cssClass="txt" readonly="false" />
 			</td>			
@@ -121,7 +121,7 @@ function fn_egov_save() {
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == false)
 		<tr>
-			<th>${attribute.name}</th>
+			<th>${attribute.tableHeaderCell}</th>
 			<td>
 				<form:input path="${attribute.ccName}" cssClass="txt"/>
 				&nbsp;<form:errors path="${attribute.ccName}" />

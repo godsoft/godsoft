@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.Attribute;
 import model.DataModelContext;
+import model.Query;
 import operation.CrudCodeGen;
 
 import org.apache.commons.io.FileUtils;
@@ -16,6 +17,8 @@ public class CrudCodeGenServiceImpl {
 	private static final String ENCODING = "UTF-8";
 
 	private static final Log log = LogFactory.getLog(CrudCodeGenApp.class);
+
+	private static final String TAB = "            ";
 
 	private CrudCodeGen crudCodeGen;
 
@@ -80,31 +83,35 @@ public class CrudCodeGenServiceImpl {
 	}
 
 	public void genSQLMap(DataModelContext dataModelContext) throws Exception {
-		String insertQuery = insertQuery(dataModelContext);
+		String insert = insert(dataModelContext);
+		String update = update(dataModelContext);
+
+		Query query = new Query();
+
+		query.setInsert(insert);
+		query.setUpdate(update);
+
+		dataModelContext.setQuery(query);
+
+		String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+
+		String data = crudCodeGen.generate(dataModelContext, templateFile);
+
+		crudCodeGenPath.setSqlMapPath(dataModelContext);
 
 		if (log.isDebugEnabled()) {
-			log.debug("insertQuery=" + insertQuery);
+			log.debug("SqlMapPath=" + crudCodeGenPath.getSqlMapPath());
 		}
 
-		// String templateFile =
-		// "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
-		//
-		// String data = crudCodeGen.generate(dataModelContext, templateFile);
-		//
-		// crudCodeGenPath.setSqlMapPath(dataModelContext);
-		//
-		// if (log.isDebugEnabled()) {
-		// log.debug("SqlMapPath=" + crudCodeGenPath.getSqlMapPath());
-		// }
-		//
-		// writeStringToFile(crudCodeGenPath.getSqlMapPath(), data);
+		writeStringToFile(crudCodeGenPath.getSqlMapPath(), data);
 	}
 
-	private String insertQuery(DataModelContext dataModelContext) {
+	private String insert(DataModelContext dataModelContext) {
 		StringBuilder sb = new StringBuilder();
 
 		List<Attribute> attributes = dataModelContext.getAttributes();
 
+		sb.append(TAB);
 		sb.append("INSERT INTO ");
 		sb.append(dataModelContext.getEntity().getLcName());
 		sb.append(" (\n");
@@ -113,39 +120,134 @@ public class CrudCodeGenServiceImpl {
 			Attribute attribute = attributes.get(i);
 
 			if (i == 0) {
+				sb.append(TAB);
 				sb.append("    ");
 				sb.append(attribute.getLcName());
 			} else {
 				if ("last_updt_pnttm".equals(attribute.getLcName())
 						|| "last_updusr_id".equals(attribute.getLcName())) {
-
 				} else {
-					sb.append(",\n    ");
+					sb.append("\n");
+					sb.append(TAB);
+					sb.append("    , ");
 					sb.append(attribute.getLcName());
 				}
 			}
 		}
 
-		sb.append("\n) VALUES (\n");
+		sb.append("\n");
+		sb.append(TAB);
+		sb.append(") VALUES (\n");
 
 		for (int i = 0; i < attributes.size(); i++) {
 			Attribute attribute = attributes.get(i);
 
 			if (i == 0) {
-				sb.append("    ");
+				sb.append(TAB);
+				sb.append("    #");
 				sb.append(attribute.getCcName());
+				sb.append("#");
 			} else {
 				if ("last_updt_pnttm".equals(attribute.getLcName())
 						|| "last_updusr_id".equals(attribute.getLcName())) {
-
 				} else {
-					sb.append(",\n    ");
-					sb.append(attribute.getCcName());
+					sb.append("\n");
+					sb.append(TAB);
+					sb.append("    , ");
+
+					if ("frst_regist_pnttm".equals(attribute.getLcName())) {
+						sb.append("SYSDATE()");
+					} else {
+						sb.append("#");
+						sb.append(attribute.getCcName());
+						sb.append("#");
+					}
 				}
 			}
 		}
 
-		sb.append("\n)\n");
+		sb.append("\n");
+		sb.append(TAB);
+		sb.append(")");
+
+		return sb.toString();
+	}
+
+	private String update(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		List<Attribute> attributes = dataModelContext.getAttributes();
+		List<Attribute> primaryKeys = dataModelContext.getPrimaryKeys();
+
+		sb.append(TAB);
+		sb.append("UPDATE ");
+		sb.append(dataModelContext.getEntity().getLcName());
+		sb.append("\n");
+
+		for (int i = 0; i < attributes.size(); i++) {
+			Attribute attribute = attributes.get(i);
+
+			if (i == 0) {
+				sb.append(TAB);
+				sb.append("    SET\n");
+				sb.append(TAB);
+				sb.append("    ");
+				sb.append(attribute.getLcName());
+				sb.append(" = #");
+				sb.append(attribute.getCcName());
+				sb.append("#");
+			} else {
+				if ("frst_regist_pnttm".equals(attribute.getLcName())
+						|| "frst_register_id".equals(attribute.getLcName())) {
+				} else {
+					sb.append("\n");
+					sb.append(TAB);
+					sb.append("    , ");
+					sb.append(attribute.getLcName());
+					sb.append(" = ");
+
+					if ("last_updt_pnttm".equals(attribute.getLcName())) {
+						sb.append("SYSDATE()");
+					} else {
+						sb.append("#");
+						sb.append(attribute.getCcName());
+						sb.append("#");
+					}
+				}
+			}
+		}
+
+		sb.append("\n");
+		sb.append(TAB);
+
+		sb.append(where(dataModelContext));
+
+		return sb.toString();
+	}
+
+	private String where(DataModelContext dataModelContext) {
+		StringBuilder sb = new StringBuilder();
+
+		List<Attribute> primaryKeys = dataModelContext.getPrimaryKeys();
+
+		sb.append("    WHERE 1 = 1\n");
+
+		for (int i = 0; i < primaryKeys.size(); i++) {
+			Attribute attribute = primaryKeys.get(i);
+
+			if (i == 0) {
+
+			} else {
+				sb.append("\n");
+			}
+
+			sb.append(TAB);
+			sb.append("    AND ");
+			sb.append(attribute.getLcName());
+			sb.append(" = #");
+			sb.append(attribute.getCcName());
+			sb.append("#");
+		}
 
 		return sb.toString();
 	}
