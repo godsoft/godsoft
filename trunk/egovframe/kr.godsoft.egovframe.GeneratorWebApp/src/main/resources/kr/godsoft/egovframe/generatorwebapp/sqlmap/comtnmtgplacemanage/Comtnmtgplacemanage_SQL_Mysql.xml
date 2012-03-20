@@ -23,57 +23,56 @@
 	
 	<insert id="comtnmtgplacemanageDAO.insertComtnmtgplacemanage_S">
 		<![CDATA[
-			INSERT INTO comtnmtgplacemanage 
-				( MTGRUM_ID
-				  , mtgrum_nm
-				  , opn_begin_tm
-				  , opn_end_tm
-				  , aceptnc_posbl_nmpr
-				  , lc_se
-				  , lc_detail
-				  , atch_file_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #mtgrumId#
-				  , #mtgrumNm#
-				  , #opnBeginTm#
-				  , #opnEndTm#
-				  , #aceptncPosblNmpr#
-				  , #lcSe#
-				  , #lcDetail#
-				  , #atchFileId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnmtgplacemanage (
+                mtgrum_id
+                , mtgrum_nm
+                , opn_begin_tm
+                , opn_end_tm
+                , aceptnc_posbl_nmpr
+                , lc_se
+                , lc_detail
+                , atch_file_id
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #mtgrumId#
+                , #mtgrumNm#
+                , #opnBeginTm#
+                , #opnEndTm#
+                , #aceptncPosblNmpr#
+                , #lcSe#
+                , #lcDetail#
+                , #atchFileId#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnmtgplacemanageDAO.updateComtnmtgplacemanage_S">
 		<![CDATA[
-			UPDATE comtnmtgplacemanage
-			SET mtgrum_id = #mtgrumId#
-				, mtgrum_nm = #mtgrumNm#
-				, opn_begin_tm = #opnBeginTm#
-				, opn_end_tm = #opnEndTm#
-				, aceptnc_posbl_nmpr = #aceptncPosblNmpr#
-				, lc_se = #lcSe#
-				, lc_detail = #lcDetail#
-				, atch_file_id = #atchFileId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE mtgrum_id = #mtgrumId#
+            UPDATE comtnmtgplacemanage
+                SET
+                mtgrum_id = #mtgrumId#
+                , mtgrum_nm = #mtgrumNm#
+                , opn_begin_tm = #opnBeginTm#
+                , opn_end_tm = #opnEndTm#
+                , aceptnc_posbl_nmpr = #aceptncPosblNmpr#
+                , lc_se = #lcSe#
+                , lc_detail = #lcDetail#
+                , atch_file_id = #atchFileId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND mtgrum_id = #mtgrumId#
 		]]>
 	</update>
 	
 	<delete id="comtnmtgplacemanageDAO.deleteComtnmtgplacemanage_S">
 		<![CDATA[
-			DELETE FROM comtnmtgplacemanage 
-			WHERE mtgrum_id = #mtgrumId#
+			DELETE FROM comtnmtgplacemanage
+				WHERE 1 = 1
+				AND mtgrum_id = #mtgrumId#
 		]]>
 	</delete>
 	

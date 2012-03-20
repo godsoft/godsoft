@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnemplyrscrtyestbsVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnemplyrscrtyestbsVO.scrtyDtrmnTrgetId ? '등록' : '수정'}"/>
+<title>comtnemplyrscrtyestbs <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnemplyrscrtyestbsVO" name="detailForm">
+<form:form commandName="comtnemplyrscrtyestbsVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>SCRTY_DTRMN_TRGET_ID *</th>
+			<th>scrty_dtrmn_trget_id *</th>
 			<td>
 				<form:input path="scrtyDtrmnTrgetId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>SCRTY_DTRMN_TRGET_ID *</th>
+			<th>scrty_dtrmn_trget_id *</th>
 			<td>
 				<form:input path="scrtyDtrmnTrgetId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,14 +93,14 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>MBER_TY_CODE</th>
+			<th>mber_ty_code</th>
 			<td>
 				<form:input path="mberTyCode" cssClass="txt"/>
 				&nbsp;<form:errors path="mberTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>AUTHOR_CODE</th>
+			<th>author_code</th>
 			<td>
 				<form:input path="authorCode" cssClass="txt"/>
 				&nbsp;<form:errors path="authorCode" />

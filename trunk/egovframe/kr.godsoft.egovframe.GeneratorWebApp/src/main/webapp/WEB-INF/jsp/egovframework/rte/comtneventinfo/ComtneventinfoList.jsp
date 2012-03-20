@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtneventinfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="eventId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -81,22 +81,22 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">EventId</th>
-								<th align="center">BsnsYear</th>
-								<th align="center">BsnsCode</th>
-								<th align="center">EventCn</th>
-								<th align="center">EventSvcBgnde</th>
-								<th align="center">SvcUseNmprCo</th>
-								<th align="center">ChargerNm</th>
-								<th align="center">PrparetgCn</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">EventSvcEndde</th>
-								<th align="center">EventTyCode</th>
-								<th align="center">EventConfmAt</th>
-								<th align="center">EventConfmDe</th>
+								<th align="center">event_id</th>
+								<th align="center">bsns_year</th>
+								<th align="center">bsns_code</th>
+								<th align="center">event_cn</th>
+								<th align="center">event_svc_bgnde</th>
+								<th align="center">svc_use_nmpr_co</th>
+								<th align="center">charger_nm</th>
+								<th align="center">prparetg_cn</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">event_svc_endde</th>
+								<th align="center">event_ty_code</th>
+								<th align="center">event_confm_at</th>
+								<th align="center">event_confm_de</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnntwrkinfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="ntwrkId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -78,19 +78,19 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">NtwrkId</th>
-								<th align="center">NtwrkIp</th>
-								<th align="center">Gtwy</th>
-								<th align="center">Subnet</th>
-								<th align="center">DomnNmServer</th>
-								<th align="center">ManageIem</th>
-								<th align="center">UserNm</th>
-								<th align="center">UseAt</th>
-								<th align="center">Rgsde</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">LastUpdtPnttm</th>
+								<th align="center">ntwrk_id</th>
+								<th align="center">ntwrk_ip</th>
+								<th align="center">gtwy</th>
+								<th align="center">subnet</th>
+								<th align="center">domn_nm_server</th>
+								<th align="center">manage_iem</th>
+								<th align="center">user_nm</th>
+								<th align="center">use_at</th>
+								<th align="center">rgsde</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">last_updt_pnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

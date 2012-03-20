@@ -14,31 +14,36 @@
 	
 	<insert id="comtsweblogsummaryDAO.insertComtsweblogsummary_S">
 		<![CDATA[
-			INSERT INTO comtsweblogsummary 
-				( OCCRRNC_DE
-				  , url
-				  , rdcnt )
-			VALUES ( #occrrncDe#
-				  , #url#
-				  , #rdcnt# )
+            INSERT INTO comtsweblogsummary (
+                occrrnc_de
+                , url
+                , rdcnt
+            ) VALUES (
+                #occrrncDe#
+                , #url#
+                , #rdcnt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtsweblogsummaryDAO.updateComtsweblogsummary_S">
 		<![CDATA[
-			UPDATE comtsweblogsummary
-			SET occrrnc_de = #occrrncDe#
-				, url = #url#
-				, rdcnt = #rdcnt#
-			WHERE occrrnc_de = #occrrncDe#
-				AND url = #url#
+            UPDATE comtsweblogsummary
+                SET
+                occrrnc_de = #occrrncDe#
+                , url = #url#
+                , rdcnt = #rdcnt#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND url = #url#
 		]]>
 	</update>
 	
 	<delete id="comtsweblogsummaryDAO.deleteComtsweblogsummary_S">
 		<![CDATA[
-			DELETE FROM comtsweblogsummary 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtsweblogsummary
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND url = #url#
 		]]>
 	</delete>

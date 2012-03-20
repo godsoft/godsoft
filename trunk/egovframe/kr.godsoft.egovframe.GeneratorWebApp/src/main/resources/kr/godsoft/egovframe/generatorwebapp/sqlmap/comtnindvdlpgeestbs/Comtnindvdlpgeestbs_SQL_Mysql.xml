@@ -16,36 +16,41 @@
 	
 	<insert id="comtnindvdlpgeestbsDAO.insertComtnindvdlpgeestbs_S">
 		<![CDATA[
-			INSERT INTO comtnindvdlpgeestbs 
-				( EMPLYR_ID
-				  , upend_image
-				  , titlebar_color
-				  , algn_mthd
-				  , algn_co )
-			VALUES ( #emplyrId#
-				  , #upendImage#
-				  , #titlebarColor#
-				  , #algnMthd#
-				  , #algnCo# )
+            INSERT INTO comtnindvdlpgeestbs (
+                emplyr_id
+                , upend_image
+                , titlebar_color
+                , algn_mthd
+                , algn_co
+            ) VALUES (
+                #emplyrId#
+                , #upendImage#
+                , #titlebarColor#
+                , #algnMthd#
+                , #algnCo#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnindvdlpgeestbsDAO.updateComtnindvdlpgeestbs_S">
 		<![CDATA[
-			UPDATE comtnindvdlpgeestbs
-			SET emplyr_id = #emplyrId#
-				, upend_image = #upendImage#
-				, titlebar_color = #titlebarColor#
-				, algn_mthd = #algnMthd#
-				, algn_co = #algnCo#
-			WHERE emplyr_id = #emplyrId#
+            UPDATE comtnindvdlpgeestbs
+                SET
+                emplyr_id = #emplyrId#
+                , upend_image = #upendImage#
+                , titlebar_color = #titlebarColor#
+                , algn_mthd = #algnMthd#
+                , algn_co = #algnCo#
+                WHERE 1 = 1
+                AND emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnindvdlpgeestbsDAO.deleteComtnindvdlpgeestbs_S">
 		<![CDATA[
-			DELETE FROM comtnindvdlpgeestbs 
-			WHERE emplyr_id = #emplyrId#
+			DELETE FROM comtnindvdlpgeestbs
+				WHERE 1 = 1
+				AND emplyr_id = #emplyrId#
 		]]>
 	</delete>
 	

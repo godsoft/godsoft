@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtstrsmrcvlogsummary 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -55,7 +55,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="occrrncDe" />
 	<input type="hidden" name="trsmrcvSeCode" />
 	<input type="hidden" name="provdInsttId" />
@@ -86,26 +86,26 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">OccrrncDe</th>
-								<th align="center">TrsmrcvSeCode</th>
-								<th align="center">ProvdInsttId</th>
-								<th align="center">ProvdSysId</th>
-								<th align="center">ProvdSvcId</th>
-								<th align="center">RequstInsttId</th>
-								<th align="center">RequstSysId</th>
-								<th align="center">Rdcnt</th>
-								<th align="center">ErrorCo</th>
+								<th align="center">occrrnc_de</th>
+								<th align="center">trsmrcv_se_code</th>
+								<th align="center">provd_instt_id</th>
+								<th align="center">provd_sys_id</th>
+								<th align="center">provd_svc_id</th>
+								<th align="center">requst_instt_id</th>
+								<th align="center">requst_sys_id</th>
+								<th align="center">rdcnt</th>
+								<th align="center">error_co</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																																																																																			
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.trsmrcvSeCode}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.provdInsttId}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.provdSysId}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.provdSvcId}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.requstInsttId}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.trsmrcvSeCode}"/>, <c:out value="{D}{result.provdInsttId}"/>, <c:out value="{D}{result.provdSysId}"/>, <c:out value="{D}{result.provdSvcId}"/>, <c:out value="{D}{result.requstInsttId}"/>, <c:out value="{D}{result.requstSysId}"/>')"><c:out value="${result.requstSysId}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.trsmrcvSeCode}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.provdInsttId}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.provdSysId}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.provdSvcId}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.requstInsttId}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.trsmrcvSeCode}"/>', '<c:out value="${result.provdInsttId}"/>', '<c:out value="${result.provdSysId}"/>', '<c:out value="${result.provdSvcId}"/>', '<c:out value="${result.requstInsttId}"/>', '<c:out value="${result.requstSysId}"/>')"><c:out value="${result.requstSysId}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.rdcnt}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.errorCo}"/>&nbsp;</td>
 											</tr>

@@ -23,57 +23,56 @@
 	
 	<insert id="comthtrsmrcvmntrngloginfoDAO.insertComthtrsmrcvmntrngloginfo_S">
 		<![CDATA[
-			INSERT INTO comthtrsmrcvmntrngloginfo 
-				( LOG_ID
-				  , cntc_id
-				  , test_class_nm
-				  , mngr_nm
-				  , mngr_email_adres
-				  , mntrng_sttus
-				  , log_info
-				  , creat_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #logId#
-				  , #cntcId#
-				  , #testClassNm#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #mntrngSttus#
-				  , #logInfo#
-				  , #creatDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comthtrsmrcvmntrngloginfo (
+                log_id
+                , cntc_id
+                , test_class_nm
+                , mngr_nm
+                , mngr_email_adres
+                , mntrng_sttus
+                , log_info
+                , creat_dt
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #logId#
+                , #cntcId#
+                , #testClassNm#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #mntrngSttus#
+                , #logInfo#
+                , #creatDt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comthtrsmrcvmntrngloginfoDAO.updateComthtrsmrcvmntrngloginfo_S">
 		<![CDATA[
-			UPDATE comthtrsmrcvmntrngloginfo
-			SET log_id = #logId#
-				, cntc_id = #cntcId#
-				, test_class_nm = #testClassNm#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, mntrng_sttus = #mntrngSttus#
-				, log_info = #logInfo#
-				, creat_dt = #creatDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE log_id = #logId#
+            UPDATE comthtrsmrcvmntrngloginfo
+                SET
+                log_id = #logId#
+                , cntc_id = #cntcId#
+                , test_class_nm = #testClassNm#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , mntrng_sttus = #mntrngSttus#
+                , log_info = #logInfo#
+                , creat_dt = #creatDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comthtrsmrcvmntrngloginfoDAO.deleteComthtrsmrcvmntrngloginfo_S">
 		<![CDATA[
-			DELETE FROM comthtrsmrcvmntrngloginfo 
-			WHERE log_id = #logId#
+			DELETE FROM comthtrsmrcvmntrngloginfo
+				WHERE 1 = 1
+				AND log_id = #logId#
 		]]>
 	</delete>
 	

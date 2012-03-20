@@ -19,45 +19,44 @@
 	
 	<insert id="comtnstplatinfoDAO.insertComtnstplatinfo_S">
 		<![CDATA[
-			INSERT INTO comtnstplatinfo 
-				( USE_STPLAT_ID
-				  , use_stplat_nm
-				  , use_stplat_cn
-				  , info_provd_agre_cn
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #useStplatId#
-				  , #useStplatNm#
-				  , #useStplatCn#
-				  , #infoProvdAgreCn#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnstplatinfo (
+                use_stplat_id
+                , use_stplat_nm
+                , use_stplat_cn
+                , info_provd_agre_cn
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #useStplatId#
+                , #useStplatNm#
+                , #useStplatCn#
+                , #infoProvdAgreCn#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnstplatinfoDAO.updateComtnstplatinfo_S">
 		<![CDATA[
-			UPDATE comtnstplatinfo
-			SET use_stplat_id = #useStplatId#
-				, use_stplat_nm = #useStplatNm#
-				, use_stplat_cn = #useStplatCn#
-				, info_provd_agre_cn = #infoProvdAgreCn#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE use_stplat_id = #useStplatId#
+            UPDATE comtnstplatinfo
+                SET
+                use_stplat_id = #useStplatId#
+                , use_stplat_nm = #useStplatNm#
+                , use_stplat_cn = #useStplatCn#
+                , info_provd_agre_cn = #infoProvdAgreCn#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND use_stplat_id = #useStplatId#
 		]]>
 	</update>
 	
 	<delete id="comtnstplatinfoDAO.deleteComtnstplatinfo_S">
 		<![CDATA[
-			DELETE FROM comtnstplatinfo 
-			WHERE use_stplat_id = #useStplatId#
+			DELETE FROM comtnstplatinfo
+				WHERE 1 = 1
+				AND use_stplat_id = #useStplatId#
 		]]>
 	</delete>
 	

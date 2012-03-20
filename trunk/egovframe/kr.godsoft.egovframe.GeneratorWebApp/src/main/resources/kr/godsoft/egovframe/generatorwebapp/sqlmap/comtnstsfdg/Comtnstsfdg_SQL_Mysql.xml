@@ -24,60 +24,59 @@
 	
 	<insert id="comtnstsfdgDAO.insertComtnstsfdg_S">
 		<![CDATA[
-			INSERT INTO comtnstsfdg 
-				( STSFDG_NO
-				  , ntt_id
-				  , bbs_id
-				  , wrter_id
-				  , wrter_nm
-				  , password
-				  , stsfdg
-				  , stsfdg_cn
-				  , use_at
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , frst_register_id
-				  , last_updusr_id )
-			VALUES ( #stsfdgNo#
-				  , #nttId#
-				  , #bbsId#
-				  , #wrterId#
-				  , #wrterNm#
-				  , #password#
-				  , #stsfdg#
-				  , #stsfdgCn#
-				  , #useAt#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnstsfdg (
+                stsfdg_no
+                , ntt_id
+                , bbs_id
+                , wrter_id
+                , wrter_nm
+                , password
+                , stsfdg
+                , stsfdg_cn
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #stsfdgNo#
+                , #nttId#
+                , #bbsId#
+                , #wrterId#
+                , #wrterNm#
+                , #password#
+                , #stsfdg#
+                , #stsfdgCn#
+                , #useAt#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnstsfdgDAO.updateComtnstsfdg_S">
 		<![CDATA[
-			UPDATE comtnstsfdg
-			SET stsfdg_no = #stsfdgNo#
-				, ntt_id = #nttId#
-				, bbs_id = #bbsId#
-				, wrter_id = #wrterId#
-				, wrter_nm = #wrterNm#
-				, password = #password#
-				, stsfdg = #stsfdg#
-				, stsfdg_cn = #stsfdgCn#
-				, use_at = #useAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE stsfdg_no = #stsfdgNo#
+            UPDATE comtnstsfdg
+                SET
+                stsfdg_no = #stsfdgNo#
+                , ntt_id = #nttId#
+                , bbs_id = #bbsId#
+                , wrter_id = #wrterId#
+                , wrter_nm = #wrterNm#
+                , password = #password#
+                , stsfdg = #stsfdg#
+                , stsfdg_cn = #stsfdgCn#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND stsfdg_no = #stsfdgNo#
 		]]>
 	</update>
 	
 	<delete id="comtnstsfdgDAO.deleteComtnstsfdg_S">
 		<![CDATA[
-			DELETE FROM comtnstsfdg 
-			WHERE stsfdg_no = #stsfdgNo#
+			DELETE FROM comtnstsfdg
+				WHERE 1 = 1
+				AND stsfdg_no = #stsfdgNo#
 		]]>
 	</delete>
 	

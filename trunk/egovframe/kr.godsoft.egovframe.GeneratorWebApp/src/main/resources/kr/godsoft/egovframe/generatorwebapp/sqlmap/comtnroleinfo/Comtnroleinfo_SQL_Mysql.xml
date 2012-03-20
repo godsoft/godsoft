@@ -18,42 +18,47 @@
 	
 	<insert id="comtnroleinfoDAO.insertComtnroleinfo_S">
 		<![CDATA[
-			INSERT INTO comtnroleinfo 
-				( ROLE_CODE
-				  , role_nm
-				  , role_pttrn
-				  , role_dc
-				  , role_ty
-				  , role_sort
-				  , role_creat_de )
-			VALUES ( #roleCode#
-				  , #roleNm#
-				  , #rolePttrn#
-				  , #roleDc#
-				  , #roleTy#
-				  , #roleSort#
-				  , #roleCreatDe# )
+            INSERT INTO comtnroleinfo (
+                role_code
+                , role_nm
+                , role_pttrn
+                , role_dc
+                , role_ty
+                , role_sort
+                , role_creat_de
+            ) VALUES (
+                #roleCode#
+                , #roleNm#
+                , #rolePttrn#
+                , #roleDc#
+                , #roleTy#
+                , #roleSort#
+                , #roleCreatDe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnroleinfoDAO.updateComtnroleinfo_S">
 		<![CDATA[
-			UPDATE comtnroleinfo
-			SET role_code = #roleCode#
-				, role_nm = #roleNm#
-				, role_pttrn = #rolePttrn#
-				, role_dc = #roleDc#
-				, role_ty = #roleTy#
-				, role_sort = #roleSort#
-				, role_creat_de = #roleCreatDe#
-			WHERE role_code = #roleCode#
+            UPDATE comtnroleinfo
+                SET
+                role_code = #roleCode#
+                , role_nm = #roleNm#
+                , role_pttrn = #rolePttrn#
+                , role_dc = #roleDc#
+                , role_ty = #roleTy#
+                , role_sort = #roleSort#
+                , role_creat_de = #roleCreatDe#
+                WHERE 1 = 1
+                AND role_code = #roleCode#
 		]]>
 	</update>
 	
 	<delete id="comtnroleinfoDAO.deleteComtnroleinfo_S">
 		<![CDATA[
-			DELETE FROM comtnroleinfo 
-			WHERE role_code = #roleCode#
+			DELETE FROM comtnroleinfo
+				WHERE 1 = 1
+				AND role_code = #roleCode#
 		]]>
 	</delete>
 	

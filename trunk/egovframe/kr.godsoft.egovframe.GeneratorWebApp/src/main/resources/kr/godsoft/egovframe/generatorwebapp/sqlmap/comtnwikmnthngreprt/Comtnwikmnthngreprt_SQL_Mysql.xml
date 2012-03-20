@@ -28,72 +28,71 @@
 	
 	<insert id="comtnwikmnthngreprtDAO.insertComtnwikmnthngreprt_S">
 		<![CDATA[
-			INSERT INTO comtnwikmnthngreprt 
-				( REPRT_ID
-				  , reprt_se
-				  , reprt_sj
-				  , report_de
-				  , wrter_id
-				  , reportr_id
-				  , report_bgnde
-				  , report_endde
-				  , thswik_report_cn
-				  , nextwik_report_cn
-				  , partclr_matter
-				  , atch_file_id
-				  , confm_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #reprtId#
-				  , #reprtSe#
-				  , #reprtSj#
-				  , #reportDe#
-				  , #wrterId#
-				  , #reportrId#
-				  , #reportBgnde#
-				  , #reportEndde#
-				  , #thswikReportCn#
-				  , #nextwikReportCn#
-				  , #partclrMatter#
-				  , #atchFileId#
-				  , #confmDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnwikmnthngreprt (
+                reprt_id
+                , reprt_se
+                , reprt_sj
+                , report_de
+                , wrter_id
+                , reportr_id
+                , report_bgnde
+                , report_endde
+                , thswik_report_cn
+                , nextwik_report_cn
+                , partclr_matter
+                , atch_file_id
+                , confm_dt
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #reprtId#
+                , #reprtSe#
+                , #reprtSj#
+                , #reportDe#
+                , #wrterId#
+                , #reportrId#
+                , #reportBgnde#
+                , #reportEndde#
+                , #thswikReportCn#
+                , #nextwikReportCn#
+                , #partclrMatter#
+                , #atchFileId#
+                , #confmDt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnwikmnthngreprtDAO.updateComtnwikmnthngreprt_S">
 		<![CDATA[
-			UPDATE comtnwikmnthngreprt
-			SET reprt_id = #reprtId#
-				, reprt_se = #reprtSe#
-				, reprt_sj = #reprtSj#
-				, report_de = #reportDe#
-				, wrter_id = #wrterId#
-				, reportr_id = #reportrId#
-				, report_bgnde = #reportBgnde#
-				, report_endde = #reportEndde#
-				, thswik_report_cn = #thswikReportCn#
-				, nextwik_report_cn = #nextwikReportCn#
-				, partclr_matter = #partclrMatter#
-				, atch_file_id = #atchFileId#
-				, confm_dt = #confmDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE reprt_id = #reprtId#
+            UPDATE comtnwikmnthngreprt
+                SET
+                reprt_id = #reprtId#
+                , reprt_se = #reprtSe#
+                , reprt_sj = #reprtSj#
+                , report_de = #reportDe#
+                , wrter_id = #wrterId#
+                , reportr_id = #reportrId#
+                , report_bgnde = #reportBgnde#
+                , report_endde = #reportEndde#
+                , thswik_report_cn = #thswikReportCn#
+                , nextwik_report_cn = #nextwikReportCn#
+                , partclr_matter = #partclrMatter#
+                , atch_file_id = #atchFileId#
+                , confm_dt = #confmDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND reprt_id = #reprtId#
 		]]>
 	</update>
 	
 	<delete id="comtnwikmnthngreprtDAO.deleteComtnwikmnthngreprt_S">
 		<![CDATA[
-			DELETE FROM comtnwikmnthngreprt 
-			WHERE reprt_id = #reprtId#
+			DELETE FROM comtnwikmnthngreprt
+				WHERE 1 = 1
+				AND reprt_id = #reprtId#
 		]]>
 	</delete>
 	

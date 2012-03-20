@@ -37,99 +37,98 @@
 	
 	<insert id="comtninsttcodeDAO.insertComtninsttcode_S">
 		<![CDATA[
-			INSERT INTO comtninsttcode 
-				( INSTT_CODE
-				  , all_instt_nm
-				  , lowest_instt_nm
-				  , instt_abrv_nm
-				  , odr
-				  , ord
-				  , instt_odr
-				  , upper_instt_code
-				  , best_instt_code
-				  , reprsnt_instt_code
-				  , instt_ty_lclas
-				  , instt_ty_mlsfc
-				  , instt_ty_sclas
-				  , telno
-				  , fxnum
-				  , creat_de
-				  , abl_de
-				  , abl_ennc
-				  , change_de
-				  , change_time
-				  , bsis_de
-				  , sort_ordr
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #insttCode#
-				  , #allInsttNm#
-				  , #lowestInsttNm#
-				  , #insttAbrvNm#
-				  , #odr#
-				  , #ord#
-				  , #insttOdr#
-				  , #upperInsttCode#
-				  , #bestInsttCode#
-				  , #reprsntInsttCode#
-				  , #insttTyLclas#
-				  , #insttTyMlsfc#
-				  , #insttTySclas#
-				  , #telno#
-				  , #fxnum#
-				  , #creatDe#
-				  , #ablDe#
-				  , #ablEnnc#
-				  , #changeDe#
-				  , #changeTime#
-				  , #bsisDe#
-				  , #sortOrdr#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtninsttcode (
+                instt_code
+                , all_instt_nm
+                , lowest_instt_nm
+                , instt_abrv_nm
+                , odr
+                , ord
+                , instt_odr
+                , upper_instt_code
+                , best_instt_code
+                , reprsnt_instt_code
+                , instt_ty_lclas
+                , instt_ty_mlsfc
+                , instt_ty_sclas
+                , telno
+                , fxnum
+                , creat_de
+                , abl_de
+                , abl_ennc
+                , change_de
+                , change_time
+                , bsis_de
+                , sort_ordr
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #insttCode#
+                , #allInsttNm#
+                , #lowestInsttNm#
+                , #insttAbrvNm#
+                , #odr#
+                , #ord#
+                , #insttOdr#
+                , #upperInsttCode#
+                , #bestInsttCode#
+                , #reprsntInsttCode#
+                , #insttTyLclas#
+                , #insttTyMlsfc#
+                , #insttTySclas#
+                , #telno#
+                , #fxnum#
+                , #creatDe#
+                , #ablDe#
+                , #ablEnnc#
+                , #changeDe#
+                , #changeTime#
+                , #bsisDe#
+                , #sortOrdr#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtninsttcodeDAO.updateComtninsttcode_S">
 		<![CDATA[
-			UPDATE comtninsttcode
-			SET instt_code = #insttCode#
-				, all_instt_nm = #allInsttNm#
-				, lowest_instt_nm = #lowestInsttNm#
-				, instt_abrv_nm = #insttAbrvNm#
-				, odr = #odr#
-				, ord = #ord#
-				, instt_odr = #insttOdr#
-				, upper_instt_code = #upperInsttCode#
-				, best_instt_code = #bestInsttCode#
-				, reprsnt_instt_code = #reprsntInsttCode#
-				, instt_ty_lclas = #insttTyLclas#
-				, instt_ty_mlsfc = #insttTyMlsfc#
-				, instt_ty_sclas = #insttTySclas#
-				, telno = #telno#
-				, fxnum = #fxnum#
-				, creat_de = #creatDe#
-				, abl_de = #ablDe#
-				, abl_ennc = #ablEnnc#
-				, change_de = #changeDe#
-				, change_time = #changeTime#
-				, bsis_de = #bsisDe#
-				, sort_ordr = #sortOrdr#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE instt_code = #insttCode#
+            UPDATE comtninsttcode
+                SET
+                instt_code = #insttCode#
+                , all_instt_nm = #allInsttNm#
+                , lowest_instt_nm = #lowestInsttNm#
+                , instt_abrv_nm = #insttAbrvNm#
+                , odr = #odr#
+                , ord = #ord#
+                , instt_odr = #insttOdr#
+                , upper_instt_code = #upperInsttCode#
+                , best_instt_code = #bestInsttCode#
+                , reprsnt_instt_code = #reprsntInsttCode#
+                , instt_ty_lclas = #insttTyLclas#
+                , instt_ty_mlsfc = #insttTyMlsfc#
+                , instt_ty_sclas = #insttTySclas#
+                , telno = #telno#
+                , fxnum = #fxnum#
+                , creat_de = #creatDe#
+                , abl_de = #ablDe#
+                , abl_ennc = #ablEnnc#
+                , change_de = #changeDe#
+                , change_time = #changeTime#
+                , bsis_de = #bsisDe#
+                , sort_ordr = #sortOrdr#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND instt_code = #insttCode#
 		]]>
 	</update>
 	
 	<delete id="comtninsttcodeDAO.deleteComtninsttcode_S">
 		<![CDATA[
-			DELETE FROM comtninsttcode 
-			WHERE instt_code = #insttCode#
+			DELETE FROM comtninsttcode
+				WHERE 1 = 1
+				AND instt_code = #insttCode#
 		]]>
 	</delete>
 	

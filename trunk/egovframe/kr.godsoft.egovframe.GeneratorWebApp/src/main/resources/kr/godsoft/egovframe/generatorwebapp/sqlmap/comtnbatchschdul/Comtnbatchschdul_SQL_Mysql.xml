@@ -22,54 +22,53 @@
 	
 	<insert id="comtnbatchschdulDAO.insertComtnbatchschdul_S">
 		<![CDATA[
-			INSERT INTO comtnbatchschdul 
-				( BATCH_SCHDUL_ID
-				  , batch_opert_id
-				  , execut_cycle
-				  , execut_schdul_de
-				  , execut_schdul_hour
-				  , execut_schdul_mnt
-				  , execut_schdul_secnd
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #batchSchdulId#
-				  , #batchOpertId#
-				  , #executCycle#
-				  , #executSchdulDe#
-				  , #executSchdulHour#
-				  , #executSchdulMnt#
-				  , #executSchdulSecnd#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnbatchschdul (
+                batch_schdul_id
+                , batch_opert_id
+                , execut_cycle
+                , execut_schdul_de
+                , execut_schdul_hour
+                , execut_schdul_mnt
+                , execut_schdul_secnd
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #batchSchdulId#
+                , #batchOpertId#
+                , #executCycle#
+                , #executSchdulDe#
+                , #executSchdulHour#
+                , #executSchdulMnt#
+                , #executSchdulSecnd#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbatchschdulDAO.updateComtnbatchschdul_S">
 		<![CDATA[
-			UPDATE comtnbatchschdul
-			SET batch_schdul_id = #batchSchdulId#
-				, batch_opert_id = #batchOpertId#
-				, execut_cycle = #executCycle#
-				, execut_schdul_de = #executSchdulDe#
-				, execut_schdul_hour = #executSchdulHour#
-				, execut_schdul_mnt = #executSchdulMnt#
-				, execut_schdul_secnd = #executSchdulSecnd#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE batch_schdul_id = #batchSchdulId#
+            UPDATE comtnbatchschdul
+                SET
+                batch_schdul_id = #batchSchdulId#
+                , batch_opert_id = #batchOpertId#
+                , execut_cycle = #executCycle#
+                , execut_schdul_de = #executSchdulDe#
+                , execut_schdul_hour = #executSchdulHour#
+                , execut_schdul_mnt = #executSchdulMnt#
+                , execut_schdul_secnd = #executSchdulSecnd#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND batch_schdul_id = #batchSchdulId#
 		]]>
 	</update>
 	
 	<delete id="comtnbatchschdulDAO.deleteComtnbatchschdul_S">
 		<![CDATA[
-			DELETE FROM comtnbatchschdul 
-			WHERE batch_schdul_id = #batchSchdulId#
+			DELETE FROM comtnbatchschdul
+				WHERE 1 = 1
+				AND batch_schdul_id = #batchSchdulId#
 		]]>
 	</delete>
 	

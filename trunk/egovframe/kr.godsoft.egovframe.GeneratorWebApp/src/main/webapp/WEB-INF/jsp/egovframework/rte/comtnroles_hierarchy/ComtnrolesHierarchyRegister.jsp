@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnrolesHierarchyVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnrolesHierarchyVO.parntsRole ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnrolesHierarchyVO.chldrnRole ? '등록' : '수정'}"/>
+<title>comtnroles_hierarchy <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnrolesHierarchyVO" name="detailForm">
+<form:form commandName="comtnrolesHierarchyVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>PARNTS_ROLE *</th>
+			<th>parnts_role *</th>
 			<td>
 				<form:input path="parntsRole" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>CHLDRN_ROLE *</th>
+			<th>chldrn_role *</th>
 			<td>
 				<form:input path="chldrnRole" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>PARNTS_ROLE *</th>
+			<th>parnts_role *</th>
 			<td>
 				<form:input path="parntsRole" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>CHLDRN_ROLE *</th>
+			<th>chldrn_role *</th>
 			<td>
 				<form:input path="chldrnRole" cssClass="txt" readonly="false" />
 			</td>			

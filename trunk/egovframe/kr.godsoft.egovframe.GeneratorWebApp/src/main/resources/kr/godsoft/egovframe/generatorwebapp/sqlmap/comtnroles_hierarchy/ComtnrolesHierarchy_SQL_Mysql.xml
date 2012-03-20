@@ -13,28 +13,33 @@
 	
 	<insert id="comtnrolesHierarchyDAO.insertComtnrolesHierarchy_S">
 		<![CDATA[
-			INSERT INTO comtnroles_hierarchy 
-				( PARNTS_ROLE
-				  , chldrn_role )
-			VALUES ( #parntsRole#
-				  , #chldrnRole# )
+            INSERT INTO comtnroles_hierarchy (
+                parnts_role
+                , chldrn_role
+            ) VALUES (
+                #parntsRole#
+                , #chldrnRole#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnrolesHierarchyDAO.updateComtnrolesHierarchy_S">
 		<![CDATA[
-			UPDATE comtnroles_hierarchy
-			SET parnts_role = #parntsRole#
-				, chldrn_role = #chldrnRole#
-			WHERE parnts_role = #parntsRole#
-				AND chldrn_role = #chldrnRole#
+            UPDATE comtnroles_hierarchy
+                SET
+                parnts_role = #parntsRole#
+                , chldrn_role = #chldrnRole#
+                WHERE 1 = 1
+                AND parnts_role = #parntsRole#
+                AND chldrn_role = #chldrnRole#
 		]]>
 	</update>
 	
 	<delete id="comtnrolesHierarchyDAO.deleteComtnrolesHierarchy_S">
 		<![CDATA[
-			DELETE FROM comtnroles_hierarchy 
-			WHERE parnts_role = #parntsRole#
+			DELETE FROM comtnroles_hierarchy
+				WHERE 1 = 1
+				AND parnts_role = #parntsRole#
 				AND chldrn_role = #chldrnRole#
 		]]>
 	</delete>

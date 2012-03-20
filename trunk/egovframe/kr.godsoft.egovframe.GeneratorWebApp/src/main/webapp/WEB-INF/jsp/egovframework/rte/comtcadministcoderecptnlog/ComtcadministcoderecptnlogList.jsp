@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtcadministcoderecptnlog 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -52,7 +52,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="occrrncDe" />
 	<input type="hidden" name="administZoneSe" />
 	<input type="hidden" name="administZoneCode" />
@@ -90,33 +90,33 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">OccrrncDe</th>
-								<th align="center">AdministZoneSe</th>
-								<th align="center">AdministZoneCode</th>
-								<th align="center">OpertSn</th>
-								<th align="center">ChangeSeCode</th>
-								<th align="center">ProcessSe</th>
-								<th align="center">AdministZoneNm</th>
-								<th align="center">LowestAdministZoneNm</th>
-								<th align="center">CtprvnCode</th>
-								<th align="center">SignguCode</th>
-								<th align="center">EmdCode</th>
-								<th align="center">LiCode</th>
-								<th align="center">CreatDe</th>
-								<th align="center">AblDe</th>
-								<th align="center">AblEnnc</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">LastUpdtPnttm</th>
+								<th align="center">occrrnc_de</th>
+								<th align="center">administ_zone_se</th>
+								<th align="center">administ_zone_code</th>
+								<th align="center">opert_sn</th>
+								<th align="center">change_se_code</th>
+								<th align="center">process_se</th>
+								<th align="center">administ_zone_nm</th>
+								<th align="center">lowest_administ_zone_nm</th>
+								<th align="center">ctprvn_code</th>
+								<th align="center">signgu_code</th>
+								<th align="center">emd_code</th>
+								<th align="center">li_code</th>
+								<th align="center">creat_de</th>
+								<th align="center">abl_de</th>
+								<th align="center">abl_ennc</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">last_updt_pnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																																															
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.administZoneSe}"/>, <c:out value="{D}{result.administZoneCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.administZoneSe}"/>, <c:out value="{D}{result.administZoneCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.administZoneSe}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.administZoneSe}"/>, <c:out value="{D}{result.administZoneCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.administZoneCode}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.administZoneSe}"/>, <c:out value="{D}{result.administZoneCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.opertSn}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.administZoneSe}"/>', '<c:out value="${result.administZoneCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.administZoneSe}"/>', '<c:out value="${result.administZoneCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.administZoneSe}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.administZoneSe}"/>', '<c:out value="${result.administZoneCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.administZoneCode}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.administZoneSe}"/>', '<c:out value="${result.administZoneCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.opertSn}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.changeSeCode}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.processSe}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.administZoneNm}"/>&nbsp;</td>

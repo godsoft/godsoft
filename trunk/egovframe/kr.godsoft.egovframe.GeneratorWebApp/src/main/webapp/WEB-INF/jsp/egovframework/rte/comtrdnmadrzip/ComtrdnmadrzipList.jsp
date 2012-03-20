@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtrdnmadrzip 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="sn" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -79,20 +79,20 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">RdmnCode</th>
-								<th align="center">Sn</th>
-								<th align="center">CtprvnNm</th>
-								<th align="center">SignguNm</th>
-								<th align="center">Rdmn</th>
-								<th align="center">BdnbrMnnm</th>
-								<th align="center">BdnbrSlno</th>
-								<th align="center">BuldNm</th>
-								<th align="center">DetailBuldNm</th>
-								<th align="center">Zip</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
+								<th align="center">rdmn_code</th>
+								<th align="center">sn</th>
+								<th align="center">ctprvn_nm</th>
+								<th align="center">signgu_nm</th>
+								<th align="center">rdmn</th>
+								<th align="center">bdnbr_mnnm</th>
+								<th align="center">bdnbr_slno</th>
+								<th align="center">buld_nm</th>
+								<th align="center">detail_buld_nm</th>
+								<th align="center">zip</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

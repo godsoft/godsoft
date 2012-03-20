@@ -18,42 +18,41 @@
 	
 	<insert id="comtntwitterDAO.insertComtntwitter_S">
 		<![CDATA[
-			INSERT INTO comtntwitter 
-				( USER_ID
-				  , cnsmr_key
-				  , cnsmr_secret
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #userId#
-				  , #cnsmrKey#
-				  , #cnsmrSecret#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtntwitter (
+                user_id
+                , cnsmr_key
+                , cnsmr_secret
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #userId#
+                , #cnsmrKey#
+                , #cnsmrSecret#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtntwitterDAO.updateComtntwitter_S">
 		<![CDATA[
-			UPDATE comtntwitter
-			SET user_id = #userId#
-				, cnsmr_key = #cnsmrKey#
-				, cnsmr_secret = #cnsmrSecret#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE user_id = #userId#
+            UPDATE comtntwitter
+                SET
+                user_id = #userId#
+                , cnsmr_key = #cnsmrKey#
+                , cnsmr_secret = #cnsmrSecret#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND user_id = #userId#
 		]]>
 	</update>
 	
 	<delete id="comtntwitterDAO.deleteComtntwitter_S">
 		<![CDATA[
-			DELETE FROM comtntwitter 
-			WHERE user_id = #userId#
+			DELETE FROM comtntwitter
+				WHERE 1 = 1
+				AND user_id = #userId#
 		]]>
 	</delete>
 	

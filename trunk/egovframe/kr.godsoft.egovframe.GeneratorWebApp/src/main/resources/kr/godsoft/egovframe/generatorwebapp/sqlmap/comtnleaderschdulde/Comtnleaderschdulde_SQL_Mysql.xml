@@ -13,28 +13,33 @@
 	
 	<insert id="comtnleaderschduldeDAO.insertComtnleaderschdulde_S">
 		<![CDATA[
-			INSERT INTO comtnleaderschdulde 
-				( SCHDUL_ID
-				  , schdul_de )
-			VALUES ( #schdulId#
-				  , #schdulDe# )
+            INSERT INTO comtnleaderschdulde (
+                schdul_id
+                , schdul_de
+            ) VALUES (
+                #schdulId#
+                , #schdulDe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnleaderschduldeDAO.updateComtnleaderschdulde_S">
 		<![CDATA[
-			UPDATE comtnleaderschdulde
-			SET schdul_id = #schdulId#
-				, schdul_de = #schdulDe#
-			WHERE schdul_id = #schdulId#
-				AND schdul_de = #schdulDe#
+            UPDATE comtnleaderschdulde
+                SET
+                schdul_id = #schdulId#
+                , schdul_de = #schdulDe#
+                WHERE 1 = 1
+                AND schdul_id = #schdulId#
+                AND schdul_de = #schdulDe#
 		]]>
 	</update>
 	
 	<delete id="comtnleaderschduldeDAO.deleteComtnleaderschdulde_S">
 		<![CDATA[
-			DELETE FROM comtnleaderschdulde 
-			WHERE schdul_id = #schdulId#
+			DELETE FROM comtnleaderschdulde
+				WHERE 1 = 1
+				AND schdul_id = #schdulId#
 				AND schdul_de = #schdulDe#
 		]]>
 	</delete>

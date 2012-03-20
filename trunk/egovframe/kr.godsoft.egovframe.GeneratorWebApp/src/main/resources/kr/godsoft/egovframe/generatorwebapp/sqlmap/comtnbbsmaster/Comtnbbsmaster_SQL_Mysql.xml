@@ -26,66 +26,65 @@
 	
 	<insert id="comtnbbsmasterDAO.insertComtnbbsmaster_S">
 		<![CDATA[
-			INSERT INTO comtnbbsmaster 
-				( BBS_ID
-				  , bbs_nm
-				  , bbs_intrcn
-				  , bbs_ty_code
-				  , bbs_attrb_code
-				  , reply_posbl_at
-				  , file_atch_posbl_at
-				  , atch_posbl_file_number
-				  , atch_posbl_file_size
-				  , use_at
-				  , tmplat_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #bbsId#
-				  , #bbsNm#
-				  , #bbsIntrcn#
-				  , #bbsTyCode#
-				  , #bbsAttrbCode#
-				  , #replyPosblAt#
-				  , #fileAtchPosblAt#
-				  , #atchPosblFileNumber#
-				  , #atchPosblFileSize#
-				  , #useAt#
-				  , #tmplatId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnbbsmaster (
+                bbs_id
+                , bbs_nm
+                , bbs_intrcn
+                , bbs_ty_code
+                , bbs_attrb_code
+                , reply_posbl_at
+                , file_atch_posbl_at
+                , atch_posbl_file_number
+                , atch_posbl_file_size
+                , use_at
+                , tmplat_id
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #bbsId#
+                , #bbsNm#
+                , #bbsIntrcn#
+                , #bbsTyCode#
+                , #bbsAttrbCode#
+                , #replyPosblAt#
+                , #fileAtchPosblAt#
+                , #atchPosblFileNumber#
+                , #atchPosblFileSize#
+                , #useAt#
+                , #tmplatId#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbbsmasterDAO.updateComtnbbsmaster_S">
 		<![CDATA[
-			UPDATE comtnbbsmaster
-			SET bbs_id = #bbsId#
-				, bbs_nm = #bbsNm#
-				, bbs_intrcn = #bbsIntrcn#
-				, bbs_ty_code = #bbsTyCode#
-				, bbs_attrb_code = #bbsAttrbCode#
-				, reply_posbl_at = #replyPosblAt#
-				, file_atch_posbl_at = #fileAtchPosblAt#
-				, atch_posbl_file_number = #atchPosblFileNumber#
-				, atch_posbl_file_size = #atchPosblFileSize#
-				, use_at = #useAt#
-				, tmplat_id = #tmplatId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE bbs_id = #bbsId#
+            UPDATE comtnbbsmaster
+                SET
+                bbs_id = #bbsId#
+                , bbs_nm = #bbsNm#
+                , bbs_intrcn = #bbsIntrcn#
+                , bbs_ty_code = #bbsTyCode#
+                , bbs_attrb_code = #bbsAttrbCode#
+                , reply_posbl_at = #replyPosblAt#
+                , file_atch_posbl_at = #fileAtchPosblAt#
+                , atch_posbl_file_number = #atchPosblFileNumber#
+                , atch_posbl_file_size = #atchPosblFileSize#
+                , use_at = #useAt#
+                , tmplat_id = #tmplatId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND bbs_id = #bbsId#
 		]]>
 	</update>
 	
 	<delete id="comtnbbsmasterDAO.deleteComtnbbsmaster_S">
 		<![CDATA[
-			DELETE FROM comtnbbsmaster 
-			WHERE bbs_id = #bbsId#
+			DELETE FROM comtnbbsmaster
+				WHERE 1 = 1
+				AND bbs_id = #bbsId#
 		]]>
 	</delete>
 	

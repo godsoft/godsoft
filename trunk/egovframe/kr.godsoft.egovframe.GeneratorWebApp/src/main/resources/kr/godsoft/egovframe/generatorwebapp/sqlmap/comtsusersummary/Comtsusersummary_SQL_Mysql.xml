@@ -15,35 +15,40 @@
 	
 	<insert id="comtsusersummaryDAO.insertComtsusersummary_S">
 		<![CDATA[
-			INSERT INTO comtsusersummary 
-				( OCCRRNC_DE
-				  , stats_se
-				  , detail_stats_se
-				  , user_co )
-			VALUES ( #occrrncDe#
-				  , #statsSe#
-				  , #detailStatsSe#
-				  , #userCo# )
+            INSERT INTO comtsusersummary (
+                occrrnc_de
+                , stats_se
+                , detail_stats_se
+                , user_co
+            ) VALUES (
+                #occrrncDe#
+                , #statsSe#
+                , #detailStatsSe#
+                , #userCo#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtsusersummaryDAO.updateComtsusersummary_S">
 		<![CDATA[
-			UPDATE comtsusersummary
-			SET occrrnc_de = #occrrncDe#
-				, stats_se = #statsSe#
-				, detail_stats_se = #detailStatsSe#
-				, user_co = #userCo#
-			WHERE occrrnc_de = #occrrncDe#
-				AND stats_se = #statsSe#
-				AND detail_stats_se = #detailStatsSe#
+            UPDATE comtsusersummary
+                SET
+                occrrnc_de = #occrrncDe#
+                , stats_se = #statsSe#
+                , detail_stats_se = #detailStatsSe#
+                , user_co = #userCo#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND stats_se = #statsSe#
+                AND detail_stats_se = #detailStatsSe#
 		]]>
 	</update>
 	
 	<delete id="comtsusersummaryDAO.deleteComtsusersummary_S">
 		<![CDATA[
-			DELETE FROM comtsusersummary 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtsusersummary
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND stats_se = #statsSe#
 				AND detail_stats_se = #detailStatsSe#
 		]]>

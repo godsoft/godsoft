@@ -25,63 +25,62 @@
 	
 	<insert id="comtnfilesysmntrngDAO.insertComtnfilesysmntrng_S">
 		<![CDATA[
-			INSERT INTO comtnfilesysmntrng 
-				( FILE_SYS_ID
-				  , file_sys_nm
-				  , file_sys_manage_nm
-				  , file_sys_size
-				  , file_sys_thrhld
-				  , file_sys_usgqty
-				  , mngr_nm
-				  , mngr_email_adres
-				  , mntrng_sttus
-				  , creat_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #fileSysId#
-				  , #fileSysNm#
-				  , #fileSysManageNm#
-				  , #fileSysSize#
-				  , #fileSysThrhld#
-				  , #fileSysUsgqty#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #mntrngSttus#
-				  , #creatDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnfilesysmntrng (
+                file_sys_id
+                , file_sys_nm
+                , file_sys_manage_nm
+                , file_sys_size
+                , file_sys_thrhld
+                , file_sys_usgqty
+                , mngr_nm
+                , mngr_email_adres
+                , mntrng_sttus
+                , creat_dt
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #fileSysId#
+                , #fileSysNm#
+                , #fileSysManageNm#
+                , #fileSysSize#
+                , #fileSysThrhld#
+                , #fileSysUsgqty#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #mntrngSttus#
+                , #creatDt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnfilesysmntrngDAO.updateComtnfilesysmntrng_S">
 		<![CDATA[
-			UPDATE comtnfilesysmntrng
-			SET file_sys_id = #fileSysId#
-				, file_sys_nm = #fileSysNm#
-				, file_sys_manage_nm = #fileSysManageNm#
-				, file_sys_size = #fileSysSize#
-				, file_sys_thrhld = #fileSysThrhld#
-				, file_sys_usgqty = #fileSysUsgqty#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, mntrng_sttus = #mntrngSttus#
-				, creat_dt = #creatDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE file_sys_id = #fileSysId#
+            UPDATE comtnfilesysmntrng
+                SET
+                file_sys_id = #fileSysId#
+                , file_sys_nm = #fileSysNm#
+                , file_sys_manage_nm = #fileSysManageNm#
+                , file_sys_size = #fileSysSize#
+                , file_sys_thrhld = #fileSysThrhld#
+                , file_sys_usgqty = #fileSysUsgqty#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , mntrng_sttus = #mntrngSttus#
+                , creat_dt = #creatDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND file_sys_id = #fileSysId#
 		]]>
 	</update>
 	
 	<delete id="comtnfilesysmntrngDAO.deleteComtnfilesysmntrng_S">
 		<![CDATA[
-			DELETE FROM comtnfilesysmntrng 
-			WHERE file_sys_id = #fileSysId#
+			DELETE FROM comtnfilesysmntrng
+				WHERE 1 = 1
+				AND file_sys_id = #fileSysId#
 		]]>
 	</delete>
 	

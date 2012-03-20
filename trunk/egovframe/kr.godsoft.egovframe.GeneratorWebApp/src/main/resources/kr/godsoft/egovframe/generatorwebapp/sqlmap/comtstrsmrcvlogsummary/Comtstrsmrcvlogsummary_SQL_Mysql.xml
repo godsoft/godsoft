@@ -20,54 +20,59 @@
 	
 	<insert id="comtstrsmrcvlogsummaryDAO.insertComtstrsmrcvlogsummary_S">
 		<![CDATA[
-			INSERT INTO comtstrsmrcvlogsummary 
-				( OCCRRNC_DE
-				  , trsmrcv_se_code
-				  , provd_instt_id
-				  , provd_sys_id
-				  , provd_svc_id
-				  , requst_instt_id
-				  , requst_sys_id
-				  , rdcnt
-				  , error_co )
-			VALUES ( #occrrncDe#
-				  , #trsmrcvSeCode#
-				  , #provdInsttId#
-				  , #provdSysId#
-				  , #provdSvcId#
-				  , #requstInsttId#
-				  , #requstSysId#
-				  , #rdcnt#
-				  , #errorCo# )
+            INSERT INTO comtstrsmrcvlogsummary (
+                occrrnc_de
+                , trsmrcv_se_code
+                , provd_instt_id
+                , provd_sys_id
+                , provd_svc_id
+                , requst_instt_id
+                , requst_sys_id
+                , rdcnt
+                , error_co
+            ) VALUES (
+                #occrrncDe#
+                , #trsmrcvSeCode#
+                , #provdInsttId#
+                , #provdSysId#
+                , #provdSvcId#
+                , #requstInsttId#
+                , #requstSysId#
+                , #rdcnt#
+                , #errorCo#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtstrsmrcvlogsummaryDAO.updateComtstrsmrcvlogsummary_S">
 		<![CDATA[
-			UPDATE comtstrsmrcvlogsummary
-			SET occrrnc_de = #occrrncDe#
-				, trsmrcv_se_code = #trsmrcvSeCode#
-				, provd_instt_id = #provdInsttId#
-				, provd_sys_id = #provdSysId#
-				, provd_svc_id = #provdSvcId#
-				, requst_instt_id = #requstInsttId#
-				, requst_sys_id = #requstSysId#
-				, rdcnt = #rdcnt#
-				, error_co = #errorCo#
-			WHERE occrrnc_de = #occrrncDe#
-				AND trsmrcv_se_code = #trsmrcvSeCode#
-				AND provd_instt_id = #provdInsttId#
-				AND provd_sys_id = #provdSysId#
-				AND provd_svc_id = #provdSvcId#
-				AND requst_instt_id = #requstInsttId#
-				AND requst_sys_id = #requstSysId#
+            UPDATE comtstrsmrcvlogsummary
+                SET
+                occrrnc_de = #occrrncDe#
+                , trsmrcv_se_code = #trsmrcvSeCode#
+                , provd_instt_id = #provdInsttId#
+                , provd_sys_id = #provdSysId#
+                , provd_svc_id = #provdSvcId#
+                , requst_instt_id = #requstInsttId#
+                , requst_sys_id = #requstSysId#
+                , rdcnt = #rdcnt#
+                , error_co = #errorCo#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND trsmrcv_se_code = #trsmrcvSeCode#
+                AND provd_instt_id = #provdInsttId#
+                AND provd_sys_id = #provdSysId#
+                AND provd_svc_id = #provdSvcId#
+                AND requst_instt_id = #requstInsttId#
+                AND requst_sys_id = #requstSysId#
 		]]>
 	</update>
 	
 	<delete id="comtstrsmrcvlogsummaryDAO.deleteComtstrsmrcvlogsummary_S">
 		<![CDATA[
-			DELETE FROM comtstrsmrcvlogsummary 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtstrsmrcvlogsummary
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND trsmrcv_se_code = #trsmrcvSeCode#
 				AND provd_instt_id = #provdInsttId#
 				AND provd_sys_id = #provdSysId#

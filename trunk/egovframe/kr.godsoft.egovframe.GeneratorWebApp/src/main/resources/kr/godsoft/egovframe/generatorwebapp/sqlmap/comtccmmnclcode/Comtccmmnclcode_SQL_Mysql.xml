@@ -19,45 +19,44 @@
 	
 	<insert id="comtccmmnclcodeDAO.insertComtccmmnclcode_S">
 		<![CDATA[
-			INSERT INTO comtccmmnclcode 
-				( CL_CODE
-				  , cl_code_nm
-				  , cl_code_dc
-				  , use_at
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #clCode#
-				  , #clCodeNm#
-				  , #clCodeDc#
-				  , #useAt#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtccmmnclcode (
+                cl_code
+                , cl_code_nm
+                , cl_code_dc
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #clCode#
+                , #clCodeNm#
+                , #clCodeDc#
+                , #useAt#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtccmmnclcodeDAO.updateComtccmmnclcode_S">
 		<![CDATA[
-			UPDATE comtccmmnclcode
-			SET cl_code = #clCode#
-				, cl_code_nm = #clCodeNm#
-				, cl_code_dc = #clCodeDc#
-				, use_at = #useAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE cl_code = #clCode#
+            UPDATE comtccmmnclcode
+                SET
+                cl_code = #clCode#
+                , cl_code_nm = #clCodeNm#
+                , cl_code_dc = #clCodeDc#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND cl_code = #clCode#
 		]]>
 	</update>
 	
 	<delete id="comtccmmnclcodeDAO.deleteComtccmmnclcode_S">
 		<![CDATA[
-			DELETE FROM comtccmmnclcode 
-			WHERE cl_code = #clCode#
+			DELETE FROM comtccmmnclcode
+				WHERE 1 = 1
+				AND cl_code = #clCode#
 		]]>
 	</delete>
 	

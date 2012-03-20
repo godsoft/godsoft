@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnrssVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnrssVO.rssId ? '등록' : '수정'}"/>
+<title>comtnrss <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnrssVO" name="detailForm">
+<form:form commandName="comtnrssVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>RSS_ID *</th>
+			<th>rss_id *</th>
 			<td>
 				<form:input path="rssId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>RSS_ID *</th>
+			<th>rss_id *</th>
 			<td>
 				<form:input path="rssId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,119 +93,119 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>TRGET_SVC_NM</th>
+			<th>trget_svc_nm</th>
 			<td>
 				<form:input path="trgetSvcNm" cssClass="txt"/>
 				&nbsp;<form:errors path="trgetSvcNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TRGET_SVC_TABLE</th>
+			<th>trget_svc_table</th>
 			<td>
 				<form:input path="trgetSvcTable" cssClass="txt"/>
 				&nbsp;<form:errors path="trgetSvcTable" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TRGET_SVC_LIST_CO</th>
+			<th>trget_svc_list_co</th>
 			<td>
 				<form:input path="trgetSvcListCo" cssClass="txt"/>
 				&nbsp;<form:errors path="trgetSvcListCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>HDER_TITLE</th>
+			<th>hder_title</th>
 			<td>
 				<form:input path="hderTitle" cssClass="txt"/>
 				&nbsp;<form:errors path="hderTitle" />
 			</td>
 		</tr>	
 		<tr>
-			<th>HDER_LINK</th>
+			<th>hder_link</th>
 			<td>
 				<form:input path="hderLink" cssClass="txt"/>
 				&nbsp;<form:errors path="hderLink" />
 			</td>
 		</tr>	
 		<tr>
-			<th>HDER_DC</th>
+			<th>hder_dc</th>
 			<td>
 				<form:input path="hderDc" cssClass="txt"/>
 				&nbsp;<form:errors path="hderDc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>HDER_TAG</th>
+			<th>hder_tag</th>
 			<td>
 				<form:input path="hderTag" cssClass="txt"/>
 				&nbsp;<form:errors path="hderTag" />
 			</td>
 		</tr>	
 		<tr>
-			<th>HDER_ETC</th>
+			<th>hder_etc</th>
 			<td>
 				<form:input path="hderEtc" cssClass="txt"/>
 				&nbsp;<form:errors path="hderEtc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BDT_TITLE</th>
+			<th>bdt_title</th>
 			<td>
 				<form:input path="bdtTitle" cssClass="txt"/>
 				&nbsp;<form:errors path="bdtTitle" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BDT_LINK</th>
+			<th>bdt_link</th>
 			<td>
 				<form:input path="bdtLink" cssClass="txt"/>
 				&nbsp;<form:errors path="bdtLink" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BDT_DC</th>
+			<th>bdt_dc</th>
 			<td>
 				<form:input path="bdtDc" cssClass="txt"/>
 				&nbsp;<form:errors path="bdtDc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BDT_TAG</th>
+			<th>bdt_tag</th>
 			<td>
 				<form:input path="bdtTag" cssClass="txt"/>
 				&nbsp;<form:errors path="bdtTag" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BDT_ETC_TAG</th>
+			<th>bdt_etc_tag</th>
 			<td>
 				<form:input path="bdtEtcTag" cssClass="txt"/>
 				&nbsp;<form:errors path="bdtEtcTag" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

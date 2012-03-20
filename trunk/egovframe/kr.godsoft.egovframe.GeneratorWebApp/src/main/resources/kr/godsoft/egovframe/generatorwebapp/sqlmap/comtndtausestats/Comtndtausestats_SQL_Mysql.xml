@@ -20,48 +20,47 @@
 	
 	<insert id="comtndtausestatsDAO.insertComtndtausestats_S">
 		<![CDATA[
-			INSERT INTO comtndtausestats 
-				( DTA_USE_STATS_ID
-				  , bbs_id
-				  , ntt_id
-				  , atch_file_id
-				  , file_sn
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #dtaUseStatsId#
-				  , #bbsId#
-				  , #nttId#
-				  , #atchFileId#
-				  , #fileSn#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtndtausestats (
+                dta_use_stats_id
+                , bbs_id
+                , ntt_id
+                , atch_file_id
+                , file_sn
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #dtaUseStatsId#
+                , #bbsId#
+                , #nttId#
+                , #atchFileId#
+                , #fileSn#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndtausestatsDAO.updateComtndtausestats_S">
 		<![CDATA[
-			UPDATE comtndtausestats
-			SET dta_use_stats_id = #dtaUseStatsId#
-				, bbs_id = #bbsId#
-				, ntt_id = #nttId#
-				, atch_file_id = #atchFileId#
-				, file_sn = #fileSn#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE dta_use_stats_id = #dtaUseStatsId#
+            UPDATE comtndtausestats
+                SET
+                dta_use_stats_id = #dtaUseStatsId#
+                , bbs_id = #bbsId#
+                , ntt_id = #nttId#
+                , atch_file_id = #atchFileId#
+                , file_sn = #fileSn#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND dta_use_stats_id = #dtaUseStatsId#
 		]]>
 	</update>
 	
 	<delete id="comtndtausestatsDAO.deleteComtndtausestats_S">
 		<![CDATA[
-			DELETE FROM comtndtausestats 
-			WHERE dta_use_stats_id = #dtaUseStatsId#
+			DELETE FROM comtndtausestats
+				WHERE 1 = 1
+				AND dta_use_stats_id = #dtaUseStatsId#
 		]]>
 	</delete>
 	

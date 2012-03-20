@@ -16,36 +16,39 @@
 	
 	<insert id="comtnsmsDAO.insertComtnsms_S">
 		<![CDATA[
-			INSERT INTO comtnsms 
-				( SMS_ID
-				  , trnsmis_telno
-				  , trnsmis_cn
-				  , frst_regist_pnttm
-				  , frst_register_id )
-			VALUES ( #smsId#
-				  , #trnsmisTelno#
-				  , #trnsmisCn#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId# )
+            INSERT INTO comtnsms (
+                sms_id
+                , trnsmis_telno
+                , trnsmis_cn
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #smsId#
+                , #trnsmisTelno#
+                , #trnsmisCn#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsmsDAO.updateComtnsms_S">
 		<![CDATA[
-			UPDATE comtnsms
-			SET sms_id = #smsId#
-				, trnsmis_telno = #trnsmisTelno#
-				, trnsmis_cn = #trnsmisCn#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-			WHERE sms_id = #smsId#
+            UPDATE comtnsms
+                SET
+                sms_id = #smsId#
+                , trnsmis_telno = #trnsmisTelno#
+                , trnsmis_cn = #trnsmisCn#
+                WHERE 1 = 1
+                AND sms_id = #smsId#
 		]]>
 	</update>
 	
 	<delete id="comtnsmsDAO.deleteComtnsms_S">
 		<![CDATA[
-			DELETE FROM comtnsms 
-			WHERE sms_id = #smsId#
+			DELETE FROM comtnsms
+				WHERE 1 = 1
+				AND sms_id = #smsId#
 		]]>
 	</delete>
 	

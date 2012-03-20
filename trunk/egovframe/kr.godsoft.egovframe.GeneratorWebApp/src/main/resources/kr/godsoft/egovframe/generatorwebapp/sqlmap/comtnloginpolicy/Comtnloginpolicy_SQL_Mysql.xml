@@ -19,45 +19,44 @@
 	
 	<insert id="comtnloginpolicyDAO.insertComtnloginpolicy_S">
 		<![CDATA[
-			INSERT INTO comtnloginpolicy 
-				( EMPLYR_ID
-				  , ip_info
-				  , dplct_perm_at
-				  , lmtt_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #emplyrId#
-				  , #ipInfo#
-				  , #dplctPermAt#
-				  , #lmttAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnloginpolicy (
+                emplyr_id
+                , ip_info
+                , dplct_perm_at
+                , lmtt_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #emplyrId#
+                , #ipInfo#
+                , #dplctPermAt#
+                , #lmttAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnloginpolicyDAO.updateComtnloginpolicy_S">
 		<![CDATA[
-			UPDATE comtnloginpolicy
-			SET emplyr_id = #emplyrId#
-				, ip_info = #ipInfo#
-				, dplct_perm_at = #dplctPermAt#
-				, lmtt_at = #lmttAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE emplyr_id = #emplyrId#
+            UPDATE comtnloginpolicy
+                SET
+                emplyr_id = #emplyrId#
+                , ip_info = #ipInfo#
+                , dplct_perm_at = #dplctPermAt#
+                , lmtt_at = #lmttAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnloginpolicyDAO.deleteComtnloginpolicy_S">
 		<![CDATA[
-			DELETE FROM comtnloginpolicy 
-			WHERE emplyr_id = #emplyrId#
+			DELETE FROM comtnloginpolicy
+				WHERE 1 = 1
+				AND emplyr_id = #emplyrId#
 		]]>
 	</delete>
 	

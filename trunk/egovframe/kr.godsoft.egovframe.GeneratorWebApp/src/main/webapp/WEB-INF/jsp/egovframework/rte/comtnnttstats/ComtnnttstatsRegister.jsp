@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnnttstatsVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnnttstatsVO.statsId ? '등록' : '수정'}"/>
+<title>comtnnttstats <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnnttstatsVO" name="detailForm">
+<form:form commandName="comtnnttstatsVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>STATS_ID *</th>
+			<th>stats_id *</th>
 			<td>
 				<form:input path="statsId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>STATS_ID *</th>
+			<th>stats_id *</th>
 			<td>
 				<form:input path="statsId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,35 +93,35 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>NTCE_CO</th>
+			<th>ntce_co</th>
 			<td>
 				<form:input path="ntceCo" cssClass="txt"/>
 				&nbsp;<form:errors path="ntceCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>AVRG_RDCNT</th>
+			<th>avrg_rdcnt</th>
 			<td>
 				<form:input path="avrgRdcnt" cssClass="txt"/>
 				&nbsp;<form:errors path="avrgRdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TOP_RDCNT</th>
+			<th>top_rdcnt</th>
 			<td>
 				<form:input path="topRdcnt" cssClass="txt"/>
 				&nbsp;<form:errors path="topRdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MUMM_RDCNT</th>
+			<th>mumm_rdcnt</th>
 			<td>
 				<form:input path="mummRdcnt" cssClass="txt"/>
 				&nbsp;<form:errors path="mummRdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TOP_NTCR_ID</th>
+			<th>top_ntcr_id</th>
 			<td>
 				<form:input path="topNtcrId" cssClass="txt"/>
 				&nbsp;<form:errors path="topNtcrId" />

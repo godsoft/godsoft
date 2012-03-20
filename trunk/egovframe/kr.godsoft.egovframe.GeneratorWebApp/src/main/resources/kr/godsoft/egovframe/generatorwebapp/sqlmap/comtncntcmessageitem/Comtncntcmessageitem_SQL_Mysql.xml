@@ -21,52 +21,51 @@
 	
 	<insert id="comtncntcmessageitemDAO.insertComtncntcmessageitem_S">
 		<![CDATA[
-			INSERT INTO comtncntcmessageitem 
-				( CNTC_MSSAGE_ID
-				  , iem_id
-				  , iem_nm
-				  , iem_ty
-				  , iem_lt
-				  , use_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #cntcMssageId#
-				  , #iemId#
-				  , #iemNm#
-				  , #iemTy#
-				  , #iemLt#
-				  , #useAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtncntcmessageitem (
+                cntc_mssage_id
+                , iem_id
+                , iem_nm
+                , iem_ty
+                , iem_lt
+                , use_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #cntcMssageId#
+                , #iemId#
+                , #iemNm#
+                , #iemTy#
+                , #iemLt#
+                , #useAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncntcmessageitemDAO.updateComtncntcmessageitem_S">
 		<![CDATA[
-			UPDATE comtncntcmessageitem
-			SET cntc_mssage_id = #cntcMssageId#
-				, iem_id = #iemId#
-				, iem_nm = #iemNm#
-				, iem_ty = #iemTy#
-				, iem_lt = #iemLt#
-				, use_at = #useAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE cntc_mssage_id = #cntcMssageId#
-				AND iem_id = #iemId#
+            UPDATE comtncntcmessageitem
+                SET
+                cntc_mssage_id = #cntcMssageId#
+                , iem_id = #iemId#
+                , iem_nm = #iemNm#
+                , iem_ty = #iemTy#
+                , iem_lt = #iemLt#
+                , use_at = #useAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND cntc_mssage_id = #cntcMssageId#
+                AND iem_id = #iemId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcmessageitemDAO.deleteComtncntcmessageitem_S">
 		<![CDATA[
-			DELETE FROM comtncntcmessageitem 
-			WHERE cntc_mssage_id = #cntcMssageId#
+			DELETE FROM comtncntcmessageitem
+				WHERE 1 = 1
+				AND cntc_mssage_id = #cntcMssageId#
 				AND iem_id = #iemId#
 		]]>
 	</delete>

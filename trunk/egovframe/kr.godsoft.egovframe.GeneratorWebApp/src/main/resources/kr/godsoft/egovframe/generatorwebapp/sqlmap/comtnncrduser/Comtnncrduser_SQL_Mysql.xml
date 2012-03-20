@@ -16,37 +16,42 @@
 	
 	<insert id="comtnncrduserDAO.insertComtnncrduser_S">
 		<![CDATA[
-			INSERT INTO comtnncrduser 
-				( NCRD_ID
-				  , regist_se_code
-				  , use_at
-				  , creat_dt
-				  , emplyr_id )
-			VALUES ( #ncrdId#
-				  , #registSeCode#
-				  , #useAt#
-				  , #creatDt#
-				  , #emplyrId# )
+            INSERT INTO comtnncrduser (
+                ncrd_id
+                , regist_se_code
+                , use_at
+                , creat_dt
+                , emplyr_id
+            ) VALUES (
+                #ncrdId#
+                , #registSeCode#
+                , #useAt#
+                , #creatDt#
+                , #emplyrId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnncrduserDAO.updateComtnncrduser_S">
 		<![CDATA[
-			UPDATE comtnncrduser
-			SET ncrd_id = #ncrdId#
-				, regist_se_code = #registSeCode#
-				, use_at = #useAt#
-				, creat_dt = #creatDt#
-				, emplyr_id = #emplyrId#
-			WHERE ncrd_id = #ncrdId#
-				AND emplyr_id = #emplyrId#
+            UPDATE comtnncrduser
+                SET
+                ncrd_id = #ncrdId#
+                , regist_se_code = #registSeCode#
+                , use_at = #useAt#
+                , creat_dt = #creatDt#
+                , emplyr_id = #emplyrId#
+                WHERE 1 = 1
+                AND ncrd_id = #ncrdId#
+                AND emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnncrduserDAO.deleteComtnncrduser_S">
 		<![CDATA[
-			DELETE FROM comtnncrduser 
-			WHERE ncrd_id = #ncrdId#
+			DELETE FROM comtnncrduser
+				WHERE 1 = 1
+				AND ncrd_id = #ncrdId#
 				AND emplyr_id = #emplyrId#
 		]]>
 	</delete>

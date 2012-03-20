@@ -13,27 +13,32 @@
 	
 	<insert id="idsDAO.insertIds_S">
 		<![CDATA[
-			INSERT INTO ids 
-				( TABLE_NAME
-				  , next_id )
-			VALUES ( #tableName#
-				  , #nextId# )
+            INSERT INTO ids (
+                table_name
+                , next_id
+            ) VALUES (
+                #tableName#
+                , #nextId#
+            )
 		]]>
 	</insert>
 	
 	<update id="idsDAO.updateIds_S">
 		<![CDATA[
-			UPDATE ids
-			SET table_name = #tableName#
-				, next_id = #nextId#
-			WHERE table_name = #tableName#
+            UPDATE ids
+                SET
+                table_name = #tableName#
+                , next_id = #nextId#
+                WHERE 1 = 1
+                AND table_name = #tableName#
 		]]>
 	</update>
 	
 	<delete id="idsDAO.deleteIds_S">
 		<![CDATA[
-			DELETE FROM ids 
-			WHERE table_name = #tableName#
+			DELETE FROM ids
+				WHERE 1 = 1
+				AND table_name = #tableName#
 		]]>
 	</delete>
 	

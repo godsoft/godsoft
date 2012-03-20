@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtsusersummaryVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtsusersummaryVO.occrrncDe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtsusersummaryVO.statsSe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtsusersummaryVO.detailStatsSe ? '등록' : '수정'}"/>
+<title>comtsusersummary <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +61,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtsusersummaryVO" name="detailForm">
+<form:form commandName="comtsusersummaryVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,19 +79,19 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>OCCRRNC_DE *</th>
+			<th>occrrnc_de *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>STATS_SE *</th>
+			<th>stats_se *</th>
 			<td>
 				<form:input path="statsSe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>DETAIL_STATS_SE *</th>
+			<th>detail_stats_se *</th>
 			<td>
 				<form:input path="detailStatsSe" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -97,19 +99,19 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>OCCRRNC_DE *</th>
+			<th>occrrnc_de *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>STATS_SE *</th>
+			<th>stats_se *</th>
 			<td>
 				<form:input path="statsSe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>DETAIL_STATS_SE *</th>
+			<th>detail_stats_se *</th>
 			<td>
 				<form:input path="detailStatsSe" cssClass="txt" readonly="false" />
 			</td>			
@@ -117,7 +119,7 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>USER_CO</th>
+			<th>user_co</th>
 			<td>
 				<form:input path="userCo" cssClass="txt"/>
 				&nbsp;<form:errors path="userCo" />

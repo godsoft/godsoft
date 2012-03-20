@@ -22,54 +22,53 @@
 	
 	<insert id="comtnnewsinfoDAO.insertComtnnewsinfo_S">
 		<![CDATA[
-			INSERT INTO comtnnewsinfo 
-				( NEWS_ID
-				  , news_sj
-				  , news_cn
-				  , news_origin
-				  , ntce_at
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , ntce_de
-				  , atch_file_id )
-			VALUES ( #newsId#
-				  , #newsSj#
-				  , #newsCn#
-				  , #newsOrigin#
-				  , #ntceAt#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #ntceDe#
-				  , #atchFileId# )
+            INSERT INTO comtnnewsinfo (
+                news_id
+                , news_sj
+                , news_cn
+                , news_origin
+                , ntce_at
+                , frst_regist_pnttm
+                , frst_register_id
+                , ntce_de
+                , atch_file_id
+            ) VALUES (
+                #newsId#
+                , #newsSj#
+                , #newsCn#
+                , #newsOrigin#
+                , #ntceAt#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #ntceDe#
+                , #atchFileId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnnewsinfoDAO.updateComtnnewsinfo_S">
 		<![CDATA[
-			UPDATE comtnnewsinfo
-			SET news_id = #newsId#
-				, news_sj = #newsSj#
-				, news_cn = #newsCn#
-				, news_origin = #newsOrigin#
-				, ntce_at = #ntceAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, ntce_de = #ntceDe#
-				, atch_file_id = #atchFileId#
-			WHERE news_id = #newsId#
+            UPDATE comtnnewsinfo
+                SET
+                news_id = #newsId#
+                , news_sj = #newsSj#
+                , news_cn = #newsCn#
+                , news_origin = #newsOrigin#
+                , ntce_at = #ntceAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , ntce_de = #ntceDe#
+                , atch_file_id = #atchFileId#
+                WHERE 1 = 1
+                AND news_id = #newsId#
 		]]>
 	</update>
 	
 	<delete id="comtnnewsinfoDAO.deleteComtnnewsinfo_S">
 		<![CDATA[
-			DELETE FROM comtnnewsinfo 
-			WHERE news_id = #newsId#
+			DELETE FROM comtnnewsinfo
+				WHERE 1 = 1
+				AND news_id = #newsId#
 		]]>
 	</delete>
 	

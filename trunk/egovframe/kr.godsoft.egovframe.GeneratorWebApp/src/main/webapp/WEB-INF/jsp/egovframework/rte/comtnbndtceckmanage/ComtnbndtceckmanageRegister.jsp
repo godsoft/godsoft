@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnbndtceckmanageVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnbndtceckmanageVO.bndtCeckSe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnbndtceckmanageVO.bndtCeckCode ? '등록' : '수정'}"/>
+<title>comtnbndtceckmanage <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnbndtceckmanageVO" name="detailForm">
+<form:form commandName="comtnbndtceckmanageVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>BNDT_CECK_SE *</th>
+			<th>bndt_ceck_se *</th>
 			<td>
 				<form:input path="bndtCeckSe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>BNDT_CECK_CODE *</th>
+			<th>bndt_ceck_code *</th>
 			<td>
 				<form:input path="bndtCeckCode" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>BNDT_CECK_SE *</th>
+			<th>bndt_ceck_se *</th>
 			<td>
 				<form:input path="bndtCeckSe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>BNDT_CECK_CODE *</th>
+			<th>bndt_ceck_code *</th>
 			<td>
 				<form:input path="bndtCeckCode" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,42 +106,42 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>BNDT_CECK_CODE_NM</th>
+			<th>bndt_ceck_code_nm</th>
 			<td>
 				<form:input path="bndtCeckCodeNm" cssClass="txt"/>
 				&nbsp;<form:errors path="bndtCeckCodeNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USE_AT</th>
+			<th>use_at</th>
 			<td>
 				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

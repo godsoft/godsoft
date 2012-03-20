@@ -15,34 +15,39 @@
 	
 	<insert id="comtnbkmkmenumanageresultDAO.insertComtnbkmkmenumanageresult_S">
 		<![CDATA[
-			INSERT INTO comtnbkmkmenumanageresult 
-				( MENU_ID
-				  , emplyr_id
-				  , menu_nm
-				  , progrm_stre_path )
-			VALUES ( #menuId#
-				  , #emplyrId#
-				  , #menuNm#
-				  , #progrmStrePath# )
+            INSERT INTO comtnbkmkmenumanageresult (
+                menu_id
+                , emplyr_id
+                , menu_nm
+                , progrm_stre_path
+            ) VALUES (
+                #menuId#
+                , #emplyrId#
+                , #menuNm#
+                , #progrmStrePath#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbkmkmenumanageresultDAO.updateComtnbkmkmenumanageresult_S">
 		<![CDATA[
-			UPDATE comtnbkmkmenumanageresult
-			SET menu_id = #menuId#
-				, emplyr_id = #emplyrId#
-				, menu_nm = #menuNm#
-				, progrm_stre_path = #progrmStrePath#
-			WHERE menu_id = #menuId#
-				AND emplyr_id = #emplyrId#
+            UPDATE comtnbkmkmenumanageresult
+                SET
+                menu_id = #menuId#
+                , emplyr_id = #emplyrId#
+                , menu_nm = #menuNm#
+                , progrm_stre_path = #progrmStrePath#
+                WHERE 1 = 1
+                AND menu_id = #menuId#
+                AND emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnbkmkmenumanageresultDAO.deleteComtnbkmkmenumanageresult_S">
 		<![CDATA[
-			DELETE FROM comtnbkmkmenumanageresult 
-			WHERE menu_id = #menuId#
+			DELETE FROM comtnbkmkmenumanageresult
+				WHERE 1 = 1
+				AND menu_id = #menuId#
 				AND emplyr_id = #emplyrId#
 		]]>
 	</delete>

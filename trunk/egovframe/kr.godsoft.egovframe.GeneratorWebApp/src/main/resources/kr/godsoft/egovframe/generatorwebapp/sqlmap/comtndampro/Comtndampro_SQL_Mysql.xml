@@ -20,50 +20,49 @@
 	
 	<insert id="comtndamproDAO.insertComtndampro_S">
 		<![CDATA[
-			INSERT INTO comtndampro 
-				( EXPERT_ID
-				  , knwldg_ty_code
-				  , expert_grad
-				  , expert_confm_de
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , expert_dc )
-			VALUES ( #expertId#
-				  , #knwldgTyCode#
-				  , #expertGrad#
-				  , #expertConfmDe#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #expertDc# )
+            INSERT INTO comtndampro (
+                expert_id
+                , knwldg_ty_code
+                , expert_grad
+                , expert_confm_de
+                , frst_register_id
+                , frst_regist_pnttm
+                , expert_dc
+            ) VALUES (
+                #expertId#
+                , #knwldgTyCode#
+                , #expertGrad#
+                , #expertConfmDe#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #expertDc#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndamproDAO.updateComtndampro_S">
 		<![CDATA[
-			UPDATE comtndampro
-			SET expert_id = #expertId#
-				, knwldg_ty_code = #knwldgTyCode#
-				, expert_grad = #expertGrad#
-				, expert_confm_de = #expertConfmDe#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, expert_dc = #expertDc#
-			WHERE expert_id = #expertId#
-				AND knwldg_ty_code = #knwldgTyCode#
-				AND expert_grad = #expertGrad#
+            UPDATE comtndampro
+                SET
+                expert_id = #expertId#
+                , knwldg_ty_code = #knwldgTyCode#
+                , expert_grad = #expertGrad#
+                , expert_confm_de = #expertConfmDe#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , expert_dc = #expertDc#
+                WHERE 1 = 1
+                AND expert_id = #expertId#
+                AND knwldg_ty_code = #knwldgTyCode#
+                AND expert_grad = #expertGrad#
 		]]>
 	</update>
 	
 	<delete id="comtndamproDAO.deleteComtndampro_S">
 		<![CDATA[
-			DELETE FROM comtndampro 
-			WHERE expert_id = #expertId#
+			DELETE FROM comtndampro
+				WHERE 1 = 1
+				AND expert_id = #expertId#
 				AND knwldg_ty_code = #knwldgTyCode#
 				AND expert_grad = #expertGrad#
 		]]>

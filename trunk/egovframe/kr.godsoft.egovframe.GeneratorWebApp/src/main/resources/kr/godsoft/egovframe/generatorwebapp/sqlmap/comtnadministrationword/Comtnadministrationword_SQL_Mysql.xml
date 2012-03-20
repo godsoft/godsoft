@@ -24,60 +24,59 @@
 	
 	<insert id="comtnadministrationwordDAO.insertComtnadministrationword_S">
 		<![CDATA[
-			INSERT INTO comtnadministrationword 
-				( ADMINIST_WORD_ID
-				  , administ_word_nm
-				  , administ_word_eng_nm
-				  , administ_word_abrv_nm
-				  , thema_relm
-				  , word_se
-				  , relate_std_word
-				  , administ_word_dfn
-				  , administ_word_dc
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #administWordId#
-				  , #administWordNm#
-				  , #administWordEngNm#
-				  , #administWordAbrvNm#
-				  , #themaRelm#
-				  , #wordSe#
-				  , #relateStdWord#
-				  , #administWordDfn#
-				  , #administWordDc#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnadministrationword (
+                administ_word_id
+                , administ_word_nm
+                , administ_word_eng_nm
+                , administ_word_abrv_nm
+                , thema_relm
+                , word_se
+                , relate_std_word
+                , administ_word_dfn
+                , administ_word_dc
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #administWordId#
+                , #administWordNm#
+                , #administWordEngNm#
+                , #administWordAbrvNm#
+                , #themaRelm#
+                , #wordSe#
+                , #relateStdWord#
+                , #administWordDfn#
+                , #administWordDc#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnadministrationwordDAO.updateComtnadministrationword_S">
 		<![CDATA[
-			UPDATE comtnadministrationword
-			SET administ_word_id = #administWordId#
-				, administ_word_nm = #administWordNm#
-				, administ_word_eng_nm = #administWordEngNm#
-				, administ_word_abrv_nm = #administWordAbrvNm#
-				, thema_relm = #themaRelm#
-				, word_se = #wordSe#
-				, relate_std_word = #relateStdWord#
-				, administ_word_dfn = #administWordDfn#
-				, administ_word_dc = #administWordDc#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE administ_word_id = #administWordId#
+            UPDATE comtnadministrationword
+                SET
+                administ_word_id = #administWordId#
+                , administ_word_nm = #administWordNm#
+                , administ_word_eng_nm = #administWordEngNm#
+                , administ_word_abrv_nm = #administWordAbrvNm#
+                , thema_relm = #themaRelm#
+                , word_se = #wordSe#
+                , relate_std_word = #relateStdWord#
+                , administ_word_dfn = #administWordDfn#
+                , administ_word_dc = #administWordDc#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND administ_word_id = #administWordId#
 		]]>
 	</update>
 	
 	<delete id="comtnadministrationwordDAO.deleteComtnadministrationword_S">
 		<![CDATA[
-			DELETE FROM comtnadministrationword 
-			WHERE administ_word_id = #administWordId#
+			DELETE FROM comtnadministrationword
+				WHERE 1 = 1
+				AND administ_word_id = #administWordId#
 		]]>
 	</delete>
 	

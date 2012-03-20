@@ -13,27 +13,32 @@
 	
 	<insert id="comtecopseqDAO.insertComtecopseq_S">
 		<![CDATA[
-			INSERT INTO comtecopseq 
-				( TABLE_NAME
-				  , next_id )
-			VALUES ( #tableName#
-				  , #nextId# )
+            INSERT INTO comtecopseq (
+                table_name
+                , next_id
+            ) VALUES (
+                #tableName#
+                , #nextId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtecopseqDAO.updateComtecopseq_S">
 		<![CDATA[
-			UPDATE comtecopseq
-			SET table_name = #tableName#
-				, next_id = #nextId#
-			WHERE table_name = #tableName#
+            UPDATE comtecopseq
+                SET
+                table_name = #tableName#
+                , next_id = #nextId#
+                WHERE 1 = 1
+                AND table_name = #tableName#
 		]]>
 	</update>
 	
 	<delete id="comtecopseqDAO.deleteComtecopseq_S">
 		<![CDATA[
-			DELETE FROM comtecopseq 
-			WHERE table_name = #tableName#
+			DELETE FROM comtecopseq
+				WHERE 1 = 1
+				AND table_name = #tableName#
 		]]>
 	</delete>
 	

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnprocessmonVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnprocessmonVO.procsId ? '등록' : '수정'}"/>
+<title>comtnprocessmon <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnprocessmonVO" name="detailForm">
+<form:form commandName="comtnprocessmonVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>PROCS_ID *</th>
+			<th>procs_id *</th>
 			<td>
 				<form:input path="procsId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>PROCS_ID *</th>
+			<th>procs_id *</th>
 			<td>
 				<form:input path="procsId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,63 +93,63 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>PROCS_NM</th>
+			<th>procs_nm</th>
 			<td>
 				<form:input path="procsNm" cssClass="txt"/>
 				&nbsp;<form:errors path="procsNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PROCS_STTUS</th>
+			<th>procs_sttus</th>
 			<td>
 				<form:input path="procsSttus" cssClass="txt"/>
 				&nbsp;<form:errors path="procsSttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CREAT_DT</th>
+			<th>creat_dt</th>
 			<td>
 				<form:input path="creatDt" cssClass="txt"/>
 				&nbsp;<form:errors path="creatDt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MNGR_NM</th>
+			<th>mngr_nm</th>
 			<td>
 				<form:input path="mngrNm" cssClass="txt"/>
 				&nbsp;<form:errors path="mngrNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MNGR_EMAIL_ADRES</th>
+			<th>mngr_email_adres</th>
 			<td>
 				<form:input path="mngrEmailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="mngrEmailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

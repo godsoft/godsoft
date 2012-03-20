@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnannvrsrymanageVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnannvrsrymanageVO.annvrsryId ? '등록' : '수정'}"/>
+<title>comtnannvrsrymanage <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnannvrsrymanageVO" name="detailForm">
+<form:form commandName="comtnannvrsrymanageVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ANNVRSRY_ID *</th>
+			<th>annvrsry_id *</th>
 			<td>
 				<form:input path="annvrsryId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ANNVRSRY_ID *</th>
+			<th>annvrsry_id *</th>
 			<td>
 				<form:input path="annvrsryId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,91 +93,91 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>USER_ID</th>
+			<th>user_id</th>
 			<td>
 				<form:input path="userId" cssClass="txt"/>
 				&nbsp;<form:errors path="userId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ANNVRSRY_SE</th>
+			<th>annvrsry_se</th>
 			<td>
 				<form:input path="annvrsrySe" cssClass="txt"/>
 				&nbsp;<form:errors path="annvrsrySe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ANNVRSRY_NM</th>
+			<th>annvrsry_nm</th>
 			<td>
 				<form:input path="annvrsryNm" cssClass="txt"/>
 				&nbsp;<form:errors path="annvrsryNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ANNVRSRY</th>
+			<th>annvrsry</th>
 			<td>
 				<form:input path="annvrsry" cssClass="txt"/>
 				&nbsp;<form:errors path="annvrsry" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CLDR_SE</th>
+			<th>cldr_se</th>
 			<td>
 				<form:input path="cldrSe" cssClass="txt"/>
 				&nbsp;<form:errors path="cldrSe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ANNVRSRY_NTCN_SETUP</th>
+			<th>annvrsry_ntcn_setup</th>
 			<td>
 				<form:input path="annvrsryNtcnSetup" cssClass="txt"/>
 				&nbsp;<form:errors path="annvrsryNtcnSetup" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ANNVRSRY_NTCN_BGNDE</th>
+			<th>annvrsry_ntcn_bgnde</th>
 			<td>
 				<form:input path="annvrsryNtcnBgnde" cssClass="txt"/>
 				&nbsp;<form:errors path="annvrsryNtcnBgnde" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MEMO</th>
+			<th>memo</th>
 			<td>
 				<form:input path="memo" cssClass="txt"/>
 				&nbsp;<form:errors path="memo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>REPTIT_AT</th>
+			<th>reptit_at</th>
 			<td>
 				<form:input path="reptitAt" cssClass="txt"/>
 				&nbsp;<form:errors path="reptitAt" />

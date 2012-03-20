@@ -26,66 +26,65 @@
 	
 	<insert id="comtnpopupmanageDAO.insertComtnpopupmanage_S">
 		<![CDATA[
-			INSERT INTO comtnpopupmanage 
-				( POPUP_ID
-				  , popup_sj_nm
-				  , file_url
-				  , popup_width_lc
-				  , popup_width_size
-				  , ntce_bgnde
-				  , ntce_endde
-				  , stopvew_setup_at
-				  , ntce_at
-				  , popup_vrticl_lc
-				  , popup_vrticl_size
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #popupId#
-				  , #popupSjNm#
-				  , #fileUrl#
-				  , #popupWidthLc#
-				  , #popupWidthSize#
-				  , #ntceBgnde#
-				  , #ntceEndde#
-				  , #stopvewSetupAt#
-				  , #ntceAt#
-				  , #popupVrticlLc#
-				  , #popupVrticlSize#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnpopupmanage (
+                popup_id
+                , popup_sj_nm
+                , file_url
+                , popup_width_lc
+                , popup_width_size
+                , ntce_bgnde
+                , ntce_endde
+                , stopvew_setup_at
+                , ntce_at
+                , popup_vrticl_lc
+                , popup_vrticl_size
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #popupId#
+                , #popupSjNm#
+                , #fileUrl#
+                , #popupWidthLc#
+                , #popupWidthSize#
+                , #ntceBgnde#
+                , #ntceEndde#
+                , #stopvewSetupAt#
+                , #ntceAt#
+                , #popupVrticlLc#
+                , #popupVrticlSize#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnpopupmanageDAO.updateComtnpopupmanage_S">
 		<![CDATA[
-			UPDATE comtnpopupmanage
-			SET popup_id = #popupId#
-				, popup_sj_nm = #popupSjNm#
-				, file_url = #fileUrl#
-				, popup_width_lc = #popupWidthLc#
-				, popup_width_size = #popupWidthSize#
-				, ntce_bgnde = #ntceBgnde#
-				, ntce_endde = #ntceEndde#
-				, stopvew_setup_at = #stopvewSetupAt#
-				, ntce_at = #ntceAt#
-				, popup_vrticl_lc = #popupVrticlLc#
-				, popup_vrticl_size = #popupVrticlSize#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE popup_id = #popupId#
+            UPDATE comtnpopupmanage
+                SET
+                popup_id = #popupId#
+                , popup_sj_nm = #popupSjNm#
+                , file_url = #fileUrl#
+                , popup_width_lc = #popupWidthLc#
+                , popup_width_size = #popupWidthSize#
+                , ntce_bgnde = #ntceBgnde#
+                , ntce_endde = #ntceEndde#
+                , stopvew_setup_at = #stopvewSetupAt#
+                , ntce_at = #ntceAt#
+                , popup_vrticl_lc = #popupVrticlLc#
+                , popup_vrticl_size = #popupVrticlSize#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND popup_id = #popupId#
 		]]>
 	</update>
 	
 	<delete id="comtnpopupmanageDAO.deleteComtnpopupmanage_S">
 		<![CDATA[
-			DELETE FROM comtnpopupmanage 
-			WHERE popup_id = #popupId#
+			DELETE FROM comtnpopupmanage
+				WHERE 1 = 1
+				AND popup_id = #popupId#
 		]]>
 	</delete>
 	

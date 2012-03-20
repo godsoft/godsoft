@@ -22,54 +22,53 @@
 	
 	<insert id="comtnonlinepollmanageDAO.insertComtnonlinepollmanage_S">
 		<![CDATA[
-			INSERT INTO comtnonlinepollmanage 
-				( POLL_ID
-				  , poll_nm
-				  , poll_bgnde
-				  , poll_endde
-				  , poll_knd
-				  , poll_dsuse_ennc
-				  , poll_atmc_dsuse_ennc
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #pollId#
-				  , #pollNm#
-				  , #pollBgnde#
-				  , #pollEndde#
-				  , #pollKnd#
-				  , #pollDsuseEnnc#
-				  , #pollAtmcDsuseEnnc#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnonlinepollmanage (
+                poll_id
+                , poll_nm
+                , poll_bgnde
+                , poll_endde
+                , poll_knd
+                , poll_dsuse_ennc
+                , poll_atmc_dsuse_ennc
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #pollId#
+                , #pollNm#
+                , #pollBgnde#
+                , #pollEndde#
+                , #pollKnd#
+                , #pollDsuseEnnc#
+                , #pollAtmcDsuseEnnc#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnonlinepollmanageDAO.updateComtnonlinepollmanage_S">
 		<![CDATA[
-			UPDATE comtnonlinepollmanage
-			SET poll_id = #pollId#
-				, poll_nm = #pollNm#
-				, poll_bgnde = #pollBgnde#
-				, poll_endde = #pollEndde#
-				, poll_knd = #pollKnd#
-				, poll_dsuse_ennc = #pollDsuseEnnc#
-				, poll_atmc_dsuse_ennc = #pollAtmcDsuseEnnc#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE poll_id = #pollId#
+            UPDATE comtnonlinepollmanage
+                SET
+                poll_id = #pollId#
+                , poll_nm = #pollNm#
+                , poll_bgnde = #pollBgnde#
+                , poll_endde = #pollEndde#
+                , poll_knd = #pollKnd#
+                , poll_dsuse_ennc = #pollDsuseEnnc#
+                , poll_atmc_dsuse_ennc = #pollAtmcDsuseEnnc#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND poll_id = #pollId#
 		]]>
 	</update>
 	
 	<delete id="comtnonlinepollmanageDAO.deleteComtnonlinepollmanage_S">
 		<![CDATA[
-			DELETE FROM comtnonlinepollmanage 
-			WHERE poll_id = #pollId#
+			DELETE FROM comtnonlinepollmanage
+				WHERE 1 = 1
+				AND poll_id = #pollId#
 		]]>
 	</delete>
 	

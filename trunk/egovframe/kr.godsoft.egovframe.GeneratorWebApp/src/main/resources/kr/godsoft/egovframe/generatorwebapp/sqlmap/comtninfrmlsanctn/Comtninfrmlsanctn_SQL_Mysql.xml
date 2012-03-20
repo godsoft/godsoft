@@ -23,57 +23,56 @@
 	
 	<insert id="comtninfrmlsanctnDAO.insertComtninfrmlsanctn_S">
 		<![CDATA[
-			INSERT INTO comtninfrmlsanctn 
-				( INFRML_SANCTN_ID
-				  , job_se_code
-				  , applcnt_id
-				  , reqst_de
-				  , sanctner_id
-				  , confm_at
-				  , sanctn_dt
-				  , return_resn
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #infrmlSanctnId#
-				  , #jobSeCode#
-				  , #applcntId#
-				  , #reqstDe#
-				  , #sanctnerId#
-				  , #confmAt#
-				  , #sanctnDt#
-				  , #returnResn#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtninfrmlsanctn (
+                infrml_sanctn_id
+                , job_se_code
+                , applcnt_id
+                , reqst_de
+                , sanctner_id
+                , confm_at
+                , sanctn_dt
+                , return_resn
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #infrmlSanctnId#
+                , #jobSeCode#
+                , #applcntId#
+                , #reqstDe#
+                , #sanctnerId#
+                , #confmAt#
+                , #sanctnDt#
+                , #returnResn#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtninfrmlsanctnDAO.updateComtninfrmlsanctn_S">
 		<![CDATA[
-			UPDATE comtninfrmlsanctn
-			SET infrml_sanctn_id = #infrmlSanctnId#
-				, job_se_code = #jobSeCode#
-				, applcnt_id = #applcntId#
-				, reqst_de = #reqstDe#
-				, sanctner_id = #sanctnerId#
-				, confm_at = #confmAt#
-				, sanctn_dt = #sanctnDt#
-				, return_resn = #returnResn#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE infrml_sanctn_id = #infrmlSanctnId#
+            UPDATE comtninfrmlsanctn
+                SET
+                infrml_sanctn_id = #infrmlSanctnId#
+                , job_se_code = #jobSeCode#
+                , applcnt_id = #applcntId#
+                , reqst_de = #reqstDe#
+                , sanctner_id = #sanctnerId#
+                , confm_at = #confmAt#
+                , sanctn_dt = #sanctnDt#
+                , return_resn = #returnResn#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND infrml_sanctn_id = #infrmlSanctnId#
 		]]>
 	</update>
 	
 	<delete id="comtninfrmlsanctnDAO.deleteComtninfrmlsanctn_S">
 		<![CDATA[
-			DELETE FROM comtninfrmlsanctn 
-			WHERE infrml_sanctn_id = #infrmlSanctnId#
+			DELETE FROM comtninfrmlsanctn
+				WHERE 1 = 1
+				AND infrml_sanctn_id = #infrmlSanctnId#
 		]]>
 	</delete>
 	

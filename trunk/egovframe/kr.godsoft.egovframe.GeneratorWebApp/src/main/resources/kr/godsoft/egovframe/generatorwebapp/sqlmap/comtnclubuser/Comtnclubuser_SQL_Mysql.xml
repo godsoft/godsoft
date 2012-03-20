@@ -22,56 +22,55 @@
 	
 	<insert id="comtnclubuserDAO.insertComtnclubuser_S">
 		<![CDATA[
-			INSERT INTO comtnclubuser 
-				( CLB_ID
-				  , cmmnty_id
-				  , oprtr_at
-				  , sbscrb_de
-				  , secsn_de
-				  , use_at
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , emplyr_id )
-			VALUES ( #clbId#
-				  , #cmmntyId#
-				  , #oprtrAt#
-				  , #sbscrbDe#
-				  , #secsnDe#
-				  , #useAt#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #emplyrId# )
+            INSERT INTO comtnclubuser (
+                clb_id
+                , cmmnty_id
+                , oprtr_at
+                , sbscrb_de
+                , secsn_de
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+                , emplyr_id
+            ) VALUES (
+                #clbId#
+                , #cmmntyId#
+                , #oprtrAt#
+                , #sbscrbDe#
+                , #secsnDe#
+                , #useAt#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #emplyrId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnclubuserDAO.updateComtnclubuser_S">
 		<![CDATA[
-			UPDATE comtnclubuser
-			SET clb_id = #clbId#
-				, cmmnty_id = #cmmntyId#
-				, oprtr_at = #oprtrAt#
-				, sbscrb_de = #sbscrbDe#
-				, secsn_de = #secsnDe#
-				, use_at = #useAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, emplyr_id = #emplyrId#
-			WHERE clb_id = #clbId#
-				AND cmmnty_id = #cmmntyId#
-				AND emplyr_id = #emplyrId#
+            UPDATE comtnclubuser
+                SET
+                clb_id = #clbId#
+                , cmmnty_id = #cmmntyId#
+                , oprtr_at = #oprtrAt#
+                , sbscrb_de = #sbscrbDe#
+                , secsn_de = #secsnDe#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , emplyr_id = #emplyrId#
+                WHERE 1 = 1
+                AND clb_id = #clbId#
+                AND cmmnty_id = #cmmntyId#
+                AND emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnclubuserDAO.deleteComtnclubuser_S">
 		<![CDATA[
-			DELETE FROM comtnclubuser 
-			WHERE clb_id = #clbId#
+			DELETE FROM comtnclubuser
+				WHERE 1 = 1
+				AND clb_id = #clbId#
 				AND cmmnty_id = #cmmntyId#
 				AND emplyr_id = #emplyrId#
 		]]>

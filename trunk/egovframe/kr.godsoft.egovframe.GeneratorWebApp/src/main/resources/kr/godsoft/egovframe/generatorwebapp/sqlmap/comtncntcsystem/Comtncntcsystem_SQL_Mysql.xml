@@ -20,49 +20,48 @@
 	
 	<insert id="comtncntcsystemDAO.insertComtncntcsystem_S">
 		<![CDATA[
-			INSERT INTO comtncntcsystem 
-				( INSTT_ID
-				  , sys_id
-				  , sys_nm
-				  , sys_ip
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , use_at )
-			VALUES ( #insttId#
-				  , #sysId#
-				  , #sysNm#
-				  , #sysIp#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #useAt# )
+            INSERT INTO comtncntcsystem (
+                instt_id
+                , sys_id
+                , sys_nm
+                , sys_ip
+                , frst_register_id
+                , frst_regist_pnttm
+                , use_at
+            ) VALUES (
+                #insttId#
+                , #sysId#
+                , #sysNm#
+                , #sysIp#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #useAt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncntcsystemDAO.updateComtncntcsystem_S">
 		<![CDATA[
-			UPDATE comtncntcsystem
-			SET instt_id = #insttId#
-				, sys_id = #sysId#
-				, sys_nm = #sysNm#
-				, sys_ip = #sysIp#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, use_at = #useAt#
-			WHERE instt_id = #insttId#
-				AND sys_id = #sysId#
+            UPDATE comtncntcsystem
+                SET
+                instt_id = #insttId#
+                , sys_id = #sysId#
+                , sys_nm = #sysNm#
+                , sys_ip = #sysIp#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , use_at = #useAt#
+                WHERE 1 = 1
+                AND instt_id = #insttId#
+                AND sys_id = #sysId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcsystemDAO.deleteComtncntcsystem_S">
 		<![CDATA[
-			DELETE FROM comtncntcsystem 
-			WHERE instt_id = #insttId#
+			DELETE FROM comtncntcsystem
+				WHERE 1 = 1
+				AND instt_id = #insttId#
 				AND sys_id = #sysId#
 		]]>
 	</delete>

@@ -14,30 +14,35 @@
 	
 	<insert id="comtnemplyrscrtyestbsDAO.insertComtnemplyrscrtyestbs_S">
 		<![CDATA[
-			INSERT INTO comtnemplyrscrtyestbs 
-				( SCRTY_DTRMN_TRGET_ID
-				  , mber_ty_code
-				  , author_code )
-			VALUES ( #scrtyDtrmnTrgetId#
-				  , #mberTyCode#
-				  , #authorCode# )
+            INSERT INTO comtnemplyrscrtyestbs (
+                scrty_dtrmn_trget_id
+                , mber_ty_code
+                , author_code
+            ) VALUES (
+                #scrtyDtrmnTrgetId#
+                , #mberTyCode#
+                , #authorCode#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnemplyrscrtyestbsDAO.updateComtnemplyrscrtyestbs_S">
 		<![CDATA[
-			UPDATE comtnemplyrscrtyestbs
-			SET scrty_dtrmn_trget_id = #scrtyDtrmnTrgetId#
-				, mber_ty_code = #mberTyCode#
-				, author_code = #authorCode#
-			WHERE scrty_dtrmn_trget_id = #scrtyDtrmnTrgetId#
+            UPDATE comtnemplyrscrtyestbs
+                SET
+                scrty_dtrmn_trget_id = #scrtyDtrmnTrgetId#
+                , mber_ty_code = #mberTyCode#
+                , author_code = #authorCode#
+                WHERE 1 = 1
+                AND scrty_dtrmn_trget_id = #scrtyDtrmnTrgetId#
 		]]>
 	</update>
 	
 	<delete id="comtnemplyrscrtyestbsDAO.deleteComtnemplyrscrtyestbs_S">
 		<![CDATA[
-			DELETE FROM comtnemplyrscrtyestbs 
-			WHERE scrty_dtrmn_trget_id = #scrtyDtrmnTrgetId#
+			DELETE FROM comtnemplyrscrtyestbs
+				WHERE 1 = 1
+				AND scrty_dtrmn_trget_id = #scrtyDtrmnTrgetId#
 		]]>
 	</delete>
 	

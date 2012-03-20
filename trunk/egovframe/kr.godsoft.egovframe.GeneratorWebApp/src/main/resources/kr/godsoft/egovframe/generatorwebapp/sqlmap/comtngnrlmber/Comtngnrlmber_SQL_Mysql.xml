@@ -31,81 +31,86 @@
 	
 	<insert id="comtngnrlmberDAO.insertComtngnrlmber_S">
 		<![CDATA[
-			INSERT INTO comtngnrlmber 
-				( MBER_ID
-				  , password
-				  , password_hint
-				  , password_cnsr
-				  , ihidnum
-				  , mber_nm
-				  , zip
-				  , adres
-				  , area_no
-				  , mber_sttus
-				  , detail_adres
-				  , end_telno
-				  , mbtlnum
-				  , group_id
-				  , mber_fxnum
-				  , mber_email_adres
-				  , middle_telno
-				  , sbscrb_de
-				  , sexdstn_code
-				  , esntl_id )
-			VALUES ( #mberId#
-				  , #password#
-				  , #passwordHint#
-				  , #passwordCnsr#
-				  , #ihidnum#
-				  , #mberNm#
-				  , #zip#
-				  , #adres#
-				  , #areaNo#
-				  , #mberSttus#
-				  , #detailAdres#
-				  , #endTelno#
-				  , #mbtlnum#
-				  , #groupId#
-				  , #mberFxnum#
-				  , #mberEmailAdres#
-				  , #middleTelno#
-				  , #sbscrbDe#
-				  , #sexdstnCode#
-				  , #esntlId# )
+            INSERT INTO comtngnrlmber (
+                mber_id
+                , password
+                , password_hint
+                , password_cnsr
+                , ihidnum
+                , mber_nm
+                , zip
+                , adres
+                , area_no
+                , mber_sttus
+                , detail_adres
+                , end_telno
+                , mbtlnum
+                , group_id
+                , mber_fxnum
+                , mber_email_adres
+                , middle_telno
+                , sbscrb_de
+                , sexdstn_code
+                , esntl_id
+            ) VALUES (
+                #mberId#
+                , #password#
+                , #passwordHint#
+                , #passwordCnsr#
+                , #ihidnum#
+                , #mberNm#
+                , #zip#
+                , #adres#
+                , #areaNo#
+                , #mberSttus#
+                , #detailAdres#
+                , #endTelno#
+                , #mbtlnum#
+                , #groupId#
+                , #mberFxnum#
+                , #mberEmailAdres#
+                , #middleTelno#
+                , #sbscrbDe#
+                , #sexdstnCode#
+                , #esntlId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtngnrlmberDAO.updateComtngnrlmber_S">
 		<![CDATA[
-			UPDATE comtngnrlmber
-			SET mber_id = #mberId#
-				, password = #password#
-				, password_hint = #passwordHint#
-				, password_cnsr = #passwordCnsr#
-				, ihidnum = #ihidnum#
-				, mber_nm = #mberNm#
-				, zip = #zip#
-				, adres = #adres#
-				, area_no = #areaNo#
-				, mber_sttus = #mberSttus#
-				, detail_adres = #detailAdres#
-				, end_telno = #endTelno#
-				, mbtlnum = #mbtlnum#
-				, group_id = #groupId#
-				, mber_fxnum = #mberFxnum#
-				, mber_email_adres = #mberEmailAdres#
-				, middle_telno = #middleTelno#
-				, sbscrb_de = #sbscrbDe#
-				, sexdstn_code = #sexdstnCode#
-				, esntl_id = #esntlId#
-			WHERE mber_id = #mberId#
+            UPDATE comtngnrlmber
+                SET
+                mber_id = #mberId#
+                , password = #password#
+                , password_hint = #passwordHint#
+                , password_cnsr = #passwordCnsr#
+                , ihidnum = #ihidnum#
+                , mber_nm = #mberNm#
+                , zip = #zip#
+                , adres = #adres#
+                , area_no = #areaNo#
+                , mber_sttus = #mberSttus#
+                , detail_adres = #detailAdres#
+                , end_telno = #endTelno#
+                , mbtlnum = #mbtlnum#
+                , group_id = #groupId#
+                , mber_fxnum = #mberFxnum#
+                , mber_email_adres = #mberEmailAdres#
+                , middle_telno = #middleTelno#
+                , sbscrb_de = #sbscrbDe#
+                , sexdstn_code = #sexdstnCode#
+                , esntl_id = #esntlId#
+                WHERE 1 = 1
+                AND mber_id = #mberId#
 		]]>
 	</update>
 	
 	<delete id="comtngnrlmberDAO.deleteComtngnrlmber_S">
 		<![CDATA[
-			DELETE FROM comtngnrlmber 
-			WHERE mber_id = #mberId#
+			DELETE FROM comtngnrlmber
+				WHERE 1 = 1
+				AND mber_id = #mberId#
 		]]>
 	</delete>
 	

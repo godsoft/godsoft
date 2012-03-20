@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnservereqpmninfoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnservereqpmninfoVO.serverEqpmnId ? '등록' : '수정'}"/>
+<title>comtnservereqpmninfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnservereqpmninfoVO" name="detailForm">
+<form:form commandName="comtnservereqpmninfoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>SERVER_EQPMN_ID *</th>
+			<th>server_eqpmn_id *</th>
 			<td>
 				<form:input path="serverEqpmnId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>SERVER_EQPMN_ID *</th>
+			<th>server_eqpmn_id *</th>
 			<td>
 				<form:input path="serverEqpmnId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,98 +93,98 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>SERVER_EQPMN_NM</th>
+			<th>server_eqpmn_nm</th>
 			<td>
 				<form:input path="serverEqpmnNm" cssClass="txt"/>
 				&nbsp;<form:errors path="serverEqpmnNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SERVER_EQPMN_IP</th>
+			<th>server_eqpmn_ip</th>
 			<td>
 				<form:input path="serverEqpmnIp" cssClass="txt"/>
 				&nbsp;<form:errors path="serverEqpmnIp" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SERVER_EQPMN_MNGR</th>
+			<th>server_eqpmn_mngr</th>
 			<td>
 				<form:input path="serverEqpmnMngr" cssClass="txt"/>
 				&nbsp;<form:errors path="serverEqpmnMngr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MNGR_EMAIL_ADRES</th>
+			<th>mngr_email_adres</th>
 			<td>
 				<form:input path="mngrEmailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="mngrEmailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OPERSYSM_INFO</th>
+			<th>opersysm_info</th>
 			<td>
 				<form:input path="opersysmInfo" cssClass="txt"/>
 				&nbsp;<form:errors path="opersysmInfo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CPU_INFO</th>
+			<th>cpu_info</th>
 			<td>
 				<form:input path="cpuInfo" cssClass="txt"/>
 				&nbsp;<form:errors path="cpuInfo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MORY_INFO</th>
+			<th>mory_info</th>
 			<td>
 				<form:input path="moryInfo" cssClass="txt"/>
 				&nbsp;<form:errors path="moryInfo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>HDDISK</th>
+			<th>hddisk</th>
 			<td>
 				<form:input path="hddisk" cssClass="txt"/>
 				&nbsp;<form:errors path="hddisk" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ETC_INFO</th>
+			<th>etc_info</th>
 			<td>
 				<form:input path="etcInfo" cssClass="txt"/>
 				&nbsp;<form:errors path="etcInfo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RGSDE</th>
+			<th>rgsde</th>
 			<td>
 				<form:input path="rgsde" cssClass="txt"/>
 				&nbsp;<form:errors path="rgsde" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

@@ -13,28 +13,33 @@
 	
 	<insert id="comtnbatchschduldfkDAO.insertComtnbatchschduldfk_S">
 		<![CDATA[
-			INSERT INTO comtnbatchschduldfk 
-				( BATCH_SCHDUL_ID
-				  , execut_schdul_dfk_se )
-			VALUES ( #batchSchdulId#
-				  , #executSchdulDfkSe# )
+            INSERT INTO comtnbatchschduldfk (
+                batch_schdul_id
+                , execut_schdul_dfk_se
+            ) VALUES (
+                #batchSchdulId#
+                , #executSchdulDfkSe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbatchschduldfkDAO.updateComtnbatchschduldfk_S">
 		<![CDATA[
-			UPDATE comtnbatchschduldfk
-			SET batch_schdul_id = #batchSchdulId#
-				, execut_schdul_dfk_se = #executSchdulDfkSe#
-			WHERE batch_schdul_id = #batchSchdulId#
-				AND execut_schdul_dfk_se = #executSchdulDfkSe#
+            UPDATE comtnbatchschduldfk
+                SET
+                batch_schdul_id = #batchSchdulId#
+                , execut_schdul_dfk_se = #executSchdulDfkSe#
+                WHERE 1 = 1
+                AND batch_schdul_id = #batchSchdulId#
+                AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</update>
 	
 	<delete id="comtnbatchschduldfkDAO.deleteComtnbatchschduldfk_S">
 		<![CDATA[
-			DELETE FROM comtnbatchschduldfk 
-			WHERE batch_schdul_id = #batchSchdulId#
+			DELETE FROM comtnbatchschduldfk
+				WHERE 1 = 1
+				AND batch_schdul_id = #batchSchdulId#
 				AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</delete>

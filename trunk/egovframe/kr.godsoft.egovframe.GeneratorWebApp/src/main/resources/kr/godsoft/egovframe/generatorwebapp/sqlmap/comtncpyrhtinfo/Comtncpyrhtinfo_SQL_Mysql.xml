@@ -17,39 +17,38 @@
 	
 	<insert id="comtncpyrhtinfoDAO.insertComtncpyrhtinfo_S">
 		<![CDATA[
-			INSERT INTO comtncpyrhtinfo 
-				( CPYRHT_ID
-				  , cpyrht_prtc_policy_cn
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #cpyrhtId#
-				  , #cpyrhtPrtcPolicyCn#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtncpyrhtinfo (
+                cpyrht_id
+                , cpyrht_prtc_policy_cn
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #cpyrhtId#
+                , #cpyrhtPrtcPolicyCn#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncpyrhtinfoDAO.updateComtncpyrhtinfo_S">
 		<![CDATA[
-			UPDATE comtncpyrhtinfo
-			SET cpyrht_id = #cpyrhtId#
-				, cpyrht_prtc_policy_cn = #cpyrhtPrtcPolicyCn#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE cpyrht_id = #cpyrhtId#
+            UPDATE comtncpyrhtinfo
+                SET
+                cpyrht_id = #cpyrhtId#
+                , cpyrht_prtc_policy_cn = #cpyrhtPrtcPolicyCn#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND cpyrht_id = #cpyrhtId#
 		]]>
 	</update>
 	
 	<delete id="comtncpyrhtinfoDAO.deleteComtncpyrhtinfo_S">
 		<![CDATA[
-			DELETE FROM comtncpyrhtinfo 
-			WHERE cpyrht_id = #cpyrhtId#
+			DELETE FROM comtncpyrhtinfo
+				WHERE 1 = 1
+				AND cpyrht_id = #cpyrhtId#
 		]]>
 	</delete>
 	

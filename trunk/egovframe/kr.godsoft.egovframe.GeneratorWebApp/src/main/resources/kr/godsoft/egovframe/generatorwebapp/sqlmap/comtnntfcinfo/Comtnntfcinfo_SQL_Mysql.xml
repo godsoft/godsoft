@@ -20,48 +20,47 @@
 	
 	<insert id="comtnntfcinfoDAO.insertComtnntfcinfo_S">
 		<![CDATA[
-			INSERT INTO comtnntfcinfo 
-				( NTCN_NO
-				  , ntcn_sj
-				  , ntcn_cn
-				  , ntcn_tm
-				  , bh_ntcn_intrvl
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , frst_register_id
-				  , last_updusr_id )
-			VALUES ( #ntcnNo#
-				  , #ntcnSj#
-				  , #ntcnCn#
-				  , #ntcnTm#
-				  , #bhNtcnIntrvl#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnntfcinfo (
+                ntcn_no
+                , ntcn_sj
+                , ntcn_cn
+                , ntcn_tm
+                , bh_ntcn_intrvl
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #ntcnNo#
+                , #ntcnSj#
+                , #ntcnCn#
+                , #ntcnTm#
+                , #bhNtcnIntrvl#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnntfcinfoDAO.updateComtnntfcinfo_S">
 		<![CDATA[
-			UPDATE comtnntfcinfo
-			SET ntcn_no = #ntcnNo#
-				, ntcn_sj = #ntcnSj#
-				, ntcn_cn = #ntcnCn#
-				, ntcn_tm = #ntcnTm#
-				, bh_ntcn_intrvl = #bhNtcnIntrvl#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE ntcn_no = #ntcnNo#
+            UPDATE comtnntfcinfo
+                SET
+                ntcn_no = #ntcnNo#
+                , ntcn_sj = #ntcnSj#
+                , ntcn_cn = #ntcnCn#
+                , ntcn_tm = #ntcnTm#
+                , bh_ntcn_intrvl = #bhNtcnIntrvl#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND ntcn_no = #ntcnNo#
 		]]>
 	</update>
 	
 	<delete id="comtnntfcinfoDAO.deleteComtnntfcinfo_S">
 		<![CDATA[
-			DELETE FROM comtnntfcinfo 
-			WHERE ntcn_no = #ntcnNo#
+			DELETE FROM comtnntfcinfo
+				WHERE 1 = 1
+				AND ntcn_no = #ntcnNo#
 		]]>
 	</delete>
 	

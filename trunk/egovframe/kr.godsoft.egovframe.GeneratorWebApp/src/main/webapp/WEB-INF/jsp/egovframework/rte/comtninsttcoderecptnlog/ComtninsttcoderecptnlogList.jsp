@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtninsttcoderecptnlog 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -51,7 +51,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="occrrncDe" />
 	<input type="hidden" name="insttCode" />
 	<input type="hidden" name="opertSn" />
@@ -100,44 +100,44 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">OccrrncDe</th>
-								<th align="center">InsttCode</th>
-								<th align="center">OpertSn</th>
-								<th align="center">ChangeSeCode</th>
-								<th align="center">ProcessSe</th>
-								<th align="center">EtcCode</th>
-								<th align="center">AllInsttNm</th>
-								<th align="center">LowestInsttNm</th>
-								<th align="center">InsttAbrvNm</th>
-								<th align="center">Odr</th>
-								<th align="center">Ord</th>
-								<th align="center">InsttOdr</th>
-								<th align="center">UpperInsttCode</th>
-								<th align="center">BestInsttCode</th>
-								<th align="center">ReprsntInsttCode</th>
-								<th align="center">InsttTyLclas</th>
-								<th align="center">InsttTyMlsfc</th>
-								<th align="center">InsttTySclas</th>
-								<th align="center">Telno</th>
-								<th align="center">Fxnum</th>
-								<th align="center">CreatDe</th>
-								<th align="center">AblDe</th>
-								<th align="center">AblEnnc</th>
-								<th align="center">ChangeDe</th>
-								<th align="center">ChangeTime</th>
-								<th align="center">BsisDe</th>
-								<th align="center">SortOrdr</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">LastUpdtPnttm</th>
+								<th align="center">occrrnc_de</th>
+								<th align="center">instt_code</th>
+								<th align="center">opert_sn</th>
+								<th align="center">change_se_code</th>
+								<th align="center">process_se</th>
+								<th align="center">etc_code</th>
+								<th align="center">all_instt_nm</th>
+								<th align="center">lowest_instt_nm</th>
+								<th align="center">instt_abrv_nm</th>
+								<th align="center">odr</th>
+								<th align="center">ord</th>
+								<th align="center">instt_odr</th>
+								<th align="center">upper_instt_code</th>
+								<th align="center">best_instt_code</th>
+								<th align="center">reprsnt_instt_code</th>
+								<th align="center">instt_ty_lclas</th>
+								<th align="center">instt_ty_mlsfc</th>
+								<th align="center">instt_ty_sclas</th>
+								<th align="center">telno</th>
+								<th align="center">fxnum</th>
+								<th align="center">creat_de</th>
+								<th align="center">abl_de</th>
+								<th align="center">abl_ennc</th>
+								<th align="center">change_de</th>
+								<th align="center">change_time</th>
+								<th align="center">bsis_de</th>
+								<th align="center">sort_ordr</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">last_updt_pnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																																			
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.insttCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.insttCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.insttCode}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.insttCode}"/>, <c:out value="{D}{result.opertSn}"/>')"><c:out value="${result.opertSn}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.insttCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.insttCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.insttCode}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.insttCode}"/>', '<c:out value="${result.opertSn}"/>')"><c:out value="${result.opertSn}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.changeSeCode}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.processSe}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.etcCode}"/>&nbsp;</td>

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnschdulinfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="schdulId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -82,23 +82,23 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">SchdulId</th>
-								<th align="center">SchdulSe</th>
-								<th align="center">SchdulDeptId</th>
-								<th align="center">SchdulKndCode</th>
-								<th align="center">SchdulBgnde</th>
-								<th align="center">SchdulEndde</th>
-								<th align="center">SchdulNm</th>
-								<th align="center">SchdulCn</th>
-								<th align="center">SchdulPlace</th>
-								<th align="center">SchdulIpcrCode</th>
-								<th align="center">SchdulChargerId</th>
-								<th align="center">AtchFileId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">ReptitSeCode</th>
+								<th align="center">schdul_id</th>
+								<th align="center">schdul_se</th>
+								<th align="center">schdul_dept_id</th>
+								<th align="center">schdul_knd_code</th>
+								<th align="center">schdul_bgnde</th>
+								<th align="center">schdul_endde</th>
+								<th align="center">schdul_nm</th>
+								<th align="center">schdul_cn</th>
+								<th align="center">schdul_place</th>
+								<th align="center">schdul_ipcr_code</th>
+								<th align="center">schdul_charger_id</th>
+								<th align="center">atch_file_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">reptit_se_code</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

@@ -37,99 +37,98 @@
 	
 	<insert id="comtnncrdDAO.insertComtnncrd_S">
 		<![CDATA[
-			INSERT INTO comtnncrd 
-				( NCRD_ID
-				  , ncrd_trgter_id
-				  , nm
-				  , telno
-				  , nation_no
-				  , area_no
-				  , middle_telno
-				  , end_telno
-				  , mbtlnum
-				  , idntfc_no
-				  , middle_mbtlnum
-				  , end_mbtlnum
-				  , email_adres
-				  , cmpny_nm
-				  , dept_nm
-				  , adres
-				  , detail_adres
-				  , ofcps_nm
-				  , clsf_nm
-				  , extrl_user_at
-				  , othbc_at
-				  , rm
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #ncrdId#
-				  , #ncrdTrgterId#
-				  , #nm#
-				  , #telno#
-				  , #nationNo#
-				  , #areaNo#
-				  , #middleTelno#
-				  , #endTelno#
-				  , #mbtlnum#
-				  , #idntfcNo#
-				  , #middleMbtlnum#
-				  , #endMbtlnum#
-				  , #emailAdres#
-				  , #cmpnyNm#
-				  , #deptNm#
-				  , #adres#
-				  , #detailAdres#
-				  , #ofcpsNm#
-				  , #clsfNm#
-				  , #extrlUserAt#
-				  , #othbcAt#
-				  , #rm#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnncrd (
+                ncrd_id
+                , ncrd_trgter_id
+                , nm
+                , telno
+                , nation_no
+                , area_no
+                , middle_telno
+                , end_telno
+                , mbtlnum
+                , idntfc_no
+                , middle_mbtlnum
+                , end_mbtlnum
+                , email_adres
+                , cmpny_nm
+                , dept_nm
+                , adres
+                , detail_adres
+                , ofcps_nm
+                , clsf_nm
+                , extrl_user_at
+                , othbc_at
+                , rm
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #ncrdId#
+                , #ncrdTrgterId#
+                , #nm#
+                , #telno#
+                , #nationNo#
+                , #areaNo#
+                , #middleTelno#
+                , #endTelno#
+                , #mbtlnum#
+                , #idntfcNo#
+                , #middleMbtlnum#
+                , #endMbtlnum#
+                , #emailAdres#
+                , #cmpnyNm#
+                , #deptNm#
+                , #adres#
+                , #detailAdres#
+                , #ofcpsNm#
+                , #clsfNm#
+                , #extrlUserAt#
+                , #othbcAt#
+                , #rm#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnncrdDAO.updateComtnncrd_S">
 		<![CDATA[
-			UPDATE comtnncrd
-			SET ncrd_id = #ncrdId#
-				, ncrd_trgter_id = #ncrdTrgterId#
-				, nm = #nm#
-				, telno = #telno#
-				, nation_no = #nationNo#
-				, area_no = #areaNo#
-				, middle_telno = #middleTelno#
-				, end_telno = #endTelno#
-				, mbtlnum = #mbtlnum#
-				, idntfc_no = #idntfcNo#
-				, middle_mbtlnum = #middleMbtlnum#
-				, end_mbtlnum = #endMbtlnum#
-				, email_adres = #emailAdres#
-				, cmpny_nm = #cmpnyNm#
-				, dept_nm = #deptNm#
-				, adres = #adres#
-				, detail_adres = #detailAdres#
-				, ofcps_nm = #ofcpsNm#
-				, clsf_nm = #clsfNm#
-				, extrl_user_at = #extrlUserAt#
-				, othbc_at = #othbcAt#
-				, rm = #rm#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE ncrd_id = #ncrdId#
+            UPDATE comtnncrd
+                SET
+                ncrd_id = #ncrdId#
+                , ncrd_trgter_id = #ncrdTrgterId#
+                , nm = #nm#
+                , telno = #telno#
+                , nation_no = #nationNo#
+                , area_no = #areaNo#
+                , middle_telno = #middleTelno#
+                , end_telno = #endTelno#
+                , mbtlnum = #mbtlnum#
+                , idntfc_no = #idntfcNo#
+                , middle_mbtlnum = #middleMbtlnum#
+                , end_mbtlnum = #endMbtlnum#
+                , email_adres = #emailAdres#
+                , cmpny_nm = #cmpnyNm#
+                , dept_nm = #deptNm#
+                , adres = #adres#
+                , detail_adres = #detailAdres#
+                , ofcps_nm = #ofcpsNm#
+                , clsf_nm = #clsfNm#
+                , extrl_user_at = #extrlUserAt#
+                , othbc_at = #othbcAt#
+                , rm = #rm#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND ncrd_id = #ncrdId#
 		]]>
 	</update>
 	
 	<delete id="comtnncrdDAO.deleteComtnncrd_S">
 		<![CDATA[
-			DELETE FROM comtnncrd 
-			WHERE ncrd_id = #ncrdId#
+			DELETE FROM comtnncrd
+				WHERE 1 = 1
+				AND ncrd_id = #ncrdId#
 		]]>
 	</delete>
 	

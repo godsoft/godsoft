@@ -15,33 +15,38 @@
 	
 	<insert id="comtnsitemapDAO.insertComtnsitemap_S">
 		<![CDATA[
-			INSERT INTO comtnsitemap 
-				( MAPNG_CREAT_ID
-				  , creatr_id
-				  , mapng_file_nm
-				  , mapng_file_path )
-			VALUES ( #mapngCreatId#
-				  , #creatrId#
-				  , #mapngFileNm#
-				  , #mapngFilePath# )
+            INSERT INTO comtnsitemap (
+                mapng_creat_id
+                , creatr_id
+                , mapng_file_nm
+                , mapng_file_path
+            ) VALUES (
+                #mapngCreatId#
+                , #creatrId#
+                , #mapngFileNm#
+                , #mapngFilePath#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsitemapDAO.updateComtnsitemap_S">
 		<![CDATA[
-			UPDATE comtnsitemap
-			SET mapng_creat_id = #mapngCreatId#
-				, creatr_id = #creatrId#
-				, mapng_file_nm = #mapngFileNm#
-				, mapng_file_path = #mapngFilePath#
-			WHERE mapng_creat_id = #mapngCreatId#
+            UPDATE comtnsitemap
+                SET
+                mapng_creat_id = #mapngCreatId#
+                , creatr_id = #creatrId#
+                , mapng_file_nm = #mapngFileNm#
+                , mapng_file_path = #mapngFilePath#
+                WHERE 1 = 1
+                AND mapng_creat_id = #mapngCreatId#
 		]]>
 	</update>
 	
 	<delete id="comtnsitemapDAO.deleteComtnsitemap_S">
 		<![CDATA[
-			DELETE FROM comtnsitemap 
-			WHERE mapng_creat_id = #mapngCreatId#
+			DELETE FROM comtnsitemap
+				WHERE 1 = 1
+				AND mapng_creat_id = #mapngCreatId#
 		]]>
 	</delete>
 	

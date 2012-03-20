@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnentrprsmberVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnentrprsmberVO.entrprsMberId ? '등록' : '수정'}"/>
+<title>comtnentrprsmber <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnentrprsmberVO" name="detailForm">
+<form:form commandName="comtnentrprsmberVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ENTRPRS_MBER_ID *</th>
+			<th>entrprs_mber_id *</th>
 			<td>
 				<form:input path="entrprsMberId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ENTRPRS_MBER_ID *</th>
+			<th>entrprs_mber_id *</th>
 			<td>
 				<form:input path="entrprsMberId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,161 +93,161 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>ENTRPRS_SE_CODE</th>
+			<th>entrprs_se_code</th>
 			<td>
 				<form:input path="entrprsSeCode" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsSeCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BIZRNO</th>
+			<th>bizrno</th>
 			<td>
 				<form:input path="bizrno" cssClass="txt"/>
 				&nbsp;<form:errors path="bizrno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>JURIRNO</th>
+			<th>jurirno</th>
 			<td>
 				<form:input path="jurirno" cssClass="txt"/>
 				&nbsp;<form:errors path="jurirno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CMPNY_NM</th>
+			<th>cmpny_nm</th>
 			<td>
 				<form:input path="cmpnyNm" cssClass="txt"/>
 				&nbsp;<form:errors path="cmpnyNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CXFC</th>
+			<th>cxfc</th>
 			<td>
 				<form:input path="cxfc" cssClass="txt"/>
 				&nbsp;<form:errors path="cxfc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ZIP</th>
+			<th>zip</th>
 			<td>
 				<form:input path="zip" cssClass="txt"/>
 				&nbsp;<form:errors path="zip" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ADRES</th>
+			<th>adres</th>
 			<td>
 				<form:input path="adres" cssClass="txt"/>
 				&nbsp;<form:errors path="adres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ENTRPRS_MIDDLE_TELNO</th>
+			<th>entrprs_middle_telno</th>
 			<td>
 				<form:input path="entrprsMiddleTelno" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsMiddleTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FXNUM</th>
+			<th>fxnum</th>
 			<td>
 				<form:input path="fxnum" cssClass="txt"/>
 				&nbsp;<form:errors path="fxnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INDUTY_CODE</th>
+			<th>induty_code</th>
 			<td>
 				<form:input path="indutyCode" cssClass="txt"/>
 				&nbsp;<form:errors path="indutyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>APPLCNT_NM</th>
+			<th>applcnt_nm</th>
 			<td>
 				<form:input path="applcntNm" cssClass="txt"/>
 				&nbsp;<form:errors path="applcntNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>APPLCNT_IHIDNUM</th>
+			<th>applcnt_ihidnum</th>
 			<td>
 				<form:input path="applcntIhidnum" cssClass="txt"/>
 				&nbsp;<form:errors path="applcntIhidnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SBSCRB_DE</th>
+			<th>sbscrb_de</th>
 			<td>
 				<form:input path="sbscrbDe" cssClass="txt"/>
 				&nbsp;<form:errors path="sbscrbDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ENTRPRS_MBER_STTUS</th>
+			<th>entrprs_mber_sttus</th>
 			<td>
 				<form:input path="entrprsMberSttus" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsMberSttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ENTRPRS_MBER_PASSWORD</th>
+			<th>entrprs_mber_password</th>
 			<td>
 				<form:input path="entrprsMberPassword" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsMberPassword" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ENTRPRS_MBER_PASSWORD_HINT</th>
+			<th>entrprs_mber_password_hint</th>
 			<td>
 				<form:input path="entrprsMberPasswordHint" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsMberPasswordHint" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ENTRPRS_MBER_PASSWORD_CNSR</th>
+			<th>entrprs_mber_password_cnsr</th>
 			<td>
 				<form:input path="entrprsMberPasswordCnsr" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsMberPasswordCnsr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>GROUP_ID</th>
+			<th>group_id</th>
 			<td>
 				<form:input path="groupId" cssClass="txt"/>
 				&nbsp;<form:errors path="groupId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DETAIL_ADRES</th>
+			<th>detail_adres</th>
 			<td>
 				<form:input path="detailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="detailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ENTRPRS_END_TELNO</th>
+			<th>entrprs_end_telno</th>
 			<td>
 				<form:input path="entrprsEndTelno" cssClass="txt"/>
 				&nbsp;<form:errors path="entrprsEndTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>AREA_NO</th>
+			<th>area_no</th>
 			<td>
 				<form:input path="areaNo" cssClass="txt"/>
 				&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>APPLCNT_EMAIL_ADRES</th>
+			<th>applcnt_email_adres</th>
 			<td>
 				<form:input path="applcntEmailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="applcntEmailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ESNTL_ID</th>
+			<th>esntl_id</th>
 			<td>
 				<form:input path="esntlId" cssClass="txt"/>
 				&nbsp;<form:errors path="esntlId" />

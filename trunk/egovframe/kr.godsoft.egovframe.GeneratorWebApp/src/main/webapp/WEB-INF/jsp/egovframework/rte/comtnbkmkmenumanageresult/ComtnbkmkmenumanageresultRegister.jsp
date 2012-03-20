@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnbkmkmenumanageresultVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnbkmkmenumanageresultVO.menuId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnbkmkmenumanageresultVO.emplyrId ? '등록' : '수정'}"/>
+<title>comtnbkmkmenumanageresult <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnbkmkmenumanageresultVO" name="detailForm">
+<form:form commandName="comtnbkmkmenumanageresultVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>MENU_ID *</th>
+			<th>menu_id *</th>
 			<td>
 				<form:input path="menuId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>EMPLYR_ID *</th>
+			<th>emplyr_id *</th>
 			<td>
 				<form:input path="emplyrId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>MENU_ID *</th>
+			<th>menu_id *</th>
 			<td>
 				<form:input path="menuId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>EMPLYR_ID *</th>
+			<th>emplyr_id *</th>
 			<td>
 				<form:input path="emplyrId" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,14 +106,14 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>MENU_NM</th>
+			<th>menu_nm</th>
 			<td>
 				<form:input path="menuNm" cssClass="txt"/>
 				&nbsp;<form:errors path="menuNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PROGRM_STRE_PATH</th>
+			<th>progrm_stre_path</th>
 			<td>
 				<form:input path="progrmStrePath" cssClass="txt"/>
 				&nbsp;<form:errors path="progrmStrePath" />

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnbbsmasterVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnbbsmasterVO.bbsId ? '등록' : '수정'}"/>
+<title>comtnbbsmaster <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnbbsmasterVO" name="detailForm">
+<form:form commandName="comtnbbsmasterVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>BBS_ID *</th>
+			<th>bbs_id *</th>
 			<td>
 				<form:input path="bbsId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>BBS_ID *</th>
+			<th>bbs_id *</th>
 			<td>
 				<form:input path="bbsId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,98 +93,98 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>BBS_NM</th>
+			<th>bbs_nm</th>
 			<td>
 				<form:input path="bbsNm" cssClass="txt"/>
 				&nbsp;<form:errors path="bbsNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BBS_INTRCN</th>
+			<th>bbs_intrcn</th>
 			<td>
 				<form:input path="bbsIntrcn" cssClass="txt"/>
 				&nbsp;<form:errors path="bbsIntrcn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BBS_TY_CODE</th>
+			<th>bbs_ty_code</th>
 			<td>
 				<form:input path="bbsTyCode" cssClass="txt"/>
 				&nbsp;<form:errors path="bbsTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BBS_ATTRB_CODE</th>
+			<th>bbs_attrb_code</th>
 			<td>
 				<form:input path="bbsAttrbCode" cssClass="txt"/>
 				&nbsp;<form:errors path="bbsAttrbCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>REPLY_POSBL_AT</th>
+			<th>reply_posbl_at</th>
 			<td>
 				<form:input path="replyPosblAt" cssClass="txt"/>
 				&nbsp;<form:errors path="replyPosblAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FILE_ATCH_POSBL_AT</th>
+			<th>file_atch_posbl_at</th>
 			<td>
 				<form:input path="fileAtchPosblAt" cssClass="txt"/>
 				&nbsp;<form:errors path="fileAtchPosblAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ATCH_POSBL_FILE_NUMBER</th>
+			<th>atch_posbl_file_number</th>
 			<td>
 				<form:input path="atchPosblFileNumber" cssClass="txt"/>
 				&nbsp;<form:errors path="atchPosblFileNumber" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ATCH_POSBL_FILE_SIZE</th>
+			<th>atch_posbl_file_size</th>
 			<td>
 				<form:input path="atchPosblFileSize" cssClass="txt"/>
 				&nbsp;<form:errors path="atchPosblFileSize" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USE_AT</th>
+			<th>use_at</th>
 			<td>
 				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TMPLAT_ID</th>
+			<th>tmplat_id</th>
 			<td>
 				<form:input path="tmplatId" cssClass="txt"/>
 				&nbsp;<form:errors path="tmplatId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

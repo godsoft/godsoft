@@ -16,36 +16,41 @@
 	
 	<insert id="comtnweblogDAO.insertComtnweblog_S">
 		<![CDATA[
-			INSERT INTO comtnweblog 
-				( REQUST_ID
-				  , occrrnc_de
-				  , url
-				  , rqester_id
-				  , rqester_ip )
-			VALUES ( #requstId#
-				  , #occrrncDe#
-				  , #url#
-				  , #rqesterId#
-				  , #rqesterIp# )
+            INSERT INTO comtnweblog (
+                requst_id
+                , occrrnc_de
+                , url
+                , rqester_id
+                , rqester_ip
+            ) VALUES (
+                #requstId#
+                , #occrrncDe#
+                , #url#
+                , #rqesterId#
+                , #rqesterIp#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnweblogDAO.updateComtnweblog_S">
 		<![CDATA[
-			UPDATE comtnweblog
-			SET requst_id = #requstId#
-				, occrrnc_de = #occrrncDe#
-				, url = #url#
-				, rqester_id = #rqesterId#
-				, rqester_ip = #rqesterIp#
-			WHERE requst_id = #requstId#
+            UPDATE comtnweblog
+                SET
+                requst_id = #requstId#
+                , occrrnc_de = #occrrncDe#
+                , url = #url#
+                , rqester_id = #rqesterId#
+                , rqester_ip = #rqesterIp#
+                WHERE 1 = 1
+                AND requst_id = #requstId#
 		]]>
 	</update>
 	
 	<delete id="comtnweblogDAO.deleteComtnweblog_S">
 		<![CDATA[
-			DELETE FROM comtnweblog 
-			WHERE requst_id = #requstId#
+			DELETE FROM comtnweblog
+				WHERE 1 = 1
+				AND requst_id = #requstId#
 		]]>
 	</delete>
 	

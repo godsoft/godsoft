@@ -26,66 +26,65 @@
 	
 	<insert id="comtnservereqpmninfoDAO.insertComtnservereqpmninfo_S">
 		<![CDATA[
-			INSERT INTO comtnservereqpmninfo 
-				( SERVER_EQPMN_ID
-				  , server_eqpmn_nm
-				  , server_eqpmn_ip
-				  , server_eqpmn_mngr
-				  , mngr_email_adres
-				  , opersysm_info
-				  , cpu_info
-				  , mory_info
-				  , hddisk
-				  , etc_info
-				  , rgsde
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #serverEqpmnId#
-				  , #serverEqpmnNm#
-				  , #serverEqpmnIp#
-				  , #serverEqpmnMngr#
-				  , #mngrEmailAdres#
-				  , #opersysmInfo#
-				  , #cpuInfo#
-				  , #moryInfo#
-				  , #hddisk#
-				  , #etcInfo#
-				  , #rgsde#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnservereqpmninfo (
+                server_eqpmn_id
+                , server_eqpmn_nm
+                , server_eqpmn_ip
+                , server_eqpmn_mngr
+                , mngr_email_adres
+                , opersysm_info
+                , cpu_info
+                , mory_info
+                , hddisk
+                , etc_info
+                , rgsde
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #serverEqpmnId#
+                , #serverEqpmnNm#
+                , #serverEqpmnIp#
+                , #serverEqpmnMngr#
+                , #mngrEmailAdres#
+                , #opersysmInfo#
+                , #cpuInfo#
+                , #moryInfo#
+                , #hddisk#
+                , #etcInfo#
+                , #rgsde#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnservereqpmninfoDAO.updateComtnservereqpmninfo_S">
 		<![CDATA[
-			UPDATE comtnservereqpmninfo
-			SET server_eqpmn_id = #serverEqpmnId#
-				, server_eqpmn_nm = #serverEqpmnNm#
-				, server_eqpmn_ip = #serverEqpmnIp#
-				, server_eqpmn_mngr = #serverEqpmnMngr#
-				, mngr_email_adres = #mngrEmailAdres#
-				, opersysm_info = #opersysmInfo#
-				, cpu_info = #cpuInfo#
-				, mory_info = #moryInfo#
-				, hddisk = #hddisk#
-				, etc_info = #etcInfo#
-				, rgsde = #rgsde#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE server_eqpmn_id = #serverEqpmnId#
+            UPDATE comtnservereqpmninfo
+                SET
+                server_eqpmn_id = #serverEqpmnId#
+                , server_eqpmn_nm = #serverEqpmnNm#
+                , server_eqpmn_ip = #serverEqpmnIp#
+                , server_eqpmn_mngr = #serverEqpmnMngr#
+                , mngr_email_adres = #mngrEmailAdres#
+                , opersysm_info = #opersysmInfo#
+                , cpu_info = #cpuInfo#
+                , mory_info = #moryInfo#
+                , hddisk = #hddisk#
+                , etc_info = #etcInfo#
+                , rgsde = #rgsde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND server_eqpmn_id = #serverEqpmnId#
 		]]>
 	</update>
 	
 	<delete id="comtnservereqpmninfoDAO.deleteComtnservereqpmninfo_S">
 		<![CDATA[
-			DELETE FROM comtnservereqpmninfo 
-			WHERE server_eqpmn_id = #serverEqpmnId#
+			DELETE FROM comtnservereqpmninfo
+				WHERE 1 = 1
+				AND server_eqpmn_id = #serverEqpmnId#
 		]]>
 	</delete>
 	

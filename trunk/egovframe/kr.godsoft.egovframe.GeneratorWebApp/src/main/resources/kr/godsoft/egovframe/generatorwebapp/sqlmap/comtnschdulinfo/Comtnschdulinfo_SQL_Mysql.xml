@@ -28,72 +28,71 @@
 	
 	<insert id="comtnschdulinfoDAO.insertComtnschdulinfo_S">
 		<![CDATA[
-			INSERT INTO comtnschdulinfo 
-				( SCHDUL_ID
-				  , schdul_se
-				  , schdul_dept_id
-				  , schdul_knd_code
-				  , schdul_bgnde
-				  , schdul_endde
-				  , schdul_nm
-				  , schdul_cn
-				  , schdul_place
-				  , schdul_ipcr_code
-				  , schdul_charger_id
-				  , atch_file_id
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , reptit_se_code )
-			VALUES ( #schdulId#
-				  , #schdulSe#
-				  , #schdulDeptId#
-				  , #schdulKndCode#
-				  , #schdulBgnde#
-				  , #schdulEndde#
-				  , #schdulNm#
-				  , #schdulCn#
-				  , #schdulPlace#
-				  , #schdulIpcrCode#
-				  , #schdulChargerId#
-				  , #atchFileId#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #reptitSeCode# )
+            INSERT INTO comtnschdulinfo (
+                schdul_id
+                , schdul_se
+                , schdul_dept_id
+                , schdul_knd_code
+                , schdul_bgnde
+                , schdul_endde
+                , schdul_nm
+                , schdul_cn
+                , schdul_place
+                , schdul_ipcr_code
+                , schdul_charger_id
+                , atch_file_id
+                , frst_regist_pnttm
+                , frst_register_id
+                , reptit_se_code
+            ) VALUES (
+                #schdulId#
+                , #schdulSe#
+                , #schdulDeptId#
+                , #schdulKndCode#
+                , #schdulBgnde#
+                , #schdulEndde#
+                , #schdulNm#
+                , #schdulCn#
+                , #schdulPlace#
+                , #schdulIpcrCode#
+                , #schdulChargerId#
+                , #atchFileId#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #reptitSeCode#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnschdulinfoDAO.updateComtnschdulinfo_S">
 		<![CDATA[
-			UPDATE comtnschdulinfo
-			SET schdul_id = #schdulId#
-				, schdul_se = #schdulSe#
-				, schdul_dept_id = #schdulDeptId#
-				, schdul_knd_code = #schdulKndCode#
-				, schdul_bgnde = #schdulBgnde#
-				, schdul_endde = #schdulEndde#
-				, schdul_nm = #schdulNm#
-				, schdul_cn = #schdulCn#
-				, schdul_place = #schdulPlace#
-				, schdul_ipcr_code = #schdulIpcrCode#
-				, schdul_charger_id = #schdulChargerId#
-				, atch_file_id = #atchFileId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, reptit_se_code = #reptitSeCode#
-			WHERE schdul_id = #schdulId#
+            UPDATE comtnschdulinfo
+                SET
+                schdul_id = #schdulId#
+                , schdul_se = #schdulSe#
+                , schdul_dept_id = #schdulDeptId#
+                , schdul_knd_code = #schdulKndCode#
+                , schdul_bgnde = #schdulBgnde#
+                , schdul_endde = #schdulEndde#
+                , schdul_nm = #schdulNm#
+                , schdul_cn = #schdulCn#
+                , schdul_place = #schdulPlace#
+                , schdul_ipcr_code = #schdulIpcrCode#
+                , schdul_charger_id = #schdulChargerId#
+                , atch_file_id = #atchFileId#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , reptit_se_code = #reptitSeCode#
+                WHERE 1 = 1
+                AND schdul_id = #schdulId#
 		]]>
 	</update>
 	
 	<delete id="comtnschdulinfoDAO.deleteComtnschdulinfo_S">
 		<![CDATA[
-			DELETE FROM comtnschdulinfo 
-			WHERE schdul_id = #schdulId#
+			DELETE FROM comtnschdulinfo
+				WHERE 1 = 1
+				AND schdul_id = #schdulId#
 		]]>
 	</delete>
 	

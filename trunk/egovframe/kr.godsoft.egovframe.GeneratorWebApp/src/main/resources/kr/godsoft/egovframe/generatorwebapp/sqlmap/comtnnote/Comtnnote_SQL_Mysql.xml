@@ -19,45 +19,44 @@
 	
 	<insert id="comtnnoteDAO.insertComtnnote_S">
 		<![CDATA[
-			INSERT INTO comtnnote 
-				( NOTE_ID
-				  , note_sj
-				  , note_cn
-				  , atch_file_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #noteId#
-				  , #noteSj#
-				  , #noteCn#
-				  , #atchFileId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnnote (
+                note_id
+                , note_sj
+                , note_cn
+                , atch_file_id
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #noteId#
+                , #noteSj#
+                , #noteCn#
+                , #atchFileId#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnnoteDAO.updateComtnnote_S">
 		<![CDATA[
-			UPDATE comtnnote
-			SET note_id = #noteId#
-				, note_sj = #noteSj#
-				, note_cn = #noteCn#
-				, atch_file_id = #atchFileId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE note_id = #noteId#
+            UPDATE comtnnote
+                SET
+                note_id = #noteId#
+                , note_sj = #noteSj#
+                , note_cn = #noteCn#
+                , atch_file_id = #atchFileId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND note_id = #noteId#
 		]]>
 	</update>
 	
 	<delete id="comtnnoteDAO.deleteComtnnote_S">
 		<![CDATA[
-			DELETE FROM comtnnote 
-			WHERE note_id = #noteId#
+			DELETE FROM comtnnote
+				WHERE 1 = 1
+				AND note_id = #noteId#
 		]]>
 	</delete>
 	

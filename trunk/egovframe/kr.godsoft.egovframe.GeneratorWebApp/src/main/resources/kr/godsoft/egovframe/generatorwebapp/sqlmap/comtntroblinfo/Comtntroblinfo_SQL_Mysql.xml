@@ -26,66 +26,65 @@
 	
 	<insert id="comtntroblinfoDAO.insertComtntroblinfo_S">
 		<![CDATA[
-			INSERT INTO comtntroblinfo 
-				( TROBL_ID
-				  , trobl_nm
-				  , trobl_knd
-				  , trobl_dc
-				  , trobl_occrrnc_time
-				  , trobl_rqester_nm
-				  , trobl_requst_time
-				  , trobl_process_result
-				  , trobl_opetr_nm
-				  , trobl_process_time
-				  , process_sttus
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #troblId#
-				  , #troblNm#
-				  , #troblKnd#
-				  , #troblDc#
-				  , #troblOccrrncTime#
-				  , #troblRqesterNm#
-				  , #troblRequstTime#
-				  , #troblProcessResult#
-				  , #troblOpetrNm#
-				  , #troblProcessTime#
-				  , #processSttus#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtntroblinfo (
+                trobl_id
+                , trobl_nm
+                , trobl_knd
+                , trobl_dc
+                , trobl_occrrnc_time
+                , trobl_rqester_nm
+                , trobl_requst_time
+                , trobl_process_result
+                , trobl_opetr_nm
+                , trobl_process_time
+                , process_sttus
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #troblId#
+                , #troblNm#
+                , #troblKnd#
+                , #troblDc#
+                , #troblOccrrncTime#
+                , #troblRqesterNm#
+                , #troblRequstTime#
+                , #troblProcessResult#
+                , #troblOpetrNm#
+                , #troblProcessTime#
+                , #processSttus#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtntroblinfoDAO.updateComtntroblinfo_S">
 		<![CDATA[
-			UPDATE comtntroblinfo
-			SET trobl_id = #troblId#
-				, trobl_nm = #troblNm#
-				, trobl_knd = #troblKnd#
-				, trobl_dc = #troblDc#
-				, trobl_occrrnc_time = #troblOccrrncTime#
-				, trobl_rqester_nm = #troblRqesterNm#
-				, trobl_requst_time = #troblRequstTime#
-				, trobl_process_result = #troblProcessResult#
-				, trobl_opetr_nm = #troblOpetrNm#
-				, trobl_process_time = #troblProcessTime#
-				, process_sttus = #processSttus#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE trobl_id = #troblId#
+            UPDATE comtntroblinfo
+                SET
+                trobl_id = #troblId#
+                , trobl_nm = #troblNm#
+                , trobl_knd = #troblKnd#
+                , trobl_dc = #troblDc#
+                , trobl_occrrnc_time = #troblOccrrncTime#
+                , trobl_rqester_nm = #troblRqesterNm#
+                , trobl_requst_time = #troblRequstTime#
+                , trobl_process_result = #troblProcessResult#
+                , trobl_opetr_nm = #troblOpetrNm#
+                , trobl_process_time = #troblProcessTime#
+                , process_sttus = #processSttus#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND trobl_id = #troblId#
 		]]>
 	</update>
 	
 	<delete id="comtntroblinfoDAO.deleteComtntroblinfo_S">
 		<![CDATA[
-			DELETE FROM comtntroblinfo 
-			WHERE trobl_id = #troblId#
+			DELETE FROM comtntroblinfo
+				WHERE 1 = 1
+				AND trobl_id = #troblId#
 		]]>
 	</delete>
 	

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnsitemapVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnsitemapVO.mapngCreatId ? '등록' : '수정'}"/>
+<title>comtnsitemap <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnsitemapVO" name="detailForm">
+<form:form commandName="comtnsitemapVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>MAPNG_CREAT_ID *</th>
+			<th>mapng_creat_id *</th>
 			<td>
 				<form:input path="mapngCreatId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>MAPNG_CREAT_ID *</th>
+			<th>mapng_creat_id *</th>
 			<td>
 				<form:input path="mapngCreatId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,21 +93,21 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>CREATR_ID</th>
+			<th>creatr_id</th>
 			<td>
 				<form:input path="creatrId" cssClass="txt"/>
 				&nbsp;<form:errors path="creatrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MAPNG_FILE_NM</th>
+			<th>mapng_file_nm</th>
 			<td>
 				<form:input path="mapngFileNm" cssClass="txt"/>
 				&nbsp;<form:errors path="mapngFileNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MAPNG_FILE_PATH</th>
+			<th>mapng_file_path</th>
 			<td>
 				<form:input path="mapngFilePath" cssClass="txt"/>
 				&nbsp;<form:errors path="mapngFilePath" />

@@ -16,36 +16,41 @@
 	
 	<insert id="comtnprogrmlistDAO.insertComtnprogrmlist_S">
 		<![CDATA[
-			INSERT INTO comtnprogrmlist 
-				( PROGRM_FILE_NM
-				  , progrm_stre_path
-				  , progrm_korean_nm
-				  , progrm_dc
-				  , url )
-			VALUES ( #progrmFileNm#
-				  , #progrmStrePath#
-				  , #progrmKoreanNm#
-				  , #progrmDc#
-				  , #url# )
+            INSERT INTO comtnprogrmlist (
+                progrm_file_nm
+                , progrm_stre_path
+                , progrm_korean_nm
+                , progrm_dc
+                , url
+            ) VALUES (
+                #progrmFileNm#
+                , #progrmStrePath#
+                , #progrmKoreanNm#
+                , #progrmDc#
+                , #url#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnprogrmlistDAO.updateComtnprogrmlist_S">
 		<![CDATA[
-			UPDATE comtnprogrmlist
-			SET progrm_file_nm = #progrmFileNm#
-				, progrm_stre_path = #progrmStrePath#
-				, progrm_korean_nm = #progrmKoreanNm#
-				, progrm_dc = #progrmDc#
-				, url = #url#
-			WHERE progrm_file_nm = #progrmFileNm#
+            UPDATE comtnprogrmlist
+                SET
+                progrm_file_nm = #progrmFileNm#
+                , progrm_stre_path = #progrmStrePath#
+                , progrm_korean_nm = #progrmKoreanNm#
+                , progrm_dc = #progrmDc#
+                , url = #url#
+                WHERE 1 = 1
+                AND progrm_file_nm = #progrmFileNm#
 		]]>
 	</update>
 	
 	<delete id="comtnprogrmlistDAO.deleteComtnprogrmlist_S">
 		<![CDATA[
-			DELETE FROM comtnprogrmlist 
-			WHERE progrm_file_nm = #progrmFileNm#
+			DELETE FROM comtnprogrmlist
+				WHERE 1 = 1
+				AND progrm_file_nm = #progrmFileNm#
 		]]>
 	</delete>
 	

@@ -17,39 +17,44 @@
 	
 	<insert id="comtnindvdlpgecntntsDAO.insertComtnindvdlpgecntnts_S">
 		<![CDATA[
-			INSERT INTO comtnindvdlpgecntnts 
-				( CNTNTS_ID
-				  , cntnts_nm
-				  , cntc_url
-				  , cntnts_use_at
-				  , cntnts_link_url
-				  , cntnts_dc )
-			VALUES ( #cntntsId#
-				  , #cntntsNm#
-				  , #cntcUrl#
-				  , #cntntsUseAt#
-				  , #cntntsLinkUrl#
-				  , #cntntsDc# )
+            INSERT INTO comtnindvdlpgecntnts (
+                cntnts_id
+                , cntnts_nm
+                , cntc_url
+                , cntnts_use_at
+                , cntnts_link_url
+                , cntnts_dc
+            ) VALUES (
+                #cntntsId#
+                , #cntntsNm#
+                , #cntcUrl#
+                , #cntntsUseAt#
+                , #cntntsLinkUrl#
+                , #cntntsDc#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnindvdlpgecntntsDAO.updateComtnindvdlpgecntnts_S">
 		<![CDATA[
-			UPDATE comtnindvdlpgecntnts
-			SET cntnts_id = #cntntsId#
-				, cntnts_nm = #cntntsNm#
-				, cntc_url = #cntcUrl#
-				, cntnts_use_at = #cntntsUseAt#
-				, cntnts_link_url = #cntntsLinkUrl#
-				, cntnts_dc = #cntntsDc#
-			WHERE cntnts_id = #cntntsId#
+            UPDATE comtnindvdlpgecntnts
+                SET
+                cntnts_id = #cntntsId#
+                , cntnts_nm = #cntntsNm#
+                , cntc_url = #cntcUrl#
+                , cntnts_use_at = #cntntsUseAt#
+                , cntnts_link_url = #cntntsLinkUrl#
+                , cntnts_dc = #cntntsDc#
+                WHERE 1 = 1
+                AND cntnts_id = #cntntsId#
 		]]>
 	</update>
 	
 	<delete id="comtnindvdlpgecntntsDAO.deleteComtnindvdlpgecntnts_S">
 		<![CDATA[
-			DELETE FROM comtnindvdlpgecntnts 
-			WHERE cntnts_id = #cntntsId#
+			DELETE FROM comtnindvdlpgecntnts
+				WHERE 1 = 1
+				AND cntnts_id = #cntntsId#
 		]]>
 	</delete>
 	

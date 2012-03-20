@@ -17,39 +17,38 @@
 	
 	<insert id="comtnuserabsnceDAO.insertComtnuserabsnce_S">
 		<![CDATA[
-			INSERT INTO comtnuserabsnce 
-				( EMPLYR_ID
-				  , user_absnce_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #emplyrId#
-				  , #userAbsnceAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnuserabsnce (
+                emplyr_id
+                , user_absnce_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #emplyrId#
+                , #userAbsnceAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnuserabsnceDAO.updateComtnuserabsnce_S">
 		<![CDATA[
-			UPDATE comtnuserabsnce
-			SET emplyr_id = #emplyrId#
-				, user_absnce_at = #userAbsnceAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE emplyr_id = #emplyrId#
+            UPDATE comtnuserabsnce
+                SET
+                emplyr_id = #emplyrId#
+                , user_absnce_at = #userAbsnceAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND emplyr_id = #emplyrId#
 		]]>
 	</update>
 	
 	<delete id="comtnuserabsnceDAO.deleteComtnuserabsnce_S">
 		<![CDATA[
-			DELETE FROM comtnuserabsnce 
-			WHERE emplyr_id = #emplyrId#
+			DELETE FROM comtnuserabsnce
+				WHERE 1 = 1
+				AND emplyr_id = #emplyrId#
 		]]>
 	</delete>
 	

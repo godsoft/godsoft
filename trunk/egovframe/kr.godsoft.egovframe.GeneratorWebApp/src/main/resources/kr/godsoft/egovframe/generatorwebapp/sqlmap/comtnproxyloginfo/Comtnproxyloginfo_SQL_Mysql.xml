@@ -20,49 +20,48 @@
 	
 	<insert id="comtnproxyloginfoDAO.insertComtnproxyloginfo_S">
 		<![CDATA[
-			INSERT INTO comtnproxyloginfo 
-				( PROXY_ID
-				  , clnt_ip
-				  , clnt_port
-				  , conect_time
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , log_id )
-			VALUES ( #proxyId#
-				  , #clntIp#
-				  , #clntPort#
-				  , #conectTime#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #logId# )
+            INSERT INTO comtnproxyloginfo (
+                proxy_id
+                , clnt_ip
+                , clnt_port
+                , conect_time
+                , frst_register_id
+                , frst_regist_pnttm
+                , log_id
+            ) VALUES (
+                #proxyId#
+                , #clntIp#
+                , #clntPort#
+                , #conectTime#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #logId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnproxyloginfoDAO.updateComtnproxyloginfo_S">
 		<![CDATA[
-			UPDATE comtnproxyloginfo
-			SET proxy_id = #proxyId#
-				, clnt_ip = #clntIp#
-				, clnt_port = #clntPort#
-				, conect_time = #conectTime#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, log_id = #logId#
-			WHERE proxy_id = #proxyId#
-				AND log_id = #logId#
+            UPDATE comtnproxyloginfo
+                SET
+                proxy_id = #proxyId#
+                , clnt_ip = #clntIp#
+                , clnt_port = #clntPort#
+                , conect_time = #conectTime#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , log_id = #logId#
+                WHERE 1 = 1
+                AND proxy_id = #proxyId#
+                AND log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comtnproxyloginfoDAO.deleteComtnproxyloginfo_S">
 		<![CDATA[
-			DELETE FROM comtnproxyloginfo 
-			WHERE proxy_id = #proxyId#
+			DELETE FROM comtnproxyloginfo
+				WHERE 1 = 1
+				AND proxy_id = #proxyId#
 				AND log_id = #logId#
 		]]>
 	</delete>

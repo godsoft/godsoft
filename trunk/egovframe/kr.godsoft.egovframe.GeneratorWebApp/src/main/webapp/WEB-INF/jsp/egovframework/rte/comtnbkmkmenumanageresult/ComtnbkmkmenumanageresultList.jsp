@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnbkmkmenumanageresult 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -50,7 +50,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="menuId" />
 	<input type="hidden" name="emplyrId" />
 <div id="content_pop">
@@ -71,16 +71,16 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">MenuId</th>
-								<th align="center">EmplyrId</th>
-								<th align="center">MenuNm</th>
-								<th align="center">ProgrmStrePath</th>
+								<th align="center">menu_id</th>
+								<th align="center">emplyr_id</th>
+								<th align="center">menu_nm</th>
+								<th align="center">progrm_stre_path</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																							
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.menuId}"/>, <c:out value="{D}{result.emplyrId}"/>')"><c:out value="${result.menuId}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.menuId}"/>, <c:out value="{D}{result.emplyrId}"/>')"><c:out value="${result.emplyrId}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.menuId}"/>', '<c:out value="${result.emplyrId}"/>')"><c:out value="${result.menuId}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.menuId}"/>', '<c:out value="${result.emplyrId}"/>')"><c:out value="${result.emplyrId}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.menuNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.progrmStrePath}"/>&nbsp;</td>
 											</tr>

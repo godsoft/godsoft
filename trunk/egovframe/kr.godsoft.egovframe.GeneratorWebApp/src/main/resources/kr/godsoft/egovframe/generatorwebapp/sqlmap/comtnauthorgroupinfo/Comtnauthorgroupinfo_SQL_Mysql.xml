@@ -15,33 +15,38 @@
 	
 	<insert id="comtnauthorgroupinfoDAO.insertComtnauthorgroupinfo_S">
 		<![CDATA[
-			INSERT INTO comtnauthorgroupinfo 
-				( GROUP_ID
-				  , group_nm
-				  , group_creat_de
-				  , group_dc )
-			VALUES ( #groupId#
-				  , #groupNm#
-				  , #groupCreatDe#
-				  , #groupDc# )
+            INSERT INTO comtnauthorgroupinfo (
+                group_id
+                , group_nm
+                , group_creat_de
+                , group_dc
+            ) VALUES (
+                #groupId#
+                , #groupNm#
+                , #groupCreatDe#
+                , #groupDc#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnauthorgroupinfoDAO.updateComtnauthorgroupinfo_S">
 		<![CDATA[
-			UPDATE comtnauthorgroupinfo
-			SET group_id = #groupId#
-				, group_nm = #groupNm#
-				, group_creat_de = #groupCreatDe#
-				, group_dc = #groupDc#
-			WHERE group_id = #groupId#
+            UPDATE comtnauthorgroupinfo
+                SET
+                group_id = #groupId#
+                , group_nm = #groupNm#
+                , group_creat_de = #groupCreatDe#
+                , group_dc = #groupDc#
+                WHERE 1 = 1
+                AND group_id = #groupId#
 		]]>
 	</update>
 	
 	<delete id="comtnauthorgroupinfoDAO.deleteComtnauthorgroupinfo_S">
 		<![CDATA[
-			DELETE FROM comtnauthorgroupinfo 
-			WHERE group_id = #groupId#
+			DELETE FROM comtnauthorgroupinfo
+				WHERE 1 = 1
+				AND group_id = #groupId#
 		]]>
 	</delete>
 	

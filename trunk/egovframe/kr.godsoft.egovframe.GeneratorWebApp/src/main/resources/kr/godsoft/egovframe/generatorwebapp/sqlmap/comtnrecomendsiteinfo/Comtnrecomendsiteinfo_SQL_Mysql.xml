@@ -22,54 +22,53 @@
 	
 	<insert id="comtnrecomendsiteinfoDAO.insertComtnrecomendsiteinfo_S">
 		<![CDATA[
-			INSERT INTO comtnrecomendsiteinfo 
-				( RECOMEND_SITE_ID
-				  , recomend_site_nm
-				  , recomend_site_url
-				  , recomend_site_dc
-				  , recomend_resn_cn
-				  , recomend_confm_at
-				  , confm_de
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #recomendSiteId#
-				  , #recomendSiteNm#
-				  , #recomendSiteUrl#
-				  , #recomendSiteDc#
-				  , #recomendResnCn#
-				  , #recomendConfmAt#
-				  , #confmDe#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnrecomendsiteinfo (
+                recomend_site_id
+                , recomend_site_nm
+                , recomend_site_url
+                , recomend_site_dc
+                , recomend_resn_cn
+                , recomend_confm_at
+                , confm_de
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #recomendSiteId#
+                , #recomendSiteNm#
+                , #recomendSiteUrl#
+                , #recomendSiteDc#
+                , #recomendResnCn#
+                , #recomendConfmAt#
+                , #confmDe#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnrecomendsiteinfoDAO.updateComtnrecomendsiteinfo_S">
 		<![CDATA[
-			UPDATE comtnrecomendsiteinfo
-			SET recomend_site_id = #recomendSiteId#
-				, recomend_site_nm = #recomendSiteNm#
-				, recomend_site_url = #recomendSiteUrl#
-				, recomend_site_dc = #recomendSiteDc#
-				, recomend_resn_cn = #recomendResnCn#
-				, recomend_confm_at = #recomendConfmAt#
-				, confm_de = #confmDe#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE recomend_site_id = #recomendSiteId#
+            UPDATE comtnrecomendsiteinfo
+                SET
+                recomend_site_id = #recomendSiteId#
+                , recomend_site_nm = #recomendSiteNm#
+                , recomend_site_url = #recomendSiteUrl#
+                , recomend_site_dc = #recomendSiteDc#
+                , recomend_resn_cn = #recomendResnCn#
+                , recomend_confm_at = #recomendConfmAt#
+                , confm_de = #confmDe#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND recomend_site_id = #recomendSiteId#
 		]]>
 	</update>
 	
 	<delete id="comtnrecomendsiteinfoDAO.deleteComtnrecomendsiteinfo_S">
 		<![CDATA[
-			DELETE FROM comtnrecomendsiteinfo 
-			WHERE recomend_site_id = #recomendSiteId#
+			DELETE FROM comtnrecomendsiteinfo
+				WHERE 1 = 1
+				AND recomend_site_id = #recomendSiteId#
 		]]>
 	</delete>
 	

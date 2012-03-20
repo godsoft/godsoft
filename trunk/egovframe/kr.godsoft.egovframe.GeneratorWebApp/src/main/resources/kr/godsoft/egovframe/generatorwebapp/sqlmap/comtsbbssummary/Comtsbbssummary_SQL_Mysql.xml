@@ -20,50 +20,55 @@
 	
 	<insert id="comtsbbssummaryDAO.insertComtsbbssummary_S">
 		<![CDATA[
-			INSERT INTO comtsbbssummary 
-				( OCCRRNC_DE
-				  , stats_se
-				  , detail_stats_se
-				  , creat_co
-				  , tot_rdcnt
-				  , avrg_rdcnt
-				  , top_inqire_bbsctt_id
-				  , mumm_inqire_bbsctt_id
-				  , top_ntcr_id )
-			VALUES ( #occrrncDe#
-				  , #statsSe#
-				  , #detailStatsSe#
-				  , #creatCo#
-				  , #totRdcnt#
-				  , #avrgRdcnt#
-				  , #topInqireBbscttId#
-				  , #mummInqireBbscttId#
-				  , #topNtcrId# )
+            INSERT INTO comtsbbssummary (
+                occrrnc_de
+                , stats_se
+                , detail_stats_se
+                , creat_co
+                , tot_rdcnt
+                , avrg_rdcnt
+                , top_inqire_bbsctt_id
+                , mumm_inqire_bbsctt_id
+                , top_ntcr_id
+            ) VALUES (
+                #occrrncDe#
+                , #statsSe#
+                , #detailStatsSe#
+                , #creatCo#
+                , #totRdcnt#
+                , #avrgRdcnt#
+                , #topInqireBbscttId#
+                , #mummInqireBbscttId#
+                , #topNtcrId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtsbbssummaryDAO.updateComtsbbssummary_S">
 		<![CDATA[
-			UPDATE comtsbbssummary
-			SET occrrnc_de = #occrrncDe#
-				, stats_se = #statsSe#
-				, detail_stats_se = #detailStatsSe#
-				, creat_co = #creatCo#
-				, tot_rdcnt = #totRdcnt#
-				, avrg_rdcnt = #avrgRdcnt#
-				, top_inqire_bbsctt_id = #topInqireBbscttId#
-				, mumm_inqire_bbsctt_id = #mummInqireBbscttId#
-				, top_ntcr_id = #topNtcrId#
-			WHERE occrrnc_de = #occrrncDe#
-				AND stats_se = #statsSe#
-				AND detail_stats_se = #detailStatsSe#
+            UPDATE comtsbbssummary
+                SET
+                occrrnc_de = #occrrncDe#
+                , stats_se = #statsSe#
+                , detail_stats_se = #detailStatsSe#
+                , creat_co = #creatCo#
+                , tot_rdcnt = #totRdcnt#
+                , avrg_rdcnt = #avrgRdcnt#
+                , top_inqire_bbsctt_id = #topInqireBbscttId#
+                , mumm_inqire_bbsctt_id = #mummInqireBbscttId#
+                , top_ntcr_id = #topNtcrId#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND stats_se = #statsSe#
+                AND detail_stats_se = #detailStatsSe#
 		]]>
 	</update>
 	
 	<delete id="comtsbbssummaryDAO.deleteComtsbbssummary_S">
 		<![CDATA[
-			DELETE FROM comtsbbssummary 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtsbbssummary
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND stats_se = #statsSe#
 				AND detail_stats_se = #detailStatsSe#
 		]]>

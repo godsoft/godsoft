@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtninsttcoderecptnlogVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtninsttcoderecptnlogVO.occrrncDe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtninsttcoderecptnlogVO.insttCode ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtninsttcoderecptnlogVO.opertSn ? '등록' : '수정'}"/>
+<title>comtninsttcoderecptnlog <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +61,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtninsttcoderecptnlogVO" name="detailForm">
+<form:form commandName="comtninsttcoderecptnlogVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,19 +79,19 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>OCCRRNC_DE *</th>
+			<th>occrrnc_de *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>INSTT_CODE *</th>
+			<th>instt_code *</th>
 			<td>
 				<form:input path="insttCode" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>OPERT_SN *</th>
+			<th>opert_sn *</th>
 			<td>
 				<form:input path="opertSn" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -97,19 +99,19 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>OCCRRNC_DE *</th>
+			<th>occrrnc_de *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>INSTT_CODE *</th>
+			<th>instt_code *</th>
 			<td>
 				<form:input path="insttCode" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>OPERT_SN *</th>
+			<th>opert_sn *</th>
 			<td>
 				<form:input path="opertSn" cssClass="txt" readonly="false" />
 			</td>			
@@ -117,196 +119,196 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>CHANGE_SE_CODE</th>
+			<th>change_se_code</th>
 			<td>
 				<form:input path="changeSeCode" cssClass="txt"/>
 				&nbsp;<form:errors path="changeSeCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PROCESS_SE</th>
+			<th>process_se</th>
 			<td>
 				<form:input path="processSe" cssClass="txt"/>
 				&nbsp;<form:errors path="processSe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ETC_CODE</th>
+			<th>etc_code</th>
 			<td>
 				<form:input path="etcCode" cssClass="txt"/>
 				&nbsp;<form:errors path="etcCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ALL_INSTT_NM</th>
+			<th>all_instt_nm</th>
 			<td>
 				<form:input path="allInsttNm" cssClass="txt"/>
 				&nbsp;<form:errors path="allInsttNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LOWEST_INSTT_NM</th>
+			<th>lowest_instt_nm</th>
 			<td>
 				<form:input path="lowestInsttNm" cssClass="txt"/>
 				&nbsp;<form:errors path="lowestInsttNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INSTT_ABRV_NM</th>
+			<th>instt_abrv_nm</th>
 			<td>
 				<form:input path="insttAbrvNm" cssClass="txt"/>
 				&nbsp;<form:errors path="insttAbrvNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ODR</th>
+			<th>odr</th>
 			<td>
 				<form:input path="odr" cssClass="txt"/>
 				&nbsp;<form:errors path="odr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ORD</th>
+			<th>ord</th>
 			<td>
 				<form:input path="ord" cssClass="txt"/>
 				&nbsp;<form:errors path="ord" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INSTT_ODR</th>
+			<th>instt_odr</th>
 			<td>
 				<form:input path="insttOdr" cssClass="txt"/>
 				&nbsp;<form:errors path="insttOdr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>UPPER_INSTT_CODE</th>
+			<th>upper_instt_code</th>
 			<td>
 				<form:input path="upperInsttCode" cssClass="txt"/>
 				&nbsp;<form:errors path="upperInsttCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BEST_INSTT_CODE</th>
+			<th>best_instt_code</th>
 			<td>
 				<form:input path="bestInsttCode" cssClass="txt"/>
 				&nbsp;<form:errors path="bestInsttCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>REPRSNT_INSTT_CODE</th>
+			<th>reprsnt_instt_code</th>
 			<td>
 				<form:input path="reprsntInsttCode" cssClass="txt"/>
 				&nbsp;<form:errors path="reprsntInsttCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INSTT_TY_LCLAS</th>
+			<th>instt_ty_lclas</th>
 			<td>
 				<form:input path="insttTyLclas" cssClass="txt"/>
 				&nbsp;<form:errors path="insttTyLclas" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INSTT_TY_MLSFC</th>
+			<th>instt_ty_mlsfc</th>
 			<td>
 				<form:input path="insttTyMlsfc" cssClass="txt"/>
 				&nbsp;<form:errors path="insttTyMlsfc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INSTT_TY_SCLAS</th>
+			<th>instt_ty_sclas</th>
 			<td>
 				<form:input path="insttTySclas" cssClass="txt"/>
 				&nbsp;<form:errors path="insttTySclas" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TELNO</th>
+			<th>telno</th>
 			<td>
 				<form:input path="telno" cssClass="txt"/>
 				&nbsp;<form:errors path="telno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FXNUM</th>
+			<th>fxnum</th>
 			<td>
 				<form:input path="fxnum" cssClass="txt"/>
 				&nbsp;<form:errors path="fxnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CREAT_DE</th>
+			<th>creat_de</th>
 			<td>
 				<form:input path="creatDe" cssClass="txt"/>
 				&nbsp;<form:errors path="creatDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ABL_DE</th>
+			<th>abl_de</th>
 			<td>
 				<form:input path="ablDe" cssClass="txt"/>
 				&nbsp;<form:errors path="ablDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ABL_ENNC</th>
+			<th>abl_ennc</th>
 			<td>
 				<form:input path="ablEnnc" cssClass="txt"/>
 				&nbsp;<form:errors path="ablEnnc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CHANGE_DE</th>
+			<th>change_de</th>
 			<td>
 				<form:input path="changeDe" cssClass="txt"/>
 				&nbsp;<form:errors path="changeDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CHANGE_TIME</th>
+			<th>change_time</th>
 			<td>
 				<form:input path="changeTime" cssClass="txt"/>
 				&nbsp;<form:errors path="changeTime" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BSIS_DE</th>
+			<th>bsis_de</th>
 			<td>
 				<form:input path="bsisDe" cssClass="txt"/>
 				&nbsp;<form:errors path="bsisDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SORT_ORDR</th>
+			<th>sort_ordr</th>
 			<td>
 				<form:input path="sortOrdr" cssClass="txt"/>
 				&nbsp;<form:errors path="sortOrdr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

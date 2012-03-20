@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnmtgplaceresveVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnmtgplaceresveVO.resveId ? '등록' : '수정'}"/>
+<title>comtnmtgplaceresve <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnmtgplaceresveVO" name="detailForm">
+<form:form commandName="comtnmtgplaceresveVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>RESVE_ID *</th>
+			<th>resve_id *</th>
 			<td>
 				<form:input path="resveId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>RESVE_ID *</th>
+			<th>resve_id *</th>
 			<td>
 				<form:input path="resveId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,84 +93,84 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>MTGRUM_ID</th>
+			<th>mtgrum_id</th>
 			<td>
 				<form:input path="mtgrumId" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgrumId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_SJ</th>
+			<th>mtg_sj</th>
 			<td>
 				<form:input path="mtgSj" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgSj" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RSVCTM_ID</th>
+			<th>rsvctm_id</th>
 			<td>
 				<form:input path="rsvctmId" cssClass="txt"/>
 				&nbsp;<form:errors path="rsvctmId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RESVE_DE</th>
+			<th>resve_de</th>
 			<td>
 				<form:input path="resveDe" cssClass="txt"/>
 				&nbsp;<form:errors path="resveDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RESVE_BEGIN_TM</th>
+			<th>resve_begin_tm</th>
 			<td>
 				<form:input path="resveBeginTm" cssClass="txt"/>
 				&nbsp;<form:errors path="resveBeginTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RESVE_END_TM</th>
+			<th>resve_end_tm</th>
 			<td>
 				<form:input path="resveEndTm" cssClass="txt"/>
 				&nbsp;<form:errors path="resveEndTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ATNDNC_NMPR</th>
+			<th>atndnc_nmpr</th>
 			<td>
 				<form:input path="atndncNmpr" cssClass="txt"/>
 				&nbsp;<form:errors path="atndncNmpr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_CN</th>
+			<th>mtg_cn</th>
 			<td>
 				<form:input path="mtgCn" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

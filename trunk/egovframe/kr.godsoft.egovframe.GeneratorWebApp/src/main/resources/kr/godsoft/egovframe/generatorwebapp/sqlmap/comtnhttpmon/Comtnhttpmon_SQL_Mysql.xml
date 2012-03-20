@@ -22,54 +22,53 @@
 	
 	<insert id="comtnhttpmonDAO.insertComtnhttpmon_S">
 		<![CDATA[
-			INSERT INTO comtnhttpmon 
-				( SYS_ID
-				  , site_url
-				  , websvc_knd
-				  , http_sttus_code
-				  , creat_dt
-				  , mngr_nm
-				  , mngr_email_adres
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #sysId#
-				  , #siteUrl#
-				  , #websvcKnd#
-				  , #httpSttusCode#
-				  , #creatDt#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnhttpmon (
+                sys_id
+                , site_url
+                , websvc_knd
+                , http_sttus_code
+                , creat_dt
+                , mngr_nm
+                , mngr_email_adres
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #sysId#
+                , #siteUrl#
+                , #websvcKnd#
+                , #httpSttusCode#
+                , #creatDt#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnhttpmonDAO.updateComtnhttpmon_S">
 		<![CDATA[
-			UPDATE comtnhttpmon
-			SET sys_id = #sysId#
-				, site_url = #siteUrl#
-				, websvc_knd = #websvcKnd#
-				, http_sttus_code = #httpSttusCode#
-				, creat_dt = #creatDt#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE sys_id = #sysId#
+            UPDATE comtnhttpmon
+                SET
+                sys_id = #sysId#
+                , site_url = #siteUrl#
+                , websvc_knd = #websvcKnd#
+                , http_sttus_code = #httpSttusCode#
+                , creat_dt = #creatDt#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND sys_id = #sysId#
 		]]>
 	</update>
 	
 	<delete id="comtnhttpmonDAO.deleteComtnhttpmon_S">
 		<![CDATA[
-			DELETE FROM comtnhttpmon 
-			WHERE sys_id = #sysId#
+			DELETE FROM comtnhttpmon
+				WHERE 1 = 1
+				AND sys_id = #sysId#
 		]]>
 	</delete>
 	

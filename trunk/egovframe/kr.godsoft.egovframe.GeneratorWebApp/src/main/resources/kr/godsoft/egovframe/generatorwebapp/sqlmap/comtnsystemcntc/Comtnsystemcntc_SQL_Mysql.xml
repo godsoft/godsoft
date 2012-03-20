@@ -27,69 +27,68 @@
 	
 	<insert id="comtnsystemcntcDAO.insertComtnsystemcntc_S">
 		<![CDATA[
-			INSERT INTO comtnsystemcntc 
-				( CNTC_ID
-				  , cntc_nm
-				  , provd_instt_id
-				  , provd_sys_id
-				  , provd_svc_id
-				  , requst_instt_id
-				  , requst_sys_id
-				  , confm_at
-				  , use_at
-				  , valid_bgnde
-				  , valid_endde
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , cntc_ty )
-			VALUES ( #cntcId#
-				  , #cntcNm#
-				  , #provdInsttId#
-				  , #provdSysId#
-				  , #provdSvcId#
-				  , #requstInsttId#
-				  , #requstSysId#
-				  , #confmAt#
-				  , #useAt#
-				  , #validBgnde#
-				  , #validEndde#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #cntcTy# )
+            INSERT INTO comtnsystemcntc (
+                cntc_id
+                , cntc_nm
+                , provd_instt_id
+                , provd_sys_id
+                , provd_svc_id
+                , requst_instt_id
+                , requst_sys_id
+                , confm_at
+                , use_at
+                , valid_bgnde
+                , valid_endde
+                , frst_register_id
+                , frst_regist_pnttm
+                , cntc_ty
+            ) VALUES (
+                #cntcId#
+                , #cntcNm#
+                , #provdInsttId#
+                , #provdSysId#
+                , #provdSvcId#
+                , #requstInsttId#
+                , #requstSysId#
+                , #confmAt#
+                , #useAt#
+                , #validBgnde#
+                , #validEndde#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #cntcTy#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsystemcntcDAO.updateComtnsystemcntc_S">
 		<![CDATA[
-			UPDATE comtnsystemcntc
-			SET cntc_id = #cntcId#
-				, cntc_nm = #cntcNm#
-				, provd_instt_id = #provdInsttId#
-				, provd_sys_id = #provdSysId#
-				, provd_svc_id = #provdSvcId#
-				, requst_instt_id = #requstInsttId#
-				, requst_sys_id = #requstSysId#
-				, confm_at = #confmAt#
-				, use_at = #useAt#
-				, valid_bgnde = #validBgnde#
-				, valid_endde = #validEndde#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, cntc_ty = #cntcTy#
-			WHERE cntc_id = #cntcId#
+            UPDATE comtnsystemcntc
+                SET
+                cntc_id = #cntcId#
+                , cntc_nm = #cntcNm#
+                , provd_instt_id = #provdInsttId#
+                , provd_sys_id = #provdSysId#
+                , provd_svc_id = #provdSvcId#
+                , requst_instt_id = #requstInsttId#
+                , requst_sys_id = #requstSysId#
+                , confm_at = #confmAt#
+                , use_at = #useAt#
+                , valid_bgnde = #validBgnde#
+                , valid_endde = #validEndde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , cntc_ty = #cntcTy#
+                WHERE 1 = 1
+                AND cntc_id = #cntcId#
 		]]>
 	</update>
 	
 	<delete id="comtnsystemcntcDAO.deleteComtnsystemcntc_S">
 		<![CDATA[
-			DELETE FROM comtnsystemcntc 
-			WHERE cntc_id = #cntcId#
+			DELETE FROM comtnsystemcntc
+				WHERE 1 = 1
+				AND cntc_id = #cntcId#
 		]]>
 	</delete>
 	

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtntroblinfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="troblId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -80,21 +80,21 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">TroblId</th>
-								<th align="center">TroblNm</th>
-								<th align="center">TroblKnd</th>
-								<th align="center">TroblDc</th>
-								<th align="center">TroblOccrrncTime</th>
-								<th align="center">TroblRqesterNm</th>
-								<th align="center">TroblRequstTime</th>
-								<th align="center">TroblProcessResult</th>
-								<th align="center">TroblOpetrNm</th>
-								<th align="center">TroblProcessTime</th>
-								<th align="center">ProcessSttus</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">LastUpdtPnttm</th>
+								<th align="center">trobl_id</th>
+								<th align="center">trobl_nm</th>
+								<th align="center">trobl_knd</th>
+								<th align="center">trobl_dc</th>
+								<th align="center">trobl_occrrnc_time</th>
+								<th align="center">trobl_rqester_nm</th>
+								<th align="center">trobl_requst_time</th>
+								<th align="center">trobl_process_result</th>
+								<th align="center">trobl_opetr_nm</th>
+								<th align="center">trobl_process_time</th>
+								<th align="center">process_sttus</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">last_updt_pnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

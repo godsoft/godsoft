@@ -23,57 +23,56 @@
 	
 	<insert id="comtnbatchresultDAO.insertComtnbatchresult_S">
 		<![CDATA[
-			INSERT INTO comtnbatchresult 
-				( BATCH_RESULT_ID
-				  , batch_schdul_id
-				  , batch_opert_id
-				  , paramtr
-				  , sttus
-				  , error_info
-				  , execut_begin_tm
-				  , execut_end_tm
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , frst_regist_pnttm
-				  , frst_register_id )
-			VALUES ( #batchResultId#
-				  , #batchSchdulId#
-				  , #batchOpertId#
-				  , #paramtr#
-				  , #sttus#
-				  , #errorInfo#
-				  , #executBeginTm#
-				  , #executEndTm#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId# )
+            INSERT INTO comtnbatchresult (
+                batch_result_id
+                , batch_schdul_id
+                , batch_opert_id
+                , paramtr
+                , sttus
+                , error_info
+                , execut_begin_tm
+                , execut_end_tm
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #batchResultId#
+                , #batchSchdulId#
+                , #batchOpertId#
+                , #paramtr#
+                , #sttus#
+                , #errorInfo#
+                , #executBeginTm#
+                , #executEndTm#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbatchresultDAO.updateComtnbatchresult_S">
 		<![CDATA[
-			UPDATE comtnbatchresult
-			SET batch_result_id = #batchResultId#
-				, batch_schdul_id = #batchSchdulId#
-				, batch_opert_id = #batchOpertId#
-				, paramtr = #paramtr#
-				, sttus = #sttus#
-				, error_info = #errorInfo#
-				, execut_begin_tm = #executBeginTm#
-				, execut_end_tm = #executEndTm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-			WHERE batch_result_id = #batchResultId#
+            UPDATE comtnbatchresult
+                SET
+                batch_result_id = #batchResultId#
+                , batch_schdul_id = #batchSchdulId#
+                , batch_opert_id = #batchOpertId#
+                , paramtr = #paramtr#
+                , sttus = #sttus#
+                , error_info = #errorInfo#
+                , execut_begin_tm = #executBeginTm#
+                , execut_end_tm = #executEndTm#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND batch_result_id = #batchResultId#
 		]]>
 	</update>
 	
 	<delete id="comtnbatchresultDAO.deleteComtnbatchresult_S">
 		<![CDATA[
-			DELETE FROM comtnbatchresult 
-			WHERE batch_result_id = #batchResultId#
+			DELETE FROM comtnbatchresult
+				WHERE 1 = 1
+				AND batch_result_id = #batchResultId#
 		]]>
 	</delete>
 	

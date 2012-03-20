@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnentrprsmber 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="entrprsMberId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -89,30 +89,30 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">EntrprsMberId</th>
-								<th align="center">EntrprsSeCode</th>
-								<th align="center">Bizrno</th>
-								<th align="center">Jurirno</th>
-								<th align="center">CmpnyNm</th>
-								<th align="center">Cxfc</th>
-								<th align="center">Zip</th>
-								<th align="center">Adres</th>
-								<th align="center">EntrprsMiddleTelno</th>
-								<th align="center">Fxnum</th>
-								<th align="center">IndutyCode</th>
-								<th align="center">ApplcntNm</th>
-								<th align="center">ApplcntIhidnum</th>
-								<th align="center">SbscrbDe</th>
-								<th align="center">EntrprsMberSttus</th>
-								<th align="center">EntrprsMberPassword</th>
-								<th align="center">EntrprsMberPasswordHint</th>
-								<th align="center">EntrprsMberPasswordCnsr</th>
-								<th align="center">GroupId</th>
-								<th align="center">DetailAdres</th>
-								<th align="center">EntrprsEndTelno</th>
-								<th align="center">AreaNo</th>
-								<th align="center">ApplcntEmailAdres</th>
-								<th align="center">EsntlId</th>
+								<th align="center">entrprs_mber_id</th>
+								<th align="center">entrprs_se_code</th>
+								<th align="center">bizrno</th>
+								<th align="center">jurirno</th>
+								<th align="center">cmpny_nm</th>
+								<th align="center">cxfc</th>
+								<th align="center">zip</th>
+								<th align="center">adres</th>
+								<th align="center">entrprs_middle_telno</th>
+								<th align="center">fxnum</th>
+								<th align="center">induty_code</th>
+								<th align="center">applcnt_nm</th>
+								<th align="center">applcnt_ihidnum</th>
+								<th align="center">sbscrb_de</th>
+								<th align="center">entrprs_mber_sttus</th>
+								<th align="center">entrprs_mber_password</th>
+								<th align="center">entrprs_mber_password_hint</th>
+								<th align="center">entrprs_mber_password_cnsr</th>
+								<th align="center">group_id</th>
+								<th align="center">detail_adres</th>
+								<th align="center">entrprs_end_telno</th>
+								<th align="center">area_no</th>
+								<th align="center">applcnt_email_adres</th>
+								<th align="center">esntl_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

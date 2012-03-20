@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnmtgplaceresve 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="resveId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -78,19 +78,19 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">ResveId</th>
-								<th align="center">MtgrumId</th>
-								<th align="center">MtgSj</th>
-								<th align="center">RsvctmId</th>
-								<th align="center">ResveDe</th>
-								<th align="center">ResveBeginTm</th>
-								<th align="center">ResveEndTm</th>
-								<th align="center">AtndncNmpr</th>
-								<th align="center">MtgCn</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">LastUpdtPnttm</th>
+								<th align="center">resve_id</th>
+								<th align="center">mtgrum_id</th>
+								<th align="center">mtg_sj</th>
+								<th align="center">rsvctm_id</th>
+								<th align="center">resve_de</th>
+								<th align="center">resve_begin_tm</th>
+								<th align="center">resve_end_tm</th>
+								<th align="center">atndnc_nmpr</th>
+								<th align="center">mtg_cn</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">last_updt_pnttm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

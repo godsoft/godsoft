@@ -20,50 +20,55 @@
 	
 	<insert id="comtssyslogsummaryDAO.insertComtssyslogsummary_S">
 		<![CDATA[
-			INSERT INTO comtssyslogsummary 
-				( OCCRRNC_DE
-				  , svc_nm
-				  , method_nm
-				  , creat_co
-				  , updt_co
-				  , rdcnt
-				  , delete_co
-				  , outpt_co
-				  , error_co )
-			VALUES ( #occrrncDe#
-				  , #svcNm#
-				  , #methodNm#
-				  , #creatCo#
-				  , #updtCo#
-				  , #rdcnt#
-				  , #deleteCo#
-				  , #outptCo#
-				  , #errorCo# )
+            INSERT INTO comtssyslogsummary (
+                occrrnc_de
+                , svc_nm
+                , method_nm
+                , creat_co
+                , updt_co
+                , rdcnt
+                , delete_co
+                , outpt_co
+                , error_co
+            ) VALUES (
+                #occrrncDe#
+                , #svcNm#
+                , #methodNm#
+                , #creatCo#
+                , #updtCo#
+                , #rdcnt#
+                , #deleteCo#
+                , #outptCo#
+                , #errorCo#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtssyslogsummaryDAO.updateComtssyslogsummary_S">
 		<![CDATA[
-			UPDATE comtssyslogsummary
-			SET occrrnc_de = #occrrncDe#
-				, svc_nm = #svcNm#
-				, method_nm = #methodNm#
-				, creat_co = #creatCo#
-				, updt_co = #updtCo#
-				, rdcnt = #rdcnt#
-				, delete_co = #deleteCo#
-				, outpt_co = #outptCo#
-				, error_co = #errorCo#
-			WHERE occrrnc_de = #occrrncDe#
-				AND svc_nm = #svcNm#
-				AND method_nm = #methodNm#
+            UPDATE comtssyslogsummary
+                SET
+                occrrnc_de = #occrrncDe#
+                , svc_nm = #svcNm#
+                , method_nm = #methodNm#
+                , creat_co = #creatCo#
+                , updt_co = #updtCo#
+                , rdcnt = #rdcnt#
+                , delete_co = #deleteCo#
+                , outpt_co = #outptCo#
+                , error_co = #errorCo#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND svc_nm = #svcNm#
+                AND method_nm = #methodNm#
 		]]>
 	</update>
 	
 	<delete id="comtssyslogsummaryDAO.deleteComtssyslogsummary_S">
 		<![CDATA[
-			DELETE FROM comtssyslogsummary 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtssyslogsummary
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND svc_nm = #svcNm#
 				AND method_nm = #methodNm#
 		]]>

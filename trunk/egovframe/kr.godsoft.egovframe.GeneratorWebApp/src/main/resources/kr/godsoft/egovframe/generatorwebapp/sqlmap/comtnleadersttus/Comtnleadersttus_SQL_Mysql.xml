@@ -17,39 +17,38 @@
 	
 	<insert id="comtnleadersttusDAO.insertComtnleadersttus_S">
 		<![CDATA[
-			INSERT INTO comtnleadersttus 
-				( LEADER_ID
-				  , leader_sttus
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #leaderId#
-				  , #leaderSttus#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnleadersttus (
+                leader_id
+                , leader_sttus
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #leaderId#
+                , #leaderSttus#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnleadersttusDAO.updateComtnleadersttus_S">
 		<![CDATA[
-			UPDATE comtnleadersttus
-			SET leader_id = #leaderId#
-				, leader_sttus = #leaderSttus#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE leader_id = #leaderId#
+            UPDATE comtnleadersttus
+                SET
+                leader_id = #leaderId#
+                , leader_sttus = #leaderSttus#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND leader_id = #leaderId#
 		]]>
 	</update>
 	
 	<delete id="comtnleadersttusDAO.deleteComtnleadersttus_S">
 		<![CDATA[
-			DELETE FROM comtnleadersttus 
-			WHERE leader_id = #leaderId#
+			DELETE FROM comtnleadersttus
+				WHERE 1 = 1
+				AND leader_id = #leaderId#
 		]]>
 	</delete>
 	

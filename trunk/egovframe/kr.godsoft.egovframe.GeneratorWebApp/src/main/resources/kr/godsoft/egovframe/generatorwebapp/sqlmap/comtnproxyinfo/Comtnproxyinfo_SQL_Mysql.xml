@@ -24,60 +24,59 @@
 	
 	<insert id="comtnproxyinfoDAO.insertComtnproxyinfo_S">
 		<![CDATA[
-			INSERT INTO comtnproxyinfo 
-				( PROXY_ID
-				  , proxy_nm
-				  , proxy_ip
-				  , proxy_port
-				  , trget_svc_nm
-				  , svc_dc
-				  , svc_ip
-				  , svc_port
-				  , svc_sttus
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #proxyId#
-				  , #proxyNm#
-				  , #proxyIp#
-				  , #proxyPort#
-				  , #trgetSvcNm#
-				  , #svcDc#
-				  , #svcIp#
-				  , #svcPort#
-				  , #svcSttus#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnproxyinfo (
+                proxy_id
+                , proxy_nm
+                , proxy_ip
+                , proxy_port
+                , trget_svc_nm
+                , svc_dc
+                , svc_ip
+                , svc_port
+                , svc_sttus
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #proxyId#
+                , #proxyNm#
+                , #proxyIp#
+                , #proxyPort#
+                , #trgetSvcNm#
+                , #svcDc#
+                , #svcIp#
+                , #svcPort#
+                , #svcSttus#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnproxyinfoDAO.updateComtnproxyinfo_S">
 		<![CDATA[
-			UPDATE comtnproxyinfo
-			SET proxy_id = #proxyId#
-				, proxy_nm = #proxyNm#
-				, proxy_ip = #proxyIp#
-				, proxy_port = #proxyPort#
-				, trget_svc_nm = #trgetSvcNm#
-				, svc_dc = #svcDc#
-				, svc_ip = #svcIp#
-				, svc_port = #svcPort#
-				, svc_sttus = #svcSttus#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE proxy_id = #proxyId#
+            UPDATE comtnproxyinfo
+                SET
+                proxy_id = #proxyId#
+                , proxy_nm = #proxyNm#
+                , proxy_ip = #proxyIp#
+                , proxy_port = #proxyPort#
+                , trget_svc_nm = #trgetSvcNm#
+                , svc_dc = #svcDc#
+                , svc_ip = #svcIp#
+                , svc_port = #svcPort#
+                , svc_sttus = #svcSttus#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND proxy_id = #proxyId#
 		]]>
 	</update>
 	
 	<delete id="comtnproxyinfoDAO.deleteComtnproxyinfo_S">
 		<![CDATA[
-			DELETE FROM comtnproxyinfo 
-			WHERE proxy_id = #proxyId#
+			DELETE FROM comtnproxyinfo
+				WHERE 1 = 1
+				AND proxy_id = #proxyId#
 		]]>
 	</delete>
 	

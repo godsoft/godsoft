@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnncrdVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnncrdVO.ncrdId ? '등록' : '수정'}"/>
+<title>comtnncrd <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnncrdVO" name="detailForm">
+<form:form commandName="comtnncrdVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>NCRD_ID *</th>
+			<th>ncrd_id *</th>
 			<td>
 				<form:input path="ncrdId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>NCRD_ID *</th>
+			<th>ncrd_id *</th>
 			<td>
 				<form:input path="ncrdId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,175 +93,175 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>NCRD_TRGTER_ID</th>
+			<th>ncrd_trgter_id</th>
 			<td>
 				<form:input path="ncrdTrgterId" cssClass="txt"/>
 				&nbsp;<form:errors path="ncrdTrgterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>NM</th>
+			<th>nm</th>
 			<td>
 				<form:input path="nm" cssClass="txt"/>
 				&nbsp;<form:errors path="nm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TELNO</th>
+			<th>telno</th>
 			<td>
 				<form:input path="telno" cssClass="txt"/>
 				&nbsp;<form:errors path="telno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>NATION_NO</th>
+			<th>nation_no</th>
 			<td>
 				<form:input path="nationNo" cssClass="txt"/>
 				&nbsp;<form:errors path="nationNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>AREA_NO</th>
+			<th>area_no</th>
 			<td>
 				<form:input path="areaNo" cssClass="txt"/>
 				&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MIDDLE_TELNO</th>
+			<th>middle_telno</th>
 			<td>
 				<form:input path="middleTelno" cssClass="txt"/>
 				&nbsp;<form:errors path="middleTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>END_TELNO</th>
+			<th>end_telno</th>
 			<td>
 				<form:input path="endTelno" cssClass="txt"/>
 				&nbsp;<form:errors path="endTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MBTLNUM</th>
+			<th>mbtlnum</th>
 			<td>
 				<form:input path="mbtlnum" cssClass="txt"/>
 				&nbsp;<form:errors path="mbtlnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>IDNTFC_NO</th>
+			<th>idntfc_no</th>
 			<td>
 				<form:input path="idntfcNo" cssClass="txt"/>
 				&nbsp;<form:errors path="idntfcNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MIDDLE_MBTLNUM</th>
+			<th>middle_mbtlnum</th>
 			<td>
 				<form:input path="middleMbtlnum" cssClass="txt"/>
 				&nbsp;<form:errors path="middleMbtlnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>END_MBTLNUM</th>
+			<th>end_mbtlnum</th>
 			<td>
 				<form:input path="endMbtlnum" cssClass="txt"/>
 				&nbsp;<form:errors path="endMbtlnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>EMAIL_ADRES</th>
+			<th>email_adres</th>
 			<td>
 				<form:input path="emailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="emailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CMPNY_NM</th>
+			<th>cmpny_nm</th>
 			<td>
 				<form:input path="cmpnyNm" cssClass="txt"/>
 				&nbsp;<form:errors path="cmpnyNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DEPT_NM</th>
+			<th>dept_nm</th>
 			<td>
 				<form:input path="deptNm" cssClass="txt"/>
 				&nbsp;<form:errors path="deptNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ADRES</th>
+			<th>adres</th>
 			<td>
 				<form:input path="adres" cssClass="txt"/>
 				&nbsp;<form:errors path="adres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DETAIL_ADRES</th>
+			<th>detail_adres</th>
 			<td>
 				<form:input path="detailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="detailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OFCPS_NM</th>
+			<th>ofcps_nm</th>
 			<td>
 				<form:input path="ofcpsNm" cssClass="txt"/>
 				&nbsp;<form:errors path="ofcpsNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CLSF_NM</th>
+			<th>clsf_nm</th>
 			<td>
 				<form:input path="clsfNm" cssClass="txt"/>
 				&nbsp;<form:errors path="clsfNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>EXTRL_USER_AT</th>
+			<th>extrl_user_at</th>
 			<td>
 				<form:input path="extrlUserAt" cssClass="txt"/>
 				&nbsp;<form:errors path="extrlUserAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OTHBC_AT</th>
+			<th>othbc_at</th>
 			<td>
 				<form:input path="othbcAt" cssClass="txt"/>
 				&nbsp;<form:errors path="othbcAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RM</th>
+			<th>rm</th>
 			<td>
 				<form:input path="rm" cssClass="txt"/>
 				&nbsp;<form:errors path="rm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />

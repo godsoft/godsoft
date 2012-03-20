@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnbatchresult 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="batchResultId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -77,18 +77,18 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">BatchResultId</th>
-								<th align="center">BatchSchdulId</th>
-								<th align="center">BatchOpertId</th>
-								<th align="center">Paramtr</th>
-								<th align="center">Sttus</th>
-								<th align="center">ErrorInfo</th>
-								<th align="center">ExecutBeginTm</th>
-								<th align="center">ExecutEndTm</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
+								<th align="center">batch_result_id</th>
+								<th align="center">batch_schdul_id</th>
+								<th align="center">batch_opert_id</th>
+								<th align="center">paramtr</th>
+								<th align="center">sttus</th>
+								<th align="center">error_info</th>
+								<th align="center">execut_begin_tm</th>
+								<th align="center">execut_end_tm</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

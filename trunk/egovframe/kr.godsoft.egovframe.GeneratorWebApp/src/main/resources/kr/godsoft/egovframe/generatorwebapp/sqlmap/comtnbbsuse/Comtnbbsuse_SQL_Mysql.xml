@@ -19,46 +19,45 @@
 	
 	<insert id="comtnbbsuseDAO.insertComtnbbsuse_S">
 		<![CDATA[
-			INSERT INTO comtnbbsuse 
-				( BBS_ID
-				  , trget_id
-				  , use_at
-				  , regist_se_code
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #bbsId#
-				  , #trgetId#
-				  , #useAt#
-				  , #registSeCode#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnbbsuse (
+                bbs_id
+                , trget_id
+                , use_at
+                , regist_se_code
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #bbsId#
+                , #trgetId#
+                , #useAt#
+                , #registSeCode#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbbsuseDAO.updateComtnbbsuse_S">
 		<![CDATA[
-			UPDATE comtnbbsuse
-			SET bbs_id = #bbsId#
-				, trget_id = #trgetId#
-				, use_at = #useAt#
-				, regist_se_code = #registSeCode#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE bbs_id = #bbsId#
-				AND trget_id = #trgetId#
+            UPDATE comtnbbsuse
+                SET
+                bbs_id = #bbsId#
+                , trget_id = #trgetId#
+                , use_at = #useAt#
+                , regist_se_code = #registSeCode#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND bbs_id = #bbsId#
+                AND trget_id = #trgetId#
 		]]>
 	</update>
 	
 	<delete id="comtnbbsuseDAO.deleteComtnbbsuse_S">
 		<![CDATA[
-			DELETE FROM comtnbbsuse 
-			WHERE bbs_id = #bbsId#
+			DELETE FROM comtnbbsuse
+				WHERE 1 = 1
+				AND bbs_id = #bbsId#
 				AND trget_id = #trgetId#
 		]]>
 	</delete>

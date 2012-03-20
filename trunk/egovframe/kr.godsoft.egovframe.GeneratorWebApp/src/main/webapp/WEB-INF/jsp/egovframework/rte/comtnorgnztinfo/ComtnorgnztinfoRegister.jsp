@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnorgnztinfoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnorgnztinfoVO.orgnztId ? '등록' : '수정'}"/>
+<title>comtnorgnztinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnorgnztinfoVO" name="detailForm">
+<form:form commandName="comtnorgnztinfoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ORGNZT_ID *</th>
+			<th>orgnzt_id *</th>
 			<td>
 				<form:input path="orgnztId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ORGNZT_ID *</th>
+			<th>orgnzt_id *</th>
 			<td>
 				<form:input path="orgnztId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,14 +93,14 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>ORGNZT_NM</th>
+			<th>orgnzt_nm</th>
 			<td>
 				<form:input path="orgnztNm" cssClass="txt"/>
 				&nbsp;<form:errors path="orgnztNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ORGNZT_DC</th>
+			<th>orgnzt_dc</th>
 			<td>
 				<form:input path="orgnztDc" cssClass="txt"/>
 				&nbsp;<form:errors path="orgnztDc" />

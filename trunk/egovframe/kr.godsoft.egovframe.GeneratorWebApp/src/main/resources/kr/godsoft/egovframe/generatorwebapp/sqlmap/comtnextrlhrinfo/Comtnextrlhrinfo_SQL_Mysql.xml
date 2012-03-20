@@ -26,67 +26,66 @@
 	
 	<insert id="comtnextrlhrinfoDAO.insertComtnextrlhrinfo_S">
 		<![CDATA[
-			INSERT INTO comtnextrlhrinfo 
-				( EVENT_ID
-				  , extrl_hr_id
-				  , sexdstn_code
-				  , extrl_hr_nm
-				  , occp_ty_code
-				  , psitn_instt_nm
-				  , brthdy
-				  , area_no
-				  , middle_telno
-				  , end_telno
-				  , email_adres
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #eventId#
-				  , #extrlHrId#
-				  , #sexdstnCode#
-				  , #extrlHrNm#
-				  , #occpTyCode#
-				  , #psitnInsttNm#
-				  , #brthdy#
-				  , #areaNo#
-				  , #middleTelno#
-				  , #endTelno#
-				  , #emailAdres#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnextrlhrinfo (
+                event_id
+                , extrl_hr_id
+                , sexdstn_code
+                , extrl_hr_nm
+                , occp_ty_code
+                , psitn_instt_nm
+                , brthdy
+                , area_no
+                , middle_telno
+                , end_telno
+                , email_adres
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #eventId#
+                , #extrlHrId#
+                , #sexdstnCode#
+                , #extrlHrNm#
+                , #occpTyCode#
+                , #psitnInsttNm#
+                , #brthdy#
+                , #areaNo#
+                , #middleTelno#
+                , #endTelno#
+                , #emailAdres#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnextrlhrinfoDAO.updateComtnextrlhrinfo_S">
 		<![CDATA[
-			UPDATE comtnextrlhrinfo
-			SET event_id = #eventId#
-				, extrl_hr_id = #extrlHrId#
-				, sexdstn_code = #sexdstnCode#
-				, extrl_hr_nm = #extrlHrNm#
-				, occp_ty_code = #occpTyCode#
-				, psitn_instt_nm = #psitnInsttNm#
-				, brthdy = #brthdy#
-				, area_no = #areaNo#
-				, middle_telno = #middleTelno#
-				, end_telno = #endTelno#
-				, email_adres = #emailAdres#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE event_id = #eventId#
-				AND extrl_hr_id = #extrlHrId#
+            UPDATE comtnextrlhrinfo
+                SET
+                event_id = #eventId#
+                , extrl_hr_id = #extrlHrId#
+                , sexdstn_code = #sexdstnCode#
+                , extrl_hr_nm = #extrlHrNm#
+                , occp_ty_code = #occpTyCode#
+                , psitn_instt_nm = #psitnInsttNm#
+                , brthdy = #brthdy#
+                , area_no = #areaNo#
+                , middle_telno = #middleTelno#
+                , end_telno = #endTelno#
+                , email_adres = #emailAdres#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND event_id = #eventId#
+                AND extrl_hr_id = #extrlHrId#
 		]]>
 	</update>
 	
 	<delete id="comtnextrlhrinfoDAO.deleteComtnextrlhrinfo_S">
 		<![CDATA[
-			DELETE FROM comtnextrlhrinfo 
-			WHERE event_id = #eventId#
+			DELETE FROM comtnextrlhrinfo
+				WHERE 1 = 1
+				AND event_id = #eventId#
 				AND extrl_hr_id = #extrlHrId#
 		]]>
 	</delete>

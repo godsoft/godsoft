@@ -18,43 +18,42 @@
 	
 	<insert id="comtnbndtmanageDAO.insertComtnbndtmanage_S">
 		<![CDATA[
-			INSERT INTO comtnbndtmanage 
-				( BNDT_ID
-				  , bndt_de
-				  , rm
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #bndtId#
-				  , #bndtDe#
-				  , #rm#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnbndtmanage (
+                bndt_id
+                , bndt_de
+                , rm
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #bndtId#
+                , #bndtDe#
+                , #rm#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbndtmanageDAO.updateComtnbndtmanage_S">
 		<![CDATA[
-			UPDATE comtnbndtmanage
-			SET bndt_id = #bndtId#
-				, bndt_de = #bndtDe#
-				, rm = #rm#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE bndt_id = #bndtId#
-				AND bndt_de = #bndtDe#
+            UPDATE comtnbndtmanage
+                SET
+                bndt_id = #bndtId#
+                , bndt_de = #bndtDe#
+                , rm = #rm#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND bndt_id = #bndtId#
+                AND bndt_de = #bndtDe#
 		]]>
 	</update>
 	
 	<delete id="comtnbndtmanageDAO.deleteComtnbndtmanage_S">
 		<![CDATA[
-			DELETE FROM comtnbndtmanage 
-			WHERE bndt_id = #bndtId#
+			DELETE FROM comtnbndtmanage
+				WHERE 1 = 1
+				AND bndt_id = #bndtId#
 				AND bndt_de = #bndtDe#
 		]]>
 	</delete>

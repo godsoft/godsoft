@@ -15,34 +15,39 @@
 	
 	<insert id="imgtempDAO.insertImgtemp_S">
 		<![CDATA[
-			INSERT INTO imgtemp 
-				( ORGNZT_CODE
-				  , erncsl_se
-				  , image_info
-				  , image_ty )
-			VALUES ( #orgnztCode#
-				  , #erncslSe#
-				  , #imageInfo#
-				  , #imageTy# )
+            INSERT INTO imgtemp (
+                orgnzt_code
+                , erncsl_se
+                , image_info
+                , image_ty
+            ) VALUES (
+                #orgnztCode#
+                , #erncslSe#
+                , #imageInfo#
+                , #imageTy#
+            )
 		]]>
 	</insert>
 	
 	<update id="imgtempDAO.updateImgtemp_S">
 		<![CDATA[
-			UPDATE imgtemp
-			SET orgnzt_code = #orgnztCode#
-				, erncsl_se = #erncslSe#
-				, image_info = #imageInfo#
-				, image_ty = #imageTy#
-			WHERE orgnzt_code = #orgnztCode#
-				AND erncsl_se = #erncslSe#
+            UPDATE imgtemp
+                SET
+                orgnzt_code = #orgnztCode#
+                , erncsl_se = #erncslSe#
+                , image_info = #imageInfo#
+                , image_ty = #imageTy#
+                WHERE 1 = 1
+                AND orgnzt_code = #orgnztCode#
+                AND erncsl_se = #erncslSe#
 		]]>
 	</update>
 	
 	<delete id="imgtempDAO.deleteImgtemp_S">
 		<![CDATA[
-			DELETE FROM imgtemp 
-			WHERE orgnzt_code = #orgnztCode#
+			DELETE FROM imgtemp
+				WHERE 1 = 1
+				AND orgnzt_code = #orgnztCode#
 				AND erncsl_se = #erncslSe#
 		]]>
 	</delete>

@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-16
+ * @since 2012-03-20
  * @version 1.0
  * @see
  *  
@@ -35,7 +35,6 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  */
 
 @Controller
-@SessionAttributes(types=ComtnworddicaryinfoVO.class)
 public class ComtnworddicaryinfoController {
 
     @Resource(name = "comtnworddicaryinfoService")

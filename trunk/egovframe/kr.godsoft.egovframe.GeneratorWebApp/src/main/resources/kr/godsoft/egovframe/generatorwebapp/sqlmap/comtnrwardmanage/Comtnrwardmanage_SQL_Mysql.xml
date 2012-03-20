@@ -27,69 +27,68 @@
 	
 	<insert id="comtnrwardmanageDAO.insertComtnrwardmanage_S">
 		<![CDATA[
-			INSERT INTO comtnrwardmanage 
-				( RWARD_ID
-				  , rwardwnr_id
-				  , rward_code
-				  , rward_de
-				  , rward_nm
-				  , pblen_cn
-				  , sanctner_id
-				  , confm_at
-				  , sanctn_dt
-				  , return_resn
-				  , atch_file_id
-				  , infrml_sanctn_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #rwardId#
-				  , #rwardwnrId#
-				  , #rwardCode#
-				  , #rwardDe#
-				  , #rwardNm#
-				  , #pblenCn#
-				  , #sanctnerId#
-				  , #confmAt#
-				  , #sanctnDt#
-				  , #returnResn#
-				  , #atchFileId#
-				  , #infrmlSanctnId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnrwardmanage (
+                rward_id
+                , rwardwnr_id
+                , rward_code
+                , rward_de
+                , rward_nm
+                , pblen_cn
+                , sanctner_id
+                , confm_at
+                , sanctn_dt
+                , return_resn
+                , atch_file_id
+                , infrml_sanctn_id
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #rwardId#
+                , #rwardwnrId#
+                , #rwardCode#
+                , #rwardDe#
+                , #rwardNm#
+                , #pblenCn#
+                , #sanctnerId#
+                , #confmAt#
+                , #sanctnDt#
+                , #returnResn#
+                , #atchFileId#
+                , #infrmlSanctnId#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnrwardmanageDAO.updateComtnrwardmanage_S">
 		<![CDATA[
-			UPDATE comtnrwardmanage
-			SET rward_id = #rwardId#
-				, rwardwnr_id = #rwardwnrId#
-				, rward_code = #rwardCode#
-				, rward_de = #rwardDe#
-				, rward_nm = #rwardNm#
-				, pblen_cn = #pblenCn#
-				, sanctner_id = #sanctnerId#
-				, confm_at = #confmAt#
-				, sanctn_dt = #sanctnDt#
-				, return_resn = #returnResn#
-				, atch_file_id = #atchFileId#
-				, infrml_sanctn_id = #infrmlSanctnId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE rward_id = #rwardId#
+            UPDATE comtnrwardmanage
+                SET
+                rward_id = #rwardId#
+                , rwardwnr_id = #rwardwnrId#
+                , rward_code = #rwardCode#
+                , rward_de = #rwardDe#
+                , rward_nm = #rwardNm#
+                , pblen_cn = #pblenCn#
+                , sanctner_id = #sanctnerId#
+                , confm_at = #confmAt#
+                , sanctn_dt = #sanctnDt#
+                , return_resn = #returnResn#
+                , atch_file_id = #atchFileId#
+                , infrml_sanctn_id = #infrmlSanctnId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND rward_id = #rwardId#
 		]]>
 	</update>
 	
 	<delete id="comtnrwardmanageDAO.deleteComtnrwardmanage_S">
 		<![CDATA[
-			DELETE FROM comtnrwardmanage 
-			WHERE rward_id = #rwardId#
+			DELETE FROM comtnrwardmanage
+				WHERE 1 = 1
+				AND rward_id = #rwardId#
 		]]>
 	</delete>
 	

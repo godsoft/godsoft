@@ -20,48 +20,47 @@
 	
 	<insert id="comtnonlinemanualDAO.insertComtnonlinemanual_S">
 		<![CDATA[
-			INSERT INTO comtnonlinemanual 
-				( ONLINE_MNL_ID
-				  , online_mnl_se_code
-				  , online_mnl_dfn
-				  , online_mnl_dc
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , online_mnl_nm )
-			VALUES ( #onlineMnlId#
-				  , #onlineMnlSeCode#
-				  , #onlineMnlDfn#
-				  , #onlineMnlDc#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #onlineMnlNm# )
+            INSERT INTO comtnonlinemanual (
+                online_mnl_id
+                , online_mnl_se_code
+                , online_mnl_dfn
+                , online_mnl_dc
+                , frst_register_id
+                , frst_regist_pnttm
+                , online_mnl_nm
+            ) VALUES (
+                #onlineMnlId#
+                , #onlineMnlSeCode#
+                , #onlineMnlDfn#
+                , #onlineMnlDc#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #onlineMnlNm#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnonlinemanualDAO.updateComtnonlinemanual_S">
 		<![CDATA[
-			UPDATE comtnonlinemanual
-			SET online_mnl_id = #onlineMnlId#
-				, online_mnl_se_code = #onlineMnlSeCode#
-				, online_mnl_dfn = #onlineMnlDfn#
-				, online_mnl_dc = #onlineMnlDc#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, online_mnl_nm = #onlineMnlNm#
-			WHERE online_mnl_id = #onlineMnlId#
+            UPDATE comtnonlinemanual
+                SET
+                online_mnl_id = #onlineMnlId#
+                , online_mnl_se_code = #onlineMnlSeCode#
+                , online_mnl_dfn = #onlineMnlDfn#
+                , online_mnl_dc = #onlineMnlDc#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , online_mnl_nm = #onlineMnlNm#
+                WHERE 1 = 1
+                AND online_mnl_id = #onlineMnlId#
 		]]>
 	</update>
 	
 	<delete id="comtnonlinemanualDAO.deleteComtnonlinemanual_S">
 		<![CDATA[
-			DELETE FROM comtnonlinemanual 
-			WHERE online_mnl_id = #onlineMnlId#
+			DELETE FROM comtnonlinemanual
+				WHERE 1 = 1
+				AND online_mnl_id = #onlineMnlId#
 		]]>
 	</delete>
 	

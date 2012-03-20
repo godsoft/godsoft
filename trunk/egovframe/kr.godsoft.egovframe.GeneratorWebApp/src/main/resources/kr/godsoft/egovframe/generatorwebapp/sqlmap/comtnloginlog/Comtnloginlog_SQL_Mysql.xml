@@ -18,42 +18,47 @@
 	
 	<insert id="comtnloginlogDAO.insertComtnloginlog_S">
 		<![CDATA[
-			INSERT INTO comtnloginlog 
-				( LOG_ID
-				  , conect_id
-				  , conect_ip
-				  , conect_mthd
-				  , error_occrrnc_at
-				  , error_code
-				  , creat_dt )
-			VALUES ( #logId#
-				  , #conectId#
-				  , #conectIp#
-				  , #conectMthd#
-				  , #errorOccrrncAt#
-				  , #errorCode#
-				  , #creatDt# )
+            INSERT INTO comtnloginlog (
+                log_id
+                , conect_id
+                , conect_ip
+                , conect_mthd
+                , error_occrrnc_at
+                , error_code
+                , creat_dt
+            ) VALUES (
+                #logId#
+                , #conectId#
+                , #conectIp#
+                , #conectMthd#
+                , #errorOccrrncAt#
+                , #errorCode#
+                , #creatDt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnloginlogDAO.updateComtnloginlog_S">
 		<![CDATA[
-			UPDATE comtnloginlog
-			SET log_id = #logId#
-				, conect_id = #conectId#
-				, conect_ip = #conectIp#
-				, conect_mthd = #conectMthd#
-				, error_occrrnc_at = #errorOccrrncAt#
-				, error_code = #errorCode#
-				, creat_dt = #creatDt#
-			WHERE log_id = #logId#
+            UPDATE comtnloginlog
+                SET
+                log_id = #logId#
+                , conect_id = #conectId#
+                , conect_ip = #conectIp#
+                , conect_mthd = #conectMthd#
+                , error_occrrnc_at = #errorOccrrncAt#
+                , error_code = #errorCode#
+                , creat_dt = #creatDt#
+                WHERE 1 = 1
+                AND log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comtnloginlogDAO.deleteComtnloginlog_S">
 		<![CDATA[
-			DELETE FROM comtnloginlog 
-			WHERE log_id = #logId#
+			DELETE FROM comtnloginlog
+				WHERE 1 = 1
+				AND log_id = #logId#
 		]]>
 	</delete>
 	

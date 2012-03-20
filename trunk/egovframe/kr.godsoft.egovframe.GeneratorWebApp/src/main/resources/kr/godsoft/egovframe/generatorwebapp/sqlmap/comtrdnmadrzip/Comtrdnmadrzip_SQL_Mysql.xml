@@ -25,63 +25,62 @@
 	
 	<insert id="comtrdnmadrzipDAO.insertComtrdnmadrzip_S">
 		<![CDATA[
-			INSERT INTO comtrdnmadrzip 
-				( RDMN_CODE
-				  , sn
-				  , ctprvn_nm
-				  , signgu_nm
-				  , rdmn
-				  , bdnbr_mnnm
-				  , bdnbr_slno
-				  , buld_nm
-				  , detail_buld_nm
-				  , zip
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #rdmnCode#
-				  , #sn#
-				  , #ctprvnNm#
-				  , #signguNm#
-				  , #rdmn#
-				  , #bdnbrMnnm#
-				  , #bdnbrSlno#
-				  , #buldNm#
-				  , #detailBuldNm#
-				  , #zip#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtrdnmadrzip (
+                rdmn_code
+                , sn
+                , ctprvn_nm
+                , signgu_nm
+                , rdmn
+                , bdnbr_mnnm
+                , bdnbr_slno
+                , buld_nm
+                , detail_buld_nm
+                , zip
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #rdmnCode#
+                , #sn#
+                , #ctprvnNm#
+                , #signguNm#
+                , #rdmn#
+                , #bdnbrMnnm#
+                , #bdnbrSlno#
+                , #buldNm#
+                , #detailBuldNm#
+                , #zip#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtrdnmadrzipDAO.updateComtrdnmadrzip_S">
 		<![CDATA[
-			UPDATE comtrdnmadrzip
-			SET rdmn_code = #rdmnCode#
-				, sn = #sn#
-				, ctprvn_nm = #ctprvnNm#
-				, signgu_nm = #signguNm#
-				, rdmn = #rdmn#
-				, bdnbr_mnnm = #bdnbrMnnm#
-				, bdnbr_slno = #bdnbrSlno#
-				, buld_nm = #buldNm#
-				, detail_buld_nm = #detailBuldNm#
-				, zip = #zip#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE sn = #sn#
+            UPDATE comtrdnmadrzip
+                SET
+                rdmn_code = #rdmnCode#
+                , sn = #sn#
+                , ctprvn_nm = #ctprvnNm#
+                , signgu_nm = #signguNm#
+                , rdmn = #rdmn#
+                , bdnbr_mnnm = #bdnbrMnnm#
+                , bdnbr_slno = #bdnbrSlno#
+                , buld_nm = #buldNm#
+                , detail_buld_nm = #detailBuldNm#
+                , zip = #zip#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND sn = #sn#
 		]]>
 	</update>
 	
 	<delete id="comtrdnmadrzipDAO.deleteComtrdnmadrzip_S">
 		<![CDATA[
-			DELETE FROM comtrdnmadrzip 
-			WHERE sn = #sn#
+			DELETE FROM comtrdnmadrzip
+				WHERE 1 = 1
+				AND sn = #sn#
 		]]>
 	</delete>
 	

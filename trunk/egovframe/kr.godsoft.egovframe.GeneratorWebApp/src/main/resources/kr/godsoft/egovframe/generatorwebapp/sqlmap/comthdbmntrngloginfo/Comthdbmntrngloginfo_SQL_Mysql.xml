@@ -25,63 +25,62 @@
 	
 	<insert id="comthdbmntrngloginfoDAO.insertComthdbmntrngloginfo_S">
 		<![CDATA[
-			INSERT INTO comthdbmntrngloginfo 
-				( DATA_SOURC_NM
-				  , server_nm
-				  , dbms_knd
-				  , ceck_sql
-				  , mngr_nm
-				  , mngr_email_adres
-				  , mntrng_sttus
-				  , log_info
-				  , creat_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , log_id )
-			VALUES ( #dataSourcNm#
-				  , #serverNm#
-				  , #dbmsKnd#
-				  , #ceckSql#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #mntrngSttus#
-				  , #logInfo#
-				  , #creatDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #logId# )
+            INSERT INTO comthdbmntrngloginfo (
+                data_sourc_nm
+                , server_nm
+                , dbms_knd
+                , ceck_sql
+                , mngr_nm
+                , mngr_email_adres
+                , mntrng_sttus
+                , log_info
+                , creat_dt
+                , frst_register_id
+                , frst_regist_pnttm
+                , log_id
+            ) VALUES (
+                #dataSourcNm#
+                , #serverNm#
+                , #dbmsKnd#
+                , #ceckSql#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #mntrngSttus#
+                , #logInfo#
+                , #creatDt#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #logId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comthdbmntrngloginfoDAO.updateComthdbmntrngloginfo_S">
 		<![CDATA[
-			UPDATE comthdbmntrngloginfo
-			SET data_sourc_nm = #dataSourcNm#
-				, server_nm = #serverNm#
-				, dbms_knd = #dbmsKnd#
-				, ceck_sql = #ceckSql#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, mntrng_sttus = #mntrngSttus#
-				, log_info = #logInfo#
-				, creat_dt = #creatDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, log_id = #logId#
-			WHERE log_id = #logId#
+            UPDATE comthdbmntrngloginfo
+                SET
+                data_sourc_nm = #dataSourcNm#
+                , server_nm = #serverNm#
+                , dbms_knd = #dbmsKnd#
+                , ceck_sql = #ceckSql#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , mntrng_sttus = #mntrngSttus#
+                , log_info = #logInfo#
+                , creat_dt = #creatDt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , log_id = #logId#
+                WHERE 1 = 1
+                AND log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comthdbmntrngloginfoDAO.deleteComthdbmntrngloginfo_S">
 		<![CDATA[
-			DELETE FROM comthdbmntrngloginfo 
-			WHERE log_id = #logId#
+			DELETE FROM comthdbmntrngloginfo
+				WHERE 1 = 1
+				AND log_id = #logId#
 		]]>
 	</delete>
 	

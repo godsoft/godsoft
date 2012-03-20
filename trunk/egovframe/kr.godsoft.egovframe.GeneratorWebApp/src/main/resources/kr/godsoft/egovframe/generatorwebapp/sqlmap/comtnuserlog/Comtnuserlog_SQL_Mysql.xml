@@ -21,54 +21,59 @@
 	
 	<insert id="comtnuserlogDAO.insertComtnuserlog_S">
 		<![CDATA[
-			INSERT INTO comtnuserlog 
-				( OCCRRNC_DE
-				  , rqester_id
-				  , svc_nm
-				  , method_nm
-				  , creat_co
-				  , updt_co
-				  , rdcnt
-				  , delete_co
-				  , outpt_co
-				  , error_co )
-			VALUES ( #occrrncDe#
-				  , #rqesterId#
-				  , #svcNm#
-				  , #methodNm#
-				  , #creatCo#
-				  , #updtCo#
-				  , #rdcnt#
-				  , #deleteCo#
-				  , #outptCo#
-				  , #errorCo# )
+            INSERT INTO comtnuserlog (
+                occrrnc_de
+                , rqester_id
+                , svc_nm
+                , method_nm
+                , creat_co
+                , updt_co
+                , rdcnt
+                , delete_co
+                , outpt_co
+                , error_co
+            ) VALUES (
+                #occrrncDe#
+                , #rqesterId#
+                , #svcNm#
+                , #methodNm#
+                , #creatCo#
+                , #updtCo#
+                , #rdcnt#
+                , #deleteCo#
+                , #outptCo#
+                , #errorCo#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnuserlogDAO.updateComtnuserlog_S">
 		<![CDATA[
-			UPDATE comtnuserlog
-			SET occrrnc_de = #occrrncDe#
-				, rqester_id = #rqesterId#
-				, svc_nm = #svcNm#
-				, method_nm = #methodNm#
-				, creat_co = #creatCo#
-				, updt_co = #updtCo#
-				, rdcnt = #rdcnt#
-				, delete_co = #deleteCo#
-				, outpt_co = #outptCo#
-				, error_co = #errorCo#
-			WHERE occrrnc_de = #occrrncDe#
-				AND rqester_id = #rqesterId#
-				AND svc_nm = #svcNm#
-				AND method_nm = #methodNm#
+            UPDATE comtnuserlog
+                SET
+                occrrnc_de = #occrrncDe#
+                , rqester_id = #rqesterId#
+                , svc_nm = #svcNm#
+                , method_nm = #methodNm#
+                , creat_co = #creatCo#
+                , updt_co = #updtCo#
+                , rdcnt = #rdcnt#
+                , delete_co = #deleteCo#
+                , outpt_co = #outptCo#
+                , error_co = #errorCo#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND rqester_id = #rqesterId#
+                AND svc_nm = #svcNm#
+                AND method_nm = #methodNm#
 		]]>
 	</update>
 	
 	<delete id="comtnuserlogDAO.deleteComtnuserlog_S">
 		<![CDATA[
-			DELETE FROM comtnuserlog 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtnuserlog
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND rqester_id = #rqesterId#
 				AND svc_nm = #svcNm#
 				AND method_nm = #methodNm#

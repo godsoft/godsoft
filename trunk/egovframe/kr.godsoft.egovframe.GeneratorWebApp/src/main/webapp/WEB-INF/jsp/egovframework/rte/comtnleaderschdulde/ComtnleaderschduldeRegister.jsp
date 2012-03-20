@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnleaderschduldeVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnleaderschduldeVO.schdulId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnleaderschduldeVO.schdulDe ? '등록' : '수정'}"/>
+<title>comtnleaderschdulde <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnleaderschduldeVO" name="detailForm">
+<form:form commandName="comtnleaderschduldeVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>SCHDUL_ID *</th>
+			<th>schdul_id *</th>
 			<td>
 				<form:input path="schdulId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SCHDUL_DE *</th>
+			<th>schdul_de *</th>
 			<td>
 				<form:input path="schdulDe" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>SCHDUL_ID *</th>
+			<th>schdul_id *</th>
 			<td>
 				<form:input path="schdulId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SCHDUL_DE *</th>
+			<th>schdul_de *</th>
 			<td>
 				<form:input path="schdulDe" cssClass="txt" readonly="false" />
 			</td>			

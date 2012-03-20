@@ -29,75 +29,74 @@
 	
 	<insert id="comtnrssDAO.insertComtnrss_S">
 		<![CDATA[
-			INSERT INTO comtnrss 
-				( RSS_ID
-				  , trget_svc_nm
-				  , trget_svc_table
-				  , trget_svc_list_co
-				  , hder_title
-				  , hder_link
-				  , hder_dc
-				  , hder_tag
-				  , hder_etc
-				  , bdt_title
-				  , bdt_link
-				  , bdt_dc
-				  , bdt_tag
-				  , bdt_etc_tag
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #rssId#
-				  , #trgetSvcNm#
-				  , #trgetSvcTable#
-				  , #trgetSvcListCo#
-				  , #hderTitle#
-				  , #hderLink#
-				  , #hderDc#
-				  , #hderTag#
-				  , #hderEtc#
-				  , #bdtTitle#
-				  , #bdtLink#
-				  , #bdtDc#
-				  , #bdtTag#
-				  , #bdtEtcTag#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnrss (
+                rss_id
+                , trget_svc_nm
+                , trget_svc_table
+                , trget_svc_list_co
+                , hder_title
+                , hder_link
+                , hder_dc
+                , hder_tag
+                , hder_etc
+                , bdt_title
+                , bdt_link
+                , bdt_dc
+                , bdt_tag
+                , bdt_etc_tag
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #rssId#
+                , #trgetSvcNm#
+                , #trgetSvcTable#
+                , #trgetSvcListCo#
+                , #hderTitle#
+                , #hderLink#
+                , #hderDc#
+                , #hderTag#
+                , #hderEtc#
+                , #bdtTitle#
+                , #bdtLink#
+                , #bdtDc#
+                , #bdtTag#
+                , #bdtEtcTag#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnrssDAO.updateComtnrss_S">
 		<![CDATA[
-			UPDATE comtnrss
-			SET rss_id = #rssId#
-				, trget_svc_nm = #trgetSvcNm#
-				, trget_svc_table = #trgetSvcTable#
-				, trget_svc_list_co = #trgetSvcListCo#
-				, hder_title = #hderTitle#
-				, hder_link = #hderLink#
-				, hder_dc = #hderDc#
-				, hder_tag = #hderTag#
-				, hder_etc = #hderEtc#
-				, bdt_title = #bdtTitle#
-				, bdt_link = #bdtLink#
-				, bdt_dc = #bdtDc#
-				, bdt_tag = #bdtTag#
-				, bdt_etc_tag = #bdtEtcTag#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE rss_id = #rssId#
+            UPDATE comtnrss
+                SET
+                rss_id = #rssId#
+                , trget_svc_nm = #trgetSvcNm#
+                , trget_svc_table = #trgetSvcTable#
+                , trget_svc_list_co = #trgetSvcListCo#
+                , hder_title = #hderTitle#
+                , hder_link = #hderLink#
+                , hder_dc = #hderDc#
+                , hder_tag = #hderTag#
+                , hder_etc = #hderEtc#
+                , bdt_title = #bdtTitle#
+                , bdt_link = #bdtLink#
+                , bdt_dc = #bdtDc#
+                , bdt_tag = #bdtTag#
+                , bdt_etc_tag = #bdtEtcTag#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND rss_id = #rssId#
 		]]>
 	</update>
 	
 	<delete id="comtnrssDAO.deleteComtnrss_S">
 		<![CDATA[
-			DELETE FROM comtnrss 
-			WHERE rss_id = #rssId#
+			DELETE FROM comtnrss
+				WHERE 1 = 1
+				AND rss_id = #rssId#
 		]]>
 	</delete>
 	

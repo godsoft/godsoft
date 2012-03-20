@@ -21,51 +21,50 @@
 	
 	<insert id="comtnunitylinkDAO.insertComtnunitylink_S">
 		<![CDATA[
-			INSERT INTO comtnunitylink 
-				( UNITY_LINK_ID
-				  , unity_link_group
-				  , unity_link_nm
-				  , unity_link_url
-				  , unity_link_dc
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , unity_link_se_code )
-			VALUES ( #unityLinkId#
-				  , #unityLinkGroup#
-				  , #unityLinkNm#
-				  , #unityLinkUrl#
-				  , #unityLinkDc#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #unityLinkSeCode# )
+            INSERT INTO comtnunitylink (
+                unity_link_id
+                , unity_link_group
+                , unity_link_nm
+                , unity_link_url
+                , unity_link_dc
+                , frst_register_id
+                , frst_regist_pnttm
+                , unity_link_se_code
+            ) VALUES (
+                #unityLinkId#
+                , #unityLinkGroup#
+                , #unityLinkNm#
+                , #unityLinkUrl#
+                , #unityLinkDc#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #unityLinkSeCode#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnunitylinkDAO.updateComtnunitylink_S">
 		<![CDATA[
-			UPDATE comtnunitylink
-			SET unity_link_id = #unityLinkId#
-				, unity_link_group = #unityLinkGroup#
-				, unity_link_nm = #unityLinkNm#
-				, unity_link_url = #unityLinkUrl#
-				, unity_link_dc = #unityLinkDc#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, unity_link_se_code = #unityLinkSeCode#
-			WHERE unity_link_id = #unityLinkId#
+            UPDATE comtnunitylink
+                SET
+                unity_link_id = #unityLinkId#
+                , unity_link_group = #unityLinkGroup#
+                , unity_link_nm = #unityLinkNm#
+                , unity_link_url = #unityLinkUrl#
+                , unity_link_dc = #unityLinkDc#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , unity_link_se_code = #unityLinkSeCode#
+                WHERE 1 = 1
+                AND unity_link_id = #unityLinkId#
 		]]>
 	</update>
 	
 	<delete id="comtnunitylinkDAO.deleteComtnunitylink_S">
 		<![CDATA[
-			DELETE FROM comtnunitylink 
-			WHERE unity_link_id = #unityLinkId#
+			DELETE FROM comtnunitylink
+				WHERE 1 = 1
+				AND unity_link_id = #unityLinkId#
 		]]>
 	</delete>
 	

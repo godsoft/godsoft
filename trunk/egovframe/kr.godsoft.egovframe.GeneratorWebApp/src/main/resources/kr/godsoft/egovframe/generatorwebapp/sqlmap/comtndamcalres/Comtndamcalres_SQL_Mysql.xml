@@ -27,69 +27,68 @@
 	
 	<insert id="comtndamcalresDAO.insertComtndamcalres_S">
 		<![CDATA[
-			INSERT INTO comtndamcalres 
-				( ORGNZT_ID
-				  , expert_id
-				  , knwldg_ty_code
-				  , emplyr_id
-				  , knwldg_nm
-				  , knwldg_cn
-				  , atch_file_id
-				  , parnts_knwldg_id
-				  , answer_dp
-				  , answer_ordr
-				  , answer_group_no
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , knwldg_id )
-			VALUES ( #orgnztId#
-				  , #expertId#
-				  , #knwldgTyCode#
-				  , #emplyrId#
-				  , #knwldgNm#
-				  , #knwldgCn#
-				  , #atchFileId#
-				  , #parntsKnwldgId#
-				  , #answerDp#
-				  , #answerOrdr#
-				  , #answerGroupNo#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #knwldgId# )
+            INSERT INTO comtndamcalres (
+                orgnzt_id
+                , expert_id
+                , knwldg_ty_code
+                , emplyr_id
+                , knwldg_nm
+                , knwldg_cn
+                , atch_file_id
+                , parnts_knwldg_id
+                , answer_dp
+                , answer_ordr
+                , answer_group_no
+                , frst_register_id
+                , frst_regist_pnttm
+                , knwldg_id
+            ) VALUES (
+                #orgnztId#
+                , #expertId#
+                , #knwldgTyCode#
+                , #emplyrId#
+                , #knwldgNm#
+                , #knwldgCn#
+                , #atchFileId#
+                , #parntsKnwldgId#
+                , #answerDp#
+                , #answerOrdr#
+                , #answerGroupNo#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #knwldgId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndamcalresDAO.updateComtndamcalres_S">
 		<![CDATA[
-			UPDATE comtndamcalres
-			SET orgnzt_id = #orgnztId#
-				, expert_id = #expertId#
-				, knwldg_ty_code = #knwldgTyCode#
-				, emplyr_id = #emplyrId#
-				, knwldg_nm = #knwldgNm#
-				, knwldg_cn = #knwldgCn#
-				, atch_file_id = #atchFileId#
-				, parnts_knwldg_id = #parntsKnwldgId#
-				, answer_dp = #answerDp#
-				, answer_ordr = #answerOrdr#
-				, answer_group_no = #answerGroupNo#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, knwldg_id = #knwldgId#
-			WHERE knwldg_id = #knwldgId#
+            UPDATE comtndamcalres
+                SET
+                orgnzt_id = #orgnztId#
+                , expert_id = #expertId#
+                , knwldg_ty_code = #knwldgTyCode#
+                , emplyr_id = #emplyrId#
+                , knwldg_nm = #knwldgNm#
+                , knwldg_cn = #knwldgCn#
+                , atch_file_id = #atchFileId#
+                , parnts_knwldg_id = #parntsKnwldgId#
+                , answer_dp = #answerDp#
+                , answer_ordr = #answerOrdr#
+                , answer_group_no = #answerGroupNo#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , knwldg_id = #knwldgId#
+                WHERE 1 = 1
+                AND knwldg_id = #knwldgId#
 		]]>
 	</update>
 	
 	<delete id="comtndamcalresDAO.deleteComtndamcalres_S">
 		<![CDATA[
-			DELETE FROM comtndamcalres 
-			WHERE knwldg_id = #knwldgId#
+			DELETE FROM comtndamcalres
+				WHERE 1 = 1
+				AND knwldg_id = #knwldgId#
 		]]>
 	</delete>
 	

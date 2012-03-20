@@ -22,56 +22,55 @@
 	
 	<insert id="comtnntwrksvcmntrngloginfoDAO.insertComtnntwrksvcmntrngloginfo_S">
 		<![CDATA[
-			INSERT INTO comtnntwrksvcmntrngloginfo 
-				( SYS_IP
-				  , sys_port
-				  , sys_nm
-				  , mntrng_sttus
-				  , log_info
-				  , creat_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , log_id )
-			VALUES ( #sysIp#
-				  , #sysPort#
-				  , #sysNm#
-				  , #mntrngSttus#
-				  , #logInfo#
-				  , #creatDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #logId# )
+            INSERT INTO comtnntwrksvcmntrngloginfo (
+                sys_ip
+                , sys_port
+                , sys_nm
+                , mntrng_sttus
+                , log_info
+                , creat_dt
+                , frst_register_id
+                , frst_regist_pnttm
+                , log_id
+            ) VALUES (
+                #sysIp#
+                , #sysPort#
+                , #sysNm#
+                , #mntrngSttus#
+                , #logInfo#
+                , #creatDt#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #logId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnntwrksvcmntrngloginfoDAO.updateComtnntwrksvcmntrngloginfo_S">
 		<![CDATA[
-			UPDATE comtnntwrksvcmntrngloginfo
-			SET sys_ip = #sysIp#
-				, sys_port = #sysPort#
-				, sys_nm = #sysNm#
-				, mntrng_sttus = #mntrngSttus#
-				, log_info = #logInfo#
-				, creat_dt = #creatDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, log_id = #logId#
-			WHERE sys_ip = #sysIp#
-				AND sys_port = #sysPort#
-				AND log_id = #logId#
+            UPDATE comtnntwrksvcmntrngloginfo
+                SET
+                sys_ip = #sysIp#
+                , sys_port = #sysPort#
+                , sys_nm = #sysNm#
+                , mntrng_sttus = #mntrngSttus#
+                , log_info = #logInfo#
+                , creat_dt = #creatDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , log_id = #logId#
+                WHERE 1 = 1
+                AND sys_ip = #sysIp#
+                AND sys_port = #sysPort#
+                AND log_id = #logId#
 		]]>
 	</update>
 	
 	<delete id="comtnntwrksvcmntrngloginfoDAO.deleteComtnntwrksvcmntrngloginfo_S">
 		<![CDATA[
-			DELETE FROM comtnntwrksvcmntrngloginfo 
-			WHERE sys_ip = #sysIp#
+			DELETE FROM comtnntwrksvcmntrngloginfo
+				WHERE 1 = 1
+				AND sys_ip = #sysIp#
 				AND sys_port = #sysPort#
 				AND log_id = #logId#
 		]]>

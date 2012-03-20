@@ -31,81 +31,80 @@
 	
 	<insert id="comtneventmanageDAO.insertComtneventmanage_S">
 		<![CDATA[
-			INSERT INTO comtneventmanage 
-				( EVENT_ID
-				  , event_se
-				  , event_nm
-				  , event_purps
-				  , event_bgnde
-				  , event_endde
-				  , event_auspc_instt_nm
-				  , event_mngt_instt_nm
-				  , event_place
-				  , event_cn
-				  , ct_occrrnc_at
-				  , partcpt_ct
-				  , garden
-				  , refrn_url
-				  , rcept_bgnde
-				  , rcept_endde
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #eventId#
-				  , #eventSe#
-				  , #eventNm#
-				  , #eventPurps#
-				  , #eventBgnde#
-				  , #eventEndde#
-				  , #eventAuspcInsttNm#
-				  , #eventMngtInsttNm#
-				  , #eventPlace#
-				  , #eventCn#
-				  , #ctOccrrncAt#
-				  , #partcptCt#
-				  , #garden#
-				  , #refrnUrl#
-				  , #rceptBgnde#
-				  , #rceptEndde#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtneventmanage (
+                event_id
+                , event_se
+                , event_nm
+                , event_purps
+                , event_bgnde
+                , event_endde
+                , event_auspc_instt_nm
+                , event_mngt_instt_nm
+                , event_place
+                , event_cn
+                , ct_occrrnc_at
+                , partcpt_ct
+                , garden
+                , refrn_url
+                , rcept_bgnde
+                , rcept_endde
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #eventId#
+                , #eventSe#
+                , #eventNm#
+                , #eventPurps#
+                , #eventBgnde#
+                , #eventEndde#
+                , #eventAuspcInsttNm#
+                , #eventMngtInsttNm#
+                , #eventPlace#
+                , #eventCn#
+                , #ctOccrrncAt#
+                , #partcptCt#
+                , #garden#
+                , #refrnUrl#
+                , #rceptBgnde#
+                , #rceptEndde#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtneventmanageDAO.updateComtneventmanage_S">
 		<![CDATA[
-			UPDATE comtneventmanage
-			SET event_id = #eventId#
-				, event_se = #eventSe#
-				, event_nm = #eventNm#
-				, event_purps = #eventPurps#
-				, event_bgnde = #eventBgnde#
-				, event_endde = #eventEndde#
-				, event_auspc_instt_nm = #eventAuspcInsttNm#
-				, event_mngt_instt_nm = #eventMngtInsttNm#
-				, event_place = #eventPlace#
-				, event_cn = #eventCn#
-				, ct_occrrnc_at = #ctOccrrncAt#
-				, partcpt_ct = #partcptCt#
-				, garden = #garden#
-				, refrn_url = #refrnUrl#
-				, rcept_bgnde = #rceptBgnde#
-				, rcept_endde = #rceptEndde#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE event_id = #eventId#
+            UPDATE comtneventmanage
+                SET
+                event_id = #eventId#
+                , event_se = #eventSe#
+                , event_nm = #eventNm#
+                , event_purps = #eventPurps#
+                , event_bgnde = #eventBgnde#
+                , event_endde = #eventEndde#
+                , event_auspc_instt_nm = #eventAuspcInsttNm#
+                , event_mngt_instt_nm = #eventMngtInsttNm#
+                , event_place = #eventPlace#
+                , event_cn = #eventCn#
+                , ct_occrrnc_at = #ctOccrrncAt#
+                , partcpt_ct = #partcptCt#
+                , garden = #garden#
+                , refrn_url = #refrnUrl#
+                , rcept_bgnde = #rceptBgnde#
+                , rcept_endde = #rceptEndde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND event_id = #eventId#
 		]]>
 	</update>
 	
 	<delete id="comtneventmanageDAO.deleteComtneventmanage_S">
 		<![CDATA[
-			DELETE FROM comtneventmanage 
-			WHERE event_id = #eventId#
+			DELETE FROM comtneventmanage
+				WHERE 1 = 1
+				AND event_id = #eventId#
 		]]>
 	</delete>
 	

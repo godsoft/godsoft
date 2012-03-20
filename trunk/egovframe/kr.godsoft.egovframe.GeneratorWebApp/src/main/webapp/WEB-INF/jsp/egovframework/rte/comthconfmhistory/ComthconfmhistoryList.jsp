@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comthconfmhistory 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="confmNo" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -75,16 +75,16 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">ConfmNo</th>
-								<th align="center">ConfmRqesterId</th>
-								<th align="center">ConfmerId</th>
-								<th align="center">ConfmDe</th>
-								<th align="center">ConfmTyCode</th>
-								<th align="center">ConfmSttusCode</th>
-								<th align="center">OpertTyCode</th>
-								<th align="center">OpertId</th>
-								<th align="center">TrgetJobTyCode</th>
-								<th align="center">TrgetJobId</th>
+								<th align="center">confm_no</th>
+								<th align="center">confm_rqester_id</th>
+								<th align="center">confmer_id</th>
+								<th align="center">confm_de</th>
+								<th align="center">confm_ty_code</th>
+								<th align="center">confm_sttus_code</th>
+								<th align="center">opert_ty_code</th>
+								<th align="center">opert_id</th>
+								<th align="center">trget_job_ty_code</th>
+								<th align="center">trget_job_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

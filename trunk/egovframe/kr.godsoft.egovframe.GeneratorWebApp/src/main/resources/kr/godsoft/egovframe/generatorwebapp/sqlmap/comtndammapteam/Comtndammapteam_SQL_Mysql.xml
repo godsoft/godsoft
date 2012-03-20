@@ -17,39 +17,40 @@
 	
 	<insert id="comtndammapteamDAO.insertComtndammapteam_S">
 		<![CDATA[
-			INSERT INTO comtndammapteam 
-				( ORGNZT_ID
-				  , orgnzt_nm
-				  , cl_de
-				  , knwldg_url
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #orgnztId#
-				  , #orgnztNm#
-				  , #clDe#
-				  , #knwldgUrl#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtndammapteam (
+                orgnzt_id
+                , orgnzt_nm
+                , cl_de
+                , knwldg_url
+            ) VALUES (
+                #orgnztId#
+                , #orgnztNm#
+                , #clDe#
+                , #knwldgUrl#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndammapteamDAO.updateComtndammapteam_S">
 		<![CDATA[
-			UPDATE comtndammapteam
-			SET orgnzt_id = #orgnztId#
-				, orgnzt_nm = #orgnztNm#
-				, cl_de = #clDe#
-				, knwldg_url = #knwldgUrl#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE orgnzt_id = #orgnztId#
+            UPDATE comtndammapteam
+                SET
+                orgnzt_id = #orgnztId#
+                , orgnzt_nm = #orgnztNm#
+                , cl_de = #clDe#
+                , knwldg_url = #knwldgUrl#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND orgnzt_id = #orgnztId#
 		]]>
 	</update>
 	
 	<delete id="comtndammapteamDAO.deleteComtndammapteam_S">
 		<![CDATA[
-			DELETE FROM comtndammapteam 
-			WHERE orgnzt_id = #orgnztId#
+			DELETE FROM comtndammapteam
+				WHERE 1 = 1
+				AND orgnzt_id = #orgnztId#
 		]]>
 	</delete>
 	

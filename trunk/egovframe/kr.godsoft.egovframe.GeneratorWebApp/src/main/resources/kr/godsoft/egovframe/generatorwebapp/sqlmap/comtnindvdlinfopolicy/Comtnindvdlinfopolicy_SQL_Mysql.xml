@@ -19,45 +19,44 @@
 	
 	<insert id="comtnindvdlinfopolicyDAO.insertComtnindvdlinfopolicy_S">
 		<![CDATA[
-			INSERT INTO comtnindvdlinfopolicy 
-				( INDVDL_INFO_POLICY_ID
-				  , indvdl_info_policy_cn
-				  , indvdl_info_policy_agre_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , indvdl_info_policy_nm )
-			VALUES ( #indvdlInfoPolicyId#
-				  , #indvdlInfoPolicyCn#
-				  , #indvdlInfoPolicyAgreAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #indvdlInfoPolicyNm# )
+            INSERT INTO comtnindvdlinfopolicy (
+                indvdl_info_policy_id
+                , indvdl_info_policy_cn
+                , indvdl_info_policy_agre_at
+                , frst_register_id
+                , frst_regist_pnttm
+                , indvdl_info_policy_nm
+            ) VALUES (
+                #indvdlInfoPolicyId#
+                , #indvdlInfoPolicyCn#
+                , #indvdlInfoPolicyAgreAt#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #indvdlInfoPolicyNm#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnindvdlinfopolicyDAO.updateComtnindvdlinfopolicy_S">
 		<![CDATA[
-			UPDATE comtnindvdlinfopolicy
-			SET indvdl_info_policy_id = #indvdlInfoPolicyId#
-				, indvdl_info_policy_cn = #indvdlInfoPolicyCn#
-				, indvdl_info_policy_agre_at = #indvdlInfoPolicyAgreAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, indvdl_info_policy_nm = #indvdlInfoPolicyNm#
-			WHERE indvdl_info_policy_id = #indvdlInfoPolicyId#
+            UPDATE comtnindvdlinfopolicy
+                SET
+                indvdl_info_policy_id = #indvdlInfoPolicyId#
+                , indvdl_info_policy_cn = #indvdlInfoPolicyCn#
+                , indvdl_info_policy_agre_at = #indvdlInfoPolicyAgreAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , indvdl_info_policy_nm = #indvdlInfoPolicyNm#
+                WHERE 1 = 1
+                AND indvdl_info_policy_id = #indvdlInfoPolicyId#
 		]]>
 	</update>
 	
 	<delete id="comtnindvdlinfopolicyDAO.deleteComtnindvdlinfopolicy_S">
 		<![CDATA[
-			DELETE FROM comtnindvdlinfopolicy 
-			WHERE indvdl_info_policy_id = #indvdlInfoPolicyId#
+			DELETE FROM comtnindvdlinfopolicy
+				WHERE 1 = 1
+				AND indvdl_info_policy_id = #indvdlInfoPolicyId#
 		]]>
 	</delete>
 	

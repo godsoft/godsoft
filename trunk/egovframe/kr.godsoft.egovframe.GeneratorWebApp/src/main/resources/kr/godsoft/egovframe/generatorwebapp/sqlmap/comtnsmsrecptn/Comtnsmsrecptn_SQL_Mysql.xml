@@ -15,34 +15,39 @@
 	
 	<insert id="comtnsmsrecptnDAO.insertComtnsmsrecptn_S">
 		<![CDATA[
-			INSERT INTO comtnsmsrecptn 
-				( SMS_ID
-				  , recptn_telno
-				  , result_code
-				  , result_mssage )
-			VALUES ( #smsId#
-				  , #recptnTelno#
-				  , #resultCode#
-				  , #resultMssage# )
+            INSERT INTO comtnsmsrecptn (
+                sms_id
+                , recptn_telno
+                , result_code
+                , result_mssage
+            ) VALUES (
+                #smsId#
+                , #recptnTelno#
+                , #resultCode#
+                , #resultMssage#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsmsrecptnDAO.updateComtnsmsrecptn_S">
 		<![CDATA[
-			UPDATE comtnsmsrecptn
-			SET sms_id = #smsId#
-				, recptn_telno = #recptnTelno#
-				, result_code = #resultCode#
-				, result_mssage = #resultMssage#
-			WHERE sms_id = #smsId#
-				AND recptn_telno = #recptnTelno#
+            UPDATE comtnsmsrecptn
+                SET
+                sms_id = #smsId#
+                , recptn_telno = #recptnTelno#
+                , result_code = #resultCode#
+                , result_mssage = #resultMssage#
+                WHERE 1 = 1
+                AND sms_id = #smsId#
+                AND recptn_telno = #recptnTelno#
 		]]>
 	</update>
 	
 	<delete id="comtnsmsrecptnDAO.deleteComtnsmsrecptn_S">
 		<![CDATA[
-			DELETE FROM comtnsmsrecptn 
-			WHERE sms_id = #smsId#
+			DELETE FROM comtnsmsrecptn
+				WHERE 1 = 1
+				AND sms_id = #smsId#
 				AND recptn_telno = #recptnTelno#
 		]]>
 	</delete>

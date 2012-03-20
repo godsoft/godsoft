@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnworddicaryinfo.service.Comtnwor
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-16
+ * @since 2012-03-20
  * @version 1.0
  * @see
  *  

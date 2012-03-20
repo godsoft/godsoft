@@ -21,51 +21,50 @@
 	
 	<insert id="comtnmemotodoDAO.insertComtnmemotodo_S">
 		<![CDATA[
-			INSERT INTO comtnmemotodo 
-				( TODO_ID
-				  , todo_sj
-				  , todo_begin_time
-				  , todo_end_time
-				  , wrter_id
-				  , todo_cn
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #todoId#
-				  , #todoSj#
-				  , #todoBeginTime#
-				  , #todoEndTime#
-				  , #wrterId#
-				  , #todoCn#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnmemotodo (
+                todo_id
+                , todo_sj
+                , todo_begin_time
+                , todo_end_time
+                , wrter_id
+                , todo_cn
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #todoId#
+                , #todoSj#
+                , #todoBeginTime#
+                , #todoEndTime#
+                , #wrterId#
+                , #todoCn#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnmemotodoDAO.updateComtnmemotodo_S">
 		<![CDATA[
-			UPDATE comtnmemotodo
-			SET todo_id = #todoId#
-				, todo_sj = #todoSj#
-				, todo_begin_time = #todoBeginTime#
-				, todo_end_time = #todoEndTime#
-				, wrter_id = #wrterId#
-				, todo_cn = #todoCn#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE todo_id = #todoId#
+            UPDATE comtnmemotodo
+                SET
+                todo_id = #todoId#
+                , todo_sj = #todoSj#
+                , todo_begin_time = #todoBeginTime#
+                , todo_end_time = #todoEndTime#
+                , wrter_id = #wrterId#
+                , todo_cn = #todoCn#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND todo_id = #todoId#
 		]]>
 	</update>
 	
 	<delete id="comtnmemotodoDAO.deleteComtnmemotodo_S">
 		<![CDATA[
-			DELETE FROM comtnmemotodo 
-			WHERE todo_id = #todoId#
+			DELETE FROM comtnmemotodo
+				WHERE 1 = 1
+				AND todo_id = #todoId#
 		]]>
 	</delete>
 	

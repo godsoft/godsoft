@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtngnrlmberVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtngnrlmberVO.mberId ? '등록' : '수정'}"/>
+<title>comtngnrlmber <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtngnrlmberVO" name="detailForm">
+<form:form commandName="comtngnrlmberVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>MBER_ID *</th>
+			<th>mber_id *</th>
 			<td>
 				<form:input path="mberId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>MBER_ID *</th>
+			<th>mber_id *</th>
 			<td>
 				<form:input path="mberId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,133 +93,133 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>PASSWORD</th>
+			<th>password</th>
 			<td>
 				<form:input path="password" cssClass="txt"/>
 				&nbsp;<form:errors path="password" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PASSWORD_HINT</th>
+			<th>password_hint</th>
 			<td>
 				<form:input path="passwordHint" cssClass="txt"/>
 				&nbsp;<form:errors path="passwordHint" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PASSWORD_CNSR</th>
+			<th>password_cnsr</th>
 			<td>
 				<form:input path="passwordCnsr" cssClass="txt"/>
 				&nbsp;<form:errors path="passwordCnsr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>IHIDNUM</th>
+			<th>ihidnum</th>
 			<td>
 				<form:input path="ihidnum" cssClass="txt"/>
 				&nbsp;<form:errors path="ihidnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MBER_NM</th>
+			<th>mber_nm</th>
 			<td>
 				<form:input path="mberNm" cssClass="txt"/>
 				&nbsp;<form:errors path="mberNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ZIP</th>
+			<th>zip</th>
 			<td>
 				<form:input path="zip" cssClass="txt"/>
 				&nbsp;<form:errors path="zip" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ADRES</th>
+			<th>adres</th>
 			<td>
 				<form:input path="adres" cssClass="txt"/>
 				&nbsp;<form:errors path="adres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>AREA_NO</th>
+			<th>area_no</th>
 			<td>
 				<form:input path="areaNo" cssClass="txt"/>
 				&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MBER_STTUS</th>
+			<th>mber_sttus</th>
 			<td>
 				<form:input path="mberSttus" cssClass="txt"/>
 				&nbsp;<form:errors path="mberSttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DETAIL_ADRES</th>
+			<th>detail_adres</th>
 			<td>
 				<form:input path="detailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="detailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>END_TELNO</th>
+			<th>end_telno</th>
 			<td>
 				<form:input path="endTelno" cssClass="txt"/>
 				&nbsp;<form:errors path="endTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MBTLNUM</th>
+			<th>mbtlnum</th>
 			<td>
 				<form:input path="mbtlnum" cssClass="txt"/>
 				&nbsp;<form:errors path="mbtlnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>GROUP_ID</th>
+			<th>group_id</th>
 			<td>
 				<form:input path="groupId" cssClass="txt"/>
 				&nbsp;<form:errors path="groupId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MBER_FXNUM</th>
+			<th>mber_fxnum</th>
 			<td>
 				<form:input path="mberFxnum" cssClass="txt"/>
 				&nbsp;<form:errors path="mberFxnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MBER_EMAIL_ADRES</th>
+			<th>mber_email_adres</th>
 			<td>
 				<form:input path="mberEmailAdres" cssClass="txt"/>
 				&nbsp;<form:errors path="mberEmailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MIDDLE_TELNO</th>
+			<th>middle_telno</th>
 			<td>
 				<form:input path="middleTelno" cssClass="txt"/>
 				&nbsp;<form:errors path="middleTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SBSCRB_DE</th>
+			<th>sbscrb_de</th>
 			<td>
 				<form:input path="sbscrbDe" cssClass="txt"/>
 				&nbsp;<form:errors path="sbscrbDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SEXDSTN_CODE</th>
+			<th>sexdstn_code</th>
 			<td>
 				<form:input path="sexdstnCode" cssClass="txt"/>
 				&nbsp;<form:errors path="sexdstnCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ESNTL_ID</th>
+			<th>esntl_id</th>
 			<td>
 				<form:input path="esntlId" cssClass="txt"/>
 				&nbsp;<form:errors path="esntlId" />

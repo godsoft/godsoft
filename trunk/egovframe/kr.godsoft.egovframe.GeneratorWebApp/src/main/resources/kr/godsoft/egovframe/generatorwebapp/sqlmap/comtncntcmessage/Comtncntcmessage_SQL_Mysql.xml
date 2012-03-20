@@ -19,45 +19,44 @@
 	
 	<insert id="comtncntcmessageDAO.insertComtncntcmessage_S">
 		<![CDATA[
-			INSERT INTO comtncntcmessage 
-				( CNTC_MSSAGE_ID
-				  , cntc_mssage_nm
-				  , upper_cntc_mssage_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , use_at )
-			VALUES ( #cntcMssageId#
-				  , #cntcMssageNm#
-				  , #upperCntcMssageId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #useAt# )
+            INSERT INTO comtncntcmessage (
+                cntc_mssage_id
+                , cntc_mssage_nm
+                , upper_cntc_mssage_id
+                , frst_register_id
+                , frst_regist_pnttm
+                , use_at
+            ) VALUES (
+                #cntcMssageId#
+                , #cntcMssageNm#
+                , #upperCntcMssageId#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #useAt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncntcmessageDAO.updateComtncntcmessage_S">
 		<![CDATA[
-			UPDATE comtncntcmessage
-			SET cntc_mssage_id = #cntcMssageId#
-				, cntc_mssage_nm = #cntcMssageNm#
-				, upper_cntc_mssage_id = #upperCntcMssageId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, use_at = #useAt#
-			WHERE cntc_mssage_id = #cntcMssageId#
+            UPDATE comtncntcmessage
+                SET
+                cntc_mssage_id = #cntcMssageId#
+                , cntc_mssage_nm = #cntcMssageNm#
+                , upper_cntc_mssage_id = #upperCntcMssageId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , use_at = #useAt#
+                WHERE 1 = 1
+                AND cntc_mssage_id = #cntcMssageId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcmessageDAO.deleteComtncntcmessage_S">
 		<![CDATA[
-			DELETE FROM comtncntcmessage 
-			WHERE cntc_mssage_id = #cntcMssageId#
+			DELETE FROM comtncntcmessage
+				WHERE 1 = 1
+				AND cntc_mssage_id = #cntcMssageId#
 		]]>
 	</delete>
 	

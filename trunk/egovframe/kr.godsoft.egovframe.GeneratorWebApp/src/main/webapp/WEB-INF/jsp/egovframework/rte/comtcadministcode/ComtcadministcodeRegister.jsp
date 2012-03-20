@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-19
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -23,7 +23,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comtcadministcodeVO.administZoneSe ? '등록' : '수정'}"/>
 <c:set var="registerFlag" value="${empty comtcadministcodeVO.administZoneCode ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<title>comtcadministcode <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -78,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ADMINIST_ZONE_SE *</th>
+			<th>administ_zone_se *</th>
 			<td>
 				<form:input path="administZoneSe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>ADMINIST_ZONE_CODE *</th>
+			<th>행정구역코드 *</th>
 			<td>
 				<form:input path="administZoneCode" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -92,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ADMINIST_ZONE_SE *</th>
+			<th>administ_zone_se *</th>
 			<td>
 				<form:input path="administZoneSe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>ADMINIST_ZONE_CODE *</th>
+			<th>행정구역코드 *</th>
 			<td>
 				<form:input path="administZoneCode" cssClass="txt" readonly="false" />
 			</td>			
@@ -106,63 +106,63 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>USE_AT</th>
+			<th>사용여부</th>
 			<td>
 				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ADMINIST_ZONE_NM</th>
+			<th>행정구역명</th>
 			<td>
 				<form:input path="administZoneNm" cssClass="txt"/>
 				&nbsp;<form:errors path="administZoneNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>UPPER_ADMINIST_ZONE_CODE</th>
+			<th>상위행정구역코드</th>
 			<td>
 				<form:input path="upperAdministZoneCode" cssClass="txt"/>
 				&nbsp;<form:errors path="upperAdministZoneCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CREAT_DE</th>
+			<th>생성일자</th>
 			<td>
 				<form:input path="creatDe" cssClass="txt"/>
 				&nbsp;<form:errors path="creatDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ABL_DE</th>
+			<th>폐지일자</th>
 			<td>
 				<form:input path="ablDe" cssClass="txt"/>
 				&nbsp;<form:errors path="ablDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>최초등록시점</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>최초등록자ID</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>최종수정시점</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>최종수정자ID</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />

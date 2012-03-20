@@ -18,42 +18,41 @@
 	
 	<insert id="comtnbbsmasteroptnDAO.insertComtnbbsmasteroptn_S">
 		<![CDATA[
-			INSERT INTO comtnbbsmasteroptn 
-				( BBS_ID
-				  , answer_at
-				  , stsfdg_at
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , frst_register_id
-				  , last_updusr_id )
-			VALUES ( #bbsId#
-				  , #answerAt#
-				  , #stsfdgAt#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnbbsmasteroptn (
+                bbs_id
+                , answer_at
+                , stsfdg_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #bbsId#
+                , #answerAt#
+                , #stsfdgAt#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbbsmasteroptnDAO.updateComtnbbsmasteroptn_S">
 		<![CDATA[
-			UPDATE comtnbbsmasteroptn
-			SET bbs_id = #bbsId#
-				, answer_at = #answerAt#
-				, stsfdg_at = #stsfdgAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE bbs_id = #bbsId#
+            UPDATE comtnbbsmasteroptn
+                SET
+                bbs_id = #bbsId#
+                , answer_at = #answerAt#
+                , stsfdg_at = #stsfdgAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND bbs_id = #bbsId#
 		]]>
 	</update>
 	
 	<delete id="comtnbbsmasteroptnDAO.deleteComtnbbsmasteroptn_S">
 		<![CDATA[
-			DELETE FROM comtnbbsmasteroptn 
-			WHERE bbs_id = #bbsId#
+			DELETE FROM comtnbbsmasteroptn
+				WHERE 1 = 1
+				AND bbs_id = #bbsId#
 		]]>
 	</delete>
 	

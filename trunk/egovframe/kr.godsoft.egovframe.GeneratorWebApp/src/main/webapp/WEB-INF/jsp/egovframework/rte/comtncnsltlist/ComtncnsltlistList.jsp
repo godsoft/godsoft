@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtncnsltlist 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="cnsltId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -89,30 +89,30 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">CnsltId</th>
-								<th align="center">CnsltSj</th>
-								<th align="center">OthbcAt</th>
-								<th align="center">EmailAdres</th>
-								<th align="center">CnsltCn</th>
-								<th align="center">ManagtCn</th>
-								<th align="center">ManagtDe</th>
-								<th align="center">Rdcnt</th>
-								<th align="center">AtchFileId</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
-								<th align="center">AreaNo</th>
-								<th align="center">MiddleTelno</th>
-								<th align="center">EndTelno</th>
-								<th align="center">FrstMbtlnum</th>
-								<th align="center">MiddleMbtlnum</th>
-								<th align="center">EndMbtlnum</th>
-								<th align="center">WritngDe</th>
-								<th align="center">WrterNm</th>
-								<th align="center">EmailAnswerAt</th>
-								<th align="center">QnaProcessSttusCode</th>
-								<th align="center">WritngPassword</th>
+								<th align="center">cnslt_id</th>
+								<th align="center">cnslt_sj</th>
+								<th align="center">othbc_at</th>
+								<th align="center">email_adres</th>
+								<th align="center">cnslt_cn</th>
+								<th align="center">managt_cn</th>
+								<th align="center">managt_de</th>
+								<th align="center">rdcnt</th>
+								<th align="center">atch_file_id</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
+								<th align="center">area_no</th>
+								<th align="center">middle_telno</th>
+								<th align="center">end_telno</th>
+								<th align="center">frst_mbtlnum</th>
+								<th align="center">middle_mbtlnum</th>
+								<th align="center">end_mbtlnum</th>
+								<th align="center">writng_de</th>
+								<th align="center">wrter_nm</th>
+								<th align="center">email_answer_at</th>
+								<th align="center">qna_process_sttus_code</th>
+								<th align="center">writng_password</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

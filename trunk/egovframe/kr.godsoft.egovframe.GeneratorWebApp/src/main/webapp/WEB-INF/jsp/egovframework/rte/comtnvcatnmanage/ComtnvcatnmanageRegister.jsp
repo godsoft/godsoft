@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnvcatnmanageVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnvcatnmanageVO.applcntId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnvcatnmanageVO.vcatnSe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnvcatnmanageVO.bgnde ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnvcatnmanageVO.endde ? '등록' : '수정'}"/>
+<title>comtnvcatnmanage <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +62,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnvcatnmanageVO" name="detailForm">
+<form:form commandName="comtnvcatnmanageVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,25 +80,25 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>APPLCNT_ID *</th>
+			<th>applcnt_id *</th>
 			<td>
 				<form:input path="applcntId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>VCATN_SE *</th>
+			<th>vcatn_se *</th>
 			<td>
 				<form:input path="vcatnSe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>BGNDE *</th>
+			<th>bgnde *</th>
 			<td>
 				<form:input path="bgnde" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>ENDDE *</th>
+			<th>endde *</th>
 			<td>
 				<form:input path="endde" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -103,25 +106,25 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>APPLCNT_ID *</th>
+			<th>applcnt_id *</th>
 			<td>
 				<form:input path="applcntId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>VCATN_SE *</th>
+			<th>vcatn_se *</th>
 			<td>
 				<form:input path="vcatnSe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>BGNDE *</th>
+			<th>bgnde *</th>
 			<td>
 				<form:input path="bgnde" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>ENDDE *</th>
+			<th>endde *</th>
 			<td>
 				<form:input path="endde" cssClass="txt" readonly="false" />
 			</td>			
@@ -129,91 +132,91 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>VCATN_RESN</th>
+			<th>vcatn_resn</th>
 			<td>
 				<form:input path="vcatnResn" cssClass="txt"/>
 				&nbsp;<form:errors path="vcatnResn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>REQST_DE</th>
+			<th>reqst_de</th>
 			<td>
 				<form:input path="reqstDe" cssClass="txt"/>
 				&nbsp;<form:errors path="reqstDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OCCRRNC_YEAR</th>
+			<th>occrrnc_year</th>
 			<td>
 				<form:input path="occrrncYear" cssClass="txt"/>
 				&nbsp;<form:errors path="occrrncYear" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SANCTNER_ID</th>
+			<th>sanctner_id</th>
 			<td>
 				<form:input path="sanctnerId" cssClass="txt"/>
 				&nbsp;<form:errors path="sanctnerId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CONFM_AT</th>
+			<th>confm_at</th>
 			<td>
 				<form:input path="confmAt" cssClass="txt"/>
 				&nbsp;<form:errors path="confmAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SANCTN_DT</th>
+			<th>sanctn_dt</th>
 			<td>
 				<form:input path="sanctnDt" cssClass="txt"/>
 				&nbsp;<form:errors path="sanctnDt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RETURN_RESN</th>
+			<th>return_resn</th>
 			<td>
 				<form:input path="returnResn" cssClass="txt"/>
 				&nbsp;<form:errors path="returnResn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INFRML_SANCTN_ID</th>
+			<th>infrml_sanctn_id</th>
 			<td>
 				<form:input path="infrmlSanctnId" cssClass="txt"/>
 				&nbsp;<form:errors path="infrmlSanctnId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>NOON_SE</th>
+			<th>noon_se</th>
 			<td>
 				<form:input path="noonSe" cssClass="txt"/>
 				&nbsp;<form:errors path="noonSe" />

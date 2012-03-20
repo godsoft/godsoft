@@ -15,33 +15,38 @@
 	
 	<insert id="comtnfxtrsmanageDAO.insertComtnfxtrsmanage_S">
 		<![CDATA[
-			INSERT INTO comtnfxtrsmanage 
-				( FXTRS_CODE
-				  , fxtrs_nm
-				  , makr_nm
-				  , price )
-			VALUES ( #fxtrsCode#
-				  , #fxtrsNm#
-				  , #makrNm#
-				  , #price# )
+            INSERT INTO comtnfxtrsmanage (
+                fxtrs_code
+                , fxtrs_nm
+                , makr_nm
+                , price
+            ) VALUES (
+                #fxtrsCode#
+                , #fxtrsNm#
+                , #makrNm#
+                , #price#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnfxtrsmanageDAO.updateComtnfxtrsmanage_S">
 		<![CDATA[
-			UPDATE comtnfxtrsmanage
-			SET fxtrs_code = #fxtrsCode#
-				, fxtrs_nm = #fxtrsNm#
-				, makr_nm = #makrNm#
-				, price = #price#
-			WHERE fxtrs_code = #fxtrsCode#
+            UPDATE comtnfxtrsmanage
+                SET
+                fxtrs_code = #fxtrsCode#
+                , fxtrs_nm = #fxtrsNm#
+                , makr_nm = #makrNm#
+                , price = #price#
+                WHERE 1 = 1
+                AND fxtrs_code = #fxtrsCode#
 		]]>
 	</update>
 	
 	<delete id="comtnfxtrsmanageDAO.deleteComtnfxtrsmanage_S">
 		<![CDATA[
-			DELETE FROM comtnfxtrsmanage 
-			WHERE fxtrs_code = #fxtrsCode#
+			DELETE FROM comtnfxtrsmanage
+				WHERE 1 = 1
+				AND fxtrs_code = #fxtrsCode#
 		]]>
 	</delete>
 	

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnmtginfoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnmtginfoVO.mtgId ? '등록' : '수정'}"/>
+<title>comtnmtginfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnmtginfoVO" name="detailForm">
+<form:form commandName="comtnmtginfoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>MTG_ID *</th>
+			<th>mtg_id *</th>
 			<td>
 				<form:input path="mtgId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>MTG_ID *</th>
+			<th>mtg_id *</th>
 			<td>
 				<form:input path="mtgId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,168 +93,168 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>MTG_NM</th>
+			<th>mtg_nm</th>
 			<td>
 				<form:input path="mtgNm" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_MTR_CN</th>
+			<th>mtg_mtr_cn</th>
 			<td>
 				<form:input path="mtgMtrCn" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgMtrCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_SN</th>
+			<th>mtg_sn</th>
 			<td>
 				<form:input path="mtgSn" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgSn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_CO</th>
+			<th>mtg_co</th>
 			<td>
 				<form:input path="mtgCo" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_DE</th>
+			<th>mtg_de</th>
 			<td>
 				<form:input path="mtgDe" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_PLACE</th>
+			<th>mtg_place</th>
 			<td>
 				<form:input path="mtgPlace" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgPlace" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_BEGIN_TM</th>
+			<th>mtg_begin_tm</th>
 			<td>
 				<form:input path="mtgBeginTm" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgBeginTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_END_TM</th>
+			<th>mtg_end_tm</th>
 			<td>
 				<form:input path="mtgEndTm" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgEndTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CLSDR_MTG_AT</th>
+			<th>clsdr_mtg_at</th>
 			<td>
 				<form:input path="clsdrMtgAt" cssClass="txt"/>
 				&nbsp;<form:errors path="clsdrMtgAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>READNG_BGNDE</th>
+			<th>readng_bgnde</th>
 			<td>
 				<form:input path="readngBgnde" cssClass="txt"/>
 				&nbsp;<form:errors path="readngBgnde" />
 			</td>
 		</tr>	
 		<tr>
-			<th>READNG_AT</th>
+			<th>readng_at</th>
 			<td>
 				<form:input path="readngAt" cssClass="txt"/>
 				&nbsp;<form:errors path="readngAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_RESULT_CN</th>
+			<th>mtg_result_cn</th>
 			<td>
 				<form:input path="mtgResultCn" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgResultCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_RESULT_ENNC</th>
+			<th>mtg_result_ennc</th>
 			<td>
 				<form:input path="mtgResultEnnc" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgResultEnnc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ETC_MATTER</th>
+			<th>etc_matter</th>
 			<td>
 				<form:input path="etcMatter" cssClass="txt"/>
 				&nbsp;<form:errors path="etcMatter" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MNGT_DEPT_ID</th>
+			<th>mngt_dept_id</th>
 			<td>
 				<form:input path="mngtDeptId" cssClass="txt"/>
 				&nbsp;<form:errors path="mngtDeptId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MNAER_ID</th>
+			<th>mnaer_id</th>
 			<td>
 				<form:input path="mnaerId" cssClass="txt"/>
 				&nbsp;<form:errors path="mnaerId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MNAER_DEPT_ID</th>
+			<th>mnaer_dept_id</th>
 			<td>
 				<form:input path="mnaerDeptId" cssClass="txt"/>
 				&nbsp;<form:errors path="mnaerDeptId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MTG_AT</th>
+			<th>mtg_at</th>
 			<td>
 				<form:input path="mtgAt" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>NONATDRN_CO</th>
+			<th>nonatdrn_co</th>
 			<td>
 				<form:input path="nonatdrnCo" cssClass="txt"/>
 				&nbsp;<form:errors path="nonatdrnCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ATDRN_CO</th>
+			<th>atdrn_co</th>
 			<td>
 				<form:input path="atdrnCo" cssClass="txt"/>
 				&nbsp;<form:errors path="atdrnCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />

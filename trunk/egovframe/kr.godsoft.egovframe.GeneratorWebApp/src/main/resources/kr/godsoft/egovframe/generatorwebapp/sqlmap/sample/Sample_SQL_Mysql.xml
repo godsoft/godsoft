@@ -16,36 +16,41 @@
 	
 	<insert id="sampleDAO.insertSample_S">
 		<![CDATA[
-			INSERT INTO sample 
-				( ID
-				  , name
-				  , description
-				  , use_yn
-				  , reg_user )
-			VALUES ( #id#
-				  , #name#
-				  , #description#
-				  , #useYn#
-				  , #regUser# )
+            INSERT INTO sample (
+                id
+                , name
+                , description
+                , use_yn
+                , reg_user
+            ) VALUES (
+                #id#
+                , #name#
+                , #description#
+                , #useYn#
+                , #regUser#
+            )
 		]]>
 	</insert>
 	
 	<update id="sampleDAO.updateSample_S">
 		<![CDATA[
-			UPDATE sample
-			SET id = #id#
-				, name = #name#
-				, description = #description#
-				, use_yn = #useYn#
-				, reg_user = #regUser#
-			WHERE id = #id#
+            UPDATE sample
+                SET
+                id = #id#
+                , name = #name#
+                , description = #description#
+                , use_yn = #useYn#
+                , reg_user = #regUser#
+                WHERE 1 = 1
+                AND id = #id#
 		]]>
 	</update>
 	
 	<delete id="sampleDAO.deleteSample_S">
 		<![CDATA[
-			DELETE FROM sample 
-			WHERE id = #id#
+			DELETE FROM sample
+				WHERE 1 = 1
+				AND id = #id#
 		]]>
 	</delete>
 	

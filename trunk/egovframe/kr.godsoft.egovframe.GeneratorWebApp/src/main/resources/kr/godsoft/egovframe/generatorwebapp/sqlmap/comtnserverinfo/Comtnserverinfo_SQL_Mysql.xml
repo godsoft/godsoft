@@ -19,45 +19,44 @@
 	
 	<insert id="comtnserverinfoDAO.insertComtnserverinfo_S">
 		<![CDATA[
-			INSERT INTO comtnserverinfo 
-				( SERVER_ID
-				  , server_nm
-				  , server_knd
-				  , rgsde
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #serverId#
-				  , #serverNm#
-				  , #serverKnd#
-				  , #rgsde#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnserverinfo (
+                server_id
+                , server_nm
+                , server_knd
+                , rgsde
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #serverId#
+                , #serverNm#
+                , #serverKnd#
+                , #rgsde#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnserverinfoDAO.updateComtnserverinfo_S">
 		<![CDATA[
-			UPDATE comtnserverinfo
-			SET server_id = #serverId#
-				, server_nm = #serverNm#
-				, server_knd = #serverKnd#
-				, rgsde = #rgsde#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE server_id = #serverId#
+            UPDATE comtnserverinfo
+                SET
+                server_id = #serverId#
+                , server_nm = #serverNm#
+                , server_knd = #serverKnd#
+                , rgsde = #rgsde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND server_id = #serverId#
 		]]>
 	</update>
 	
 	<delete id="comtnserverinfoDAO.deleteComtnserverinfo_S">
 		<![CDATA[
-			DELETE FROM comtnserverinfo 
-			WHERE server_id = #serverId#
+			DELETE FROM comtnserverinfo
+				WHERE 1 = 1
+				AND server_id = #serverId#
 		]]>
 	</delete>
 	

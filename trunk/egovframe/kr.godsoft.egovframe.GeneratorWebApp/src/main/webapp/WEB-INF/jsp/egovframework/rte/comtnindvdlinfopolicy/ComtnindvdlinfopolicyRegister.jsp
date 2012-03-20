@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnindvdlinfopolicyVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnindvdlinfopolicyVO.indvdlInfoPolicyId ? '등록' : '수정'}"/>
+<title>comtnindvdlinfopolicy <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnindvdlinfopolicyVO" name="detailForm">
+<form:form commandName="comtnindvdlinfopolicyVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>INDVDL_INFO_POLICY_ID *</th>
+			<th>indvdl_info_policy_id *</th>
 			<td>
 				<form:input path="indvdlInfoPolicyId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>INDVDL_INFO_POLICY_ID *</th>
+			<th>indvdl_info_policy_id *</th>
 			<td>
 				<form:input path="indvdlInfoPolicyId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,49 +93,49 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>INDVDL_INFO_POLICY_CN</th>
+			<th>indvdl_info_policy_cn</th>
 			<td>
 				<form:input path="indvdlInfoPolicyCn" cssClass="txt"/>
 				&nbsp;<form:errors path="indvdlInfoPolicyCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INDVDL_INFO_POLICY_AGRE_AT</th>
+			<th>indvdl_info_policy_agre_at</th>
 			<td>
 				<form:input path="indvdlInfoPolicyAgreAt" cssClass="txt"/>
 				&nbsp;<form:errors path="indvdlInfoPolicyAgreAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>INDVDL_INFO_POLICY_NM</th>
+			<th>indvdl_info_policy_nm</th>
 			<td>
 				<form:input path="indvdlInfoPolicyNm" cssClass="txt"/>
 				&nbsp;<form:errors path="indvdlInfoPolicyNm" />

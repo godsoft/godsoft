@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnindvdlpgecntntsVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnindvdlpgecntntsVO.cntntsId ? '등록' : '수정'}"/>
+<title>comtnindvdlpgecntnts <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnindvdlpgecntntsVO" name="detailForm">
+<form:form commandName="comtnindvdlpgecntntsVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>CNTNTS_ID *</th>
+			<th>cntnts_id *</th>
 			<td>
 				<form:input path="cntntsId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>CNTNTS_ID *</th>
+			<th>cntnts_id *</th>
 			<td>
 				<form:input path="cntntsId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,35 +93,35 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>CNTNTS_NM</th>
+			<th>cntnts_nm</th>
 			<td>
 				<form:input path="cntntsNm" cssClass="txt"/>
 				&nbsp;<form:errors path="cntntsNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CNTC_URL</th>
+			<th>cntc_url</th>
 			<td>
 				<form:input path="cntcUrl" cssClass="txt"/>
 				&nbsp;<form:errors path="cntcUrl" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CNTNTS_USE_AT</th>
+			<th>cntnts_use_at</th>
 			<td>
 				<form:input path="cntntsUseAt" cssClass="txt"/>
 				&nbsp;<form:errors path="cntntsUseAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CNTNTS_LINK_URL</th>
+			<th>cntnts_link_url</th>
 			<td>
 				<form:input path="cntntsLinkUrl" cssClass="txt"/>
 				&nbsp;<form:errors path="cntntsLinkUrl" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CNTNTS_DC</th>
+			<th>cntnts_dc</th>
 			<td>
 				<form:input path="cntntsDc" cssClass="txt"/>
 				&nbsp;<form:errors path="cntntsDc" />

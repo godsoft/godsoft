@@ -36,96 +36,95 @@
 	
 	<insert id="comtnmtginfoDAO.insertComtnmtginfo_S">
 		<![CDATA[
-			INSERT INTO comtnmtginfo 
-				( MTG_ID
-				  , mtg_nm
-				  , mtg_mtr_cn
-				  , mtg_sn
-				  , mtg_co
-				  , mtg_de
-				  , mtg_place
-				  , mtg_begin_tm
-				  , mtg_end_tm
-				  , clsdr_mtg_at
-				  , readng_bgnde
-				  , readng_at
-				  , mtg_result_cn
-				  , mtg_result_ennc
-				  , etc_matter
-				  , mngt_dept_id
-				  , mnaer_id
-				  , mnaer_dept_id
-				  , mtg_at
-				  , nonatdrn_co
-				  , atdrn_co
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #mtgId#
-				  , #mtgNm#
-				  , #mtgMtrCn#
-				  , #mtgSn#
-				  , #mtgCo#
-				  , #mtgDe#
-				  , #mtgPlace#
-				  , #mtgBeginTm#
-				  , #mtgEndTm#
-				  , #clsdrMtgAt#
-				  , #readngBgnde#
-				  , #readngAt#
-				  , #mtgResultCn#
-				  , #mtgResultEnnc#
-				  , #etcMatter#
-				  , #mngtDeptId#
-				  , #mnaerId#
-				  , #mnaerDeptId#
-				  , #mtgAt#
-				  , #nonatdrnCo#
-				  , #atdrnCo#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnmtginfo (
+                mtg_id
+                , mtg_nm
+                , mtg_mtr_cn
+                , mtg_sn
+                , mtg_co
+                , mtg_de
+                , mtg_place
+                , mtg_begin_tm
+                , mtg_end_tm
+                , clsdr_mtg_at
+                , readng_bgnde
+                , readng_at
+                , mtg_result_cn
+                , mtg_result_ennc
+                , etc_matter
+                , mngt_dept_id
+                , mnaer_id
+                , mnaer_dept_id
+                , mtg_at
+                , nonatdrn_co
+                , atdrn_co
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #mtgId#
+                , #mtgNm#
+                , #mtgMtrCn#
+                , #mtgSn#
+                , #mtgCo#
+                , #mtgDe#
+                , #mtgPlace#
+                , #mtgBeginTm#
+                , #mtgEndTm#
+                , #clsdrMtgAt#
+                , #readngBgnde#
+                , #readngAt#
+                , #mtgResultCn#
+                , #mtgResultEnnc#
+                , #etcMatter#
+                , #mngtDeptId#
+                , #mnaerId#
+                , #mnaerDeptId#
+                , #mtgAt#
+                , #nonatdrnCo#
+                , #atdrnCo#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnmtginfoDAO.updateComtnmtginfo_S">
 		<![CDATA[
-			UPDATE comtnmtginfo
-			SET mtg_id = #mtgId#
-				, mtg_nm = #mtgNm#
-				, mtg_mtr_cn = #mtgMtrCn#
-				, mtg_sn = #mtgSn#
-				, mtg_co = #mtgCo#
-				, mtg_de = #mtgDe#
-				, mtg_place = #mtgPlace#
-				, mtg_begin_tm = #mtgBeginTm#
-				, mtg_end_tm = #mtgEndTm#
-				, clsdr_mtg_at = #clsdrMtgAt#
-				, readng_bgnde = #readngBgnde#
-				, readng_at = #readngAt#
-				, mtg_result_cn = #mtgResultCn#
-				, mtg_result_ennc = #mtgResultEnnc#
-				, etc_matter = #etcMatter#
-				, mngt_dept_id = #mngtDeptId#
-				, mnaer_id = #mnaerId#
-				, mnaer_dept_id = #mnaerDeptId#
-				, mtg_at = #mtgAt#
-				, nonatdrn_co = #nonatdrnCo#
-				, atdrn_co = #atdrnCo#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE mtg_id = #mtgId#
+            UPDATE comtnmtginfo
+                SET
+                mtg_id = #mtgId#
+                , mtg_nm = #mtgNm#
+                , mtg_mtr_cn = #mtgMtrCn#
+                , mtg_sn = #mtgSn#
+                , mtg_co = #mtgCo#
+                , mtg_de = #mtgDe#
+                , mtg_place = #mtgPlace#
+                , mtg_begin_tm = #mtgBeginTm#
+                , mtg_end_tm = #mtgEndTm#
+                , clsdr_mtg_at = #clsdrMtgAt#
+                , readng_bgnde = #readngBgnde#
+                , readng_at = #readngAt#
+                , mtg_result_cn = #mtgResultCn#
+                , mtg_result_ennc = #mtgResultEnnc#
+                , etc_matter = #etcMatter#
+                , mngt_dept_id = #mngtDeptId#
+                , mnaer_id = #mnaerId#
+                , mnaer_dept_id = #mnaerDeptId#
+                , mtg_at = #mtgAt#
+                , nonatdrn_co = #nonatdrnCo#
+                , atdrn_co = #atdrnCo#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND mtg_id = #mtgId#
 		]]>
 	</update>
 	
 	<delete id="comtnmtginfoDAO.deleteComtnmtginfo_S">
 		<![CDATA[
-			DELETE FROM comtnmtginfo 
-			WHERE mtg_id = #mtgId#
+			DELETE FROM comtnmtginfo
+				WHERE 1 = 1
+				AND mtg_id = #mtgId#
 		]]>
 	</delete>
 	

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnbatchresultVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnbatchresultVO.batchResultId ? '등록' : '수정'}"/>
+<title>comtnbatchresult <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnbatchresultVO" name="detailForm">
+<form:form commandName="comtnbatchresultVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>BATCH_RESULT_ID *</th>
+			<th>batch_result_id *</th>
 			<td>
 				<form:input path="batchResultId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>BATCH_RESULT_ID *</th>
+			<th>batch_result_id *</th>
 			<td>
 				<form:input path="batchResultId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,77 +93,77 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>BATCH_SCHDUL_ID</th>
+			<th>batch_schdul_id</th>
 			<td>
 				<form:input path="batchSchdulId" cssClass="txt"/>
 				&nbsp;<form:errors path="batchSchdulId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>BATCH_OPERT_ID</th>
+			<th>batch_opert_id</th>
 			<td>
 				<form:input path="batchOpertId" cssClass="txt"/>
 				&nbsp;<form:errors path="batchOpertId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PARAMTR</th>
+			<th>paramtr</th>
 			<td>
 				<form:input path="paramtr" cssClass="txt"/>
 				&nbsp;<form:errors path="paramtr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>STTUS</th>
+			<th>sttus</th>
 			<td>
 				<form:input path="sttus" cssClass="txt"/>
 				&nbsp;<form:errors path="sttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ERROR_INFO</th>
+			<th>error_info</th>
 			<td>
 				<form:input path="errorInfo" cssClass="txt"/>
 				&nbsp;<form:errors path="errorInfo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>EXECUT_BEGIN_TM</th>
+			<th>execut_begin_tm</th>
 			<td>
 				<form:input path="executBeginTm" cssClass="txt"/>
 				&nbsp;<form:errors path="executBeginTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>EXECUT_END_TM</th>
+			<th>execut_end_tm</th>
 			<td>
 				<form:input path="executEndTm" cssClass="txt"/>
 				&nbsp;<form:errors path="executEndTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />

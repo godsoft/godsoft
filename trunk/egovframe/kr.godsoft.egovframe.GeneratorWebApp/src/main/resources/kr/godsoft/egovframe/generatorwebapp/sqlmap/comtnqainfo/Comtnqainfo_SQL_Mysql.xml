@@ -30,78 +30,77 @@
 	
 	<insert id="comtnqainfoDAO.insertComtnqainfo_S">
 		<![CDATA[
-			INSERT INTO comtnqainfo 
-				( QA_ID
-				  , qestn_sj
-				  , qestn_cn
-				  , writng_de
-				  , rdcnt
-				  , email_adres
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , qna_process_sttus_code
-				  , wrter_nm
-				  , answer_cn
-				  , writng_password
-				  , answer_de
-				  , email_answer_at
-				  , area_no
-				  , middle_telno
-				  , end_telno )
-			VALUES ( #qaId#
-				  , #qestnSj#
-				  , #qestnCn#
-				  , #writngDe#
-				  , #rdcnt#
-				  , #emailAdres#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #qnaProcessSttusCode#
-				  , #wrterNm#
-				  , #answerCn#
-				  , #writngPassword#
-				  , #answerDe#
-				  , #emailAnswerAt#
-				  , #areaNo#
-				  , #middleTelno#
-				  , #endTelno# )
+            INSERT INTO comtnqainfo (
+                qa_id
+                , qestn_sj
+                , qestn_cn
+                , writng_de
+                , rdcnt
+                , email_adres
+                , frst_regist_pnttm
+                , frst_register_id
+                , qna_process_sttus_code
+                , wrter_nm
+                , answer_cn
+                , writng_password
+                , answer_de
+                , email_answer_at
+                , area_no
+                , middle_telno
+                , end_telno
+            ) VALUES (
+                #qaId#
+                , #qestnSj#
+                , #qestnCn#
+                , #writngDe#
+                , #rdcnt#
+                , #emailAdres#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #qnaProcessSttusCode#
+                , #wrterNm#
+                , #answerCn#
+                , #writngPassword#
+                , #answerDe#
+                , #emailAnswerAt#
+                , #areaNo#
+                , #middleTelno#
+                , #endTelno#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnqainfoDAO.updateComtnqainfo_S">
 		<![CDATA[
-			UPDATE comtnqainfo
-			SET qa_id = #qaId#
-				, qestn_sj = #qestnSj#
-				, qestn_cn = #qestnCn#
-				, writng_de = #writngDe#
-				, rdcnt = #rdcnt#
-				, email_adres = #emailAdres#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, qna_process_sttus_code = #qnaProcessSttusCode#
-				, wrter_nm = #wrterNm#
-				, answer_cn = #answerCn#
-				, writng_password = #writngPassword#
-				, answer_de = #answerDe#
-				, email_answer_at = #emailAnswerAt#
-				, area_no = #areaNo#
-				, middle_telno = #middleTelno#
-				, end_telno = #endTelno#
-			WHERE qa_id = #qaId#
+            UPDATE comtnqainfo
+                SET
+                qa_id = #qaId#
+                , qestn_sj = #qestnSj#
+                , qestn_cn = #qestnCn#
+                , writng_de = #writngDe#
+                , rdcnt = #rdcnt#
+                , email_adres = #emailAdres#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , qna_process_sttus_code = #qnaProcessSttusCode#
+                , wrter_nm = #wrterNm#
+                , answer_cn = #answerCn#
+                , writng_password = #writngPassword#
+                , answer_de = #answerDe#
+                , email_answer_at = #emailAnswerAt#
+                , area_no = #areaNo#
+                , middle_telno = #middleTelno#
+                , end_telno = #endTelno#
+                WHERE 1 = 1
+                AND qa_id = #qaId#
 		]]>
 	</update>
 	
 	<delete id="comtnqainfoDAO.deleteComtnqainfo_S">
 		<![CDATA[
-			DELETE FROM comtnqainfo 
-			WHERE qa_id = #qaId#
+			DELETE FROM comtnqainfo
+				WHERE 1 = 1
+				AND qa_id = #qaId#
 		]]>
 	</delete>
 	

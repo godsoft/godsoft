@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnfiledetailVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnfiledetailVO.atchFileId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnfiledetailVO.fileSn ? '등록' : '수정'}"/>
+<title>comtnfiledetail <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnfiledetailVO" name="detailForm">
+<form:form commandName="comtnfiledetailVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ATCH_FILE_ID *</th>
+			<th>atch_file_id *</th>
 			<td>
 				<form:input path="atchFileId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>FILE_SN *</th>
+			<th>file_sn *</th>
 			<td>
 				<form:input path="fileSn" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ATCH_FILE_ID *</th>
+			<th>atch_file_id *</th>
 			<td>
 				<form:input path="atchFileId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>FILE_SN *</th>
+			<th>file_sn *</th>
 			<td>
 				<form:input path="fileSn" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,42 +106,42 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>FILE_STRE_COURS</th>
+			<th>file_stre_cours</th>
 			<td>
 				<form:input path="fileStreCours" cssClass="txt"/>
 				&nbsp;<form:errors path="fileStreCours" />
 			</td>
 		</tr>	
 		<tr>
-			<th>STRE_FILE_NM</th>
+			<th>stre_file_nm</th>
 			<td>
 				<form:input path="streFileNm" cssClass="txt"/>
 				&nbsp;<form:errors path="streFileNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ORIGNL_FILE_NM</th>
+			<th>orignl_file_nm</th>
 			<td>
 				<form:input path="orignlFileNm" cssClass="txt"/>
 				&nbsp;<form:errors path="orignlFileNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FILE_EXTSN</th>
+			<th>file_extsn</th>
 			<td>
 				<form:input path="fileExtsn" cssClass="txt"/>
 				&nbsp;<form:errors path="fileExtsn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FILE_CN</th>
+			<th>file_cn</th>
 			<td>
 				<form:input path="fileCn" cssClass="txt"/>
 				&nbsp;<form:errors path="fileCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FILE_SIZE</th>
+			<th>file_size</th>
 			<td>
 				<form:input path="fileSize" cssClass="txt"/>
 				&nbsp;<form:errors path="fileSize" />

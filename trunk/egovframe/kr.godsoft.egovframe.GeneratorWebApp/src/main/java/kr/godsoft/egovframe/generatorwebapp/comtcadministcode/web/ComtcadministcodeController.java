@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-19
+ * @since 2012-03-20
  * @version 1.0
  * @see
  *  

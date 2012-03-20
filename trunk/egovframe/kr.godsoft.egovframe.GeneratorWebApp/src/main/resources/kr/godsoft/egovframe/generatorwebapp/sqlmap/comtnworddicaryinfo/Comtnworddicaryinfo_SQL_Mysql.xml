@@ -20,48 +20,47 @@
 	
 	<insert id="comtnworddicaryinfoDAO.insertComtnworddicaryinfo_S">
 		<![CDATA[
-			INSERT INTO comtnworddicaryinfo 
-				( WORD_ID
-				  , word_nm
-				  , eng_nm
-				  , word_dc
-				  , synonm
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #wordId#
-				  , #wordNm#
-				  , #engNm#
-				  , #wordDc#
-				  , #synonm#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnworddicaryinfo (
+                word_id
+                , word_nm
+                , eng_nm
+                , word_dc
+                , synonm
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #wordId#
+                , #wordNm#
+                , #engNm#
+                , #wordDc#
+                , #synonm#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnworddicaryinfoDAO.updateComtnworddicaryinfo_S">
 		<![CDATA[
-			UPDATE comtnworddicaryinfo
-			SET word_id = #wordId#
-				, word_nm = #wordNm#
-				, eng_nm = #engNm#
-				, word_dc = #wordDc#
-				, synonm = #synonm#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE word_id = #wordId#
+            UPDATE comtnworddicaryinfo
+                SET
+                word_id = #wordId#
+                , word_nm = #wordNm#
+                , eng_nm = #engNm#
+                , word_dc = #wordDc#
+                , synonm = #synonm#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND word_id = #wordId#
 		]]>
 	</update>
 	
 	<delete id="comtnworddicaryinfoDAO.deleteComtnworddicaryinfo_S">
 		<![CDATA[
-			DELETE FROM comtnworddicaryinfo 
-			WHERE word_id = #wordId#
+			DELETE FROM comtnworddicaryinfo
+				WHERE 1 = 1
+				AND word_id = #wordId#
 		]]>
 	</delete>
 	

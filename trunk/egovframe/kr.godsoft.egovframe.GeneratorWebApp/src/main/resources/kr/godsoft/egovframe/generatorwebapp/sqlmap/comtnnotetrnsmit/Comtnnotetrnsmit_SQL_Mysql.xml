@@ -19,46 +19,45 @@
 	
 	<insert id="comtnnotetrnsmitDAO.insertComtnnotetrnsmit_S">
 		<![CDATA[
-			INSERT INTO comtnnotetrnsmit 
-				( NOTE_ID
-				  , note_trnsmit_id
-				  , trnsmiter_id
-				  , delete_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #noteId#
-				  , #noteTrnsmitId#
-				  , #trnsmiterId#
-				  , #deleteAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnnotetrnsmit (
+                note_id
+                , note_trnsmit_id
+                , trnsmiter_id
+                , delete_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #noteId#
+                , #noteTrnsmitId#
+                , #trnsmiterId#
+                , #deleteAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnnotetrnsmitDAO.updateComtnnotetrnsmit_S">
 		<![CDATA[
-			UPDATE comtnnotetrnsmit
-			SET note_id = #noteId#
-				, note_trnsmit_id = #noteTrnsmitId#
-				, trnsmiter_id = #trnsmiterId#
-				, delete_at = #deleteAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE note_id = #noteId#
-				AND note_trnsmit_id = #noteTrnsmitId#
+            UPDATE comtnnotetrnsmit
+                SET
+                note_id = #noteId#
+                , note_trnsmit_id = #noteTrnsmitId#
+                , trnsmiter_id = #trnsmiterId#
+                , delete_at = #deleteAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND note_id = #noteId#
+                AND note_trnsmit_id = #noteTrnsmitId#
 		]]>
 	</update>
 	
 	<delete id="comtnnotetrnsmitDAO.deleteComtnnotetrnsmit_S">
 		<![CDATA[
-			DELETE FROM comtnnotetrnsmit 
-			WHERE note_id = #noteId#
+			DELETE FROM comtnnotetrnsmit
+				WHERE 1 = 1
+				AND note_id = #noteId#
 				AND note_trnsmit_id = #noteTrnsmitId#
 		]]>
 	</delete>

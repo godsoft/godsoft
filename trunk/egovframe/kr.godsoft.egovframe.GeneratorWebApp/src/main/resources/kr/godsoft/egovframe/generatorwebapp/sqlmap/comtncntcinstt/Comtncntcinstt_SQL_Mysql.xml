@@ -18,42 +18,41 @@
 	
 	<insert id="comtncntcinsttDAO.insertComtncntcinstt_S">
 		<![CDATA[
-			INSERT INTO comtncntcinstt 
-				( INSTT_ID
-				  , instt_nm
-				  , frst_register_id
-				  , last_updusr_id
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , use_at )
-			VALUES ( #insttId#
-				  , #insttNm#
-				  , #frstRegisterId#
-				  , #lastUpdusrId#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #useAt# )
+            INSERT INTO comtncntcinstt (
+                instt_id
+                , instt_nm
+                , frst_register_id
+                , frst_regist_pnttm
+                , use_at
+            ) VALUES (
+                #insttId#
+                , #insttNm#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #useAt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncntcinsttDAO.updateComtncntcinstt_S">
 		<![CDATA[
-			UPDATE comtncntcinstt
-			SET instt_id = #insttId#
-				, instt_nm = #insttNm#
-				, frst_register_id = #frstRegisterId#
-				, last_updusr_id = #lastUpdusrId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, use_at = #useAt#
-			WHERE instt_id = #insttId#
+            UPDATE comtncntcinstt
+                SET
+                instt_id = #insttId#
+                , instt_nm = #insttNm#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , use_at = #useAt#
+                WHERE 1 = 1
+                AND instt_id = #insttId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcinsttDAO.deleteComtncntcinstt_S">
 		<![CDATA[
-			DELETE FROM comtncntcinstt 
-			WHERE instt_id = #insttId#
+			DELETE FROM comtncntcinstt
+				WHERE 1 = 1
+				AND instt_id = #insttId#
 		]]>
 	</delete>
 	

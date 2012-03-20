@@ -21,51 +21,56 @@
 	
 	<insert id="comthconfmhistoryDAO.insertComthconfmhistory_S">
 		<![CDATA[
-			INSERT INTO comthconfmhistory 
-				( CONFM_NO
-				  , confm_rqester_id
-				  , confmer_id
-				  , confm_de
-				  , confm_ty_code
-				  , confm_sttus_code
-				  , opert_ty_code
-				  , opert_id
-				  , trget_job_ty_code
-				  , trget_job_id )
-			VALUES ( #confmNo#
-				  , #confmRqesterId#
-				  , #confmerId#
-				  , #confmDe#
-				  , #confmTyCode#
-				  , #confmSttusCode#
-				  , #opertTyCode#
-				  , #opertId#
-				  , #trgetJobTyCode#
-				  , #trgetJobId# )
+            INSERT INTO comthconfmhistory (
+                confm_no
+                , confm_rqester_id
+                , confmer_id
+                , confm_de
+                , confm_ty_code
+                , confm_sttus_code
+                , opert_ty_code
+                , opert_id
+                , trget_job_ty_code
+                , trget_job_id
+            ) VALUES (
+                #confmNo#
+                , #confmRqesterId#
+                , #confmerId#
+                , #confmDe#
+                , #confmTyCode#
+                , #confmSttusCode#
+                , #opertTyCode#
+                , #opertId#
+                , #trgetJobTyCode#
+                , #trgetJobId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comthconfmhistoryDAO.updateComthconfmhistory_S">
 		<![CDATA[
-			UPDATE comthconfmhistory
-			SET confm_no = #confmNo#
-				, confm_rqester_id = #confmRqesterId#
-				, confmer_id = #confmerId#
-				, confm_de = #confmDe#
-				, confm_ty_code = #confmTyCode#
-				, confm_sttus_code = #confmSttusCode#
-				, opert_ty_code = #opertTyCode#
-				, opert_id = #opertId#
-				, trget_job_ty_code = #trgetJobTyCode#
-				, trget_job_id = #trgetJobId#
-			WHERE confm_no = #confmNo#
+            UPDATE comthconfmhistory
+                SET
+                confm_no = #confmNo#
+                , confm_rqester_id = #confmRqesterId#
+                , confmer_id = #confmerId#
+                , confm_de = #confmDe#
+                , confm_ty_code = #confmTyCode#
+                , confm_sttus_code = #confmSttusCode#
+                , opert_ty_code = #opertTyCode#
+                , opert_id = #opertId#
+                , trget_job_ty_code = #trgetJobTyCode#
+                , trget_job_id = #trgetJobId#
+                WHERE 1 = 1
+                AND confm_no = #confmNo#
 		]]>
 	</update>
 	
 	<delete id="comthconfmhistoryDAO.deleteComthconfmhistory_S">
 		<![CDATA[
-			DELETE FROM comthconfmhistory 
-			WHERE confm_no = #confmNo#
+			DELETE FROM comthconfmhistory
+				WHERE 1 = 1
+				AND confm_no = #confmNo#
 		]]>
 	</delete>
 	

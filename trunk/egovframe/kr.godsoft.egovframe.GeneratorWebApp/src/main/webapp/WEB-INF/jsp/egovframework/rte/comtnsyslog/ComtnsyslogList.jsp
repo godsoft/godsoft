@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnsyslog 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="requstId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -81,22 +81,22 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">RequstId</th>
-								<th align="center">JobSeCode</th>
-								<th align="center">InsttCode</th>
-								<th align="center">OccrrncDe</th>
-								<th align="center">RqesterIp</th>
-								<th align="center">RqesterId</th>
-								<th align="center">TrgetMenuNm</th>
-								<th align="center">SvcNm</th>
-								<th align="center">MethodNm</th>
-								<th align="center">ProcessSeCode</th>
-								<th align="center">ProcessCo</th>
-								<th align="center">ProcessTime</th>
-								<th align="center">RspnsCode</th>
-								<th align="center">ErrorSe</th>
-								<th align="center">ErrorCo</th>
-								<th align="center">ErrorCode</th>
+								<th align="center">requst_id</th>
+								<th align="center">job_se_code</th>
+								<th align="center">instt_code</th>
+								<th align="center">occrrnc_de</th>
+								<th align="center">rqester_ip</th>
+								<th align="center">rqester_id</th>
+								<th align="center">trget_menu_nm</th>
+								<th align="center">svc_nm</th>
+								<th align="center">method_nm</th>
+								<th align="center">process_se_code</th>
+								<th align="center">process_co</th>
+								<th align="center">process_time</th>
+								<th align="center">rspns_code</th>
+								<th align="center">error_se</th>
+								<th align="center">error_co</th>
+								<th align="center">error_code</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

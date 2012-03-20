@@ -24,60 +24,59 @@
 	
 	<insert id="comtnntwrkinfoDAO.insertComtnntwrkinfo_S">
 		<![CDATA[
-			INSERT INTO comtnntwrkinfo 
-				( NTWRK_ID
-				  , ntwrk_ip
-				  , gtwy
-				  , subnet
-				  , domn_nm_server
-				  , manage_iem
-				  , user_nm
-				  , use_at
-				  , rgsde
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #ntwrkId#
-				  , #ntwrkIp#
-				  , #gtwy#
-				  , #subnet#
-				  , #domnNmServer#
-				  , #manageIem#
-				  , #userNm#
-				  , #useAt#
-				  , #rgsde#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnntwrkinfo (
+                ntwrk_id
+                , ntwrk_ip
+                , gtwy
+                , subnet
+                , domn_nm_server
+                , manage_iem
+                , user_nm
+                , use_at
+                , rgsde
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #ntwrkId#
+                , #ntwrkIp#
+                , #gtwy#
+                , #subnet#
+                , #domnNmServer#
+                , #manageIem#
+                , #userNm#
+                , #useAt#
+                , #rgsde#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnntwrkinfoDAO.updateComtnntwrkinfo_S">
 		<![CDATA[
-			UPDATE comtnntwrkinfo
-			SET ntwrk_id = #ntwrkId#
-				, ntwrk_ip = #ntwrkIp#
-				, gtwy = #gtwy#
-				, subnet = #subnet#
-				, domn_nm_server = #domnNmServer#
-				, manage_iem = #manageIem#
-				, user_nm = #userNm#
-				, use_at = #useAt#
-				, rgsde = #rgsde#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE ntwrk_id = #ntwrkId#
+            UPDATE comtnntwrkinfo
+                SET
+                ntwrk_id = #ntwrkId#
+                , ntwrk_ip = #ntwrkIp#
+                , gtwy = #gtwy#
+                , subnet = #subnet#
+                , domn_nm_server = #domnNmServer#
+                , manage_iem = #manageIem#
+                , user_nm = #userNm#
+                , use_at = #useAt#
+                , rgsde = #rgsde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND ntwrk_id = #ntwrkId#
 		]]>
 	</update>
 	
 	<delete id="comtnntwrkinfoDAO.deleteComtnntwrkinfo_S">
 		<![CDATA[
-			DELETE FROM comtnntwrkinfo 
-			WHERE ntwrk_id = #ntwrkId#
+			DELETE FROM comtnntwrkinfo
+				WHERE 1 = 1
+				AND ntwrk_id = #ntwrkId#
 		]]>
 	</delete>
 	

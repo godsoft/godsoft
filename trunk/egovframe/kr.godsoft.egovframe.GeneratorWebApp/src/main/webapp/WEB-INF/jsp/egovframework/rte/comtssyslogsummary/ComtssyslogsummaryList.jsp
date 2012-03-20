@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtssyslogsummary 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -51,7 +51,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="occrrncDe" />
 	<input type="hidden" name="svcNm" />
 	<input type="hidden" name="methodNm" />
@@ -78,22 +78,22 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">OccrrncDe</th>
-								<th align="center">SvcNm</th>
-								<th align="center">MethodNm</th>
-								<th align="center">CreatCo</th>
-								<th align="center">UpdtCo</th>
-								<th align="center">Rdcnt</th>
-								<th align="center">DeleteCo</th>
-								<th align="center">OutptCo</th>
-								<th align="center">ErrorCo</th>
+								<th align="center">occrrnc_de</th>
+								<th align="center">svc_nm</th>
+								<th align="center">method_nm</th>
+								<th align="center">creat_co</th>
+								<th align="center">updt_co</th>
+								<th align="center">rdcnt</th>
+								<th align="center">delete_co</th>
+								<th align="center">outpt_co</th>
+								<th align="center">error_co</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																																			
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.svcNm}"/>, <c:out value="{D}{result.methodNm}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.svcNm}"/>, <c:out value="{D}{result.methodNm}"/>')"><c:out value="${result.svcNm}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.svcNm}"/>, <c:out value="{D}{result.methodNm}"/>')"><c:out value="${result.methodNm}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.svcNm}"/>', '<c:out value="${result.methodNm}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.svcNm}"/>', '<c:out value="${result.methodNm}"/>')"><c:out value="${result.svcNm}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.svcNm}"/>', '<c:out value="${result.methodNm}"/>')"><c:out value="${result.methodNm}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.creatCo}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.updtCo}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.rdcnt}"/>&nbsp;</td>

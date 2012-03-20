@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnweblogVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnweblogVO.requstId ? '등록' : '수정'}"/>
+<title>comtnweblog <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnweblogVO" name="detailForm">
+<form:form commandName="comtnweblogVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>REQUST_ID *</th>
+			<th>requst_id *</th>
 			<td>
 				<form:input path="requstId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>REQUST_ID *</th>
+			<th>requst_id *</th>
 			<td>
 				<form:input path="requstId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,28 +93,28 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>OCCRRNC_DE</th>
+			<th>occrrnc_de</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="txt"/>
 				&nbsp;<form:errors path="occrrncDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>URL</th>
+			<th>url</th>
 			<td>
 				<form:input path="url" cssClass="txt"/>
 				&nbsp;<form:errors path="url" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RQESTER_ID</th>
+			<th>rqester_id</th>
 			<td>
 				<form:input path="rqesterId" cssClass="txt"/>
 				&nbsp;<form:errors path="rqesterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RQESTER_IP</th>
+			<th>rqester_ip</th>
 			<td>
 				<form:input path="rqesterIp" cssClass="txt"/>
 				&nbsp;<form:errors path="rqesterIp" />

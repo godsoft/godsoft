@@ -14,30 +14,35 @@
 	
 	<insert id="comtnorgnztinfoDAO.insertComtnorgnztinfo_S">
 		<![CDATA[
-			INSERT INTO comtnorgnztinfo 
-				( ORGNZT_ID
-				  , orgnzt_nm
-				  , orgnzt_dc )
-			VALUES ( #orgnztId#
-				  , #orgnztNm#
-				  , #orgnztDc# )
+            INSERT INTO comtnorgnztinfo (
+                orgnzt_id
+                , orgnzt_nm
+                , orgnzt_dc
+            ) VALUES (
+                #orgnztId#
+                , #orgnztNm#
+                , #orgnztDc#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnorgnztinfoDAO.updateComtnorgnztinfo_S">
 		<![CDATA[
-			UPDATE comtnorgnztinfo
-			SET orgnzt_id = #orgnztId#
-				, orgnzt_nm = #orgnztNm#
-				, orgnzt_dc = #orgnztDc#
-			WHERE orgnzt_id = #orgnztId#
+            UPDATE comtnorgnztinfo
+                SET
+                orgnzt_id = #orgnztId#
+                , orgnzt_nm = #orgnztNm#
+                , orgnzt_dc = #orgnztDc#
+                WHERE 1 = 1
+                AND orgnzt_id = #orgnztId#
 		]]>
 	</update>
 	
 	<delete id="comtnorgnztinfoDAO.deleteComtnorgnztinfo_S">
 		<![CDATA[
-			DELETE FROM comtnorgnztinfo 
-			WHERE orgnzt_id = #orgnztId#
+			DELETE FROM comtnorgnztinfo
+				WHERE 1 = 1
+				AND orgnzt_id = #orgnztId#
 		]]>
 	</delete>
 	

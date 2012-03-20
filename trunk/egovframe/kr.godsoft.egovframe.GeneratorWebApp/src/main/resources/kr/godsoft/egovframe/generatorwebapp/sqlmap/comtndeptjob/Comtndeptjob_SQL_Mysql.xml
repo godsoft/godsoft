@@ -22,54 +22,53 @@
 	
 	<insert id="comtndeptjobDAO.insertComtndeptjob_S">
 		<![CDATA[
-			INSERT INTO comtndeptjob 
-				( DEPT_JOB_ID
-				  , dept_jobbx_id
-				  , dept_job_nm
-				  , dept_job_cn
-				  , atch_file_id
-				  , charger_id
-				  , priort
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #deptJobId#
-				  , #deptJobbxId#
-				  , #deptJobNm#
-				  , #deptJobCn#
-				  , #atchFileId#
-				  , #chargerId#
-				  , #priort#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtndeptjob (
+                dept_job_id
+                , dept_jobbx_id
+                , dept_job_nm
+                , dept_job_cn
+                , atch_file_id
+                , charger_id
+                , priort
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #deptJobId#
+                , #deptJobbxId#
+                , #deptJobNm#
+                , #deptJobCn#
+                , #atchFileId#
+                , #chargerId#
+                , #priort#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndeptjobDAO.updateComtndeptjob_S">
 		<![CDATA[
-			UPDATE comtndeptjob
-			SET dept_job_id = #deptJobId#
-				, dept_jobbx_id = #deptJobbxId#
-				, dept_job_nm = #deptJobNm#
-				, dept_job_cn = #deptJobCn#
-				, atch_file_id = #atchFileId#
-				, charger_id = #chargerId#
-				, priort = #priort#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE dept_job_id = #deptJobId#
+            UPDATE comtndeptjob
+                SET
+                dept_job_id = #deptJobId#
+                , dept_jobbx_id = #deptJobbxId#
+                , dept_job_nm = #deptJobNm#
+                , dept_job_cn = #deptJobCn#
+                , atch_file_id = #atchFileId#
+                , charger_id = #chargerId#
+                , priort = #priort#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND dept_job_id = #deptJobId#
 		]]>
 	</update>
 	
 	<delete id="comtndeptjobDAO.deleteComtndeptjob_S">
 		<![CDATA[
-			DELETE FROM comtndeptjob 
-			WHERE dept_job_id = #deptJobId#
+			DELETE FROM comtndeptjob
+				WHERE 1 = 1
+				AND dept_job_id = #deptJobId#
 		]]>
 	</delete>
 	

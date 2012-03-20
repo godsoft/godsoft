@@ -23,57 +23,56 @@
 	
 	<insert id="comtndbmntrngDAO.insertComtndbmntrng_S">
 		<![CDATA[
-			INSERT INTO comtndbmntrng 
-				( DATA_SOURC_NM
-				  , server_nm
-				  , dbms_knd
-				  , ceck_sql
-				  , mngr_nm
-				  , mngr_email_adres
-				  , mntrng_sttus
-				  , creat_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #dataSourcNm#
-				  , #serverNm#
-				  , #dbmsKnd#
-				  , #ceckSql#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #mntrngSttus#
-				  , #creatDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtndbmntrng (
+                data_sourc_nm
+                , server_nm
+                , dbms_knd
+                , ceck_sql
+                , mngr_nm
+                , mngr_email_adres
+                , mntrng_sttus
+                , creat_dt
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #dataSourcNm#
+                , #serverNm#
+                , #dbmsKnd#
+                , #ceckSql#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #mntrngSttus#
+                , #creatDt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndbmntrngDAO.updateComtndbmntrng_S">
 		<![CDATA[
-			UPDATE comtndbmntrng
-			SET data_sourc_nm = #dataSourcNm#
-				, server_nm = #serverNm#
-				, dbms_knd = #dbmsKnd#
-				, ceck_sql = #ceckSql#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, mntrng_sttus = #mntrngSttus#
-				, creat_dt = #creatDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE data_sourc_nm = #dataSourcNm#
+            UPDATE comtndbmntrng
+                SET
+                data_sourc_nm = #dataSourcNm#
+                , server_nm = #serverNm#
+                , dbms_knd = #dbmsKnd#
+                , ceck_sql = #ceckSql#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , mntrng_sttus = #mntrngSttus#
+                , creat_dt = #creatDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND data_sourc_nm = #dataSourcNm#
 		]]>
 	</update>
 	
 	<delete id="comtndbmntrngDAO.deleteComtndbmntrng_S">
 		<![CDATA[
-			DELETE FROM comtndbmntrng 
-			WHERE data_sourc_nm = #dataSourcNm#
+			DELETE FROM comtndbmntrng
+				WHERE 1 = 1
+				AND data_sourc_nm = #dataSourcNm#
 		]]>
 	</delete>
 	

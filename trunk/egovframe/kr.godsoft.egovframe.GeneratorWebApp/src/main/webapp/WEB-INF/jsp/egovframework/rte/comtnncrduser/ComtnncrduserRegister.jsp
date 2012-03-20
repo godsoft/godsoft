@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnncrduserVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnncrduserVO.ncrdId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnncrduserVO.emplyrId ? '등록' : '수정'}"/>
+<title>comtnncrduser <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +60,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnncrduserVO" name="detailForm">
+<form:form commandName="comtnncrduserVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>NCRD_ID *</th>
+			<th>ncrd_id *</th>
 			<td>
 				<form:input path="ncrdId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>EMPLYR_ID *</th>
+			<th>emplyr_id *</th>
 			<td>
 				<form:input path="emplyrId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>NCRD_ID *</th>
+			<th>ncrd_id *</th>
 			<td>
 				<form:input path="ncrdId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>EMPLYR_ID *</th>
+			<th>emplyr_id *</th>
 			<td>
 				<form:input path="emplyrId" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,21 +106,21 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>REGIST_SE_CODE</th>
+			<th>regist_se_code</th>
 			<td>
 				<form:input path="registSeCode" cssClass="txt"/>
 				&nbsp;<form:errors path="registSeCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USE_AT</th>
+			<th>use_at</th>
 			<td>
 				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CREAT_DT</th>
+			<th>creat_dt</th>
 			<td>
 				<form:input path="creatDt" cssClass="txt"/>
 				&nbsp;<form:errors path="creatDt" />

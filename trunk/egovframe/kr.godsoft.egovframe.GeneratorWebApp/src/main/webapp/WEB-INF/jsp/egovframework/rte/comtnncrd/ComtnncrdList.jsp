@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnncrd 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="ncrdId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -91,32 +91,32 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">NcrdId</th>
-								<th align="center">NcrdTrgterId</th>
-								<th align="center">Nm</th>
-								<th align="center">Telno</th>
-								<th align="center">NationNo</th>
-								<th align="center">AreaNo</th>
-								<th align="center">MiddleTelno</th>
-								<th align="center">EndTelno</th>
-								<th align="center">Mbtlnum</th>
-								<th align="center">IdntfcNo</th>
-								<th align="center">MiddleMbtlnum</th>
-								<th align="center">EndMbtlnum</th>
-								<th align="center">EmailAdres</th>
-								<th align="center">CmpnyNm</th>
-								<th align="center">DeptNm</th>
-								<th align="center">Adres</th>
-								<th align="center">DetailAdres</th>
-								<th align="center">OfcpsNm</th>
-								<th align="center">ClsfNm</th>
-								<th align="center">ExtrlUserAt</th>
-								<th align="center">OthbcAt</th>
-								<th align="center">Rm</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
+								<th align="center">ncrd_id</th>
+								<th align="center">ncrd_trgter_id</th>
+								<th align="center">nm</th>
+								<th align="center">telno</th>
+								<th align="center">nation_no</th>
+								<th align="center">area_no</th>
+								<th align="center">middle_telno</th>
+								<th align="center">end_telno</th>
+								<th align="center">mbtlnum</th>
+								<th align="center">idntfc_no</th>
+								<th align="center">middle_mbtlnum</th>
+								<th align="center">end_mbtlnum</th>
+								<th align="center">email_adres</th>
+								<th align="center">cmpny_nm</th>
+								<th align="center">dept_nm</th>
+								<th align="center">adres</th>
+								<th align="center">detail_adres</th>
+								<th align="center">ofcps_nm</th>
+								<th align="center">clsf_nm</th>
+								<th align="center">extrl_user_at</th>
+								<th align="center">othbc_at</th>
+								<th align="center">rm</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

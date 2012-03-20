@@ -13,28 +13,33 @@
 	
 	<insert id="comtnbackupschduldfkDAO.insertComtnbackupschduldfk_S">
 		<![CDATA[
-			INSERT INTO comtnbackupschduldfk 
-				( BACKUP_OPERT_ID
-				  , execut_schdul_dfk_se )
-			VALUES ( #backupOpertId#
-				  , #executSchdulDfkSe# )
+            INSERT INTO comtnbackupschduldfk (
+                backup_opert_id
+                , execut_schdul_dfk_se
+            ) VALUES (
+                #backupOpertId#
+                , #executSchdulDfkSe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbackupschduldfkDAO.updateComtnbackupschduldfk_S">
 		<![CDATA[
-			UPDATE comtnbackupschduldfk
-			SET backup_opert_id = #backupOpertId#
-				, execut_schdul_dfk_se = #executSchdulDfkSe#
-			WHERE backup_opert_id = #backupOpertId#
-				AND execut_schdul_dfk_se = #executSchdulDfkSe#
+            UPDATE comtnbackupschduldfk
+                SET
+                backup_opert_id = #backupOpertId#
+                , execut_schdul_dfk_se = #executSchdulDfkSe#
+                WHERE 1 = 1
+                AND backup_opert_id = #backupOpertId#
+                AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</update>
 	
 	<delete id="comtnbackupschduldfkDAO.deleteComtnbackupschduldfk_S">
 		<![CDATA[
-			DELETE FROM comtnbackupschduldfk 
-			WHERE backup_opert_id = #backupOpertId#
+			DELETE FROM comtnbackupschduldfk
+				WHERE 1 = 1
+				AND backup_opert_id = #backupOpertId#
 				AND execut_schdul_dfk_se = #executSchdulDfkSe#
 		]]>
 	</delete>

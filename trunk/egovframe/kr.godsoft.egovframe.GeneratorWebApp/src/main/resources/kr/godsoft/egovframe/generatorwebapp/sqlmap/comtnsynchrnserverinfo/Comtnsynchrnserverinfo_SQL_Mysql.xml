@@ -23,57 +23,56 @@
 	
 	<insert id="comtnsynchrnserverinfoDAO.insertComtnsynchrnserverinfo_S">
 		<![CDATA[
-			INSERT INTO comtnsynchrnserverinfo 
-				( SERVER_ID
-				  , server_nm
-				  , server_ip
-				  , server_port
-				  , ftp_id
-				  , ftp_password
-				  , synchrn_lc
-				  , reflct_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #serverId#
-				  , #serverNm#
-				  , #serverIp#
-				  , #serverPort#
-				  , #ftpId#
-				  , #ftpPassword#
-				  , #synchrnLc#
-				  , #reflctAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnsynchrnserverinfo (
+                server_id
+                , server_nm
+                , server_ip
+                , server_port
+                , ftp_id
+                , ftp_password
+                , synchrn_lc
+                , reflct_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #serverId#
+                , #serverNm#
+                , #serverIp#
+                , #serverPort#
+                , #ftpId#
+                , #ftpPassword#
+                , #synchrnLc#
+                , #reflctAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsynchrnserverinfoDAO.updateComtnsynchrnserverinfo_S">
 		<![CDATA[
-			UPDATE comtnsynchrnserverinfo
-			SET server_id = #serverId#
-				, server_nm = #serverNm#
-				, server_ip = #serverIp#
-				, server_port = #serverPort#
-				, ftp_id = #ftpId#
-				, ftp_password = #ftpPassword#
-				, synchrn_lc = #synchrnLc#
-				, reflct_at = #reflctAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE server_id = #serverId#
+            UPDATE comtnsynchrnserverinfo
+                SET
+                server_id = #serverId#
+                , server_nm = #serverNm#
+                , server_ip = #serverIp#
+                , server_port = #serverPort#
+                , ftp_id = #ftpId#
+                , ftp_password = #ftpPassword#
+                , synchrn_lc = #synchrnLc#
+                , reflct_at = #reflctAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND server_id = #serverId#
 		]]>
 	</update>
 	
 	<delete id="comtnsynchrnserverinfoDAO.deleteComtnsynchrnserverinfo_S">
 		<![CDATA[
-			DELETE FROM comtnsynchrnserverinfo 
-			WHERE server_id = #serverId#
+			DELETE FROM comtnsynchrnserverinfo
+				WHERE 1 = 1
+				AND server_id = #serverId#
 		]]>
 	</delete>
 	

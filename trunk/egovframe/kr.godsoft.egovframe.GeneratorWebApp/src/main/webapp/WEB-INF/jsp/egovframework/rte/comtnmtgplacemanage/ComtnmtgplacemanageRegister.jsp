@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnmtgplacemanageVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnmtgplacemanageVO.mtgrumId ? '등록' : '수정'}"/>
+<title>comtnmtgplacemanage <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnmtgplacemanageVO" name="detailForm">
+<form:form commandName="comtnmtgplacemanageVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>MTGRUM_ID *</th>
+			<th>mtgrum_id *</th>
 			<td>
 				<form:input path="mtgrumId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>MTGRUM_ID *</th>
+			<th>mtgrum_id *</th>
 			<td>
 				<form:input path="mtgrumId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,77 +93,77 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>MTGRUM_NM</th>
+			<th>mtgrum_nm</th>
 			<td>
 				<form:input path="mtgrumNm" cssClass="txt"/>
 				&nbsp;<form:errors path="mtgrumNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OPN_BEGIN_TM</th>
+			<th>opn_begin_tm</th>
 			<td>
 				<form:input path="opnBeginTm" cssClass="txt"/>
 				&nbsp;<form:errors path="opnBeginTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OPN_END_TM</th>
+			<th>opn_end_tm</th>
 			<td>
 				<form:input path="opnEndTm" cssClass="txt"/>
 				&nbsp;<form:errors path="opnEndTm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ACEPTNC_POSBL_NMPR</th>
+			<th>aceptnc_posbl_nmpr</th>
 			<td>
 				<form:input path="aceptncPosblNmpr" cssClass="txt"/>
 				&nbsp;<form:errors path="aceptncPosblNmpr" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LC_SE</th>
+			<th>lc_se</th>
 			<td>
 				<form:input path="lcSe" cssClass="txt"/>
 				&nbsp;<form:errors path="lcSe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LC_DETAIL</th>
+			<th>lc_detail</th>
 			<td>
 				<form:input path="lcDetail" cssClass="txt"/>
 				&nbsp;<form:errors path="lcDetail" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ATCH_FILE_ID</th>
+			<th>atch_file_id</th>
 			<td>
 				<form:input path="atchFileId" cssClass="txt"/>
 				&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

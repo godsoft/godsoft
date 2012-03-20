@@ -35,93 +35,98 @@
 	
 	<insert id="comtnentrprsmberDAO.insertComtnentrprsmber_S">
 		<![CDATA[
-			INSERT INTO comtnentrprsmber 
-				( ENTRPRS_MBER_ID
-				  , entrprs_se_code
-				  , bizrno
-				  , jurirno
-				  , cmpny_nm
-				  , cxfc
-				  , zip
-				  , adres
-				  , entrprs_middle_telno
-				  , fxnum
-				  , induty_code
-				  , applcnt_nm
-				  , applcnt_ihidnum
-				  , sbscrb_de
-				  , entrprs_mber_sttus
-				  , entrprs_mber_password
-				  , entrprs_mber_password_hint
-				  , entrprs_mber_password_cnsr
-				  , group_id
-				  , detail_adres
-				  , entrprs_end_telno
-				  , area_no
-				  , applcnt_email_adres
-				  , esntl_id )
-			VALUES ( #entrprsMberId#
-				  , #entrprsSeCode#
-				  , #bizrno#
-				  , #jurirno#
-				  , #cmpnyNm#
-				  , #cxfc#
-				  , #zip#
-				  , #adres#
-				  , #entrprsMiddleTelno#
-				  , #fxnum#
-				  , #indutyCode#
-				  , #applcntNm#
-				  , #applcntIhidnum#
-				  , #sbscrbDe#
-				  , #entrprsMberSttus#
-				  , #entrprsMberPassword#
-				  , #entrprsMberPasswordHint#
-				  , #entrprsMberPasswordCnsr#
-				  , #groupId#
-				  , #detailAdres#
-				  , #entrprsEndTelno#
-				  , #areaNo#
-				  , #applcntEmailAdres#
-				  , #esntlId# )
+            INSERT INTO comtnentrprsmber (
+                entrprs_mber_id
+                , entrprs_se_code
+                , bizrno
+                , jurirno
+                , cmpny_nm
+                , cxfc
+                , zip
+                , adres
+                , entrprs_middle_telno
+                , fxnum
+                , induty_code
+                , applcnt_nm
+                , applcnt_ihidnum
+                , sbscrb_de
+                , entrprs_mber_sttus
+                , entrprs_mber_password
+                , entrprs_mber_password_hint
+                , entrprs_mber_password_cnsr
+                , group_id
+                , detail_adres
+                , entrprs_end_telno
+                , area_no
+                , applcnt_email_adres
+                , esntl_id
+            ) VALUES (
+                #entrprsMberId#
+                , #entrprsSeCode#
+                , #bizrno#
+                , #jurirno#
+                , #cmpnyNm#
+                , #cxfc#
+                , #zip#
+                , #adres#
+                , #entrprsMiddleTelno#
+                , #fxnum#
+                , #indutyCode#
+                , #applcntNm#
+                , #applcntIhidnum#
+                , #sbscrbDe#
+                , #entrprsMberSttus#
+                , #entrprsMberPassword#
+                , #entrprsMberPasswordHint#
+                , #entrprsMberPasswordCnsr#
+                , #groupId#
+                , #detailAdres#
+                , #entrprsEndTelno#
+                , #areaNo#
+                , #applcntEmailAdres#
+                , #esntlId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnentrprsmberDAO.updateComtnentrprsmber_S">
 		<![CDATA[
-			UPDATE comtnentrprsmber
-			SET entrprs_mber_id = #entrprsMberId#
-				, entrprs_se_code = #entrprsSeCode#
-				, bizrno = #bizrno#
-				, jurirno = #jurirno#
-				, cmpny_nm = #cmpnyNm#
-				, cxfc = #cxfc#
-				, zip = #zip#
-				, adres = #adres#
-				, entrprs_middle_telno = #entrprsMiddleTelno#
-				, fxnum = #fxnum#
-				, induty_code = #indutyCode#
-				, applcnt_nm = #applcntNm#
-				, applcnt_ihidnum = #applcntIhidnum#
-				, sbscrb_de = #sbscrbDe#
-				, entrprs_mber_sttus = #entrprsMberSttus#
-				, entrprs_mber_password = #entrprsMberPassword#
-				, entrprs_mber_password_hint = #entrprsMberPasswordHint#
-				, entrprs_mber_password_cnsr = #entrprsMberPasswordCnsr#
-				, group_id = #groupId#
-				, detail_adres = #detailAdres#
-				, entrprs_end_telno = #entrprsEndTelno#
-				, area_no = #areaNo#
-				, applcnt_email_adres = #applcntEmailAdres#
-				, esntl_id = #esntlId#
-			WHERE entrprs_mber_id = #entrprsMberId#
+            UPDATE comtnentrprsmber
+                SET
+                entrprs_mber_id = #entrprsMberId#
+                , entrprs_se_code = #entrprsSeCode#
+                , bizrno = #bizrno#
+                , jurirno = #jurirno#
+                , cmpny_nm = #cmpnyNm#
+                , cxfc = #cxfc#
+                , zip = #zip#
+                , adres = #adres#
+                , entrprs_middle_telno = #entrprsMiddleTelno#
+                , fxnum = #fxnum#
+                , induty_code = #indutyCode#
+                , applcnt_nm = #applcntNm#
+                , applcnt_ihidnum = #applcntIhidnum#
+                , sbscrb_de = #sbscrbDe#
+                , entrprs_mber_sttus = #entrprsMberSttus#
+                , entrprs_mber_password = #entrprsMberPassword#
+                , entrprs_mber_password_hint = #entrprsMberPasswordHint#
+                , entrprs_mber_password_cnsr = #entrprsMberPasswordCnsr#
+                , group_id = #groupId#
+                , detail_adres = #detailAdres#
+                , entrprs_end_telno = #entrprsEndTelno#
+                , area_no = #areaNo#
+                , applcnt_email_adres = #applcntEmailAdres#
+                , esntl_id = #esntlId#
+                WHERE 1 = 1
+                AND entrprs_mber_id = #entrprsMberId#
 		]]>
 	</update>
 	
 	<delete id="comtnentrprsmberDAO.deleteComtnentrprsmber_S">
 		<![CDATA[
-			DELETE FROM comtnentrprsmber 
-			WHERE entrprs_mber_id = #entrprsMberId#
+			DELETE FROM comtnentrprsmber
+				WHERE 1 = 1
+				AND entrprs_mber_id = #entrprsMberId#
 		]]>
 	</delete>
 	

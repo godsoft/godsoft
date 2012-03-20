@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnroleinfoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnroleinfoVO.roleCode ? '등록' : '수정'}"/>
+<title>comtnroleinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnroleinfoVO" name="detailForm">
+<form:form commandName="comtnroleinfoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ROLE_CODE *</th>
+			<th>role_code *</th>
 			<td>
 				<form:input path="roleCode" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ROLE_CODE *</th>
+			<th>role_code *</th>
 			<td>
 				<form:input path="roleCode" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,42 +93,42 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>ROLE_NM</th>
+			<th>role_nm</th>
 			<td>
 				<form:input path="roleNm" cssClass="txt"/>
 				&nbsp;<form:errors path="roleNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ROLE_PTTRN</th>
+			<th>role_pttrn</th>
 			<td>
 				<form:input path="rolePttrn" cssClass="txt"/>
 				&nbsp;<form:errors path="rolePttrn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ROLE_DC</th>
+			<th>role_dc</th>
 			<td>
 				<form:input path="roleDc" cssClass="txt"/>
 				&nbsp;<form:errors path="roleDc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ROLE_TY</th>
+			<th>role_ty</th>
 			<td>
 				<form:input path="roleTy" cssClass="txt"/>
 				&nbsp;<form:errors path="roleTy" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ROLE_SORT</th>
+			<th>role_sort</th>
 			<td>
 				<form:input path="roleSort" cssClass="txt"/>
 				&nbsp;<form:errors path="roleSort" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ROLE_CREAT_DE</th>
+			<th>role_creat_de</th>
 			<td>
 				<form:input path="roleCreatDe" cssClass="txt"/>
 				&nbsp;<form:errors path="roleCreatDe" />

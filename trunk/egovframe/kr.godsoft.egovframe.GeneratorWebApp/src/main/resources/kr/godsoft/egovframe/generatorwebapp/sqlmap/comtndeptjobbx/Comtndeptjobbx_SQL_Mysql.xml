@@ -19,45 +19,44 @@
 	
 	<insert id="comtndeptjobbxDAO.insertComtndeptjobbx_S">
 		<![CDATA[
-			INSERT INTO comtndeptjobbx 
-				( DEPT_JOBBX_ID
-				  , dept_jobbx_nm
-				  , dept_id
-				  , indict_ordr
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #deptJobbxId#
-				  , #deptJobbxNm#
-				  , #deptId#
-				  , #indictOrdr#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtndeptjobbx (
+                dept_jobbx_id
+                , dept_jobbx_nm
+                , dept_id
+                , indict_ordr
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #deptJobbxId#
+                , #deptJobbxNm#
+                , #deptId#
+                , #indictOrdr#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndeptjobbxDAO.updateComtndeptjobbx_S">
 		<![CDATA[
-			UPDATE comtndeptjobbx
-			SET dept_jobbx_id = #deptJobbxId#
-				, dept_jobbx_nm = #deptJobbxNm#
-				, dept_id = #deptId#
-				, indict_ordr = #indictOrdr#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE dept_jobbx_id = #deptJobbxId#
+            UPDATE comtndeptjobbx
+                SET
+                dept_jobbx_id = #deptJobbxId#
+                , dept_jobbx_nm = #deptJobbxNm#
+                , dept_id = #deptId#
+                , indict_ordr = #indictOrdr#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND dept_jobbx_id = #deptJobbxId#
 		]]>
 	</update>
 	
 	<delete id="comtndeptjobbxDAO.deleteComtndeptjobbx_S">
 		<![CDATA[
-			DELETE FROM comtndeptjobbx 
-			WHERE dept_jobbx_id = #deptJobbxId#
+			DELETE FROM comtndeptjobbx
+				WHERE 1 = 1
+				AND dept_jobbx_id = #deptJobbxId#
 		]]>
 	</delete>
 	

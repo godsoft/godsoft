@@ -25,63 +25,62 @@
 	
 	<insert id="comtnmemoreprtDAO.insertComtnmemoreprt_S">
 		<![CDATA[
-			INSERT INTO comtnmemoreprt 
-				( REPRT_SJ
-				  , report_de
-				  , wrter_id
-				  , reportr_id
-				  , report_cn
-				  , atch_file_id
-				  , drct_matter
-				  , drct_matter_regist_dt
-				  , reportr_inqire_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , reprt_id )
-			VALUES ( #reprtSj#
-				  , #reportDe#
-				  , #wrterId#
-				  , #reportrId#
-				  , #reportCn#
-				  , #atchFileId#
-				  , #drctMatter#
-				  , #drctMatterRegistDt#
-				  , #reportrInqireDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #reprtId# )
+            INSERT INTO comtnmemoreprt (
+                reprt_sj
+                , report_de
+                , wrter_id
+                , reportr_id
+                , report_cn
+                , atch_file_id
+                , drct_matter
+                , drct_matter_regist_dt
+                , reportr_inqire_dt
+                , frst_register_id
+                , frst_regist_pnttm
+                , reprt_id
+            ) VALUES (
+                #reprtSj#
+                , #reportDe#
+                , #wrterId#
+                , #reportrId#
+                , #reportCn#
+                , #atchFileId#
+                , #drctMatter#
+                , #drctMatterRegistDt#
+                , #reportrInqireDt#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #reprtId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnmemoreprtDAO.updateComtnmemoreprt_S">
 		<![CDATA[
-			UPDATE comtnmemoreprt
-			SET reprt_sj = #reprtSj#
-				, report_de = #reportDe#
-				, wrter_id = #wrterId#
-				, reportr_id = #reportrId#
-				, report_cn = #reportCn#
-				, atch_file_id = #atchFileId#
-				, drct_matter = #drctMatter#
-				, drct_matter_regist_dt = #drctMatterRegistDt#
-				, reportr_inqire_dt = #reportrInqireDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, reprt_id = #reprtId#
-			WHERE reprt_id = #reprtId#
+            UPDATE comtnmemoreprt
+                SET
+                reprt_sj = #reprtSj#
+                , report_de = #reportDe#
+                , wrter_id = #wrterId#
+                , reportr_id = #reportrId#
+                , report_cn = #reportCn#
+                , atch_file_id = #atchFileId#
+                , drct_matter = #drctMatter#
+                , drct_matter_regist_dt = #drctMatterRegistDt#
+                , reportr_inqire_dt = #reportrInqireDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , reprt_id = #reprtId#
+                WHERE 1 = 1
+                AND reprt_id = #reprtId#
 		]]>
 	</update>
 	
 	<delete id="comtnmemoreprtDAO.deleteComtnmemoreprt_S">
 		<![CDATA[
-			DELETE FROM comtnmemoreprt 
-			WHERE reprt_id = #reprtId#
+			DELETE FROM comtnmemoreprt
+				WHERE 1 = 1
+				AND reprt_id = #reprtId#
 		]]>
 	</delete>
 	

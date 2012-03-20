@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtndammapknoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtndammapknoVO.knwldgTyCode ? '등록' : '수정'}"/>
+<title>comtndammapkno <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtndammapknoVO" name="detailForm">
+<form:form commandName="comtndammapknoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>KNWLDG_TY_CODE *</th>
+			<th>knwldg_ty_code *</th>
 			<td>
 				<form:input path="knwldgTyCode" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>KNWLDG_TY_CODE *</th>
+			<th>knwldg_ty_code *</th>
 			<td>
 				<form:input path="knwldgTyCode" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,63 +93,63 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>ORGNZT_ID</th>
+			<th>orgnzt_id</th>
 			<td>
 				<form:input path="orgnztId" cssClass="txt"/>
 				&nbsp;<form:errors path="orgnztId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>EXPERT_ID</th>
+			<th>expert_id</th>
 			<td>
 				<form:input path="expertId" cssClass="txt"/>
 				&nbsp;<form:errors path="expertId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>KNWLDG_TY_NM</th>
+			<th>knwldg_ty_nm</th>
 			<td>
 				<form:input path="knwldgTyNm" cssClass="txt"/>
 				&nbsp;<form:errors path="knwldgTyNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>CL_DE</th>
+			<th>cl_de</th>
 			<td>
 				<form:input path="clDe" cssClass="txt"/>
 				&nbsp;<form:errors path="clDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th>KNWLDG_URL</th>
+			<th>knwldg_url</th>
 			<td>
 				<form:input path="knwldgUrl" cssClass="txt"/>
 				&nbsp;<form:errors path="knwldgUrl" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

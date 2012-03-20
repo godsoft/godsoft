@@ -20,48 +20,47 @@
 	
 	<insert id="comtnbatchopertDAO.insertComtnbatchopert_S">
 		<![CDATA[
-			INSERT INTO comtnbatchopert 
-				( BATCH_OPERT_ID
-				  , batch_opert_nm
-				  , batch_progrm
-				  , paramtr
-				  , use_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #batchOpertId#
-				  , #batchOpertNm#
-				  , #batchProgrm#
-				  , #paramtr#
-				  , #useAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnbatchopert (
+                batch_opert_id
+                , batch_opert_nm
+                , batch_progrm
+                , paramtr
+                , use_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #batchOpertId#
+                , #batchOpertNm#
+                , #batchProgrm#
+                , #paramtr#
+                , #useAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbatchopertDAO.updateComtnbatchopert_S">
 		<![CDATA[
-			UPDATE comtnbatchopert
-			SET batch_opert_id = #batchOpertId#
-				, batch_opert_nm = #batchOpertNm#
-				, batch_progrm = #batchProgrm#
-				, paramtr = #paramtr#
-				, use_at = #useAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE batch_opert_id = #batchOpertId#
+            UPDATE comtnbatchopert
+                SET
+                batch_opert_id = #batchOpertId#
+                , batch_opert_nm = #batchOpertNm#
+                , batch_progrm = #batchProgrm#
+                , paramtr = #paramtr#
+                , use_at = #useAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND batch_opert_id = #batchOpertId#
 		]]>
 	</update>
 	
 	<delete id="comtnbatchopertDAO.deleteComtnbatchopert_S">
 		<![CDATA[
-			DELETE FROM comtnbatchopert 
-			WHERE batch_opert_id = #batchOpertId#
+			DELETE FROM comtnbatchopert
+				WHERE 1 = 1
+				AND batch_opert_id = #batchOpertId#
 		]]>
 	</delete>
 	

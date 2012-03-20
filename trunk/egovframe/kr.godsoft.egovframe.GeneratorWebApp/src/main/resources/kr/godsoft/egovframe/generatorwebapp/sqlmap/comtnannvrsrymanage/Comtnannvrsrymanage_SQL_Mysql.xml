@@ -25,63 +25,62 @@
 	
 	<insert id="comtnannvrsrymanageDAO.insertComtnannvrsrymanage_S">
 		<![CDATA[
-			INSERT INTO comtnannvrsrymanage 
-				( ANNVRSRY_ID
-				  , user_id
-				  , annvrsry_se
-				  , annvrsry_nm
-				  , annvrsry
-				  , cldr_se
-				  , annvrsry_ntcn_setup
-				  , annvrsry_ntcn_bgnde
-				  , memo
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , reptit_at )
-			VALUES ( #annvrsryId#
-				  , #userId#
-				  , #annvrsrySe#
-				  , #annvrsryNm#
-				  , #annvrsry#
-				  , #cldrSe#
-				  , #annvrsryNtcnSetup#
-				  , #annvrsryNtcnBgnde#
-				  , #memo#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #reptitAt# )
+            INSERT INTO comtnannvrsrymanage (
+                annvrsry_id
+                , user_id
+                , annvrsry_se
+                , annvrsry_nm
+                , annvrsry
+                , cldr_se
+                , annvrsry_ntcn_setup
+                , annvrsry_ntcn_bgnde
+                , memo
+                , frst_register_id
+                , frst_regist_pnttm
+                , reptit_at
+            ) VALUES (
+                #annvrsryId#
+                , #userId#
+                , #annvrsrySe#
+                , #annvrsryNm#
+                , #annvrsry#
+                , #cldrSe#
+                , #annvrsryNtcnSetup#
+                , #annvrsryNtcnBgnde#
+                , #memo#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #reptitAt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnannvrsrymanageDAO.updateComtnannvrsrymanage_S">
 		<![CDATA[
-			UPDATE comtnannvrsrymanage
-			SET annvrsry_id = #annvrsryId#
-				, user_id = #userId#
-				, annvrsry_se = #annvrsrySe#
-				, annvrsry_nm = #annvrsryNm#
-				, annvrsry = #annvrsry#
-				, cldr_se = #cldrSe#
-				, annvrsry_ntcn_setup = #annvrsryNtcnSetup#
-				, annvrsry_ntcn_bgnde = #annvrsryNtcnBgnde#
-				, memo = #memo#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, reptit_at = #reptitAt#
-			WHERE annvrsry_id = #annvrsryId#
+            UPDATE comtnannvrsrymanage
+                SET
+                annvrsry_id = #annvrsryId#
+                , user_id = #userId#
+                , annvrsry_se = #annvrsrySe#
+                , annvrsry_nm = #annvrsryNm#
+                , annvrsry = #annvrsry#
+                , cldr_se = #cldrSe#
+                , annvrsry_ntcn_setup = #annvrsryNtcnSetup#
+                , annvrsry_ntcn_bgnde = #annvrsryNtcnBgnde#
+                , memo = #memo#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , reptit_at = #reptitAt#
+                WHERE 1 = 1
+                AND annvrsry_id = #annvrsryId#
 		]]>
 	</update>
 	
 	<delete id="comtnannvrsrymanageDAO.deleteComtnannvrsrymanage_S">
 		<![CDATA[
-			DELETE FROM comtnannvrsrymanage 
-			WHERE annvrsry_id = #annvrsryId#
+			DELETE FROM comtnannvrsrymanage
+				WHERE 1 = 1
+				AND annvrsry_id = #annvrsryId#
 		]]>
 	</delete>
 	

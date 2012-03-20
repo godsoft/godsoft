@@ -23,57 +23,56 @@
 	
 	<insert id="comtnbannerDAO.insertComtnbanner_S">
 		<![CDATA[
-			INSERT INTO comtnbanner 
-				( BANNER_ID
-				  , banner_nm
-				  , link_url
-				  , banner_image
-				  , banner_dc
-				  , reflct_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , banner_image_file
-				  , sort_ordr )
-			VALUES ( #bannerId#
-				  , #bannerNm#
-				  , #linkUrl#
-				  , #bannerImage#
-				  , #bannerDc#
-				  , #reflctAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #bannerImageFile#
-				  , #sortOrdr# )
+            INSERT INTO comtnbanner (
+                banner_id
+                , banner_nm
+                , link_url
+                , banner_image
+                , banner_dc
+                , reflct_at
+                , frst_register_id
+                , frst_regist_pnttm
+                , banner_image_file
+                , sort_ordr
+            ) VALUES (
+                #bannerId#
+                , #bannerNm#
+                , #linkUrl#
+                , #bannerImage#
+                , #bannerDc#
+                , #reflctAt#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #bannerImageFile#
+                , #sortOrdr#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbannerDAO.updateComtnbanner_S">
 		<![CDATA[
-			UPDATE comtnbanner
-			SET banner_id = #bannerId#
-				, banner_nm = #bannerNm#
-				, link_url = #linkUrl#
-				, banner_image = #bannerImage#
-				, banner_dc = #bannerDc#
-				, reflct_at = #reflctAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, banner_image_file = #bannerImageFile#
-				, sort_ordr = #sortOrdr#
-			WHERE banner_id = #bannerId#
+            UPDATE comtnbanner
+                SET
+                banner_id = #bannerId#
+                , banner_nm = #bannerNm#
+                , link_url = #linkUrl#
+                , banner_image = #bannerImage#
+                , banner_dc = #bannerDc#
+                , reflct_at = #reflctAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , banner_image_file = #bannerImageFile#
+                , sort_ordr = #sortOrdr#
+                WHERE 1 = 1
+                AND banner_id = #bannerId#
 		]]>
 	</update>
 	
 	<delete id="comtnbannerDAO.deleteComtnbanner_S">
 		<![CDATA[
-			DELETE FROM comtnbanner 
-			WHERE banner_id = #bannerId#
+			DELETE FROM comtnbanner
+				WHERE 1 = 1
+				AND banner_id = #bannerId#
 		]]>
 	</delete>
 	

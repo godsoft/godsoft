@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnuserlogVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.occrrncDe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.rqesterId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.svcNm ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.methodNm ? '등록' : '수정'}"/>
+<title>comtnuserlog <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +62,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnuserlogVO" name="detailForm">
+<form:form commandName="comtnuserlogVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,25 +80,25 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>OCCRRNC_DE *</th>
+			<th>occrrnc_de *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>RQESTER_ID *</th>
+			<th>rqester_id *</th>
 			<td>
 				<form:input path="rqesterId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SVC_NM *</th>
+			<th>svc_nm *</th>
 			<td>
 				<form:input path="svcNm" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>METHOD_NM *</th>
+			<th>method_nm *</th>
 			<td>
 				<form:input path="methodNm" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -103,25 +106,25 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>OCCRRNC_DE *</th>
+			<th>occrrnc_de *</th>
 			<td>
 				<form:input path="occrrncDe" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>RQESTER_ID *</th>
+			<th>rqester_id *</th>
 			<td>
 				<form:input path="rqesterId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SVC_NM *</th>
+			<th>svc_nm *</th>
 			<td>
 				<form:input path="svcNm" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>METHOD_NM *</th>
+			<th>method_nm *</th>
 			<td>
 				<form:input path="methodNm" cssClass="txt" readonly="false" />
 			</td>			
@@ -129,42 +132,42 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>CREAT_CO</th>
+			<th>creat_co</th>
 			<td>
 				<form:input path="creatCo" cssClass="txt"/>
 				&nbsp;<form:errors path="creatCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>UPDT_CO</th>
+			<th>updt_co</th>
 			<td>
 				<form:input path="updtCo" cssClass="txt"/>
 				&nbsp;<form:errors path="updtCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RDCNT</th>
+			<th>rdcnt</th>
 			<td>
 				<form:input path="rdcnt" cssClass="txt"/>
 				&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DELETE_CO</th>
+			<th>delete_co</th>
 			<td>
 				<form:input path="deleteCo" cssClass="txt"/>
 				&nbsp;<form:errors path="deleteCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>OUTPT_CO</th>
+			<th>outpt_co</th>
 			<td>
 				<form:input path="outptCo" cssClass="txt"/>
 				&nbsp;<form:errors path="outptCo" />
 			</td>
 		</tr>	
 		<tr>
-			<th>ERROR_CO</th>
+			<th>error_co</th>
 			<td>
 				<form:input path="errorCo" cssClass="txt"/>
 				&nbsp;<form:errors path="errorCo" />

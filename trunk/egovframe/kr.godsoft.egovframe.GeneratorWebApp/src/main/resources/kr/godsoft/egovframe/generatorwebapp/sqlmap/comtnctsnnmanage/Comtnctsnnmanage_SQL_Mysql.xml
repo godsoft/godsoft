@@ -30,78 +30,77 @@
 	
 	<insert id="comtnctsnnmanageDAO.insertComtnctsnnmanage_S">
 		<![CDATA[
-			INSERT INTO comtnctsnnmanage 
-				( CTSNN_ID
-				  , user_id
-				  , ctsnn_code
-				  , reqst_de
-				  , ctsnn_nm
-				  , trgter_nm
-				  , brthdy
-				  , occrrnc_de
-				  , relate
-				  , rm
-				  , sanctner_id
-				  , confm_at
-				  , sanctn_dt
-				  , return_resn
-				  , infrml_sanctn_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #ctsnnId#
-				  , #userId#
-				  , #ctsnnCode#
-				  , #reqstDe#
-				  , #ctsnnNm#
-				  , #trgterNm#
-				  , #brthdy#
-				  , #occrrncDe#
-				  , #relate#
-				  , #rm#
-				  , #sanctnerId#
-				  , #confmAt#
-				  , #sanctnDt#
-				  , #returnResn#
-				  , #infrmlSanctnId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnctsnnmanage (
+                ctsnn_id
+                , user_id
+                , ctsnn_code
+                , reqst_de
+                , ctsnn_nm
+                , trgter_nm
+                , brthdy
+                , occrrnc_de
+                , relate
+                , rm
+                , sanctner_id
+                , confm_at
+                , sanctn_dt
+                , return_resn
+                , infrml_sanctn_id
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #ctsnnId#
+                , #userId#
+                , #ctsnnCode#
+                , #reqstDe#
+                , #ctsnnNm#
+                , #trgterNm#
+                , #brthdy#
+                , #occrrncDe#
+                , #relate#
+                , #rm#
+                , #sanctnerId#
+                , #confmAt#
+                , #sanctnDt#
+                , #returnResn#
+                , #infrmlSanctnId#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnctsnnmanageDAO.updateComtnctsnnmanage_S">
 		<![CDATA[
-			UPDATE comtnctsnnmanage
-			SET ctsnn_id = #ctsnnId#
-				, user_id = #userId#
-				, ctsnn_code = #ctsnnCode#
-				, reqst_de = #reqstDe#
-				, ctsnn_nm = #ctsnnNm#
-				, trgter_nm = #trgterNm#
-				, brthdy = #brthdy#
-				, occrrnc_de = #occrrncDe#
-				, relate = #relate#
-				, rm = #rm#
-				, sanctner_id = #sanctnerId#
-				, confm_at = #confmAt#
-				, sanctn_dt = #sanctnDt#
-				, return_resn = #returnResn#
-				, infrml_sanctn_id = #infrmlSanctnId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE ctsnn_id = #ctsnnId#
+            UPDATE comtnctsnnmanage
+                SET
+                ctsnn_id = #ctsnnId#
+                , user_id = #userId#
+                , ctsnn_code = #ctsnnCode#
+                , reqst_de = #reqstDe#
+                , ctsnn_nm = #ctsnnNm#
+                , trgter_nm = #trgterNm#
+                , brthdy = #brthdy#
+                , occrrnc_de = #occrrncDe#
+                , relate = #relate#
+                , rm = #rm#
+                , sanctner_id = #sanctnerId#
+                , confm_at = #confmAt#
+                , sanctn_dt = #sanctnDt#
+                , return_resn = #returnResn#
+                , infrml_sanctn_id = #infrmlSanctnId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND ctsnn_id = #ctsnnId#
 		]]>
 	</update>
 	
 	<delete id="comtnctsnnmanageDAO.deleteComtnctsnnmanage_S">
 		<![CDATA[
-			DELETE FROM comtnctsnnmanage 
-			WHERE ctsnn_id = #ctsnnId#
+			DELETE FROM comtnctsnnmanage
+				WHERE 1 = 1
+				AND ctsnn_id = #ctsnnId#
 		]]>
 	</delete>
 	

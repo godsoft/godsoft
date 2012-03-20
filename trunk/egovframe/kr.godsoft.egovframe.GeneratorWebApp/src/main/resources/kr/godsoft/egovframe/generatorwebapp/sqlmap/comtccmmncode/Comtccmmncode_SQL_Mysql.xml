@@ -20,48 +20,47 @@
 	
 	<insert id="comtccmmncodeDAO.insertComtccmmncode_S">
 		<![CDATA[
-			INSERT INTO comtccmmncode 
-				( CODE_ID
-				  , code_id_nm
-				  , code_id_dc
-				  , use_at
-				  , cl_code
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #codeId#
-				  , #codeIdNm#
-				  , #codeIdDc#
-				  , #useAt#
-				  , #clCode#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtccmmncode (
+                code_id
+                , code_id_nm
+                , code_id_dc
+                , use_at
+                , cl_code
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #codeId#
+                , #codeIdNm#
+                , #codeIdDc#
+                , #useAt#
+                , #clCode#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtccmmncodeDAO.updateComtccmmncode_S">
 		<![CDATA[
-			UPDATE comtccmmncode
-			SET code_id = #codeId#
-				, code_id_nm = #codeIdNm#
-				, code_id_dc = #codeIdDc#
-				, use_at = #useAt#
-				, cl_code = #clCode#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE code_id = #codeId#
+            UPDATE comtccmmncode
+                SET
+                code_id = #codeId#
+                , code_id_nm = #codeIdNm#
+                , code_id_dc = #codeIdDc#
+                , use_at = #useAt#
+                , cl_code = #clCode#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND code_id = #codeId#
 		]]>
 	</update>
 	
 	<delete id="comtccmmncodeDAO.deleteComtccmmncode_S">
 		<![CDATA[
-			DELETE FROM comtccmmncode 
-			WHERE code_id = #codeId#
+			DELETE FROM comtccmmncode
+				WHERE 1 = 1
+				AND code_id = #codeId#
 		]]>
 	</delete>
 	

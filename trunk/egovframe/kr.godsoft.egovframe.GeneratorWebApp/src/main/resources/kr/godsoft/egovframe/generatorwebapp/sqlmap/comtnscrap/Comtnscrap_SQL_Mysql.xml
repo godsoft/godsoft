@@ -20,48 +20,47 @@
 	
 	<insert id="comtnscrapDAO.insertComtnscrap_S">
 		<![CDATA[
-			INSERT INTO comtnscrap 
-				( SCRAP_ID
-				  , ntt_id
-				  , bbs_id
-				  , scrap_nm
-				  , use_at
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , frst_register_id
-				  , last_updusr_id )
-			VALUES ( #scrapId#
-				  , #nttId#
-				  , #bbsId#
-				  , #scrapNm#
-				  , #useAt#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnscrap (
+                scrap_id
+                , ntt_id
+                , bbs_id
+                , scrap_nm
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #scrapId#
+                , #nttId#
+                , #bbsId#
+                , #scrapNm#
+                , #useAt#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnscrapDAO.updateComtnscrap_S">
 		<![CDATA[
-			UPDATE comtnscrap
-			SET scrap_id = #scrapId#
-				, ntt_id = #nttId#
-				, bbs_id = #bbsId#
-				, scrap_nm = #scrapNm#
-				, use_at = #useAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE scrap_id = #scrapId#
+            UPDATE comtnscrap
+                SET
+                scrap_id = #scrapId#
+                , ntt_id = #nttId#
+                , bbs_id = #bbsId#
+                , scrap_nm = #scrapNm#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND scrap_id = #scrapId#
 		]]>
 	</update>
 	
 	<delete id="comtnscrapDAO.deleteComtnscrap_S">
 		<![CDATA[
-			DELETE FROM comtnscrap 
-			WHERE scrap_id = #scrapId#
+			DELETE FROM comtnscrap
+				WHERE 1 = 1
+				AND scrap_id = #scrapId#
 		]]>
 	</delete>
 	

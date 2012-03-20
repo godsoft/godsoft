@@ -26,66 +26,65 @@
 	
 	<insert id="comtnbackupopertDAO.insertComtnbackupopert_S">
 		<![CDATA[
-			INSERT INTO comtnbackupopert 
-				( BACKUP_OPERT_ID
-				  , backup_opert_nm
-				  , backup_orginl_drctry
-				  , backup_stre_drctry
-				  , cmprs_se
-				  , execut_cycle
-				  , execut_schdul_de
-				  , execut_schdul_hour
-				  , execut_schdul_mnt
-				  , execut_schdul_secnd
-				  , use_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #backupOpertId#
-				  , #backupOpertNm#
-				  , #backupOrginlDrctry#
-				  , #backupStreDrctry#
-				  , #cmprsSe#
-				  , #executCycle#
-				  , #executSchdulDe#
-				  , #executSchdulHour#
-				  , #executSchdulMnt#
-				  , #executSchdulSecnd#
-				  , #useAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnbackupopert (
+                backup_opert_id
+                , backup_opert_nm
+                , backup_orginl_drctry
+                , backup_stre_drctry
+                , cmprs_se
+                , execut_cycle
+                , execut_schdul_de
+                , execut_schdul_hour
+                , execut_schdul_mnt
+                , execut_schdul_secnd
+                , use_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #backupOpertId#
+                , #backupOpertNm#
+                , #backupOrginlDrctry#
+                , #backupStreDrctry#
+                , #cmprsSe#
+                , #executCycle#
+                , #executSchdulDe#
+                , #executSchdulHour#
+                , #executSchdulMnt#
+                , #executSchdulSecnd#
+                , #useAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbackupopertDAO.updateComtnbackupopert_S">
 		<![CDATA[
-			UPDATE comtnbackupopert
-			SET backup_opert_id = #backupOpertId#
-				, backup_opert_nm = #backupOpertNm#
-				, backup_orginl_drctry = #backupOrginlDrctry#
-				, backup_stre_drctry = #backupStreDrctry#
-				, cmprs_se = #cmprsSe#
-				, execut_cycle = #executCycle#
-				, execut_schdul_de = #executSchdulDe#
-				, execut_schdul_hour = #executSchdulHour#
-				, execut_schdul_mnt = #executSchdulMnt#
-				, execut_schdul_secnd = #executSchdulSecnd#
-				, use_at = #useAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE backup_opert_id = #backupOpertId#
+            UPDATE comtnbackupopert
+                SET
+                backup_opert_id = #backupOpertId#
+                , backup_opert_nm = #backupOpertNm#
+                , backup_orginl_drctry = #backupOrginlDrctry#
+                , backup_stre_drctry = #backupStreDrctry#
+                , cmprs_se = #cmprsSe#
+                , execut_cycle = #executCycle#
+                , execut_schdul_de = #executSchdulDe#
+                , execut_schdul_hour = #executSchdulHour#
+                , execut_schdul_mnt = #executSchdulMnt#
+                , execut_schdul_secnd = #executSchdulSecnd#
+                , use_at = #useAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND backup_opert_id = #backupOpertId#
 		]]>
 	</update>
 	
 	<delete id="comtnbackupopertDAO.deleteComtnbackupopert_S">
 		<![CDATA[
-			DELETE FROM comtnbackupopert 
-			WHERE backup_opert_id = #backupOpertId#
+			DELETE FROM comtnbackupopert
+				WHERE 1 = 1
+				AND backup_opert_id = #backupOpertId#
 		]]>
 	</delete>
 	

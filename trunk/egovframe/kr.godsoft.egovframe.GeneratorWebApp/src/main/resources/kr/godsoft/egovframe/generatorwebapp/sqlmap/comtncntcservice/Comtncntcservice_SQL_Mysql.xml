@@ -22,56 +22,55 @@
 	
 	<insert id="comtncntcserviceDAO.insertComtncntcservice_S">
 		<![CDATA[
-			INSERT INTO comtncntcservice 
-				( INSTT_ID
-				  , sys_id
-				  , svc_id
-				  , svc_nm
-				  , requst_mssage_id
-				  , rspns_mssage_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , use_at )
-			VALUES ( #insttId#
-				  , #sysId#
-				  , #svcId#
-				  , #svcNm#
-				  , #requstMssageId#
-				  , #rspnsMssageId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #useAt# )
+            INSERT INTO comtncntcservice (
+                instt_id
+                , sys_id
+                , svc_id
+                , svc_nm
+                , requst_mssage_id
+                , rspns_mssage_id
+                , frst_register_id
+                , frst_regist_pnttm
+                , use_at
+            ) VALUES (
+                #insttId#
+                , #sysId#
+                , #svcId#
+                , #svcNm#
+                , #requstMssageId#
+                , #rspnsMssageId#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #useAt#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncntcserviceDAO.updateComtncntcservice_S">
 		<![CDATA[
-			UPDATE comtncntcservice
-			SET instt_id = #insttId#
-				, sys_id = #sysId#
-				, svc_id = #svcId#
-				, svc_nm = #svcNm#
-				, requst_mssage_id = #requstMssageId#
-				, rspns_mssage_id = #rspnsMssageId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, use_at = #useAt#
-			WHERE instt_id = #insttId#
-				AND sys_id = #sysId#
-				AND svc_id = #svcId#
+            UPDATE comtncntcservice
+                SET
+                instt_id = #insttId#
+                , sys_id = #sysId#
+                , svc_id = #svcId#
+                , svc_nm = #svcNm#
+                , requst_mssage_id = #requstMssageId#
+                , rspns_mssage_id = #rspnsMssageId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , use_at = #useAt#
+                WHERE 1 = 1
+                AND instt_id = #insttId#
+                AND sys_id = #sysId#
+                AND svc_id = #svcId#
 		]]>
 	</update>
 	
 	<delete id="comtncntcserviceDAO.deleteComtncntcservice_S">
 		<![CDATA[
-			DELETE FROM comtncntcservice 
-			WHERE instt_id = #insttId#
+			DELETE FROM comtncntcservice
+				WHERE 1 = 1
+				AND instt_id = #insttId#
 				AND sys_id = #sysId#
 				AND svc_id = #svcId#
 		]]>

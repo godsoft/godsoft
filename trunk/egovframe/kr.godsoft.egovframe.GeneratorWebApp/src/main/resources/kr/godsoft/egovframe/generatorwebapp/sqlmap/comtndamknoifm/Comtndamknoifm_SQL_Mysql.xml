@@ -29,75 +29,74 @@
 	
 	<insert id="comtndamknoifmDAO.insertComtndamknoifm_S">
 		<![CDATA[
-			INSERT INTO comtndamknoifm 
-				( KNWLDG_ID
-				  , knwldg_ty_code
-				  , orgnzt_id
-				  , expert_id
-				  , emplyr_id
-				  , knwldg_nm
-				  , knwldg_cn
-				  , kwrd
-				  , othbc_at
-				  , knwldg_evl
-				  , colct_de
-				  , evl_de
-				  , atch_file_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , dsuse_de )
-			VALUES ( #knwldgId#
-				  , #knwldgTyCode#
-				  , #orgnztId#
-				  , #expertId#
-				  , #emplyrId#
-				  , #knwldgNm#
-				  , #knwldgCn#
-				  , #kwrd#
-				  , #othbcAt#
-				  , #knwldgEvl#
-				  , #colctDe#
-				  , #evlDe#
-				  , #atchFileId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #dsuseDe# )
+            INSERT INTO comtndamknoifm (
+                knwldg_id
+                , knwldg_ty_code
+                , orgnzt_id
+                , expert_id
+                , emplyr_id
+                , knwldg_nm
+                , knwldg_cn
+                , kwrd
+                , othbc_at
+                , knwldg_evl
+                , colct_de
+                , evl_de
+                , atch_file_id
+                , frst_register_id
+                , frst_regist_pnttm
+                , dsuse_de
+            ) VALUES (
+                #knwldgId#
+                , #knwldgTyCode#
+                , #orgnztId#
+                , #expertId#
+                , #emplyrId#
+                , #knwldgNm#
+                , #knwldgCn#
+                , #kwrd#
+                , #othbcAt#
+                , #knwldgEvl#
+                , #colctDe#
+                , #evlDe#
+                , #atchFileId#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #dsuseDe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtndamknoifmDAO.updateComtndamknoifm_S">
 		<![CDATA[
-			UPDATE comtndamknoifm
-			SET knwldg_id = #knwldgId#
-				, knwldg_ty_code = #knwldgTyCode#
-				, orgnzt_id = #orgnztId#
-				, expert_id = #expertId#
-				, emplyr_id = #emplyrId#
-				, knwldg_nm = #knwldgNm#
-				, knwldg_cn = #knwldgCn#
-				, kwrd = #kwrd#
-				, othbc_at = #othbcAt#
-				, knwldg_evl = #knwldgEvl#
-				, colct_de = #colctDe#
-				, evl_de = #evlDe#
-				, atch_file_id = #atchFileId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, dsuse_de = #dsuseDe#
-			WHERE knwldg_id = #knwldgId#
+            UPDATE comtndamknoifm
+                SET
+                knwldg_id = #knwldgId#
+                , knwldg_ty_code = #knwldgTyCode#
+                , orgnzt_id = #orgnztId#
+                , expert_id = #expertId#
+                , emplyr_id = #emplyrId#
+                , knwldg_nm = #knwldgNm#
+                , knwldg_cn = #knwldgCn#
+                , kwrd = #kwrd#
+                , othbc_at = #othbcAt#
+                , knwldg_evl = #knwldgEvl#
+                , colct_de = #colctDe#
+                , evl_de = #evlDe#
+                , atch_file_id = #atchFileId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , dsuse_de = #dsuseDe#
+                WHERE 1 = 1
+                AND knwldg_id = #knwldgId#
 		]]>
 	</update>
 	
 	<delete id="comtndamknoifmDAO.deleteComtndamknoifm_S">
 		<![CDATA[
-			DELETE FROM comtndamknoifm 
-			WHERE knwldg_id = #knwldgId#
+			DELETE FROM comtndamknoifm
+				WHERE 1 = 1
+				AND knwldg_id = #knwldgId#
 		]]>
 	</delete>
 	

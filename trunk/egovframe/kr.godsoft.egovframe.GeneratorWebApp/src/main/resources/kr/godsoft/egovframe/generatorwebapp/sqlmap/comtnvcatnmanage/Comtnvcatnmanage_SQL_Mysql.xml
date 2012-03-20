@@ -28,75 +28,74 @@
 	
 	<insert id="comtnvcatnmanageDAO.insertComtnvcatnmanage_S">
 		<![CDATA[
-			INSERT INTO comtnvcatnmanage 
-				( APPLCNT_ID
-				  , vcatn_se
-				  , bgnde
-				  , endde
-				  , vcatn_resn
-				  , reqst_de
-				  , occrrnc_year
-				  , sanctner_id
-				  , confm_at
-				  , sanctn_dt
-				  , return_resn
-				  , infrml_sanctn_id
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , noon_se )
-			VALUES ( #applcntId#
-				  , #vcatnSe#
-				  , #bgnde#
-				  , #endde#
-				  , #vcatnResn#
-				  , #reqstDe#
-				  , #occrrncYear#
-				  , #sanctnerId#
-				  , #confmAt#
-				  , #sanctnDt#
-				  , #returnResn#
-				  , #infrmlSanctnId#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #noonSe# )
+            INSERT INTO comtnvcatnmanage (
+                applcnt_id
+                , vcatn_se
+                , bgnde
+                , endde
+                , vcatn_resn
+                , reqst_de
+                , occrrnc_year
+                , sanctner_id
+                , confm_at
+                , sanctn_dt
+                , return_resn
+                , infrml_sanctn_id
+                , frst_register_id
+                , frst_regist_pnttm
+                , noon_se
+            ) VALUES (
+                #applcntId#
+                , #vcatnSe#
+                , #bgnde#
+                , #endde#
+                , #vcatnResn#
+                , #reqstDe#
+                , #occrrncYear#
+                , #sanctnerId#
+                , #confmAt#
+                , #sanctnDt#
+                , #returnResn#
+                , #infrmlSanctnId#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #noonSe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnvcatnmanageDAO.updateComtnvcatnmanage_S">
 		<![CDATA[
-			UPDATE comtnvcatnmanage
-			SET applcnt_id = #applcntId#
-				, vcatn_se = #vcatnSe#
-				, bgnde = #bgnde#
-				, endde = #endde#
-				, vcatn_resn = #vcatnResn#
-				, reqst_de = #reqstDe#
-				, occrrnc_year = #occrrncYear#
-				, sanctner_id = #sanctnerId#
-				, confm_at = #confmAt#
-				, sanctn_dt = #sanctnDt#
-				, return_resn = #returnResn#
-				, infrml_sanctn_id = #infrmlSanctnId#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, noon_se = #noonSe#
-			WHERE applcnt_id = #applcntId#
-				AND vcatn_se = #vcatnSe#
-				AND bgnde = #bgnde#
-				AND endde = #endde#
+            UPDATE comtnvcatnmanage
+                SET
+                applcnt_id = #applcntId#
+                , vcatn_se = #vcatnSe#
+                , bgnde = #bgnde#
+                , endde = #endde#
+                , vcatn_resn = #vcatnResn#
+                , reqst_de = #reqstDe#
+                , occrrnc_year = #occrrncYear#
+                , sanctner_id = #sanctnerId#
+                , confm_at = #confmAt#
+                , sanctn_dt = #sanctnDt#
+                , return_resn = #returnResn#
+                , infrml_sanctn_id = #infrmlSanctnId#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , noon_se = #noonSe#
+                WHERE 1 = 1
+                AND applcnt_id = #applcntId#
+                AND vcatn_se = #vcatnSe#
+                AND bgnde = #bgnde#
+                AND endde = #endde#
 		]]>
 	</update>
 	
 	<delete id="comtnvcatnmanageDAO.deleteComtnvcatnmanage_S">
 		<![CDATA[
-			DELETE FROM comtnvcatnmanage 
-			WHERE applcnt_id = #applcntId#
+			DELETE FROM comtnvcatnmanage
+				WHERE 1 = 1
+				AND applcnt_id = #applcntId#
 				AND vcatn_se = #vcatnSe#
 				AND bgnde = #bgnde#
 				AND endde = #endde#

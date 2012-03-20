@@ -22,54 +22,53 @@
 	
 	<insert id="comtnbackupresultDAO.insertComtnbackupresult_S">
 		<![CDATA[
-			INSERT INTO comtnbackupresult 
-				( BACKUP_RESULT_ID
-				  , backup_opert_id
-				  , backup_file
-				  , sttus
-				  , error_info
-				  , execut_begin_tm
-				  , execut_end_tm
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #backupResultId#
-				  , #backupOpertId#
-				  , #backupFile#
-				  , #sttus#
-				  , #errorInfo#
-				  , #executBeginTm#
-				  , #executEndTm#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnbackupresult (
+                backup_result_id
+                , backup_opert_id
+                , backup_file
+                , sttus
+                , error_info
+                , execut_begin_tm
+                , execut_end_tm
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #backupResultId#
+                , #backupOpertId#
+                , #backupFile#
+                , #sttus#
+                , #errorInfo#
+                , #executBeginTm#
+                , #executEndTm#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnbackupresultDAO.updateComtnbackupresult_S">
 		<![CDATA[
-			UPDATE comtnbackupresult
-			SET backup_result_id = #backupResultId#
-				, backup_opert_id = #backupOpertId#
-				, backup_file = #backupFile#
-				, sttus = #sttus#
-				, error_info = #errorInfo#
-				, execut_begin_tm = #executBeginTm#
-				, execut_end_tm = #executEndTm#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE backup_result_id = #backupResultId#
+            UPDATE comtnbackupresult
+                SET
+                backup_result_id = #backupResultId#
+                , backup_opert_id = #backupOpertId#
+                , backup_file = #backupFile#
+                , sttus = #sttus#
+                , error_info = #errorInfo#
+                , execut_begin_tm = #executBeginTm#
+                , execut_end_tm = #executEndTm#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND backup_result_id = #backupResultId#
 		]]>
 	</update>
 	
 	<delete id="comtnbackupresultDAO.deleteComtnbackupresult_S">
 		<![CDATA[
-			DELETE FROM comtnbackupresult 
-			WHERE backup_result_id = #backupResultId#
+			DELETE FROM comtnbackupresult
+				WHERE 1 = 1
+				AND backup_result_id = #backupResultId#
 		]]>
 	</delete>
 	

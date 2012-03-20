@@ -21,51 +21,50 @@
 	
 	<insert id="comtnmainimageDAO.insertComtnmainimage_S">
 		<![CDATA[
-			INSERT INTO comtnmainimage 
-				( IMAGE_ID
-				  , image_nm
-				  , image
-				  , image_dc
-				  , reflct_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , image_file )
-			VALUES ( #imageId#
-				  , #imageNm#
-				  , #image#
-				  , #imageDc#
-				  , #reflctAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #imageFile# )
+            INSERT INTO comtnmainimage (
+                image_id
+                , image_nm
+                , image
+                , image_dc
+                , reflct_at
+                , frst_register_id
+                , frst_regist_pnttm
+                , image_file
+            ) VALUES (
+                #imageId#
+                , #imageNm#
+                , #image#
+                , #imageDc#
+                , #reflctAt#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #imageFile#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnmainimageDAO.updateComtnmainimage_S">
 		<![CDATA[
-			UPDATE comtnmainimage
-			SET image_id = #imageId#
-				, image_nm = #imageNm#
-				, image = #image#
-				, image_dc = #imageDc#
-				, reflct_at = #reflctAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, image_file = #imageFile#
-			WHERE image_id = #imageId#
+            UPDATE comtnmainimage
+                SET
+                image_id = #imageId#
+                , image_nm = #imageNm#
+                , image = #image#
+                , image_dc = #imageDc#
+                , reflct_at = #reflctAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , image_file = #imageFile#
+                WHERE 1 = 1
+                AND image_id = #imageId#
 		]]>
 	</update>
 	
 	<delete id="comtnmainimageDAO.deleteComtnmainimage_S">
 		<![CDATA[
-			DELETE FROM comtnmainimage 
-			WHERE image_id = #imageId#
+			DELETE FROM comtnmainimage
+				WHERE 1 = 1
+				AND image_id = #imageId#
 		]]>
 	</delete>
 	

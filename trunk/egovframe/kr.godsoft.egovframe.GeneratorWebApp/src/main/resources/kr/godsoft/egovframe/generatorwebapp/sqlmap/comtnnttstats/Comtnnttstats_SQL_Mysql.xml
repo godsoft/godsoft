@@ -17,39 +17,44 @@
 	
 	<insert id="comtnnttstatsDAO.insertComtnnttstats_S">
 		<![CDATA[
-			INSERT INTO comtnnttstats 
-				( STATS_ID
-				  , ntce_co
-				  , avrg_rdcnt
-				  , top_rdcnt
-				  , mumm_rdcnt
-				  , top_ntcr_id )
-			VALUES ( #statsId#
-				  , #ntceCo#
-				  , #avrgRdcnt#
-				  , #topRdcnt#
-				  , #mummRdcnt#
-				  , #topNtcrId# )
+            INSERT INTO comtnnttstats (
+                stats_id
+                , ntce_co
+                , avrg_rdcnt
+                , top_rdcnt
+                , mumm_rdcnt
+                , top_ntcr_id
+            ) VALUES (
+                #statsId#
+                , #ntceCo#
+                , #avrgRdcnt#
+                , #topRdcnt#
+                , #mummRdcnt#
+                , #topNtcrId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnnttstatsDAO.updateComtnnttstats_S">
 		<![CDATA[
-			UPDATE comtnnttstats
-			SET stats_id = #statsId#
-				, ntce_co = #ntceCo#
-				, avrg_rdcnt = #avrgRdcnt#
-				, top_rdcnt = #topRdcnt#
-				, mumm_rdcnt = #mummRdcnt#
-				, top_ntcr_id = #topNtcrId#
-			WHERE stats_id = #statsId#
+            UPDATE comtnnttstats
+                SET
+                stats_id = #statsId#
+                , ntce_co = #ntceCo#
+                , avrg_rdcnt = #avrgRdcnt#
+                , top_rdcnt = #topRdcnt#
+                , mumm_rdcnt = #mummRdcnt#
+                , top_ntcr_id = #topNtcrId#
+                WHERE 1 = 1
+                AND stats_id = #statsId#
 		]]>
 	</update>
 	
 	<delete id="comtnnttstatsDAO.deleteComtnnttstats_S">
 		<![CDATA[
-			DELETE FROM comtnnttstats 
-			WHERE stats_id = #statsId#
+			DELETE FROM comtnnttstats
+				WHERE 1 = 1
+				AND stats_id = #statsId#
 		]]>
 	</delete>
 	

@@ -30,81 +30,80 @@
 	
 	<insert id="comtcadministcoderecptnlogDAO.insertComtcadministcoderecptnlog_S">
 		<![CDATA[
-			INSERT INTO comtcadministcoderecptnlog 
-				( OCCRRNC_DE
-				  , administ_zone_se
-				  , administ_zone_code
-				  , opert_sn
-				  , change_se_code
-				  , process_se
-				  , administ_zone_nm
-				  , lowest_administ_zone_nm
-				  , ctprvn_code
-				  , signgu_code
-				  , emd_code
-				  , li_code
-				  , creat_de
-				  , abl_de
-				  , abl_ennc
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #occrrncDe#
-				  , #administZoneSe#
-				  , #administZoneCode#
-				  , #opertSn#
-				  , #changeSeCode#
-				  , #processSe#
-				  , #administZoneNm#
-				  , #lowestAdministZoneNm#
-				  , #ctprvnCode#
-				  , #signguCode#
-				  , #emdCode#
-				  , #liCode#
-				  , #creatDe#
-				  , #ablDe#
-				  , #ablEnnc#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtcadministcoderecptnlog (
+                occrrnc_de
+                , administ_zone_se
+                , administ_zone_code
+                , opert_sn
+                , change_se_code
+                , process_se
+                , administ_zone_nm
+                , lowest_administ_zone_nm
+                , ctprvn_code
+                , signgu_code
+                , emd_code
+                , li_code
+                , creat_de
+                , abl_de
+                , abl_ennc
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #occrrncDe#
+                , #administZoneSe#
+                , #administZoneCode#
+                , #opertSn#
+                , #changeSeCode#
+                , #processSe#
+                , #administZoneNm#
+                , #lowestAdministZoneNm#
+                , #ctprvnCode#
+                , #signguCode#
+                , #emdCode#
+                , #liCode#
+                , #creatDe#
+                , #ablDe#
+                , #ablEnnc#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtcadministcoderecptnlogDAO.updateComtcadministcoderecptnlog_S">
 		<![CDATA[
-			UPDATE comtcadministcoderecptnlog
-			SET occrrnc_de = #occrrncDe#
-				, administ_zone_se = #administZoneSe#
-				, administ_zone_code = #administZoneCode#
-				, opert_sn = #opertSn#
-				, change_se_code = #changeSeCode#
-				, process_se = #processSe#
-				, administ_zone_nm = #administZoneNm#
-				, lowest_administ_zone_nm = #lowestAdministZoneNm#
-				, ctprvn_code = #ctprvnCode#
-				, signgu_code = #signguCode#
-				, emd_code = #emdCode#
-				, li_code = #liCode#
-				, creat_de = #creatDe#
-				, abl_de = #ablDe#
-				, abl_ennc = #ablEnnc#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE occrrnc_de = #occrrncDe#
-				AND administ_zone_se = #administZoneSe#
-				AND administ_zone_code = #administZoneCode#
-				AND opert_sn = #opertSn#
+            UPDATE comtcadministcoderecptnlog
+                SET
+                occrrnc_de = #occrrncDe#
+                , administ_zone_se = #administZoneSe#
+                , administ_zone_code = #administZoneCode#
+                , opert_sn = #opertSn#
+                , change_se_code = #changeSeCode#
+                , process_se = #processSe#
+                , administ_zone_nm = #administZoneNm#
+                , lowest_administ_zone_nm = #lowestAdministZoneNm#
+                , ctprvn_code = #ctprvnCode#
+                , signgu_code = #signguCode#
+                , emd_code = #emdCode#
+                , li_code = #liCode#
+                , creat_de = #creatDe#
+                , abl_de = #ablDe#
+                , abl_ennc = #ablEnnc#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND administ_zone_se = #administZoneSe#
+                AND administ_zone_code = #administZoneCode#
+                AND opert_sn = #opertSn#
 		]]>
 	</update>
 	
 	<delete id="comtcadministcoderecptnlogDAO.deleteComtcadministcoderecptnlog_S">
 		<![CDATA[
-			DELETE FROM comtcadministcoderecptnlog 
-			WHERE occrrnc_de = #occrrncDe#
+			DELETE FROM comtcadministcoderecptnlog
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
 				AND administ_zone_se = #administZoneSe#
 				AND administ_zone_code = #administZoneCode#
 				AND opert_sn = #opertSn#

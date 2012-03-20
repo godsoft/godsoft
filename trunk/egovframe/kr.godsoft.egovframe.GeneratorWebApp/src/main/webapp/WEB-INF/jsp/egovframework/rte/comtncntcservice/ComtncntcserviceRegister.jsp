@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtncntcserviceVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtncntcserviceVO.insttId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtncntcserviceVO.sysId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtncntcserviceVO.svcId ? '등록' : '수정'}"/>
+<title>comtncntcservice <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +61,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtncntcserviceVO" name="detailForm">
+<form:form commandName="comtncntcserviceVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,19 +79,19 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>INSTT_ID *</th>
+			<th>instt_id *</th>
 			<td>
 				<form:input path="insttId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SYS_ID *</th>
+			<th>sys_id *</th>
 			<td>
 				<form:input path="sysId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SVC_ID *</th>
+			<th>svc_id *</th>
 			<td>
 				<form:input path="svcId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -97,19 +99,19 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>INSTT_ID *</th>
+			<th>instt_id *</th>
 			<td>
 				<form:input path="insttId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SYS_ID *</th>
+			<th>sys_id *</th>
 			<td>
 				<form:input path="sysId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th>SVC_ID *</th>
+			<th>svc_id *</th>
 			<td>
 				<form:input path="svcId" cssClass="txt" readonly="false" />
 			</td>			
@@ -117,56 +119,56 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>SVC_NM</th>
+			<th>svc_nm</th>
 			<td>
 				<form:input path="svcNm" cssClass="txt"/>
 				&nbsp;<form:errors path="svcNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>REQUST_MSSAGE_ID</th>
+			<th>requst_mssage_id</th>
 			<td>
 				<form:input path="requstMssageId" cssClass="txt"/>
 				&nbsp;<form:errors path="requstMssageId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RSPNS_MSSAGE_ID</th>
+			<th>rspns_mssage_id</th>
 			<td>
 				<form:input path="rspnsMssageId" cssClass="txt"/>
 				&nbsp;<form:errors path="rspnsMssageId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USE_AT</th>
+			<th>use_at</th>
 			<td>
 				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />

@@ -24,60 +24,59 @@
 	
 	<insert id="comtnmtgplaceresveDAO.insertComtnmtgplaceresve_S">
 		<![CDATA[
-			INSERT INTO comtnmtgplaceresve 
-				( RESVE_ID
-				  , mtgrum_id
-				  , mtg_sj
-				  , rsvctm_id
-				  , resve_de
-				  , resve_begin_tm
-				  , resve_end_tm
-				  , atndnc_nmpr
-				  , mtg_cn
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #resveId#
-				  , #mtgrumId#
-				  , #mtgSj#
-				  , #rsvctmId#
-				  , #resveDe#
-				  , #resveBeginTm#
-				  , #resveEndTm#
-				  , #atndncNmpr#
-				  , #mtgCn#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnmtgplaceresve (
+                resve_id
+                , mtgrum_id
+                , mtg_sj
+                , rsvctm_id
+                , resve_de
+                , resve_begin_tm
+                , resve_end_tm
+                , atndnc_nmpr
+                , mtg_cn
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #resveId#
+                , #mtgrumId#
+                , #mtgSj#
+                , #rsvctmId#
+                , #resveDe#
+                , #resveBeginTm#
+                , #resveEndTm#
+                , #atndncNmpr#
+                , #mtgCn#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnmtgplaceresveDAO.updateComtnmtgplaceresve_S">
 		<![CDATA[
-			UPDATE comtnmtgplaceresve
-			SET resve_id = #resveId#
-				, mtgrum_id = #mtgrumId#
-				, mtg_sj = #mtgSj#
-				, rsvctm_id = #rsvctmId#
-				, resve_de = #resveDe#
-				, resve_begin_tm = #resveBeginTm#
-				, resve_end_tm = #resveEndTm#
-				, atndnc_nmpr = #atndncNmpr#
-				, mtg_cn = #mtgCn#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE resve_id = #resveId#
+            UPDATE comtnmtgplaceresve
+                SET
+                resve_id = #resveId#
+                , mtgrum_id = #mtgrumId#
+                , mtg_sj = #mtgSj#
+                , rsvctm_id = #rsvctmId#
+                , resve_de = #resveDe#
+                , resve_begin_tm = #resveBeginTm#
+                , resve_end_tm = #resveEndTm#
+                , atndnc_nmpr = #atndncNmpr#
+                , mtg_cn = #mtgCn#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND resve_id = #resveId#
 		]]>
 	</update>
 	
 	<delete id="comtnmtgplaceresveDAO.deleteComtnmtgplaceresve_S">
 		<![CDATA[
-			DELETE FROM comtnmtgplaceresve 
-			WHERE resve_id = #resveId#
+			DELETE FROM comtnmtgplaceresve
+				WHERE 1 = 1
+				AND resve_id = #resveId#
 		]]>
 	</delete>
 	

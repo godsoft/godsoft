@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtnmtginfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -49,7 +49,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 	<input type="hidden" name="mtgId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
@@ -90,31 +90,31 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">MtgId</th>
-								<th align="center">MtgNm</th>
-								<th align="center">MtgMtrCn</th>
-								<th align="center">MtgSn</th>
-								<th align="center">MtgCo</th>
-								<th align="center">MtgDe</th>
-								<th align="center">MtgPlace</th>
-								<th align="center">MtgBeginTm</th>
-								<th align="center">MtgEndTm</th>
-								<th align="center">ClsdrMtgAt</th>
-								<th align="center">ReadngBgnde</th>
-								<th align="center">ReadngAt</th>
-								<th align="center">MtgResultCn</th>
-								<th align="center">MtgResultEnnc</th>
-								<th align="center">EtcMatter</th>
-								<th align="center">MngtDeptId</th>
-								<th align="center">MnaerId</th>
-								<th align="center">MnaerDeptId</th>
-								<th align="center">MtgAt</th>
-								<th align="center">NonatdrnCo</th>
-								<th align="center">AtdrnCo</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
+								<th align="center">mtg_id</th>
+								<th align="center">mtg_nm</th>
+								<th align="center">mtg_mtr_cn</th>
+								<th align="center">mtg_sn</th>
+								<th align="center">mtg_co</th>
+								<th align="center">mtg_de</th>
+								<th align="center">mtg_place</th>
+								<th align="center">mtg_begin_tm</th>
+								<th align="center">mtg_end_tm</th>
+								<th align="center">clsdr_mtg_at</th>
+								<th align="center">readng_bgnde</th>
+								<th align="center">readng_at</th>
+								<th align="center">mtg_result_cn</th>
+								<th align="center">mtg_result_ennc</th>
+								<th align="center">etc_matter</th>
+								<th align="center">mngt_dept_id</th>
+								<th align="center">mnaer_id</th>
+								<th align="center">mnaer_dept_id</th>
+								<th align="center">mtg_at</th>
+								<th align="center">nonatdrn_co</th>
+								<th align="center">atdrn_co</th>
+								<th align="center">frst_regist_pnttm</th>
+								<th align="center">frst_register_id</th>
+								<th align="center">last_updt_pnttm</th>
+								<th align="center">last_updusr_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

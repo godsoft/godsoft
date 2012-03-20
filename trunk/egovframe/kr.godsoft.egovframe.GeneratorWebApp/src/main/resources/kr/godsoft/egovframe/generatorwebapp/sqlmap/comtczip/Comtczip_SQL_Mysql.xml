@@ -22,55 +22,54 @@
 	
 	<insert id="comtczipDAO.insertComtczip_S">
 		<![CDATA[
-			INSERT INTO comtczip 
-				( ZIP
-				  , sn
-				  , ctprvn_nm
-				  , signgu_nm
-				  , emd_nm
-				  , li_buld_nm
-				  , lnbr_dong_ho
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #zip#
-				  , #sn#
-				  , #ctprvnNm#
-				  , #signguNm#
-				  , #emdNm#
-				  , #liBuldNm#
-				  , #lnbrDongHo#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtczip (
+                zip
+                , sn
+                , ctprvn_nm
+                , signgu_nm
+                , emd_nm
+                , li_buld_nm
+                , lnbr_dong_ho
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #zip#
+                , #sn#
+                , #ctprvnNm#
+                , #signguNm#
+                , #emdNm#
+                , #liBuldNm#
+                , #lnbrDongHo#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtczipDAO.updateComtczip_S">
 		<![CDATA[
-			UPDATE comtczip
-			SET zip = #zip#
-				, sn = #sn#
-				, ctprvn_nm = #ctprvnNm#
-				, signgu_nm = #signguNm#
-				, emd_nm = #emdNm#
-				, li_buld_nm = #liBuldNm#
-				, lnbr_dong_ho = #lnbrDongHo#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE zip = #zip#
-				AND sn = #sn#
+            UPDATE comtczip
+                SET
+                zip = #zip#
+                , sn = #sn#
+                , ctprvn_nm = #ctprvnNm#
+                , signgu_nm = #signguNm#
+                , emd_nm = #emdNm#
+                , li_buld_nm = #liBuldNm#
+                , lnbr_dong_ho = #lnbrDongHo#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND zip = #zip#
+                AND sn = #sn#
 		]]>
 	</update>
 	
 	<delete id="comtczipDAO.deleteComtczip_S">
 		<![CDATA[
-			DELETE FROM comtczip 
-			WHERE zip = #zip#
+			DELETE FROM comtczip
+				WHERE 1 = 1
+				AND zip = #zip#
 				AND sn = #sn#
 		]]>
 	</delete>

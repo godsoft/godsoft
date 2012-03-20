@@ -21,51 +21,50 @@
 	
 	<insert id="comtnadbkmanageDAO.insertComtnadbkmanage_S">
 		<![CDATA[
-			INSERT INTO comtnadbkmanage 
-				( ADBK_ID
-				  , adbk_nm
-				  , othbc_scope
-				  , use_at
-				  , wrter_id
-				  , trget_orgnzt_id
-				  , frst_regist_pnttm
-				  , last_updt_pnttm
-				  , frst_register_id
-				  , last_updusr_id )
-			VALUES ( #adbkId#
-				  , #adbkNm#
-				  , #othbcScope#
-				  , #useAt#
-				  , #wrterId#
-				  , #trgetOrgnztId#
-				  , #frstRegistPnttm#
-				  , #lastUpdtPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnadbkmanage (
+                adbk_id
+                , adbk_nm
+                , othbc_scope
+                , use_at
+                , wrter_id
+                , trget_orgnzt_id
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #adbkId#
+                , #adbkNm#
+                , #othbcScope#
+                , #useAt#
+                , #wrterId#
+                , #trgetOrgnztId#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnadbkmanageDAO.updateComtnadbkmanage_S">
 		<![CDATA[
-			UPDATE comtnadbkmanage
-			SET adbk_id = #adbkId#
-				, adbk_nm = #adbkNm#
-				, othbc_scope = #othbcScope#
-				, use_at = #useAt#
-				, wrter_id = #wrterId#
-				, trget_orgnzt_id = #trgetOrgnztId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE adbk_id = #adbkId#
+            UPDATE comtnadbkmanage
+                SET
+                adbk_id = #adbkId#
+                , adbk_nm = #adbkNm#
+                , othbc_scope = #othbcScope#
+                , use_at = #useAt#
+                , wrter_id = #wrterId#
+                , trget_orgnzt_id = #trgetOrgnztId#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND adbk_id = #adbkId#
 		]]>
 	</update>
 	
 	<delete id="comtnadbkmanageDAO.deleteComtnadbkmanage_S">
 		<![CDATA[
-			DELETE FROM comtnadbkmanage 
-			WHERE adbk_id = #adbkId#
+			DELETE FROM comtnadbkmanage
+				WHERE 1 = 1
+				AND adbk_id = #adbkId#
 		]]>
 	</delete>
 	

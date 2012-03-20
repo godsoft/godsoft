@@ -19,45 +19,44 @@
 	
 	<insert id="comtnrecentsrchwrdmanageDAO.insertComtnrecentsrchwrdmanage_S">
 		<![CDATA[
-			INSERT INTO comtnrecentsrchwrdmanage 
-				( SRCHWRD_MANAGE_ID
-				  , srchwrd_manage_nm
-				  , srchwrd_conect_url
-				  , user_search_at
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #srchwrdManageId#
-				  , #srchwrdManageNm#
-				  , #srchwrdConectUrl#
-				  , #userSearchAt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnrecentsrchwrdmanage (
+                srchwrd_manage_id
+                , srchwrd_manage_nm
+                , srchwrd_conect_url
+                , user_search_at
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #srchwrdManageId#
+                , #srchwrdManageNm#
+                , #srchwrdConectUrl#
+                , #userSearchAt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnrecentsrchwrdmanageDAO.updateComtnrecentsrchwrdmanage_S">
 		<![CDATA[
-			UPDATE comtnrecentsrchwrdmanage
-			SET srchwrd_manage_id = #srchwrdManageId#
-				, srchwrd_manage_nm = #srchwrdManageNm#
-				, srchwrd_conect_url = #srchwrdConectUrl#
-				, user_search_at = #userSearchAt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE srchwrd_manage_id = #srchwrdManageId#
+            UPDATE comtnrecentsrchwrdmanage
+                SET
+                srchwrd_manage_id = #srchwrdManageId#
+                , srchwrd_manage_nm = #srchwrdManageNm#
+                , srchwrd_conect_url = #srchwrdConectUrl#
+                , user_search_at = #userSearchAt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND srchwrd_manage_id = #srchwrdManageId#
 		]]>
 	</update>
 	
 	<delete id="comtnrecentsrchwrdmanageDAO.deleteComtnrecentsrchwrdmanage_S">
 		<![CDATA[
-			DELETE FROM comtnrecentsrchwrdmanage 
-			WHERE srchwrd_manage_id = #srchwrdManageId#
+			DELETE FROM comtnrecentsrchwrdmanage
+				WHERE 1 = 1
+				AND srchwrd_manage_id = #srchwrdManageId#
 		]]>
 	</delete>
 	

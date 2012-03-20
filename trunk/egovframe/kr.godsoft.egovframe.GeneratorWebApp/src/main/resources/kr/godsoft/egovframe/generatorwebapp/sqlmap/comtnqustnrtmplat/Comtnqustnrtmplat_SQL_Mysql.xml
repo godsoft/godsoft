@@ -20,48 +20,47 @@
 	
 	<insert id="comtnqustnrtmplatDAO.insertComtnqustnrtmplat_S">
 		<![CDATA[
-			INSERT INTO comtnqustnrtmplat 
-				( QUSTNR_TMPLAT_ID
-				  , qustnr_tmplat_ty
-				  , qustnr_tmplat_dc
-				  , qustnr_tmplat_path_nm
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , qustnr_tmplat_image_info )
-			VALUES ( #qustnrTmplatId#
-				  , #qustnrTmplatTy#
-				  , #qustnrTmplatDc#
-				  , #qustnrTmplatPathNm#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #qustnrTmplatImageInfo# )
+            INSERT INTO comtnqustnrtmplat (
+                qustnr_tmplat_id
+                , qustnr_tmplat_ty
+                , qustnr_tmplat_dc
+                , qustnr_tmplat_path_nm
+                , frst_regist_pnttm
+                , frst_register_id
+                , qustnr_tmplat_image_info
+            ) VALUES (
+                #qustnrTmplatId#
+                , #qustnrTmplatTy#
+                , #qustnrTmplatDc#
+                , #qustnrTmplatPathNm#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #qustnrTmplatImageInfo#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnqustnrtmplatDAO.updateComtnqustnrtmplat_S">
 		<![CDATA[
-			UPDATE comtnqustnrtmplat
-			SET qustnr_tmplat_id = #qustnrTmplatId#
-				, qustnr_tmplat_ty = #qustnrTmplatTy#
-				, qustnr_tmplat_dc = #qustnrTmplatDc#
-				, qustnr_tmplat_path_nm = #qustnrTmplatPathNm#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, qustnr_tmplat_image_info = #qustnrTmplatImageInfo#
-			WHERE qustnr_tmplat_id = #qustnrTmplatId#
+            UPDATE comtnqustnrtmplat
+                SET
+                qustnr_tmplat_id = #qustnrTmplatId#
+                , qustnr_tmplat_ty = #qustnrTmplatTy#
+                , qustnr_tmplat_dc = #qustnrTmplatDc#
+                , qustnr_tmplat_path_nm = #qustnrTmplatPathNm#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , qustnr_tmplat_image_info = #qustnrTmplatImageInfo#
+                WHERE 1 = 1
+                AND qustnr_tmplat_id = #qustnrTmplatId#
 		]]>
 	</update>
 	
 	<delete id="comtnqustnrtmplatDAO.deleteComtnqustnrtmplat_S">
 		<![CDATA[
-			DELETE FROM comtnqustnrtmplat 
-			WHERE qustnr_tmplat_id = #qustnrTmplatId#
+			DELETE FROM comtnqustnrtmplat
+				WHERE 1 = 1
+				AND qustnr_tmplat_id = #qustnrTmplatId#
 		]]>
 	</delete>
 	

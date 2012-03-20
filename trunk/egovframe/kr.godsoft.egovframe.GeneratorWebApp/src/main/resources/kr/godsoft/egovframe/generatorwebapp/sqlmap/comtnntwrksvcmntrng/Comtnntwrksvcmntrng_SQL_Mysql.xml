@@ -22,55 +22,54 @@
 	
 	<insert id="comtnntwrksvcmntrngDAO.insertComtnntwrksvcmntrng_S">
 		<![CDATA[
-			INSERT INTO comtnntwrksvcmntrng 
-				( SYS_IP
-				  , sys_port
-				  , sys_nm
-				  , mngr_nm
-				  , mngr_email_adres
-				  , mntrng_sttus
-				  , creat_dt
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #sysIp#
-				  , #sysPort#
-				  , #sysNm#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #mntrngSttus#
-				  , #creatDt#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnntwrksvcmntrng (
+                sys_ip
+                , sys_port
+                , sys_nm
+                , mngr_nm
+                , mngr_email_adres
+                , mntrng_sttus
+                , creat_dt
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #sysIp#
+                , #sysPort#
+                , #sysNm#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #mntrngSttus#
+                , #creatDt#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnntwrksvcmntrngDAO.updateComtnntwrksvcmntrng_S">
 		<![CDATA[
-			UPDATE comtnntwrksvcmntrng
-			SET sys_ip = #sysIp#
-				, sys_port = #sysPort#
-				, sys_nm = #sysNm#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, mntrng_sttus = #mntrngSttus#
-				, creat_dt = #creatDt#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE sys_ip = #sysIp#
-				AND sys_port = #sysPort#
+            UPDATE comtnntwrksvcmntrng
+                SET
+                sys_ip = #sysIp#
+                , sys_port = #sysPort#
+                , sys_nm = #sysNm#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , mntrng_sttus = #mntrngSttus#
+                , creat_dt = #creatDt#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND sys_ip = #sysIp#
+                AND sys_port = #sysPort#
 		]]>
 	</update>
 	
 	<delete id="comtnntwrksvcmntrngDAO.deleteComtnntwrksvcmntrng_S">
 		<![CDATA[
-			DELETE FROM comtnntwrksvcmntrng 
-			WHERE sys_ip = #sysIp#
+			DELETE FROM comtnntwrksvcmntrng
+				WHERE 1 = 1
+				AND sys_ip = #sysIp#
 				AND sys_port = #sysPort#
 		]]>
 	</delete>

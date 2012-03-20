@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnfxtrsmanageVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnfxtrsmanageVO.fxtrsCode ? '등록' : '수정'}"/>
+<title>comtnfxtrsmanage <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnfxtrsmanageVO" name="detailForm">
+<form:form commandName="comtnfxtrsmanageVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>FXTRS_CODE *</th>
+			<th>fxtrs_code *</th>
 			<td>
 				<form:input path="fxtrsCode" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>FXTRS_CODE *</th>
+			<th>fxtrs_code *</th>
 			<td>
 				<form:input path="fxtrsCode" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,21 +93,21 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>FXTRS_NM</th>
+			<th>fxtrs_nm</th>
 			<td>
 				<form:input path="fxtrsNm" cssClass="txt"/>
 				&nbsp;<form:errors path="fxtrsNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MAKR_NM</th>
+			<th>makr_nm</th>
 			<td>
 				<form:input path="makrNm" cssClass="txt"/>
 				&nbsp;<form:errors path="makrNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PRICE</th>
+			<th>price</th>
 			<td>
 				<form:input path="price" cssClass="txt"/>
 				&nbsp;<form:errors path="price" />

@@ -20,49 +20,48 @@
 	
 	<insert id="comtnindvdlyrycmanageDAO.insertComtnindvdlyrycmanage_S">
 		<![CDATA[
-			INSERT INTO comtnindvdlyrycmanage 
-				( OCCRRNC_YEAR
-				  , yryc_occrrnc_co
-				  , use_yryc_co
-				  , remndr_yryc_co
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , user_id )
-			VALUES ( #occrrncYear#
-				  , #yrycOccrrncCo#
-				  , #useYrycCo#
-				  , #remndrYrycCo#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #userId# )
+            INSERT INTO comtnindvdlyrycmanage (
+                occrrnc_year
+                , yryc_occrrnc_co
+                , use_yryc_co
+                , remndr_yryc_co
+                , frst_register_id
+                , frst_regist_pnttm
+                , user_id
+            ) VALUES (
+                #occrrncYear#
+                , #yrycOccrrncCo#
+                , #useYrycCo#
+                , #remndrYrycCo#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #userId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnindvdlyrycmanageDAO.updateComtnindvdlyrycmanage_S">
 		<![CDATA[
-			UPDATE comtnindvdlyrycmanage
-			SET occrrnc_year = #occrrncYear#
-				, yryc_occrrnc_co = #yrycOccrrncCo#
-				, use_yryc_co = #useYrycCo#
-				, remndr_yryc_co = #remndrYrycCo#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, user_id = #userId#
-			WHERE occrrnc_year = #occrrncYear#
-				AND user_id = #userId#
+            UPDATE comtnindvdlyrycmanage
+                SET
+                occrrnc_year = #occrrncYear#
+                , yryc_occrrnc_co = #yrycOccrrncCo#
+                , use_yryc_co = #useYrycCo#
+                , remndr_yryc_co = #remndrYrycCo#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , user_id = #userId#
+                WHERE 1 = 1
+                AND occrrnc_year = #occrrncYear#
+                AND user_id = #userId#
 		]]>
 	</update>
 	
 	<delete id="comtnindvdlyrycmanageDAO.deleteComtnindvdlyrycmanage_S">
 		<![CDATA[
-			DELETE FROM comtnindvdlyrycmanage 
-			WHERE occrrnc_year = #occrrncYear#
+			DELETE FROM comtnindvdlyrycmanage
+				WHERE 1 = 1
+				AND occrrnc_year = #occrrncYear#
 				AND user_id = #userId#
 		]]>
 	</delete>

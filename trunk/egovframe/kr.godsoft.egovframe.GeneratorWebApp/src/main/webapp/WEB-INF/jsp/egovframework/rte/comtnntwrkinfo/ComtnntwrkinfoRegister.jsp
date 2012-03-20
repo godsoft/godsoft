@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnntwrkinfoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnntwrkinfoVO.ntwrkId ? '등록' : '수정'}"/>
+<title>comtnntwrkinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnntwrkinfoVO" name="detailForm">
+<form:form commandName="comtnntwrkinfoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>NTWRK_ID *</th>
+			<th>ntwrk_id *</th>
 			<td>
 				<form:input path="ntwrkId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>NTWRK_ID *</th>
+			<th>ntwrk_id *</th>
 			<td>
 				<form:input path="ntwrkId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,84 +93,84 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>NTWRK_IP</th>
+			<th>ntwrk_ip</th>
 			<td>
 				<form:input path="ntwrkIp" cssClass="txt"/>
 				&nbsp;<form:errors path="ntwrkIp" />
 			</td>
 		</tr>	
 		<tr>
-			<th>GTWY</th>
+			<th>gtwy</th>
 			<td>
 				<form:input path="gtwy" cssClass="txt"/>
 				&nbsp;<form:errors path="gtwy" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SUBNET</th>
+			<th>subnet</th>
 			<td>
 				<form:input path="subnet" cssClass="txt"/>
 				&nbsp;<form:errors path="subnet" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DOMN_NM_SERVER</th>
+			<th>domn_nm_server</th>
 			<td>
 				<form:input path="domnNmServer" cssClass="txt"/>
 				&nbsp;<form:errors path="domnNmServer" />
 			</td>
 		</tr>	
 		<tr>
-			<th>MANAGE_IEM</th>
+			<th>manage_iem</th>
 			<td>
 				<form:input path="manageIem" cssClass="txt"/>
 				&nbsp;<form:errors path="manageIem" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USER_NM</th>
+			<th>user_nm</th>
 			<td>
 				<form:input path="userNm" cssClass="txt"/>
 				&nbsp;<form:errors path="userNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USE_AT</th>
+			<th>use_at</th>
 			<td>
 				<form:input path="useAt" cssClass="txt"/>
 				&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th>RGSDE</th>
+			<th>rgsde</th>
 			<td>
 				<form:input path="rgsde" cssClass="txt"/>
 				&nbsp;<form:errors path="rgsde" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

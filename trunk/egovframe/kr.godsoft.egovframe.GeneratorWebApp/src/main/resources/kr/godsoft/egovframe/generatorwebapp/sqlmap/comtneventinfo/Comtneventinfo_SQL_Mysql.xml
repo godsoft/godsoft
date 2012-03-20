@@ -27,69 +27,68 @@
 	
 	<insert id="comtneventinfoDAO.insertComtneventinfo_S">
 		<![CDATA[
-			INSERT INTO comtneventinfo 
-				( EVENT_ID
-				  , bsns_year
-				  , bsns_code
-				  , event_cn
-				  , event_svc_bgnde
-				  , svc_use_nmpr_co
-				  , charger_nm
-				  , prparetg_cn
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , event_svc_endde
-				  , event_ty_code
-				  , event_confm_at
-				  , event_confm_de )
-			VALUES ( #eventId#
-				  , #bsnsYear#
-				  , #bsnsCode#
-				  , #eventCn#
-				  , #eventSvcBgnde#
-				  , #svcUseNmprCo#
-				  , #chargerNm#
-				  , #prparetgCn#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #eventSvcEndde#
-				  , #eventTyCode#
-				  , #eventConfmAt#
-				  , #eventConfmDe# )
+            INSERT INTO comtneventinfo (
+                event_id
+                , bsns_year
+                , bsns_code
+                , event_cn
+                , event_svc_bgnde
+                , svc_use_nmpr_co
+                , charger_nm
+                , prparetg_cn
+                , frst_regist_pnttm
+                , frst_register_id
+                , event_svc_endde
+                , event_ty_code
+                , event_confm_at
+                , event_confm_de
+            ) VALUES (
+                #eventId#
+                , #bsnsYear#
+                , #bsnsCode#
+                , #eventCn#
+                , #eventSvcBgnde#
+                , #svcUseNmprCo#
+                , #chargerNm#
+                , #prparetgCn#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #eventSvcEndde#
+                , #eventTyCode#
+                , #eventConfmAt#
+                , #eventConfmDe#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtneventinfoDAO.updateComtneventinfo_S">
 		<![CDATA[
-			UPDATE comtneventinfo
-			SET event_id = #eventId#
-				, bsns_year = #bsnsYear#
-				, bsns_code = #bsnsCode#
-				, event_cn = #eventCn#
-				, event_svc_bgnde = #eventSvcBgnde#
-				, svc_use_nmpr_co = #svcUseNmprCo#
-				, charger_nm = #chargerNm#
-				, prparetg_cn = #prparetgCn#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, event_svc_endde = #eventSvcEndde#
-				, event_ty_code = #eventTyCode#
-				, event_confm_at = #eventConfmAt#
-				, event_confm_de = #eventConfmDe#
-			WHERE event_id = #eventId#
+            UPDATE comtneventinfo
+                SET
+                event_id = #eventId#
+                , bsns_year = #bsnsYear#
+                , bsns_code = #bsnsCode#
+                , event_cn = #eventCn#
+                , event_svc_bgnde = #eventSvcBgnde#
+                , svc_use_nmpr_co = #svcUseNmprCo#
+                , charger_nm = #chargerNm#
+                , prparetg_cn = #prparetgCn#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , event_svc_endde = #eventSvcEndde#
+                , event_ty_code = #eventTyCode#
+                , event_confm_at = #eventConfmAt#
+                , event_confm_de = #eventConfmDe#
+                WHERE 1 = 1
+                AND event_id = #eventId#
 		]]>
 	</update>
 	
 	<delete id="comtneventinfoDAO.deleteComtneventinfo_S">
 		<![CDATA[
-			DELETE FROM comtneventinfo 
-			WHERE event_id = #eventId#
+			DELETE FROM comtneventinfo
+				WHERE 1 = 1
+				AND event_id = #eventId#
 		]]>
 	</delete>
 	

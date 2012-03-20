@@ -20,48 +20,47 @@
 	
 	<insert id="comtnrestdeDAO.insertComtnrestde_S">
 		<![CDATA[
-			INSERT INTO comtnrestde 
-				( RESTDE_NO
-				  , restde
-				  , restde_nm
-				  , restde_dc
-				  , restde_se_code
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #restdeNo#
-				  , #restde#
-				  , #restdeNm#
-				  , #restdeDc#
-				  , #restdeSeCode#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnrestde (
+                restde_no
+                , restde
+                , restde_nm
+                , restde_dc
+                , restde_se_code
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #restdeNo#
+                , #restde#
+                , #restdeNm#
+                , #restdeDc#
+                , #restdeSeCode#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnrestdeDAO.updateComtnrestde_S">
 		<![CDATA[
-			UPDATE comtnrestde
-			SET restde_no = #restdeNo#
-				, restde = #restde#
-				, restde_nm = #restdeNm#
-				, restde_dc = #restdeDc#
-				, restde_se_code = #restdeSeCode#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE restde_no = #restdeNo#
+            UPDATE comtnrestde
+                SET
+                restde_no = #restdeNo#
+                , restde = #restde#
+                , restde_nm = #restdeNm#
+                , restde_dc = #restdeDc#
+                , restde_se_code = #restdeSeCode#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND restde_no = #restdeNo#
 		]]>
 	</update>
 	
 	<delete id="comtnrestdeDAO.deleteComtnrestde_S">
 		<![CDATA[
-			DELETE FROM comtnrestde 
-			WHERE restde_no = #restdeNo#
+			DELETE FROM comtnrestde
+				WHERE 1 = 1
+				AND restde_no = #restdeNo#
 		]]>
 	</delete>
 	

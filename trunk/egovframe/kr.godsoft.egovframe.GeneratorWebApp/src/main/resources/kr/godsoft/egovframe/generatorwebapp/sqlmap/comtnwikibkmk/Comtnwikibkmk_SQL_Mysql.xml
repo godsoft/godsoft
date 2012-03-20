@@ -18,43 +18,42 @@
 	
 	<insert id="comtnwikibkmkDAO.insertComtnwikibkmk_S">
 		<![CDATA[
-			INSERT INTO comtnwikibkmk 
-				( WIKI_BKMK_ID
-				  , user_id
-				  , wiki_bkmk_nm
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #wikiBkmkId#
-				  , #userId#
-				  , #wikiBkmkNm#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnwikibkmk (
+                wiki_bkmk_id
+                , user_id
+                , wiki_bkmk_nm
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #wikiBkmkId#
+                , #userId#
+                , #wikiBkmkNm#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnwikibkmkDAO.updateComtnwikibkmk_S">
 		<![CDATA[
-			UPDATE comtnwikibkmk
-			SET wiki_bkmk_id = #wikiBkmkId#
-				, user_id = #userId#
-				, wiki_bkmk_nm = #wikiBkmkNm#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE wiki_bkmk_id = #wikiBkmkId#
-				AND user_id = #userId#
+            UPDATE comtnwikibkmk
+                SET
+                wiki_bkmk_id = #wikiBkmkId#
+                , user_id = #userId#
+                , wiki_bkmk_nm = #wikiBkmkNm#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND wiki_bkmk_id = #wikiBkmkId#
+                AND user_id = #userId#
 		]]>
 	</update>
 	
 	<delete id="comtnwikibkmkDAO.deleteComtnwikibkmk_S">
 		<![CDATA[
-			DELETE FROM comtnwikibkmk 
-			WHERE wiki_bkmk_id = #wikiBkmkId#
+			DELETE FROM comtnwikibkmk
+				WHERE 1 = 1
+				AND wiki_bkmk_id = #wikiBkmkId#
 				AND user_id = #userId#
 		]]>
 	</delete>

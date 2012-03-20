@@ -27,69 +27,74 @@
 	
 	<insert id="comtnsyslogDAO.insertComtnsyslog_S">
 		<![CDATA[
-			INSERT INTO comtnsyslog 
-				( REQUST_ID
-				  , job_se_code
-				  , instt_code
-				  , occrrnc_de
-				  , rqester_ip
-				  , rqester_id
-				  , trget_menu_nm
-				  , svc_nm
-				  , method_nm
-				  , process_se_code
-				  , process_co
-				  , process_time
-				  , rspns_code
-				  , error_se
-				  , error_co
-				  , error_code )
-			VALUES ( #requstId#
-				  , #jobSeCode#
-				  , #insttCode#
-				  , #occrrncDe#
-				  , #rqesterIp#
-				  , #rqesterId#
-				  , #trgetMenuNm#
-				  , #svcNm#
-				  , #methodNm#
-				  , #processSeCode#
-				  , #processCo#
-				  , #processTime#
-				  , #rspnsCode#
-				  , #errorSe#
-				  , #errorCo#
-				  , #errorCode# )
+            INSERT INTO comtnsyslog (
+                requst_id
+                , job_se_code
+                , instt_code
+                , occrrnc_de
+                , rqester_ip
+                , rqester_id
+                , trget_menu_nm
+                , svc_nm
+                , method_nm
+                , process_se_code
+                , process_co
+                , process_time
+                , rspns_code
+                , error_se
+                , error_co
+                , error_code
+            ) VALUES (
+                #requstId#
+                , #jobSeCode#
+                , #insttCode#
+                , #occrrncDe#
+                , #rqesterIp#
+                , #rqesterId#
+                , #trgetMenuNm#
+                , #svcNm#
+                , #methodNm#
+                , #processSeCode#
+                , #processCo#
+                , #processTime#
+                , #rspnsCode#
+                , #errorSe#
+                , #errorCo#
+                , #errorCode#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsyslogDAO.updateComtnsyslog_S">
 		<![CDATA[
-			UPDATE comtnsyslog
-			SET requst_id = #requstId#
-				, job_se_code = #jobSeCode#
-				, instt_code = #insttCode#
-				, occrrnc_de = #occrrncDe#
-				, rqester_ip = #rqesterIp#
-				, rqester_id = #rqesterId#
-				, trget_menu_nm = #trgetMenuNm#
-				, svc_nm = #svcNm#
-				, method_nm = #methodNm#
-				, process_se_code = #processSeCode#
-				, process_co = #processCo#
-				, process_time = #processTime#
-				, rspns_code = #rspnsCode#
-				, error_se = #errorSe#
-				, error_co = #errorCo#
-				, error_code = #errorCode#
-			WHERE requst_id = #requstId#
+            UPDATE comtnsyslog
+                SET
+                requst_id = #requstId#
+                , job_se_code = #jobSeCode#
+                , instt_code = #insttCode#
+                , occrrnc_de = #occrrncDe#
+                , rqester_ip = #rqesterIp#
+                , rqester_id = #rqesterId#
+                , trget_menu_nm = #trgetMenuNm#
+                , svc_nm = #svcNm#
+                , method_nm = #methodNm#
+                , process_se_code = #processSeCode#
+                , process_co = #processCo#
+                , process_time = #processTime#
+                , rspns_code = #rspnsCode#
+                , error_se = #errorSe#
+                , error_co = #errorCo#
+                , error_code = #errorCode#
+                WHERE 1 = 1
+                AND requst_id = #requstId#
 		]]>
 	</update>
 	
 	<delete id="comtnsyslogDAO.deleteComtnsyslog_S">
 		<![CDATA[
-			DELETE FROM comtnsyslog 
-			WHERE requst_id = #requstId#
+			DELETE FROM comtnsyslog
+				WHERE 1 = 1
+				AND requst_id = #requstId#
 		]]>
 	</delete>
 	

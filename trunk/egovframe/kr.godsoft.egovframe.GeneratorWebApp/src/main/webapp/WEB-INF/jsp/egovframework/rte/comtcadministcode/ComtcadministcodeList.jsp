@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-19
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>목록</title>
+<title>comtcadministcode 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -78,23 +78,23 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">AdministZoneSe</th>
-								<th align="center">AdministZoneCode</th>
-								<th align="center">UseAt</th>
-								<th align="center">AdministZoneNm</th>
-								<th align="center">UpperAdministZoneCode</th>
-								<th align="center">CreatDe</th>
-								<th align="center">AblDe</th>
-								<th align="center">FrstRegistPnttm</th>
-								<th align="center">FrstRegisterId</th>
-								<th align="center">LastUpdtPnttm</th>
-								<th align="center">LastUpdusrId</th>
+								<th align="center">administ_zone_se</th>
+								<th align="center">행정구역코드</th>
+								<th align="center">사용여부</th>
+								<th align="center">행정구역명</th>
+								<th align="center">상위행정구역코드</th>
+								<th align="center">생성일자</th>
+								<th align="center">폐지일자</th>
+								<th align="center">최초등록시점</th>
+								<th align="center">최초등록자ID</th>
+								<th align="center">최종수정시점</th>
+								<th align="center">최종수정자ID</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																																							
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.administZoneSe}"/>, <c:out value="{D}{result.administZoneCode}"/>')"><c:out value="${result.administZoneSe}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.administZoneSe}"/>, <c:out value="{D}{result.administZoneCode}"/>')"><c:out value="${result.administZoneCode}"/></a>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.administZoneSe}"/>', '<c:out value="${result.administZoneCode}"/>')"><c:out value="${result.administZoneSe}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.administZoneSe}"/>', '<c:out value="${result.administZoneCode}"/>')"><c:out value="${result.administZoneCode}"/></a>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.useAt}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.administZoneNm}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.upperAdministZoneCode}"/>&nbsp;</td>

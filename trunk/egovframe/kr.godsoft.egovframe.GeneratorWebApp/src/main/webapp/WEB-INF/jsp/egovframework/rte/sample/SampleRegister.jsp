@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty sampleVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<title>sample <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="sampleVO" name="detailForm">
+<form:form commandName="sampleVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>ID *</th>
+			<th>id *</th>
 			<td>
 				<form:input path="id" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>ID *</th>
+			<th>id *</th>
 			<td>
 				<form:input path="id" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,28 +93,28 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>NAME</th>
+			<th>name</th>
 			<td>
 				<form:input path="name" cssClass="txt"/>
 				&nbsp;<form:errors path="name" />
 			</td>
 		</tr>	
 		<tr>
-			<th>DESCRIPTION</th>
+			<th>description</th>
 			<td>
 				<form:input path="description" cssClass="txt"/>
 				&nbsp;<form:errors path="description" />
 			</td>
 		</tr>	
 		<tr>
-			<th>USE_YN</th>
+			<th>use_yn</th>
 			<td>
 				<form:input path="useYn" cssClass="txt"/>
 				&nbsp;<form:errors path="useYn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>REG_USER</th>
+			<th>reg_user</th>
 			<td>
 				<form:input path="regUser" cssClass="txt"/>
 				&nbsp;<form:errors path="regUser" />

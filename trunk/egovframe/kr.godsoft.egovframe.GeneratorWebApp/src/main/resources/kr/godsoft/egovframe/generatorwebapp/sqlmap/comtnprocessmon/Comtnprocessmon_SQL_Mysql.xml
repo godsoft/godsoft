@@ -21,51 +21,50 @@
 	
 	<insert id="comtnprocessmonDAO.insertComtnprocessmon_S">
 		<![CDATA[
-			INSERT INTO comtnprocessmon 
-				( PROCS_ID
-				  , procs_nm
-				  , procs_sttus
-				  , creat_dt
-				  , mngr_nm
-				  , mngr_email_adres
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm )
-			VALUES ( #procsId#
-				  , #procsNm#
-				  , #procsSttus#
-				  , #creatDt#
-				  , #mngrNm#
-				  , #mngrEmailAdres#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm# )
+            INSERT INTO comtnprocessmon (
+                procs_id
+                , procs_nm
+                , procs_sttus
+                , creat_dt
+                , mngr_nm
+                , mngr_email_adres
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #procsId#
+                , #procsNm#
+                , #procsSttus#
+                , #creatDt#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnprocessmonDAO.updateComtnprocessmon_S">
 		<![CDATA[
-			UPDATE comtnprocessmon
-			SET procs_id = #procsId#
-				, procs_nm = #procsNm#
-				, procs_sttus = #procsSttus#
-				, creat_dt = #creatDt#
-				, mngr_nm = #mngrNm#
-				, mngr_email_adres = #mngrEmailAdres#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-			WHERE procs_id = #procsId#
+            UPDATE comtnprocessmon
+                SET
+                procs_id = #procsId#
+                , procs_nm = #procsNm#
+                , procs_sttus = #procsSttus#
+                , creat_dt = #creatDt#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND procs_id = #procsId#
 		]]>
 	</update>
 	
 	<delete id="comtnprocessmonDAO.deleteComtnprocessmon_S">
 		<![CDATA[
-			DELETE FROM comtnprocessmon 
-			WHERE procs_id = #procsId#
+			DELETE FROM comtnprocessmon
+				WHERE 1 = 1
+				AND procs_id = #procsId#
 		]]>
 	</delete>
 	

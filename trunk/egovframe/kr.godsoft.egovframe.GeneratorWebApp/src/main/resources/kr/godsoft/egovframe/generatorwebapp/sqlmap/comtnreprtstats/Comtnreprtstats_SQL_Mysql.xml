@@ -19,45 +19,44 @@
 	
 	<insert id="comtnreprtstatsDAO.insertComtnreprtstats_S">
 		<![CDATA[
-			INSERT INTO comtnreprtstats 
-				( REPRT_ID
-				  , reprt_nm
-				  , reprt_sttus
-				  , frst_register_id
-				  , frst_regist_pnttm
-				  , last_updusr_id
-				  , last_updt_pnttm
-				  , reprt_ty )
-			VALUES ( #reprtId#
-				  , #reprtNm#
-				  , #reprtSttus#
-				  , #frstRegisterId#
-				  , #frstRegistPnttm#
-				  , #lastUpdusrId#
-				  , #lastUpdtPnttm#
-				  , #reprtTy# )
+            INSERT INTO comtnreprtstats (
+                reprt_id
+                , reprt_nm
+                , reprt_sttus
+                , frst_register_id
+                , frst_regist_pnttm
+                , reprt_ty
+            ) VALUES (
+                #reprtId#
+                , #reprtNm#
+                , #reprtSttus#
+                , #frstRegisterId#
+                , SYSDATE()
+                , #reprtTy#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnreprtstatsDAO.updateComtnreprtstats_S">
 		<![CDATA[
-			UPDATE comtnreprtstats
-			SET reprt_id = #reprtId#
-				, reprt_nm = #reprtNm#
-				, reprt_sttus = #reprtSttus#
-				, frst_register_id = #frstRegisterId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, reprt_ty = #reprtTy#
-			WHERE reprt_id = #reprtId#
+            UPDATE comtnreprtstats
+                SET
+                reprt_id = #reprtId#
+                , reprt_nm = #reprtNm#
+                , reprt_sttus = #reprtSttus#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                , reprt_ty = #reprtTy#
+                WHERE 1 = 1
+                AND reprt_id = #reprtId#
 		]]>
 	</update>
 	
 	<delete id="comtnreprtstatsDAO.deleteComtnreprtstats_S">
 		<![CDATA[
-			DELETE FROM comtnreprtstats 
-			WHERE reprt_id = #reprtId#
+			DELETE FROM comtnreprtstats
+				WHERE 1 = 1
+				AND reprt_id = #reprtId#
 		]]>
 	</delete>
 	

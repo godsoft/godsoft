@@ -35,93 +35,92 @@
 	
 	<insert id="comtncnsltlistDAO.insertComtncnsltlist_S">
 		<![CDATA[
-			INSERT INTO comtncnsltlist 
-				( CNSLT_ID
-				  , cnslt_sj
-				  , othbc_at
-				  , email_adres
-				  , cnslt_cn
-				  , managt_cn
-				  , managt_de
-				  , rdcnt
-				  , atch_file_id
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id
-				  , area_no
-				  , middle_telno
-				  , end_telno
-				  , frst_mbtlnum
-				  , middle_mbtlnum
-				  , end_mbtlnum
-				  , writng_de
-				  , wrter_nm
-				  , email_answer_at
-				  , qna_process_sttus_code
-				  , writng_password )
-			VALUES ( #cnsltId#
-				  , #cnsltSj#
-				  , #othbcAt#
-				  , #emailAdres#
-				  , #cnsltCn#
-				  , #managtCn#
-				  , #managtDe#
-				  , #rdcnt#
-				  , #atchFileId#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId#
-				  , #areaNo#
-				  , #middleTelno#
-				  , #endTelno#
-				  , #frstMbtlnum#
-				  , #middleMbtlnum#
-				  , #endMbtlnum#
-				  , #writngDe#
-				  , #wrterNm#
-				  , #emailAnswerAt#
-				  , #qnaProcessSttusCode#
-				  , #writngPassword# )
+            INSERT INTO comtncnsltlist (
+                cnslt_id
+                , cnslt_sj
+                , othbc_at
+                , email_adres
+                , cnslt_cn
+                , managt_cn
+                , managt_de
+                , rdcnt
+                , atch_file_id
+                , frst_regist_pnttm
+                , frst_register_id
+                , area_no
+                , middle_telno
+                , end_telno
+                , frst_mbtlnum
+                , middle_mbtlnum
+                , end_mbtlnum
+                , writng_de
+                , wrter_nm
+                , email_answer_at
+                , qna_process_sttus_code
+                , writng_password
+            ) VALUES (
+                #cnsltId#
+                , #cnsltSj#
+                , #othbcAt#
+                , #emailAdres#
+                , #cnsltCn#
+                , #managtCn#
+                , #managtDe#
+                , #rdcnt#
+                , #atchFileId#
+                , SYSDATE()
+                , #frstRegisterId#
+                , #areaNo#
+                , #middleTelno#
+                , #endTelno#
+                , #frstMbtlnum#
+                , #middleMbtlnum#
+                , #endMbtlnum#
+                , #writngDe#
+                , #wrterNm#
+                , #emailAnswerAt#
+                , #qnaProcessSttusCode#
+                , #writngPassword#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtncnsltlistDAO.updateComtncnsltlist_S">
 		<![CDATA[
-			UPDATE comtncnsltlist
-			SET cnslt_id = #cnsltId#
-				, cnslt_sj = #cnsltSj#
-				, othbc_at = #othbcAt#
-				, email_adres = #emailAdres#
-				, cnslt_cn = #cnsltCn#
-				, managt_cn = #managtCn#
-				, managt_de = #managtDe#
-				, rdcnt = #rdcnt#
-				, atch_file_id = #atchFileId#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-				, area_no = #areaNo#
-				, middle_telno = #middleTelno#
-				, end_telno = #endTelno#
-				, frst_mbtlnum = #frstMbtlnum#
-				, middle_mbtlnum = #middleMbtlnum#
-				, end_mbtlnum = #endMbtlnum#
-				, writng_de = #writngDe#
-				, wrter_nm = #wrterNm#
-				, email_answer_at = #emailAnswerAt#
-				, qna_process_sttus_code = #qnaProcessSttusCode#
-				, writng_password = #writngPassword#
-			WHERE cnslt_id = #cnsltId#
+            UPDATE comtncnsltlist
+                SET
+                cnslt_id = #cnsltId#
+                , cnslt_sj = #cnsltSj#
+                , othbc_at = #othbcAt#
+                , email_adres = #emailAdres#
+                , cnslt_cn = #cnsltCn#
+                , managt_cn = #managtCn#
+                , managt_de = #managtDe#
+                , rdcnt = #rdcnt#
+                , atch_file_id = #atchFileId#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                , area_no = #areaNo#
+                , middle_telno = #middleTelno#
+                , end_telno = #endTelno#
+                , frst_mbtlnum = #frstMbtlnum#
+                , middle_mbtlnum = #middleMbtlnum#
+                , end_mbtlnum = #endMbtlnum#
+                , writng_de = #writngDe#
+                , wrter_nm = #wrterNm#
+                , email_answer_at = #emailAnswerAt#
+                , qna_process_sttus_code = #qnaProcessSttusCode#
+                , writng_password = #writngPassword#
+                WHERE 1 = 1
+                AND cnslt_id = #cnsltId#
 		]]>
 	</update>
 	
 	<delete id="comtncnsltlistDAO.deleteComtncnsltlist_S">
 		<![CDATA[
-			DELETE FROM comtncnsltlist 
-			WHERE cnslt_id = #cnsltId#
+			DELETE FROM comtncnsltlist
+				WHERE 1 = 1
+				AND cnslt_id = #cnsltId#
 		]]>
 	</delete>
 	

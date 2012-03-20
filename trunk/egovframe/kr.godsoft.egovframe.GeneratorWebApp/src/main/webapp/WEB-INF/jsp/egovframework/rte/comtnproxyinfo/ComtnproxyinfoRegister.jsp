@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnproxyinfoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnproxyinfoVO.proxyId ? '등록' : '수정'}"/>
+<title>comtnproxyinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnproxyinfoVO" name="detailForm">
+<form:form commandName="comtnproxyinfoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>PROXY_ID *</th>
+			<th>proxy_id *</th>
 			<td>
 				<form:input path="proxyId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>PROXY_ID *</th>
+			<th>proxy_id *</th>
 			<td>
 				<form:input path="proxyId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,84 +93,84 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>PROXY_NM</th>
+			<th>proxy_nm</th>
 			<td>
 				<form:input path="proxyNm" cssClass="txt"/>
 				&nbsp;<form:errors path="proxyNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PROXY_IP</th>
+			<th>proxy_ip</th>
 			<td>
 				<form:input path="proxyIp" cssClass="txt"/>
 				&nbsp;<form:errors path="proxyIp" />
 			</td>
 		</tr>	
 		<tr>
-			<th>PROXY_PORT</th>
+			<th>proxy_port</th>
 			<td>
 				<form:input path="proxyPort" cssClass="txt"/>
 				&nbsp;<form:errors path="proxyPort" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TRGET_SVC_NM</th>
+			<th>trget_svc_nm</th>
 			<td>
 				<form:input path="trgetSvcNm" cssClass="txt"/>
 				&nbsp;<form:errors path="trgetSvcNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SVC_DC</th>
+			<th>svc_dc</th>
 			<td>
 				<form:input path="svcDc" cssClass="txt"/>
 				&nbsp;<form:errors path="svcDc" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SVC_IP</th>
+			<th>svc_ip</th>
 			<td>
 				<form:input path="svcIp" cssClass="txt"/>
 				&nbsp;<form:errors path="svcIp" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SVC_PORT</th>
+			<th>svc_port</th>
 			<td>
 				<form:input path="svcPort" cssClass="txt"/>
 				&nbsp;<form:errors path="svcPort" />
 			</td>
 		</tr>	
 		<tr>
-			<th>SVC_STTUS</th>
+			<th>svc_sttus</th>
 			<td>
 				<form:input path="svcSttus" cssClass="txt"/>
 				&nbsp;<form:errors path="svcSttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />

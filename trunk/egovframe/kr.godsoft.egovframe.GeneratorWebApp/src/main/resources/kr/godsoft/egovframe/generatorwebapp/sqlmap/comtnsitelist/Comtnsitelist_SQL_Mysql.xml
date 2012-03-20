@@ -22,54 +22,53 @@
 	
 	<insert id="comtnsitelistDAO.insertComtnsitelist_S">
 		<![CDATA[
-			INSERT INTO comtnsitelist 
-				( SITE_ID
-				  , site_nm
-				  , site_url
-				  , site_dc
-				  , site_thema_cl_code
-				  , actvty_at
-				  , use_at
-				  , frst_regist_pnttm
-				  , frst_register_id
-				  , last_updt_pnttm
-				  , last_updusr_id )
-			VALUES ( #siteId#
-				  , #siteNm#
-				  , #siteUrl#
-				  , #siteDc#
-				  , #siteThemaClCode#
-				  , #actvtyAt#
-				  , #useAt#
-				  , #frstRegistPnttm#
-				  , #frstRegisterId#
-				  , #lastUpdtPnttm#
-				  , #lastUpdusrId# )
+            INSERT INTO comtnsitelist (
+                site_id
+                , site_nm
+                , site_url
+                , site_dc
+                , site_thema_cl_code
+                , actvty_at
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #siteId#
+                , #siteNm#
+                , #siteUrl#
+                , #siteDc#
+                , #siteThemaClCode#
+                , #actvtyAt#
+                , #useAt#
+                , SYSDATE()
+                , #frstRegisterId#
+            )
 		]]>
 	</insert>
 	
 	<update id="comtnsitelistDAO.updateComtnsitelist_S">
 		<![CDATA[
-			UPDATE comtnsitelist
-			SET site_id = #siteId#
-				, site_nm = #siteNm#
-				, site_url = #siteUrl#
-				, site_dc = #siteDc#
-				, site_thema_cl_code = #siteThemaClCode#
-				, actvty_at = #actvtyAt#
-				, use_at = #useAt#
-				, frst_regist_pnttm = #frstRegistPnttm#
-				, frst_register_id = #frstRegisterId#
-				, last_updt_pnttm = #lastUpdtPnttm#
-				, last_updusr_id = #lastUpdusrId#
-			WHERE site_id = #siteId#
+            UPDATE comtnsitelist
+                SET
+                site_id = #siteId#
+                , site_nm = #siteNm#
+                , site_url = #siteUrl#
+                , site_dc = #siteDc#
+                , site_thema_cl_code = #siteThemaClCode#
+                , actvty_at = #actvtyAt#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE()
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND site_id = #siteId#
 		]]>
 	</update>
 	
 	<delete id="comtnsitelistDAO.deleteComtnsitelist_S">
 		<![CDATA[
-			DELETE FROM comtnsitelist 
-			WHERE site_id = #siteId#
+			DELETE FROM comtnsitelist
+				WHERE 1 = 1
+				AND site_id = #siteId#
 		]]>
 	</delete>
 	

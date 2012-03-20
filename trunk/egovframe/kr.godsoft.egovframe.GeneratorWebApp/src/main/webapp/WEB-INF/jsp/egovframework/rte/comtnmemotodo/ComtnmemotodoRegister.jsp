@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-16
+  * @since 2012-03-20
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnmemotodoVO.id ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnmemotodoVO.todoId ? '등록' : '수정'}"/>
+<title>comtnmemotodo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -59,7 +59,7 @@ function fn_egov_save() {
 </head>
 <body>
 
-<form:form commandName="comtnmemotodoVO" name="detailForm">
+<form:form commandName="comtnmemotodoVO" name="detailForm" id="detailForm">
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th>TODO_ID *</th>
+			<th>todo_id *</th>
 			<td>
 				<form:input path="todoId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th>TODO_ID *</th>
+			<th>todo_id *</th>
 			<td>
 				<form:input path="todoId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,63 +93,63 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th>TODO_SJ</th>
+			<th>todo_sj</th>
 			<td>
 				<form:input path="todoSj" cssClass="txt"/>
 				&nbsp;<form:errors path="todoSj" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TODO_BEGIN_TIME</th>
+			<th>todo_begin_time</th>
 			<td>
 				<form:input path="todoBeginTime" cssClass="txt"/>
 				&nbsp;<form:errors path="todoBeginTime" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TODO_END_TIME</th>
+			<th>todo_end_time</th>
 			<td>
 				<form:input path="todoEndTime" cssClass="txt"/>
 				&nbsp;<form:errors path="todoEndTime" />
 			</td>
 		</tr>	
 		<tr>
-			<th>WRTER_ID</th>
+			<th>wrter_id</th>
 			<td>
 				<form:input path="wrterId" cssClass="txt"/>
 				&nbsp;<form:errors path="wrterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>TODO_CN</th>
+			<th>todo_cn</th>
 			<td>
 				<form:input path="todoCn" cssClass="txt"/>
 				&nbsp;<form:errors path="todoCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGISTER_ID</th>
+			<th>frst_register_id</th>
 			<td>
 				<form:input path="frstRegisterId" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>FRST_REGIST_PNTTM</th>
+			<th>frst_regist_pnttm</th>
 			<td>
 				<form:input path="frstRegistPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDUSR_ID</th>
+			<th>last_updusr_id</th>
 			<td>
 				<form:input path="lastUpdusrId" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th>LAST_UPDT_PNTTM</th>
+			<th>last_updt_pnttm</th>
 			<td>
 				<form:input path="lastUpdtPnttm" cssClass="txt"/>
 				&nbsp;<form:errors path="lastUpdtPnttm" />
