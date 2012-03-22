@@ -1,5 +1,5 @@
 <?
-if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가 
+if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // 선택옵션으로 인해 셀합치기가 가변적으로 변함
 $colspan = 5;
@@ -17,16 +17,16 @@ if ($is_nogood) $colspan++;
 .board_top { clear:both; }
 
 .board_list { clear:both; width:100%; table-layout:fixed; margin:5px 0 0 0; }
-.board_list th { font-weight:bold; font-size:12px; } 
-.board_list th { background:url(<?=$board_skin_path?>/img/title_bg.gif) repeat-x; } 
-.board_list th { white-space:nowrap; height:34px; overflow:hidden; text-align:center; } 
-.board_list th { border-top:1px solid #ddd; border-bottom:1px solid #ddd; } 
+.board_list th { font-weight:bold; font-size:12px; }
+.board_list th { background:url(<?=$board_skin_path?>/img/title_bg.gif) repeat-x; }
+.board_list th { white-space:nowrap; height:34px; overflow:hidden; text-align:center; }
+.board_list th { border-top:1px solid #ddd; border-bottom:1px solid #ddd; }
 
-.board_list tr.bg0 { background-color:#fafafa; } 
-.board_list tr.bg1 { background-color:#ffffff; } 
+.board_list tr.bg0 { background-color:#fafafa; }
+.board_list tr.bg1 { background-color:#ffffff; }
 
 .board_list td { padding:.5em; }
-.board_list td { border-bottom:1px solid #ddd; } 
+.board_list td { border-bottom:1px solid #ddd; }
 .board_list td.num { color:#999999; text-align:center; }
 .board_list td.checkbox { text-align:center; }
 .board_list td.subject { overflow:hidden; }
@@ -101,15 +101,15 @@ if ($is_nogood) $colspan++;
         <? if ($is_nogood) { ?><th><?=subject_sort_link('wr_nogood', $qstr2, 1)?>비추천</a></th><?}?>
     </tr>
 
-    <? 
-    for ($i=0; $i<count($list); $i++) { 
+    <?
+    for ($i=0; $i<count($list); $i++) {
         $bg = $i%2 ? 0 : 1;
     ?>
 
-    <tr class="bg<?=$bg?>"> 
+    <tr class="bg<?=$bg?>">
         <td class="num">
-            <? 
-            if ($list[$i][is_notice]) // 공지사항 
+            <?
+            if ($list[$i][is_notice]) // 공지사항
                 echo "<b>공지</b>";
             else if ($wr_id == $list[$i][wr_id]) // 현재위치
                 echo "<span class='current'>{$list[$i][num]}</span>";
@@ -119,11 +119,11 @@ if ($is_nogood) $colspan++;
         </td>
         <? if ($is_checkbox) { ?><td class="checkbox"><input type=checkbox name=chk_wr_id[] value="<?=$list[$i][wr_id]?>"></td><? } ?>
         <td class="subject">
-            <? 
+            <?
             echo $nobr_begin;
             echo $list[$i][reply];
             echo $list[$i][icon_reply];
-            if ($is_category && $list[$i][ca_name]) { 
+            if ($is_category && $list[$i][ca_name]) {
                 echo "<span class=small><font color=gray>[<a href='{$list[$i][ca_name_href]}'>{$list[$i][ca_name]}</a>]</font></span> ";
             }
 
@@ -132,7 +132,7 @@ if ($is_nogood) $colspan++;
             else
                 echo "<a href='{$list[$i][href]}'>{$list[$i][subject]}</a>";
 
-            if ($list[$i][comment_cnt]) 
+            if ($list[$i][comment_cnt])
                 echo " <a href=\"{$list[$i][comment_href]}\"><span class='comment'>{$list[$i][comment_cnt]}</span></a>";
 
             // if ($list[$i]['link']['count']) { echo "[{$list[$i]['link']['count']}]"; }
@@ -221,7 +221,7 @@ if ('<?=$sca?>') document.fcategory.sca.value = '<?=$sca?>';
 if ('<?=$stx?>') {
     document.fsearch.sfl.value = '<?=$sfl?>';
 
-    if ('<?=$sop?>' == 'and') 
+    if ('<?=$sop?>' == 'and')
         document.fsearch.sop[0].checked = true;
 
     if ('<?=$sop?>' == 'or')
@@ -281,7 +281,7 @@ function select_copy(sw) {
         str = "복사";
     else
         str = "이동";
-                       
+
     if (!check_confirm(str))
         return;
 

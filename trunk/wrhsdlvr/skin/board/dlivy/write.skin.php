@@ -22,7 +22,7 @@ var char_max = parseInt(<?=$write_max?>); // 최대
 </script>
 
 <form name="fwrite" method="post" onsubmit="return fwrite_submit(this);" enctype="multipart/form-data" style="margin:0px;">
-<input type=hidden name=null> 
+<input type=hidden name=null>
 <input type=hidden name=w        value="<?=$w?>">
 <input type=hidden name=bo_table value="<?=$bo_table?>">
 <input type=hidden name=wr_id    value="<?=$wr_id?>">
@@ -75,12 +75,12 @@ var char_max = parseInt(<?=$write_max?>); // 최대
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
 <? } ?>
 
-<? 
+<?
 $option = "";
 $option_hidden = "";
-if ($is_notice || $is_html || $is_secret || $is_mail) { 
+if ($is_notice || $is_html || $is_secret || $is_mail) {
     $option = "";
-    if ($is_notice) { 
+    if ($is_notice) {
         $option .= "<input type=checkbox name=notice value='1' $notice_checked>공지&nbsp;";
     }
 
@@ -99,7 +99,7 @@ if ($is_notice || $is_html || $is_secret || $is_mail) {
             $option_hidden .= "<input type=hidden value='secret' name='secret'>";
         }
     }
-    
+
     if ($is_mail) {
         $option .= "<input type=checkbox value='mail' name='mail' $recv_email_checked>답변메일받기&nbsp;";
     }
@@ -125,6 +125,11 @@ if ($option) {
     <td class=write_head>제 목</td>
     <td><input class='ed' style="width:100%;" name=wr_subject id="wr_subject" itemname="제목" required value="<?=$subject?>"></td></tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
+
+<?php
+include_once('extra-field.php');
+?>
+
 <tr>
     <td class='write_head' style='padding:5 0 5 10;' colspan='2'>
         <? if ($is_dhtml_editor) { ?>
@@ -139,7 +144,7 @@ if ($option) {
             <td width=50% align=right><? if ($write_min || $write_max) { ?><span id=char_count></span>글자<?}?></td>
         </tr>
         </table>
-        <textarea id="wr_content" name="wr_content" class=tx style='width:100%; word-break:break-all;' rows=10 itemname="내용" required 
+        <textarea id="wr_content" name="wr_content" class=tx style='width:100%; word-break:break-all;' rows=10 itemname="내용" required
         <? if ($write_min || $write_max) { ?>onkeyup="check_byte('wr_content', 'char_count');"<?}?>><?=$content?></textarea>
         <? if ($write_min || $write_max) { ?><script type="text/javascript"> check_byte('wr_content', 'char_count'); </script><?}?>
         <? } ?>
@@ -163,8 +168,8 @@ if ($option) {
         <table cellpadding=0 cellspacing=0>
         <tr>
             <td class=write_head style="padding-top:10px; line-height:20px;">
-                파일첨부<br> 
-                <span onclick="add_file();" style="cursor:pointer;"><img src="<?=$board_skin_path?>/img/btn_file_add.gif"></span> 
+                파일첨부<br>
+                <span onclick="add_file();" style="cursor:pointer;"><img src="<?=$board_skin_path?>/img/btn_file_add.gif"></span>
                 <span onclick="del_file();" style="cursor:pointer;"><img src="<?=$board_skin_path?>/img/btn_file_minus.gif"></span>
             </td>
         </tr>
@@ -259,7 +264,7 @@ if ($option) {
 <script type="text/javascript">
 <?
 // 관리자라면 분류 선택에 '공지' 옵션을 추가함
-if ($is_admin) 
+if ($is_admin)
 {
     echo "
     if (typeof(document.fwrite.ca_name) != 'undefined')
@@ -268,10 +273,10 @@ if ($is_admin)
         document.fwrite.ca_name.options[document.fwrite.ca_name.options.length-1].value = '공지';
         document.fwrite.ca_name.options[document.fwrite.ca_name.options.length-1].text = '공지';
     }";
-} 
+}
 ?>
 
-with (document.fwrite) 
+with (document.fwrite)
 {
     if (typeof(wr_name) != "undefined")
         wr_name.focus();
@@ -285,7 +290,7 @@ with (document.fwrite)
             ca_name.value = "<?=$write[ca_name]?>";
 }
 
-function html_auto_br(obj) 
+function html_auto_br(obj)
 {
     if (obj.checked) {
         result = confirm("자동 줄바꿈을 하시겠습니까?\n\n자동 줄바꿈은 게시물 내용중 줄바뀐 곳을<br>태그로 변환하는 기능입니다.");
@@ -298,7 +303,7 @@ function html_auto_br(obj)
         obj.value = "";
 }
 
-function fwrite_submit(f) 
+function fwrite_submit(f)
 {
     /*
     var s = "";
@@ -319,7 +324,7 @@ function fwrite_submit(f)
             if (char_min > 0 && char_min > cnt) {
                 alert("내용은 "+char_min+"글자 이상 쓰셔야 합니다.");
                 return false;
-            } 
+            }
             else if (char_max > 0 && char_max < cnt) {
                 alert("내용은 "+char_max+"글자 이하로 쓰셔야 합니다.");
                 return false;
@@ -328,8 +333,8 @@ function fwrite_submit(f)
     }
 
     if (document.getElementById('tx_wr_content')) {
-        if (!ed_wr_content.outputBodyText()) { 
-            alert('내용을 입력하십시오.'); 
+        if (!ed_wr_content.outputBodyText()) {
+            alert('내용을 입력하십시오.');
             ed_wr_content.returnFalse();
             return false;
         }
@@ -365,9 +370,9 @@ function fwrite_submit(f)
 
     if (content) {
         alert("내용에 금지단어('"+content+"')가 포함되어있습니다");
-        if (typeof(ed_wr_content) != "undefined") 
+        if (typeof(ed_wr_content) != "undefined")
             ed_wr_content.returnFalse();
-        else 
+        else
             f.wr_content.focus();
         return false;
     }
@@ -385,7 +390,7 @@ function fwrite_submit(f)
     else
         echo "f.action = './write_update.php';";
     ?>
-    
+
     return true;
 }
 </script>

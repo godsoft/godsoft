@@ -10,7 +10,11 @@ include_once("./_head.php");
 <table width="100%" cellpadding=0 cellspacing=0><tr><td valign=top>
 <?
 //  최신글
-$sql = " select bo_table, bo_subject from $g4[board_table] order by gr_id, bo_order_search ";
+$sql = " select bo_table, bo_subject
+from $g4[board_table]
+WHERE 1 = 1
+AND bo_table != 'dlivy'
+order by gr_id, bo_order_search ";
 $result = sql_query($sql);
 for ($i=0; $row=sql_fetch_array($result); $i++) {
     // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
@@ -29,7 +33,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         $skin_dir = 'basic';
     }
 
-    echo latest($skin_dir, $row['bo_table'], 10, 70);
+    echo latest($skin_dir, $row['bo_table'], 10, 170);
     echo "<p>\n";
 }
 ?>

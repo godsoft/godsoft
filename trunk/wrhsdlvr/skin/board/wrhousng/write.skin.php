@@ -305,12 +305,16 @@ function html_auto_br(obj)
 
 function fwrite_submit(f)
 {
-    var extra_field = '\'' + $('#birds-wr_1').val() + '\'';
-    extra_field += ' > ' + $('#wr_2').val().substring(0, 4) + '-' + $('#wr_2').val().substring(4, 6) + '-' + $('#wr_2').val().substring(6, 8);
-    extra_field += ' > ' + $('#wr_3').val();
-
-    $('#wr_subject').val(extra_field);
-    $('#wr_content').val(extra_field);
+//alert(f);
+//
+//    var extra_field = '\'' + $('#birds-wr_1').val() + '\'';
+//    extra_field += ' > ' + $('#wr_2').val().substring(0, 4) + '-' + $('#wr_2').val().substring(4, 6) + '-' + $('#wr_2').val().substring(6, 8);
+//    extra_field += ' > ' + $('#wr_3').val();
+//
+//alert(extra_field);
+//
+//    $('#wr_subject').val(extra_field);
+//    $('#wr_content').val(extra_field);
 
     /*
     var s = "";

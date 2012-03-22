@@ -1,6 +1,11 @@
 <?
-if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가 
+if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 ?>
+
+<?php
+include_once('view.skin.dlivy.php');
+?>
+
 <div style="height:12px; line-height:1px; font-size:1px;">&nbsp;</div>
 
 <!-- 게시글 보기 시작 -->
@@ -15,8 +20,8 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
     <!-- 링크 버튼 -->
     <div style="float:right;">
-    <? 
-    ob_start(); 
+    <?
+    ob_start();
     ?>
     <? if ($copy_href) { echo "<a href=\"$copy_href\"><img src='$board_skin_path/img/btn_copy.gif' border='0' align='absmiddle'></a> "; } ?>
     <? if ($move_href) { echo "<a href=\"$move_href\"><img src='$board_skin_path/img/btn_move.gif' border='0' align='absmiddle'></a> "; } ?>
@@ -57,7 +62,7 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 <tr>
     <td height=30 background="<?=$board_skin_path?>/img/view_dot.gif" style="color:#888;">
         <div style="float:left;">
-        &nbsp;글쓴이 : 
+        &nbsp;글쓴이 :
         <?=$view[name]?><? if ($is_ip_view) { echo "&nbsp;($ip)"; } ?>
         </div>
         <div style="float:right;">
@@ -100,19 +105,19 @@ for ($i=1; $i<=$g4[link_count]; $i++) {
     }
 }
 ?>
-<tr> 
+<tr>
     <td height="150" style="word-break:break-all; padding:10px;">
-        <? 
+        <?
         // 파일 출력
         for ($i=0; $i<=count($view[file]); $i++) {
-            if ($view[file][$i][view]) 
+            if ($view[file][$i][view])
                 echo $view[file][$i][view] . "<p>";
         }
         ?>
 
         <!-- 내용 출력 -->
         <span id="writeContents"><?=$view[content];?></span>
-        
+
         <?//echo $view[rich_content]; // {이미지:0} 과 같은 코드를 사용할 경우?>
         <!-- 테러 태그 방지용 --></xml></xmp><a href=""></a><a href=''></a>
 

@@ -70,20 +70,33 @@ $(function() {
 
     $('#birds-wr_1').focus();
 });
+
+function extra_onblur() {
+//alert(f);
+
+    var extra_field = '\'' + $('#birds-wr_1').val() + '\'';
+    extra_field += ' > ' + $('#wr_2').val().substring(0, 4) + '-' + $('#wr_2').val().substring(4, 6) + '-' + $('#wr_2').val().substring(6, 8);
+    extra_field += ' > ' + $('#wr_3').val();
+
+//alert(extra_field);
+
+    $('#wr_subject').val(extra_field);
+    $('#wr_content').val(extra_field);
+}
 </script>
 
 <tr>
     <td class=write_head><label for="wr_1"><?php echo $board['bo_1_subj']; ?></label></td>
     <td><input class='ed' style="" name="wr_1" id="wr_1" itemname="<?php echo $board['bo_1_subj']; ?>" required value="<?php echo $write['wr_1']; ?>" readonly="readonly">
 
-      <input id="birds-wr_1" value="<?php echo $stndrd_name; ?>" />
+      <input id="birds-wr_1" value="<?php echo $stndrd_name; ?>" onblur="extra_onblur();" />
 
     </td></tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
 
 <tr>
     <td class=write_head><label for="wr_2"><?php echo $board['bo_2_subj']; ?></label></td>
-    <td><input class='ed' style="" name="wr_2" id="wr_2" itemname="<?php echo $board['bo_2_subj']; ?>" required value="<?php echo $write['wr_2']; ?>">
+    <td><input class='ed' style="" name="wr_2" id="wr_2" itemname="<?php echo $board['bo_2_subj']; ?>" required value="<?php echo $write['wr_2']; ?>" onblur="extra_onblur();">
 
       <input type="text" id="datepicker">
 
@@ -92,5 +105,5 @@ $(function() {
 
 <tr>
     <td class=write_head><label for="wr_3"><?php echo $board['bo_3_subj']; ?></label></td>
-    <td><input class='ed' style="" name="wr_3" id="wr_3" itemname="<?php echo $board['bo_3_subj']; ?>" required value="<?php echo $write['wr_3']; ?>"></td></tr>
+    <td><input class='ed' style="" name="wr_3" id="wr_3" itemname="<?php echo $board['bo_3_subj']; ?>" required value="<?php echo $write['wr_3']; ?>" onblur="extra_onblur();"></td></tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
