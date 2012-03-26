@@ -144,6 +144,8 @@ if ($is_nogood) $colspan++;
             echo " " . $list[$i][icon_hot];
             echo " " . $list[$i][icon_secret];
             echo $nobr_end;
+
+            echo " 현재고: " . $list[$i]['wr_5'];
             ?>
         </td>
         <td class="name"><?=$list[$i][name]?></td>

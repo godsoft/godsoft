@@ -27,7 +27,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 //echo $row['bo_table'];
 
-    if ($row['bo_table'] == 'prdnm' || $row['bo_table'] == 'stndrd') {
+    if ($row['bo_table'] == 'prdnm' || $row['bo_table'] == 'stndrd' || $row['bo_table'] == 'wrhousng') {
         $skin_dir = $row['bo_table'];
     } else {
         $skin_dir = 'basic';

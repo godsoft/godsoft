@@ -69,6 +69,19 @@
 
       $( "#dialog-modal" ).dialog( "open" );
   }
+
+  function invntry_onclick(wrhousng_wr_id) {
+      var src = '';
+      src += '<?php echo $board_skin_path; ?>';
+      src += '/invntry.php';
+      src += '?wrhousng_wr_id=' + wrhousng_wr_id;
+
+      $("#dlivy_iframe").attr("src", src);
+
+      $( "#dialog-modal" ).dialog( "option", "title", '현재고 계산' );
+
+      $( "#dialog-modal" ).dialog( "open" );
+  }
   </script>
 
 <div id="dialog-modal" title="출고관리">
@@ -77,3 +90,17 @@
 
 <button id="create-user" onclick="dlivy_onclick()">출고</button>
 <button id="create-user" onclick="dlivy_list_onclick()">출고목록</button>
+<button id="create-user" onclick="invntry_onclick('<?php echo $wr_id; ?>')">현재고 계산</button>
+
+<table border="1">
+<tr>
+  <th>입고수량</th>
+  <th>출고수량</th>
+  <th>현재고(입고수량 - 출고수량)</th>
+</tr>
+<tr>
+  <td><?php echo $view['wr_3']; ?></td>
+  <td><?php echo $view['wr_4']; ?></td>
+  <td><?php echo $view['wr_5']; ?></td>
+</tr>
+</table>
