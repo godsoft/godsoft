@@ -90,4 +90,14 @@ public interface ColumnsService {
 	List<DataModelContext> getDataModelContexts(ColumnsVO columnsVO,
 			DataModelContext dataModelContext) throws Exception;
 
+	/**
+	 * all_tab_columns 목록을 조회한다.
+	 * 
+	 * @param egovMap
+	 *            - 조회할 정보가 담긴 VO
+	 * @return all_tab_columns 목록
+	 * @exception Exception
+	 */
+	List<EgovMap> selectAllTabColumnsList(EgovMap egovMap) throws Exception;
+
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Columns">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+
+	<select id="columnsDAO.selectAllTabColumnsList" parameterClass="egovMap" resultClass="egovMap">
+		SELECT
+			*
+			FROM all_tab_columns
+			WHERE 1 = 1
+			AND owner = #tableSchema#
+
+			<isNotNull property="tableNames" >
+				<iterate prepend="AND table_name IN " property="tableNames"
+				  open="(" close=")" conjunction=",">
+				  #tableNames[]#
+				</iterate>
+			</isNotNull>
+	</select>
+
+</sqlMap>

@@ -111,4 +111,18 @@ public class ColumnsDAO extends EgovAbstractDAO {
 				"columnsDAO.selectColumnsListTotCnt_S", searchVO);
 	}
 
+	/**
+	 * all_tab_columns 목록을 조회한다.
+	 * 
+	 * @param egovMap
+	 *            - 조회할 정보가 담긴 Map
+	 * @return all_tab_columns 목록
+	 * @exception Exception
+	 */
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectAllTabColumnsList(EgovMap egovMap)
+			throws Exception {
+		return list("columnsDAO.selectAllTabColumnsList", egovMap);
+	}
+
 }

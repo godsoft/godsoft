@@ -1,5 +1,6 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.java;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.godsoft.egovframe.egovframegenerator.columns.service.ColumnsDefaultVO;
@@ -47,7 +48,9 @@ public class ColumnsClient {
 			//
 			// columnsClient.getDataModelContext(columnsVO);
 
-			columnsClient.getDataModelContexts();
+			// columnsClient.getDataModelContexts();
+
+			columnsClient.selectAllTabColumnsList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -174,6 +177,37 @@ public class ColumnsClient {
 
 		if (log.isDebugEnabled()) {
 			log.debug(sql);
+		}
+	}
+
+	public List<EgovMap> selectAllTabColumnsList(EgovMap egovMap)
+			throws Exception {
+		return columnsService.selectAllTabColumnsList(egovMap);
+	}
+
+	@Deprecated
+	private void selectAllTabColumnsList() throws Exception {
+		EgovMap egovMap = new EgovMap();
+
+		egovMap.put("tableSchema", "TEST");
+
+		List<String> tableNames = new ArrayList<String>();
+		tableNames.add("COMTCADMINISTCODE");
+		tableNames.add("COMTCADMINISTCODERECPTNLOG");
+		tableNames.add("COMTCCMMNCLCODE");
+
+		egovMap.put("tableNames", tableNames);
+
+		List<EgovMap> columns = columnsService.selectAllTabColumnsList(egovMap);
+
+		for (int i = 0; i < columns.size(); i++) {
+			egovMap = columns.get(i);
+
+			String tableName = (String) egovMap.get("tableName");
+			String columnName = (String) egovMap.get("columnName");
+
+			System.out.println("tableName=" + tableName);
+			System.out.println("columnName=" + columnName);
 		}
 	}
 

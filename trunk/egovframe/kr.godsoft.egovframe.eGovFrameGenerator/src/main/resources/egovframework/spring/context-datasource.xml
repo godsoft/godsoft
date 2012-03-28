@@ -11,20 +11,21 @@
 	</bean>
 	-->
 	 
-	<!-- mysql -->
+	<!-- mysql
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/rte"/>
         <property name="username" value="rte"/>
         <property name="password" value="rte01"/>
     </bean>
+	-->
 
-    <!-- oracle
+    <!-- oracle -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@db1:1521:egovfrm"/>
-        <property name="username" value="rte"/>
-        <property name="password" value="rte01"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+        <property name="username" value="test"/>
+        <property name="password" value="test"/>
     </bean>
-    -->
+
 </beans>

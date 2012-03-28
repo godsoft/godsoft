@@ -41,7 +41,9 @@ public class CrudCodeGenApp {
 		CrudCodeGenApp crudCodeGenApp = new CrudCodeGenApp();
 
 		try {
-			crudCodeGenApp.mysql();
+			// crudCodeGenApp.mysql();
+
+			crudCodeGenApp.oracle();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -91,6 +93,10 @@ public class CrudCodeGenApp {
 
 		crudCodeGenServiceImpl.genSqlMapConfig(crudCodeGenServiceImpl
 				.getSqlMap());
+	}
+
+	public void oracle() throws Exception {
+
 	}
 
 }
