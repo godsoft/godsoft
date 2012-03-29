@@ -2,6 +2,7 @@ package kr.godsoft.egovframe.egovframegenerator.alltabcolumns.service;
 
 import java.util.List;
 
+import model.DataModelContext;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
@@ -25,5 +26,8 @@ public interface AllTabColumnsService {
 	 * @exception Exception
 	 */
 	List<EgovMap> selectAllTabColumnsList(EgovMap egovMapVO) throws Exception;
+
+	List<DataModelContext> getDataModelContexts(EgovMap egovMapVO,
+			DataModelContext dataModelContext) throws Exception;
 
 }
