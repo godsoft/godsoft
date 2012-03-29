@@ -16,7 +16,17 @@
 			, all_tab_columns.column_id
 			, all_tab_comments.comments AS table_comment
 			, all_col_comments.comments AS column_comment
-			, NVL2(all_cons_columns.owner, 'PRI', NULL) AS column_key
+		    , (
+		        SELECT nvl2(cons.owner, 'PRI', null)
+		        FROM all_constraints cons, all_cons_columns cols
+		        WHERE 1 = 1
+		        AND cons.constraint_type = 'P'
+		        AND cons.constraint_name = cols.constraint_name
+		        AND cons.owner = cols.owner
+		        AND cons.owner = all_tab_columns.owner
+		        AND cons.table_name = all_tab_columns.table_name
+		        AND cols.column_name = all_tab_columns.column_name
+		    ) AS column_key
 			FROM all_tab_columns
 			LEFT OUTER JOIN all_tab_comments ON 1 = 1
 			    AND all_tab_comments.owner = all_tab_columns.owner
@@ -43,6 +53,11 @@
 				  #tableNames[]#
 				</iterate>
 			</isNotNull>
+			
+			ORDER BY
+				all_tab_columns.owner
+				, all_tab_columns.table_name
+				, all_tab_columns.column_id
 	</select>
 
 </sqlMap>
