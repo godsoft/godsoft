@@ -1,11 +1,12 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.service.impl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,8 +24,8 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 // @Transactional
 public class ColumnsDAOTest {
 
-	// @Resource(name = "sqlMapClient")
-	// protected DataSource sqlMapClient;
+	@Resource(name = "dataSource")
+	protected DataSource dataSource;
 
 	@Resource(name = "columnsDAO")
 	ColumnsDAO columnsDAO;
@@ -35,6 +36,9 @@ public class ColumnsDAOTest {
 
 	// TODO VO를 사용한 경우, 관련 VO들을 선언한다.
 	// NoticeVo testNoticeVo;
+
+	// @TestDataSource
+	// private DataSource dataSource;
 
 	// TODO VO를 사용한 경우, 테스트에 사용할 VO들을 생성한다.
 	@Before
@@ -50,8 +54,21 @@ public class ColumnsDAOTest {
 		// }
 	}
 
-	// TODO 필요할 경우, 관련 자원들을 확인하고 테스트 한다.
 	@Test
+	public void checkTestDataSource() throws Exception {
+		// System.out.println("dataSource=" + columnsDAO.getDataSource());
+		//
+		// assertNotNull("dataSource를 정상적으로 get 했는지를 확인한다.",
+		// columnsDAO.getDataSource());
+
+		System.out.println("dataSource=" + dataSource.getConnection());
+
+		assertNotNull("dataSource를 정상적으로 get 했는지를 확인한다.",
+				dataSource.getConnection());
+	}
+
+	// TODO 필요할 경우, 관련 자원들을 확인하고 테스트 한다.
+	// @Test
 	public void check() throws Exception {
 		// assertNotNull(noticeDao);
 		// assertNotNull(testNoticeVo);
@@ -85,7 +102,10 @@ public class ColumnsDAOTest {
 
 		List<EgovMap> comtcadministcodes = comtcadministcodes();
 
-		assertEquals("두 리스트의 값과 순서가 같음", columns, comtcadministcodes);
+		// assertEquals("두 리스트의 값과 순서가 같음", columns, comtcadministcodes);
+
+		System.out.println("dataSource="
+				+ columnsDAO.getDataSource().toString());
 	}
 
 	private List<EgovMap> comtcadministcodes() throws Exception {
