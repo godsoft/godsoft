@@ -1,5 +1,6 @@
 package kr.godsoft.egovframe.egovframegenerator.columns.service.impl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class ColumnsDAOTest {
 		// }
 	}
 
-	@Test
+	// @Test
 	public void checkTestDataSource() throws Exception {
 		// System.out.println("dataSource=" + columnsDAO.getDataSource());
 		//
@@ -170,5 +171,34 @@ public class ColumnsDAOTest {
 	 */
 	public void testMethodZ() {
 
+	}
+
+	@Test
+	public void selectAllTabColumnsList() {
+		try {
+			EgovMap egovMapVO = new EgovMap();
+
+			egovMapVO.put("tableSchema", "TEST");
+
+			List<String> tableNames = new ArrayList<String>();
+			tableNames.add("COMTCADMINISTCODE");
+			// tableNames.add("COMTCADMINISTCODERECPTNLOG");
+			// tableNames.add("COMTCCMMNCLCODE");
+
+			egovMapVO.put("tableNames", tableNames);
+
+			List<EgovMap> columns = columnsDAO
+					.selectAllTabColumnsList(egovMapVO);
+
+			System.out.println(columns);
+			System.out.println(columns.toString());
+
+			assertEquals(
+					"두 객체의 값이 같음",
+					"[{owner=TEST, tableName=COMTCADMINISTCODE, columnName=ADMINIST_ZONE_SE, dataType=CHAR, dataLength=1, nullable=N, columnId=1, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=ADMINIST_ZONE_CODE, dataType=VARCHAR2, dataLength=10, nullable=N, columnId=2, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=USE_AT, dataType=CHAR, dataLength=1, nullable=N, columnId=3, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=ADMINIST_ZONE_NM, dataType=VARCHAR2, dataLength=60, nullable=Y, columnId=4, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=UPPER_ADMINIST_ZONE_CODE, dataType=VARCHAR2, dataLength=10, nullable=Y, columnId=5, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=CREAT_DE, dataType=CHAR, dataLength=20, nullable=Y, columnId=6, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=ABL_DE, dataType=CHAR, dataLength=20, nullable=Y, columnId=7, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=FRST_REGIST_PNTTM, dataType=DATE, dataLength=7, nullable=Y, columnId=8, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=FRST_REGISTER_ID, dataType=VARCHAR2, dataLength=20, nullable=Y, columnId=9, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=LAST_UPDT_PNTTM, dataType=DATE, dataLength=7, nullable=Y, columnId=10, comments=행정코드}, {owner=TEST, tableName=COMTCADMINISTCODE, columnName=LAST_UPDUSR_ID, dataType=VARCHAR2, dataLength=20, nullable=Y, columnId=11, comments=행정코드}]",
+					columns.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

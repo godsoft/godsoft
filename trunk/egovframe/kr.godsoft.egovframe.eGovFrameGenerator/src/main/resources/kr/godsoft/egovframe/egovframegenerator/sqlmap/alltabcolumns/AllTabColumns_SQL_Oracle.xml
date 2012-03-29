@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="AllTabColumns">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+
+	<select id="allTabColumnsDAO.selectAllTabColumnsList" parameterClass="egovMap" resultClass="egovMap">
+		SELECT
+			all_tab_columns.owner
+			, all_tab_columns.table_name
+			, all_tab_columns.column_name
+			, all_tab_columns.data_type
+			, all_tab_columns.data_length
+			, all_tab_columns.nullable
+			, all_tab_columns.column_id
+			, all_tab_comments.comments AS table_comment
+			, all_col_comments.comments AS column_comment
+			FROM all_tab_columns
+			LEFT OUTER JOIN all_tab_comments ON 1 = 1
+			    AND all_tab_comments.owner = all_tab_columns.owner
+			    AND all_tab_comments.table_name =  all_tab_columns.table_name
+			LEFT OUTER JOIN all_col_comments ON 1 = 1
+			    AND all_col_comments.owner = all_tab_columns.owner
+			    AND all_col_comments.table_name =  all_tab_columns.table_name
+			    AND all_col_comments.column_name = all_tab_columns.column_name
+			WHERE 1 = 1
+			AND all_tab_columns.owner = #owner#
+
+			<isNotNull property="tableNames" >
+				<iterate prepend="AND all_tab_columns.table_name IN " property="tableNames"
+				  open="(" close=")" conjunction=",">
+				  #tableNames[]#
+				</iterate>
+			</isNotNull>
+	</select>
+
+</sqlMap>

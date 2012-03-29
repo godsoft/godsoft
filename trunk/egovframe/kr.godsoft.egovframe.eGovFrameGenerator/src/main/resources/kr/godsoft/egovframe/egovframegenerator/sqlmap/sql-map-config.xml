@@ -3,5 +3,6 @@
     "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
 
 <sqlMapConfig>
-	<sqlMap resource="kr/godsoft/egovframe/egovframegenerator/sqlmap/columns/Columns_SQL_Oracle.xml"/>
+	<sqlMap resource="kr/godsoft/egovframe/egovframegenerator/sqlmap/columns/Columns_SQL.xml"/>
+	<sqlMap resource="kr/godsoft/egovframe/egovframegenerator/sqlmap/alltabcolumns/AllTabColumns_SQL_Oracle.xml"/>
 </sqlMapConfig>
