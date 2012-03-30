@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.impl.ComtnbbsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnbbsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.impl.ComtnbbsDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnbbsServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnbbs을 등록한다.
+	 * COMTNBBS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbbsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnbbsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbs을 수정한다.
+	 * COMTNBBS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbbsVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnbbsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbs을 삭제한다.
+	 * COMTNBBS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbbsVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnbbsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbs을 조회한다.
+	 * COMTNBBS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbbsVO
-	 * @return 조회한 comtnbbs
+	 * @return 조회한 COMTNBBS
 	 * @exception Exception
 	 */
     public ComtnbbsVO selectComtnbbs(ComtnbbsVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnbbsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbs 목록을 조회한다.
+	 * COMTNBBS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbbs 목록
+	 * @return COMTNBBS 목록
 	 * @exception Exception
 	 */
-    public List selectComtnbbsList(ComtnbbsDefaultVO searchVO) throws Exception {
-        return comtnbbsDAO.selectComtnbbsList(searchVO);
+    public List<EgovMap> selectComtnbbsList(ComtnbbsVO vo) throws Exception {
+        return comtnbbsDAO.selectComtnbbsList(vo);
     }
 
     /**
-	 * comtnbbs 총 갯수를 조회한다.
+	 * COMTNBBS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbbs 총 갯수
+	 * @return COMTNBBS 총 갯수
 	 * @exception
 	 */
-    public int selectComtnbbsListTotCnt(ComtnbbsDefaultVO searchVO) {
-		return comtnbbsDAO.selectComtnbbsListTotCnt(searchVO);
+    public int selectComtnbbsListTotCnt(ComtnbbsVO vo) {
+		return comtnbbsDAO.selectComtnbbsListTotCnt(vo);
 	}
     
 }

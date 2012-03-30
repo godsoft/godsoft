@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,8 +95,8 @@ function fn_egov_save() {
 		<tr>
 			<th>next_id</th>
 			<td>
-				<form:input path="nextId" cssClass="txt"/>
-				&nbsp;<form:errors path="nextId" />
+					<form:input path="nextId" cssClass="txt"/>
+					&nbsp;<form:errors path="nextId" />
 			</td>
 		</tr>	
 	</table>

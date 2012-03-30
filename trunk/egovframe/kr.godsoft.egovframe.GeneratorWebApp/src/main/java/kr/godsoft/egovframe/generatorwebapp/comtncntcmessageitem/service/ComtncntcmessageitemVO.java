@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -28,7 +28,7 @@ public class ComtncntcmessageitemVO extends ComtncntcmessageitemDefaultVO {
     private String iemTy;
     
     /** IEM_LT */
-    private int iemLt;
+    private String iemLt;
     
     /** USE_AT */
     private String useAt;
@@ -77,11 +77,11 @@ public class ComtncntcmessageitemVO extends ComtncntcmessageitemDefaultVO {
         this.iemTy = iemTy;
     }
     
-    public int getIemLt() {
+    public String getIemLt() {
         return this.iemLt;
     }
     
-    public void setIemLt(int iemLt) {
+    public void setIemLt(String iemLt) {
         this.iemLt = iemLt;
     }
     

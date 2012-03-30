@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsDefaultVO;
 
 /**
  * @Class Name : ComtnmenucreatdtlsDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.Comtnmenu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.Comtnmenu
 public class ComtnmenucreatdtlsDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnmenucreatdtls을 등록한다.
+	 * COMTNMENUCREATDTLS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnmenucreatdtlsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmenucreatdtls을 수정한다.
+	 * COMTNMENUCREATDTLS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnmenucreatdtlsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmenucreatdtls을 삭제한다.
+	 * COMTNMENUCREATDTLS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnmenucreatdtlsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmenucreatdtls을 조회한다.
+	 * COMTNMENUCREATDTLS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnmenucreatdtlsVO
-	 * @return 조회한 comtnmenucreatdtls
+	 * @return 조회한 COMTNMENUCREATDTLS
 	 * @exception Exception
 	 */
     public ComtnmenucreatdtlsVO selectComtnmenucreatdtls(ComtnmenucreatdtlsVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnmenucreatdtlsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmenucreatdtls 목록을 조회한다.
+	 * COMTNMENUCREATDTLS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnmenucreatdtls 목록
+	 * @return COMTNMENUCREATDTLS 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmenucreatdtlsList(ComtnmenucreatdtlsDefaultVO searchVO) throws Exception {
-        return list("comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnmenucreatdtlsList(ComtnmenucreatdtlsVO vo) throws Exception {
+        return list("comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsList_D", vo);
     }
 
     /**
-	 * comtnmenucreatdtls 총 갯수를 조회한다.
+	 * COMTNMENUCREATDTLS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnmenucreatdtls 총 갯수
+	 * @return COMTNMENUCREATDTLS 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmenucreatdtlsListTotCnt(ComtnmenucreatdtlsDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsListTotCnt_S", searchVO);
+    public int selectComtnmenucreatdtlsListTotCnt(ComtnmenucreatdtlsVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsListTotCnt_S", vo);
     }
 
 }

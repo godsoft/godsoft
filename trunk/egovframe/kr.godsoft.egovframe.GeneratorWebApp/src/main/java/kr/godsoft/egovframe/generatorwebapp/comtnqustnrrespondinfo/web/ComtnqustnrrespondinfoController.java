@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoVO;
 
 /**
  * @Class Name : ComtnqustnrrespondinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.Comtn
  */
 
 @Controller
-@SessionAttributes(types=ComtnqustnrrespondinfoVO.class)
 public class ComtnqustnrrespondinfoController {
 
     @Resource(name = "comtnqustnrrespondinfoService")
@@ -45,13 +45,13 @@ public class ComtnqustnrrespondinfoController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnqustnrrespondinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnqustnrrespondinfoDefaultVO
+	 * COMTNQUSTNRRESPONDINFO 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return "/comtnqustnrrespondinfo/ComtnqustnrrespondinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnqustnrrespondinfo/ComtnqustnrrespondinfoList.do")
-    public String selectComtnqustnrrespondinfoList(@ModelAttribute("searchVO") ComtnqustnrrespondinfoDefaultVO searchVO, 
+    public String selectComtnqustnrrespondinfoList(@ModelAttribute("searchVO") ComtnqustnrrespondinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnqustnrrespondinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnqustnrrespondinfoList = comtnqustnrrespondinfoService.selectComtnqustnrrespondinfoList(searchVO);
+        List<EgovMap> comtnqustnrrespondinfoList = comtnqustnrrespondinfoService.selectComtnqustnrrespondinfoList(searchVO);
         model.addAttribute("resultList", comtnqustnrrespondinfoList);
         
         int totCnt = comtnqustnrrespondinfoService.selectComtnqustnrrespondinfoListTotCnt(searchVO);

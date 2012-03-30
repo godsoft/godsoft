@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnntfcinfoServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnntfcinfo을 등록한다.
+	 * COMTNNTFCINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnntfcinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnntfcinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnntfcinfo을 수정한다.
+	 * COMTNNTFCINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnntfcinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnntfcinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnntfcinfo을 삭제한다.
+	 * COMTNNTFCINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnntfcinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnntfcinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnntfcinfo을 조회한다.
+	 * COMTNNTFCINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnntfcinfoVO
-	 * @return 조회한 comtnntfcinfo
+	 * @return 조회한 COMTNNTFCINFO
 	 * @exception Exception
 	 */
     public ComtnntfcinfoVO selectComtnntfcinfo(ComtnntfcinfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnntfcinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnntfcinfo 목록을 조회한다.
+	 * COMTNNTFCINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnntfcinfo 목록
+	 * @return COMTNNTFCINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnntfcinfoList(ComtnntfcinfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnntfcinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnntfcinfo 총 갯수를 조회한다.
+	 * COMTNNTFCINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnntfcinfo 총 갯수
+	 * @return COMTNNTFCINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnntfcinfoListTotCnt(ComtnntfcinfoVO vo) {

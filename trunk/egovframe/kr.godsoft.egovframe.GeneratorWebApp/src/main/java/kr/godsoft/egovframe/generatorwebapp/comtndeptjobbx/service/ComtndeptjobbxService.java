@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtndeptjobbxService {
 	
 	/**
-	 * comtndeptjobbx을 등록한다.
+	 * COMTNDEPTJOBBX을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndeptjobbxVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtndeptjobbxService {
     String insertComtndeptjobbx(ComtndeptjobbxVO vo) throws Exception;
     
     /**
-	 * comtndeptjobbx을 수정한다.
+	 * COMTNDEPTJOBBX을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndeptjobbxVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtndeptjobbxService {
     void updateComtndeptjobbx(ComtndeptjobbxVO vo) throws Exception;
     
     /**
-	 * comtndeptjobbx을 삭제한다.
+	 * COMTNDEPTJOBBX을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndeptjobbxVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtndeptjobbxService {
     void deleteComtndeptjobbx(ComtndeptjobbxVO vo) throws Exception;
     
     /**
-	 * comtndeptjobbx을 조회한다.
+	 * COMTNDEPTJOBBX을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndeptjobbxVO
-	 * @return 조회한 comtndeptjobbx
+	 * @return 조회한 COMTNDEPTJOBBX
 	 * @exception Exception
 	 */
     ComtndeptjobbxVO selectComtndeptjobbx(ComtndeptjobbxVO vo) throws Exception;
     
     /**
-	 * comtndeptjobbx 목록을 조회한다.
+	 * COMTNDEPTJOBBX 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndeptjobbx 목록
+	 * @return COMTNDEPTJOBBX 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtndeptjobbxList(ComtndeptjobbxVO vo) throws Exception;
     
     /**
-	 * comtndeptjobbx 총 갯수를 조회한다.
+	 * COMTNDEPTJOBBX 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndeptjobbx 총 갯수
+	 * @return COMTNDEPTJOBBX 총 갯수
 	 * @exception
 	 */
     int selectComtndeptjobbxListTotCnt(ComtndeptjobbxVO vo);

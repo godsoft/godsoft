@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO;
 public class ComtnscrapDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnscrap을 등록한다.
+	 * COMTNSCRAP을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnscrapVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnscrapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnscrap을 수정한다.
+	 * COMTNSCRAP을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnscrapVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnscrapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnscrap을 삭제한다.
+	 * COMTNSCRAP을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnscrapVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnscrapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnscrap을 조회한다.
+	 * COMTNSCRAP을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnscrapVO
-	 * @return 조회한 comtnscrap
+	 * @return 조회한 COMTNSCRAP
 	 * @exception Exception
 	 */
     public ComtnscrapVO selectComtnscrap(ComtnscrapVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnscrapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnscrap 목록을 조회한다.
+	 * COMTNSCRAP 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnscrap 목록
+	 * @return COMTNSCRAP 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnscrapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnscrap 총 갯수를 조회한다.
+	 * COMTNSCRAP 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnscrap 총 갯수
+	 * @return COMTNSCRAP 총 갯수
 	 * @exception
 	 */
     public int selectComtnscrapListTotCnt(ComtnscrapVO vo) {

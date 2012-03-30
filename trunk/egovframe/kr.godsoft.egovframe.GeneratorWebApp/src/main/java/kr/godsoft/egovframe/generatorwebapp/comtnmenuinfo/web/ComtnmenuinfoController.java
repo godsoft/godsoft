@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO;
 
 /**
  * @Class Name : ComtnmenuinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoV
  */
 
 @Controller
-@SessionAttributes(types=ComtnmenuinfoVO.class)
 public class ComtnmenuinfoController {
 
     @Resource(name = "comtnmenuinfoService")
@@ -45,13 +45,13 @@ public class ComtnmenuinfoController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnmenuinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmenuinfoDefaultVO
+	 * COMTNMENUINFO 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmenuinfoVO
 	 * @return "/comtnmenuinfo/ComtnmenuinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmenuinfo/ComtnmenuinfoList.do")
-    public String selectComtnmenuinfoList(@ModelAttribute("searchVO") ComtnmenuinfoDefaultVO searchVO, 
+    public String selectComtnmenuinfoList(@ModelAttribute("searchVO") ComtnmenuinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnmenuinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmenuinfoList = comtnmenuinfoService.selectComtnmenuinfoList(searchVO);
+        List<EgovMap> comtnmenuinfoList = comtnmenuinfoService.selectComtnmenuinfoList(searchVO);
         model.addAttribute("resultList", comtnmenuinfoList);
         
         int totCnt = comtnmenuinfoService.selectComtnmenuinfoListTotCnt(searchVO);
@@ -99,7 +99,7 @@ public class ComtnmenuinfoController {
     
     @RequestMapping("/comtnmenuinfo/updateComtnmenuinfoView.do")
     public String updateComtnmenuinfoView(
-            @RequestParam("menuNo") int menuNo ,
+            @RequestParam("menuNo") String menuNo ,
             @ModelAttribute("searchVO") ComtnmenuinfoDefaultVO searchVO, Model model)
             throws Exception {
         ComtnmenuinfoVO comtnmenuinfoVO = new ComtnmenuinfoVO();

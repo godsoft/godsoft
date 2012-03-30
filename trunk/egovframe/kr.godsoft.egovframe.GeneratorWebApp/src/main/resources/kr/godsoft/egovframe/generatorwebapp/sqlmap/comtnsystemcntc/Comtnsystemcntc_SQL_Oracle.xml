@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnsystemcntc">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnsystemcntcVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsystemcntc.service.ComtnsystemcntcVO"/>
+	
+	<resultMap id="comtnsystemcntc" class="kr.godsoft.egovframe.generatorwebapp.comtnsystemcntc.service.ComtnsystemcntcVO">
+		<result property="cntcId" column="cntc_id" columnIndex="1"/>
+		<result property="cntcNm" column="cntc_nm" columnIndex="2"/>
+		<result property="provdInsttId" column="provd_instt_id" columnIndex="3"/>
+		<result property="provdSysId" column="provd_sys_id" columnIndex="4"/>
+		<result property="provdSvcId" column="provd_svc_id" columnIndex="5"/>
+		<result property="requstInsttId" column="requst_instt_id" columnIndex="6"/>
+		<result property="requstSysId" column="requst_sys_id" columnIndex="7"/>
+		<result property="confmAt" column="confm_at" columnIndex="8"/>
+		<result property="useAt" column="use_at" columnIndex="9"/>
+		<result property="validBgnde" column="valid_bgnde" columnIndex="10"/>
+		<result property="validEndde" column="valid_endde" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="15"/>
+		<result property="cntcTy" column="cntc_ty" columnIndex="16"/>
+	</resultMap>
+	
+	<insert id="comtnsystemcntcDAO.insertComtnsystemcntc_S">
+		<![CDATA[
+            INSERT INTO comtnsystemcntc (
+                cntc_id
+                , cntc_nm
+                , provd_instt_id
+                , provd_sys_id
+                , provd_svc_id
+                , requst_instt_id
+                , requst_sys_id
+                , confm_at
+                , use_at
+                , valid_bgnde
+                , valid_endde
+                , frst_register_id
+                , frst_regist_pnttm
+                , cntc_ty
+            ) VALUES (
+                #cntcId#
+                , #cntcNm#
+                , #provdInsttId#
+                , #provdSysId#
+                , #provdSvcId#
+                , #requstInsttId#
+                , #requstSysId#
+                , #confmAt#
+                , #useAt#
+                , #validBgnde#
+                , #validEndde#
+                , #frstRegisterId#
+                , SYSDATE
+                , #cntcTy#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnsystemcntcDAO.updateComtnsystemcntc_S">
+		<![CDATA[
+            UPDATE comtnsystemcntc
+                SET
+                cntc_id = #cntcId#
+                , cntc_nm = #cntcNm#
+                , provd_instt_id = #provdInsttId#
+                , provd_sys_id = #provdSysId#
+                , provd_svc_id = #provdSvcId#
+                , requst_instt_id = #requstInsttId#
+                , requst_sys_id = #requstSysId#
+                , confm_at = #confmAt#
+                , use_at = #useAt#
+                , valid_bgnde = #validBgnde#
+                , valid_endde = #validEndde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                , cntc_ty = #cntcTy#
+                WHERE 1 = 1
+                AND cntc_id = #cntcId#
+		]]>
+	</update>
+	
+	<delete id="comtnsystemcntcDAO.deleteComtnsystemcntc_S">
+		<![CDATA[
+			DELETE FROM comtnsystemcntc
+				WHERE 1 = 1
+				AND cntc_id = #cntcId#
+		]]>
+	</delete>
+	
+	<select id="comtnsystemcntcDAO.selectComtnsystemcntc_S" resultMap="comtnsystemcntc">
+		<![CDATA[
+			SELECT
+				cntc_id
+				, cntc_nm
+				, provd_instt_id
+				, provd_sys_id
+				, provd_svc_id
+				, requst_instt_id
+				, requst_sys_id
+				, confm_at
+				, use_at
+				, valid_bgnde
+				, valid_endde
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, cntc_ty
+			FROM COMTNSYSTEMCNTC
+			WHERE cntc_id = #cntcId#
+		]]>
+	</select>
+	
+	<select id="comtnsystemcntcDAO.selectComtnsystemcntcList_D" parameterClass="ComtnsystemcntcVO" resultClass="egovMap">
+	       SELECT 
+								A.CNTC_ID
+								, A.CNTC_NM
+								, A.PROVD_INSTT_ID
+								, A.PROVD_SYS_ID
+								, A.PROVD_SVC_ID
+								, A.REQUST_INSTT_ID
+								, A.REQUST_SYS_ID
+								, A.CONFM_AT
+								, A.USE_AT
+								, A.VALID_BGNDE
+								, A.VALID_ENDDE
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+								, A.CNTC_TY
+			       FROM
+            (
+				SELECT
+								CNTC_ID
+								, CNTC_NM
+								, PROVD_INSTT_ID
+								, PROVD_SYS_ID
+								, PROVD_SVC_ID
+								, REQUST_INSTT_ID
+								, REQUST_SYS_ID
+								, CONFM_AT
+								, USE_AT
+								, VALID_BGNDE
+								, VALID_ENDDE
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+								, CNTC_TY
+							, ROWNUM
+				FROM COMTNSYSTEMCNTC
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					CNTC_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CNTC_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							CNTC_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnsystemcntcDAO.selectComtnsystemcntcListTotCnt_S" parameterClass="ComtnsystemcntcVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNSYSTEMCNTC
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CNTC_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CNTC_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

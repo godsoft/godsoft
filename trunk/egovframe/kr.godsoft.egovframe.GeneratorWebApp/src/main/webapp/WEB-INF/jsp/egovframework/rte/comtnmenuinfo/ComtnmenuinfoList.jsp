@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> 목록</title>
+<title>comtnmenuinfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -55,7 +55,7 @@ function fn_egov_link_page(pageNo){
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" />  목록</li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" /> List </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -73,14 +73,14 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
+								<th align="center">menu_nm</th>
+								<th align="center">progrm_file_nm</th>
+								<th align="center">menu_no</th>
+								<th align="center">upper_menu_no</th>
+								<th align="center">menu_ordr</th>
+								<th align="center">menu_dc</th>
+								<th align="center">relate_image_path</th>
+								<th align="center">relate_image_nm</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

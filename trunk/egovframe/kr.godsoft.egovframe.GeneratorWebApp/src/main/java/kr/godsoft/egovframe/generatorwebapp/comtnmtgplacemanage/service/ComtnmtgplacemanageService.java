@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnmtgplacemanageService {
 	
 	/**
-	 * comtnmtgplacemanage을 등록한다.
+	 * COMTNMTGPLACEMANAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnmtgplacemanageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnmtgplacemanageService {
     String insertComtnmtgplacemanage(ComtnmtgplacemanageVO vo) throws Exception;
     
     /**
-	 * comtnmtgplacemanage을 수정한다.
+	 * COMTNMTGPLACEMANAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnmtgplacemanageVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnmtgplacemanageService {
     void updateComtnmtgplacemanage(ComtnmtgplacemanageVO vo) throws Exception;
     
     /**
-	 * comtnmtgplacemanage을 삭제한다.
+	 * COMTNMTGPLACEMANAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnmtgplacemanageVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnmtgplacemanageService {
     void deleteComtnmtgplacemanage(ComtnmtgplacemanageVO vo) throws Exception;
     
     /**
-	 * comtnmtgplacemanage을 조회한다.
+	 * COMTNMTGPLACEMANAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnmtgplacemanageVO
-	 * @return 조회한 comtnmtgplacemanage
+	 * @return 조회한 COMTNMTGPLACEMANAGE
 	 * @exception Exception
 	 */
     ComtnmtgplacemanageVO selectComtnmtgplacemanage(ComtnmtgplacemanageVO vo) throws Exception;
     
     /**
-	 * comtnmtgplacemanage 목록을 조회한다.
+	 * COMTNMTGPLACEMANAGE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmtgplacemanage 목록
+	 * @return COMTNMTGPLACEMANAGE 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnmtgplacemanageList(ComtnmtgplacemanageVO vo) throws Exception;
     
     /**
-	 * comtnmtgplacemanage 총 갯수를 조회한다.
+	 * COMTNMTGPLACEMANAGE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmtgplacemanage 총 갯수
+	 * @return COMTNMTGPLACEMANAGE 총 갯수
 	 * @exception
 	 */
     int selectComtnmtgplacemanageListTotCnt(ComtnmtgplacemanageVO vo);

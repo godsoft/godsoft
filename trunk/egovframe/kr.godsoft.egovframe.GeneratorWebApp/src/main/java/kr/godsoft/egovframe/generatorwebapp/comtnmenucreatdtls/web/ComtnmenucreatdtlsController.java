@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsVO;
 
 /**
  * @Class Name : ComtnmenucreatdtlsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.Comtnmenu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.Comtnmenu
  */
 
 @Controller
-@SessionAttributes(types=ComtnmenucreatdtlsVO.class)
 public class ComtnmenucreatdtlsController {
 
     @Resource(name = "comtnmenucreatdtlsService")
@@ -45,13 +45,13 @@ public class ComtnmenucreatdtlsController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnmenucreatdtls 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmenucreatdtlsDefaultVO
+	 * COMTNMENUCREATDTLS 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return "/comtnmenucreatdtls/ComtnmenucreatdtlsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmenucreatdtls/ComtnmenucreatdtlsList.do")
-    public String selectComtnmenucreatdtlsList(@ModelAttribute("searchVO") ComtnmenucreatdtlsDefaultVO searchVO, 
+    public String selectComtnmenucreatdtlsList(@ModelAttribute("searchVO") ComtnmenucreatdtlsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnmenucreatdtlsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmenucreatdtlsList = comtnmenucreatdtlsService.selectComtnmenucreatdtlsList(searchVO);
+        List<EgovMap> comtnmenucreatdtlsList = comtnmenucreatdtlsService.selectComtnmenucreatdtlsList(searchVO);
         model.addAttribute("resultList", comtnmenucreatdtlsList);
         
         int totCnt = comtnmenucreatdtlsService.selectComtnmenucreatdtlsListTotCnt(searchVO);
@@ -99,7 +99,7 @@ public class ComtnmenucreatdtlsController {
     
     @RequestMapping("/comtnmenucreatdtls/updateComtnmenucreatdtlsView.do")
     public String updateComtnmenucreatdtlsView(
-            @RequestParam("menuNo") int menuNo ,
+            @RequestParam("menuNo") String menuNo ,
             @RequestParam("authorCode") String authorCode ,
             @ModelAttribute("searchVO") ComtnmenucreatdtlsDefaultVO searchVO, Model model)
             throws Exception {

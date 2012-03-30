@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdTriggers">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdTriggersVO" type="kr.godsoft.egovframe.generatorwebapp.md_triggers.service.MdTriggersVO"/>
+	
+	<resultMap id="mdTriggers" class="kr.godsoft.egovframe.generatorwebapp.md_triggers.service.MdTriggersVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="tableOrViewIdFk" column="table_or_view_id_fk" columnIndex="2"/>
+		<result property="triggerOnFlag" column="trigger_on_flag" columnIndex="3"/>
+		<result property="triggerName" column="trigger_name" columnIndex="4"/>
+		<result property="triggerTiming" column="trigger_timing" columnIndex="5"/>
+		<result property="triggerOperation" column="trigger_operation" columnIndex="6"/>
+		<result property="triggerEvent" column="trigger_event" columnIndex="7"/>
+		<result property="nativeSql" column="native_sql" columnIndex="8"/>
+		<result property="nativeKey" column="native_key" columnIndex="9"/>
+		<result property="language" column="language" columnIndex="10"/>
+		<result property="comments" column="comments" columnIndex="11"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="12"/>
+		<result property="createdOn" column="created_on" columnIndex="13"/>
+		<result property="createdBy" column="created_by" columnIndex="14"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="15"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="16"/>
+	</resultMap>
+	
+	<insert id="mdTriggersDAO.insertMdTriggers_S">
+		<![CDATA[
+            INSERT INTO md_triggers (
+                id
+                , table_or_view_id_fk
+                , trigger_on_flag
+                , trigger_name
+                , trigger_timing
+                , trigger_operation
+                , trigger_event
+                , native_sql
+                , native_key
+                , language
+                , comments
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #tableOrViewIdFk#
+                , #triggerOnFlag#
+                , #triggerName#
+                , #triggerTiming#
+                , #triggerOperation#
+                , #triggerEvent#
+                , #nativeSql#
+                , #nativeKey#
+                , #language#
+                , #comments#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdTriggersDAO.updateMdTriggers_S">
+		<![CDATA[
+            UPDATE md_triggers
+                SET
+                id = #id#
+                , table_or_view_id_fk = #tableOrViewIdFk#
+                , trigger_on_flag = #triggerOnFlag#
+                , trigger_name = #triggerName#
+                , trigger_timing = #triggerTiming#
+                , trigger_operation = #triggerOperation#
+                , trigger_event = #triggerEvent#
+                , native_sql = #nativeSql#
+                , native_key = #nativeKey#
+                , language = #language#
+                , comments = #comments#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdTriggersDAO.deleteMdTriggers_S">
+		<![CDATA[
+			DELETE FROM md_triggers
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdTriggersDAO.selectMdTriggers_S" resultMap="mdTriggers">
+		<![CDATA[
+			SELECT
+				id
+				, table_or_view_id_fk
+				, trigger_on_flag
+				, trigger_name
+				, trigger_timing
+				, trigger_operation
+				, trigger_event
+				, native_sql
+				, native_key
+				, language
+				, comments
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_TRIGGERS
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdTriggersDAO.selectMdTriggersList_D" parameterClass="MdTriggersVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.TABLE_OR_VIEW_ID_FK
+								, A.TRIGGER_ON_FLAG
+								, A.TRIGGER_NAME
+								, A.TRIGGER_TIMING
+								, A.TRIGGER_OPERATION
+								, A.TRIGGER_EVENT
+								, A.NATIVE_SQL
+								, A.NATIVE_KEY
+								, A.LANGUAGE
+								, A.COMMENTS
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, TABLE_OR_VIEW_ID_FK
+								, TRIGGER_ON_FLAG
+								, TRIGGER_NAME
+								, TRIGGER_TIMING
+								, TRIGGER_OPERATION
+								, TRIGGER_EVENT
+								, NATIVE_SQL
+								, NATIVE_KEY
+								, LANGUAGE
+								, COMMENTS
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_TRIGGERS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					TABLE_OR_VIEW_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdTriggersDAO.selectMdTriggersListTotCnt_S" parameterClass="MdTriggersVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_TRIGGERS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TABLE_OR_VIEW_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

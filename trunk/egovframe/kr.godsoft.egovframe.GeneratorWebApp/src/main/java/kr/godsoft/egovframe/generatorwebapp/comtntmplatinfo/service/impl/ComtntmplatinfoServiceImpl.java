@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtntmplatinfoServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtntmplatinfo을 등록한다.
+	 * COMTNTMPLATINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtntmplatinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtntmplatinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntmplatinfo을 수정한다.
+	 * COMTNTMPLATINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtntmplatinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtntmplatinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntmplatinfo을 삭제한다.
+	 * COMTNTMPLATINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtntmplatinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtntmplatinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntmplatinfo을 조회한다.
+	 * COMTNTMPLATINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtntmplatinfoVO
-	 * @return 조회한 comtntmplatinfo
+	 * @return 조회한 COMTNTMPLATINFO
 	 * @exception Exception
 	 */
     public ComtntmplatinfoVO selectComtntmplatinfo(ComtntmplatinfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtntmplatinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntmplatinfo 목록을 조회한다.
+	 * COMTNTMPLATINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtntmplatinfo 목록
+	 * @return COMTNTMPLATINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtntmplatinfoList(ComtntmplatinfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtntmplatinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntmplatinfo 총 갯수를 조회한다.
+	 * COMTNTMPLATINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtntmplatinfo 총 갯수
+	 * @return COMTNTMPLATINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtntmplatinfoListTotCnt(ComtntmplatinfoVO vo) {

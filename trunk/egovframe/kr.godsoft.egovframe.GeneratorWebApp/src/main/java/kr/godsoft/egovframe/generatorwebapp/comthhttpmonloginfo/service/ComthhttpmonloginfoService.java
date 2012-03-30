@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComthhttpmonloginfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.Comthhtt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.Comthhtt
 public interface ComthhttpmonloginfoService {
 	
 	/**
-	 * comthhttpmonloginfo을 등록한다.
+	 * COMTHHTTPMONLOGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthhttpmonloginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComthhttpmonloginfoService {
     String insertComthhttpmonloginfo(ComthhttpmonloginfoVO vo) throws Exception;
     
     /**
-	 * comthhttpmonloginfo을 수정한다.
+	 * COMTHHTTPMONLOGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthhttpmonloginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComthhttpmonloginfoService {
     void updateComthhttpmonloginfo(ComthhttpmonloginfoVO vo) throws Exception;
     
     /**
-	 * comthhttpmonloginfo을 삭제한다.
+	 * COMTHHTTPMONLOGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthhttpmonloginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComthhttpmonloginfoService {
     void deleteComthhttpmonloginfo(ComthhttpmonloginfoVO vo) throws Exception;
     
     /**
-	 * comthhttpmonloginfo을 조회한다.
+	 * COMTHHTTPMONLOGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthhttpmonloginfoVO
-	 * @return 조회한 comthhttpmonloginfo
+	 * @return 조회한 COMTHHTTPMONLOGINFO
 	 * @exception Exception
 	 */
     ComthhttpmonloginfoVO selectComthhttpmonloginfo(ComthhttpmonloginfoVO vo) throws Exception;
     
     /**
-	 * comthhttpmonloginfo 목록을 조회한다.
+	 * COMTHHTTPMONLOGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthhttpmonloginfo 목록
+	 * @return COMTHHTTPMONLOGINFO 목록
 	 * @exception Exception
 	 */
-    List selectComthhttpmonloginfoList(ComthhttpmonloginfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComthhttpmonloginfoList(ComthhttpmonloginfoVO vo) throws Exception;
     
     /**
-	 * comthhttpmonloginfo 총 갯수를 조회한다.
+	 * COMTHHTTPMONLOGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthhttpmonloginfo 총 갯수
+	 * @return COMTHHTTPMONLOGINFO 총 갯수
 	 * @exception
 	 */
-    int selectComthhttpmonloginfoListTotCnt(ComthhttpmonloginfoDefaultVO searchVO);
+    int selectComthhttpmonloginfoListTotCnt(ComthhttpmonloginfoVO vo);
     
 }

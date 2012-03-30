@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -37,10 +37,10 @@ public class ComtstrsmrcvlogsummaryVO extends ComtstrsmrcvlogsummaryDefaultVO {
     private String requstSysId;
     
     /** RDCNT */
-    private int rdcnt;
+    private String rdcnt;
     
     /** ERROR_CO */
-    private int errorCo;
+    private String errorCo;
     
     public String getOccrrncDe() {
         return this.occrrncDe;
@@ -98,19 +98,19 @@ public class ComtstrsmrcvlogsummaryVO extends ComtstrsmrcvlogsummaryDefaultVO {
         this.requstSysId = requstSysId;
     }
     
-    public int getRdcnt() {
+    public String getRdcnt() {
         return this.rdcnt;
     }
     
-    public void setRdcnt(int rdcnt) {
+    public void setRdcnt(String rdcnt) {
         this.rdcnt = rdcnt;
     }
     
-    public int getErrorCo() {
+    public String getErrorCo() {
         return this.errorCo;
     }
     
-    public void setErrorCo(int errorCo) {
+    public void setErrorCo(String errorCo) {
         this.errorCo = errorCo;
     }
     

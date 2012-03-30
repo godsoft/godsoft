@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.Comtnbnd
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtceckmanage.service.Comtnbnd
 public class ComtnbndtceckmanageDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnbndtceckmanage을 등록한다.
+	 * COMTNBNDTCECKMANAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbndtceckmanageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnbndtceckmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbndtceckmanage을 수정한다.
+	 * COMTNBNDTCECKMANAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbndtceckmanageVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnbndtceckmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbndtceckmanage을 삭제한다.
+	 * COMTNBNDTCECKMANAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbndtceckmanageVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnbndtceckmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbndtceckmanage을 조회한다.
+	 * COMTNBNDTCECKMANAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbndtceckmanageVO
-	 * @return 조회한 comtnbndtceckmanage
+	 * @return 조회한 COMTNBNDTCECKMANAGE
 	 * @exception Exception
 	 */
     public ComtnbndtceckmanageVO selectComtnbndtceckmanage(ComtnbndtceckmanageVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnbndtceckmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbndtceckmanage 목록을 조회한다.
+	 * COMTNBNDTCECKMANAGE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbndtceckmanage 목록
+	 * @return COMTNBNDTCECKMANAGE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnbndtceckmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbndtceckmanage 총 갯수를 조회한다.
+	 * COMTNBNDTCECKMANAGE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbndtceckmanage 총 갯수
+	 * @return COMTNBNDTCECKMANAGE 총 갯수
 	 * @exception
 	 */
     public int selectComtnbndtceckmanageListTotCnt(ComtnbndtceckmanageVO vo) {

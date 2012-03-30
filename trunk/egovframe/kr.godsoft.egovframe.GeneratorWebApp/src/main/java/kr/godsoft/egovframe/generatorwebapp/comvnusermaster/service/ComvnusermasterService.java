@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComvnusermasterService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.Comvnusermas
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.Comvnusermas
 public interface ComvnusermasterService {
 	
 	/**
-	 * comvnusermaster을 등록한다.
+	 * COMVNUSERMASTER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComvnusermasterVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComvnusermasterService {
     String insertComvnusermaster(ComvnusermasterVO vo) throws Exception;
     
     /**
-	 * comvnusermaster을 수정한다.
+	 * COMVNUSERMASTER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComvnusermasterVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComvnusermasterService {
     void updateComvnusermaster(ComvnusermasterVO vo) throws Exception;
     
     /**
-	 * comvnusermaster을 삭제한다.
+	 * COMVNUSERMASTER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComvnusermasterVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComvnusermasterService {
     void deleteComvnusermaster(ComvnusermasterVO vo) throws Exception;
     
     /**
-	 * comvnusermaster을 조회한다.
+	 * COMVNUSERMASTER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComvnusermasterVO
-	 * @return 조회한 comvnusermaster
+	 * @return 조회한 COMVNUSERMASTER
 	 * @exception Exception
 	 */
     ComvnusermasterVO selectComvnusermaster(ComvnusermasterVO vo) throws Exception;
     
     /**
-	 * comvnusermaster 목록을 조회한다.
+	 * COMVNUSERMASTER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comvnusermaster 목록
+	 * @return COMVNUSERMASTER 목록
 	 * @exception Exception
 	 */
-    List selectComvnusermasterList(ComvnusermasterDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComvnusermasterList(ComvnusermasterVO vo) throws Exception;
     
     /**
-	 * comvnusermaster 총 갯수를 조회한다.
+	 * COMVNUSERMASTER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comvnusermaster 총 갯수
+	 * @return COMVNUSERMASTER 총 갯수
 	 * @exception
 	 */
-    int selectComvnusermasterListTotCnt(ComvnusermasterDefaultVO searchVO);
+    int selectComvnusermasterListTotCnt(ComvnusermasterVO vo);
     
 }

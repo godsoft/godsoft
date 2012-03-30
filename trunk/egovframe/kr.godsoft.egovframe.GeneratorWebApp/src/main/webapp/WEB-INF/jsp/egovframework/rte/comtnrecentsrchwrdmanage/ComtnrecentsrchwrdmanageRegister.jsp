@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,50 +95,50 @@ function fn_egov_save() {
 		<tr>
 			<th>srchwrd_manage_nm</th>
 			<td>
-				<form:input path="srchwrdManageNm" cssClass="txt"/>
-				&nbsp;<form:errors path="srchwrdManageNm" />
+					<form:input path="srchwrdManageNm" cssClass="txt"/>
+					&nbsp;<form:errors path="srchwrdManageNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>srchwrd_conect_url</th>
 			<td>
-				<form:input path="srchwrdConectUrl" cssClass="txt"/>
-				&nbsp;<form:errors path="srchwrdConectUrl" />
+					<form:input path="srchwrdConectUrl" cssClass="txt"/>
+					&nbsp;<form:errors path="srchwrdConectUrl" />
 			</td>
 		</tr>	
 		<tr>
 			<th>user_search_at</th>
 			<td>
-				<form:input path="userSearchAt" cssClass="txt"/>
-				&nbsp;<form:errors path="userSearchAt" />
+					<form:input path="userSearchAt" cssClass="txt"/>
+					&nbsp;<form:errors path="userSearchAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

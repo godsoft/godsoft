@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtndamcalres.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -40,13 +40,13 @@ public class ComtndamcalresVO extends ComtndamcalresDefaultVO {
     private String parntsKnwldgId;
     
     /** ANSWER_DP */
-    private int answerDp;
+    private String answerDp;
     
     /** ANSWER_ORDR */
-    private int answerOrdr;
+    private String answerOrdr;
     
     /** ANSWER_GROUP_NO */
-    private int answerGroupNo;
+    private String answerGroupNo;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -127,27 +127,27 @@ public class ComtndamcalresVO extends ComtndamcalresDefaultVO {
         this.parntsKnwldgId = parntsKnwldgId;
     }
     
-    public int getAnswerDp() {
+    public String getAnswerDp() {
         return this.answerDp;
     }
     
-    public void setAnswerDp(int answerDp) {
+    public void setAnswerDp(String answerDp) {
         this.answerDp = answerDp;
     }
     
-    public int getAnswerOrdr() {
+    public String getAnswerOrdr() {
         return this.answerOrdr;
     }
     
-    public void setAnswerOrdr(int answerOrdr) {
+    public void setAnswerOrdr(String answerOrdr) {
         this.answerOrdr = answerOrdr;
     }
     
-    public int getAnswerGroupNo() {
+    public String getAnswerGroupNo() {
         return this.answerGroupNo;
     }
     
-    public void setAnswerGroupNo(int answerGroupNo) {
+    public void setAnswerGroupNo(String answerGroupNo) {
         this.answerGroupNo = answerGroupNo;
     }
     

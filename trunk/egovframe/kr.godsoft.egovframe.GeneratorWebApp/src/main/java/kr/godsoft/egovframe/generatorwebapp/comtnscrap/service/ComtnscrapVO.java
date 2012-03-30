@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnscrap.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ public class ComtnscrapVO extends ComtnscrapDefaultVO {
     private String scrapId;
     
     /** NTT_ID */
-    private int nttId;
+    private String nttId;
     
     /** BBS_ID */
     private String bbsId;
@@ -50,11 +50,11 @@ public class ComtnscrapVO extends ComtnscrapDefaultVO {
         this.scrapId = scrapId;
     }
     
-    public int getNttId() {
+    public String getNttId() {
         return this.nttId;
     }
     
-    public void setNttId(int nttId) {
+    public void setNttId(String nttId) {
         this.nttId = nttId;
     }
     

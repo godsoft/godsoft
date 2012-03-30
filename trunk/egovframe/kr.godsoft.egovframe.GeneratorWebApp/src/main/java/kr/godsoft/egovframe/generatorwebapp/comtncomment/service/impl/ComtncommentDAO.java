@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDefaultVO;
 
 /**
  * @Class Name : ComtncommentDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDef
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDef
 public class ComtncommentDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtncomment을 등록한다.
+	 * COMTNCOMMENT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncommentVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtncommentDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncomment을 수정한다.
+	 * COMTNCOMMENT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncommentVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtncommentDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncomment을 삭제한다.
+	 * COMTNCOMMENT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncommentVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtncommentDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncomment을 조회한다.
+	 * COMTNCOMMENT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncommentVO
-	 * @return 조회한 comtncomment
+	 * @return 조회한 COMTNCOMMENT
 	 * @exception Exception
 	 */
     public ComtncommentVO selectComtncomment(ComtncommentVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtncommentDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncomment 목록을 조회한다.
+	 * COMTNCOMMENT 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncomment 목록
+	 * @return COMTNCOMMENT 목록
 	 * @exception Exception
 	 */
-    public List selectComtncommentList(ComtncommentDefaultVO searchVO) throws Exception {
-        return list("comtncommentDAO.selectComtncommentList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtncommentList(ComtncommentVO vo) throws Exception {
+        return list("comtncommentDAO.selectComtncommentList_D", vo);
     }
 
     /**
-	 * comtncomment 총 갯수를 조회한다.
+	 * COMTNCOMMENT 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncomment 총 갯수
+	 * @return COMTNCOMMENT 총 갯수
 	 * @exception
 	 */
-    public int selectComtncommentListTotCnt(ComtncommentDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtncommentDAO.selectComtncommentListTotCnt_S", searchVO);
+    public int selectComtncommentListTotCnt(ComtncommentVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtncommentDAO.selectComtncommentListTotCnt_S", vo);
     }
 
 }

@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtninsttcode.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -79,7 +79,7 @@ public class ComtninsttcodeVO extends ComtninsttcodeDefaultVO {
     private String bsisDe;
     
     /** SORT_ORDR */
-    private int sortOrdr;
+    private String sortOrdr;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -261,11 +261,11 @@ public class ComtninsttcodeVO extends ComtninsttcodeDefaultVO {
         this.bsisDe = bsisDe;
     }
     
-    public int getSortOrdr() {
+    public String getSortOrdr() {
         return this.sortOrdr;
     }
     
-    public void setSortOrdr(int sortOrdr) {
+    public void setSortOrdr(String sortOrdr) {
         this.sortOrdr = sortOrdr;
     }
     

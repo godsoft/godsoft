@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnserverresrceloginfoVO extends ComtnserverresrceloginfoDefaultVO{
+public class ComtnserverresrceloginfoVO extends ComtnserverresrceloginfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SERVER_EQPMN_ID */
     private String serverEqpmnId;
     
-    /**  */
-    private int cpuUseRt;
+    /** CPU_USE_RT */
+    private String cpuUseRt;
     
-    /**  */
-    private int moryUseRt;
+    /** MORY_USE_RT */
+    private String moryUseRt;
     
-    /**  */
+    /** SVC_STTUS */
     private String svcSttus;
     
-    /**  */
+    /** LOG_INFO */
     private String logInfo;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** SERVER_ID */
     private String serverId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LOG_ID */
     private String logId;
     
     public String getServerEqpmnId() {
@@ -59,19 +59,19 @@ public class ComtnserverresrceloginfoVO extends ComtnserverresrceloginfoDefaultV
         this.serverEqpmnId = serverEqpmnId;
     }
     
-    public int getCpuUseRt() {
+    public String getCpuUseRt() {
         return this.cpuUseRt;
     }
     
-    public void setCpuUseRt(int cpuUseRt) {
+    public void setCpuUseRt(String cpuUseRt) {
         this.cpuUseRt = cpuUseRt;
     }
     
-    public int getMoryUseRt() {
+    public String getMoryUseRt() {
         return this.moryUseRt;
     }
     
-    public void setMoryUseRt(int moryUseRt) {
+    public void setMoryUseRt(String moryUseRt) {
         this.moryUseRt = moryUseRt;
     }
     

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsVO;
 
 /**
  * @Class Name : ComtnbbsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbs.service.ComtnbbsVO;
  */
 
 @Controller
-@SessionAttributes(types=ComtnbbsVO.class)
 public class ComtnbbsController {
 
     @Resource(name = "comtnbbsService")
@@ -45,13 +45,13 @@ public class ComtnbbsController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnbbs 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbbsDefaultVO
+	 * COMTNBBS 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbbsVO
 	 * @return "/comtnbbs/ComtnbbsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbbs/ComtnbbsList.do")
-    public String selectComtnbbsList(@ModelAttribute("searchVO") ComtnbbsDefaultVO searchVO, 
+    public String selectComtnbbsList(@ModelAttribute("searchVO") ComtnbbsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnbbsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbbsList = comtnbbsService.selectComtnbbsList(searchVO);
+        List<EgovMap> comtnbbsList = comtnbbsService.selectComtnbbsList(searchVO);
         model.addAttribute("resultList", comtnbbsList);
         
         int totCnt = comtnbbsService.selectComtnbbsListTotCnt(searchVO);
@@ -99,7 +99,7 @@ public class ComtnbbsController {
     
     @RequestMapping("/comtnbbs/updateComtnbbsView.do")
     public String updateComtnbbsView(
-            @RequestParam("nttId") int nttId ,
+            @RequestParam("nttId") String nttId ,
             @RequestParam("bbsId") String bbsId ,
             @ModelAttribute("searchVO") ComtnbbsDefaultVO searchVO, Model model)
             throws Exception {

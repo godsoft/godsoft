@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,29 +95,29 @@ function fn_egov_save() {
 		<tr>
 			<th>trnsmis_telno</th>
 			<td>
-				<form:input path="trnsmisTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="trnsmisTelno" />
+					<form:input path="trnsmisTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="trnsmisTelno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trnsmis_cn</th>
 			<td>
-				<form:input path="trnsmisCn" cssClass="txt"/>
-				&nbsp;<form:errors path="trnsmisCn" />
+					<form:input path="trnsmisCn" cssClass="txt"/>
+					&nbsp;<form:errors path="trnsmisCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 	</table>

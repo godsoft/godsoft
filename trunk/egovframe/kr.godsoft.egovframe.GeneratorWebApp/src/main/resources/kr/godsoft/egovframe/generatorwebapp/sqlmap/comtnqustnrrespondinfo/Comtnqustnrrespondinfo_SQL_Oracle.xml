@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnqustnrrespondinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnqustnrrespondinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoVO"/>
+	
+	<resultMap id="comtnqustnrrespondinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoVO">
+		<result property="qustnrTmplatId" column="qustnr_tmplat_id" columnIndex="1"/>
+		<result property="qestnrId" column="qestnr_id" columnIndex="2"/>
+		<result property="qustnrRespondId" column="qustnr_respond_id" columnIndex="3"/>
+		<result property="sexdstnCode" column="sexdstn_code" columnIndex="4"/>
+		<result property="occpTyCode" column="occp_ty_code" columnIndex="5"/>
+		<result property="respondNm" column="respond_nm" columnIndex="6"/>
+		<result property="brthdy" column="brthdy" columnIndex="7"/>
+		<result property="areaNo" column="area_no" columnIndex="8"/>
+		<result property="middleTelno" column="middle_telno" columnIndex="9"/>
+		<result property="endTelno" column="end_telno" columnIndex="10"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
+	</resultMap>
+	
+	<insert id="comtnqustnrrespondinfoDAO.insertComtnqustnrrespondinfo_S">
+		<![CDATA[
+            INSERT INTO comtnqustnrrespondinfo (
+                qustnr_tmplat_id
+                , qestnr_id
+                , qustnr_respond_id
+                , sexdstn_code
+                , occp_ty_code
+                , respond_nm
+                , brthdy
+                , area_no
+                , middle_telno
+                , end_telno
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #qustnrTmplatId#
+                , #qestnrId#
+                , #qustnrRespondId#
+                , #sexdstnCode#
+                , #occpTyCode#
+                , #respondNm#
+                , #brthdy#
+                , #areaNo#
+                , #middleTelno#
+                , #endTelno#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnqustnrrespondinfoDAO.updateComtnqustnrrespondinfo_S">
+		<![CDATA[
+            UPDATE comtnqustnrrespondinfo
+                SET
+                qustnr_tmplat_id = #qustnrTmplatId#
+                , qestnr_id = #qestnrId#
+                , qustnr_respond_id = #qustnrRespondId#
+                , sexdstn_code = #sexdstnCode#
+                , occp_ty_code = #occpTyCode#
+                , respond_nm = #respondNm#
+                , brthdy = #brthdy#
+                , area_no = #areaNo#
+                , middle_telno = #middleTelno#
+                , end_telno = #endTelno#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND qustnr_tmplat_id = #qustnrTmplatId#
+                AND qestnr_id = #qestnrId#
+                AND qustnr_respond_id = #qustnrRespondId#
+		]]>
+	</update>
+	
+	<delete id="comtnqustnrrespondinfoDAO.deleteComtnqustnrrespondinfo_S">
+		<![CDATA[
+			DELETE FROM comtnqustnrrespondinfo
+				WHERE 1 = 1
+				AND qustnr_tmplat_id = #qustnrTmplatId#
+				AND qestnr_id = #qestnrId#
+				AND qustnr_respond_id = #qustnrRespondId#
+		]]>
+	</delete>
+	
+	<select id="comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfo_S" resultMap="comtnqustnrrespondinfo">
+		<![CDATA[
+			SELECT
+				qustnr_tmplat_id
+				, qestnr_id
+				, qustnr_respond_id
+				, sexdstn_code
+				, occp_ty_code
+				, respond_nm
+				, brthdy
+				, area_no
+				, middle_telno
+				, end_telno
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTNQUSTNRRESPONDINFO
+			WHERE qustnr_tmplat_id = #qustnrTmplatId#
+				AND qestnr_id = #qestnrId#
+				AND qustnr_respond_id = #qustnrRespondId#
+		]]>
+	</select>
+	
+	<select id="comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfoList_D" parameterClass="ComtnqustnrrespondinfoVO" resultClass="egovMap">
+	       SELECT 
+								A.QUSTNR_TMPLAT_ID
+								, A.QESTNR_ID
+								, A.QUSTNR_RESPOND_ID
+								, A.SEXDSTN_CODE
+								, A.OCCP_TY_CODE
+								, A.RESPOND_NM
+								, A.BRTHDY
+								, A.AREA_NO
+								, A.MIDDLE_TELNO
+								, A.END_TELNO
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								QUSTNR_TMPLAT_ID
+								, QESTNR_ID
+								, QUSTNR_RESPOND_ID
+								, SEXDSTN_CODE
+								, OCCP_TY_CODE
+								, RESPOND_NM
+								, BRTHDY
+								, AREA_NO
+								, MIDDLE_TELNO
+								, END_TELNO
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTNQUSTNRRESPONDINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					QUSTNR_TMPLAT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					QESTNR_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							QUSTNR_TMPLAT_ID DESC
+							, QESTNR_ID DESC
+							, QUSTNR_RESPOND_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfoListTotCnt_S" parameterClass="ComtnqustnrrespondinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNQUSTNRRESPONDINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QUSTNR_TMPLAT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTNR_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

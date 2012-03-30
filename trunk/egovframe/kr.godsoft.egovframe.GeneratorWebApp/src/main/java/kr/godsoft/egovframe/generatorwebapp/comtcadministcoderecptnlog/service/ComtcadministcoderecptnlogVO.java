@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtcadministcoderecptnlog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ public class ComtcadministcoderecptnlogVO extends ComtcadministcoderecptnlogDefa
     private String administZoneCode;
     
     /** OPERT_SN */
-    private int opertSn;
+    private String opertSn;
     
     /** CHANGE_SE_CODE */
     private String changeSeCode;
@@ -96,11 +96,11 @@ public class ComtcadministcoderecptnlogVO extends ComtcadministcoderecptnlogDefa
         this.administZoneCode = administZoneCode;
     }
     
-    public int getOpertSn() {
+    public String getOpertSn() {
         return this.opertSn;
     }
     
-    public void setOpertSn(int opertSn) {
+    public void setOpertSn(String opertSn) {
         this.opertSn = opertSn;
     }
     

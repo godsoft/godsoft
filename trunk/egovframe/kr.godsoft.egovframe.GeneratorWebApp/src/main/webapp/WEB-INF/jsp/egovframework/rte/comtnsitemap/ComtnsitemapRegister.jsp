@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,22 +95,22 @@ function fn_egov_save() {
 		<tr>
 			<th>creatr_id</th>
 			<td>
-				<form:input path="creatrId" cssClass="txt"/>
-				&nbsp;<form:errors path="creatrId" />
+					<form:input path="creatrId" cssClass="txt"/>
+					&nbsp;<form:errors path="creatrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mapng_file_nm</th>
 			<td>
-				<form:input path="mapngFileNm" cssClass="txt"/>
-				&nbsp;<form:errors path="mapngFileNm" />
+					<form:input path="mapngFileNm" cssClass="txt"/>
+					&nbsp;<form:errors path="mapngFileNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mapng_file_path</th>
 			<td>
-				<form:input path="mapngFilePath" cssClass="txt"/>
-				&nbsp;<form:errors path="mapngFilePath" />
+					<form:input path="mapngFilePath" cssClass="txt"/>
+					&nbsp;<form:errors path="mapngFilePath" />
 			</td>
 		</tr>	
 	</table>

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnmenuinfoVO.menuNm ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnmenuinfoVO.menuNo ? '등록' : '수정'}"/>
+<title>comtnmenuinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +64,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>menu_no *</th>
 			<td>
 				<form:input path="menuNo" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>menu_no *</th>
 			<td>
 				<form:input path="menuNo" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,73 +93,52 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>menu_nm</th>
 			<td>
-	
-				<form:input path="menuNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="menuNm" />
+					<form:input path="menuNm" cssClass="txt"/>
+					&nbsp;<form:errors path="menuNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>progrm_file_nm</th>
 			<td>
-	
-				<form:input path="progrmFileNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="progrmFileNm" />
+					<form:input path="progrmFileNm" cssClass="txt"/>
+					&nbsp;<form:errors path="progrmFileNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>upper_menu_no</th>
 			<td>
-	
-				<form:input path="upperMenuNo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="upperMenuNo" />
+					<form:input path="upperMenuNo" cssClass="txt"/>
+					&nbsp;<form:errors path="upperMenuNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>menu_ordr</th>
 			<td>
-	
-				<form:input path="menuOrdr" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="menuOrdr" />
+					<form:input path="menuOrdr" cssClass="txt"/>
+					&nbsp;<form:errors path="menuOrdr" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>menu_dc</th>
 			<td>
-	
-				<form:input path="menuDc" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="menuDc" />
+					<form:input path="menuDc" cssClass="txt"/>
+					&nbsp;<form:errors path="menuDc" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>relate_image_path</th>
 			<td>
-	
-				<form:input path="relateImagePath" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="relateImagePath" />
+					<form:input path="relateImagePath" cssClass="txt"/>
+					&nbsp;<form:errors path="relateImagePath" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>relate_image_nm</th>
 			<td>
-	
-				<form:input path="relateImageNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="relateImageNm" />
+					<form:input path="relateImageNm" cssClass="txt"/>
+					&nbsp;<form:errors path="relateImageNm" />
 			</td>
 		</tr>	
 	</table>

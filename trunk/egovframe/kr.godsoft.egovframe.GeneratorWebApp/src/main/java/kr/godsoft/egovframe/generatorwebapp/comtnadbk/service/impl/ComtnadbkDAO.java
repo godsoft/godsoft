@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkDefaultVO;
 
 /**
  * @Class Name : ComtnadbkDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkDefaultVO
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkDefaultVO
 public class ComtnadbkDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnadbk을 등록한다.
+	 * COMTNADBK을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnadbkVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnadbkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnadbk을 수정한다.
+	 * COMTNADBK을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnadbkVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnadbkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnadbk을 삭제한다.
+	 * COMTNADBK을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnadbkVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnadbkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnadbk을 조회한다.
+	 * COMTNADBK을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnadbkVO
-	 * @return 조회한 comtnadbk
+	 * @return 조회한 COMTNADBK
 	 * @exception Exception
 	 */
     public ComtnadbkVO selectComtnadbk(ComtnadbkVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnadbkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnadbk 목록을 조회한다.
+	 * COMTNADBK 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnadbk 목록
+	 * @return COMTNADBK 목록
 	 * @exception Exception
 	 */
-    public List selectComtnadbkList(ComtnadbkDefaultVO searchVO) throws Exception {
-        return list("comtnadbkDAO.selectComtnadbkList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnadbkList(ComtnadbkVO vo) throws Exception {
+        return list("comtnadbkDAO.selectComtnadbkList_D", vo);
     }
 
     /**
-	 * comtnadbk 총 갯수를 조회한다.
+	 * COMTNADBK 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnadbk 총 갯수
+	 * @return COMTNADBK 총 갯수
 	 * @exception
 	 */
-    public int selectComtnadbkListTotCnt(ComtnadbkDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnadbkDAO.selectComtnadbkListTotCnt_S", searchVO);
+    public int selectComtnadbkListTotCnt(ComtnadbkVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnadbkDAO.selectComtnadbkListTotCnt_S", vo);
     }
 
 }

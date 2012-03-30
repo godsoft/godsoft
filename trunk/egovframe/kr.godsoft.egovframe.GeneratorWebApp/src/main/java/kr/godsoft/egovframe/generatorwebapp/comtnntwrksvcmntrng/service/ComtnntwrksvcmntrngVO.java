@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ public class ComtnntwrksvcmntrngVO extends ComtnntwrksvcmntrngDefaultVO {
     private String sysIp;
     
     /** SYS_PORT */
-    private int sysPort;
+    private String sysPort;
     
     /** SYS_NM */
     private String sysNm;
@@ -56,11 +56,11 @@ public class ComtnntwrksvcmntrngVO extends ComtnntwrksvcmntrngDefaultVO {
         this.sysIp = sysIp;
     }
     
-    public int getSysPort() {
+    public String getSysPort() {
         return this.sysPort;
     }
     
-    public void setSysPort(int sysPort) {
+    public void setSysPort(String sysPort) {
         this.sysPort = sysPort;
     }
     

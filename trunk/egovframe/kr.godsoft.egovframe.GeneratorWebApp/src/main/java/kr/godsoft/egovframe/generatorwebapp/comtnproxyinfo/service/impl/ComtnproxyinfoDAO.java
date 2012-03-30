@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.Comtnproxyinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnproxyinfo.service.Comtnproxyinf
 public class ComtnproxyinfoDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnproxyinfo을 등록한다.
+	 * COMTNPROXYINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnproxyinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnproxyinfo을 수정한다.
+	 * COMTNPROXYINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnproxyinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnproxyinfo을 삭제한다.
+	 * COMTNPROXYINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnproxyinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnproxyinfo을 조회한다.
+	 * COMTNPROXYINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnproxyinfoVO
-	 * @return 조회한 comtnproxyinfo
+	 * @return 조회한 COMTNPROXYINFO
 	 * @exception Exception
 	 */
     public ComtnproxyinfoVO selectComtnproxyinfo(ComtnproxyinfoVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnproxyinfo 목록을 조회한다.
+	 * COMTNPROXYINFO 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnproxyinfo 목록
+	 * @return COMTNPROXYINFO 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnproxyinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnproxyinfo 총 갯수를 조회한다.
+	 * COMTNPROXYINFO 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnproxyinfo 총 갯수
+	 * @return COMTNPROXYINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnproxyinfoListTotCnt(ComtnproxyinfoVO vo) {

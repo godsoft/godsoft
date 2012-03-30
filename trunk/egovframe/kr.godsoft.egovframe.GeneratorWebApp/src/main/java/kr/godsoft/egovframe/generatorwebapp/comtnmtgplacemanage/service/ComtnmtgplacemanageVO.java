@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmtgplacemanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -28,7 +28,7 @@ public class ComtnmtgplacemanageVO extends ComtnmtgplacemanageDefaultVO {
     private String opnEndTm;
     
     /** ACEPTNC_POSBL_NMPR */
-    private int aceptncPosblNmpr;
+    private String aceptncPosblNmpr;
     
     /** LC_SE */
     private String lcSe;
@@ -83,11 +83,11 @@ public class ComtnmtgplacemanageVO extends ComtnmtgplacemanageDefaultVO {
         this.opnEndTm = opnEndTm;
     }
     
-    public int getAceptncPosblNmpr() {
+    public String getAceptncPosblNmpr() {
         return this.aceptncPosblNmpr;
     }
     
-    public void setAceptncPosblNmpr(int aceptncPosblNmpr) {
+    public void setAceptncPosblNmpr(String aceptncPosblNmpr) {
         this.aceptncPosblNmpr = aceptncPosblNmpr;
     }
     

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,36 +95,36 @@ function fn_egov_save() {
 		<tr>
 			<th>orgnzt_nm</th>
 			<td>
-				<form:input path="orgnztNm" cssClass="txt"/>
-				&nbsp;<form:errors path="orgnztNm" />
+					<form:input path="orgnztNm" cssClass="txt"/>
+					&nbsp;<form:errors path="orgnztNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cl_de</th>
 			<td>
-				<form:input path="clDe" cssClass="txt"/>
-				&nbsp;<form:errors path="clDe" />
+					<form:input path="clDe" cssClass="txt"/>
+					&nbsp;<form:errors path="clDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>knwldg_url</th>
 			<td>
-				<form:input path="knwldgUrl" cssClass="txt"/>
-				&nbsp;<form:errors path="knwldgUrl" />
+					<form:input path="knwldgUrl" cssClass="txt"/>
+					&nbsp;<form:errors path="knwldgUrl" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnindvdlpgecntntsServiceImpl extends AbstractServiceImpl impleme
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnindvdlpgecntnts을 등록한다.
+	 * COMTNINDVDLPGECNTNTS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnindvdlpgecntntsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnindvdlpgecntntsServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnindvdlpgecntnts을 수정한다.
+	 * COMTNINDVDLPGECNTNTS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnindvdlpgecntntsVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnindvdlpgecntntsServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnindvdlpgecntnts을 삭제한다.
+	 * COMTNINDVDLPGECNTNTS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnindvdlpgecntntsVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnindvdlpgecntntsServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnindvdlpgecntnts을 조회한다.
+	 * COMTNINDVDLPGECNTNTS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnindvdlpgecntntsVO
-	 * @return 조회한 comtnindvdlpgecntnts
+	 * @return 조회한 COMTNINDVDLPGECNTNTS
 	 * @exception Exception
 	 */
     public ComtnindvdlpgecntntsVO selectComtnindvdlpgecntnts(ComtnindvdlpgecntntsVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnindvdlpgecntntsServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnindvdlpgecntnts 목록을 조회한다.
+	 * COMTNINDVDLPGECNTNTS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnindvdlpgecntnts 목록
+	 * @return COMTNINDVDLPGECNTNTS 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnindvdlpgecntntsList(ComtnindvdlpgecntntsVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnindvdlpgecntntsServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnindvdlpgecntnts 총 갯수를 조회한다.
+	 * COMTNINDVDLPGECNTNTS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnindvdlpgecntnts 총 갯수
+	 * @return COMTNINDVDLPGECNTNTS 총 갯수
 	 * @exception
 	 */
     public int selectComtnindvdlpgecntntsListTotCnt(ComtnindvdlpgecntntsVO vo) {

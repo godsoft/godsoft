@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,22 +95,22 @@ function fn_egov_save() {
 		<tr>
 			<th>author_nm</th>
 			<td>
-				<form:input path="authorNm" cssClass="txt"/>
-				&nbsp;<form:errors path="authorNm" />
+					<form:input path="authorNm" cssClass="txt"/>
+					&nbsp;<form:errors path="authorNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>author_dc</th>
 			<td>
-				<form:input path="authorDc" cssClass="txt"/>
-				&nbsp;<form:errors path="authorDc" />
+					<form:input path="authorDc" cssClass="txt"/>
+					&nbsp;<form:errors path="authorDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>author_creat_de</th>
 			<td>
-				<form:input path="authorCreatDe" cssClass="txt"/>
-				&nbsp;<form:errors path="authorCreatDe" />
+					<form:input path="authorCreatDe" cssClass="txt"/>
+					&nbsp;<form:errors path="authorCreatDe" />
 			</td>
 		</tr>	
 	</table>

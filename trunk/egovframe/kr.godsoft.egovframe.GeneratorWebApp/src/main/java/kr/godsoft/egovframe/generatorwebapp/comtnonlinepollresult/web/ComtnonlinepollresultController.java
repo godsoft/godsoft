@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultVO;
 
 /**
  * @Class Name : ComtnonlinepollresultController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.Comtno
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.Comtno
  */
 
 @Controller
-@SessionAttributes(types=ComtnonlinepollresultVO.class)
 public class ComtnonlinepollresultController {
 
     @Resource(name = "comtnonlinepollresultService")
@@ -45,13 +45,13 @@ public class ComtnonlinepollresultController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnonlinepollresult 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinepollresultDefaultVO
+	 * COMTNONLINEPOLLRESULT 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return "/comtnonlinepollresult/ComtnonlinepollresultList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnonlinepollresult/ComtnonlinepollresultList.do")
-    public String selectComtnonlinepollresultList(@ModelAttribute("searchVO") ComtnonlinepollresultDefaultVO searchVO, 
+    public String selectComtnonlinepollresultList(@ModelAttribute("searchVO") ComtnonlinepollresultVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnonlinepollresultController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnonlinepollresultList = comtnonlinepollresultService.selectComtnonlinepollresultList(searchVO);
+        List<EgovMap> comtnonlinepollresultList = comtnonlinepollresultService.selectComtnonlinepollresultList(searchVO);
         model.addAttribute("resultList", comtnonlinepollresultList);
         
         int totCnt = comtnonlinepollresultService.selectComtnonlinepollresultListTotCnt(searchVO);

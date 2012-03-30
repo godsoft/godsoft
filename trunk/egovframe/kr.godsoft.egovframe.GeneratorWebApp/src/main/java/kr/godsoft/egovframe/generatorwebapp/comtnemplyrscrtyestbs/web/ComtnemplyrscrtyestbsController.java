@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtnemplyrscrtyestbsController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnemplyrscrtyestbs 목록을 조회한다. (pageing)
+	 * COMTNEMPLYRSCRTYESTBS 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtnemplyrscrtyestbsVO
 	 * @return "/comtnemplyrscrtyestbs/ComtnemplyrscrtyestbsList"
 	 * @exception Exception
@@ -99,11 +99,9 @@ public class ComtnemplyrscrtyestbsController {
     
     @RequestMapping("/comtnemplyrscrtyestbs/updateComtnemplyrscrtyestbsView.do")
     public String updateComtnemplyrscrtyestbsView(
-            @RequestParam("scrtyDtrmnTrgetId") String scrtyDtrmnTrgetId ,
             @ModelAttribute("searchVO") ComtnemplyrscrtyestbsDefaultVO searchVO, Model model)
             throws Exception {
         ComtnemplyrscrtyestbsVO comtnemplyrscrtyestbsVO = new ComtnemplyrscrtyestbsVO();
-        comtnemplyrscrtyestbsVO.setScrtyDtrmnTrgetId(scrtyDtrmnTrgetId);
 ;        
         // 변수명은 CoC 에 따라 comtnemplyrscrtyestbsVO
         model.addAttribute(selectComtnemplyrscrtyestbs(comtnemplyrscrtyestbsVO, searchVO));

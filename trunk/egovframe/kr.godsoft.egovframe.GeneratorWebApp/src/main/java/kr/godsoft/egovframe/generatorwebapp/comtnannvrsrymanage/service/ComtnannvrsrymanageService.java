@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnannvrsrymanageService {
 	
 	/**
-	 * comtnannvrsrymanage을 등록한다.
+	 * COMTNANNVRSRYMANAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnannvrsrymanageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnannvrsrymanageService {
     String insertComtnannvrsrymanage(ComtnannvrsrymanageVO vo) throws Exception;
     
     /**
-	 * comtnannvrsrymanage을 수정한다.
+	 * COMTNANNVRSRYMANAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnannvrsrymanageVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnannvrsrymanageService {
     void updateComtnannvrsrymanage(ComtnannvrsrymanageVO vo) throws Exception;
     
     /**
-	 * comtnannvrsrymanage을 삭제한다.
+	 * COMTNANNVRSRYMANAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnannvrsrymanageVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnannvrsrymanageService {
     void deleteComtnannvrsrymanage(ComtnannvrsrymanageVO vo) throws Exception;
     
     /**
-	 * comtnannvrsrymanage을 조회한다.
+	 * COMTNANNVRSRYMANAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnannvrsrymanageVO
-	 * @return 조회한 comtnannvrsrymanage
+	 * @return 조회한 COMTNANNVRSRYMANAGE
 	 * @exception Exception
 	 */
     ComtnannvrsrymanageVO selectComtnannvrsrymanage(ComtnannvrsrymanageVO vo) throws Exception;
     
     /**
-	 * comtnannvrsrymanage 목록을 조회한다.
+	 * COMTNANNVRSRYMANAGE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnannvrsrymanage 목록
+	 * @return COMTNANNVRSRYMANAGE 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnannvrsrymanageList(ComtnannvrsrymanageVO vo) throws Exception;
     
     /**
-	 * comtnannvrsrymanage 총 갯수를 조회한다.
+	 * COMTNANNVRSRYMANAGE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnannvrsrymanage 총 갯수
+	 * @return COMTNANNVRSRYMANAGE 총 갯수
 	 * @exception
 	 */
     int selectComtnannvrsrymanageListTotCnt(ComtnannvrsrymanageVO vo);

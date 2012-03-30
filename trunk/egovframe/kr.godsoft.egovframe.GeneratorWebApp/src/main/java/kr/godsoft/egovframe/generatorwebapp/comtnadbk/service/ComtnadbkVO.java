@@ -6,55 +6,55 @@ package kr.godsoft.egovframe.generatorwebapp.comtnadbk.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnadbkVO extends ComtnadbkDefaultVO{
+public class ComtnadbkVO extends ComtnadbkDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
-    /**  */
+    /** NCRD_ID */
     private String ncrdId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** ADBK_CONSTNT_ID */
     private String adbkConstntId;
     
-    /**  */
+    /** NM */
     private String nm;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** MBTLNUM */
     private String mbtlnum;
     
-    /**  */
+    /** FXNUM */
     private String fxnum;
     
-    /**  */
+    /** OFFM_TELNO */
     private String offmTelno;
     
-    /**  */
+    /** HOUSE_TELNO */
     private String houseTelno;
     
-    /**  */
+    /** ADBK_ID */
     private String adbkId;
     
     public String getEmplyrId() {

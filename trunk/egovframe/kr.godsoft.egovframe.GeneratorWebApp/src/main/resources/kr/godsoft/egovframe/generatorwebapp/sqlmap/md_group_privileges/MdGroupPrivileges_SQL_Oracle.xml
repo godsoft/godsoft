@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdGroupPrivileges">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdGroupPrivilegesVO" type="kr.godsoft.egovframe.generatorwebapp.md_group_privileges.service.MdGroupPrivilegesVO"/>
+	
+	<resultMap id="mdGroupPrivileges" class="kr.godsoft.egovframe.generatorwebapp.md_group_privileges.service.MdGroupPrivilegesVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="groupIdFk" column="group_id_fk" columnIndex="2"/>
+		<result property="privilegeIdFk" column="privilege_id_fk" columnIndex="3"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="4"/>
+		<result property="createdOn" column="created_on" columnIndex="5"/>
+		<result property="createdBy" column="created_by" columnIndex="6"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="7"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="mdGroupPrivilegesDAO.insertMdGroupPrivileges_S">
+		<![CDATA[
+            INSERT INTO md_group_privileges (
+                id
+                , group_id_fk
+                , privilege_id_fk
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #groupIdFk#
+                , #privilegeIdFk#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdGroupPrivilegesDAO.updateMdGroupPrivileges_S">
+		<![CDATA[
+            UPDATE md_group_privileges
+                SET
+                id = #id#
+                , group_id_fk = #groupIdFk#
+                , privilege_id_fk = #privilegeIdFk#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdGroupPrivilegesDAO.deleteMdGroupPrivileges_S">
+		<![CDATA[
+			DELETE FROM md_group_privileges
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdGroupPrivilegesDAO.selectMdGroupPrivileges_S" resultMap="mdGroupPrivileges">
+		<![CDATA[
+			SELECT
+				id
+				, group_id_fk
+				, privilege_id_fk
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_GROUP_PRIVILEGES
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdGroupPrivilegesDAO.selectMdGroupPrivilegesList_D" parameterClass="MdGroupPrivilegesVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.GROUP_ID_FK
+								, A.PRIVILEGE_ID_FK
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, GROUP_ID_FK
+								, PRIVILEGE_ID_FK
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_GROUP_PRIVILEGES
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					GROUP_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdGroupPrivilegesDAO.selectMdGroupPrivilegesListTotCnt_S" parameterClass="MdGroupPrivilegesVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_GROUP_PRIVILEGES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				GROUP_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

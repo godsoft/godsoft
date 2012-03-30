@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnreprtstatsService {
 	
 	/**
-	 * comtnreprtstats을 등록한다.
+	 * COMTNREPRTSTATS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnreprtstatsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnreprtstatsService {
     String insertComtnreprtstats(ComtnreprtstatsVO vo) throws Exception;
     
     /**
-	 * comtnreprtstats을 수정한다.
+	 * COMTNREPRTSTATS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnreprtstatsVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnreprtstatsService {
     void updateComtnreprtstats(ComtnreprtstatsVO vo) throws Exception;
     
     /**
-	 * comtnreprtstats을 삭제한다.
+	 * COMTNREPRTSTATS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnreprtstatsVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnreprtstatsService {
     void deleteComtnreprtstats(ComtnreprtstatsVO vo) throws Exception;
     
     /**
-	 * comtnreprtstats을 조회한다.
+	 * COMTNREPRTSTATS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnreprtstatsVO
-	 * @return 조회한 comtnreprtstats
+	 * @return 조회한 COMTNREPRTSTATS
 	 * @exception Exception
 	 */
     ComtnreprtstatsVO selectComtnreprtstats(ComtnreprtstatsVO vo) throws Exception;
     
     /**
-	 * comtnreprtstats 목록을 조회한다.
+	 * COMTNREPRTSTATS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnreprtstats 목록
+	 * @return COMTNREPRTSTATS 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnreprtstatsList(ComtnreprtstatsVO vo) throws Exception;
     
     /**
-	 * comtnreprtstats 총 갯수를 조회한다.
+	 * COMTNREPRTSTATS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnreprtstats 총 갯수
+	 * @return COMTNREPRTSTATS 총 갯수
 	 * @exception
 	 */
     int selectComtnreprtstatsListTotCnt(ComtnreprtstatsVO vo);

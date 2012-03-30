@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnadbk.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnadbkService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkVO;
 public interface ComtnadbkService {
 	
 	/**
-	 * comtnadbk을 등록한다.
+	 * COMTNADBK을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnadbkVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnadbkService {
     String insertComtnadbk(ComtnadbkVO vo) throws Exception;
     
     /**
-	 * comtnadbk을 수정한다.
+	 * COMTNADBK을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnadbkVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnadbkService {
     void updateComtnadbk(ComtnadbkVO vo) throws Exception;
     
     /**
-	 * comtnadbk을 삭제한다.
+	 * COMTNADBK을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnadbkVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnadbkService {
     void deleteComtnadbk(ComtnadbkVO vo) throws Exception;
     
     /**
-	 * comtnadbk을 조회한다.
+	 * COMTNADBK을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnadbkVO
-	 * @return 조회한 comtnadbk
+	 * @return 조회한 COMTNADBK
 	 * @exception Exception
 	 */
     ComtnadbkVO selectComtnadbk(ComtnadbkVO vo) throws Exception;
     
     /**
-	 * comtnadbk 목록을 조회한다.
+	 * COMTNADBK 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnadbk 목록
+	 * @return COMTNADBK 목록
 	 * @exception Exception
 	 */
-    List selectComtnadbkList(ComtnadbkDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnadbkList(ComtnadbkVO vo) throws Exception;
     
     /**
-	 * comtnadbk 총 갯수를 조회한다.
+	 * COMTNADBK 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnadbk 총 갯수
+	 * @return COMTNADBK 총 갯수
 	 * @exception
 	 */
-    int selectComtnadbkListTotCnt(ComtnadbkDefaultVO searchVO);
+    int selectComtnadbkListTotCnt(ComtnadbkVO vo);
     
 }

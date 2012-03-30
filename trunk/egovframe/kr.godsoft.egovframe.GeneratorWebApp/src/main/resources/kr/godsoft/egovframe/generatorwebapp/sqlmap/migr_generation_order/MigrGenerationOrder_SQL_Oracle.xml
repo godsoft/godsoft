@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MigrGenerationOrder">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MigrGenerationOrderVO" type="kr.godsoft.egovframe.generatorwebapp.migr_generation_order.service.MigrGenerationOrderVO"/>
+	
+	<resultMap id="migrGenerationOrder" class="kr.godsoft.egovframe.generatorwebapp.migr_generation_order.service.MigrGenerationOrderVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="connectionIdFk" column="connection_id_fk" columnIndex="2"/>
+		<result property="objectId" column="object_id" columnIndex="3"/>
+		<result property="objectType" column="object_type" columnIndex="4"/>
+		<result property="generationOrder" column="generation_order" columnIndex="5"/>
+	</resultMap>
+	
+	<insert id="migrGenerationOrderDAO.insertMigrGenerationOrder_S">
+		<![CDATA[
+            INSERT INTO migr_generation_order (
+                id
+                , connection_id_fk
+                , object_id
+                , object_type
+                , generation_order
+            ) VALUES (
+                #id#
+                , #connectionIdFk#
+                , #objectId#
+                , #objectType#
+                , #generationOrder#
+            )
+		]]>
+	</insert>
+	
+	<update id="migrGenerationOrderDAO.updateMigrGenerationOrder_S">
+		<![CDATA[
+            UPDATE migr_generation_order
+                SET
+                id = #id#
+                , connection_id_fk = #connectionIdFk#
+                , object_id = #objectId#
+                , object_type = #objectType#
+                , generation_order = #generationOrder#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="migrGenerationOrderDAO.deleteMigrGenerationOrder_S">
+		<![CDATA[
+			DELETE FROM migr_generation_order
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="migrGenerationOrderDAO.selectMigrGenerationOrder_S" resultMap="migrGenerationOrder">
+		<![CDATA[
+			SELECT
+				id
+				, connection_id_fk
+				, object_id
+				, object_type
+				, generation_order
+			FROM MIGR_GENERATION_ORDER
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="migrGenerationOrderDAO.selectMigrGenerationOrderList_D" parameterClass="MigrGenerationOrderVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.CONNECTION_ID_FK
+								, A.OBJECT_ID
+								, A.OBJECT_TYPE
+								, A.GENERATION_ORDER
+			       FROM
+            (
+				SELECT
+								ID
+								, CONNECTION_ID_FK
+								, OBJECT_ID
+								, OBJECT_TYPE
+								, GENERATION_ORDER
+							, ROWNUM
+				FROM MIGR_GENERATION_ORDER
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CONNECTION_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="migrGenerationOrderDAO.selectMigrGenerationOrderListTotCnt_S" parameterClass="MigrGenerationOrderVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MIGR_GENERATION_ORDER
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CONNECTION_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

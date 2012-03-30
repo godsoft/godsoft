@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,43 +95,43 @@ function fn_egov_save() {
 		<tr>
 			<th>role_nm</th>
 			<td>
-				<form:input path="roleNm" cssClass="txt"/>
-				&nbsp;<form:errors path="roleNm" />
+					<form:input path="roleNm" cssClass="txt"/>
+					&nbsp;<form:errors path="roleNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>role_pttrn</th>
 			<td>
-				<form:input path="rolePttrn" cssClass="txt"/>
-				&nbsp;<form:errors path="rolePttrn" />
+					<form:input path="rolePttrn" cssClass="txt"/>
+					&nbsp;<form:errors path="rolePttrn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>role_dc</th>
 			<td>
-				<form:input path="roleDc" cssClass="txt"/>
-				&nbsp;<form:errors path="roleDc" />
+					<form:input path="roleDc" cssClass="txt"/>
+					&nbsp;<form:errors path="roleDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>role_ty</th>
 			<td>
-				<form:input path="roleTy" cssClass="txt"/>
-				&nbsp;<form:errors path="roleTy" />
+					<form:input path="roleTy" cssClass="txt"/>
+					&nbsp;<form:errors path="roleTy" />
 			</td>
 		</tr>	
 		<tr>
 			<th>role_sort</th>
 			<td>
-				<form:input path="roleSort" cssClass="txt"/>
-				&nbsp;<form:errors path="roleSort" />
+					<form:input path="roleSort" cssClass="txt"/>
+					&nbsp;<form:errors path="roleSort" />
 			</td>
 		</tr>	
 		<tr>
 			<th>role_creat_de</th>
 			<td>
-				<form:input path="roleCreatDe" cssClass="txt"/>
-				&nbsp;<form:errors path="roleCreatDe" />
+					<form:input path="roleCreatDe" cssClass="txt"/>
+					&nbsp;<form:errors path="roleCreatDe" />
 			</td>
 		</tr>	
 	</table>

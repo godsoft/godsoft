@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtsbbssummaryService {
 	
 	/**
-	 * comtsbbssummary을 등록한다.
+	 * COMTSBBSSUMMARY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtsbbssummaryVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtsbbssummaryService {
     String insertComtsbbssummary(ComtsbbssummaryVO vo) throws Exception;
     
     /**
-	 * comtsbbssummary을 수정한다.
+	 * COMTSBBSSUMMARY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtsbbssummaryVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtsbbssummaryService {
     void updateComtsbbssummary(ComtsbbssummaryVO vo) throws Exception;
     
     /**
-	 * comtsbbssummary을 삭제한다.
+	 * COMTSBBSSUMMARY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtsbbssummaryVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtsbbssummaryService {
     void deleteComtsbbssummary(ComtsbbssummaryVO vo) throws Exception;
     
     /**
-	 * comtsbbssummary을 조회한다.
+	 * COMTSBBSSUMMARY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtsbbssummaryVO
-	 * @return 조회한 comtsbbssummary
+	 * @return 조회한 COMTSBBSSUMMARY
 	 * @exception Exception
 	 */
     ComtsbbssummaryVO selectComtsbbssummary(ComtsbbssummaryVO vo) throws Exception;
     
     /**
-	 * comtsbbssummary 목록을 조회한다.
+	 * COMTSBBSSUMMARY 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtsbbssummary 목록
+	 * @return COMTSBBSSUMMARY 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtsbbssummaryList(ComtsbbssummaryVO vo) throws Exception;
     
     /**
-	 * comtsbbssummary 총 갯수를 조회한다.
+	 * COMTSBBSSUMMARY 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtsbbssummary 총 갯수
+	 * @return COMTSBBSSUMMARY 총 갯수
 	 * @exception
 	 */
     int selectComtsbbssummaryListTotCnt(ComtsbbssummaryVO vo);

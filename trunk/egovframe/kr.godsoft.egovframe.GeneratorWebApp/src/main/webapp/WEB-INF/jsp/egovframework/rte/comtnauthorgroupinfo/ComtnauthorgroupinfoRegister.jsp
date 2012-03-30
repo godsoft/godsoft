@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,22 +95,22 @@ function fn_egov_save() {
 		<tr>
 			<th>group_nm</th>
 			<td>
-				<form:input path="groupNm" cssClass="txt"/>
-				&nbsp;<form:errors path="groupNm" />
+					<form:input path="groupNm" cssClass="txt"/>
+					&nbsp;<form:errors path="groupNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>group_creat_de</th>
 			<td>
-				<form:input path="groupCreatDe" cssClass="txt"/>
-				&nbsp;<form:errors path="groupCreatDe" />
+					<form:input path="groupCreatDe" cssClass="txt"/>
+					&nbsp;<form:errors path="groupCreatDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>group_dc</th>
 			<td>
-				<form:input path="groupDc" cssClass="txt"/>
-				&nbsp;<form:errors path="groupDc" />
+					<form:input path="groupDc" cssClass="txt"/>
+					&nbsp;<form:errors path="groupDc" />
 			</td>
 		</tr>	
 	</table>

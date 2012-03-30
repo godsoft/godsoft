@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnweblog.service.ComtnweblogVO;
 public class ComtnweblogDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnweblog을 등록한다.
+	 * COMTNWEBLOG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnweblogVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnweblogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnweblog을 수정한다.
+	 * COMTNWEBLOG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnweblogVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnweblogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnweblog을 삭제한다.
+	 * COMTNWEBLOG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnweblogVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnweblogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnweblog을 조회한다.
+	 * COMTNWEBLOG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnweblogVO
-	 * @return 조회한 comtnweblog
+	 * @return 조회한 COMTNWEBLOG
 	 * @exception Exception
 	 */
     public ComtnweblogVO selectComtnweblog(ComtnweblogVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnweblogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnweblog 목록을 조회한다.
+	 * COMTNWEBLOG 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnweblog 목록
+	 * @return COMTNWEBLOG 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnweblogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnweblog 총 갯수를 조회한다.
+	 * COMTNWEBLOG 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnweblog 총 갯수
+	 * @return COMTNWEBLOG 총 갯수
 	 * @exception
 	 */
     public int selectComtnweblogListTotCnt(ComtnweblogVO vo) {

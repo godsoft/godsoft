@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnprocessmonloginfo을 등록한다.
+	 * COMTNPROCESSMONLOGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnprocessmonloginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
     }
 
     /**
-	 * comtnprocessmonloginfo을 수정한다.
+	 * COMTNPROCESSMONLOGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnprocessmonloginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
     }
 
     /**
-	 * comtnprocessmonloginfo을 삭제한다.
+	 * COMTNPROCESSMONLOGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnprocessmonloginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
     }
 
     /**
-	 * comtnprocessmonloginfo을 조회한다.
+	 * COMTNPROCESSMONLOGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnprocessmonloginfoVO
-	 * @return 조회한 comtnprocessmonloginfo
+	 * @return 조회한 COMTNPROCESSMONLOGINFO
 	 * @exception Exception
 	 */
     public ComtnprocessmonloginfoVO selectComtnprocessmonloginfo(ComtnprocessmonloginfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
     }
 
     /**
-	 * comtnprocessmonloginfo 목록을 조회한다.
+	 * COMTNPROCESSMONLOGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnprocessmonloginfo 목록
+	 * @return COMTNPROCESSMONLOGINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnprocessmonloginfoList(ComtnprocessmonloginfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnprocessmonloginfoServiceImpl extends AbstractServiceImpl imple
     }
 
     /**
-	 * comtnprocessmonloginfo 총 갯수를 조회한다.
+	 * COMTNPROCESSMONLOGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnprocessmonloginfo 총 갯수
+	 * @return COMTNPROCESSMONLOGINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnprocessmonloginfoListTotCnt(ComtnprocessmonloginfoVO vo) {

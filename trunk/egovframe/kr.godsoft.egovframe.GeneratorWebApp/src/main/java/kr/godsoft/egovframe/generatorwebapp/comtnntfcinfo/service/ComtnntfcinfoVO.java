@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnntfcinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -16,7 +16,7 @@ public class ComtnntfcinfoVO extends ComtnntfcinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
     /** NTCN_NO */
-    private int ntcnNo;
+    private String ntcnNo;
     
     /** NTCN_SJ */
     private String ntcnSj;
@@ -42,11 +42,11 @@ public class ComtnntfcinfoVO extends ComtnntfcinfoDefaultVO {
     /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    public int getNtcnNo() {
+    public String getNtcnNo() {
         return this.ntcnNo;
     }
     
-    public void setNtcnNo(int ntcnNo) {
+    public void setNtcnNo(String ntcnNo) {
         this.ntcnNo = ntcnNo;
     }
     

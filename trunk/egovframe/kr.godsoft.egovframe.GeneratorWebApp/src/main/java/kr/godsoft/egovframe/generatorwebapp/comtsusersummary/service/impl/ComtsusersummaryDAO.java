@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.Comtsusersu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service.Comtsusersu
 public class ComtsusersummaryDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtsusersummary을 등록한다.
+	 * COMTSUSERSUMMARY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtsusersummaryVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtsusersummaryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtsusersummary을 수정한다.
+	 * COMTSUSERSUMMARY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtsusersummaryVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtsusersummaryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtsusersummary을 삭제한다.
+	 * COMTSUSERSUMMARY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtsusersummaryVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtsusersummaryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtsusersummary을 조회한다.
+	 * COMTSUSERSUMMARY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtsusersummaryVO
-	 * @return 조회한 comtsusersummary
+	 * @return 조회한 COMTSUSERSUMMARY
 	 * @exception Exception
 	 */
     public ComtsusersummaryVO selectComtsusersummary(ComtsusersummaryVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtsusersummaryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtsusersummary 목록을 조회한다.
+	 * COMTSUSERSUMMARY 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtsusersummary 목록
+	 * @return COMTSUSERSUMMARY 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtsusersummaryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtsusersummary 총 갯수를 조회한다.
+	 * COMTSUSERSUMMARY 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtsusersummary 총 갯수
+	 * @return COMTSUSERSUMMARY 총 갯수
 	 * @exception
 	 */
     public int selectComtsusersummaryListTotCnt(ComtsusersummaryVO vo) {

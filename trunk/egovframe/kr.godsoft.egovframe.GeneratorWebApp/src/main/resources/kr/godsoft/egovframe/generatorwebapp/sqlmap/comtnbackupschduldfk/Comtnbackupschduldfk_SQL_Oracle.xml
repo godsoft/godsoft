@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbackupschduldfk">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnbackupschduldfkVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO"/>
+	
+	<resultMap id="comtnbackupschduldfk" class="kr.godsoft.egovframe.generatorwebapp.comtnbackupschduldfk.service.ComtnbackupschduldfkVO">
+		<result property="backupOpertId" column="backup_opert_id" columnIndex="1"/>
+		<result property="executSchdulDfkSe" column="execut_schdul_dfk_se" columnIndex="2"/>
+	</resultMap>
+	
+	<insert id="comtnbackupschduldfkDAO.insertComtnbackupschduldfk_S">
+		<![CDATA[
+            INSERT INTO comtnbackupschduldfk (
+                backup_opert_id
+                , execut_schdul_dfk_se
+            ) VALUES (
+                #backupOpertId#
+                , #executSchdulDfkSe#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnbackupschduldfkDAO.updateComtnbackupschduldfk_S">
+		<![CDATA[
+            UPDATE comtnbackupschduldfk
+                SET
+                backup_opert_id = #backupOpertId#
+                , execut_schdul_dfk_se = #executSchdulDfkSe#
+                WHERE 1 = 1
+                AND backup_opert_id = #backupOpertId#
+                AND execut_schdul_dfk_se = #executSchdulDfkSe#
+		]]>
+	</update>
+	
+	<delete id="comtnbackupschduldfkDAO.deleteComtnbackupschduldfk_S">
+		<![CDATA[
+			DELETE FROM comtnbackupschduldfk
+				WHERE 1 = 1
+				AND backup_opert_id = #backupOpertId#
+				AND execut_schdul_dfk_se = #executSchdulDfkSe#
+		]]>
+	</delete>
+	
+	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfk_S" resultMap="comtnbackupschduldfk">
+		<![CDATA[
+			SELECT
+				backup_opert_id
+				, execut_schdul_dfk_se
+			FROM COMTNBACKUPSCHDULDFK
+			WHERE backup_opert_id = #backupOpertId#
+				AND execut_schdul_dfk_se = #executSchdulDfkSe#
+		]]>
+	</select>
+	
+	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfkList_D" parameterClass="ComtnbackupschduldfkVO" resultClass="egovMap">
+	       SELECT 
+								A.BACKUP_OPERT_ID
+								, A.EXECUT_SCHDUL_DFK_SE
+			       FROM
+            (
+				SELECT
+								BACKUP_OPERT_ID
+								, EXECUT_SCHDUL_DFK_SE
+							, ROWNUM
+				FROM COMTNBACKUPSCHDULDFK
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					BACKUP_OPERT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					EXECUT_SCHDUL_DFK_SE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							BACKUP_OPERT_ID DESC
+							, EXECUT_SCHDUL_DFK_SE DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnbackupschduldfkDAO.selectComtnbackupschduldfkListTotCnt_S" parameterClass="ComtnbackupschduldfkVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNBACKUPSCHDULDFK
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BACKUP_OPERT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				EXECUT_SCHDUL_DFK_SE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterService;
+import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterService;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO;
 
 /**
  * @Class Name : ComvnusermasterController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.Comvnusermas
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.Comvnusermas
  */
 
 @Controller
-@SessionAttributes(types=ComvnusermasterVO.class)
 public class ComvnusermasterController {
 
     @Resource(name = "comvnusermasterService")
@@ -45,13 +45,13 @@ public class ComvnusermasterController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comvnusermaster 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComvnusermasterDefaultVO
+	 * COMVNUSERMASTER 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComvnusermasterVO
 	 * @return "/comvnusermaster/ComvnusermasterList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comvnusermaster/ComvnusermasterList.do")
-    public String selectComvnusermasterList(@ModelAttribute("searchVO") ComvnusermasterDefaultVO searchVO, 
+    public String selectComvnusermasterList(@ModelAttribute("searchVO") ComvnusermasterVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComvnusermasterController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comvnusermasterList = comvnusermasterService.selectComvnusermasterList(searchVO);
+        List<EgovMap> comvnusermasterList = comvnusermasterService.selectComvnusermasterList(searchVO);
         model.addAttribute("resultList", comvnusermasterList);
         
         int totCnt = comvnusermasterService.selectComvnusermasterListTotCnt(searchVO);

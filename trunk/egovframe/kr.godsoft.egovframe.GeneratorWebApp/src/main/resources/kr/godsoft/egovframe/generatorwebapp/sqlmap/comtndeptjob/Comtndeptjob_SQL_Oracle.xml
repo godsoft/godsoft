@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndeptjob">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtndeptjobVO" type="kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO"/>
+	
+	<resultMap id="comtndeptjob" class="kr.godsoft.egovframe.generatorwebapp.comtndeptjob.service.ComtndeptjobVO">
+		<result property="deptJobId" column="dept_job_id" columnIndex="1"/>
+		<result property="deptJobbxId" column="dept_jobbx_id" columnIndex="2"/>
+		<result property="deptJobNm" column="dept_job_nm" columnIndex="3"/>
+		<result property="deptJobCn" column="dept_job_cn" columnIndex="4"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="5"/>
+		<result property="chargerId" column="charger_id" columnIndex="6"/>
+		<result property="priort" column="priort" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtndeptjobDAO.insertComtndeptjob_S">
+		<![CDATA[
+            INSERT INTO comtndeptjob (
+                dept_job_id
+                , dept_jobbx_id
+                , dept_job_nm
+                , dept_job_cn
+                , atch_file_id
+                , charger_id
+                , priort
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #deptJobId#
+                , #deptJobbxId#
+                , #deptJobNm#
+                , #deptJobCn#
+                , #atchFileId#
+                , #chargerId#
+                , #priort#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtndeptjobDAO.updateComtndeptjob_S">
+		<![CDATA[
+            UPDATE comtndeptjob
+                SET
+                dept_job_id = #deptJobId#
+                , dept_jobbx_id = #deptJobbxId#
+                , dept_job_nm = #deptJobNm#
+                , dept_job_cn = #deptJobCn#
+                , atch_file_id = #atchFileId#
+                , charger_id = #chargerId#
+                , priort = #priort#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND dept_job_id = #deptJobId#
+		]]>
+	</update>
+	
+	<delete id="comtndeptjobDAO.deleteComtndeptjob_S">
+		<![CDATA[
+			DELETE FROM comtndeptjob
+				WHERE 1 = 1
+				AND dept_job_id = #deptJobId#
+		]]>
+	</delete>
+	
+	<select id="comtndeptjobDAO.selectComtndeptjob_S" resultMap="comtndeptjob">
+		<![CDATA[
+			SELECT
+				dept_job_id
+				, dept_jobbx_id
+				, dept_job_nm
+				, dept_job_cn
+				, atch_file_id
+				, charger_id
+				, priort
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNDEPTJOB
+			WHERE dept_job_id = #deptJobId#
+		]]>
+	</select>
+	
+	<select id="comtndeptjobDAO.selectComtndeptjobList_D" parameterClass="ComtndeptjobVO" resultClass="egovMap">
+	       SELECT 
+								A.DEPT_JOB_ID
+								, A.DEPT_JOBBX_ID
+								, A.DEPT_JOB_NM
+								, A.DEPT_JOB_CN
+								, A.ATCH_FILE_ID
+								, A.CHARGER_ID
+								, A.PRIORT
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								DEPT_JOB_ID
+								, DEPT_JOBBX_ID
+								, DEPT_JOB_NM
+								, DEPT_JOB_CN
+								, ATCH_FILE_ID
+								, CHARGER_ID
+								, PRIORT
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNDEPTJOB
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					DEPT_JOB_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					DEPT_JOBBX_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							DEPT_JOB_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtndeptjobDAO.selectComtndeptjobListTotCnt_S" parameterClass="ComtndeptjobVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNDEPTJOB
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				DEPT_JOB_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				DEPT_JOBBX_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comthhttpmonloginfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComthhttpmonloginfoVO" type="kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoVO"/>
+	
+	<resultMap id="comthhttpmonloginfo" class="kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoVO">
+		<result property="sysId" column="sys_id" columnIndex="1"/>
+		<result property="siteUrl" column="site_url" columnIndex="2"/>
+		<result property="websvcKnd" column="websvc_knd" columnIndex="3"/>
+		<result property="httpSttusCode" column="http_sttus_code" columnIndex="4"/>
+		<result property="creatDt" column="creat_dt" columnIndex="5"/>
+		<result property="logInfo" column="log_info" columnIndex="6"/>
+		<result property="mngrNm" column="mngr_nm" columnIndex="7"/>
+		<result property="mngrEmailAdres" column="mngr_email_adres" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="10"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="11"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="12"/>
+		<result property="logId" column="log_id" columnIndex="13"/>
+	</resultMap>
+	
+	<insert id="comthhttpmonloginfoDAO.insertComthhttpmonloginfo_S">
+		<![CDATA[
+            INSERT INTO comthhttpmonloginfo (
+                sys_id
+                , site_url
+                , websvc_knd
+                , http_sttus_code
+                , creat_dt
+                , log_info
+                , mngr_nm
+                , mngr_email_adres
+                , frst_register_id
+                , frst_regist_pnttm
+                , log_id
+            ) VALUES (
+                #sysId#
+                , #siteUrl#
+                , #websvcKnd#
+                , #httpSttusCode#
+                , #creatDt#
+                , #logInfo#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #frstRegisterId#
+                , SYSDATE
+                , #logId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comthhttpmonloginfoDAO.updateComthhttpmonloginfo_S">
+		<![CDATA[
+            UPDATE comthhttpmonloginfo
+                SET
+                sys_id = #sysId#
+                , site_url = #siteUrl#
+                , websvc_knd = #websvcKnd#
+                , http_sttus_code = #httpSttusCode#
+                , creat_dt = #creatDt#
+                , log_info = #logInfo#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                , log_id = #logId#
+                WHERE 1 = 1
+                AND sys_id = #sysId#
+                AND log_id = #logId#
+		]]>
+	</update>
+	
+	<delete id="comthhttpmonloginfoDAO.deleteComthhttpmonloginfo_S">
+		<![CDATA[
+			DELETE FROM comthhttpmonloginfo
+				WHERE 1 = 1
+				AND sys_id = #sysId#
+				AND log_id = #logId#
+		]]>
+	</delete>
+	
+	<select id="comthhttpmonloginfoDAO.selectComthhttpmonloginfo_S" resultMap="comthhttpmonloginfo">
+		<![CDATA[
+			SELECT
+				sys_id
+				, site_url
+				, websvc_knd
+				, http_sttus_code
+				, creat_dt
+				, log_info
+				, mngr_nm
+				, mngr_email_adres
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, log_id
+			FROM COMTHHTTPMONLOGINFO
+			WHERE sys_id = #sysId#
+				AND log_id = #logId#
+		]]>
+	</select>
+	
+	<select id="comthhttpmonloginfoDAO.selectComthhttpmonloginfoList_D" parameterClass="ComthhttpmonloginfoVO" resultClass="egovMap">
+	       SELECT 
+								A.SYS_ID
+								, A.SITE_URL
+								, A.WEBSVC_KND
+								, A.HTTP_STTUS_CODE
+								, A.CREAT_DT
+								, A.LOG_INFO
+								, A.MNGR_NM
+								, A.MNGR_EMAIL_ADRES
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LOG_ID
+			       FROM
+            (
+				SELECT
+								SYS_ID
+								, SITE_URL
+								, WEBSVC_KND
+								, HTTP_STTUS_CODE
+								, CREAT_DT
+								, LOG_INFO
+								, MNGR_NM
+								, MNGR_EMAIL_ADRES
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+								, LOG_ID
+							, ROWNUM
+				FROM COMTHHTTPMONLOGINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					SYS_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SITE_URL LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							SYS_ID DESC
+							, LOG_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comthhttpmonloginfoDAO.selectComthhttpmonloginfoListTotCnt_S" parameterClass="ComthhttpmonloginfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTHHTTPMONLOGINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SYS_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SITE_URL LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

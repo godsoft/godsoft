@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.Comtnunitylin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnunitylink.service.Comtnunitylin
 public class ComtnunitylinkDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnunitylink을 등록한다.
+	 * COMTNUNITYLINK을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnunitylinkVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnunitylink을 수정한다.
+	 * COMTNUNITYLINK을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnunitylinkVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnunitylink을 삭제한다.
+	 * COMTNUNITYLINK을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnunitylinkVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnunitylink을 조회한다.
+	 * COMTNUNITYLINK을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnunitylinkVO
-	 * @return 조회한 comtnunitylink
+	 * @return 조회한 COMTNUNITYLINK
 	 * @exception Exception
 	 */
     public ComtnunitylinkVO selectComtnunitylink(ComtnunitylinkVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnunitylink 목록을 조회한다.
+	 * COMTNUNITYLINK 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnunitylink 목록
+	 * @return COMTNUNITYLINK 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnunitylinkDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnunitylink 총 갯수를 조회한다.
+	 * COMTNUNITYLINK 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnunitylink 총 갯수
+	 * @return COMTNUNITYLINK 총 갯수
 	 * @exception
 	 */
     public int selectComtnunitylinkListTotCnt(ComtnunitylinkVO vo) {

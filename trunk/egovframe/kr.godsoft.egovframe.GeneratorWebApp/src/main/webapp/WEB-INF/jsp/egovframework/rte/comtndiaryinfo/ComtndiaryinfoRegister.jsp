@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comtndiaryinfoVO.schdulId ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtndiaryinfoVO.diaryId ? '등록' : '수정'}"/>
+<title>comtndiaryinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +65,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>schdul_id *</th>
 			<td>
 				<form:input path="schdulId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>diary_id *</th>
 			<td>
 				<form:input path="diaryId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>schdul_id *</th>
 			<td>
 				<form:input path="schdulId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>diary_id *</th>
 			<td>
 				<form:input path="diaryId" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,93 +106,66 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>diary_progrsrt</th>
 			<td>
-	
-				<form:input path="diaryProgrsrt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="diaryProgrsrt" />
+					<form:input path="diaryProgrsrt" cssClass="txt"/>
+					&nbsp;<form:errors path="diaryProgrsrt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>diary_nm</th>
 			<td>
-	
-				<form:input path="diaryNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="diaryNm" />
+					<form:input path="diaryNm" cssClass="txt"/>
+					&nbsp;<form:errors path="diaryNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>drct_matter</th>
 			<td>
-	
-				<form:input path="drctMatter" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="drctMatter" />
+					<form:input path="drctMatter" cssClass="txt"/>
+					&nbsp;<form:errors path="drctMatter" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>partclr_matter</th>
 			<td>
-	
-				<form:input path="partclrMatter" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="partclrMatter" />
+					<form:input path="partclrMatter" cssClass="txt"/>
+					&nbsp;<form:errors path="partclrMatter" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>atch_file_id</th>
 			<td>
-	
-				<form:input path="atchFileId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="atchFileId" />
+					<form:input path="atchFileId" cssClass="txt"/>
+					&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_regist_pnttm</th>
 			<td>
-	
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_register_id</th>
 			<td>
-	
-				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updt_pnttm</th>
 			<td>
-	
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updusr_id</th>
 			<td>
-	
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 	</table>

@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComthconfmhistoryService {
 	
 	/**
-	 * comthconfmhistory을 등록한다.
+	 * COMTHCONFMHISTORY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthconfmhistoryVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComthconfmhistoryService {
     String insertComthconfmhistory(ComthconfmhistoryVO vo) throws Exception;
     
     /**
-	 * comthconfmhistory을 수정한다.
+	 * COMTHCONFMHISTORY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthconfmhistoryVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComthconfmhistoryService {
     void updateComthconfmhistory(ComthconfmhistoryVO vo) throws Exception;
     
     /**
-	 * comthconfmhistory을 삭제한다.
+	 * COMTHCONFMHISTORY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthconfmhistoryVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComthconfmhistoryService {
     void deleteComthconfmhistory(ComthconfmhistoryVO vo) throws Exception;
     
     /**
-	 * comthconfmhistory을 조회한다.
+	 * COMTHCONFMHISTORY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthconfmhistoryVO
-	 * @return 조회한 comthconfmhistory
+	 * @return 조회한 COMTHCONFMHISTORY
 	 * @exception Exception
 	 */
     ComthconfmhistoryVO selectComthconfmhistory(ComthconfmhistoryVO vo) throws Exception;
     
     /**
-	 * comthconfmhistory 목록을 조회한다.
+	 * COMTHCONFMHISTORY 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthconfmhistory 목록
+	 * @return COMTHCONFMHISTORY 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComthconfmhistoryList(ComthconfmhistoryVO vo) throws Exception;
     
     /**
-	 * comthconfmhistory 총 갯수를 조회한다.
+	 * COMTHCONFMHISTORY 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthconfmhistory 총 갯수
+	 * @return COMTHCONFMHISTORY 총 갯수
 	 * @exception
 	 */
     int selectComthconfmhistoryListTotCnt(ComthconfmhistoryVO vo);

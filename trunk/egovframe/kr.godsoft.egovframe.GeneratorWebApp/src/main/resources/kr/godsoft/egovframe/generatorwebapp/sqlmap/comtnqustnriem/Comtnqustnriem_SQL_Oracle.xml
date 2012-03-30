@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnqustnriem">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnqustnriemVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemVO"/>
+	
+	<resultMap id="comtnqustnriem" class="kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemVO">
+		<result property="qustnrTmplatId" column="qustnr_tmplat_id" columnIndex="1"/>
+		<result property="qestnrId" column="qestnr_id" columnIndex="2"/>
+		<result property="qustnrQesitmId" column="qustnr_qesitm_id" columnIndex="3"/>
+		<result property="qustnrIemId" column="qustnr_iem_id" columnIndex="4"/>
+		<result property="iemSn" column="iem_sn" columnIndex="5"/>
+		<result property="iemCn" column="iem_cn" columnIndex="6"/>
+		<result property="etcAnswerAt" column="etc_answer_at" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnqustnriemDAO.insertComtnqustnriem_S">
+		<![CDATA[
+            INSERT INTO comtnqustnriem (
+                qustnr_tmplat_id
+                , qestnr_id
+                , qustnr_qesitm_id
+                , qustnr_iem_id
+                , iem_sn
+                , iem_cn
+                , etc_answer_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #qustnrTmplatId#
+                , #qestnrId#
+                , #qustnrQesitmId#
+                , #qustnrIemId#
+                , #iemSn#
+                , #iemCn#
+                , #etcAnswerAt#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnqustnriemDAO.updateComtnqustnriem_S">
+		<![CDATA[
+            UPDATE comtnqustnriem
+                SET
+                qustnr_tmplat_id = #qustnrTmplatId#
+                , qestnr_id = #qestnrId#
+                , qustnr_qesitm_id = #qustnrQesitmId#
+                , qustnr_iem_id = #qustnrIemId#
+                , iem_sn = #iemSn#
+                , iem_cn = #iemCn#
+                , etc_answer_at = #etcAnswerAt#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND qustnr_tmplat_id = #qustnrTmplatId#
+                AND qestnr_id = #qestnrId#
+                AND qustnr_qesitm_id = #qustnrQesitmId#
+                AND qustnr_iem_id = #qustnrIemId#
+		]]>
+	</update>
+	
+	<delete id="comtnqustnriemDAO.deleteComtnqustnriem_S">
+		<![CDATA[
+			DELETE FROM comtnqustnriem
+				WHERE 1 = 1
+				AND qustnr_tmplat_id = #qustnrTmplatId#
+				AND qestnr_id = #qestnrId#
+				AND qustnr_qesitm_id = #qustnrQesitmId#
+				AND qustnr_iem_id = #qustnrIemId#
+		]]>
+	</delete>
+	
+	<select id="comtnqustnriemDAO.selectComtnqustnriem_S" resultMap="comtnqustnriem">
+		<![CDATA[
+			SELECT
+				qustnr_tmplat_id
+				, qestnr_id
+				, qustnr_qesitm_id
+				, qustnr_iem_id
+				, iem_sn
+				, iem_cn
+				, etc_answer_at
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTNQUSTNRIEM
+			WHERE qustnr_tmplat_id = #qustnrTmplatId#
+				AND qestnr_id = #qestnrId#
+				AND qustnr_qesitm_id = #qustnrQesitmId#
+				AND qustnr_iem_id = #qustnrIemId#
+		]]>
+	</select>
+	
+	<select id="comtnqustnriemDAO.selectComtnqustnriemList_D" parameterClass="ComtnqustnriemVO" resultClass="egovMap">
+	       SELECT 
+								A.QUSTNR_TMPLAT_ID
+								, A.QESTNR_ID
+								, A.QUSTNR_QESITM_ID
+								, A.QUSTNR_IEM_ID
+								, A.IEM_SN
+								, A.IEM_CN
+								, A.ETC_ANSWER_AT
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								QUSTNR_TMPLAT_ID
+								, QESTNR_ID
+								, QUSTNR_QESITM_ID
+								, QUSTNR_IEM_ID
+								, IEM_SN
+								, IEM_CN
+								, ETC_ANSWER_AT
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTNQUSTNRIEM
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					QUSTNR_TMPLAT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					QESTNR_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							QUSTNR_TMPLAT_ID DESC
+							, QESTNR_ID DESC
+							, QUSTNR_QESITM_ID DESC
+							, QUSTNR_IEM_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnqustnriemDAO.selectComtnqustnriemListTotCnt_S" parameterClass="ComtnqustnriemVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNQUSTNRIEM
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QUSTNR_TMPLAT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTNR_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

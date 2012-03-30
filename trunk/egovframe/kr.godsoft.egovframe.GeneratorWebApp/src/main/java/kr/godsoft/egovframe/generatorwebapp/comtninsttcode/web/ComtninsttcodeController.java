@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtninsttcodeController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtninsttcode 목록을 조회한다. (pageing)
+	 * COMTNINSTTCODE 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtninsttcodeVO
 	 * @return "/comtninsttcode/ComtninsttcodeList"
 	 * @exception Exception

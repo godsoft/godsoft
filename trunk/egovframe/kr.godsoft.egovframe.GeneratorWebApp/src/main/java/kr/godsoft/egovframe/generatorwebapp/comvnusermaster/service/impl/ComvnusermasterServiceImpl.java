@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterService;
+import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterService;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.impl.ComvnusermasterDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComvnusermasterServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.impl.Comvnus
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComvnusermasterServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comvnusermaster을 등록한다.
+	 * COMVNUSERMASTER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComvnusermasterVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComvnusermasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comvnusermaster을 수정한다.
+	 * COMVNUSERMASTER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComvnusermasterVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComvnusermasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comvnusermaster을 삭제한다.
+	 * COMVNUSERMASTER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComvnusermasterVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComvnusermasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comvnusermaster을 조회한다.
+	 * COMVNUSERMASTER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComvnusermasterVO
-	 * @return 조회한 comvnusermaster
+	 * @return 조회한 COMVNUSERMASTER
 	 * @exception Exception
 	 */
     public ComvnusermasterVO selectComvnusermaster(ComvnusermasterVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComvnusermasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comvnusermaster 목록을 조회한다.
+	 * COMVNUSERMASTER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comvnusermaster 목록
+	 * @return COMVNUSERMASTER 목록
 	 * @exception Exception
 	 */
-    public List selectComvnusermasterList(ComvnusermasterDefaultVO searchVO) throws Exception {
-        return comvnusermasterDAO.selectComvnusermasterList(searchVO);
+    public List<EgovMap> selectComvnusermasterList(ComvnusermasterVO vo) throws Exception {
+        return comvnusermasterDAO.selectComvnusermasterList(vo);
     }
 
     /**
-	 * comvnusermaster 총 갯수를 조회한다.
+	 * COMVNUSERMASTER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comvnusermaster 총 갯수
+	 * @return COMVNUSERMASTER 총 갯수
 	 * @exception
 	 */
-    public int selectComvnusermasterListTotCnt(ComvnusermasterDefaultVO searchVO) {
-		return comvnusermasterDAO.selectComvnusermasterListTotCnt(searchVO);
+    public int selectComvnusermasterListTotCnt(ComvnusermasterVO vo) {
+		return comvnusermasterDAO.selectComvnusermasterListTotCnt(vo);
 	}
     
 }

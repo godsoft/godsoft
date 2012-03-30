@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,57 +95,57 @@ function fn_egov_save() {
 		<tr>
 			<th>qustnr_tmplat_ty</th>
 			<td>
-				<form:input path="qustnrTmplatTy" cssClass="txt"/>
-				&nbsp;<form:errors path="qustnrTmplatTy" />
+					<form:input path="qustnrTmplatTy" cssClass="txt"/>
+					&nbsp;<form:errors path="qustnrTmplatTy" />
 			</td>
 		</tr>	
 		<tr>
 			<th>qustnr_tmplat_dc</th>
 			<td>
-				<form:input path="qustnrTmplatDc" cssClass="txt"/>
-				&nbsp;<form:errors path="qustnrTmplatDc" />
+					<form:input path="qustnrTmplatDc" cssClass="txt"/>
+					&nbsp;<form:errors path="qustnrTmplatDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>qustnr_tmplat_path_nm</th>
 			<td>
-				<form:input path="qustnrTmplatPathNm" cssClass="txt"/>
-				&nbsp;<form:errors path="qustnrTmplatPathNm" />
+					<form:input path="qustnrTmplatPathNm" cssClass="txt"/>
+					&nbsp;<form:errors path="qustnrTmplatPathNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>qustnr_tmplat_image_info</th>
 			<td>
-				<form:input path="qustnrTmplatImageInfo" cssClass="txt"/>
-				&nbsp;<form:errors path="qustnrTmplatImageInfo" />
+					<form:input path="qustnrTmplatImageInfo" cssClass="txt"/>
+					&nbsp;<form:errors path="qustnrTmplatImageInfo" />
 			</td>
 		</tr>	
 	</table>

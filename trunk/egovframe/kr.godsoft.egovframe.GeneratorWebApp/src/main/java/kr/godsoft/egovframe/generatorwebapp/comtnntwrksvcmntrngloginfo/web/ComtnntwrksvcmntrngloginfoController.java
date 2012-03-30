@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtnntwrksvcmntrngloginfoController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnntwrksvcmntrngloginfo 목록을 조회한다. (pageing)
+	 * COMTNNTWRKSVCMNTRNGLOGINFO 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtnntwrksvcmntrngloginfoVO
 	 * @return "/comtnntwrksvcmntrngloginfo/ComtnntwrksvcmntrngloginfoList"
 	 * @exception Exception
@@ -100,7 +100,7 @@ public class ComtnntwrksvcmntrngloginfoController {
     @RequestMapping("/comtnntwrksvcmntrngloginfo/updateComtnntwrksvcmntrngloginfoView.do")
     public String updateComtnntwrksvcmntrngloginfoView(
             @RequestParam("sysIp") String sysIp ,
-            @RequestParam("sysPort") int sysPort ,
+            @RequestParam("sysPort") String sysPort ,
             @RequestParam("logId") String logId ,
             @ModelAttribute("searchVO") ComtnntwrksvcmntrngloginfoDefaultVO searchVO, Model model)
             throws Exception {

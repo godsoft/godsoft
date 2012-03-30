@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdStoredPrograms">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdStoredProgramsVO" type="kr.godsoft.egovframe.generatorwebapp.md_stored_programs.service.MdStoredProgramsVO"/>
+	
+	<resultMap id="mdStoredPrograms" class="kr.godsoft.egovframe.generatorwebapp.md_stored_programs.service.MdStoredProgramsVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="schemaIdFk" column="schema_id_fk" columnIndex="2"/>
+		<result property="programtype" column="programtype" columnIndex="3"/>
+		<result property="name" column="name" columnIndex="4"/>
+		<result property="packageIdFk" column="package_id_fk" columnIndex="5"/>
+		<result property="nativeSql" column="native_sql" columnIndex="6"/>
+		<result property="nativeKey" column="native_key" columnIndex="7"/>
+		<result property="language" column="language" columnIndex="8"/>
+		<result property="comments" column="comments" columnIndex="9"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="10"/>
+		<result property="createdOn" column="created_on" columnIndex="11"/>
+		<result property="createdBy" column="created_by" columnIndex="12"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="13"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="14"/>
+	</resultMap>
+	
+	<insert id="mdStoredProgramsDAO.insertMdStoredPrograms_S">
+		<![CDATA[
+            INSERT INTO md_stored_programs (
+                id
+                , schema_id_fk
+                , programtype
+                , name
+                , package_id_fk
+                , native_sql
+                , native_key
+                , language
+                , comments
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #schemaIdFk#
+                , #programtype#
+                , #name#
+                , #packageIdFk#
+                , #nativeSql#
+                , #nativeKey#
+                , #language#
+                , #comments#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdStoredProgramsDAO.updateMdStoredPrograms_S">
+		<![CDATA[
+            UPDATE md_stored_programs
+                SET
+                id = #id#
+                , schema_id_fk = #schemaIdFk#
+                , programtype = #programtype#
+                , name = #name#
+                , package_id_fk = #packageIdFk#
+                , native_sql = #nativeSql#
+                , native_key = #nativeKey#
+                , language = #language#
+                , comments = #comments#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="mdStoredProgramsDAO.deleteMdStoredPrograms_S">
+		<![CDATA[
+			DELETE FROM md_stored_programs
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="mdStoredProgramsDAO.selectMdStoredPrograms_S" resultMap="mdStoredPrograms">
+		<![CDATA[
+			SELECT
+				id
+				, schema_id_fk
+				, programtype
+				, name
+				, package_id_fk
+				, native_sql
+				, native_key
+				, language
+				, comments
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_STORED_PROGRAMS
+		]]>
+	</select>
+	
+	<select id="mdStoredProgramsDAO.selectMdStoredProgramsList_D" parameterClass="MdStoredProgramsVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.SCHEMA_ID_FK
+								, A.PROGRAMTYPE
+								, A.NAME
+								, A.PACKAGE_ID_FK
+								, A.NATIVE_SQL
+								, A.NATIVE_KEY
+								, A.LANGUAGE
+								, A.COMMENTS
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, SCHEMA_ID_FK
+								, PROGRAMTYPE
+								, NAME
+								, PACKAGE_ID_FK
+								, NATIVE_SQL
+								, NATIVE_KEY
+								, LANGUAGE
+								, COMMENTS
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_STORED_PROGRAMS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdStoredProgramsDAO.selectMdStoredProgramsListTotCnt_S" parameterClass="MdStoredProgramsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_STORED_PROGRAMS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbatchschdul">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnbatchschdulVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO"/>
+	
+	<resultMap id="comtnbatchschdul" class="kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.ComtnbatchschdulVO">
+		<result property="batchSchdulId" column="batch_schdul_id" columnIndex="1"/>
+		<result property="batchOpertId" column="batch_opert_id" columnIndex="2"/>
+		<result property="executCycle" column="execut_cycle" columnIndex="3"/>
+		<result property="executSchdulDe" column="execut_schdul_de" columnIndex="4"/>
+		<result property="executSchdulHour" column="execut_schdul_hour" columnIndex="5"/>
+		<result property="executSchdulMnt" column="execut_schdul_mnt" columnIndex="6"/>
+		<result property="executSchdulSecnd" column="execut_schdul_secnd" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnbatchschdulDAO.insertComtnbatchschdul_S">
+		<![CDATA[
+            INSERT INTO comtnbatchschdul (
+                batch_schdul_id
+                , batch_opert_id
+                , execut_cycle
+                , execut_schdul_de
+                , execut_schdul_hour
+                , execut_schdul_mnt
+                , execut_schdul_secnd
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #batchSchdulId#
+                , #batchOpertId#
+                , #executCycle#
+                , #executSchdulDe#
+                , #executSchdulHour#
+                , #executSchdulMnt#
+                , #executSchdulSecnd#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnbatchschdulDAO.updateComtnbatchschdul_S">
+		<![CDATA[
+            UPDATE comtnbatchschdul
+                SET
+                batch_schdul_id = #batchSchdulId#
+                , batch_opert_id = #batchOpertId#
+                , execut_cycle = #executCycle#
+                , execut_schdul_de = #executSchdulDe#
+                , execut_schdul_hour = #executSchdulHour#
+                , execut_schdul_mnt = #executSchdulMnt#
+                , execut_schdul_secnd = #executSchdulSecnd#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND batch_schdul_id = #batchSchdulId#
+		]]>
+	</update>
+	
+	<delete id="comtnbatchschdulDAO.deleteComtnbatchschdul_S">
+		<![CDATA[
+			DELETE FROM comtnbatchschdul
+				WHERE 1 = 1
+				AND batch_schdul_id = #batchSchdulId#
+		]]>
+	</delete>
+	
+	<select id="comtnbatchschdulDAO.selectComtnbatchschdul_S" resultMap="comtnbatchschdul">
+		<![CDATA[
+			SELECT
+				batch_schdul_id
+				, batch_opert_id
+				, execut_cycle
+				, execut_schdul_de
+				, execut_schdul_hour
+				, execut_schdul_mnt
+				, execut_schdul_secnd
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNBATCHSCHDUL
+			WHERE batch_schdul_id = #batchSchdulId#
+		]]>
+	</select>
+	
+	<select id="comtnbatchschdulDAO.selectComtnbatchschdulList_D" parameterClass="ComtnbatchschdulVO" resultClass="egovMap">
+	       SELECT 
+								A.BATCH_SCHDUL_ID
+								, A.BATCH_OPERT_ID
+								, A.EXECUT_CYCLE
+								, A.EXECUT_SCHDUL_DE
+								, A.EXECUT_SCHDUL_HOUR
+								, A.EXECUT_SCHDUL_MNT
+								, A.EXECUT_SCHDUL_SECND
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								BATCH_SCHDUL_ID
+								, BATCH_OPERT_ID
+								, EXECUT_CYCLE
+								, EXECUT_SCHDUL_DE
+								, EXECUT_SCHDUL_HOUR
+								, EXECUT_SCHDUL_MNT
+								, EXECUT_SCHDUL_SECND
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNBATCHSCHDUL
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					BATCH_SCHDUL_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					BATCH_OPERT_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							BATCH_SCHDUL_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnbatchschdulDAO.selectComtnbatchschdulListTotCnt_S" parameterClass="ComtnbatchschdulVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNBATCHSCHDUL
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BATCH_SCHDUL_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BATCH_OPERT_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

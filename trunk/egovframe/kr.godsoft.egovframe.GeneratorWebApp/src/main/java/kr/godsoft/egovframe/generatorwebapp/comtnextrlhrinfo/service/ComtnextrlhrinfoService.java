@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnextrlhrinfoService {
 	
 	/**
-	 * comtnextrlhrinfo을 등록한다.
+	 * COMTNEXTRLHRINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnextrlhrinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnextrlhrinfoService {
     String insertComtnextrlhrinfo(ComtnextrlhrinfoVO vo) throws Exception;
     
     /**
-	 * comtnextrlhrinfo을 수정한다.
+	 * COMTNEXTRLHRINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnextrlhrinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnextrlhrinfoService {
     void updateComtnextrlhrinfo(ComtnextrlhrinfoVO vo) throws Exception;
     
     /**
-	 * comtnextrlhrinfo을 삭제한다.
+	 * COMTNEXTRLHRINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnextrlhrinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnextrlhrinfoService {
     void deleteComtnextrlhrinfo(ComtnextrlhrinfoVO vo) throws Exception;
     
     /**
-	 * comtnextrlhrinfo을 조회한다.
+	 * COMTNEXTRLHRINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnextrlhrinfoVO
-	 * @return 조회한 comtnextrlhrinfo
+	 * @return 조회한 COMTNEXTRLHRINFO
 	 * @exception Exception
 	 */
     ComtnextrlhrinfoVO selectComtnextrlhrinfo(ComtnextrlhrinfoVO vo) throws Exception;
     
     /**
-	 * comtnextrlhrinfo 목록을 조회한다.
+	 * COMTNEXTRLHRINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnextrlhrinfo 목록
+	 * @return COMTNEXTRLHRINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnextrlhrinfoList(ComtnextrlhrinfoVO vo) throws Exception;
     
     /**
-	 * comtnextrlhrinfo 총 갯수를 조회한다.
+	 * COMTNEXTRLHRINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnextrlhrinfo 총 갯수
+	 * @return COMTNEXTRLHRINFO 총 갯수
 	 * @exception
 	 */
     int selectComtnextrlhrinfoListTotCnt(ComtnextrlhrinfoVO vo);

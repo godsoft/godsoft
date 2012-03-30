@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,99 +95,99 @@ function fn_egov_save() {
 		<tr>
 			<th>popup_sj_nm</th>
 			<td>
-				<form:input path="popupSjNm" cssClass="txt"/>
-				&nbsp;<form:errors path="popupSjNm" />
+					<form:input path="popupSjNm" cssClass="txt"/>
+					&nbsp;<form:errors path="popupSjNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>file_url</th>
 			<td>
-				<form:input path="fileUrl" cssClass="txt"/>
-				&nbsp;<form:errors path="fileUrl" />
+					<form:input path="fileUrl" cssClass="txt"/>
+					&nbsp;<form:errors path="fileUrl" />
 			</td>
 		</tr>	
 		<tr>
 			<th>popup_width_lc</th>
 			<td>
-				<form:input path="popupWidthLc" cssClass="txt"/>
-				&nbsp;<form:errors path="popupWidthLc" />
+					<form:input path="popupWidthLc" cssClass="txt"/>
+					&nbsp;<form:errors path="popupWidthLc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>popup_width_size</th>
 			<td>
-				<form:input path="popupWidthSize" cssClass="txt"/>
-				&nbsp;<form:errors path="popupWidthSize" />
+					<form:input path="popupWidthSize" cssClass="txt"/>
+					&nbsp;<form:errors path="popupWidthSize" />
 			</td>
 		</tr>	
 		<tr>
 			<th>ntce_bgnde</th>
 			<td>
-				<form:input path="ntceBgnde" cssClass="txt"/>
-				&nbsp;<form:errors path="ntceBgnde" />
+					<form:input path="ntceBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="ntceBgnde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>ntce_endde</th>
 			<td>
-				<form:input path="ntceEndde" cssClass="txt"/>
-				&nbsp;<form:errors path="ntceEndde" />
+					<form:input path="ntceEndde" cssClass="txt"/>
+					&nbsp;<form:errors path="ntceEndde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>stopvew_setup_at</th>
 			<td>
-				<form:input path="stopvewSetupAt" cssClass="txt"/>
-				&nbsp;<form:errors path="stopvewSetupAt" />
+					<form:input path="stopvewSetupAt" cssClass="txt"/>
+					&nbsp;<form:errors path="stopvewSetupAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>ntce_at</th>
 			<td>
-				<form:input path="ntceAt" cssClass="txt"/>
-				&nbsp;<form:errors path="ntceAt" />
+					<form:input path="ntceAt" cssClass="txt"/>
+					&nbsp;<form:errors path="ntceAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>popup_vrticl_lc</th>
 			<td>
-				<form:input path="popupVrticlLc" cssClass="txt"/>
-				&nbsp;<form:errors path="popupVrticlLc" />
+					<form:input path="popupVrticlLc" cssClass="txt"/>
+					&nbsp;<form:errors path="popupVrticlLc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>popup_vrticl_size</th>
 			<td>
-				<form:input path="popupVrticlSize" cssClass="txt"/>
-				&nbsp;<form:errors path="popupVrticlSize" />
+					<form:input path="popupVrticlSize" cssClass="txt"/>
+					&nbsp;<form:errors path="popupVrticlSize" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdIndexDetails">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdIndexDetailsVO" type="kr.godsoft.egovframe.generatorwebapp.md_index_details.service.MdIndexDetailsVO"/>
+	
+	<resultMap id="mdIndexDetails" class="kr.godsoft.egovframe.generatorwebapp.md_index_details.service.MdIndexDetailsVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="indexIdFk" column="index_id_fk" columnIndex="2"/>
+		<result property="columnIdFk" column="column_id_fk" columnIndex="3"/>
+		<result property="indexPortion" column="index_portion" columnIndex="4"/>
+		<result property="detailOrder" column="detail_order" columnIndex="5"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="6"/>
+		<result property="createdOn" column="created_on" columnIndex="7"/>
+		<result property="createdBy" column="created_by" columnIndex="8"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="9"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="10"/>
+	</resultMap>
+	
+	<insert id="mdIndexDetailsDAO.insertMdIndexDetails_S">
+		<![CDATA[
+            INSERT INTO md_index_details (
+                id
+                , index_id_fk
+                , column_id_fk
+                , index_portion
+                , detail_order
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #indexIdFk#
+                , #columnIdFk#
+                , #indexPortion#
+                , #detailOrder#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdIndexDetailsDAO.updateMdIndexDetails_S">
+		<![CDATA[
+            UPDATE md_index_details
+                SET
+                id = #id#
+                , index_id_fk = #indexIdFk#
+                , column_id_fk = #columnIdFk#
+                , index_portion = #indexPortion#
+                , detail_order = #detailOrder#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdIndexDetailsDAO.deleteMdIndexDetails_S">
+		<![CDATA[
+			DELETE FROM md_index_details
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdIndexDetailsDAO.selectMdIndexDetails_S" resultMap="mdIndexDetails">
+		<![CDATA[
+			SELECT
+				id
+				, index_id_fk
+				, column_id_fk
+				, index_portion
+				, detail_order
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_INDEX_DETAILS
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdIndexDetailsDAO.selectMdIndexDetailsList_D" parameterClass="MdIndexDetailsVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.INDEX_ID_FK
+								, A.COLUMN_ID_FK
+								, A.INDEX_PORTION
+								, A.DETAIL_ORDER
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, INDEX_ID_FK
+								, COLUMN_ID_FK
+								, INDEX_PORTION
+								, DETAIL_ORDER
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_INDEX_DETAILS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					INDEX_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdIndexDetailsDAO.selectMdIndexDetailsListTotCnt_S" parameterClass="MdIndexDetailsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_INDEX_DETAILS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				INDEX_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

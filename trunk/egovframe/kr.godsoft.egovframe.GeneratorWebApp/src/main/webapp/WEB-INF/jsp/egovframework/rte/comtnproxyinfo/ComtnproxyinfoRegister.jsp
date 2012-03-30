@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,85 +95,85 @@ function fn_egov_save() {
 		<tr>
 			<th>proxy_nm</th>
 			<td>
-				<form:input path="proxyNm" cssClass="txt"/>
-				&nbsp;<form:errors path="proxyNm" />
+					<form:input path="proxyNm" cssClass="txt"/>
+					&nbsp;<form:errors path="proxyNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>proxy_ip</th>
 			<td>
-				<form:input path="proxyIp" cssClass="txt"/>
-				&nbsp;<form:errors path="proxyIp" />
+					<form:input path="proxyIp" cssClass="txt"/>
+					&nbsp;<form:errors path="proxyIp" />
 			</td>
 		</tr>	
 		<tr>
 			<th>proxy_port</th>
 			<td>
-				<form:input path="proxyPort" cssClass="txt"/>
-				&nbsp;<form:errors path="proxyPort" />
+					<form:input path="proxyPort" cssClass="txt"/>
+					&nbsp;<form:errors path="proxyPort" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trget_svc_nm</th>
 			<td>
-				<form:input path="trgetSvcNm" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetSvcNm" />
+					<form:input path="trgetSvcNm" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetSvcNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>svc_dc</th>
 			<td>
-				<form:input path="svcDc" cssClass="txt"/>
-				&nbsp;<form:errors path="svcDc" />
+					<form:input path="svcDc" cssClass="txt"/>
+					&nbsp;<form:errors path="svcDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>svc_ip</th>
 			<td>
-				<form:input path="svcIp" cssClass="txt"/>
-				&nbsp;<form:errors path="svcIp" />
+					<form:input path="svcIp" cssClass="txt"/>
+					&nbsp;<form:errors path="svcIp" />
 			</td>
 		</tr>	
 		<tr>
 			<th>svc_port</th>
 			<td>
-				<form:input path="svcPort" cssClass="txt"/>
-				&nbsp;<form:errors path="svcPort" />
+					<form:input path="svcPort" cssClass="txt"/>
+					&nbsp;<form:errors path="svcPort" />
 			</td>
 		</tr>	
 		<tr>
 			<th>svc_sttus</th>
 			<td>
-				<form:input path="svcSttus" cssClass="txt"/>
-				&nbsp;<form:errors path="svcSttus" />
+					<form:input path="svcSttus" cssClass="txt"/>
+					&nbsp;<form:errors path="svcSttus" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

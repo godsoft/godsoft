@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnqainfoService {
 	
 	/**
-	 * comtnqainfo을 등록한다.
+	 * COMTNQAINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqainfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnqainfoService {
     String insertComtnqainfo(ComtnqainfoVO vo) throws Exception;
     
     /**
-	 * comtnqainfo을 수정한다.
+	 * COMTNQAINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqainfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnqainfoService {
     void updateComtnqainfo(ComtnqainfoVO vo) throws Exception;
     
     /**
-	 * comtnqainfo을 삭제한다.
+	 * COMTNQAINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqainfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnqainfoService {
     void deleteComtnqainfo(ComtnqainfoVO vo) throws Exception;
     
     /**
-	 * comtnqainfo을 조회한다.
+	 * COMTNQAINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqainfoVO
-	 * @return 조회한 comtnqainfo
+	 * @return 조회한 COMTNQAINFO
 	 * @exception Exception
 	 */
     ComtnqainfoVO selectComtnqainfo(ComtnqainfoVO vo) throws Exception;
     
     /**
-	 * comtnqainfo 목록을 조회한다.
+	 * COMTNQAINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqainfo 목록
+	 * @return COMTNQAINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnqainfoList(ComtnqainfoVO vo) throws Exception;
     
     /**
-	 * comtnqainfo 총 갯수를 조회한다.
+	 * COMTNQAINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqainfo 총 갯수
+	 * @return COMTNQAINFO 총 갯수
 	 * @exception
 	 */
     int selectComtnqainfoListTotCnt(ComtnqainfoVO vo);

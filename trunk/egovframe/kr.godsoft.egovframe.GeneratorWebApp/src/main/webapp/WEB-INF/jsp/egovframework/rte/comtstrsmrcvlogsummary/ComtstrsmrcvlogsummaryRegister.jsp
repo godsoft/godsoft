@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -173,15 +173,15 @@ function fn_egov_save() {
 		<tr>
 			<th>rdcnt</th>
 			<td>
-				<form:input path="rdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="rdcnt" />
+					<form:input path="rdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_co</th>
 			<td>
-				<form:input path="errorCo" cssClass="txt"/>
-				&nbsp;<form:errors path="errorCo" />
+					<form:input path="errorCo" cssClass="txt"/>
+					&nbsp;<form:errors path="errorCo" />
 			</td>
 		</tr>	
 	</table>

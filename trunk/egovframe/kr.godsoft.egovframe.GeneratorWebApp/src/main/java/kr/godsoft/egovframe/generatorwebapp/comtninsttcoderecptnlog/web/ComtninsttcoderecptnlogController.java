@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtninsttcoderecptnlogController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtninsttcoderecptnlog 목록을 조회한다. (pageing)
+	 * COMTNINSTTCODERECPTNLOG 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtninsttcoderecptnlogVO
 	 * @return "/comtninsttcoderecptnlog/ComtninsttcoderecptnlogList"
 	 * @exception Exception
@@ -101,7 +101,7 @@ public class ComtninsttcoderecptnlogController {
     public String updateComtninsttcoderecptnlogView(
             @RequestParam("occrrncDe") String occrrncDe ,
             @RequestParam("insttCode") String insttCode ,
-            @RequestParam("opertSn") int opertSn ,
+            @RequestParam("opertSn") String opertSn ,
             @ModelAttribute("searchVO") ComtninsttcoderecptnlogDefaultVO searchVO, Model model)
             throws Exception {
         ComtninsttcoderecptnlogVO comtninsttcoderecptnlogVO = new ComtninsttcoderecptnlogVO();

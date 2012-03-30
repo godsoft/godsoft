@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.Comthconfm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service.Comthconfm
 public class ComthconfmhistoryDAO extends EgovAbstractDAO {
 
 	/**
-	 * comthconfmhistory을 등록한다.
+	 * COMTHCONFMHISTORY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthconfmhistoryVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthconfmhistory을 수정한다.
+	 * COMTHCONFMHISTORY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthconfmhistoryVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthconfmhistory을 삭제한다.
+	 * COMTHCONFMHISTORY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthconfmhistoryVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthconfmhistory을 조회한다.
+	 * COMTHCONFMHISTORY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthconfmhistoryVO
-	 * @return 조회한 comthconfmhistory
+	 * @return 조회한 COMTHCONFMHISTORY
 	 * @exception Exception
 	 */
     public ComthconfmhistoryVO selectComthconfmhistory(ComthconfmhistoryVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthconfmhistory 목록을 조회한다.
+	 * COMTHCONFMHISTORY 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comthconfmhistory 목록
+	 * @return COMTHCONFMHISTORY 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComthconfmhistoryDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthconfmhistory 총 갯수를 조회한다.
+	 * COMTHCONFMHISTORY 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comthconfmhistory 총 갯수
+	 * @return COMTHCONFMHISTORY 총 갯수
 	 * @exception
 	 */
     public int selectComthconfmhistoryListTotCnt(ComthconfmhistoryVO vo) {

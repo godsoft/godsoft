@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnsitelistServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnsitelist을 등록한다.
+	 * COMTNSITELIST을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnsitelistVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnsitelistServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnsitelist을 수정한다.
+	 * COMTNSITELIST을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnsitelistVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnsitelistServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnsitelist을 삭제한다.
+	 * COMTNSITELIST을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnsitelistVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnsitelistServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnsitelist을 조회한다.
+	 * COMTNSITELIST을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnsitelistVO
-	 * @return 조회한 comtnsitelist
+	 * @return 조회한 COMTNSITELIST
 	 * @exception Exception
 	 */
     public ComtnsitelistVO selectComtnsitelist(ComtnsitelistVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnsitelistServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnsitelist 목록을 조회한다.
+	 * COMTNSITELIST 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnsitelist 목록
+	 * @return COMTNSITELIST 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnsitelistList(ComtnsitelistVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnsitelistServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnsitelist 총 갯수를 조회한다.
+	 * COMTNSITELIST 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnsitelist 총 갯수
+	 * @return COMTNSITELIST 총 갯수
 	 * @exception
 	 */
     public int selectComtnsitelistListTotCnt(ComtnsitelistVO vo) {

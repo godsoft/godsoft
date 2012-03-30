@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comthprogrmchangedtls.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComthprogrmchangedtlsVO extends ComthprogrmchangedtlsDefaultVO{
+public class ComthprogrmchangedtlsVO extends ComthprogrmchangedtlsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** PROGRM_FILE_NM */
     private String progrmFileNm;
     
-    /**  */
-    private int requstNo;
+    /** REQUST_NO */
+    private String requstNo;
     
-    /**  */
+    /** RQESTER_ID */
     private String rqesterId;
     
-    /**  */
+    /** CHANGE_REQUST_CN */
     private String changeRequstCn;
     
-    /**  */
-    private int requstProcessCn;
+    /** REQUST_PROCESS_CN */
+    private String requstProcessCn;
     
-    /**  */
+    /** OPETR_ID */
     private String opetrId;
     
-    /**  */
+    /** PROCESS_STTUS_CODE */
     private String processSttusCode;
     
-    /**  */
+    /** PROCESS_DE */
     private String processDe;
     
-    /**  */
+    /** RQESTDE */
     private String rqestde;
     
-    /**  */
+    /** REQUST_SJ */
     private String requstSj;
     
     public String getProgrmFileNm() {
@@ -53,11 +53,11 @@ public class ComthprogrmchangedtlsVO extends ComthprogrmchangedtlsDefaultVO{
         this.progrmFileNm = progrmFileNm;
     }
     
-    public int getRequstNo() {
+    public String getRequstNo() {
         return this.requstNo;
     }
     
-    public void setRequstNo(int requstNo) {
+    public void setRequstNo(String requstNo) {
         this.requstNo = requstNo;
     }
     
@@ -77,11 +77,11 @@ public class ComthprogrmchangedtlsVO extends ComthprogrmchangedtlsDefaultVO{
         this.changeRequstCn = changeRequstCn;
     }
     
-    public int getRequstProcessCn() {
+    public String getRequstProcessCn() {
         return this.requstProcessCn;
     }
     
-    public void setRequstProcessCn(int requstProcessCn) {
+    public void setRequstProcessCn(String requstProcessCn) {
         this.requstProcessCn = requstProcessCn;
     }
     

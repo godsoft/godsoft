@@ -6,37 +6,37 @@ package kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnrecentsrchwrdVO extends ComtnrecentsrchwrdDefaultVO{
+public class ComtnrecentsrchwrdVO extends ComtnrecentsrchwrdDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SRCHWRD_MANAGE_ID */
     private String srchwrdManageId;
     
-    /**  */
+    /** RECENT_SRCHWRD_ID */
     private String recentSrchwrdId;
     
-    /**  */
+    /** RECENT_SRCHWRD_NM */
     private String recentSrchwrdNm;
     
-    /**  */
-    private int recentSrchwrdCo;
+    /** RECENT_SRCHWRD_CO */
+    private String recentSrchwrdCo;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getSrchwrdManageId() {
@@ -63,11 +63,11 @@ public class ComtnrecentsrchwrdVO extends ComtnrecentsrchwrdDefaultVO{
         this.recentSrchwrdNm = recentSrchwrdNm;
     }
     
-    public int getRecentSrchwrdCo() {
+    public String getRecentSrchwrdCo() {
         return this.recentSrchwrdCo;
     }
     
-    public void setRecentSrchwrdCo(int recentSrchwrdCo) {
+    public void setRecentSrchwrdCo(String recentSrchwrdCo) {
         this.recentSrchwrdCo = recentSrchwrdCo;
     }
     

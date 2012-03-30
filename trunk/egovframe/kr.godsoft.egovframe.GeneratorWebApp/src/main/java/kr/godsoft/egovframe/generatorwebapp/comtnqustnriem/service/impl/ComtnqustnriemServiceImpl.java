@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.impl.ComtnqustnriemDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnqustnriemServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.impl.Comtnqus
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnqustnriemServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnqustnriem을 등록한다.
+	 * COMTNQUSTNRIEM을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqustnriemVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnqustnriemServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnriem을 수정한다.
+	 * COMTNQUSTNRIEM을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqustnriemVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnqustnriemServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnriem을 삭제한다.
+	 * COMTNQUSTNRIEM을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqustnriemVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnqustnriemServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnriem을 조회한다.
+	 * COMTNQUSTNRIEM을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqustnriemVO
-	 * @return 조회한 comtnqustnriem
+	 * @return 조회한 COMTNQUSTNRIEM
 	 * @exception Exception
 	 */
     public ComtnqustnriemVO selectComtnqustnriem(ComtnqustnriemVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnqustnriemServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnriem 목록을 조회한다.
+	 * COMTNQUSTNRIEM 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqustnriem 목록
+	 * @return COMTNQUSTNRIEM 목록
 	 * @exception Exception
 	 */
-    public List selectComtnqustnriemList(ComtnqustnriemDefaultVO searchVO) throws Exception {
-        return comtnqustnriemDAO.selectComtnqustnriemList(searchVO);
+    public List<EgovMap> selectComtnqustnriemList(ComtnqustnriemVO vo) throws Exception {
+        return comtnqustnriemDAO.selectComtnqustnriemList(vo);
     }
 
     /**
-	 * comtnqustnriem 총 갯수를 조회한다.
+	 * COMTNQUSTNRIEM 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqustnriem 총 갯수
+	 * @return COMTNQUSTNRIEM 총 갯수
 	 * @exception
 	 */
-    public int selectComtnqustnriemListTotCnt(ComtnqustnriemDefaultVO searchVO) {
-		return comtnqustnriemDAO.selectComtnqustnriemListTotCnt(searchVO);
+    public int selectComtnqustnriemListTotCnt(ComtnqustnriemVO vo) {
+		return comtnqustnriemDAO.selectComtnqustnriemListTotCnt(vo);
 	}
     
 }

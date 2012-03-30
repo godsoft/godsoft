@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComthemaildsptchmanageService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.Comth
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.Comth
 public interface ComthemaildsptchmanageService {
 	
 	/**
-	 * comthemaildsptchmanage을 등록한다.
+	 * COMTHEMAILDSPTCHMANAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthemaildsptchmanageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComthemaildsptchmanageService {
     String insertComthemaildsptchmanage(ComthemaildsptchmanageVO vo) throws Exception;
     
     /**
-	 * comthemaildsptchmanage을 수정한다.
+	 * COMTHEMAILDSPTCHMANAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthemaildsptchmanageVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComthemaildsptchmanageService {
     void updateComthemaildsptchmanage(ComthemaildsptchmanageVO vo) throws Exception;
     
     /**
-	 * comthemaildsptchmanage을 삭제한다.
+	 * COMTHEMAILDSPTCHMANAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthemaildsptchmanageVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComthemaildsptchmanageService {
     void deleteComthemaildsptchmanage(ComthemaildsptchmanageVO vo) throws Exception;
     
     /**
-	 * comthemaildsptchmanage을 조회한다.
+	 * COMTHEMAILDSPTCHMANAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthemaildsptchmanageVO
-	 * @return 조회한 comthemaildsptchmanage
+	 * @return 조회한 COMTHEMAILDSPTCHMANAGE
 	 * @exception Exception
 	 */
     ComthemaildsptchmanageVO selectComthemaildsptchmanage(ComthemaildsptchmanageVO vo) throws Exception;
     
     /**
-	 * comthemaildsptchmanage 목록을 조회한다.
+	 * COMTHEMAILDSPTCHMANAGE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthemaildsptchmanage 목록
+	 * @return COMTHEMAILDSPTCHMANAGE 목록
 	 * @exception Exception
 	 */
-    List selectComthemaildsptchmanageList(ComthemaildsptchmanageDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComthemaildsptchmanageList(ComthemaildsptchmanageVO vo) throws Exception;
     
     /**
-	 * comthemaildsptchmanage 총 갯수를 조회한다.
+	 * COMTHEMAILDSPTCHMANAGE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthemaildsptchmanage 총 갯수
+	 * @return COMTHEMAILDSPTCHMANAGE 총 갯수
 	 * @exception
 	 */
-    int selectComthemaildsptchmanageListTotCnt(ComthemaildsptchmanageDefaultVO searchVO);
+    int selectComthemaildsptchmanageListTotCnt(ComthemaildsptchmanageVO vo);
     
 }

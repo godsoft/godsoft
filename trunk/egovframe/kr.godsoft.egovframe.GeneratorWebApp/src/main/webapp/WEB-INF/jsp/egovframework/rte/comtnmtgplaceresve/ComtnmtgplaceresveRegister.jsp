@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,85 +95,85 @@ function fn_egov_save() {
 		<tr>
 			<th>mtgrum_id</th>
 			<td>
-				<form:input path="mtgrumId" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgrumId" />
+					<form:input path="mtgrumId" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgrumId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_sj</th>
 			<td>
-				<form:input path="mtgSj" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgSj" />
+					<form:input path="mtgSj" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgSj" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rsvctm_id</th>
 			<td>
-				<form:input path="rsvctmId" cssClass="txt"/>
-				&nbsp;<form:errors path="rsvctmId" />
+					<form:input path="rsvctmId" cssClass="txt"/>
+					&nbsp;<form:errors path="rsvctmId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>resve_de</th>
 			<td>
-				<form:input path="resveDe" cssClass="txt"/>
-				&nbsp;<form:errors path="resveDe" />
+					<form:input path="resveDe" cssClass="txt"/>
+					&nbsp;<form:errors path="resveDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>resve_begin_tm</th>
 			<td>
-				<form:input path="resveBeginTm" cssClass="txt"/>
-				&nbsp;<form:errors path="resveBeginTm" />
+					<form:input path="resveBeginTm" cssClass="txt"/>
+					&nbsp;<form:errors path="resveBeginTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>resve_end_tm</th>
 			<td>
-				<form:input path="resveEndTm" cssClass="txt"/>
-				&nbsp;<form:errors path="resveEndTm" />
+					<form:input path="resveEndTm" cssClass="txt"/>
+					&nbsp;<form:errors path="resveEndTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atndnc_nmpr</th>
 			<td>
-				<form:input path="atndncNmpr" cssClass="txt"/>
-				&nbsp;<form:errors path="atndncNmpr" />
+					<form:input path="atndncNmpr" cssClass="txt"/>
+					&nbsp;<form:errors path="atndncNmpr" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_cn</th>
 			<td>
-				<form:input path="mtgCn" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgCn" />
+					<form:input path="mtgCn" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

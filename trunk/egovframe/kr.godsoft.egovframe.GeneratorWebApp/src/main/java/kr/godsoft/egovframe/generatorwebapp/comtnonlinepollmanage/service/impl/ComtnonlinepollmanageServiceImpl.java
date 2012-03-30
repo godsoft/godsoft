@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnonlinepollmanage을 등록한다.
+	 * COMTNONLINEPOLLMANAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnonlinepollmanageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollmanage을 수정한다.
+	 * COMTNONLINEPOLLMANAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnonlinepollmanageVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollmanage을 삭제한다.
+	 * COMTNONLINEPOLLMANAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnonlinepollmanageVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollmanage을 조회한다.
+	 * COMTNONLINEPOLLMANAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnonlinepollmanageVO
-	 * @return 조회한 comtnonlinepollmanage
+	 * @return 조회한 COMTNONLINEPOLLMANAGE
 	 * @exception Exception
 	 */
     public ComtnonlinepollmanageVO selectComtnonlinepollmanage(ComtnonlinepollmanageVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollmanage 목록을 조회한다.
+	 * COMTNONLINEPOLLMANAGE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnonlinepollmanage 목록
+	 * @return COMTNONLINEPOLLMANAGE 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnonlinepollmanageList(ComtnonlinepollmanageVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnonlinepollmanageServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollmanage 총 갯수를 조회한다.
+	 * COMTNONLINEPOLLMANAGE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnonlinepollmanage 총 갯수
+	 * @return COMTNONLINEPOLLMANAGE 총 갯수
 	 * @exception
 	 */
     public int selectComtnonlinepollmanageListTotCnt(ComtnonlinepollmanageVO vo) {

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,85 +95,85 @@ function fn_egov_save() {
 		<tr>
 			<th>administ_word_nm</th>
 			<td>
-				<form:input path="administWordNm" cssClass="txt"/>
-				&nbsp;<form:errors path="administWordNm" />
+					<form:input path="administWordNm" cssClass="txt"/>
+					&nbsp;<form:errors path="administWordNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>administ_word_eng_nm</th>
 			<td>
-				<form:input path="administWordEngNm" cssClass="txt"/>
-				&nbsp;<form:errors path="administWordEngNm" />
+					<form:input path="administWordEngNm" cssClass="txt"/>
+					&nbsp;<form:errors path="administWordEngNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>administ_word_abrv_nm</th>
 			<td>
-				<form:input path="administWordAbrvNm" cssClass="txt"/>
-				&nbsp;<form:errors path="administWordAbrvNm" />
+					<form:input path="administWordAbrvNm" cssClass="txt"/>
+					&nbsp;<form:errors path="administWordAbrvNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>thema_relm</th>
 			<td>
-				<form:input path="themaRelm" cssClass="txt"/>
-				&nbsp;<form:errors path="themaRelm" />
+					<form:input path="themaRelm" cssClass="txt"/>
+					&nbsp;<form:errors path="themaRelm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>word_se</th>
 			<td>
-				<form:input path="wordSe" cssClass="txt"/>
-				&nbsp;<form:errors path="wordSe" />
+					<form:input path="wordSe" cssClass="txt"/>
+					&nbsp;<form:errors path="wordSe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>relate_std_word</th>
 			<td>
-				<form:input path="relateStdWord" cssClass="txt"/>
-				&nbsp;<form:errors path="relateStdWord" />
+					<form:input path="relateStdWord" cssClass="txt"/>
+					&nbsp;<form:errors path="relateStdWord" />
 			</td>
 		</tr>	
 		<tr>
 			<th>administ_word_dfn</th>
 			<td>
-				<form:input path="administWordDfn" cssClass="txt"/>
-				&nbsp;<form:errors path="administWordDfn" />
+					<form:input path="administWordDfn" cssClass="txt"/>
+					&nbsp;<form:errors path="administWordDfn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>administ_word_dc</th>
 			<td>
-				<form:input path="administWordDc" cssClass="txt"/>
-				&nbsp;<form:errors path="administWordDc" />
+					<form:input path="administWordDc" cssClass="txt"/>
+					&nbsp;<form:errors path="administWordDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

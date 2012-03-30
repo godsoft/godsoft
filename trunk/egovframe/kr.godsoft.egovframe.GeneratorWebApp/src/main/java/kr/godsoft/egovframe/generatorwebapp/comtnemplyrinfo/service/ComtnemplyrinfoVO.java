@@ -6,94 +6,94 @@ package kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnemplyrinfoVO extends ComtnemplyrinfoDefaultVO{
+public class ComtnemplyrinfoVO extends ComtnemplyrinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
-    /**  */
+    /** ORGNZT_ID */
     private String orgnztId;
     
-    /**  */
+    /** USER_NM */
     private String userNm;
     
-    /**  */
+    /** PASSWORD */
     private String password;
     
-    /**  */
+    /** EMPL_NO */
     private String emplNo;
     
-    /**  */
+    /** IHIDNUM */
     private String ihidnum;
     
-    /**  */
+    /** SEXDSTN_CODE */
     private String sexdstnCode;
     
-    /**  */
+    /** BRTHDY */
     private String brthdy;
     
-    /**  */
+    /** FXNUM */
     private String fxnum;
     
-    /**  */
+    /** HOUSE_ADRES */
     private String houseAdres;
     
-    /**  */
+    /** PASSWORD_HINT */
     private String passwordHint;
     
-    /**  */
+    /** PASSWORD_CNSR */
     private String passwordCnsr;
     
-    /**  */
+    /** HOUSE_END_TELNO */
     private String houseEndTelno;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** DETAIL_ADRES */
     private String detailAdres;
     
-    /**  */
+    /** ZIP */
     private String zip;
     
-    /**  */
+    /** OFFM_TELNO */
     private String offmTelno;
     
-    /**  */
+    /** MBTLNUM */
     private String mbtlnum;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** OFCPS_NM */
     private String ofcpsNm;
     
-    /**  */
+    /** HOUSE_MIDDLE_TELNO */
     private String houseMiddleTelno;
     
-    /**  */
+    /** GROUP_ID */
     private String groupId;
     
-    /**  */
+    /** PSTINST_CODE */
     private String pstinstCode;
     
-    /**  */
+    /** EMPLYR_STTUS_CODE */
     private String emplyrSttusCode;
     
-    /**  */
+    /** ESNTL_ID */
     private String esntlId;
     
-    /**  */
+    /** CRTFC_DN_VALUE */
     private String crtfcDnValue;
     
-    /**  */
+    /** SBSCRB_DE */
     private String sbscrbDe;
     
     public String getEmplyrId() {

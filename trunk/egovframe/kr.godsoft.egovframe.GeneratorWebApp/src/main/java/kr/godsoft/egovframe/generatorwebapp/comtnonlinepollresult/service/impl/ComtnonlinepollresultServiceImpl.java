@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.impl.ComtnonlinepollresultDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnonlinepollresultServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.impl.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnonlinepollresultServiceImpl extends AbstractServiceImpl implem
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnonlinepollresult을 등록한다.
+	 * COMTNONLINEPOLLRESULT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnonlinepollresultServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollresult을 수정한다.
+	 * COMTNONLINEPOLLRESULT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnonlinepollresultServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollresult을 삭제한다.
+	 * COMTNONLINEPOLLRESULT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnonlinepollresultServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollresult을 조회한다.
+	 * COMTNONLINEPOLLRESULT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnonlinepollresultVO
-	 * @return 조회한 comtnonlinepollresult
+	 * @return 조회한 COMTNONLINEPOLLRESULT
 	 * @exception Exception
 	 */
     public ComtnonlinepollresultVO selectComtnonlinepollresult(ComtnonlinepollresultVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnonlinepollresultServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnonlinepollresult 목록을 조회한다.
+	 * COMTNONLINEPOLLRESULT 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnonlinepollresult 목록
+	 * @return COMTNONLINEPOLLRESULT 목록
 	 * @exception Exception
 	 */
-    public List selectComtnonlinepollresultList(ComtnonlinepollresultDefaultVO searchVO) throws Exception {
-        return comtnonlinepollresultDAO.selectComtnonlinepollresultList(searchVO);
+    public List<EgovMap> selectComtnonlinepollresultList(ComtnonlinepollresultVO vo) throws Exception {
+        return comtnonlinepollresultDAO.selectComtnonlinepollresultList(vo);
     }
 
     /**
-	 * comtnonlinepollresult 총 갯수를 조회한다.
+	 * COMTNONLINEPOLLRESULT 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnonlinepollresult 총 갯수
+	 * @return COMTNONLINEPOLLRESULT 총 갯수
 	 * @exception
 	 */
-    public int selectComtnonlinepollresultListTotCnt(ComtnonlinepollresultDefaultVO searchVO) {
-		return comtnonlinepollresultDAO.selectComtnonlinepollresultListTotCnt(searchVO);
+    public int selectComtnonlinepollresultListTotCnt(ComtnonlinepollresultVO vo) {
+		return comtnonlinepollresultDAO.selectComtnonlinepollresultListTotCnt(vo);
 	}
     
 }

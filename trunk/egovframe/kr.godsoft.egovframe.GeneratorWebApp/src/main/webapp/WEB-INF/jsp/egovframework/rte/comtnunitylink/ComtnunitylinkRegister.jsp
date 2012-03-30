@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,64 +95,64 @@ function fn_egov_save() {
 		<tr>
 			<th>unity_link_group</th>
 			<td>
-				<form:input path="unityLinkGroup" cssClass="txt"/>
-				&nbsp;<form:errors path="unityLinkGroup" />
+					<form:input path="unityLinkGroup" cssClass="txt"/>
+					&nbsp;<form:errors path="unityLinkGroup" />
 			</td>
 		</tr>	
 		<tr>
 			<th>unity_link_nm</th>
 			<td>
-				<form:input path="unityLinkNm" cssClass="txt"/>
-				&nbsp;<form:errors path="unityLinkNm" />
+					<form:input path="unityLinkNm" cssClass="txt"/>
+					&nbsp;<form:errors path="unityLinkNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>unity_link_url</th>
 			<td>
-				<form:input path="unityLinkUrl" cssClass="txt"/>
-				&nbsp;<form:errors path="unityLinkUrl" />
+					<form:input path="unityLinkUrl" cssClass="txt"/>
+					&nbsp;<form:errors path="unityLinkUrl" />
 			</td>
 		</tr>	
 		<tr>
 			<th>unity_link_dc</th>
 			<td>
-				<form:input path="unityLinkDc" cssClass="txt"/>
-				&nbsp;<form:errors path="unityLinkDc" />
+					<form:input path="unityLinkDc" cssClass="txt"/>
+					&nbsp;<form:errors path="unityLinkDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>unity_link_se_code</th>
 			<td>
-				<form:input path="unityLinkSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="unityLinkSeCode" />
+					<form:input path="unityLinkSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="unityLinkSeCode" />
 			</td>
 		</tr>	
 	</table>

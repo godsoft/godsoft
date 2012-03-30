@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -108,43 +108,43 @@ function fn_egov_save() {
 		<tr>
 			<th>file_stre_cours</th>
 			<td>
-				<form:input path="fileStreCours" cssClass="txt"/>
-				&nbsp;<form:errors path="fileStreCours" />
+					<form:input path="fileStreCours" cssClass="txt"/>
+					&nbsp;<form:errors path="fileStreCours" />
 			</td>
 		</tr>	
 		<tr>
 			<th>stre_file_nm</th>
 			<td>
-				<form:input path="streFileNm" cssClass="txt"/>
-				&nbsp;<form:errors path="streFileNm" />
+					<form:input path="streFileNm" cssClass="txt"/>
+					&nbsp;<form:errors path="streFileNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>orignl_file_nm</th>
 			<td>
-				<form:input path="orignlFileNm" cssClass="txt"/>
-				&nbsp;<form:errors path="orignlFileNm" />
+					<form:input path="orignlFileNm" cssClass="txt"/>
+					&nbsp;<form:errors path="orignlFileNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>file_extsn</th>
 			<td>
-				<form:input path="fileExtsn" cssClass="txt"/>
-				&nbsp;<form:errors path="fileExtsn" />
+					<form:input path="fileExtsn" cssClass="txt"/>
+					&nbsp;<form:errors path="fileExtsn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>file_cn</th>
 			<td>
-				<form:input path="fileCn" cssClass="txt"/>
-				&nbsp;<form:errors path="fileCn" />
+					<form:input path="fileCn" cssClass="txt"/>
+					&nbsp;<form:errors path="fileCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>file_size</th>
 			<td>
-				<form:input path="fileSize" cssClass="txt"/>
-				&nbsp;<form:errors path="fileSize" />
+					<form:input path="fileSize" cssClass="txt"/>
+					&nbsp;<form:errors path="fileSize" />
 			</td>
 		</tr>	
 	</table>

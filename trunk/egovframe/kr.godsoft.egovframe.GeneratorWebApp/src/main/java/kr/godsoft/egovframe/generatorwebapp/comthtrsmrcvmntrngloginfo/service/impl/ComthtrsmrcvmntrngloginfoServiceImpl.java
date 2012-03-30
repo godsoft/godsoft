@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comthtrsmrcvmntrngloginfo을 등록한다.
+	 * COMTHTRSMRCVMNTRNGLOGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthtrsmrcvmntrngloginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthtrsmrcvmntrngloginfo을 수정한다.
+	 * COMTHTRSMRCVMNTRNGLOGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthtrsmrcvmntrngloginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthtrsmrcvmntrngloginfo을 삭제한다.
+	 * COMTHTRSMRCVMNTRNGLOGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthtrsmrcvmntrngloginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthtrsmrcvmntrngloginfo을 조회한다.
+	 * COMTHTRSMRCVMNTRNGLOGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthtrsmrcvmntrngloginfoVO
-	 * @return 조회한 comthtrsmrcvmntrngloginfo
+	 * @return 조회한 COMTHTRSMRCVMNTRNGLOGINFO
 	 * @exception Exception
 	 */
     public ComthtrsmrcvmntrngloginfoVO selectComthtrsmrcvmntrngloginfo(ComthtrsmrcvmntrngloginfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthtrsmrcvmntrngloginfo 목록을 조회한다.
+	 * COMTHTRSMRCVMNTRNGLOGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthtrsmrcvmntrngloginfo 목록
+	 * @return COMTHTRSMRCVMNTRNGLOGINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComthtrsmrcvmntrngloginfoList(ComthtrsmrcvmntrngloginfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComthtrsmrcvmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthtrsmrcvmntrngloginfo 총 갯수를 조회한다.
+	 * COMTHTRSMRCVMNTRNGLOGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthtrsmrcvmntrngloginfo 총 갯수
+	 * @return COMTHTRSMRCVMNTRNGLOGINFO 총 갯수
 	 * @exception
 	 */
     public int selectComthtrsmrcvmntrngloginfoListTotCnt(ComthtrsmrcvmntrngloginfoVO vo) {

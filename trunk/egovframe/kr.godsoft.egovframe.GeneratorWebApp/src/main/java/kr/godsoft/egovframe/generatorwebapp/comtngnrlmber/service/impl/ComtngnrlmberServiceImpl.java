@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtngnrlmberServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtngnrlmber을 등록한다.
+	 * COMTNGNRLMBER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtngnrlmberVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtngnrlmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtngnrlmber을 수정한다.
+	 * COMTNGNRLMBER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtngnrlmberVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtngnrlmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtngnrlmber을 삭제한다.
+	 * COMTNGNRLMBER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtngnrlmberVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtngnrlmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtngnrlmber을 조회한다.
+	 * COMTNGNRLMBER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtngnrlmberVO
-	 * @return 조회한 comtngnrlmber
+	 * @return 조회한 COMTNGNRLMBER
 	 * @exception Exception
 	 */
     public ComtngnrlmberVO selectComtngnrlmber(ComtngnrlmberVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtngnrlmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtngnrlmber 목록을 조회한다.
+	 * COMTNGNRLMBER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtngnrlmber 목록
+	 * @return COMTNGNRLMBER 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtngnrlmberList(ComtngnrlmberVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtngnrlmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtngnrlmber 총 갯수를 조회한다.
+	 * COMTNGNRLMBER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtngnrlmber 총 갯수
+	 * @return COMTNGNRLMBER 총 갯수
 	 * @exception
 	 */
     public int selectComtngnrlmberListTotCnt(ComtngnrlmberVO vo) {

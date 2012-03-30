@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdConstraintDetails">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdConstraintDetailsVO" type="kr.godsoft.egovframe.generatorwebapp.md_constraint_details.service.MdConstraintDetailsVO"/>
+	
+	<resultMap id="mdConstraintDetails" class="kr.godsoft.egovframe.generatorwebapp.md_constraint_details.service.MdConstraintDetailsVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="refFlag" column="ref_flag" columnIndex="2"/>
+		<result property="constraintIdFk" column="constraint_id_fk" columnIndex="3"/>
+		<result property="columnIdFk" column="column_id_fk" columnIndex="4"/>
+		<result property="columnPortion" column="column_portion" columnIndex="5"/>
+		<result property="constraintText" column="constraint_text" columnIndex="6"/>
+		<result property="detailOrder" column="detail_order" columnIndex="7"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="8"/>
+		<result property="createdOn" column="created_on" columnIndex="9"/>
+		<result property="createdBy" column="created_by" columnIndex="10"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="11"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="12"/>
+	</resultMap>
+	
+	<insert id="mdConstraintDetailsDAO.insertMdConstraintDetails_S">
+		<![CDATA[
+            INSERT INTO md_constraint_details (
+                id
+                , ref_flag
+                , constraint_id_fk
+                , column_id_fk
+                , column_portion
+                , constraint_text
+                , detail_order
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #refFlag#
+                , #constraintIdFk#
+                , #columnIdFk#
+                , #columnPortion#
+                , #constraintText#
+                , #detailOrder#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdConstraintDetailsDAO.updateMdConstraintDetails_S">
+		<![CDATA[
+            UPDATE md_constraint_details
+                SET
+                id = #id#
+                , ref_flag = #refFlag#
+                , constraint_id_fk = #constraintIdFk#
+                , column_id_fk = #columnIdFk#
+                , column_portion = #columnPortion#
+                , constraint_text = #constraintText#
+                , detail_order = #detailOrder#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdConstraintDetailsDAO.deleteMdConstraintDetails_S">
+		<![CDATA[
+			DELETE FROM md_constraint_details
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdConstraintDetailsDAO.selectMdConstraintDetails_S" resultMap="mdConstraintDetails">
+		<![CDATA[
+			SELECT
+				id
+				, ref_flag
+				, constraint_id_fk
+				, column_id_fk
+				, column_portion
+				, constraint_text
+				, detail_order
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_CONSTRAINT_DETAILS
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdConstraintDetailsDAO.selectMdConstraintDetailsList_D" parameterClass="MdConstraintDetailsVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.REF_FLAG
+								, A.CONSTRAINT_ID_FK
+								, A.COLUMN_ID_FK
+								, A.COLUMN_PORTION
+								, A.CONSTRAINT_TEXT
+								, A.DETAIL_ORDER
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, REF_FLAG
+								, CONSTRAINT_ID_FK
+								, COLUMN_ID_FK
+								, COLUMN_PORTION
+								, CONSTRAINT_TEXT
+								, DETAIL_ORDER
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_CONSTRAINT_DETAILS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					REF_FLAG LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdConstraintDetailsDAO.selectMdConstraintDetailsListTotCnt_S" parameterClass="MdConstraintDetailsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_CONSTRAINT_DETAILS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REF_FLAG LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

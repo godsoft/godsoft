@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnsms">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnsmsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO"/>
+	
+	<resultMap id="comtnsms" class="kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO">
+		<result property="smsId" column="sms_id" columnIndex="1"/>
+		<result property="trnsmisTelno" column="trnsmis_telno" columnIndex="2"/>
+		<result property="trnsmisCn" column="trnsmis_cn" columnIndex="3"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="4"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="5"/>
+	</resultMap>
+	
+	<insert id="comtnsmsDAO.insertComtnsms_S">
+		<![CDATA[
+            INSERT INTO comtnsms (
+                sms_id
+                , trnsmis_telno
+                , trnsmis_cn
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #smsId#
+                , #trnsmisTelno#
+                , #trnsmisCn#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnsmsDAO.updateComtnsms_S">
+		<![CDATA[
+            UPDATE comtnsms
+                SET
+                sms_id = #smsId#
+                , trnsmis_telno = #trnsmisTelno#
+                , trnsmis_cn = #trnsmisCn#
+                WHERE 1 = 1
+                AND sms_id = #smsId#
+		]]>
+	</update>
+	
+	<delete id="comtnsmsDAO.deleteComtnsms_S">
+		<![CDATA[
+			DELETE FROM comtnsms
+				WHERE 1 = 1
+				AND sms_id = #smsId#
+		]]>
+	</delete>
+	
+	<select id="comtnsmsDAO.selectComtnsms_S" resultMap="comtnsms">
+		<![CDATA[
+			SELECT
+				sms_id
+				, trnsmis_telno
+				, trnsmis_cn
+				, frst_regist_pnttm
+				, frst_register_id
+			FROM COMTNSMS
+			WHERE sms_id = #smsId#
+		]]>
+	</select>
+	
+	<select id="comtnsmsDAO.selectComtnsmsList_D" parameterClass="ComtnsmsVO" resultClass="egovMap">
+	       SELECT 
+								A.SMS_ID
+								, A.TRNSMIS_TELNO
+								, A.TRNSMIS_CN
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+			       FROM
+            (
+				SELECT
+								SMS_ID
+								, TRNSMIS_TELNO
+								, TRNSMIS_CN
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+							, ROWNUM
+				FROM COMTNSMS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					SMS_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					TRNSMIS_TELNO LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							SMS_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnsmsDAO.selectComtnsmsListTotCnt_S" parameterClass="ComtnsmsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNSMS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SMS_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TRNSMIS_TELNO LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

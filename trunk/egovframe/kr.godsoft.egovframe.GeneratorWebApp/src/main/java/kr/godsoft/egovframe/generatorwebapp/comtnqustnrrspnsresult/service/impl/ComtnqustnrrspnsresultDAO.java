@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultDefaultVO;
 
 /**
  * @Class Name : ComtnqustnrrspnsresultDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.Comtn
 public class ComtnqustnrrspnsresultDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnqustnrrspnsresult을 등록한다.
+	 * COMTNQUSTNRRSPNSRESULT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqustnrrspnsresultVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnqustnrrspnsresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrspnsresult을 수정한다.
+	 * COMTNQUSTNRRSPNSRESULT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqustnrrspnsresultVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnqustnrrspnsresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrspnsresult을 삭제한다.
+	 * COMTNQUSTNRRSPNSRESULT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqustnrrspnsresultVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnqustnrrspnsresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrspnsresult을 조회한다.
+	 * COMTNQUSTNRRSPNSRESULT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqustnrrspnsresultVO
-	 * @return 조회한 comtnqustnrrspnsresult
+	 * @return 조회한 COMTNQUSTNRRSPNSRESULT
 	 * @exception Exception
 	 */
     public ComtnqustnrrspnsresultVO selectComtnqustnrrspnsresult(ComtnqustnrrspnsresultVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnqustnrrspnsresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrspnsresult 목록을 조회한다.
+	 * COMTNQUSTNRRSPNSRESULT 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqustnrrspnsresult 목록
+	 * @return COMTNQUSTNRRSPNSRESULT 목록
 	 * @exception Exception
 	 */
-    public List selectComtnqustnrrspnsresultList(ComtnqustnrrspnsresultDefaultVO searchVO) throws Exception {
-        return list("comtnqustnrrspnsresultDAO.selectComtnqustnrrspnsresultList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnqustnrrspnsresultList(ComtnqustnrrspnsresultVO vo) throws Exception {
+        return list("comtnqustnrrspnsresultDAO.selectComtnqustnrrspnsresultList_D", vo);
     }
 
     /**
-	 * comtnqustnrrspnsresult 총 갯수를 조회한다.
+	 * COMTNQUSTNRRSPNSRESULT 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqustnrrspnsresult 총 갯수
+	 * @return COMTNQUSTNRRSPNSRESULT 총 갯수
 	 * @exception
 	 */
-    public int selectComtnqustnrrspnsresultListTotCnt(ComtnqustnrrspnsresultDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnqustnrrspnsresultDAO.selectComtnqustnrrspnsresultListTotCnt_S", searchVO);
+    public int selectComtnqustnrrspnsresultListTotCnt(ComtnqustnrrspnsresultVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnqustnrrspnsresultDAO.selectComtnqustnrrspnsresultListTotCnt_S", vo);
     }
 
 }

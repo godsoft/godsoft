@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnfilesysmntrngloginfo을 등록한다.
+	 * COMTNFILESYSMNTRNGLOGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnfilesysmntrngloginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comtnfilesysmntrngloginfo을 수정한다.
+	 * COMTNFILESYSMNTRNGLOGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnfilesysmntrngloginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comtnfilesysmntrngloginfo을 삭제한다.
+	 * COMTNFILESYSMNTRNGLOGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnfilesysmntrngloginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comtnfilesysmntrngloginfo을 조회한다.
+	 * COMTNFILESYSMNTRNGLOGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnfilesysmntrngloginfoVO
-	 * @return 조회한 comtnfilesysmntrngloginfo
+	 * @return 조회한 COMTNFILESYSMNTRNGLOGINFO
 	 * @exception Exception
 	 */
     public ComtnfilesysmntrngloginfoVO selectComtnfilesysmntrngloginfo(ComtnfilesysmntrngloginfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comtnfilesysmntrngloginfo 목록을 조회한다.
+	 * COMTNFILESYSMNTRNGLOGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnfilesysmntrngloginfo 목록
+	 * @return COMTNFILESYSMNTRNGLOGINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnfilesysmntrngloginfoList(ComtnfilesysmntrngloginfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnfilesysmntrngloginfoServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comtnfilesysmntrngloginfo 총 갯수를 조회한다.
+	 * COMTNFILESYSMNTRNGLOGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnfilesysmntrngloginfo 총 갯수
+	 * @return COMTNFILESYSMNTRNGLOGINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnfilesysmntrngloginfoListTotCnt(ComtnfilesysmntrngloginfoVO vo) {

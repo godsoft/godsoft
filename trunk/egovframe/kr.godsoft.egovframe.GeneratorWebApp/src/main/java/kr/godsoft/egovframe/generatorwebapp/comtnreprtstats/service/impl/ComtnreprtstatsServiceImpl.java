@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnreprtstats을 등록한다.
+	 * COMTNREPRTSTATS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnreprtstatsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnreprtstats을 수정한다.
+	 * COMTNREPRTSTATS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnreprtstatsVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnreprtstats을 삭제한다.
+	 * COMTNREPRTSTATS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnreprtstatsVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnreprtstats을 조회한다.
+	 * COMTNREPRTSTATS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnreprtstatsVO
-	 * @return 조회한 comtnreprtstats
+	 * @return 조회한 COMTNREPRTSTATS
 	 * @exception Exception
 	 */
     public ComtnreprtstatsVO selectComtnreprtstats(ComtnreprtstatsVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnreprtstats 목록을 조회한다.
+	 * COMTNREPRTSTATS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnreprtstats 목록
+	 * @return COMTNREPRTSTATS 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnreprtstatsList(ComtnreprtstatsVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnreprtstatsServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnreprtstats 총 갯수를 조회한다.
+	 * COMTNREPRTSTATS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnreprtstats 총 갯수
+	 * @return COMTNREPRTSTATS 총 갯수
 	 * @exception
 	 */
     public int selectComtnreprtstatsListTotCnt(ComtnreprtstatsVO vo) {

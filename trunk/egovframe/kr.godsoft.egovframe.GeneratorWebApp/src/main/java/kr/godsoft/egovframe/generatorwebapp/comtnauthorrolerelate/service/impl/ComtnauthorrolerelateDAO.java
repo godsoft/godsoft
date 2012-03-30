@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateDefaultVO;
 
 /**
  * @Class Name : ComtnauthorrolerelateDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.Comtna
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.Comtna
 public class ComtnauthorrolerelateDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnauthorrolerelate을 등록한다.
+	 * COMTNAUTHORROLERELATE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnauthorrolerelateDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnauthorrolerelate을 수정한다.
+	 * COMTNAUTHORROLERELATE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnauthorrolerelateDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnauthorrolerelate을 삭제한다.
+	 * COMTNAUTHORROLERELATE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnauthorrolerelateDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnauthorrolerelate을 조회한다.
+	 * COMTNAUTHORROLERELATE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnauthorrolerelateVO
-	 * @return 조회한 comtnauthorrolerelate
+	 * @return 조회한 COMTNAUTHORROLERELATE
 	 * @exception Exception
 	 */
     public ComtnauthorrolerelateVO selectComtnauthorrolerelate(ComtnauthorrolerelateVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnauthorrolerelateDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnauthorrolerelate 목록을 조회한다.
+	 * COMTNAUTHORROLERELATE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnauthorrolerelate 목록
+	 * @return COMTNAUTHORROLERELATE 목록
 	 * @exception Exception
 	 */
-    public List selectComtnauthorrolerelateList(ComtnauthorrolerelateDefaultVO searchVO) throws Exception {
-        return list("comtnauthorrolerelateDAO.selectComtnauthorrolerelateList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnauthorrolerelateList(ComtnauthorrolerelateVO vo) throws Exception {
+        return list("comtnauthorrolerelateDAO.selectComtnauthorrolerelateList_D", vo);
     }
 
     /**
-	 * comtnauthorrolerelate 총 갯수를 조회한다.
+	 * COMTNAUTHORROLERELATE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnauthorrolerelate 총 갯수
+	 * @return COMTNAUTHORROLERELATE 총 갯수
 	 * @exception
 	 */
-    public int selectComtnauthorrolerelateListTotCnt(ComtnauthorrolerelateDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnauthorrolerelateDAO.selectComtnauthorrolerelateListTotCnt_S", searchVO);
+    public int selectComtnauthorrolerelateListTotCnt(ComtnauthorrolerelateVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnauthorrolerelateDAO.selectComtnauthorrolerelateListTotCnt_S", vo);
     }
 
 }

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> 목록</title>
+<title>comtnemplyrinfo 목록</title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
@@ -55,7 +55,7 @@ function fn_egov_link_page(pageNo){
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" />  목록</li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="title" /> List </li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -92,33 +92,33 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
-								<th align="center"></th>
+								<th align="center">emplyr_id</th>
+								<th align="center">orgnzt_id</th>
+								<th align="center">user_nm</th>
+								<th align="center">password</th>
+								<th align="center">empl_no</th>
+								<th align="center">ihidnum</th>
+								<th align="center">sexdstn_code</th>
+								<th align="center">brthdy</th>
+								<th align="center">fxnum</th>
+								<th align="center">house_adres</th>
+								<th align="center">password_hint</th>
+								<th align="center">password_cnsr</th>
+								<th align="center">house_end_telno</th>
+								<th align="center">area_no</th>
+								<th align="center">detail_adres</th>
+								<th align="center">zip</th>
+								<th align="center">offm_telno</th>
+								<th align="center">mbtlnum</th>
+								<th align="center">email_adres</th>
+								<th align="center">ofcps_nm</th>
+								<th align="center">house_middle_telno</th>
+								<th align="center">group_id</th>
+								<th align="center">pstinst_code</th>
+								<th align="center">emplyr_sttus_code</th>
+								<th align="center">esntl_id</th>
+								<th align="center">crtfc_dn_value</th>
+								<th align="center">sbscrb_de</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>

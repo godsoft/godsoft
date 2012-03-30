@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndampro.service.ComtndamproVO;
 public class ComtndamproDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtndampro을 등록한다.
+	 * COMTNDAMPRO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndamproVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtndamproDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndampro을 수정한다.
+	 * COMTNDAMPRO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndamproVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtndamproDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndampro을 삭제한다.
+	 * COMTNDAMPRO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndamproVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtndamproDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndampro을 조회한다.
+	 * COMTNDAMPRO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndamproVO
-	 * @return 조회한 comtndampro
+	 * @return 조회한 COMTNDAMPRO
 	 * @exception Exception
 	 */
     public ComtndamproVO selectComtndampro(ComtndamproVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtndamproDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndampro 목록을 조회한다.
+	 * COMTNDAMPRO 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndampro 목록
+	 * @return COMTNDAMPRO 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtndamproDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndampro 총 갯수를 조회한다.
+	 * COMTNDAMPRO 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndampro 총 갯수
+	 * @return COMTNDAMPRO 총 갯수
 	 * @exception
 	 */
     public int selectComtndamproListTotCnt(ComtndamproVO vo) {

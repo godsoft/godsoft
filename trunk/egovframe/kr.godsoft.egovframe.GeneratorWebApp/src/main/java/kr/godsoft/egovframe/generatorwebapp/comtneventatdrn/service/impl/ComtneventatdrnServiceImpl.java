@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnService;
+import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnService;
-import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.impl.ComtneventatdrnDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtneventatdrnServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.impl.Comtnev
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtneventatdrnServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtneventatdrn을 등록한다.
+	 * COMTNEVENTATDRN을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtneventatdrnVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtneventatdrnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtneventatdrn을 수정한다.
+	 * COMTNEVENTATDRN을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtneventatdrnVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtneventatdrnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtneventatdrn을 삭제한다.
+	 * COMTNEVENTATDRN을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtneventatdrnVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtneventatdrnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtneventatdrn을 조회한다.
+	 * COMTNEVENTATDRN을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtneventatdrnVO
-	 * @return 조회한 comtneventatdrn
+	 * @return 조회한 COMTNEVENTATDRN
 	 * @exception Exception
 	 */
     public ComtneventatdrnVO selectComtneventatdrn(ComtneventatdrnVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtneventatdrnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtneventatdrn 목록을 조회한다.
+	 * COMTNEVENTATDRN 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtneventatdrn 목록
+	 * @return COMTNEVENTATDRN 목록
 	 * @exception Exception
 	 */
-    public List selectComtneventatdrnList(ComtneventatdrnDefaultVO searchVO) throws Exception {
-        return comtneventatdrnDAO.selectComtneventatdrnList(searchVO);
+    public List<EgovMap> selectComtneventatdrnList(ComtneventatdrnVO vo) throws Exception {
+        return comtneventatdrnDAO.selectComtneventatdrnList(vo);
     }
 
     /**
-	 * comtneventatdrn 총 갯수를 조회한다.
+	 * COMTNEVENTATDRN 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtneventatdrn 총 갯수
+	 * @return COMTNEVENTATDRN 총 갯수
 	 * @exception
 	 */
-    public int selectComtneventatdrnListTotCnt(ComtneventatdrnDefaultVO searchVO) {
-		return comtneventatdrnDAO.selectComtneventatdrnListTotCnt(searchVO);
+    public int selectComtneventatdrnListTotCnt(ComtneventatdrnVO vo) {
+		return comtneventatdrnDAO.selectComtneventatdrnListTotCnt(vo);
 	}
     
 }

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtntroblinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtntroblinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoVO"/>
+	
+	<resultMap id="comtntroblinfo" class="kr.godsoft.egovframe.generatorwebapp.comtntroblinfo.service.ComtntroblinfoVO">
+		<result property="troblId" column="trobl_id" columnIndex="1"/>
+		<result property="troblNm" column="trobl_nm" columnIndex="2"/>
+		<result property="troblKnd" column="trobl_knd" columnIndex="3"/>
+		<result property="troblDc" column="trobl_dc" columnIndex="4"/>
+		<result property="troblOccrrncTime" column="trobl_occrrnc_time" columnIndex="5"/>
+		<result property="troblRqesterNm" column="trobl_rqester_nm" columnIndex="6"/>
+		<result property="troblRequstTime" column="trobl_requst_time" columnIndex="7"/>
+		<result property="troblProcessResult" column="trobl_process_result" columnIndex="8"/>
+		<result property="troblOpetrNm" column="trobl_opetr_nm" columnIndex="9"/>
+		<result property="troblProcessTime" column="trobl_process_time" columnIndex="10"/>
+		<result property="processSttus" column="process_sttus" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="15"/>
+	</resultMap>
+	
+	<insert id="comtntroblinfoDAO.insertComtntroblinfo_S">
+		<![CDATA[
+            INSERT INTO comtntroblinfo (
+                trobl_id
+                , trobl_nm
+                , trobl_knd
+                , trobl_dc
+                , trobl_occrrnc_time
+                , trobl_rqester_nm
+                , trobl_requst_time
+                , trobl_process_result
+                , trobl_opetr_nm
+                , trobl_process_time
+                , process_sttus
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #troblId#
+                , #troblNm#
+                , #troblKnd#
+                , #troblDc#
+                , #troblOccrrncTime#
+                , #troblRqesterNm#
+                , #troblRequstTime#
+                , #troblProcessResult#
+                , #troblOpetrNm#
+                , #troblProcessTime#
+                , #processSttus#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtntroblinfoDAO.updateComtntroblinfo_S">
+		<![CDATA[
+            UPDATE comtntroblinfo
+                SET
+                trobl_id = #troblId#
+                , trobl_nm = #troblNm#
+                , trobl_knd = #troblKnd#
+                , trobl_dc = #troblDc#
+                , trobl_occrrnc_time = #troblOccrrncTime#
+                , trobl_rqester_nm = #troblRqesterNm#
+                , trobl_requst_time = #troblRequstTime#
+                , trobl_process_result = #troblProcessResult#
+                , trobl_opetr_nm = #troblOpetrNm#
+                , trobl_process_time = #troblProcessTime#
+                , process_sttus = #processSttus#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND trobl_id = #troblId#
+		]]>
+	</update>
+	
+	<delete id="comtntroblinfoDAO.deleteComtntroblinfo_S">
+		<![CDATA[
+			DELETE FROM comtntroblinfo
+				WHERE 1 = 1
+				AND trobl_id = #troblId#
+		]]>
+	</delete>
+	
+	<select id="comtntroblinfoDAO.selectComtntroblinfo_S" resultMap="comtntroblinfo">
+		<![CDATA[
+			SELECT
+				trobl_id
+				, trobl_nm
+				, trobl_knd
+				, trobl_dc
+				, trobl_occrrnc_time
+				, trobl_rqester_nm
+				, trobl_requst_time
+				, trobl_process_result
+				, trobl_opetr_nm
+				, trobl_process_time
+				, process_sttus
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNTROBLINFO
+			WHERE trobl_id = #troblId#
+		]]>
+	</select>
+	
+	<select id="comtntroblinfoDAO.selectComtntroblinfoList_D" parameterClass="ComtntroblinfoVO" resultClass="egovMap">
+	       SELECT 
+								A.TROBL_ID
+								, A.TROBL_NM
+								, A.TROBL_KND
+								, A.TROBL_DC
+								, A.TROBL_OCCRRNC_TIME
+								, A.TROBL_RQESTER_NM
+								, A.TROBL_REQUST_TIME
+								, A.TROBL_PROCESS_RESULT
+								, A.TROBL_OPETR_NM
+								, A.TROBL_PROCESS_TIME
+								, A.PROCESS_STTUS
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								TROBL_ID
+								, TROBL_NM
+								, TROBL_KND
+								, TROBL_DC
+								, TROBL_OCCRRNC_TIME
+								, TROBL_RQESTER_NM
+								, TROBL_REQUST_TIME
+								, TROBL_PROCESS_RESULT
+								, TROBL_OPETR_NM
+								, TROBL_PROCESS_TIME
+								, PROCESS_STTUS
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNTROBLINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					TROBL_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					TROBL_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							TROBL_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtntroblinfoDAO.selectComtntroblinfoListTotCnt_S" parameterClass="ComtntroblinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNTROBLINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TROBL_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TROBL_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

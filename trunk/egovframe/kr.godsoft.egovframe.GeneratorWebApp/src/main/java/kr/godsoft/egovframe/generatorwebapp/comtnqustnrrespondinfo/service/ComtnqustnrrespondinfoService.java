@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnqustnrrespondinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.Comtn
 public interface ComtnqustnrrespondinfoService {
 	
 	/**
-	 * comtnqustnrrespondinfo을 등록한다.
+	 * COMTNQUSTNRRESPONDINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnqustnrrespondinfoService {
     String insertComtnqustnrrespondinfo(ComtnqustnrrespondinfoVO vo) throws Exception;
     
     /**
-	 * comtnqustnrrespondinfo을 수정한다.
+	 * COMTNQUSTNRRESPONDINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnqustnrrespondinfoService {
     void updateComtnqustnrrespondinfo(ComtnqustnrrespondinfoVO vo) throws Exception;
     
     /**
-	 * comtnqustnrrespondinfo을 삭제한다.
+	 * COMTNQUSTNRRESPONDINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnqustnrrespondinfoService {
     void deleteComtnqustnrrespondinfo(ComtnqustnrrespondinfoVO vo) throws Exception;
     
     /**
-	 * comtnqustnrrespondinfo을 조회한다.
+	 * COMTNQUSTNRRESPONDINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqustnrrespondinfoVO
-	 * @return 조회한 comtnqustnrrespondinfo
+	 * @return 조회한 COMTNQUSTNRRESPONDINFO
 	 * @exception Exception
 	 */
     ComtnqustnrrespondinfoVO selectComtnqustnrrespondinfo(ComtnqustnrrespondinfoVO vo) throws Exception;
     
     /**
-	 * comtnqustnrrespondinfo 목록을 조회한다.
+	 * COMTNQUSTNRRESPONDINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqustnrrespondinfo 목록
+	 * @return COMTNQUSTNRRESPONDINFO 목록
 	 * @exception Exception
 	 */
-    List selectComtnqustnrrespondinfoList(ComtnqustnrrespondinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnqustnrrespondinfoList(ComtnqustnrrespondinfoVO vo) throws Exception;
     
     /**
-	 * comtnqustnrrespondinfo 총 갯수를 조회한다.
+	 * COMTNQUSTNRRESPONDINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqustnrrespondinfo 총 갯수
+	 * @return COMTNQUSTNRRESPONDINFO 총 갯수
 	 * @exception
 	 */
-    int selectComtnqustnrrespondinfoListTotCnt(ComtnqustnrrespondinfoDefaultVO searchVO);
+    int selectComtnqustnrrespondinfoListTotCnt(ComtnqustnrrespondinfoVO vo);
     
 }

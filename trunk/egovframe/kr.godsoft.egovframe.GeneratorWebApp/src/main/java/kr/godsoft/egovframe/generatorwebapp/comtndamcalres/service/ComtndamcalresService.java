@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtndamcalresService {
 	
 	/**
-	 * comtndamcalres을 등록한다.
+	 * COMTNDAMCALRES을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndamcalresVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtndamcalresService {
     String insertComtndamcalres(ComtndamcalresVO vo) throws Exception;
     
     /**
-	 * comtndamcalres을 수정한다.
+	 * COMTNDAMCALRES을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndamcalresVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtndamcalresService {
     void updateComtndamcalres(ComtndamcalresVO vo) throws Exception;
     
     /**
-	 * comtndamcalres을 삭제한다.
+	 * COMTNDAMCALRES을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndamcalresVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtndamcalresService {
     void deleteComtndamcalres(ComtndamcalresVO vo) throws Exception;
     
     /**
-	 * comtndamcalres을 조회한다.
+	 * COMTNDAMCALRES을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndamcalresVO
-	 * @return 조회한 comtndamcalres
+	 * @return 조회한 COMTNDAMCALRES
 	 * @exception Exception
 	 */
     ComtndamcalresVO selectComtndamcalres(ComtndamcalresVO vo) throws Exception;
     
     /**
-	 * comtndamcalres 목록을 조회한다.
+	 * COMTNDAMCALRES 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndamcalres 목록
+	 * @return COMTNDAMCALRES 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtndamcalresList(ComtndamcalresVO vo) throws Exception;
     
     /**
-	 * comtndamcalres 총 갯수를 조회한다.
+	 * COMTNDAMCALRES 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndamcalres 총 갯수
+	 * @return COMTNDAMCALRES 총 갯수
 	 * @exception
 	 */
     int selectComtndamcalresListTotCnt(ComtndamcalresVO vo);

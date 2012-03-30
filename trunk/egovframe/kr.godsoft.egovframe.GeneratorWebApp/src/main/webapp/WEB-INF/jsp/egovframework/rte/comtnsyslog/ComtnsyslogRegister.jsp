@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,106 +95,106 @@ function fn_egov_save() {
 		<tr>
 			<th>job_se_code</th>
 			<td>
-				<form:input path="jobSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="jobSeCode" />
+					<form:input path="jobSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="jobSeCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>instt_code</th>
 			<td>
-				<form:input path="insttCode" cssClass="txt"/>
-				&nbsp;<form:errors path="insttCode" />
+					<form:input path="insttCode" cssClass="txt"/>
+					&nbsp;<form:errors path="insttCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>occrrnc_de</th>
 			<td>
-				<form:input path="occrrncDe" cssClass="txt"/>
-				&nbsp;<form:errors path="occrrncDe" />
+					<form:input path="occrrncDe" cssClass="txt"/>
+					&nbsp;<form:errors path="occrrncDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rqester_ip</th>
 			<td>
-				<form:input path="rqesterIp" cssClass="txt"/>
-				&nbsp;<form:errors path="rqesterIp" />
+					<form:input path="rqesterIp" cssClass="txt"/>
+					&nbsp;<form:errors path="rqesterIp" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rqester_id</th>
 			<td>
-				<form:input path="rqesterId" cssClass="txt"/>
-				&nbsp;<form:errors path="rqesterId" />
+					<form:input path="rqesterId" cssClass="txt"/>
+					&nbsp;<form:errors path="rqesterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trget_menu_nm</th>
 			<td>
-				<form:input path="trgetMenuNm" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetMenuNm" />
+					<form:input path="trgetMenuNm" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetMenuNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>svc_nm</th>
 			<td>
-				<form:input path="svcNm" cssClass="txt"/>
-				&nbsp;<form:errors path="svcNm" />
+					<form:input path="svcNm" cssClass="txt"/>
+					&nbsp;<form:errors path="svcNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>method_nm</th>
 			<td>
-				<form:input path="methodNm" cssClass="txt"/>
-				&nbsp;<form:errors path="methodNm" />
+					<form:input path="methodNm" cssClass="txt"/>
+					&nbsp;<form:errors path="methodNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>process_se_code</th>
 			<td>
-				<form:input path="processSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="processSeCode" />
+					<form:input path="processSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="processSeCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>process_co</th>
 			<td>
-				<form:input path="processCo" cssClass="txt"/>
-				&nbsp;<form:errors path="processCo" />
+					<form:input path="processCo" cssClass="txt"/>
+					&nbsp;<form:errors path="processCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>process_time</th>
 			<td>
-				<form:input path="processTime" cssClass="txt"/>
-				&nbsp;<form:errors path="processTime" />
+					<form:input path="processTime" cssClass="txt"/>
+					&nbsp;<form:errors path="processTime" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rspns_code</th>
 			<td>
-				<form:input path="rspnsCode" cssClass="txt"/>
-				&nbsp;<form:errors path="rspnsCode" />
+					<form:input path="rspnsCode" cssClass="txt"/>
+					&nbsp;<form:errors path="rspnsCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_se</th>
 			<td>
-				<form:input path="errorSe" cssClass="txt"/>
-				&nbsp;<form:errors path="errorSe" />
+					<form:input path="errorSe" cssClass="txt"/>
+					&nbsp;<form:errors path="errorSe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_co</th>
 			<td>
-				<form:input path="errorCo" cssClass="txt"/>
-				&nbsp;<form:errors path="errorCo" />
+					<form:input path="errorCo" cssClass="txt"/>
+					&nbsp;<form:errors path="errorCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_code</th>
 			<td>
-				<form:input path="errorCode" cssClass="txt"/>
-				&nbsp;<form:errors path="errorCode" />
+					<form:input path="errorCode" cssClass="txt"/>
+					&nbsp;<form:errors path="errorCode" />
 			</td>
 		</tr>	
 	</table>

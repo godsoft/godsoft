@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqustnrqesitmVO extends ComtnqustnrqesitmDefaultVO{
+public class ComtnqustnrqesitmVO extends ComtnqustnrqesitmDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QESTNR_ID */
     private String qestnrId;
     
-    /**  */
+    /** QUSTNR_QESITM_ID */
     private String qustnrQesitmId;
     
-    /**  */
+    /** QUSTNR_TMPLAT_ID */
     private String qustnrTmplatId;
     
-    /**  */
-    private int qestnSn;
+    /** QESTN_SN */
+    private String qestnSn;
     
-    /**  */
+    /** QESTN_TY_CODE */
     private String qestnTyCode;
     
-    /**  */
+    /** QESTN_CN */
     private String qestnCn;
     
-    /**  */
-    private int mxmmChoiseCo;
+    /** MXMM_CHOISE_CO */
+    private String mxmmChoiseCo;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getQestnrId() {
@@ -72,11 +72,11 @@ public class ComtnqustnrqesitmVO extends ComtnqustnrqesitmDefaultVO{
         this.qustnrTmplatId = qustnrTmplatId;
     }
     
-    public int getQestnSn() {
+    public String getQestnSn() {
         return this.qestnSn;
     }
     
-    public void setQestnSn(int qestnSn) {
+    public void setQestnSn(String qestnSn) {
         this.qestnSn = qestnSn;
     }
     
@@ -96,11 +96,11 @@ public class ComtnqustnrqesitmVO extends ComtnqustnrqesitmDefaultVO{
         this.qestnCn = qestnCn;
     }
     
-    public int getMxmmChoiseCo() {
+    public String getMxmmChoiseCo() {
         return this.mxmmChoiseCo;
     }
     
-    public void setMxmmChoiseCo(int mxmmChoiseCo) {
+    public void setMxmmChoiseCo(String mxmmChoiseCo) {
         this.mxmmChoiseCo = mxmmChoiseCo;
     }
     

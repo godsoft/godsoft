@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrngloginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,13 +25,13 @@ public class ComtnfilesysmntrngloginfoVO extends ComtnfilesysmntrngloginfoDefaul
     private String fileSysManageNm;
     
     /** FILE_SYS_SIZE */
-    private int fileSysSize;
+    private String fileSysSize;
     
     /** FILE_SYS_THRHLD */
-    private int fileSysThrhld;
+    private String fileSysThrhld;
     
     /** FILE_SYS_USGQTY */
-    private int fileSysUsgqty;
+    private String fileSysUsgqty;
     
     /** MNTRNG_STTUS */
     private String mntrngSttus;
@@ -81,27 +81,27 @@ public class ComtnfilesysmntrngloginfoVO extends ComtnfilesysmntrngloginfoDefaul
         this.fileSysManageNm = fileSysManageNm;
     }
     
-    public int getFileSysSize() {
+    public String getFileSysSize() {
         return this.fileSysSize;
     }
     
-    public void setFileSysSize(int fileSysSize) {
+    public void setFileSysSize(String fileSysSize) {
         this.fileSysSize = fileSysSize;
     }
     
-    public int getFileSysThrhld() {
+    public String getFileSysThrhld() {
         return this.fileSysThrhld;
     }
     
-    public void setFileSysThrhld(int fileSysThrhld) {
+    public void setFileSysThrhld(String fileSysThrhld) {
         this.fileSysThrhld = fileSysThrhld;
     }
     
-    public int getFileSysUsgqty() {
+    public String getFileSysUsgqty() {
         return this.fileSysUsgqty;
     }
     
-    public void setFileSysUsgqty(int fileSysUsgqty) {
+    public void setFileSysUsgqty(String fileSysUsgqty) {
         this.fileSysUsgqty = fileSysUsgqty;
     }
     

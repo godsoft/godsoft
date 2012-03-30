@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,162 +95,162 @@ function fn_egov_save() {
 		<tr>
 			<th>cnslt_sj</th>
 			<td>
-				<form:input path="cnsltSj" cssClass="txt"/>
-				&nbsp;<form:errors path="cnsltSj" />
+					<form:input path="cnsltSj" cssClass="txt"/>
+					&nbsp;<form:errors path="cnsltSj" />
 			</td>
 		</tr>	
 		<tr>
 			<th>othbc_at</th>
 			<td>
-				<form:input path="othbcAt" cssClass="txt"/>
-				&nbsp;<form:errors path="othbcAt" />
+					<form:input path="othbcAt" cssClass="txt"/>
+					&nbsp;<form:errors path="othbcAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>email_adres</th>
 			<td>
-				<form:input path="emailAdres" cssClass="txt"/>
-				&nbsp;<form:errors path="emailAdres" />
+					<form:input path="emailAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="emailAdres" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cnslt_cn</th>
 			<td>
-				<form:input path="cnsltCn" cssClass="txt"/>
-				&nbsp;<form:errors path="cnsltCn" />
+					<form:input path="cnsltCn" cssClass="txt"/>
+					&nbsp;<form:errors path="cnsltCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>managt_cn</th>
 			<td>
-				<form:input path="managtCn" cssClass="txt"/>
-				&nbsp;<form:errors path="managtCn" />
+					<form:input path="managtCn" cssClass="txt"/>
+					&nbsp;<form:errors path="managtCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>managt_de</th>
 			<td>
-				<form:input path="managtDe" cssClass="txt"/>
-				&nbsp;<form:errors path="managtDe" />
+					<form:input path="managtDe" cssClass="txt"/>
+					&nbsp;<form:errors path="managtDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rdcnt</th>
 			<td>
-				<form:input path="rdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="rdcnt" />
+					<form:input path="rdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atch_file_id</th>
 			<td>
-				<form:input path="atchFileId" cssClass="txt"/>
-				&nbsp;<form:errors path="atchFileId" />
+					<form:input path="atchFileId" cssClass="txt"/>
+					&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>area_no</th>
 			<td>
-				<form:input path="areaNo" cssClass="txt"/>
-				&nbsp;<form:errors path="areaNo" />
+					<form:input path="areaNo" cssClass="txt"/>
+					&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>middle_telno</th>
 			<td>
-				<form:input path="middleTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="middleTelno" />
+					<form:input path="middleTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="middleTelno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>end_telno</th>
 			<td>
-				<form:input path="endTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="endTelno" />
+					<form:input path="endTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="endTelno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_mbtlnum</th>
 			<td>
-				<form:input path="frstMbtlnum" cssClass="txt"/>
-				&nbsp;<form:errors path="frstMbtlnum" />
+					<form:input path="frstMbtlnum" cssClass="txt"/>
+					&nbsp;<form:errors path="frstMbtlnum" />
 			</td>
 		</tr>	
 		<tr>
 			<th>middle_mbtlnum</th>
 			<td>
-				<form:input path="middleMbtlnum" cssClass="txt"/>
-				&nbsp;<form:errors path="middleMbtlnum" />
+					<form:input path="middleMbtlnum" cssClass="txt"/>
+					&nbsp;<form:errors path="middleMbtlnum" />
 			</td>
 		</tr>	
 		<tr>
 			<th>end_mbtlnum</th>
 			<td>
-				<form:input path="endMbtlnum" cssClass="txt"/>
-				&nbsp;<form:errors path="endMbtlnum" />
+					<form:input path="endMbtlnum" cssClass="txt"/>
+					&nbsp;<form:errors path="endMbtlnum" />
 			</td>
 		</tr>	
 		<tr>
 			<th>writng_de</th>
 			<td>
-				<form:input path="writngDe" cssClass="txt"/>
-				&nbsp;<form:errors path="writngDe" />
+					<form:input path="writngDe" cssClass="txt"/>
+					&nbsp;<form:errors path="writngDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>wrter_nm</th>
 			<td>
-				<form:input path="wrterNm" cssClass="txt"/>
-				&nbsp;<form:errors path="wrterNm" />
+					<form:input path="wrterNm" cssClass="txt"/>
+					&nbsp;<form:errors path="wrterNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>email_answer_at</th>
 			<td>
-				<form:input path="emailAnswerAt" cssClass="txt"/>
-				&nbsp;<form:errors path="emailAnswerAt" />
+					<form:input path="emailAnswerAt" cssClass="txt"/>
+					&nbsp;<form:errors path="emailAnswerAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>qna_process_sttus_code</th>
 			<td>
-				<form:input path="qnaProcessSttusCode" cssClass="txt"/>
-				&nbsp;<form:errors path="qnaProcessSttusCode" />
+					<form:input path="qnaProcessSttusCode" cssClass="txt"/>
+					&nbsp;<form:errors path="qnaProcessSttusCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>writng_password</th>
 			<td>
-				<form:input path="writngPassword" cssClass="txt"/>
-				&nbsp;<form:errors path="writngPassword" />
+					<form:input path="writngPassword" cssClass="txt"/>
+					&nbsp;<form:errors path="writngPassword" />
 			</td>
 		</tr>	
 	</table>

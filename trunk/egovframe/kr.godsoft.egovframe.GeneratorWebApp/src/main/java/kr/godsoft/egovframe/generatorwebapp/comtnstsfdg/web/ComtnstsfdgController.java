@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtnstsfdgController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnstsfdg 목록을 조회한다. (pageing)
+	 * COMTNSTSFDG 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtnstsfdgVO
 	 * @return "/comtnstsfdg/ComtnstsfdgList"
 	 * @exception Exception
@@ -99,7 +99,7 @@ public class ComtnstsfdgController {
     
     @RequestMapping("/comtnstsfdg/updateComtnstsfdgView.do")
     public String updateComtnstsfdgView(
-            @RequestParam("stsfdgNo") int stsfdgNo ,
+            @RequestParam("stsfdgNo") String stsfdgNo ,
             @ModelAttribute("searchVO") ComtnstsfdgDefaultVO searchVO, Model model)
             throws Exception {
         ComtnstsfdgVO comtnstsfdgVO = new ComtnstsfdgVO();

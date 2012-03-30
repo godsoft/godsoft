@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MigrDatatypeTransformMap">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MigrDatatypeTransformMapVO" type="kr.godsoft.egovframe.generatorwebapp.migr_datatype_transform_map.service.MigrDatatypeTransformMapVO"/>
+	
+	<resultMap id="migrDatatypeTransformMap" class="kr.godsoft.egovframe.generatorwebapp.migr_datatype_transform_map.service.MigrDatatypeTransformMapVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="projectIdFk" column="project_id_fk" columnIndex="2"/>
+		<result property="mapName" column="map_name" columnIndex="3"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="4"/>
+		<result property="createdOn" column="created_on" columnIndex="5"/>
+		<result property="createdBy" column="created_by" columnIndex="6"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="7"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="migrDatatypeTransformMapDAO.insertMigrDatatypeTransformMap_S">
+		<![CDATA[
+            INSERT INTO migr_datatype_transform_map (
+                id
+                , project_id_fk
+                , map_name
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #projectIdFk#
+                , #mapName#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="migrDatatypeTransformMapDAO.updateMigrDatatypeTransformMap_S">
+		<![CDATA[
+            UPDATE migr_datatype_transform_map
+                SET
+                id = #id#
+                , project_id_fk = #projectIdFk#
+                , map_name = #mapName#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="migrDatatypeTransformMapDAO.deleteMigrDatatypeTransformMap_S">
+		<![CDATA[
+			DELETE FROM migr_datatype_transform_map
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="migrDatatypeTransformMapDAO.selectMigrDatatypeTransformMap_S" resultMap="migrDatatypeTransformMap">
+		<![CDATA[
+			SELECT
+				id
+				, project_id_fk
+				, map_name
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MIGR_DATATYPE_TRANSFORM_MAP
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="migrDatatypeTransformMapDAO.selectMigrDatatypeTransformMapList_D" parameterClass="MigrDatatypeTransformMapVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.PROJECT_ID_FK
+								, A.MAP_NAME
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, PROJECT_ID_FK
+								, MAP_NAME
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MIGR_DATATYPE_TRANSFORM_MAP
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PROJECT_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="migrDatatypeTransformMapDAO.selectMigrDatatypeTransformMapListTotCnt_S" parameterClass="MigrDatatypeTransformMapVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MIGR_DATATYPE_TRANSFORM_MAP
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROJECT_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

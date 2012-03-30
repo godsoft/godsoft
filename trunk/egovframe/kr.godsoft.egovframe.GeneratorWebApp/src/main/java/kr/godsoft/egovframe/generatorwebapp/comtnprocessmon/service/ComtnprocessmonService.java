@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnprocessmonService {
 	
 	/**
-	 * comtnprocessmon을 등록한다.
+	 * COMTNPROCESSMON을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnprocessmonVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnprocessmonService {
     String insertComtnprocessmon(ComtnprocessmonVO vo) throws Exception;
     
     /**
-	 * comtnprocessmon을 수정한다.
+	 * COMTNPROCESSMON을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnprocessmonVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnprocessmonService {
     void updateComtnprocessmon(ComtnprocessmonVO vo) throws Exception;
     
     /**
-	 * comtnprocessmon을 삭제한다.
+	 * COMTNPROCESSMON을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnprocessmonVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnprocessmonService {
     void deleteComtnprocessmon(ComtnprocessmonVO vo) throws Exception;
     
     /**
-	 * comtnprocessmon을 조회한다.
+	 * COMTNPROCESSMON을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnprocessmonVO
-	 * @return 조회한 comtnprocessmon
+	 * @return 조회한 COMTNPROCESSMON
 	 * @exception Exception
 	 */
     ComtnprocessmonVO selectComtnprocessmon(ComtnprocessmonVO vo) throws Exception;
     
     /**
-	 * comtnprocessmon 목록을 조회한다.
+	 * COMTNPROCESSMON 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnprocessmon 목록
+	 * @return COMTNPROCESSMON 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnprocessmonList(ComtnprocessmonVO vo) throws Exception;
     
     /**
-	 * comtnprocessmon 총 갯수를 조회한다.
+	 * COMTNPROCESSMON 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnprocessmon 총 갯수
+	 * @return COMTNPROCESSMON 총 갯수
 	 * @exception
 	 */
     int selectComtnprocessmonListTotCnt(ComtnprocessmonVO vo);

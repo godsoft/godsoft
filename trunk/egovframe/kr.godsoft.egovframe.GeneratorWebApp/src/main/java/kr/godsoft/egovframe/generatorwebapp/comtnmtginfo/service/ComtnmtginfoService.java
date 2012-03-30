@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnmtginfoService {
 	
 	/**
-	 * comtnmtginfo을 등록한다.
+	 * COMTNMTGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnmtginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnmtginfoService {
     String insertComtnmtginfo(ComtnmtginfoVO vo) throws Exception;
     
     /**
-	 * comtnmtginfo을 수정한다.
+	 * COMTNMTGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnmtginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnmtginfoService {
     void updateComtnmtginfo(ComtnmtginfoVO vo) throws Exception;
     
     /**
-	 * comtnmtginfo을 삭제한다.
+	 * COMTNMTGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnmtginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnmtginfoService {
     void deleteComtnmtginfo(ComtnmtginfoVO vo) throws Exception;
     
     /**
-	 * comtnmtginfo을 조회한다.
+	 * COMTNMTGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnmtginfoVO
-	 * @return 조회한 comtnmtginfo
+	 * @return 조회한 COMTNMTGINFO
 	 * @exception Exception
 	 */
     ComtnmtginfoVO selectComtnmtginfo(ComtnmtginfoVO vo) throws Exception;
     
     /**
-	 * comtnmtginfo 목록을 조회한다.
+	 * COMTNMTGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmtginfo 목록
+	 * @return COMTNMTGINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnmtginfoList(ComtnmtginfoVO vo) throws Exception;
     
     /**
-	 * comtnmtginfo 총 갯수를 조회한다.
+	 * COMTNMTGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmtginfo 총 갯수
+	 * @return COMTNMTGINFO 총 갯수
 	 * @exception
 	 */
     int selectComtnmtginfoListTotCnt(ComtnmtginfoVO vo);

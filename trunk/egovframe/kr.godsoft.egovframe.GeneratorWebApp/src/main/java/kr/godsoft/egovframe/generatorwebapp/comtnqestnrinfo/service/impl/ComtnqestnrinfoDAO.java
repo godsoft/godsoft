@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoDefaultVO;
 
 /**
  * @Class Name : ComtnqestnrinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.Comtnqestnri
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.Comtnqestnri
 public class ComtnqestnrinfoDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnqestnrinfo을 등록한다.
+	 * COMTNQESTNRINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqestnrinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnqestnrinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqestnrinfo을 수정한다.
+	 * COMTNQESTNRINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqestnrinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnqestnrinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqestnrinfo을 삭제한다.
+	 * COMTNQESTNRINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqestnrinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnqestnrinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqestnrinfo을 조회한다.
+	 * COMTNQESTNRINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqestnrinfoVO
-	 * @return 조회한 comtnqestnrinfo
+	 * @return 조회한 COMTNQESTNRINFO
 	 * @exception Exception
 	 */
     public ComtnqestnrinfoVO selectComtnqestnrinfo(ComtnqestnrinfoVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnqestnrinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqestnrinfo 목록을 조회한다.
+	 * COMTNQESTNRINFO 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqestnrinfo 목록
+	 * @return COMTNQESTNRINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtnqestnrinfoList(ComtnqestnrinfoDefaultVO searchVO) throws Exception {
-        return list("comtnqestnrinfoDAO.selectComtnqestnrinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnqestnrinfoList(ComtnqestnrinfoVO vo) throws Exception {
+        return list("comtnqestnrinfoDAO.selectComtnqestnrinfoList_D", vo);
     }
 
     /**
-	 * comtnqestnrinfo 총 갯수를 조회한다.
+	 * COMTNQESTNRINFO 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqestnrinfo 총 갯수
+	 * @return COMTNQESTNRINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtnqestnrinfoListTotCnt(ComtnqestnrinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnqestnrinfoDAO.selectComtnqestnrinfoListTotCnt_S", searchVO);
+    public int selectComtnqestnrinfoListTotCnt(ComtnqestnrinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnqestnrinfoDAO.selectComtnqestnrinfoListTotCnt_S", vo);
     }
 
 }

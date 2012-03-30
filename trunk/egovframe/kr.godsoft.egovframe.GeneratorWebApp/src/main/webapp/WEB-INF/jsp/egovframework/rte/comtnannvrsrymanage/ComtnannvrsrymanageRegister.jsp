@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,92 +95,92 @@ function fn_egov_save() {
 		<tr>
 			<th>user_id</th>
 			<td>
-				<form:input path="userId" cssClass="txt"/>
-				&nbsp;<form:errors path="userId" />
+					<form:input path="userId" cssClass="txt"/>
+					&nbsp;<form:errors path="userId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>annvrsry_se</th>
 			<td>
-				<form:input path="annvrsrySe" cssClass="txt"/>
-				&nbsp;<form:errors path="annvrsrySe" />
+					<form:input path="annvrsrySe" cssClass="txt"/>
+					&nbsp;<form:errors path="annvrsrySe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>annvrsry_nm</th>
 			<td>
-				<form:input path="annvrsryNm" cssClass="txt"/>
-				&nbsp;<form:errors path="annvrsryNm" />
+					<form:input path="annvrsryNm" cssClass="txt"/>
+					&nbsp;<form:errors path="annvrsryNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>annvrsry</th>
 			<td>
-				<form:input path="annvrsry" cssClass="txt"/>
-				&nbsp;<form:errors path="annvrsry" />
+					<form:input path="annvrsry" cssClass="txt"/>
+					&nbsp;<form:errors path="annvrsry" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cldr_se</th>
 			<td>
-				<form:input path="cldrSe" cssClass="txt"/>
-				&nbsp;<form:errors path="cldrSe" />
+					<form:input path="cldrSe" cssClass="txt"/>
+					&nbsp;<form:errors path="cldrSe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>annvrsry_ntcn_setup</th>
 			<td>
-				<form:input path="annvrsryNtcnSetup" cssClass="txt"/>
-				&nbsp;<form:errors path="annvrsryNtcnSetup" />
+					<form:input path="annvrsryNtcnSetup" cssClass="txt"/>
+					&nbsp;<form:errors path="annvrsryNtcnSetup" />
 			</td>
 		</tr>	
 		<tr>
 			<th>annvrsry_ntcn_bgnde</th>
 			<td>
-				<form:input path="annvrsryNtcnBgnde" cssClass="txt"/>
-				&nbsp;<form:errors path="annvrsryNtcnBgnde" />
+					<form:input path="annvrsryNtcnBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="annvrsryNtcnBgnde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>memo</th>
 			<td>
-				<form:input path="memo" cssClass="txt"/>
-				&nbsp;<form:errors path="memo" />
+					<form:input path="memo" cssClass="txt"/>
+					&nbsp;<form:errors path="memo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reptit_at</th>
 			<td>
-				<form:input path="reptitAt" cssClass="txt"/>
-				&nbsp;<form:errors path="reptitAt" />
+					<form:input path="reptitAt" cssClass="txt"/>
+					&nbsp;<form:errors path="reptitAt" />
 			</td>
 		</tr>	
 	</table>

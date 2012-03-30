@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -22,13 +22,13 @@ public class ComtndtausestatsVO extends ComtndtausestatsDefaultVO {
     private String bbsId;
     
     /** NTT_ID */
-    private int nttId;
+    private String nttId;
     
     /** ATCH_FILE_ID */
     private String atchFileId;
     
     /** FILE_SN */
-    private int fileSn;
+    private String fileSn;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -58,11 +58,11 @@ public class ComtndtausestatsVO extends ComtndtausestatsDefaultVO {
         this.bbsId = bbsId;
     }
     
-    public int getNttId() {
+    public String getNttId() {
         return this.nttId;
     }
     
-    public void setNttId(int nttId) {
+    public void setNttId(String nttId) {
         this.nttId = nttId;
     }
     
@@ -74,11 +74,11 @@ public class ComtndtausestatsVO extends ComtndtausestatsDefaultVO {
         this.atchFileId = atchFileId;
     }
     
-    public int getFileSn() {
+    public String getFileSn() {
         return this.fileSn;
     }
     
-    public void setFileSn(int fileSn) {
+    public void setFileSn(String fileSn) {
         this.fileSn = fileSn;
     }
     

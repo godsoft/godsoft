@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,113 +95,113 @@ function fn_egov_save() {
 		<tr>
 			<th>reprt_se</th>
 			<td>
-				<form:input path="reprtSe" cssClass="txt"/>
-				&nbsp;<form:errors path="reprtSe" />
+					<form:input path="reprtSe" cssClass="txt"/>
+					&nbsp;<form:errors path="reprtSe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reprt_sj</th>
 			<td>
-				<form:input path="reprtSj" cssClass="txt"/>
-				&nbsp;<form:errors path="reprtSj" />
+					<form:input path="reprtSj" cssClass="txt"/>
+					&nbsp;<form:errors path="reprtSj" />
 			</td>
 		</tr>	
 		<tr>
 			<th>report_de</th>
 			<td>
-				<form:input path="reportDe" cssClass="txt"/>
-				&nbsp;<form:errors path="reportDe" />
+					<form:input path="reportDe" cssClass="txt"/>
+					&nbsp;<form:errors path="reportDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>wrter_id</th>
 			<td>
-				<form:input path="wrterId" cssClass="txt"/>
-				&nbsp;<form:errors path="wrterId" />
+					<form:input path="wrterId" cssClass="txt"/>
+					&nbsp;<form:errors path="wrterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reportr_id</th>
 			<td>
-				<form:input path="reportrId" cssClass="txt"/>
-				&nbsp;<form:errors path="reportrId" />
+					<form:input path="reportrId" cssClass="txt"/>
+					&nbsp;<form:errors path="reportrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>report_bgnde</th>
 			<td>
-				<form:input path="reportBgnde" cssClass="txt"/>
-				&nbsp;<form:errors path="reportBgnde" />
+					<form:input path="reportBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="reportBgnde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>report_endde</th>
 			<td>
-				<form:input path="reportEndde" cssClass="txt"/>
-				&nbsp;<form:errors path="reportEndde" />
+					<form:input path="reportEndde" cssClass="txt"/>
+					&nbsp;<form:errors path="reportEndde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>thswik_report_cn</th>
 			<td>
-				<form:input path="thswikReportCn" cssClass="txt"/>
-				&nbsp;<form:errors path="thswikReportCn" />
+					<form:input path="thswikReportCn" cssClass="txt"/>
+					&nbsp;<form:errors path="thswikReportCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>nextwik_report_cn</th>
 			<td>
-				<form:input path="nextwikReportCn" cssClass="txt"/>
-				&nbsp;<form:errors path="nextwikReportCn" />
+					<form:input path="nextwikReportCn" cssClass="txt"/>
+					&nbsp;<form:errors path="nextwikReportCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>partclr_matter</th>
 			<td>
-				<form:input path="partclrMatter" cssClass="txt"/>
-				&nbsp;<form:errors path="partclrMatter" />
+					<form:input path="partclrMatter" cssClass="txt"/>
+					&nbsp;<form:errors path="partclrMatter" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atch_file_id</th>
 			<td>
-				<form:input path="atchFileId" cssClass="txt"/>
-				&nbsp;<form:errors path="atchFileId" />
+					<form:input path="atchFileId" cssClass="txt"/>
+					&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confm_dt</th>
 			<td>
-				<form:input path="confmDt" cssClass="txt"/>
-				&nbsp;<form:errors path="confmDt" />
+					<form:input path="confmDt" cssClass="txt"/>
+					&nbsp;<form:errors path="confmDt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

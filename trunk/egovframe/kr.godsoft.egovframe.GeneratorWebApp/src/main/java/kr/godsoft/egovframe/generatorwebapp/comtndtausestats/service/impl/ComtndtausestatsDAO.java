@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.Comtndtause
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.Comtndtause
 public class ComtndtausestatsDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtndtausestats을 등록한다.
+	 * COMTNDTAUSESTATS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndtausestatsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtndtausestatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndtausestats을 수정한다.
+	 * COMTNDTAUSESTATS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndtausestatsVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtndtausestatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndtausestats을 삭제한다.
+	 * COMTNDTAUSESTATS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndtausestatsVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtndtausestatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndtausestats을 조회한다.
+	 * COMTNDTAUSESTATS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndtausestatsVO
-	 * @return 조회한 comtndtausestats
+	 * @return 조회한 COMTNDTAUSESTATS
 	 * @exception Exception
 	 */
     public ComtndtausestatsVO selectComtndtausestats(ComtndtausestatsVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtndtausestatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndtausestats 목록을 조회한다.
+	 * COMTNDTAUSESTATS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndtausestats 목록
+	 * @return COMTNDTAUSESTATS 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtndtausestatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndtausestats 총 갯수를 조회한다.
+	 * COMTNDTAUSESTATS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndtausestats 총 갯수
+	 * @return COMTNDTAUSESTATS 총 갯수
 	 * @exception
 	 */
     public int selectComtndtausestatsListTotCnt(ComtndtausestatsVO vo) {

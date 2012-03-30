@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmtgplaceresve">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnmtgplaceresveVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveVO"/>
+	
+	<resultMap id="comtnmtgplaceresve" class="kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service.ComtnmtgplaceresveVO">
+		<result property="resveId" column="resve_id" columnIndex="1"/>
+		<result property="mtgrumId" column="mtgrum_id" columnIndex="2"/>
+		<result property="mtgSj" column="mtg_sj" columnIndex="3"/>
+		<result property="rsvctmId" column="rsvctm_id" columnIndex="4"/>
+		<result property="resveDe" column="resve_de" columnIndex="5"/>
+		<result property="resveBeginTm" column="resve_begin_tm" columnIndex="6"/>
+		<result property="resveEndTm" column="resve_end_tm" columnIndex="7"/>
+		<result property="atndncNmpr" column="atndnc_nmpr" columnIndex="8"/>
+		<result property="mtgCn" column="mtg_cn" columnIndex="9"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="10"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="11"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="12"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="13"/>
+	</resultMap>
+	
+	<insert id="comtnmtgplaceresveDAO.insertComtnmtgplaceresve_S">
+		<![CDATA[
+            INSERT INTO comtnmtgplaceresve (
+                resve_id
+                , mtgrum_id
+                , mtg_sj
+                , rsvctm_id
+                , resve_de
+                , resve_begin_tm
+                , resve_end_tm
+                , atndnc_nmpr
+                , mtg_cn
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #resveId#
+                , #mtgrumId#
+                , #mtgSj#
+                , #rsvctmId#
+                , #resveDe#
+                , #resveBeginTm#
+                , #resveEndTm#
+                , #atndncNmpr#
+                , #mtgCn#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnmtgplaceresveDAO.updateComtnmtgplaceresve_S">
+		<![CDATA[
+            UPDATE comtnmtgplaceresve
+                SET
+                resve_id = #resveId#
+                , mtgrum_id = #mtgrumId#
+                , mtg_sj = #mtgSj#
+                , rsvctm_id = #rsvctmId#
+                , resve_de = #resveDe#
+                , resve_begin_tm = #resveBeginTm#
+                , resve_end_tm = #resveEndTm#
+                , atndnc_nmpr = #atndncNmpr#
+                , mtg_cn = #mtgCn#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND resve_id = #resveId#
+		]]>
+	</update>
+	
+	<delete id="comtnmtgplaceresveDAO.deleteComtnmtgplaceresve_S">
+		<![CDATA[
+			DELETE FROM comtnmtgplaceresve
+				WHERE 1 = 1
+				AND resve_id = #resveId#
+		]]>
+	</delete>
+	
+	<select id="comtnmtgplaceresveDAO.selectComtnmtgplaceresve_S" resultMap="comtnmtgplaceresve">
+		<![CDATA[
+			SELECT
+				resve_id
+				, mtgrum_id
+				, mtg_sj
+				, rsvctm_id
+				, resve_de
+				, resve_begin_tm
+				, resve_end_tm
+				, atndnc_nmpr
+				, mtg_cn
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNMTGPLACERESVE
+			WHERE resve_id = #resveId#
+		]]>
+	</select>
+	
+	<select id="comtnmtgplaceresveDAO.selectComtnmtgplaceresveList_D" parameterClass="ComtnmtgplaceresveVO" resultClass="egovMap">
+	       SELECT 
+								A.RESVE_ID
+								, A.MTGRUM_ID
+								, A.MTG_SJ
+								, A.RSVCTM_ID
+								, A.RESVE_DE
+								, A.RESVE_BEGIN_TM
+								, A.RESVE_END_TM
+								, A.ATNDNC_NMPR
+								, A.MTG_CN
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								RESVE_ID
+								, MTGRUM_ID
+								, MTG_SJ
+								, RSVCTM_ID
+								, RESVE_DE
+								, RESVE_BEGIN_TM
+								, RESVE_END_TM
+								, ATNDNC_NMPR
+								, MTG_CN
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNMTGPLACERESVE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					RESVE_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					MTGRUM_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							RESVE_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnmtgplaceresveDAO.selectComtnmtgplaceresveListTotCnt_S" parameterClass="ComtnmtgplaceresveVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNMTGPLACERESVE
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RESVE_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MTGRUM_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

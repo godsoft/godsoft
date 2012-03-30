@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtneventatdrnVO extends ComtneventatdrnDefaultVO{
+public class ComtneventatdrnVO extends ComtneventatdrnDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** APPLCNT_ID */
     private String applcntId;
     
-    /**  */
+    /** EVENT_ID */
     private String eventId;
     
-    /**  */
+    /** REQST_DE */
     private String reqstDe;
     
-    /**  */
+    /** SANCTNER_ID */
     private String sanctnerId;
     
-    /**  */
+    /** CONFM_AT */
     private String confmAt;
     
-    /**  */
+    /** SANCTN_DT */
     private String sanctnDt;
     
-    /**  */
+    /** RETURN_RESN */
     private String returnResn;
     
-    /**  */
+    /** INFRML_SANCTN_ID */
     private String infrmlSanctnId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
     public String getApplcntId() {

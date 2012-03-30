@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -108,15 +108,15 @@ function fn_egov_save() {
 		<tr>
 			<th>menu_nm</th>
 			<td>
-				<form:input path="menuNm" cssClass="txt"/>
-				&nbsp;<form:errors path="menuNm" />
+					<form:input path="menuNm" cssClass="txt"/>
+					&nbsp;<form:errors path="menuNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>progrm_stre_path</th>
 			<td>
-				<form:input path="progrmStrePath" cssClass="txt"/>
-				&nbsp;<form:errors path="progrmStrePath" />
+					<form:input path="progrmStrePath" cssClass="txt"/>
+					&nbsp;<form:errors path="progrmStrePath" />
 			</td>
 		</tr>	
 	</table>

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.ComtncntntslistService;
+import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.ComtncntntslistDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.ComtncntntslistVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.ComtncntntslistService;
-import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.ComtncntntslistDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.ComtncntntslistVO;
 
 /**
  * @Class Name : ComtncntntslistController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.Comtncntntsl
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service.Comtncntntsl
  */
 
 @Controller
-@SessionAttributes(types=ComtncntntslistVO.class)
 public class ComtncntntslistController {
 
     @Resource(name = "comtncntntslistService")
@@ -45,13 +45,13 @@ public class ComtncntntslistController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtncntntslist 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtncntntslistDefaultVO
+	 * COMTNCNTNTSLIST 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtncntntslistVO
 	 * @return "/comtncntntslist/ComtncntntslistList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtncntntslist/ComtncntntslistList.do")
-    public String selectComtncntntslistList(@ModelAttribute("searchVO") ComtncntntslistDefaultVO searchVO, 
+    public String selectComtncntntslistList(@ModelAttribute("searchVO") ComtncntntslistVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtncntntslistController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtncntntslistList = comtncntntslistService.selectComtncntntslistList(searchVO);
+        List<EgovMap> comtncntntslistList = comtncntntslistService.selectComtncntntslistList(searchVO);
         model.addAttribute("resultList", comtncntntslistList);
         
         int totCnt = comtncntntslistService.selectComtncntntslistListTotCnt(searchVO);

@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.Comtnintnetsv
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnintnetsvc.service.Comtnintnetsv
 public class ComtnintnetsvcDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnintnetsvc을 등록한다.
+	 * COMTNINTNETSVC을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnintnetsvcVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnintnetsvcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnintnetsvc을 수정한다.
+	 * COMTNINTNETSVC을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnintnetsvcVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnintnetsvcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnintnetsvc을 삭제한다.
+	 * COMTNINTNETSVC을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnintnetsvcVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnintnetsvcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnintnetsvc을 조회한다.
+	 * COMTNINTNETSVC을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnintnetsvcVO
-	 * @return 조회한 comtnintnetsvc
+	 * @return 조회한 COMTNINTNETSVC
 	 * @exception Exception
 	 */
     public ComtnintnetsvcVO selectComtnintnetsvc(ComtnintnetsvcVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnintnetsvcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnintnetsvc 목록을 조회한다.
+	 * COMTNINTNETSVC 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnintnetsvc 목록
+	 * @return COMTNINTNETSVC 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnintnetsvcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnintnetsvc 총 갯수를 조회한다.
+	 * COMTNINTNETSVC 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnintnetsvc 총 갯수
+	 * @return COMTNINTNETSVC 총 갯수
 	 * @exception
 	 */
     public int selectComtnintnetsvcListTotCnt(ComtnintnetsvcVO vo) {

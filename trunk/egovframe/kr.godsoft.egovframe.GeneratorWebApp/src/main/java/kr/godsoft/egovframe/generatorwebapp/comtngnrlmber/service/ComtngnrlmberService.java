@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtngnrlmberService {
 	
 	/**
-	 * comtngnrlmber을 등록한다.
+	 * COMTNGNRLMBER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtngnrlmberVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtngnrlmberService {
     String insertComtngnrlmber(ComtngnrlmberVO vo) throws Exception;
     
     /**
-	 * comtngnrlmber을 수정한다.
+	 * COMTNGNRLMBER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtngnrlmberVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtngnrlmberService {
     void updateComtngnrlmber(ComtngnrlmberVO vo) throws Exception;
     
     /**
-	 * comtngnrlmber을 삭제한다.
+	 * COMTNGNRLMBER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtngnrlmberVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtngnrlmberService {
     void deleteComtngnrlmber(ComtngnrlmberVO vo) throws Exception;
     
     /**
-	 * comtngnrlmber을 조회한다.
+	 * COMTNGNRLMBER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtngnrlmberVO
-	 * @return 조회한 comtngnrlmber
+	 * @return 조회한 COMTNGNRLMBER
 	 * @exception Exception
 	 */
     ComtngnrlmberVO selectComtngnrlmber(ComtngnrlmberVO vo) throws Exception;
     
     /**
-	 * comtngnrlmber 목록을 조회한다.
+	 * COMTNGNRLMBER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtngnrlmber 목록
+	 * @return COMTNGNRLMBER 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtngnrlmberList(ComtngnrlmberVO vo) throws Exception;
     
     /**
-	 * comtngnrlmber 총 갯수를 조회한다.
+	 * COMTNGNRLMBER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtngnrlmber 총 갯수
+	 * @return COMTNGNRLMBER 총 갯수
 	 * @exception
 	 */
     int selectComtngnrlmberListTotCnt(ComtngnrlmberVO vo);

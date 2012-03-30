@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ComtnrolesHierarchy">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnrolesHierarchyVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO"/>
+	
+	<resultMap id="comtnrolesHierarchy" class="kr.godsoft.egovframe.generatorwebapp.comtnroles_hierarchy.service.ComtnrolesHierarchyVO">
+		<result property="parntsRole" column="parnts_role" columnIndex="1"/>
+		<result property="chldrnRole" column="chldrn_role" columnIndex="2"/>
+	</resultMap>
+	
+	<insert id="comtnrolesHierarchyDAO.insertComtnrolesHierarchy_S">
+		<![CDATA[
+            INSERT INTO comtnroles_hierarchy (
+                parnts_role
+                , chldrn_role
+            ) VALUES (
+                #parntsRole#
+                , #chldrnRole#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnrolesHierarchyDAO.updateComtnrolesHierarchy_S">
+		<![CDATA[
+            UPDATE comtnroles_hierarchy
+                SET
+                parnts_role = #parntsRole#
+                , chldrn_role = #chldrnRole#
+                WHERE 1 = 1
+                AND parnts_role = #parntsRole#
+                AND chldrn_role = #chldrnRole#
+		]]>
+	</update>
+	
+	<delete id="comtnrolesHierarchyDAO.deleteComtnrolesHierarchy_S">
+		<![CDATA[
+			DELETE FROM comtnroles_hierarchy
+				WHERE 1 = 1
+				AND parnts_role = #parntsRole#
+				AND chldrn_role = #chldrnRole#
+		]]>
+	</delete>
+	
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchy_S" resultMap="comtnrolesHierarchy">
+		<![CDATA[
+			SELECT
+				parnts_role
+				, chldrn_role
+			FROM COMTNROLES_HIERARCHY
+			WHERE parnts_role = #parntsRole#
+				AND chldrn_role = #chldrnRole#
+		]]>
+	</select>
+	
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyList_D" parameterClass="ComtnrolesHierarchyVO" resultClass="egovMap">
+	       SELECT 
+								A.PARNTS_ROLE
+								, A.CHLDRN_ROLE
+			       FROM
+            (
+				SELECT
+								PARNTS_ROLE
+								, CHLDRN_ROLE
+							, ROWNUM
+				FROM COMTNROLES_HIERARCHY
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					PARNTS_ROLE = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CHLDRN_ROLE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							PARNTS_ROLE DESC
+							, CHLDRN_ROLE DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnrolesHierarchyDAO.selectComtnrolesHierarchyListTotCnt_S" parameterClass="ComtnrolesHierarchyVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNROLES_HIERARCHY
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PARNTS_ROLE = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CHLDRN_ROLE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

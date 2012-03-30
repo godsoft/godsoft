@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,29 +95,29 @@ function fn_egov_save() {
 		<tr>
 			<th>occrrnc_de</th>
 			<td>
-				<form:input path="occrrncDe" cssClass="txt"/>
-				&nbsp;<form:errors path="occrrncDe" />
+					<form:input path="occrrncDe" cssClass="txt"/>
+					&nbsp;<form:errors path="occrrncDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>url</th>
 			<td>
-				<form:input path="url" cssClass="txt"/>
-				&nbsp;<form:errors path="url" />
+					<form:input path="url" cssClass="txt"/>
+					&nbsp;<form:errors path="url" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rqester_id</th>
 			<td>
-				<form:input path="rqesterId" cssClass="txt"/>
-				&nbsp;<form:errors path="rqesterId" />
+					<form:input path="rqesterId" cssClass="txt"/>
+					&nbsp;<form:errors path="rqesterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rqester_ip</th>
 			<td>
-				<form:input path="rqesterIp" cssClass="txt"/>
-				&nbsp;<form:errors path="rqesterIp" />
+					<form:input path="rqesterIp" cssClass="txt"/>
+					&nbsp;<form:errors path="rqesterIp" />
 			</td>
 		</tr>	
 	</table>

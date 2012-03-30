@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsystemcntc.service.Comtnsystemc
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsystemcntc.service.Comtnsystemc
 public class ComtnsystemcntcDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnsystemcntc을 등록한다.
+	 * COMTNSYSTEMCNTC을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnsystemcntcVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnsystemcntcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsystemcntc을 수정한다.
+	 * COMTNSYSTEMCNTC을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnsystemcntcVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnsystemcntcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsystemcntc을 삭제한다.
+	 * COMTNSYSTEMCNTC을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnsystemcntcVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnsystemcntcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsystemcntc을 조회한다.
+	 * COMTNSYSTEMCNTC을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnsystemcntcVO
-	 * @return 조회한 comtnsystemcntc
+	 * @return 조회한 COMTNSYSTEMCNTC
 	 * @exception Exception
 	 */
     public ComtnsystemcntcVO selectComtnsystemcntc(ComtnsystemcntcVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnsystemcntcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsystemcntc 목록을 조회한다.
+	 * COMTNSYSTEMCNTC 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnsystemcntc 목록
+	 * @return COMTNSYSTEMCNTC 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnsystemcntcDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsystemcntc 총 갯수를 조회한다.
+	 * COMTNSYSTEMCNTC 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnsystemcntc 총 갯수
+	 * @return COMTNSYSTEMCNTC 총 갯수
 	 * @exception
 	 */
     public int selectComtnsystemcntcListTotCnt(ComtnsystemcntcVO vo) {

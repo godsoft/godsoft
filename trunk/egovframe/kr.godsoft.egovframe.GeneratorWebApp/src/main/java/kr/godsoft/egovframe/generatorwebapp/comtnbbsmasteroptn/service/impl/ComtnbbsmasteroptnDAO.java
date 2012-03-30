@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsmasteroptn.service.Comtnbbsm
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbbsmasteroptn.service.Comtnbbsm
 public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnbbsmasteroptn을 등록한다.
+	 * COMTNBBSMASTEROPTN을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbbsmasteroptnVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbbsmasteroptn을 수정한다.
+	 * COMTNBBSMASTEROPTN을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbbsmasteroptnVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbbsmasteroptn을 삭제한다.
+	 * COMTNBBSMASTEROPTN을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbbsmasteroptnVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbbsmasteroptn을 조회한다.
+	 * COMTNBBSMASTEROPTN을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbbsmasteroptnVO
-	 * @return 조회한 comtnbbsmasteroptn
+	 * @return 조회한 COMTNBBSMASTEROPTN
 	 * @exception Exception
 	 */
     public ComtnbbsmasteroptnVO selectComtnbbsmasteroptn(ComtnbbsmasteroptnVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbbsmasteroptn 목록을 조회한다.
+	 * COMTNBBSMASTEROPTN 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbbsmasteroptn 목록
+	 * @return COMTNBBSMASTEROPTN 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnbbsmasteroptnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbbsmasteroptn 총 갯수를 조회한다.
+	 * COMTNBBSMASTEROPTN 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbbsmasteroptn 총 갯수
+	 * @return COMTNBBSMASTEROPTN 총 갯수
 	 * @exception
 	 */
     public int selectComtnbbsmasteroptnListTotCnt(ComtnbbsmasteroptnVO vo) {

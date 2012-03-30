@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqustnriemVO extends ComtnqustnriemDefaultVO{
+public class ComtnqustnriemVO extends ComtnqustnriemDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QUSTNR_TMPLAT_ID */
     private String qustnrTmplatId;
     
-    /**  */
+    /** QESTNR_ID */
     private String qestnrId;
     
-    /**  */
+    /** QUSTNR_QESITM_ID */
     private String qustnrQesitmId;
     
-    /**  */
+    /** QUSTNR_IEM_ID */
     private String qustnrIemId;
     
-    /**  */
-    private int iemSn;
+    /** IEM_SN */
+    private String iemSn;
     
-    /**  */
+    /** IEM_CN */
     private String iemCn;
     
-    /**  */
+    /** ETC_ANSWER_AT */
     private String etcAnswerAt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getQustnrTmplatId() {
@@ -80,11 +80,11 @@ public class ComtnqustnriemVO extends ComtnqustnriemDefaultVO{
         this.qustnrIemId = qustnrIemId;
     }
     
-    public int getIemSn() {
+    public String getIemSn() {
         return this.iemSn;
     }
     
-    public void setIemSn(int iemSn) {
+    public void setIemSn(String iemSn) {
         this.iemSn = iemSn;
     }
     

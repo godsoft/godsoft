@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -121,43 +121,43 @@ function fn_egov_save() {
 		<tr>
 			<th>creat_co</th>
 			<td>
-				<form:input path="creatCo" cssClass="txt"/>
-				&nbsp;<form:errors path="creatCo" />
+					<form:input path="creatCo" cssClass="txt"/>
+					&nbsp;<form:errors path="creatCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>tot_rdcnt</th>
 			<td>
-				<form:input path="totRdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="totRdcnt" />
+					<form:input path="totRdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="totRdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>avrg_rdcnt</th>
 			<td>
-				<form:input path="avrgRdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="avrgRdcnt" />
+					<form:input path="avrgRdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="avrgRdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>top_inqire_bbsctt_id</th>
 			<td>
-				<form:input path="topInqireBbscttId" cssClass="txt"/>
-				&nbsp;<form:errors path="topInqireBbscttId" />
+					<form:input path="topInqireBbscttId" cssClass="txt"/>
+					&nbsp;<form:errors path="topInqireBbscttId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mumm_inqire_bbsctt_id</th>
 			<td>
-				<form:input path="mummInqireBbscttId" cssClass="txt"/>
-				&nbsp;<form:errors path="mummInqireBbscttId" />
+					<form:input path="mummInqireBbscttId" cssClass="txt"/>
+					&nbsp;<form:errors path="mummInqireBbscttId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>top_ntcr_id</th>
 			<td>
-				<form:input path="topNtcrId" cssClass="txt"/>
-				&nbsp;<form:errors path="topNtcrId" />
+					<form:input path="topNtcrId" cssClass="txt"/>
+					&nbsp;<form:errors path="topNtcrId" />
 			</td>
 		</tr>	
 	</table>

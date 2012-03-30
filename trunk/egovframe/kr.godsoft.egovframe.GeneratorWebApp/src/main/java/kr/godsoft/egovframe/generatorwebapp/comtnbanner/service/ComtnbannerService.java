@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnbannerService {
 	
 	/**
-	 * comtnbanner을 등록한다.
+	 * COMTNBANNER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbannerVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnbannerService {
     String insertComtnbanner(ComtnbannerVO vo) throws Exception;
     
     /**
-	 * comtnbanner을 수정한다.
+	 * COMTNBANNER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbannerVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnbannerService {
     void updateComtnbanner(ComtnbannerVO vo) throws Exception;
     
     /**
-	 * comtnbanner을 삭제한다.
+	 * COMTNBANNER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbannerVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnbannerService {
     void deleteComtnbanner(ComtnbannerVO vo) throws Exception;
     
     /**
-	 * comtnbanner을 조회한다.
+	 * COMTNBANNER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbannerVO
-	 * @return 조회한 comtnbanner
+	 * @return 조회한 COMTNBANNER
 	 * @exception Exception
 	 */
     ComtnbannerVO selectComtnbanner(ComtnbannerVO vo) throws Exception;
     
     /**
-	 * comtnbanner 목록을 조회한다.
+	 * COMTNBANNER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbanner 목록
+	 * @return COMTNBANNER 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnbannerList(ComtnbannerVO vo) throws Exception;
     
     /**
-	 * comtnbanner 총 갯수를 조회한다.
+	 * COMTNBANNER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbanner 총 갯수
+	 * @return COMTNBANNER 총 갯수
 	 * @exception
 	 */
     int selectComtnbannerListTotCnt(ComtnbannerVO vo);

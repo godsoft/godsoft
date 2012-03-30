@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -28,7 +28,7 @@ public class ComtnqainfoVO extends ComtnqainfoDefaultVO {
     private String writngDe;
     
     /** RDCNT */
-    private int rdcnt;
+    private String rdcnt;
     
     /** EMAIL_ADRES */
     private String emailAdres;
@@ -104,11 +104,11 @@ public class ComtnqainfoVO extends ComtnqainfoDefaultVO {
         this.writngDe = writngDe;
     }
     
-    public int getRdcnt() {
+    public String getRdcnt() {
         return this.rdcnt;
     }
     
-    public void setRdcnt(int rdcnt) {
+    public void setRdcnt(String rdcnt) {
         this.rdcnt = rdcnt;
     }
     

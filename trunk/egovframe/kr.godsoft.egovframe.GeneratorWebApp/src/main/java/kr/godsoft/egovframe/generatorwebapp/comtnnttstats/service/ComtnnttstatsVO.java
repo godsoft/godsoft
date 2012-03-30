@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnnttstats.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,16 +19,16 @@ public class ComtnnttstatsVO extends ComtnnttstatsDefaultVO {
     private String statsId;
     
     /** NTCE_CO */
-    private int ntceCo;
+    private String ntceCo;
     
     /** AVRG_RDCNT */
-    private int avrgRdcnt;
+    private String avrgRdcnt;
     
     /** TOP_RDCNT */
-    private int topRdcnt;
+    private String topRdcnt;
     
     /** MUMM_RDCNT */
-    private int mummRdcnt;
+    private String mummRdcnt;
     
     /** TOP_NTCR_ID */
     private String topNtcrId;
@@ -41,35 +41,35 @@ public class ComtnnttstatsVO extends ComtnnttstatsDefaultVO {
         this.statsId = statsId;
     }
     
-    public int getNtceCo() {
+    public String getNtceCo() {
         return this.ntceCo;
     }
     
-    public void setNtceCo(int ntceCo) {
+    public void setNtceCo(String ntceCo) {
         this.ntceCo = ntceCo;
     }
     
-    public int getAvrgRdcnt() {
+    public String getAvrgRdcnt() {
         return this.avrgRdcnt;
     }
     
-    public void setAvrgRdcnt(int avrgRdcnt) {
+    public void setAvrgRdcnt(String avrgRdcnt) {
         this.avrgRdcnt = avrgRdcnt;
     }
     
-    public int getTopRdcnt() {
+    public String getTopRdcnt() {
         return this.topRdcnt;
     }
     
-    public void setTopRdcnt(int topRdcnt) {
+    public void setTopRdcnt(String topRdcnt) {
         this.topRdcnt = topRdcnt;
     }
     
-    public int getMummRdcnt() {
+    public String getMummRdcnt() {
         return this.mummRdcnt;
     }
     
-    public void setMummRdcnt(int mummRdcnt) {
+    public void setMummRdcnt(String mummRdcnt) {
         this.mummRdcnt = mummRdcnt;
     }
     

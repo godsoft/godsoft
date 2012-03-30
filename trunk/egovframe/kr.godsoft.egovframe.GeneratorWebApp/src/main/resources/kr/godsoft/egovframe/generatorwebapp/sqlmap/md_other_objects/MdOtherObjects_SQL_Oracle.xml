@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdOtherObjects">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdOtherObjectsVO" type="kr.godsoft.egovframe.generatorwebapp.md_other_objects.service.MdOtherObjectsVO"/>
+	
+	<resultMap id="mdOtherObjects" class="kr.godsoft.egovframe.generatorwebapp.md_other_objects.service.MdOtherObjectsVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="schemaIdFk" column="schema_id_fk" columnIndex="2"/>
+		<result property="name" column="name" columnIndex="3"/>
+		<result property="nativeSql" column="native_sql" columnIndex="4"/>
+		<result property="nativeKey" column="native_key" columnIndex="5"/>
+		<result property="comments" column="comments" columnIndex="6"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="7"/>
+		<result property="createdOn" column="created_on" columnIndex="8"/>
+		<result property="createdBy" column="created_by" columnIndex="9"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="10"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="mdOtherObjectsDAO.insertMdOtherObjects_S">
+		<![CDATA[
+            INSERT INTO md_other_objects (
+                id
+                , schema_id_fk
+                , name
+                , native_sql
+                , native_key
+                , comments
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #schemaIdFk#
+                , #name#
+                , #nativeSql#
+                , #nativeKey#
+                , #comments#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdOtherObjectsDAO.updateMdOtherObjects_S">
+		<![CDATA[
+            UPDATE md_other_objects
+                SET
+                id = #id#
+                , schema_id_fk = #schemaIdFk#
+                , name = #name#
+                , native_sql = #nativeSql#
+                , native_key = #nativeKey#
+                , comments = #comments#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdOtherObjectsDAO.deleteMdOtherObjects_S">
+		<![CDATA[
+			DELETE FROM md_other_objects
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdOtherObjectsDAO.selectMdOtherObjects_S" resultMap="mdOtherObjects">
+		<![CDATA[
+			SELECT
+				id
+				, schema_id_fk
+				, name
+				, native_sql
+				, native_key
+				, comments
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_OTHER_OBJECTS
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdOtherObjectsDAO.selectMdOtherObjectsList_D" parameterClass="MdOtherObjectsVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.SCHEMA_ID_FK
+								, A.NAME
+								, A.NATIVE_SQL
+								, A.NATIVE_KEY
+								, A.COMMENTS
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, SCHEMA_ID_FK
+								, NAME
+								, NATIVE_SQL
+								, NATIVE_KEY
+								, COMMENTS
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_OTHER_OBJECTS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdOtherObjectsDAO.selectMdOtherObjectsListTotCnt_S" parameterClass="MdOtherObjectsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_OTHER_OBJECTS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

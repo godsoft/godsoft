@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtninfrmlsanctnService {
 	
 	/**
-	 * comtninfrmlsanctn을 등록한다.
+	 * COMTNINFRMLSANCTN을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtninfrmlsanctnVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtninfrmlsanctnService {
     String insertComtninfrmlsanctn(ComtninfrmlsanctnVO vo) throws Exception;
     
     /**
-	 * comtninfrmlsanctn을 수정한다.
+	 * COMTNINFRMLSANCTN을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtninfrmlsanctnVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtninfrmlsanctnService {
     void updateComtninfrmlsanctn(ComtninfrmlsanctnVO vo) throws Exception;
     
     /**
-	 * comtninfrmlsanctn을 삭제한다.
+	 * COMTNINFRMLSANCTN을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtninfrmlsanctnVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtninfrmlsanctnService {
     void deleteComtninfrmlsanctn(ComtninfrmlsanctnVO vo) throws Exception;
     
     /**
-	 * comtninfrmlsanctn을 조회한다.
+	 * COMTNINFRMLSANCTN을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtninfrmlsanctnVO
-	 * @return 조회한 comtninfrmlsanctn
+	 * @return 조회한 COMTNINFRMLSANCTN
 	 * @exception Exception
 	 */
     ComtninfrmlsanctnVO selectComtninfrmlsanctn(ComtninfrmlsanctnVO vo) throws Exception;
     
     /**
-	 * comtninfrmlsanctn 목록을 조회한다.
+	 * COMTNINFRMLSANCTN 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtninfrmlsanctn 목록
+	 * @return COMTNINFRMLSANCTN 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtninfrmlsanctnList(ComtninfrmlsanctnVO vo) throws Exception;
     
     /**
-	 * comtninfrmlsanctn 총 갯수를 조회한다.
+	 * COMTNINFRMLSANCTN 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtninfrmlsanctn 총 갯수
+	 * @return COMTNINFRMLSANCTN 총 갯수
 	 * @exception
 	 */
     int selectComtninfrmlsanctnListTotCnt(ComtninfrmlsanctnVO vo);

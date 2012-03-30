@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnclub을 등록한다.
+	 * COMTNCLUB을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnclubVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnclub을 수정한다.
+	 * COMTNCLUB을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnclubVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnclub을 삭제한다.
+	 * COMTNCLUB을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnclubVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnclub을 조회한다.
+	 * COMTNCLUB을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnclubVO
-	 * @return 조회한 comtnclub
+	 * @return 조회한 COMTNCLUB
 	 * @exception Exception
 	 */
     public ComtnclubVO selectComtnclub(ComtnclubVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnclub 목록을 조회한다.
+	 * COMTNCLUB 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnclub 목록
+	 * @return COMTNCLUB 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnclubList(ComtnclubVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnclubServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnclub 총 갯수를 조회한다.
+	 * COMTNCLUB 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnclub 총 갯수
+	 * @return COMTNCLUB 총 갯수
 	 * @exception
 	 */
     public int selectComtnclubListTotCnt(ComtnclubVO vo) {

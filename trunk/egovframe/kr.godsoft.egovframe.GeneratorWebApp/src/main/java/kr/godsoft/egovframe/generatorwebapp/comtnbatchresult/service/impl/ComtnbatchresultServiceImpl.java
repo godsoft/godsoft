@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnbatchresult을 등록한다.
+	 * COMTNBATCHRESULT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbatchresultVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbatchresult을 수정한다.
+	 * COMTNBATCHRESULT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbatchresultVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbatchresult을 삭제한다.
+	 * COMTNBATCHRESULT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbatchresultVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbatchresult을 조회한다.
+	 * COMTNBATCHRESULT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbatchresultVO
-	 * @return 조회한 comtnbatchresult
+	 * @return 조회한 COMTNBATCHRESULT
 	 * @exception Exception
 	 */
     public ComtnbatchresultVO selectComtnbatchresult(ComtnbatchresultVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbatchresult 목록을 조회한다.
+	 * COMTNBATCHRESULT 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbatchresult 목록
+	 * @return COMTNBATCHRESULT 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnbatchresultList(ComtnbatchresultVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnbatchresultServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbatchresult 총 갯수를 조회한다.
+	 * COMTNBATCHRESULT 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbatchresult 총 갯수
+	 * @return COMTNBATCHRESULT 총 갯수
 	 * @exception
 	 */
     public int selectComtnbatchresultListTotCnt(ComtnbatchresultVO vo) {

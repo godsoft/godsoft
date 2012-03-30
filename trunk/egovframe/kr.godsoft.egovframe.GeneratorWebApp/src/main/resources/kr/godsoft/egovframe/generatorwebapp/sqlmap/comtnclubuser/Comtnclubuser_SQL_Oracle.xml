@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnclubuser">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnclubuserVO" type="kr.godsoft.egovframe.generatorwebapp.comtnclubuser.service.ComtnclubuserVO"/>
+	
+	<resultMap id="comtnclubuser" class="kr.godsoft.egovframe.generatorwebapp.comtnclubuser.service.ComtnclubuserVO">
+		<result property="clbId" column="clb_id" columnIndex="1"/>
+		<result property="cmmntyId" column="cmmnty_id" columnIndex="2"/>
+		<result property="oprtrAt" column="oprtr_at" columnIndex="3"/>
+		<result property="sbscrbDe" column="sbscrb_de" columnIndex="4"/>
+		<result property="secsnDe" column="secsn_de" columnIndex="5"/>
+		<result property="useAt" column="use_at" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="emplyrId" column="emplyr_id" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnclubuserDAO.insertComtnclubuser_S">
+		<![CDATA[
+            INSERT INTO comtnclubuser (
+                clb_id
+                , cmmnty_id
+                , oprtr_at
+                , sbscrb_de
+                , secsn_de
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+                , emplyr_id
+            ) VALUES (
+                #clbId#
+                , #cmmntyId#
+                , #oprtrAt#
+                , #sbscrbDe#
+                , #secsnDe#
+                , #useAt#
+                , SYSDATE
+                , #frstRegisterId#
+                , #emplyrId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnclubuserDAO.updateComtnclubuser_S">
+		<![CDATA[
+            UPDATE comtnclubuser
+                SET
+                clb_id = #clbId#
+                , cmmnty_id = #cmmntyId#
+                , oprtr_at = #oprtrAt#
+                , sbscrb_de = #sbscrbDe#
+                , secsn_de = #secsnDe#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                , emplyr_id = #emplyrId#
+                WHERE 1 = 1
+                AND clb_id = #clbId#
+                AND cmmnty_id = #cmmntyId#
+                AND emplyr_id = #emplyrId#
+		]]>
+	</update>
+	
+	<delete id="comtnclubuserDAO.deleteComtnclubuser_S">
+		<![CDATA[
+			DELETE FROM comtnclubuser
+				WHERE 1 = 1
+				AND clb_id = #clbId#
+				AND cmmnty_id = #cmmntyId#
+				AND emplyr_id = #emplyrId#
+		]]>
+	</delete>
+	
+	<select id="comtnclubuserDAO.selectComtnclubuser_S" resultMap="comtnclubuser">
+		<![CDATA[
+			SELECT
+				clb_id
+				, cmmnty_id
+				, oprtr_at
+				, sbscrb_de
+				, secsn_de
+				, use_at
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+				, emplyr_id
+			FROM COMTNCLUBUSER
+			WHERE clb_id = #clbId#
+				AND cmmnty_id = #cmmntyId#
+				AND emplyr_id = #emplyrId#
+		]]>
+	</select>
+	
+	<select id="comtnclubuserDAO.selectComtnclubuserList_D" parameterClass="ComtnclubuserVO" resultClass="egovMap">
+	       SELECT 
+								A.CLB_ID
+								, A.CMMNTY_ID
+								, A.OPRTR_AT
+								, A.SBSCRB_DE
+								, A.SECSN_DE
+								, A.USE_AT
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.EMPLYR_ID
+			       FROM
+            (
+				SELECT
+								CLB_ID
+								, CMMNTY_ID
+								, OPRTR_AT
+								, SBSCRB_DE
+								, SECSN_DE
+								, USE_AT
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+								, EMPLYR_ID
+							, ROWNUM
+				FROM COMTNCLUBUSER
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					CLB_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CMMNTY_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							CLB_ID DESC
+							, CMMNTY_ID DESC
+							, EMPLYR_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnclubuserDAO.selectComtnclubuserListTotCnt_S" parameterClass="ComtnclubuserVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNCLUBUSER
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CLB_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CMMNTY_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

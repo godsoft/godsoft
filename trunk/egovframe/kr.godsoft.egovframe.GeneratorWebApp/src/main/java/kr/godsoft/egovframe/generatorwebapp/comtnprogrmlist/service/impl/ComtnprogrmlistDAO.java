@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.Comtnprogrml
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnprogrmlist.service.Comtnprogrml
 public class ComtnprogrmlistDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnprogrmlist을 등록한다.
+	 * COMTNPROGRMLIST을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnprogrmlistVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnprogrmlistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnprogrmlist을 수정한다.
+	 * COMTNPROGRMLIST을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnprogrmlistVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnprogrmlistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnprogrmlist을 삭제한다.
+	 * COMTNPROGRMLIST을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnprogrmlistVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnprogrmlistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnprogrmlist을 조회한다.
+	 * COMTNPROGRMLIST을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnprogrmlistVO
-	 * @return 조회한 comtnprogrmlist
+	 * @return 조회한 COMTNPROGRMLIST
 	 * @exception Exception
 	 */
     public ComtnprogrmlistVO selectComtnprogrmlist(ComtnprogrmlistVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnprogrmlistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnprogrmlist 목록을 조회한다.
+	 * COMTNPROGRMLIST 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnprogrmlist 목록
+	 * @return COMTNPROGRMLIST 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnprogrmlistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnprogrmlist 총 갯수를 조회한다.
+	 * COMTNPROGRMLIST 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnprogrmlist 총 갯수
+	 * @return COMTNPROGRMLIST 총 갯수
 	 * @exception
 	 */
     public int selectComtnprogrmlistListTotCnt(ComtnprogrmlistVO vo) {

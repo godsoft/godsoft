@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MigrDatatypeTransformRule">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MigrDatatypeTransformRuleVO" type="kr.godsoft.egovframe.generatorwebapp.migr_datatype_transform_rule.service.MigrDatatypeTransformRuleVO"/>
+	
+	<resultMap id="migrDatatypeTransformRule" class="kr.godsoft.egovframe.generatorwebapp.migr_datatype_transform_rule.service.MigrDatatypeTransformRuleVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="mapIdFk" column="map_id_fk" columnIndex="2"/>
+		<result property="sourceDataTypeName" column="source_data_type_name" columnIndex="3"/>
+		<result property="sourcePrecision" column="source_precision" columnIndex="4"/>
+		<result property="sourceScale" column="source_scale" columnIndex="5"/>
+		<result property="targetDataTypeName" column="target_data_type_name" columnIndex="6"/>
+		<result property="targetPrecision" column="target_precision" columnIndex="7"/>
+		<result property="targetScale" column="target_scale" columnIndex="8"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="9"/>
+		<result property="createdOn" column="created_on" columnIndex="10"/>
+		<result property="createdBy" column="created_by" columnIndex="11"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="12"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="13"/>
+	</resultMap>
+	
+	<insert id="migrDatatypeTransformRuleDAO.insertMigrDatatypeTransformRule_S">
+		<![CDATA[
+            INSERT INTO migr_datatype_transform_rule (
+                id
+                , map_id_fk
+                , source_data_type_name
+                , source_precision
+                , source_scale
+                , target_data_type_name
+                , target_precision
+                , target_scale
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #mapIdFk#
+                , #sourceDataTypeName#
+                , #sourcePrecision#
+                , #sourceScale#
+                , #targetDataTypeName#
+                , #targetPrecision#
+                , #targetScale#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="migrDatatypeTransformRuleDAO.updateMigrDatatypeTransformRule_S">
+		<![CDATA[
+            UPDATE migr_datatype_transform_rule
+                SET
+                id = #id#
+                , map_id_fk = #mapIdFk#
+                , source_data_type_name = #sourceDataTypeName#
+                , source_precision = #sourcePrecision#
+                , source_scale = #sourceScale#
+                , target_data_type_name = #targetDataTypeName#
+                , target_precision = #targetPrecision#
+                , target_scale = #targetScale#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="migrDatatypeTransformRuleDAO.deleteMigrDatatypeTransformRule_S">
+		<![CDATA[
+			DELETE FROM migr_datatype_transform_rule
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="migrDatatypeTransformRuleDAO.selectMigrDatatypeTransformRule_S" resultMap="migrDatatypeTransformRule">
+		<![CDATA[
+			SELECT
+				id
+				, map_id_fk
+				, source_data_type_name
+				, source_precision
+				, source_scale
+				, target_data_type_name
+				, target_precision
+				, target_scale
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MIGR_DATATYPE_TRANSFORM_RULE
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="migrDatatypeTransformRuleDAO.selectMigrDatatypeTransformRuleList_D" parameterClass="MigrDatatypeTransformRuleVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.MAP_ID_FK
+								, A.SOURCE_DATA_TYPE_NAME
+								, A.SOURCE_PRECISION
+								, A.SOURCE_SCALE
+								, A.TARGET_DATA_TYPE_NAME
+								, A.TARGET_PRECISION
+								, A.TARGET_SCALE
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, MAP_ID_FK
+								, SOURCE_DATA_TYPE_NAME
+								, SOURCE_PRECISION
+								, SOURCE_SCALE
+								, TARGET_DATA_TYPE_NAME
+								, TARGET_PRECISION
+								, TARGET_SCALE
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MIGR_DATATYPE_TRANSFORM_RULE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					MAP_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="migrDatatypeTransformRuleDAO.selectMigrDatatypeTransformRuleListTotCnt_S" parameterClass="MigrDatatypeTransformRuleVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MIGR_DATATYPE_TRANSFORM_RULE
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				MAP_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

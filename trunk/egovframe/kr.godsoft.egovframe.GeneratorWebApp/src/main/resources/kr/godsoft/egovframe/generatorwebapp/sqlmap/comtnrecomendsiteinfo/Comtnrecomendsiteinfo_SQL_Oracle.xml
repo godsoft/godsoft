@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnrecomendsiteinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnrecomendsiteinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO"/>
+	
+	<resultMap id="comtnrecomendsiteinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnrecomendsiteinfo.service.ComtnrecomendsiteinfoVO">
+		<result property="recomendSiteId" column="recomend_site_id" columnIndex="1"/>
+		<result property="recomendSiteNm" column="recomend_site_nm" columnIndex="2"/>
+		<result property="recomendSiteUrl" column="recomend_site_url" columnIndex="3"/>
+		<result property="recomendSiteDc" column="recomend_site_dc" columnIndex="4"/>
+		<result property="recomendResnCn" column="recomend_resn_cn" columnIndex="5"/>
+		<result property="recomendConfmAt" column="recomend_confm_at" columnIndex="6"/>
+		<result property="confmDe" column="confm_de" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnrecomendsiteinfoDAO.insertComtnrecomendsiteinfo_S">
+		<![CDATA[
+            INSERT INTO comtnrecomendsiteinfo (
+                recomend_site_id
+                , recomend_site_nm
+                , recomend_site_url
+                , recomend_site_dc
+                , recomend_resn_cn
+                , recomend_confm_at
+                , confm_de
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #recomendSiteId#
+                , #recomendSiteNm#
+                , #recomendSiteUrl#
+                , #recomendSiteDc#
+                , #recomendResnCn#
+                , #recomendConfmAt#
+                , #confmDe#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnrecomendsiteinfoDAO.updateComtnrecomendsiteinfo_S">
+		<![CDATA[
+            UPDATE comtnrecomendsiteinfo
+                SET
+                recomend_site_id = #recomendSiteId#
+                , recomend_site_nm = #recomendSiteNm#
+                , recomend_site_url = #recomendSiteUrl#
+                , recomend_site_dc = #recomendSiteDc#
+                , recomend_resn_cn = #recomendResnCn#
+                , recomend_confm_at = #recomendConfmAt#
+                , confm_de = #confmDe#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND recomend_site_id = #recomendSiteId#
+		]]>
+	</update>
+	
+	<delete id="comtnrecomendsiteinfoDAO.deleteComtnrecomendsiteinfo_S">
+		<![CDATA[
+			DELETE FROM comtnrecomendsiteinfo
+				WHERE 1 = 1
+				AND recomend_site_id = #recomendSiteId#
+		]]>
+	</delete>
+	
+	<select id="comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfo_S" resultMap="comtnrecomendsiteinfo">
+		<![CDATA[
+			SELECT
+				recomend_site_id
+				, recomend_site_nm
+				, recomend_site_url
+				, recomend_site_dc
+				, recomend_resn_cn
+				, recomend_confm_at
+				, confm_de
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTNRECOMENDSITEINFO
+			WHERE recomend_site_id = #recomendSiteId#
+		]]>
+	</select>
+	
+	<select id="comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoList_D" parameterClass="ComtnrecomendsiteinfoVO" resultClass="egovMap">
+	       SELECT 
+								A.RECOMEND_SITE_ID
+								, A.RECOMEND_SITE_NM
+								, A.RECOMEND_SITE_URL
+								, A.RECOMEND_SITE_DC
+								, A.RECOMEND_RESN_CN
+								, A.RECOMEND_CONFM_AT
+								, A.CONFM_DE
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								RECOMEND_SITE_ID
+								, RECOMEND_SITE_NM
+								, RECOMEND_SITE_URL
+								, RECOMEND_SITE_DC
+								, RECOMEND_RESN_CN
+								, RECOMEND_CONFM_AT
+								, CONFM_DE
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTNRECOMENDSITEINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					RECOMEND_SITE_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					RECOMEND_SITE_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							RECOMEND_SITE_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnrecomendsiteinfoDAO.selectComtnrecomendsiteinfoListTotCnt_S" parameterClass="ComtnrecomendsiteinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNRECOMENDSITEINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				RECOMEND_SITE_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				RECOMEND_SITE_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

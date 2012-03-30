@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,22 +95,22 @@ function fn_egov_save() {
 		<tr>
 			<th>fxtrs_nm</th>
 			<td>
-				<form:input path="fxtrsNm" cssClass="txt"/>
-				&nbsp;<form:errors path="fxtrsNm" />
+					<form:input path="fxtrsNm" cssClass="txt"/>
+					&nbsp;<form:errors path="fxtrsNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>makr_nm</th>
 			<td>
-				<form:input path="makrNm" cssClass="txt"/>
-				&nbsp;<form:errors path="makrNm" />
+					<form:input path="makrNm" cssClass="txt"/>
+					&nbsp;<form:errors path="makrNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>price</th>
 			<td>
-				<form:input path="price" cssClass="txt"/>
-				&nbsp;<form:errors path="price" />
+					<form:input path="price" cssClass="txt"/>
+					&nbsp;<form:errors path="price" />
 			</td>
 		</tr>	
 	</table>

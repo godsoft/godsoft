@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,29 +95,29 @@ function fn_egov_save() {
 		<tr>
 			<th>upend_image</th>
 			<td>
-				<form:input path="upendImage" cssClass="txt"/>
-				&nbsp;<form:errors path="upendImage" />
+					<form:input path="upendImage" cssClass="txt"/>
+					&nbsp;<form:errors path="upendImage" />
 			</td>
 		</tr>	
 		<tr>
 			<th>titlebar_color</th>
 			<td>
-				<form:input path="titlebarColor" cssClass="txt"/>
-				&nbsp;<form:errors path="titlebarColor" />
+					<form:input path="titlebarColor" cssClass="txt"/>
+					&nbsp;<form:errors path="titlebarColor" />
 			</td>
 		</tr>	
 		<tr>
 			<th>algn_mthd</th>
 			<td>
-				<form:input path="algnMthd" cssClass="txt"/>
-				&nbsp;<form:errors path="algnMthd" />
+					<form:input path="algnMthd" cssClass="txt"/>
+					&nbsp;<form:errors path="algnMthd" />
 			</td>
 		</tr>	
 		<tr>
 			<th>algn_co</th>
 			<td>
-				<form:input path="algnCo" cssClass="txt"/>
-				&nbsp;<form:errors path="algnCo" />
+					<form:input path="algnCo" cssClass="txt"/>
+					&nbsp;<form:errors path="algnCo" />
 			</td>
 		</tr>	
 	</table>

@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnrss.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ public class ComtnrssVO extends ComtnrssDefaultVO {
     private String trgetSvcTable;
     
     /** TRGET_SVC_LIST_CO */
-    private int trgetSvcListCo;
+    private String trgetSvcListCo;
     
     /** HDER_TITLE */
     private String hderTitle;
@@ -93,11 +93,11 @@ public class ComtnrssVO extends ComtnrssDefaultVO {
         this.trgetSvcTable = trgetSvcTable;
     }
     
-    public int getTrgetSvcListCo() {
+    public String getTrgetSvcListCo() {
         return this.trgetSvcListCo;
     }
     
-    public void setTrgetSvcListCo(int trgetSvcListCo) {
+    public void setTrgetSvcListCo(String trgetSvcListCo) {
         this.trgetSvcListCo = trgetSvcListCo;
     }
     

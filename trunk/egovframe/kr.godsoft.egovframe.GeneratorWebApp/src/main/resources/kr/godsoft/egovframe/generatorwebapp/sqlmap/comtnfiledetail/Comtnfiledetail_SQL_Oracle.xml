@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnfiledetail">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnfiledetailVO" type="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO"/>
+	
+	<resultMap id="comtnfiledetail" class="kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.ComtnfiledetailVO">
+		<result property="atchFileId" column="atch_file_id" columnIndex="1"/>
+		<result property="fileSn" column="file_sn" columnIndex="2"/>
+		<result property="fileStreCours" column="file_stre_cours" columnIndex="3"/>
+		<result property="streFileNm" column="stre_file_nm" columnIndex="4"/>
+		<result property="orignlFileNm" column="orignl_file_nm" columnIndex="5"/>
+		<result property="fileExtsn" column="file_extsn" columnIndex="6"/>
+		<result property="fileCn" column="file_cn" columnIndex="7"/>
+		<result property="fileSize" column="file_size" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="comtnfiledetailDAO.insertComtnfiledetail_S">
+		<![CDATA[
+            INSERT INTO comtnfiledetail (
+                atch_file_id
+                , file_sn
+                , file_stre_cours
+                , stre_file_nm
+                , orignl_file_nm
+                , file_extsn
+                , file_cn
+                , file_size
+            ) VALUES (
+                #atchFileId#
+                , #fileSn#
+                , #fileStreCours#
+                , #streFileNm#
+                , #orignlFileNm#
+                , #fileExtsn#
+                , #fileCn#
+                , #fileSize#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnfiledetailDAO.updateComtnfiledetail_S">
+		<![CDATA[
+            UPDATE comtnfiledetail
+                SET
+                atch_file_id = #atchFileId#
+                , file_sn = #fileSn#
+                , file_stre_cours = #fileStreCours#
+                , stre_file_nm = #streFileNm#
+                , orignl_file_nm = #orignlFileNm#
+                , file_extsn = #fileExtsn#
+                , file_cn = #fileCn#
+                , file_size = #fileSize#
+                WHERE 1 = 1
+                AND atch_file_id = #atchFileId#
+                AND file_sn = #fileSn#
+		]]>
+	</update>
+	
+	<delete id="comtnfiledetailDAO.deleteComtnfiledetail_S">
+		<![CDATA[
+			DELETE FROM comtnfiledetail
+				WHERE 1 = 1
+				AND atch_file_id = #atchFileId#
+				AND file_sn = #fileSn#
+		]]>
+	</delete>
+	
+	<select id="comtnfiledetailDAO.selectComtnfiledetail_S" resultMap="comtnfiledetail">
+		<![CDATA[
+			SELECT
+				atch_file_id
+				, file_sn
+				, file_stre_cours
+				, stre_file_nm
+				, orignl_file_nm
+				, file_extsn
+				, file_cn
+				, file_size
+			FROM COMTNFILEDETAIL
+			WHERE atch_file_id = #atchFileId#
+				AND file_sn = #fileSn#
+		]]>
+	</select>
+	
+	<select id="comtnfiledetailDAO.selectComtnfiledetailList_D" parameterClass="ComtnfiledetailVO" resultClass="egovMap">
+	       SELECT 
+								A.ATCH_FILE_ID
+								, A.FILE_SN
+								, A.FILE_STRE_COURS
+								, A.STRE_FILE_NM
+								, A.ORIGNL_FILE_NM
+								, A.FILE_EXTSN
+								, A.FILE_CN
+								, A.FILE_SIZE
+			       FROM
+            (
+				SELECT
+								ATCH_FILE_ID
+								, FILE_SN
+								, FILE_STRE_COURS
+								, STRE_FILE_NM
+								, ORIGNL_FILE_NM
+								, FILE_EXTSN
+								, FILE_CN
+								, FILE_SIZE
+							, ROWNUM
+				FROM COMTNFILEDETAIL
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ATCH_FILE_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					FILE_SN LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ATCH_FILE_ID DESC
+							, FILE_SN DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnfiledetailDAO.selectComtnfiledetailListTotCnt_S" parameterClass="ComtnfiledetailVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNFILEDETAIL
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ATCH_FILE_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FILE_SN LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

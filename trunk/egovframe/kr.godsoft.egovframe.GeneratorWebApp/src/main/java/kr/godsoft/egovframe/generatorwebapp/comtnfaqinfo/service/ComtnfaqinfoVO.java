@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnfaqinfoVO extends ComtnfaqinfoDefaultVO{
+public class ComtnfaqinfoVO extends ComtnfaqinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** FAQ_ID */
     private String faqId;
     
-    /**  */
+    /** QESTN_SJ */
     private String qestnSj;
     
-    /**  */
+    /** QESTN_CN */
     private String qestnCn;
     
-    /**  */
+    /** ANSWER_CN */
     private String answerCn;
     
-    /**  */
-    private int rdcnt;
+    /** RDCNT */
+    private String rdcnt;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** QNA_PROCESS_STTUS_CODE */
     private String qnaProcessSttusCode;
     
     public String getFaqId() {
@@ -80,11 +80,11 @@ public class ComtnfaqinfoVO extends ComtnfaqinfoDefaultVO{
         this.answerCn = answerCn;
     }
     
-    public int getRdcnt() {
+    public String getRdcnt() {
         return this.rdcnt;
     }
     
-    public void setRdcnt(int rdcnt) {
+    public void setRdcnt(String rdcnt) {
         this.rdcnt = rdcnt;
     }
     

@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.Comtni
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service.Comtni
 public class ComtnindvdlyrycmanageDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnindvdlyrycmanage을 등록한다.
+	 * COMTNINDVDLYRYCMANAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnindvdlyrycmanageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnindvdlyrycmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnindvdlyrycmanage을 수정한다.
+	 * COMTNINDVDLYRYCMANAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnindvdlyrycmanageVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnindvdlyrycmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnindvdlyrycmanage을 삭제한다.
+	 * COMTNINDVDLYRYCMANAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnindvdlyrycmanageVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnindvdlyrycmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnindvdlyrycmanage을 조회한다.
+	 * COMTNINDVDLYRYCMANAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnindvdlyrycmanageVO
-	 * @return 조회한 comtnindvdlyrycmanage
+	 * @return 조회한 COMTNINDVDLYRYCMANAGE
 	 * @exception Exception
 	 */
     public ComtnindvdlyrycmanageVO selectComtnindvdlyrycmanage(ComtnindvdlyrycmanageVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnindvdlyrycmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnindvdlyrycmanage 목록을 조회한다.
+	 * COMTNINDVDLYRYCMANAGE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnindvdlyrycmanage 목록
+	 * @return COMTNINDVDLYRYCMANAGE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnindvdlyrycmanageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnindvdlyrycmanage 총 갯수를 조회한다.
+	 * COMTNINDVDLYRYCMANAGE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnindvdlyrycmanage 총 갯수
+	 * @return COMTNINDVDLYRYCMANAGE 총 갯수
 	 * @exception
 	 */
     public int selectComtnindvdlyrycmanageListTotCnt(ComtnindvdlyrycmanageVO vo) {

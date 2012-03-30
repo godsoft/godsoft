@@ -6,46 +6,46 @@ package kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtndiaryinfoVO extends ComtndiaryinfoDefaultVO{
+public class ComtndiaryinfoVO extends ComtndiaryinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SCHDUL_ID */
     private String schdulId;
     
-    /**  */
+    /** DIARY_ID */
     private String diaryId;
     
-    /**  */
-    private int diaryProgrsrt;
+    /** DIARY_PROGRSRT */
+    private String diaryProgrsrt;
     
-    /**  */
+    /** DIARY_NM */
     private String diaryNm;
     
-    /**  */
+    /** DRCT_MATTER */
     private String drctMatter;
     
-    /**  */
+    /** PARTCLR_MATTER */
     private String partclrMatter;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getSchdulId() {
@@ -64,11 +64,11 @@ public class ComtndiaryinfoVO extends ComtndiaryinfoDefaultVO{
         this.diaryId = diaryId;
     }
     
-    public int getDiaryProgrsrt() {
+    public String getDiaryProgrsrt() {
         return this.diaryProgrsrt;
     }
     
-    public void setDiaryProgrsrt(int diaryProgrsrt) {
+    public void setDiaryProgrsrt(String diaryProgrsrt) {
         this.diaryProgrsrt = diaryProgrsrt;
     }
     

@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnpopupmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -28,7 +28,7 @@ public class ComtnpopupmanageVO extends ComtnpopupmanageDefaultVO {
     private String popupWidthLc;
     
     /** POPUP_WIDTH_SIZE */
-    private int popupWidthSize;
+    private String popupWidthSize;
     
     /** NTCE_BGNDE */
     private String ntceBgnde;
@@ -46,7 +46,7 @@ public class ComtnpopupmanageVO extends ComtnpopupmanageDefaultVO {
     private String popupVrticlLc;
     
     /** POPUP_VRTICL_SIZE */
-    private int popupVrticlSize;
+    private String popupVrticlSize;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -92,11 +92,11 @@ public class ComtnpopupmanageVO extends ComtnpopupmanageDefaultVO {
         this.popupWidthLc = popupWidthLc;
     }
     
-    public int getPopupWidthSize() {
+    public String getPopupWidthSize() {
         return this.popupWidthSize;
     }
     
-    public void setPopupWidthSize(int popupWidthSize) {
+    public void setPopupWidthSize(String popupWidthSize) {
         this.popupWidthSize = popupWidthSize;
     }
     
@@ -140,11 +140,11 @@ public class ComtnpopupmanageVO extends ComtnpopupmanageDefaultVO {
         this.popupVrticlLc = popupVrticlLc;
     }
     
-    public int getPopupVrticlSize() {
+    public String getPopupVrticlSize() {
         return this.popupVrticlSize;
     }
     
-    public void setPopupVrticlSize(int popupVrticlSize) {
+    public void setPopupVrticlSize(String popupVrticlSize) {
         this.popupVrticlSize = popupVrticlSize;
     }
     

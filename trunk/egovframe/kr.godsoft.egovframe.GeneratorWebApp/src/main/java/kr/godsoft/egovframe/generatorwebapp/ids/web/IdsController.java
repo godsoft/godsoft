@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class IdsController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * ids 목록을 조회한다. (pageing)
+	 * IDS 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 IdsVO
 	 * @return "/ids/IdsList"
 	 * @exception Exception
@@ -99,11 +99,11 @@ public class IdsController {
     
     @RequestMapping("/ids/updateIdsView.do")
     public String updateIdsView(
-            @RequestParam("tableName") String tableName ,
+            @RequestParam("idgenTableNm") String idgenTableNm ,
             @ModelAttribute("searchVO") IdsDefaultVO searchVO, Model model)
             throws Exception {
         IdsVO idsVO = new IdsVO();
-        idsVO.setTableName(tableName);
+        idsVO.setIdgenTableNm(idgenTableNm);
 ;        
         // 변수명은 CoC 에 따라 idsVO
         model.addAttribute(selectIds(idsVO, searchVO));

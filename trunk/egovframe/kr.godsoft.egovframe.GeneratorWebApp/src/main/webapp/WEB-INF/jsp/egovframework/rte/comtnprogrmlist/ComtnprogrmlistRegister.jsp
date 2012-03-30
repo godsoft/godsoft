@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,29 +95,29 @@ function fn_egov_save() {
 		<tr>
 			<th>progrm_stre_path</th>
 			<td>
-				<form:input path="progrmStrePath" cssClass="txt"/>
-				&nbsp;<form:errors path="progrmStrePath" />
+					<form:input path="progrmStrePath" cssClass="txt"/>
+					&nbsp;<form:errors path="progrmStrePath" />
 			</td>
 		</tr>	
 		<tr>
 			<th>progrm_korean_nm</th>
 			<td>
-				<form:input path="progrmKoreanNm" cssClass="txt"/>
-				&nbsp;<form:errors path="progrmKoreanNm" />
+					<form:input path="progrmKoreanNm" cssClass="txt"/>
+					&nbsp;<form:errors path="progrmKoreanNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>progrm_dc</th>
 			<td>
-				<form:input path="progrmDc" cssClass="txt"/>
-				&nbsp;<form:errors path="progrmDc" />
+					<form:input path="progrmDc" cssClass="txt"/>
+					&nbsp;<form:errors path="progrmDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>url</th>
 			<td>
-				<form:input path="url" cssClass="txt"/>
-				&nbsp;<form:errors path="url" />
+					<form:input path="url" cssClass="txt"/>
+					&nbsp;<form:errors path="url" />
 			</td>
 		</tr>	
 	</table>

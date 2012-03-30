@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,162 +95,162 @@ function fn_egov_save() {
 		<tr>
 			<th>entrprs_se_code</th>
 			<td>
-				<form:input path="entrprsSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsSeCode" />
+					<form:input path="entrprsSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsSeCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bizrno</th>
 			<td>
-				<form:input path="bizrno" cssClass="txt"/>
-				&nbsp;<form:errors path="bizrno" />
+					<form:input path="bizrno" cssClass="txt"/>
+					&nbsp;<form:errors path="bizrno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>jurirno</th>
 			<td>
-				<form:input path="jurirno" cssClass="txt"/>
-				&nbsp;<form:errors path="jurirno" />
+					<form:input path="jurirno" cssClass="txt"/>
+					&nbsp;<form:errors path="jurirno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cmpny_nm</th>
 			<td>
-				<form:input path="cmpnyNm" cssClass="txt"/>
-				&nbsp;<form:errors path="cmpnyNm" />
+					<form:input path="cmpnyNm" cssClass="txt"/>
+					&nbsp;<form:errors path="cmpnyNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cxfc</th>
 			<td>
-				<form:input path="cxfc" cssClass="txt"/>
-				&nbsp;<form:errors path="cxfc" />
+					<form:input path="cxfc" cssClass="txt"/>
+					&nbsp;<form:errors path="cxfc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>zip</th>
 			<td>
-				<form:input path="zip" cssClass="txt"/>
-				&nbsp;<form:errors path="zip" />
+					<form:input path="zip" cssClass="txt"/>
+					&nbsp;<form:errors path="zip" />
 			</td>
 		</tr>	
 		<tr>
 			<th>adres</th>
 			<td>
-				<form:input path="adres" cssClass="txt"/>
-				&nbsp;<form:errors path="adres" />
+					<form:input path="adres" cssClass="txt"/>
+					&nbsp;<form:errors path="adres" />
 			</td>
 		</tr>	
 		<tr>
 			<th>entrprs_middle_telno</th>
 			<td>
-				<form:input path="entrprsMiddleTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsMiddleTelno" />
+					<form:input path="entrprsMiddleTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsMiddleTelno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>fxnum</th>
 			<td>
-				<form:input path="fxnum" cssClass="txt"/>
-				&nbsp;<form:errors path="fxnum" />
+					<form:input path="fxnum" cssClass="txt"/>
+					&nbsp;<form:errors path="fxnum" />
 			</td>
 		</tr>	
 		<tr>
 			<th>induty_code</th>
 			<td>
-				<form:input path="indutyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="indutyCode" />
+					<form:input path="indutyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="indutyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>applcnt_nm</th>
 			<td>
-				<form:input path="applcntNm" cssClass="txt"/>
-				&nbsp;<form:errors path="applcntNm" />
+					<form:input path="applcntNm" cssClass="txt"/>
+					&nbsp;<form:errors path="applcntNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>applcnt_ihidnum</th>
 			<td>
-				<form:input path="applcntIhidnum" cssClass="txt"/>
-				&nbsp;<form:errors path="applcntIhidnum" />
+					<form:input path="applcntIhidnum" cssClass="txt"/>
+					&nbsp;<form:errors path="applcntIhidnum" />
 			</td>
 		</tr>	
 		<tr>
 			<th>sbscrb_de</th>
 			<td>
-				<form:input path="sbscrbDe" cssClass="txt"/>
-				&nbsp;<form:errors path="sbscrbDe" />
+					<form:input path="sbscrbDe" cssClass="txt"/>
+					&nbsp;<form:errors path="sbscrbDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>entrprs_mber_sttus</th>
 			<td>
-				<form:input path="entrprsMberSttus" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsMberSttus" />
+					<form:input path="entrprsMberSttus" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsMberSttus" />
 			</td>
 		</tr>	
 		<tr>
 			<th>entrprs_mber_password</th>
 			<td>
-				<form:input path="entrprsMberPassword" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsMberPassword" />
+					<form:input path="entrprsMberPassword" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsMberPassword" />
 			</td>
 		</tr>	
 		<tr>
 			<th>entrprs_mber_password_hint</th>
 			<td>
-				<form:input path="entrprsMberPasswordHint" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsMberPasswordHint" />
+					<form:input path="entrprsMberPasswordHint" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsMberPasswordHint" />
 			</td>
 		</tr>	
 		<tr>
 			<th>entrprs_mber_password_cnsr</th>
 			<td>
-				<form:input path="entrprsMberPasswordCnsr" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsMberPasswordCnsr" />
+					<form:input path="entrprsMberPasswordCnsr" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsMberPasswordCnsr" />
 			</td>
 		</tr>	
 		<tr>
 			<th>group_id</th>
 			<td>
-				<form:input path="groupId" cssClass="txt"/>
-				&nbsp;<form:errors path="groupId" />
+					<form:input path="groupId" cssClass="txt"/>
+					&nbsp;<form:errors path="groupId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>detail_adres</th>
 			<td>
-				<form:input path="detailAdres" cssClass="txt"/>
-				&nbsp;<form:errors path="detailAdres" />
+					<form:input path="detailAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="detailAdres" />
 			</td>
 		</tr>	
 		<tr>
 			<th>entrprs_end_telno</th>
 			<td>
-				<form:input path="entrprsEndTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="entrprsEndTelno" />
+					<form:input path="entrprsEndTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="entrprsEndTelno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>area_no</th>
 			<td>
-				<form:input path="areaNo" cssClass="txt"/>
-				&nbsp;<form:errors path="areaNo" />
+					<form:input path="areaNo" cssClass="txt"/>
+					&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>applcnt_email_adres</th>
 			<td>
-				<form:input path="applcntEmailAdres" cssClass="txt"/>
-				&nbsp;<form:errors path="applcntEmailAdres" />
+					<form:input path="applcntEmailAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="applcntEmailAdres" />
 			</td>
 		</tr>	
 		<tr>
 			<th>esntl_id</th>
 			<td>
-				<form:input path="esntlId" cssClass="txt"/>
-				&nbsp;<form:errors path="esntlId" />
+					<form:input path="esntlId" cssClass="txt"/>
+					&nbsp;<form:errors path="esntlId" />
 			</td>
 		</tr>	
 	</table>

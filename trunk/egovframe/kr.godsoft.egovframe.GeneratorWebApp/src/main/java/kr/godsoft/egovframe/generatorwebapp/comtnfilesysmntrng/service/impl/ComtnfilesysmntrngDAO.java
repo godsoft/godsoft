@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.Comtnfile
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfilesysmntrng.service.Comtnfile
 public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnfilesysmntrng을 등록한다.
+	 * COMTNFILESYSMNTRNG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfilesysmntrng을 수정한다.
+	 * COMTNFILESYSMNTRNG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfilesysmntrng을 삭제한다.
+	 * COMTNFILESYSMNTRNG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfilesysmntrng을 조회한다.
+	 * COMTNFILESYSMNTRNG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnfilesysmntrngVO
-	 * @return 조회한 comtnfilesysmntrng
+	 * @return 조회한 COMTNFILESYSMNTRNG
 	 * @exception Exception
 	 */
     public ComtnfilesysmntrngVO selectComtnfilesysmntrng(ComtnfilesysmntrngVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfilesysmntrng 목록을 조회한다.
+	 * COMTNFILESYSMNTRNG 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnfilesysmntrng 목록
+	 * @return COMTNFILESYSMNTRNG 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnfilesysmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfilesysmntrng 총 갯수를 조회한다.
+	 * COMTNFILESYSMNTRNG 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnfilesysmntrng 총 갯수
+	 * @return COMTNFILESYSMNTRNG 총 갯수
 	 * @exception
 	 */
     public int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngVO vo) {

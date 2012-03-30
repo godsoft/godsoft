@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,36 +95,36 @@ function fn_egov_save() {
 		<tr>
 			<th>ntce_co</th>
 			<td>
-				<form:input path="ntceCo" cssClass="txt"/>
-				&nbsp;<form:errors path="ntceCo" />
+					<form:input path="ntceCo" cssClass="txt"/>
+					&nbsp;<form:errors path="ntceCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>avrg_rdcnt</th>
 			<td>
-				<form:input path="avrgRdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="avrgRdcnt" />
+					<form:input path="avrgRdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="avrgRdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>top_rdcnt</th>
 			<td>
-				<form:input path="topRdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="topRdcnt" />
+					<form:input path="topRdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="topRdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mumm_rdcnt</th>
 			<td>
-				<form:input path="mummRdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="mummRdcnt" />
+					<form:input path="mummRdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="mummRdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>top_ntcr_id</th>
 			<td>
-				<form:input path="topNtcrId" cssClass="txt"/>
-				&nbsp;<form:errors path="topNtcrId" />
+					<form:input path="topNtcrId" cssClass="txt"/>
+					&nbsp;<form:errors path="topNtcrId" />
 			</td>
 		</tr>	
 	</table>

@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnfiledetailService {
 	
 	/**
-	 * comtnfiledetail을 등록한다.
+	 * COMTNFILEDETAIL을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnfiledetailVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnfiledetailService {
     String insertComtnfiledetail(ComtnfiledetailVO vo) throws Exception;
     
     /**
-	 * comtnfiledetail을 수정한다.
+	 * COMTNFILEDETAIL을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnfiledetailVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnfiledetailService {
     void updateComtnfiledetail(ComtnfiledetailVO vo) throws Exception;
     
     /**
-	 * comtnfiledetail을 삭제한다.
+	 * COMTNFILEDETAIL을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnfiledetailVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnfiledetailService {
     void deleteComtnfiledetail(ComtnfiledetailVO vo) throws Exception;
     
     /**
-	 * comtnfiledetail을 조회한다.
+	 * COMTNFILEDETAIL을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnfiledetailVO
-	 * @return 조회한 comtnfiledetail
+	 * @return 조회한 COMTNFILEDETAIL
 	 * @exception Exception
 	 */
     ComtnfiledetailVO selectComtnfiledetail(ComtnfiledetailVO vo) throws Exception;
     
     /**
-	 * comtnfiledetail 목록을 조회한다.
+	 * COMTNFILEDETAIL 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnfiledetail 목록
+	 * @return COMTNFILEDETAIL 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnfiledetailList(ComtnfiledetailVO vo) throws Exception;
     
     /**
-	 * comtnfiledetail 총 갯수를 조회한다.
+	 * COMTNFILEDETAIL 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnfiledetail 총 갯수
+	 * @return COMTNFILEDETAIL 총 갯수
 	 * @exception
 	 */
     int selectComtnfiledetailListTotCnt(ComtnfiledetailVO vo);

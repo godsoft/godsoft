@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtndtausestats">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtndtausestatsVO" type="kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsVO"/>
+	
+	<resultMap id="comtndtausestats" class="kr.godsoft.egovframe.generatorwebapp.comtndtausestats.service.ComtndtausestatsVO">
+		<result property="dtaUseStatsId" column="dta_use_stats_id" columnIndex="1"/>
+		<result property="bbsId" column="bbs_id" columnIndex="2"/>
+		<result property="nttId" column="ntt_id" columnIndex="3"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="4"/>
+		<result property="fileSn" column="file_sn" columnIndex="5"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="comtndtausestatsDAO.insertComtndtausestats_S">
+		<![CDATA[
+            INSERT INTO comtndtausestats (
+                dta_use_stats_id
+                , bbs_id
+                , ntt_id
+                , atch_file_id
+                , file_sn
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #dtaUseStatsId#
+                , #bbsId#
+                , #nttId#
+                , #atchFileId#
+                , #fileSn#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtndtausestatsDAO.updateComtndtausestats_S">
+		<![CDATA[
+            UPDATE comtndtausestats
+                SET
+                dta_use_stats_id = #dtaUseStatsId#
+                , bbs_id = #bbsId#
+                , ntt_id = #nttId#
+                , atch_file_id = #atchFileId#
+                , file_sn = #fileSn#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND dta_use_stats_id = #dtaUseStatsId#
+		]]>
+	</update>
+	
+	<delete id="comtndtausestatsDAO.deleteComtndtausestats_S">
+		<![CDATA[
+			DELETE FROM comtndtausestats
+				WHERE 1 = 1
+				AND dta_use_stats_id = #dtaUseStatsId#
+		]]>
+	</delete>
+	
+	<select id="comtndtausestatsDAO.selectComtndtausestats_S" resultMap="comtndtausestats">
+		<![CDATA[
+			SELECT
+				dta_use_stats_id
+				, bbs_id
+				, ntt_id
+				, atch_file_id
+				, file_sn
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNDTAUSESTATS
+			WHERE dta_use_stats_id = #dtaUseStatsId#
+		]]>
+	</select>
+	
+	<select id="comtndtausestatsDAO.selectComtndtausestatsList_D" parameterClass="ComtndtausestatsVO" resultClass="egovMap">
+	       SELECT 
+								A.DTA_USE_STATS_ID
+								, A.BBS_ID
+								, A.NTT_ID
+								, A.ATCH_FILE_ID
+								, A.FILE_SN
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								DTA_USE_STATS_ID
+								, BBS_ID
+								, NTT_ID
+								, ATCH_FILE_ID
+								, FILE_SN
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNDTAUSESTATS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					DTA_USE_STATS_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					BBS_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							DTA_USE_STATS_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtndtausestatsDAO.selectComtndtausestatsListTotCnt_S" parameterClass="ComtndtausestatsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNDTAUSESTATS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				DTA_USE_STATS_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BBS_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

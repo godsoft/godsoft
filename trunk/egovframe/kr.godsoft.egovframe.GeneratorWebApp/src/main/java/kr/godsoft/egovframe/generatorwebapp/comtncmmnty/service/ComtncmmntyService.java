@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtncmmntyService {
 	
 	/**
-	 * comtncmmnty을 등록한다.
+	 * COMTNCMMNTY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncmmntyVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtncmmntyService {
     String insertComtncmmnty(ComtncmmntyVO vo) throws Exception;
     
     /**
-	 * comtncmmnty을 수정한다.
+	 * COMTNCMMNTY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncmmntyVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtncmmntyService {
     void updateComtncmmnty(ComtncmmntyVO vo) throws Exception;
     
     /**
-	 * comtncmmnty을 삭제한다.
+	 * COMTNCMMNTY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncmmntyVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtncmmntyService {
     void deleteComtncmmnty(ComtncmmntyVO vo) throws Exception;
     
     /**
-	 * comtncmmnty을 조회한다.
+	 * COMTNCMMNTY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncmmntyVO
-	 * @return 조회한 comtncmmnty
+	 * @return 조회한 COMTNCMMNTY
 	 * @exception Exception
 	 */
     ComtncmmntyVO selectComtncmmnty(ComtncmmntyVO vo) throws Exception;
     
     /**
-	 * comtncmmnty 목록을 조회한다.
+	 * COMTNCMMNTY 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncmmnty 목록
+	 * @return COMTNCMMNTY 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtncmmntyList(ComtncmmntyVO vo) throws Exception;
     
     /**
-	 * comtncmmnty 총 갯수를 조회한다.
+	 * COMTNCMMNTY 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncmmnty 총 갯수
+	 * @return COMTNCMMNTY 총 갯수
 	 * @exception
 	 */
     int selectComtncmmntyListTotCnt(ComtncmmntyVO vo);

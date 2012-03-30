@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtntwitter을 등록한다.
+	 * COMTNTWITTER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtntwitterVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntwitter을 수정한다.
+	 * COMTNTWITTER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtntwitterVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntwitter을 삭제한다.
+	 * COMTNTWITTER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtntwitterVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntwitter을 조회한다.
+	 * COMTNTWITTER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtntwitterVO
-	 * @return 조회한 comtntwitter
+	 * @return 조회한 COMTNTWITTER
 	 * @exception Exception
 	 */
     public ComtntwitterVO selectComtntwitter(ComtntwitterVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntwitter 목록을 조회한다.
+	 * COMTNTWITTER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtntwitter 목록
+	 * @return COMTNTWITTER 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtntwitterList(ComtntwitterVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtntwitterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntwitter 총 갯수를 조회한다.
+	 * COMTNTWITTER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtntwitter 총 갯수
+	 * @return COMTNTWITTER 총 갯수
 	 * @exception
 	 */
     public int selectComtntwitterListTotCnt(ComtntwitterVO vo) {

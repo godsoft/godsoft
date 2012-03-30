@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsService;
+import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsService;
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsVO;
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.impl.ComthemplyrinfochangedtlsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComthemplyrinfochangedtlsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.im
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComthemplyrinfochangedtlsServiceImpl extends AbstractServiceImpl im
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comthemplyrinfochangedtls을 등록한다.
+	 * COMTHEMPLYRINFOCHANGEDTLS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthemplyrinfochangedtlsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComthemplyrinfochangedtlsServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthemplyrinfochangedtls을 수정한다.
+	 * COMTHEMPLYRINFOCHANGEDTLS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthemplyrinfochangedtlsVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComthemplyrinfochangedtlsServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthemplyrinfochangedtls을 삭제한다.
+	 * COMTHEMPLYRINFOCHANGEDTLS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthemplyrinfochangedtlsVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComthemplyrinfochangedtlsServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthemplyrinfochangedtls을 조회한다.
+	 * COMTHEMPLYRINFOCHANGEDTLS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthemplyrinfochangedtlsVO
-	 * @return 조회한 comthemplyrinfochangedtls
+	 * @return 조회한 COMTHEMPLYRINFOCHANGEDTLS
 	 * @exception Exception
 	 */
     public ComthemplyrinfochangedtlsVO selectComthemplyrinfochangedtls(ComthemplyrinfochangedtlsVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComthemplyrinfochangedtlsServiceImpl extends AbstractServiceImpl im
     }
 
     /**
-	 * comthemplyrinfochangedtls 목록을 조회한다.
+	 * COMTHEMPLYRINFOCHANGEDTLS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthemplyrinfochangedtls 목록
+	 * @return COMTHEMPLYRINFOCHANGEDTLS 목록
 	 * @exception Exception
 	 */
-    public List selectComthemplyrinfochangedtlsList(ComthemplyrinfochangedtlsDefaultVO searchVO) throws Exception {
-        return comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtlsList(searchVO);
+    public List<EgovMap> selectComthemplyrinfochangedtlsList(ComthemplyrinfochangedtlsVO vo) throws Exception {
+        return comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtlsList(vo);
     }
 
     /**
-	 * comthemplyrinfochangedtls 총 갯수를 조회한다.
+	 * COMTHEMPLYRINFOCHANGEDTLS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthemplyrinfochangedtls 총 갯수
+	 * @return COMTHEMPLYRINFOCHANGEDTLS 총 갯수
 	 * @exception
 	 */
-    public int selectComthemplyrinfochangedtlsListTotCnt(ComthemplyrinfochangedtlsDefaultVO searchVO) {
-		return comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtlsListTotCnt(searchVO);
+    public int selectComthemplyrinfochangedtlsListTotCnt(ComthemplyrinfochangedtlsVO vo) {
+		return comthemplyrinfochangedtlsDAO.selectComthemplyrinfochangedtlsListTotCnt(vo);
 	}
     
 }

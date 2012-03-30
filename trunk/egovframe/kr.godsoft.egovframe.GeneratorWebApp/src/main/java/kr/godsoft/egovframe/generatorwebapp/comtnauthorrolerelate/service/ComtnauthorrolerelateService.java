@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnauthorrolerelateService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.Comtna
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.Comtna
 public interface ComtnauthorrolerelateService {
 	
 	/**
-	 * comtnauthorrolerelate을 등록한다.
+	 * COMTNAUTHORROLERELATE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnauthorrolerelateService {
     String insertComtnauthorrolerelate(ComtnauthorrolerelateVO vo) throws Exception;
     
     /**
-	 * comtnauthorrolerelate을 수정한다.
+	 * COMTNAUTHORROLERELATE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnauthorrolerelateService {
     void updateComtnauthorrolerelate(ComtnauthorrolerelateVO vo) throws Exception;
     
     /**
-	 * comtnauthorrolerelate을 삭제한다.
+	 * COMTNAUTHORROLERELATE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnauthorrolerelateService {
     void deleteComtnauthorrolerelate(ComtnauthorrolerelateVO vo) throws Exception;
     
     /**
-	 * comtnauthorrolerelate을 조회한다.
+	 * COMTNAUTHORROLERELATE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnauthorrolerelateVO
-	 * @return 조회한 comtnauthorrolerelate
+	 * @return 조회한 COMTNAUTHORROLERELATE
 	 * @exception Exception
 	 */
     ComtnauthorrolerelateVO selectComtnauthorrolerelate(ComtnauthorrolerelateVO vo) throws Exception;
     
     /**
-	 * comtnauthorrolerelate 목록을 조회한다.
+	 * COMTNAUTHORROLERELATE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorrolerelate 목록
+	 * @return COMTNAUTHORROLERELATE 목록
 	 * @exception Exception
 	 */
-    List selectComtnauthorrolerelateList(ComtnauthorrolerelateDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnauthorrolerelateList(ComtnauthorrolerelateVO vo) throws Exception;
     
     /**
-	 * comtnauthorrolerelate 총 갯수를 조회한다.
+	 * COMTNAUTHORROLERELATE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorrolerelate 총 갯수
+	 * @return COMTNAUTHORROLERELATE 총 갯수
 	 * @exception
 	 */
-    int selectComtnauthorrolerelateListTotCnt(ComtnauthorrolerelateDefaultVO searchVO);
+    int selectComtnauthorrolerelateListTotCnt(ComtnauthorrolerelateVO vo);
     
 }

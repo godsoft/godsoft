@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmenuinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnmenuinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO"/>
+	
+	<resultMap id="comtnmenuinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO">
+		<result property="menuNm" column="menu_nm" columnIndex="1"/>
+		<result property="progrmFileNm" column="progrm_file_nm" columnIndex="2"/>
+		<result property="menuNo" column="menu_no" columnIndex="3"/>
+		<result property="upperMenuNo" column="upper_menu_no" columnIndex="4"/>
+		<result property="menuOrdr" column="menu_ordr" columnIndex="5"/>
+		<result property="menuDc" column="menu_dc" columnIndex="6"/>
+		<result property="relateImagePath" column="relate_image_path" columnIndex="7"/>
+		<result property="relateImageNm" column="relate_image_nm" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="comtnmenuinfoDAO.insertComtnmenuinfo_S">
+		<![CDATA[
+            INSERT INTO comtnmenuinfo (
+                menu_nm
+                , progrm_file_nm
+                , menu_no
+                , upper_menu_no
+                , menu_ordr
+                , menu_dc
+                , relate_image_path
+                , relate_image_nm
+            ) VALUES (
+                #menuNm#
+                , #progrmFileNm#
+                , #menuNo#
+                , #upperMenuNo#
+                , #menuOrdr#
+                , #menuDc#
+                , #relateImagePath#
+                , #relateImageNm#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnmenuinfoDAO.updateComtnmenuinfo_S">
+		<![CDATA[
+            UPDATE comtnmenuinfo
+                SET
+                menu_nm = #menuNm#
+                , progrm_file_nm = #progrmFileNm#
+                , menu_no = #menuNo#
+                , upper_menu_no = #upperMenuNo#
+                , menu_ordr = #menuOrdr#
+                , menu_dc = #menuDc#
+                , relate_image_path = #relateImagePath#
+                , relate_image_nm = #relateImageNm#
+                WHERE 1 = 1
+                AND menu_no = #menuNo#
+		]]>
+	</update>
+	
+	<delete id="comtnmenuinfoDAO.deleteComtnmenuinfo_S">
+		<![CDATA[
+			DELETE FROM comtnmenuinfo
+				WHERE 1 = 1
+				AND menu_no = #menuNo#
+		]]>
+	</delete>
+	
+	<select id="comtnmenuinfoDAO.selectComtnmenuinfo_S" resultMap="comtnmenuinfo">
+		<![CDATA[
+			SELECT
+				menu_nm
+				, progrm_file_nm
+				, menu_no
+				, upper_menu_no
+				, menu_ordr
+				, menu_dc
+				, relate_image_path
+				, relate_image_nm
+			FROM COMTNMENUINFO
+			WHERE menu_no = #menuNo#
+		]]>
+	</select>
+	
+	<select id="comtnmenuinfoDAO.selectComtnmenuinfoList_D" parameterClass="ComtnmenuinfoVO" resultClass="egovMap">
+	       SELECT 
+								A.MENU_NM
+								, A.PROGRM_FILE_NM
+								, A.MENU_NO
+								, A.UPPER_MENU_NO
+								, A.MENU_ORDR
+								, A.MENU_DC
+								, A.RELATE_IMAGE_PATH
+								, A.RELATE_IMAGE_NM
+			       FROM
+            (
+				SELECT
+								MENU_NM
+								, PROGRM_FILE_NM
+								, MENU_NO
+								, UPPER_MENU_NO
+								, MENU_ORDR
+								, MENU_DC
+								, RELATE_IMAGE_PATH
+								, RELATE_IMAGE_NM
+							, ROWNUM
+				FROM COMTNMENUINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					MENU_NM = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PROGRM_FILE_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							MENU_NO DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnmenuinfoDAO.selectComtnmenuinfoListTotCnt_S" parameterClass="ComtnmenuinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNMENUINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MENU_NM = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROGRM_FILE_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

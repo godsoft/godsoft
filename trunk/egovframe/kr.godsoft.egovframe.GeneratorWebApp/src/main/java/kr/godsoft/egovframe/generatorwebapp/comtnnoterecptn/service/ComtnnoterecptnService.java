@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnnoterecptnService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.Comtnnoterec
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.Comtnnoterec
 public interface ComtnnoterecptnService {
 	
 	/**
-	 * comtnnoterecptn을 등록한다.
+	 * COMTNNOTERECPTN을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnnoterecptnVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnnoterecptnService {
     String insertComtnnoterecptn(ComtnnoterecptnVO vo) throws Exception;
     
     /**
-	 * comtnnoterecptn을 수정한다.
+	 * COMTNNOTERECPTN을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnnoterecptnVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnnoterecptnService {
     void updateComtnnoterecptn(ComtnnoterecptnVO vo) throws Exception;
     
     /**
-	 * comtnnoterecptn을 삭제한다.
+	 * COMTNNOTERECPTN을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnnoterecptnVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnnoterecptnService {
     void deleteComtnnoterecptn(ComtnnoterecptnVO vo) throws Exception;
     
     /**
-	 * comtnnoterecptn을 조회한다.
+	 * COMTNNOTERECPTN을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnnoterecptnVO
-	 * @return 조회한 comtnnoterecptn
+	 * @return 조회한 COMTNNOTERECPTN
 	 * @exception Exception
 	 */
     ComtnnoterecptnVO selectComtnnoterecptn(ComtnnoterecptnVO vo) throws Exception;
     
     /**
-	 * comtnnoterecptn 목록을 조회한다.
+	 * COMTNNOTERECPTN 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnnoterecptn 목록
+	 * @return COMTNNOTERECPTN 목록
 	 * @exception Exception
 	 */
-    List selectComtnnoterecptnList(ComtnnoterecptnDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnnoterecptnList(ComtnnoterecptnVO vo) throws Exception;
     
     /**
-	 * comtnnoterecptn 총 갯수를 조회한다.
+	 * COMTNNOTERECPTN 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnnoterecptn 총 갯수
+	 * @return COMTNNOTERECPTN 총 갯수
 	 * @exception
 	 */
-    int selectComtnnoterecptnListTotCnt(ComtnnoterecptnDefaultVO searchVO);
+    int selectComtnnoterecptnListTotCnt(ComtnnoterecptnVO vo);
     
 }

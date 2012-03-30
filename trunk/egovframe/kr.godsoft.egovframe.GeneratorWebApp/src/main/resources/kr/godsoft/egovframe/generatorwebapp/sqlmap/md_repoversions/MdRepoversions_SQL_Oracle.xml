@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdRepoversions">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdRepoversionsVO" type="kr.godsoft.egovframe.generatorwebapp.md_repoversions.service.MdRepoversionsVO"/>
+	
+	<resultMap id="mdRepoversions" class="kr.godsoft.egovframe.generatorwebapp.md_repoversions.service.MdRepoversionsVO">
+		<result property="revision" column="revision" columnIndex="1"/>
+	</resultMap>
+	
+	<insert id="mdRepoversionsDAO.insertMdRepoversions_S">
+		<![CDATA[
+            INSERT INTO md_repoversions (
+                revision
+            ) VALUES (
+                #revision#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdRepoversionsDAO.updateMdRepoversions_S">
+		<![CDATA[
+            UPDATE md_repoversions
+                SET
+                revision = #revision#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="mdRepoversionsDAO.deleteMdRepoversions_S">
+		<![CDATA[
+			DELETE FROM md_repoversions
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="mdRepoversionsDAO.selectMdRepoversions_S" resultMap="mdRepoversions">
+		<![CDATA[
+			SELECT
+				revision
+			FROM MD_REPOVERSIONS
+		]]>
+	</select>
+	
+	<select id="mdRepoversionsDAO.selectMdRepoversionsList_D" parameterClass="MdRepoversionsVO" resultClass="egovMap">
+	       SELECT 
+								A.REVISION
+			       FROM
+            (
+				SELECT
+								REVISION
+							, ROWNUM
+				FROM MD_REPOVERSIONS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					REVISION = #searchKeyword#
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdRepoversionsDAO.selectMdRepoversionsListTotCnt_S" parameterClass="MdRepoversionsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_REPOVERSIONS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REVISION = #searchKeyword#
+			</isEqual>
+		</select>
+
+</sqlMap>

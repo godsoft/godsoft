@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comtnemplyrinfoVO.emplyrId ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<title>comtnemplyrinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +64,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>emplyr_id *</th>
 			<td>
 				<form:input path="emplyrId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>emplyr_id *</th>
 			<td>
 				<form:input path="emplyrId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,263 +93,185 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>orgnzt_id</th>
 			<td>
-	
-				<form:input path="orgnztId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="orgnztId" />
+					<form:input path="orgnztId" cssClass="txt"/>
+					&nbsp;<form:errors path="orgnztId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_nm</th>
 			<td>
-	
-				<form:input path="userNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userNm" />
+					<form:input path="userNm" cssClass="txt"/>
+					&nbsp;<form:errors path="userNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>password</th>
 			<td>
-	
-				<form:input path="password" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="password" />
+					<form:input path="password" cssClass="txt"/>
+					&nbsp;<form:errors path="password" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>empl_no</th>
 			<td>
-	
-				<form:input path="emplNo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="emplNo" />
+					<form:input path="emplNo" cssClass="txt"/>
+					&nbsp;<form:errors path="emplNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ihidnum</th>
 			<td>
-	
-				<form:input path="ihidnum" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="ihidnum" />
+					<form:input path="ihidnum" cssClass="txt"/>
+					&nbsp;<form:errors path="ihidnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>sexdstn_code</th>
 			<td>
-	
-				<form:input path="sexdstnCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sexdstnCode" />
+					<form:input path="sexdstnCode" cssClass="txt"/>
+					&nbsp;<form:errors path="sexdstnCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>brthdy</th>
 			<td>
-	
-				<form:input path="brthdy" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="brthdy" />
+					<form:input path="brthdy" cssClass="txt"/>
+					&nbsp;<form:errors path="brthdy" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>fxnum</th>
 			<td>
-	
-				<form:input path="fxnum" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="fxnum" />
+					<form:input path="fxnum" cssClass="txt"/>
+					&nbsp;<form:errors path="fxnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>house_adres</th>
 			<td>
-	
-				<form:input path="houseAdres" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="houseAdres" />
+					<form:input path="houseAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="houseAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>password_hint</th>
 			<td>
-	
-				<form:input path="passwordHint" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="passwordHint" />
+					<form:input path="passwordHint" cssClass="txt"/>
+					&nbsp;<form:errors path="passwordHint" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>password_cnsr</th>
 			<td>
-	
-				<form:input path="passwordCnsr" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="passwordCnsr" />
+					<form:input path="passwordCnsr" cssClass="txt"/>
+					&nbsp;<form:errors path="passwordCnsr" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>house_end_telno</th>
 			<td>
-	
-				<form:input path="houseEndTelno" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="houseEndTelno" />
+					<form:input path="houseEndTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="houseEndTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>area_no</th>
 			<td>
-	
-				<form:input path="areaNo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="areaNo" />
+					<form:input path="areaNo" cssClass="txt"/>
+					&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>detail_adres</th>
 			<td>
-	
-				<form:input path="detailAdres" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="detailAdres" />
+					<form:input path="detailAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="detailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>zip</th>
 			<td>
-	
-				<form:input path="zip" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="zip" />
+					<form:input path="zip" cssClass="txt"/>
+					&nbsp;<form:errors path="zip" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>offm_telno</th>
 			<td>
-	
-				<form:input path="offmTelno" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="offmTelno" />
+					<form:input path="offmTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="offmTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>mbtlnum</th>
 			<td>
-	
-				<form:input path="mbtlnum" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="mbtlnum" />
+					<form:input path="mbtlnum" cssClass="txt"/>
+					&nbsp;<form:errors path="mbtlnum" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>email_adres</th>
 			<td>
-	
-				<form:input path="emailAdres" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="emailAdres" />
+					<form:input path="emailAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="emailAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ofcps_nm</th>
 			<td>
-	
-				<form:input path="ofcpsNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="ofcpsNm" />
+					<form:input path="ofcpsNm" cssClass="txt"/>
+					&nbsp;<form:errors path="ofcpsNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>house_middle_telno</th>
 			<td>
-	
-				<form:input path="houseMiddleTelno" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="houseMiddleTelno" />
+					<form:input path="houseMiddleTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="houseMiddleTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>group_id</th>
 			<td>
-	
-				<form:input path="groupId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="groupId" />
+					<form:input path="groupId" cssClass="txt"/>
+					&nbsp;<form:errors path="groupId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>pstinst_code</th>
 			<td>
-	
-				<form:input path="pstinstCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="pstinstCode" />
+					<form:input path="pstinstCode" cssClass="txt"/>
+					&nbsp;<form:errors path="pstinstCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>emplyr_sttus_code</th>
 			<td>
-	
-				<form:input path="emplyrSttusCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="emplyrSttusCode" />
+					<form:input path="emplyrSttusCode" cssClass="txt"/>
+					&nbsp;<form:errors path="emplyrSttusCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>esntl_id</th>
 			<td>
-	
-				<form:input path="esntlId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="esntlId" />
+					<form:input path="esntlId" cssClass="txt"/>
+					&nbsp;<form:errors path="esntlId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>crtfc_dn_value</th>
 			<td>
-	
-				<form:input path="crtfcDnValue" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="crtfcDnValue" />
+					<form:input path="crtfcDnValue" cssClass="txt"/>
+					&nbsp;<form:errors path="crtfcDnValue" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>sbscrb_de</th>
 			<td>
-	
-				<form:input path="sbscrbDe" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sbscrbDe" />
+					<form:input path="sbscrbDe" cssClass="txt"/>
+					&nbsp;<form:errors path="sbscrbDe" />
 			</td>
 		</tr>	
 	</table>

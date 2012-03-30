@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,57 +95,57 @@ function fn_egov_save() {
 		<tr>
 			<th>code_id_nm</th>
 			<td>
-				<form:input path="codeIdNm" cssClass="txt"/>
-				&nbsp;<form:errors path="codeIdNm" />
+					<form:input path="codeIdNm" cssClass="txt"/>
+					&nbsp;<form:errors path="codeIdNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>code_id_dc</th>
 			<td>
-				<form:input path="codeIdDc" cssClass="txt"/>
-				&nbsp;<form:errors path="codeIdDc" />
+					<form:input path="codeIdDc" cssClass="txt"/>
+					&nbsp;<form:errors path="codeIdDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>use_at</th>
 			<td>
-				<form:input path="useAt" cssClass="txt"/>
-				&nbsp;<form:errors path="useAt" />
+					<form:input path="useAt" cssClass="txt" value="Y"/>
+					&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cl_code</th>
 			<td>
-				<form:input path="clCode" cssClass="txt"/>
-				&nbsp;<form:errors path="clCode" />
+					<form:input path="clCode" cssClass="txt"/>
+					&nbsp;<form:errors path="clCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 	</table>

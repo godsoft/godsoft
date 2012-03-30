@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtninsttcoderecptnlog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -22,7 +22,7 @@ public class ComtninsttcoderecptnlogVO extends ComtninsttcoderecptnlogDefaultVO 
     private String insttCode;
     
     /** OPERT_SN */
-    private int opertSn;
+    private String opertSn;
     
     /** CHANGE_SE_CODE */
     private String changeSeCode;
@@ -94,7 +94,7 @@ public class ComtninsttcoderecptnlogVO extends ComtninsttcoderecptnlogDefaultVO 
     private String bsisDe;
     
     /** SORT_ORDR */
-    private int sortOrdr;
+    private String sortOrdr;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -124,11 +124,11 @@ public class ComtninsttcoderecptnlogVO extends ComtninsttcoderecptnlogDefaultVO 
         this.insttCode = insttCode;
     }
     
-    public int getOpertSn() {
+    public String getOpertSn() {
         return this.opertSn;
     }
     
-    public void setOpertSn(int opertSn) {
+    public void setOpertSn(String opertSn) {
         this.opertSn = opertSn;
     }
     
@@ -316,11 +316,11 @@ public class ComtninsttcoderecptnlogVO extends ComtninsttcoderecptnlogDefaultVO 
         this.bsisDe = bsisDe;
     }
     
-    public int getSortOrdr() {
+    public String getSortOrdr() {
         return this.sortOrdr;
     }
     
-    public void setSortOrdr(int sortOrdr) {
+    public void setSortOrdr(String sortOrdr) {
         this.sortOrdr = sortOrdr;
     }
     

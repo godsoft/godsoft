@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,106 +95,106 @@ function fn_egov_save() {
 		<tr>
 			<th>bsns_year</th>
 			<td>
-				<form:input path="bsnsYear" cssClass="txt"/>
-				&nbsp;<form:errors path="bsnsYear" />
+					<form:input path="bsnsYear" cssClass="txt"/>
+					&nbsp;<form:errors path="bsnsYear" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bsns_code</th>
 			<td>
-				<form:input path="bsnsCode" cssClass="txt"/>
-				&nbsp;<form:errors path="bsnsCode" />
+					<form:input path="bsnsCode" cssClass="txt"/>
+					&nbsp;<form:errors path="bsnsCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>event_cn</th>
 			<td>
-				<form:input path="eventCn" cssClass="txt"/>
-				&nbsp;<form:errors path="eventCn" />
+					<form:input path="eventCn" cssClass="txt"/>
+					&nbsp;<form:errors path="eventCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>event_svc_bgnde</th>
 			<td>
-				<form:input path="eventSvcBgnde" cssClass="txt"/>
-				&nbsp;<form:errors path="eventSvcBgnde" />
+					<form:input path="eventSvcBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="eventSvcBgnde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>svc_use_nmpr_co</th>
 			<td>
-				<form:input path="svcUseNmprCo" cssClass="txt"/>
-				&nbsp;<form:errors path="svcUseNmprCo" />
+					<form:input path="svcUseNmprCo" cssClass="txt"/>
+					&nbsp;<form:errors path="svcUseNmprCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>charger_nm</th>
 			<td>
-				<form:input path="chargerNm" cssClass="txt"/>
-				&nbsp;<form:errors path="chargerNm" />
+					<form:input path="chargerNm" cssClass="txt"/>
+					&nbsp;<form:errors path="chargerNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>prparetg_cn</th>
 			<td>
-				<form:input path="prparetgCn" cssClass="txt"/>
-				&nbsp;<form:errors path="prparetgCn" />
+					<form:input path="prparetgCn" cssClass="txt"/>
+					&nbsp;<form:errors path="prparetgCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>event_svc_endde</th>
 			<td>
-				<form:input path="eventSvcEndde" cssClass="txt"/>
-				&nbsp;<form:errors path="eventSvcEndde" />
+					<form:input path="eventSvcEndde" cssClass="txt"/>
+					&nbsp;<form:errors path="eventSvcEndde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>event_ty_code</th>
 			<td>
-				<form:input path="eventTyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="eventTyCode" />
+					<form:input path="eventTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="eventTyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>event_confm_at</th>
 			<td>
-				<form:input path="eventConfmAt" cssClass="txt"/>
-				&nbsp;<form:errors path="eventConfmAt" />
+					<form:input path="eventConfmAt" cssClass="txt"/>
+					&nbsp;<form:errors path="eventConfmAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>event_confm_de</th>
 			<td>
-				<form:input path="eventConfmDe" cssClass="txt"/>
-				&nbsp;<form:errors path="eventConfmDe" />
+					<form:input path="eventConfmDe" cssClass="txt"/>
+					&nbsp;<form:errors path="eventConfmDe" />
 			</td>
 		</tr>	
 	</table>

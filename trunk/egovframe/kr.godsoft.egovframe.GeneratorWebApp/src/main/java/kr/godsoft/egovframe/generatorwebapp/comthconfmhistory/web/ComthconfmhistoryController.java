@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComthconfmhistoryController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comthconfmhistory 목록을 조회한다. (pageing)
+	 * COMTHCONFMHISTORY 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComthconfmhistoryVO
 	 * @return "/comthconfmhistory/ComthconfmhistoryList"
 	 * @exception Exception
@@ -99,7 +99,7 @@ public class ComthconfmhistoryController {
     
     @RequestMapping("/comthconfmhistory/updateComthconfmhistoryView.do")
     public String updateComthconfmhistoryView(
-            @RequestParam("confmNo") int confmNo ,
+            @RequestParam("confmNo") String confmNo ,
             @ModelAttribute("searchVO") ComthconfmhistoryDefaultVO searchVO, Model model)
             throws Exception {
         ComthconfmhistoryVO comthconfmhistoryVO = new ComthconfmhistoryVO();

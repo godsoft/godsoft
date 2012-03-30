@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.ComthhttpmonloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.impl.ComthhttpmonloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComthhttpmonloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service.impl.Com
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComthhttpmonloginfoServiceImpl extends AbstractServiceImpl implemen
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comthhttpmonloginfo을 등록한다.
+	 * COMTHHTTPMONLOGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthhttpmonloginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComthhttpmonloginfoServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comthhttpmonloginfo을 수정한다.
+	 * COMTHHTTPMONLOGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthhttpmonloginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComthhttpmonloginfoServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comthhttpmonloginfo을 삭제한다.
+	 * COMTHHTTPMONLOGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthhttpmonloginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComthhttpmonloginfoServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comthhttpmonloginfo을 조회한다.
+	 * COMTHHTTPMONLOGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthhttpmonloginfoVO
-	 * @return 조회한 comthhttpmonloginfo
+	 * @return 조회한 COMTHHTTPMONLOGINFO
 	 * @exception Exception
 	 */
     public ComthhttpmonloginfoVO selectComthhttpmonloginfo(ComthhttpmonloginfoVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComthhttpmonloginfoServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comthhttpmonloginfo 목록을 조회한다.
+	 * COMTHHTTPMONLOGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthhttpmonloginfo 목록
+	 * @return COMTHHTTPMONLOGINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComthhttpmonloginfoList(ComthhttpmonloginfoDefaultVO searchVO) throws Exception {
-        return comthhttpmonloginfoDAO.selectComthhttpmonloginfoList(searchVO);
+    public List<EgovMap> selectComthhttpmonloginfoList(ComthhttpmonloginfoVO vo) throws Exception {
+        return comthhttpmonloginfoDAO.selectComthhttpmonloginfoList(vo);
     }
 
     /**
-	 * comthhttpmonloginfo 총 갯수를 조회한다.
+	 * COMTHHTTPMONLOGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comthhttpmonloginfo 총 갯수
+	 * @return COMTHHTTPMONLOGINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComthhttpmonloginfoListTotCnt(ComthhttpmonloginfoDefaultVO searchVO) {
-		return comthhttpmonloginfoDAO.selectComthhttpmonloginfoListTotCnt(searchVO);
+    public int selectComthhttpmonloginfoListTotCnt(ComthhttpmonloginfoVO vo) {
+		return comthhttpmonloginfoDAO.selectComthhttpmonloginfoListTotCnt(vo);
 	}
     
 }

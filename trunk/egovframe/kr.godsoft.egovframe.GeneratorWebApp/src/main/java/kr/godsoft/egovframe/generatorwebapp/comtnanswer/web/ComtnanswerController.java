@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerService;
+import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerService;
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO;
 
 /**
  * @Class Name : ComtnanswerController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO;
  */
 
 @Controller
-@SessionAttributes(types=ComtnanswerVO.class)
 public class ComtnanswerController {
 
     @Resource(name = "comtnanswerService")
@@ -45,13 +45,13 @@ public class ComtnanswerController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnanswer 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnanswerDefaultVO
+	 * COMTNANSWER 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnanswerVO
 	 * @return "/comtnanswer/ComtnanswerList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnanswer/ComtnanswerList.do")
-    public String selectComtnanswerList(@ModelAttribute("searchVO") ComtnanswerDefaultVO searchVO, 
+    public String selectComtnanswerList(@ModelAttribute("searchVO") ComtnanswerVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnanswerController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnanswerList = comtnanswerService.selectComtnanswerList(searchVO);
+        List<EgovMap> comtnanswerList = comtnanswerService.selectComtnanswerList(searchVO);
         model.addAttribute("resultList", comtnanswerList);
         
         int totCnt = comtnanswerService.selectComtnanswerListTotCnt(searchVO);
@@ -99,9 +99,9 @@ public class ComtnanswerController {
     
     @RequestMapping("/comtnanswer/updateComtnanswerView.do")
     public String updateComtnanswerView(
-            @RequestParam("nttId") int nttId ,
+            @RequestParam("nttId") String nttId ,
             @RequestParam("bbsId") String bbsId ,
-            @RequestParam("answerNo") int answerNo ,
+            @RequestParam("answerNo") String answerNo ,
             @ModelAttribute("searchVO") ComtnanswerDefaultVO searchVO, Model model)
             throws Exception {
         ComtnanswerVO comtnanswerVO = new ComtnanswerVO();

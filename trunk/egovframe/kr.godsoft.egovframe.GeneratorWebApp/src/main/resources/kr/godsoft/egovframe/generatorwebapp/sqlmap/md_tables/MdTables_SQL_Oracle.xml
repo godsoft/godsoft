@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdTables">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdTablesVO" type="kr.godsoft.egovframe.generatorwebapp.md_tables.service.MdTablesVO"/>
+	
+	<resultMap id="mdTables" class="kr.godsoft.egovframe.generatorwebapp.md_tables.service.MdTablesVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="schemaIdFk" column="schema_id_fk" columnIndex="2"/>
+		<result property="tableName" column="table_name" columnIndex="3"/>
+		<result property="nativeSql" column="native_sql" columnIndex="4"/>
+		<result property="nativeKey" column="native_key" columnIndex="5"/>
+		<result property="qualifiedNativeName" column="qualified_native_name" columnIndex="6"/>
+		<result property="comments" column="comments" columnIndex="7"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="8"/>
+		<result property="createdOn" column="created_on" columnIndex="9"/>
+		<result property="createdBy" column="created_by" columnIndex="10"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="11"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="12"/>
+	</resultMap>
+	
+	<insert id="mdTablesDAO.insertMdTables_S">
+		<![CDATA[
+            INSERT INTO md_tables (
+                id
+                , schema_id_fk
+                , table_name
+                , native_sql
+                , native_key
+                , qualified_native_name
+                , comments
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #schemaIdFk#
+                , #tableName#
+                , #nativeSql#
+                , #nativeKey#
+                , #qualifiedNativeName#
+                , #comments#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdTablesDAO.updateMdTables_S">
+		<![CDATA[
+            UPDATE md_tables
+                SET
+                id = #id#
+                , schema_id_fk = #schemaIdFk#
+                , table_name = #tableName#
+                , native_sql = #nativeSql#
+                , native_key = #nativeKey#
+                , qualified_native_name = #qualifiedNativeName#
+                , comments = #comments#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdTablesDAO.deleteMdTables_S">
+		<![CDATA[
+			DELETE FROM md_tables
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdTablesDAO.selectMdTables_S" resultMap="mdTables">
+		<![CDATA[
+			SELECT
+				id
+				, schema_id_fk
+				, table_name
+				, native_sql
+				, native_key
+				, qualified_native_name
+				, comments
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_TABLES
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdTablesDAO.selectMdTablesList_D" parameterClass="MdTablesVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.SCHEMA_ID_FK
+								, A.TABLE_NAME
+								, A.NATIVE_SQL
+								, A.NATIVE_KEY
+								, A.QUALIFIED_NATIVE_NAME
+								, A.COMMENTS
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, SCHEMA_ID_FK
+								, TABLE_NAME
+								, NATIVE_SQL
+								, NATIVE_KEY
+								, QUALIFIED_NATIVE_NAME
+								, COMMENTS
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_TABLES
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdTablesDAO.selectMdTablesListTotCnt_S" parameterClass="MdTablesVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_TABLES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

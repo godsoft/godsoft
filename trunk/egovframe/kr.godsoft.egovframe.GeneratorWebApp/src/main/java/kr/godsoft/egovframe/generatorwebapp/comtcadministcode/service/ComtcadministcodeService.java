@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtcadministcodeService {
 	
 	/**
-	 * comtcadministcode을 등록한다.
+	 * COMTCADMINISTCODE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtcadministcodeVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtcadministcodeService {
     String insertComtcadministcode(ComtcadministcodeVO vo) throws Exception;
     
     /**
-	 * comtcadministcode을 수정한다.
+	 * COMTCADMINISTCODE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtcadministcodeVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtcadministcodeService {
     void updateComtcadministcode(ComtcadministcodeVO vo) throws Exception;
     
     /**
-	 * comtcadministcode을 삭제한다.
+	 * COMTCADMINISTCODE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtcadministcodeVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtcadministcodeService {
     void deleteComtcadministcode(ComtcadministcodeVO vo) throws Exception;
     
     /**
-	 * comtcadministcode을 조회한다.
+	 * COMTCADMINISTCODE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtcadministcodeVO
-	 * @return 조회한 comtcadministcode
+	 * @return 조회한 COMTCADMINISTCODE
 	 * @exception Exception
 	 */
     ComtcadministcodeVO selectComtcadministcode(ComtcadministcodeVO vo) throws Exception;
     
     /**
-	 * comtcadministcode 목록을 조회한다.
+	 * COMTCADMINISTCODE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtcadministcode 목록
+	 * @return COMTCADMINISTCODE 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtcadministcodeList(ComtcadministcodeVO vo) throws Exception;
     
     /**
-	 * comtcadministcode 총 갯수를 조회한다.
+	 * COMTCADMINISTCODE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtcadministcode 총 갯수
+	 * @return COMTCADMINISTCODE 총 갯수
 	 * @exception
 	 */
     int selectComtcadministcodeListTotCnt(ComtcadministcodeVO vo);

@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsms.service.ComtnsmsVO;
 public class ComtnsmsDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnsms을 등록한다.
+	 * COMTNSMS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnsmsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnsmsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsms을 수정한다.
+	 * COMTNSMS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnsmsVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnsmsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsms을 삭제한다.
+	 * COMTNSMS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnsmsVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnsmsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsms을 조회한다.
+	 * COMTNSMS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnsmsVO
-	 * @return 조회한 comtnsms
+	 * @return 조회한 COMTNSMS
 	 * @exception Exception
 	 */
     public ComtnsmsVO selectComtnsms(ComtnsmsVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnsmsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsms 목록을 조회한다.
+	 * COMTNSMS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnsms 목록
+	 * @return COMTNSMS 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnsmsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsms 총 갯수를 조회한다.
+	 * COMTNSMS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnsms 총 갯수
+	 * @return COMTNSMS 총 갯수
 	 * @exception
 	 */
     public int selectComtnsmsListTotCnt(ComtnsmsVO vo) {

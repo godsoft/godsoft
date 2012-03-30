@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnentrprsmber">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnentrprsmberVO" type="kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberVO"/>
+	
+	<resultMap id="comtnentrprsmber" class="kr.godsoft.egovframe.generatorwebapp.comtnentrprsmber.service.ComtnentrprsmberVO">
+		<result property="entrprsMberId" column="entrprs_mber_id" columnIndex="1"/>
+		<result property="entrprsSeCode" column="entrprs_se_code" columnIndex="2"/>
+		<result property="bizrno" column="bizrno" columnIndex="3"/>
+		<result property="jurirno" column="jurirno" columnIndex="4"/>
+		<result property="cmpnyNm" column="cmpny_nm" columnIndex="5"/>
+		<result property="cxfc" column="cxfc" columnIndex="6"/>
+		<result property="zip" column="zip" columnIndex="7"/>
+		<result property="adres" column="adres" columnIndex="8"/>
+		<result property="entrprsMiddleTelno" column="entrprs_middle_telno" columnIndex="9"/>
+		<result property="fxnum" column="fxnum" columnIndex="10"/>
+		<result property="indutyCode" column="induty_code" columnIndex="11"/>
+		<result property="applcntNm" column="applcnt_nm" columnIndex="12"/>
+		<result property="applcntIhidnum" column="applcnt_ihidnum" columnIndex="13"/>
+		<result property="sbscrbDe" column="sbscrb_de" columnIndex="14"/>
+		<result property="entrprsMberSttus" column="entrprs_mber_sttus" columnIndex="15"/>
+		<result property="entrprsMberPassword" column="entrprs_mber_password" columnIndex="16"/>
+		<result property="entrprsMberPasswordHint" column="entrprs_mber_password_hint" columnIndex="17"/>
+		<result property="entrprsMberPasswordCnsr" column="entrprs_mber_password_cnsr" columnIndex="18"/>
+		<result property="groupId" column="group_id" columnIndex="19"/>
+		<result property="detailAdres" column="detail_adres" columnIndex="20"/>
+		<result property="entrprsEndTelno" column="entrprs_end_telno" columnIndex="21"/>
+		<result property="areaNo" column="area_no" columnIndex="22"/>
+		<result property="applcntEmailAdres" column="applcnt_email_adres" columnIndex="23"/>
+		<result property="esntlId" column="esntl_id" columnIndex="24"/>
+	</resultMap>
+	
+	<insert id="comtnentrprsmberDAO.insertComtnentrprsmber_S">
+		<![CDATA[
+            INSERT INTO comtnentrprsmber (
+                entrprs_mber_id
+                , entrprs_se_code
+                , bizrno
+                , jurirno
+                , cmpny_nm
+                , cxfc
+                , zip
+                , adres
+                , entrprs_middle_telno
+                , fxnum
+                , induty_code
+                , applcnt_nm
+                , applcnt_ihidnum
+                , sbscrb_de
+                , entrprs_mber_sttus
+                , entrprs_mber_password
+                , entrprs_mber_password_hint
+                , entrprs_mber_password_cnsr
+                , group_id
+                , detail_adres
+                , entrprs_end_telno
+                , area_no
+                , applcnt_email_adres
+                , esntl_id
+            ) VALUES (
+                #entrprsMberId#
+                , #entrprsSeCode#
+                , #bizrno#
+                , #jurirno#
+                , #cmpnyNm#
+                , #cxfc#
+                , #zip#
+                , #adres#
+                , #entrprsMiddleTelno#
+                , #fxnum#
+                , #indutyCode#
+                , #applcntNm#
+                , #applcntIhidnum#
+                , #sbscrbDe#
+                , #entrprsMberSttus#
+                , #entrprsMberPassword#
+                , #entrprsMberPasswordHint#
+                , #entrprsMberPasswordCnsr#
+                , #groupId#
+                , #detailAdres#
+                , #entrprsEndTelno#
+                , #areaNo#
+                , #applcntEmailAdres#
+                , #esntlId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnentrprsmberDAO.updateComtnentrprsmber_S">
+		<![CDATA[
+            UPDATE comtnentrprsmber
+                SET
+                entrprs_mber_id = #entrprsMberId#
+                , entrprs_se_code = #entrprsSeCode#
+                , bizrno = #bizrno#
+                , jurirno = #jurirno#
+                , cmpny_nm = #cmpnyNm#
+                , cxfc = #cxfc#
+                , zip = #zip#
+                , adres = #adres#
+                , entrprs_middle_telno = #entrprsMiddleTelno#
+                , fxnum = #fxnum#
+                , induty_code = #indutyCode#
+                , applcnt_nm = #applcntNm#
+                , applcnt_ihidnum = #applcntIhidnum#
+                , sbscrb_de = #sbscrbDe#
+                , entrprs_mber_sttus = #entrprsMberSttus#
+                , entrprs_mber_password = #entrprsMberPassword#
+                , entrprs_mber_password_hint = #entrprsMberPasswordHint#
+                , entrprs_mber_password_cnsr = #entrprsMberPasswordCnsr#
+                , group_id = #groupId#
+                , detail_adres = #detailAdres#
+                , entrprs_end_telno = #entrprsEndTelno#
+                , area_no = #areaNo#
+                , applcnt_email_adres = #applcntEmailAdres#
+                , esntl_id = #esntlId#
+                WHERE 1 = 1
+                AND entrprs_mber_id = #entrprsMberId#
+		]]>
+	</update>
+	
+	<delete id="comtnentrprsmberDAO.deleteComtnentrprsmber_S">
+		<![CDATA[
+			DELETE FROM comtnentrprsmber
+				WHERE 1 = 1
+				AND entrprs_mber_id = #entrprsMberId#
+		]]>
+	</delete>
+	
+	<select id="comtnentrprsmberDAO.selectComtnentrprsmber_S" resultMap="comtnentrprsmber">
+		<![CDATA[
+			SELECT
+				entrprs_mber_id
+				, entrprs_se_code
+				, bizrno
+				, jurirno
+				, cmpny_nm
+				, cxfc
+				, zip
+				, adres
+				, entrprs_middle_telno
+				, fxnum
+				, induty_code
+				, applcnt_nm
+				, applcnt_ihidnum
+				, sbscrb_de
+				, entrprs_mber_sttus
+				, entrprs_mber_password
+				, entrprs_mber_password_hint
+				, entrprs_mber_password_cnsr
+				, group_id
+				, detail_adres
+				, entrprs_end_telno
+				, area_no
+				, applcnt_email_adres
+				, esntl_id
+			FROM COMTNENTRPRSMBER
+			WHERE entrprs_mber_id = #entrprsMberId#
+		]]>
+	</select>
+	
+	<select id="comtnentrprsmberDAO.selectComtnentrprsmberList_D" parameterClass="ComtnentrprsmberVO" resultClass="egovMap">
+	       SELECT 
+								A.ENTRPRS_MBER_ID
+								, A.ENTRPRS_SE_CODE
+								, A.BIZRNO
+								, A.JURIRNO
+								, A.CMPNY_NM
+								, A.CXFC
+								, A.ZIP
+								, A.ADRES
+								, A.ENTRPRS_MIDDLE_TELNO
+								, A.FXNUM
+								, A.INDUTY_CODE
+								, A.APPLCNT_NM
+								, A.APPLCNT_IHIDNUM
+								, A.SBSCRB_DE
+								, A.ENTRPRS_MBER_STTUS
+								, A.ENTRPRS_MBER_PASSWORD
+								, A.ENTRPRS_MBER_PASSWORD_HINT
+								, A.ENTRPRS_MBER_PASSWORD_CNSR
+								, A.GROUP_ID
+								, A.DETAIL_ADRES
+								, A.ENTRPRS_END_TELNO
+								, A.AREA_NO
+								, A.APPLCNT_EMAIL_ADRES
+								, A.ESNTL_ID
+			       FROM
+            (
+				SELECT
+								ENTRPRS_MBER_ID
+								, ENTRPRS_SE_CODE
+								, BIZRNO
+								, JURIRNO
+								, CMPNY_NM
+								, CXFC
+								, ZIP
+								, ADRES
+								, ENTRPRS_MIDDLE_TELNO
+								, FXNUM
+								, INDUTY_CODE
+								, APPLCNT_NM
+								, APPLCNT_IHIDNUM
+								, SBSCRB_DE
+								, ENTRPRS_MBER_STTUS
+								, ENTRPRS_MBER_PASSWORD
+								, ENTRPRS_MBER_PASSWORD_HINT
+								, ENTRPRS_MBER_PASSWORD_CNSR
+								, GROUP_ID
+								, DETAIL_ADRES
+								, ENTRPRS_END_TELNO
+								, AREA_NO
+								, APPLCNT_EMAIL_ADRES
+								, ESNTL_ID
+							, ROWNUM
+				FROM COMTNENTRPRSMBER
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ENTRPRS_MBER_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					ENTRPRS_SE_CODE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ENTRPRS_MBER_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnentrprsmberDAO.selectComtnentrprsmberListTotCnt_S" parameterClass="ComtnentrprsmberVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNENTRPRSMBER
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ENTRPRS_MBER_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ENTRPRS_SE_CODE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

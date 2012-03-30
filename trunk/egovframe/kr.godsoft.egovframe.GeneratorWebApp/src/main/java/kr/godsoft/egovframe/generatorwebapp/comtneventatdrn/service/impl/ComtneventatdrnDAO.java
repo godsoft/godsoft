@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnVO;
-import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.ComtneventatdrnDefaultVO;
 
 /**
  * @Class Name : ComtneventatdrnDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.Comtneventat
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtneventatdrn.service.Comtneventat
 public class ComtneventatdrnDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtneventatdrn을 등록한다.
+	 * COMTNEVENTATDRN을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtneventatdrnVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtneventatdrnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtneventatdrn을 수정한다.
+	 * COMTNEVENTATDRN을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtneventatdrnVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtneventatdrnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtneventatdrn을 삭제한다.
+	 * COMTNEVENTATDRN을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtneventatdrnVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtneventatdrnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtneventatdrn을 조회한다.
+	 * COMTNEVENTATDRN을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtneventatdrnVO
-	 * @return 조회한 comtneventatdrn
+	 * @return 조회한 COMTNEVENTATDRN
 	 * @exception Exception
 	 */
     public ComtneventatdrnVO selectComtneventatdrn(ComtneventatdrnVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtneventatdrnDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtneventatdrn 목록을 조회한다.
+	 * COMTNEVENTATDRN 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtneventatdrn 목록
+	 * @return COMTNEVENTATDRN 목록
 	 * @exception Exception
 	 */
-    public List selectComtneventatdrnList(ComtneventatdrnDefaultVO searchVO) throws Exception {
-        return list("comtneventatdrnDAO.selectComtneventatdrnList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtneventatdrnList(ComtneventatdrnVO vo) throws Exception {
+        return list("comtneventatdrnDAO.selectComtneventatdrnList_D", vo);
     }
 
     /**
-	 * comtneventatdrn 총 갯수를 조회한다.
+	 * COMTNEVENTATDRN 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtneventatdrn 총 갯수
+	 * @return COMTNEVENTATDRN 총 갯수
 	 * @exception
 	 */
-    public int selectComtneventatdrnListTotCnt(ComtneventatdrnDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtneventatdrnDAO.selectComtneventatdrnListTotCnt_S", searchVO);
+    public int selectComtneventatdrnListTotCnt(ComtneventatdrnVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtneventatdrnDAO.selectComtneventatdrnListTotCnt_S", vo);
     }
 
 }

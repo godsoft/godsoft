@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,50 +95,50 @@ function fn_egov_save() {
 		<tr>
 			<th>indvdl_info_policy_cn</th>
 			<td>
-				<form:input path="indvdlInfoPolicyCn" cssClass="txt"/>
-				&nbsp;<form:errors path="indvdlInfoPolicyCn" />
+					<form:input path="indvdlInfoPolicyCn" cssClass="txt"/>
+					&nbsp;<form:errors path="indvdlInfoPolicyCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>indvdl_info_policy_agre_at</th>
 			<td>
-				<form:input path="indvdlInfoPolicyAgreAt" cssClass="txt"/>
-				&nbsp;<form:errors path="indvdlInfoPolicyAgreAt" />
+					<form:input path="indvdlInfoPolicyAgreAt" cssClass="txt"/>
+					&nbsp;<form:errors path="indvdlInfoPolicyAgreAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>indvdl_info_policy_nm</th>
 			<td>
-				<form:input path="indvdlInfoPolicyNm" cssClass="txt"/>
-				&nbsp;<form:errors path="indvdlInfoPolicyNm" />
+					<form:input path="indvdlInfoPolicyNm" cssClass="txt"/>
+					&nbsp;<form:errors path="indvdlInfoPolicyNm" />
 			</td>
 		</tr>	
 	</table>

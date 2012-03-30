@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.Comtnlo
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginscrinimage.service.Comtnlo
 public class ComtnloginscrinimageDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnloginscrinimage을 등록한다.
+	 * COMTNLOGINSCRINIMAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnloginscrinimageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnloginscrinimageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginscrinimage을 수정한다.
+	 * COMTNLOGINSCRINIMAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnloginscrinimageVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnloginscrinimageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginscrinimage을 삭제한다.
+	 * COMTNLOGINSCRINIMAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnloginscrinimageVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnloginscrinimageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginscrinimage을 조회한다.
+	 * COMTNLOGINSCRINIMAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnloginscrinimageVO
-	 * @return 조회한 comtnloginscrinimage
+	 * @return 조회한 COMTNLOGINSCRINIMAGE
 	 * @exception Exception
 	 */
     public ComtnloginscrinimageVO selectComtnloginscrinimage(ComtnloginscrinimageVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnloginscrinimageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginscrinimage 목록을 조회한다.
+	 * COMTNLOGINSCRINIMAGE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnloginscrinimage 목록
+	 * @return COMTNLOGINSCRINIMAGE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnloginscrinimageDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginscrinimage 총 갯수를 조회한다.
+	 * COMTNLOGINSCRINIMAGE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnloginscrinimage 총 갯수
+	 * @return COMTNLOGINSCRINIMAGE 총 갯수
 	 * @exception
 	 */
     public int selectComtnloginscrinimageListTotCnt(ComtnloginscrinimageVO vo) {

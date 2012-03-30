@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqestnrinfoVO extends ComtnqestnrinfoDefaultVO{
+public class ComtnqestnrinfoVO extends ComtnqestnrinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QUSTNR_TMPLAT_ID */
     private String qustnrTmplatId;
     
-    /**  */
+    /** QESTNR_ID */
     private String qestnrId;
     
-    /**  */
+    /** QUSTNR_SJ */
     private String qustnrSj;
     
-    /**  */
+    /** QUSTNR_PURPS */
     private String qustnrPurps;
     
-    /**  */
+    /** QUSTNR_WRITNG_GUIDANCE_CN */
     private String qustnrWritngGuidanceCn;
     
-    /**  */
+    /** QUSTNR_TRGET */
     private String qustnrTrget;
     
-    /**  */
+    /** QUSTNR_BGNDE */
     private String qustnrBgnde;
     
-    /**  */
+    /** QUSTNR_ENDDE */
     private String qustnrEndde;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getQustnrTmplatId() {

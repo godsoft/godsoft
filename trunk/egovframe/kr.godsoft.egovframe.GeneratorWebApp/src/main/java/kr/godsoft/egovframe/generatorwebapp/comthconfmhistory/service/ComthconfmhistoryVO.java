@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comthconfmhistory.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -16,7 +16,7 @@ public class ComthconfmhistoryVO extends ComthconfmhistoryDefaultVO {
     private static final long serialVersionUID = 1L;
     
     /** CONFM_NO */
-    private int confmNo;
+    private String confmNo;
     
     /** CONFM_RQESTER_ID */
     private String confmRqesterId;
@@ -45,11 +45,11 @@ public class ComthconfmhistoryVO extends ComthconfmhistoryDefaultVO {
     /** TRGET_JOB_ID */
     private String trgetJobId;
     
-    public int getConfmNo() {
+    public String getConfmNo() {
         return this.confmNo;
     }
     
-    public void setConfmNo(int confmNo) {
+    public void setConfmNo(String confmNo) {
         this.confmNo = confmNo;
     }
     

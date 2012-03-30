@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtccmmnclcodeServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtccmmnclcode을 등록한다.
+	 * COMTCCMMNCLCODE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtccmmnclcodeVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtccmmnclcodeServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtccmmnclcode을 수정한다.
+	 * COMTCCMMNCLCODE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtccmmnclcodeVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtccmmnclcodeServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtccmmnclcode을 삭제한다.
+	 * COMTCCMMNCLCODE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtccmmnclcodeVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtccmmnclcodeServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtccmmnclcode을 조회한다.
+	 * COMTCCMMNCLCODE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtccmmnclcodeVO
-	 * @return 조회한 comtccmmnclcode
+	 * @return 조회한 COMTCCMMNCLCODE
 	 * @exception Exception
 	 */
     public ComtccmmnclcodeVO selectComtccmmnclcode(ComtccmmnclcodeVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtccmmnclcodeServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtccmmnclcode 목록을 조회한다.
+	 * COMTCCMMNCLCODE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtccmmnclcode 목록
+	 * @return COMTCCMMNCLCODE 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtccmmnclcodeList(ComtccmmnclcodeVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtccmmnclcodeServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtccmmnclcode 총 갯수를 조회한다.
+	 * COMTCCMMNCLCODE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtccmmnclcode 총 갯수
+	 * @return COMTCCMMNCLCODE 총 갯수
 	 * @exception
 	 */
     public int selectComtccmmnclcodeListTotCnt(ComtccmmnclcodeVO vo) {

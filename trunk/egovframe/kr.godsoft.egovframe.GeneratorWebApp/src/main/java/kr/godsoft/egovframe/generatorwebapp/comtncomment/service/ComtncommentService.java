@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtncomment.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtncommentService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
 public interface ComtncommentService {
 	
 	/**
-	 * comtncomment을 등록한다.
+	 * COMTNCOMMENT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncommentVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtncommentService {
     String insertComtncomment(ComtncommentVO vo) throws Exception;
     
     /**
-	 * comtncomment을 수정한다.
+	 * COMTNCOMMENT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncommentVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtncommentService {
     void updateComtncomment(ComtncommentVO vo) throws Exception;
     
     /**
-	 * comtncomment을 삭제한다.
+	 * COMTNCOMMENT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncommentVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtncommentService {
     void deleteComtncomment(ComtncommentVO vo) throws Exception;
     
     /**
-	 * comtncomment을 조회한다.
+	 * COMTNCOMMENT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncommentVO
-	 * @return 조회한 comtncomment
+	 * @return 조회한 COMTNCOMMENT
 	 * @exception Exception
 	 */
     ComtncommentVO selectComtncomment(ComtncommentVO vo) throws Exception;
     
     /**
-	 * comtncomment 목록을 조회한다.
+	 * COMTNCOMMENT 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncomment 목록
+	 * @return COMTNCOMMENT 목록
 	 * @exception Exception
 	 */
-    List selectComtncommentList(ComtncommentDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtncommentList(ComtncommentVO vo) throws Exception;
     
     /**
-	 * comtncomment 총 갯수를 조회한다.
+	 * COMTNCOMMENT 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncomment 총 갯수
+	 * @return COMTNCOMMENT 총 갯수
 	 * @exception
 	 */
-    int selectComtncommentListTotCnt(ComtncommentDefaultVO searchVO);
+    int selectComtncommentListTotCnt(ComtncommentVO vo);
     
 }

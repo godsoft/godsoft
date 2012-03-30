@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.ComtnqustnrrspnsresultVO;
 
 /**
  * @Class Name : ComtnqustnrrspnsresultController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service.Comtn
  */
 
 @Controller
-@SessionAttributes(types=ComtnqustnrrspnsresultVO.class)
 public class ComtnqustnrrspnsresultController {
 
     @Resource(name = "comtnqustnrrspnsresultService")
@@ -45,13 +45,13 @@ public class ComtnqustnrrspnsresultController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnqustnrrspnsresult 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnqustnrrspnsresultDefaultVO
+	 * COMTNQUSTNRRSPNSRESULT 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnqustnrrspnsresultVO
 	 * @return "/comtnqustnrrspnsresult/ComtnqustnrrspnsresultList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnqustnrrspnsresult/ComtnqustnrrspnsresultList.do")
-    public String selectComtnqustnrrspnsresultList(@ModelAttribute("searchVO") ComtnqustnrrspnsresultDefaultVO searchVO, 
+    public String selectComtnqustnrrspnsresultList(@ModelAttribute("searchVO") ComtnqustnrrspnsresultVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnqustnrrspnsresultController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnqustnrrspnsresultList = comtnqustnrrspnsresultService.selectComtnqustnrrspnsresultList(searchVO);
+        List<EgovMap> comtnqustnrrspnsresultList = comtnqustnrrspnsresultService.selectComtnqustnrrspnsresultList(searchVO);
         model.addAttribute("resultList", comtnqustnrrspnsresultList);
         
         int totCnt = comtnqustnrrspnsresultService.selectComtnqustnrrspnsresultListTotCnt(searchVO);

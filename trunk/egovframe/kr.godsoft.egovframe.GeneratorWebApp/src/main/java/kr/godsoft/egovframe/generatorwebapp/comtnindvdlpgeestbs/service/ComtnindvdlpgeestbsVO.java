@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnindvdlpgeestbs.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -28,7 +28,7 @@ public class ComtnindvdlpgeestbsVO extends ComtnindvdlpgeestbsDefaultVO {
     private String algnMthd;
     
     /** ALGN_CO */
-    private int algnCo;
+    private String algnCo;
     
     public String getEmplyrId() {
         return this.emplyrId;
@@ -62,11 +62,11 @@ public class ComtnindvdlpgeestbsVO extends ComtnindvdlpgeestbsDefaultVO {
         this.algnMthd = algnMthd;
     }
     
-    public int getAlgnCo() {
+    public String getAlgnCo() {
         return this.algnCo;
     }
     
-    public void setAlgnCo(int algnCo) {
+    public void setAlgnCo(String algnCo) {
         this.algnCo = algnCo;
     }
     

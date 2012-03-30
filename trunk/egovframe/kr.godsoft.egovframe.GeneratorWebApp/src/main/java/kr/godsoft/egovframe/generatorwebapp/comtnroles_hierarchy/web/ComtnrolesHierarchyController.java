@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtnrolesHierarchyController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnroles_hierarchy 목록을 조회한다. (pageing)
+	 * COMTNROLES_HIERARCHY 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtnrolesHierarchyVO
 	 * @return "/comtnrolesHierarchy/ComtnrolesHierarchyList"
 	 * @exception Exception

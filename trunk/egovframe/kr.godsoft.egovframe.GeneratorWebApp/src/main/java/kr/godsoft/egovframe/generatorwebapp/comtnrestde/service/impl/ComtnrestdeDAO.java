@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrestde.service.ComtnrestdeVO;
 public class ComtnrestdeDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnrestde을 등록한다.
+	 * COMTNRESTDE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnrestdeVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnrestdeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrestde을 수정한다.
+	 * COMTNRESTDE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnrestdeVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnrestdeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrestde을 삭제한다.
+	 * COMTNRESTDE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnrestdeVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnrestdeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrestde을 조회한다.
+	 * COMTNRESTDE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnrestdeVO
-	 * @return 조회한 comtnrestde
+	 * @return 조회한 COMTNRESTDE
 	 * @exception Exception
 	 */
     public ComtnrestdeVO selectComtnrestde(ComtnrestdeVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnrestdeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrestde 목록을 조회한다.
+	 * COMTNRESTDE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnrestde 목록
+	 * @return COMTNRESTDE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnrestdeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrestde 총 갯수를 조회한다.
+	 * COMTNRESTDE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnrestde 총 갯수
+	 * @return COMTNRESTDE 총 갯수
 	 * @exception
 	 */
     public int selectComtnrestdeListTotCnt(ComtnrestdeVO vo) {

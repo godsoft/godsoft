@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtrdnmadrzipController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtrdnmadrzip 목록을 조회한다. (pageing)
+	 * COMTRDNMADRZIP 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtrdnmadrzipVO
 	 * @return "/comtrdnmadrzip/ComtrdnmadrzipList"
 	 * @exception Exception
@@ -99,7 +99,7 @@ public class ComtrdnmadrzipController {
     
     @RequestMapping("/comtrdnmadrzip/updateComtrdnmadrzipView.do")
     public String updateComtrdnmadrzipView(
-            @RequestParam("sn") int sn ,
+            @RequestParam("sn") String sn ,
             @ModelAttribute("searchVO") ComtrdnmadrzipDefaultVO searchVO, Model model)
             throws Exception {
         ComtrdnmadrzipVO comtrdnmadrzipVO = new ComtrdnmadrzipVO();

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,50 +95,50 @@ function fn_egov_save() {
 		<tr>
 			<th>cntc_mssage_nm</th>
 			<td>
-				<form:input path="cntcMssageNm" cssClass="txt"/>
-				&nbsp;<form:errors path="cntcMssageNm" />
+					<form:input path="cntcMssageNm" cssClass="txt"/>
+					&nbsp;<form:errors path="cntcMssageNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>upper_cntc_mssage_id</th>
 			<td>
-				<form:input path="upperCntcMssageId" cssClass="txt"/>
-				&nbsp;<form:errors path="upperCntcMssageId" />
+					<form:input path="upperCntcMssageId" cssClass="txt"/>
+					&nbsp;<form:errors path="upperCntcMssageId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>use_at</th>
 			<td>
-				<form:input path="useAt" cssClass="txt"/>
-				&nbsp;<form:errors path="useAt" />
+					<form:input path="useAt" cssClass="txt" value="Y"/>
+					&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 	</table>

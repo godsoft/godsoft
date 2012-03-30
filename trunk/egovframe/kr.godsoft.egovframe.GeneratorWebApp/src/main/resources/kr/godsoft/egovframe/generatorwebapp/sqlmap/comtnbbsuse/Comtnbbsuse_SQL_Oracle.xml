@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbbsuse">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnbbsuseVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO"/>
+	
+	<resultMap id="comtnbbsuse" class="kr.godsoft.egovframe.generatorwebapp.comtnbbsuse.service.ComtnbbsuseVO">
+		<result property="bbsId" column="bbs_id" columnIndex="1"/>
+		<result property="trgetId" column="trget_id" columnIndex="2"/>
+		<result property="useAt" column="use_at" columnIndex="3"/>
+		<result property="registSeCode" column="regist_se_code" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="comtnbbsuseDAO.insertComtnbbsuse_S">
+		<![CDATA[
+            INSERT INTO comtnbbsuse (
+                bbs_id
+                , trget_id
+                , use_at
+                , regist_se_code
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #bbsId#
+                , #trgetId#
+                , #useAt#
+                , #registSeCode#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnbbsuseDAO.updateComtnbbsuse_S">
+		<![CDATA[
+            UPDATE comtnbbsuse
+                SET
+                bbs_id = #bbsId#
+                , trget_id = #trgetId#
+                , use_at = #useAt#
+                , regist_se_code = #registSeCode#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND bbs_id = #bbsId#
+                AND trget_id = #trgetId#
+		]]>
+	</update>
+	
+	<delete id="comtnbbsuseDAO.deleteComtnbbsuse_S">
+		<![CDATA[
+			DELETE FROM comtnbbsuse
+				WHERE 1 = 1
+				AND bbs_id = #bbsId#
+				AND trget_id = #trgetId#
+		]]>
+	</delete>
+	
+	<select id="comtnbbsuseDAO.selectComtnbbsuse_S" resultMap="comtnbbsuse">
+		<![CDATA[
+			SELECT
+				bbs_id
+				, trget_id
+				, use_at
+				, regist_se_code
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTNBBSUSE
+			WHERE bbs_id = #bbsId#
+				AND trget_id = #trgetId#
+		]]>
+	</select>
+	
+	<select id="comtnbbsuseDAO.selectComtnbbsuseList_D" parameterClass="ComtnbbsuseVO" resultClass="egovMap">
+	       SELECT 
+								A.BBS_ID
+								, A.TRGET_ID
+								, A.USE_AT
+								, A.REGIST_SE_CODE
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								BBS_ID
+								, TRGET_ID
+								, USE_AT
+								, REGIST_SE_CODE
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTNBBSUSE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					BBS_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					TRGET_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							BBS_ID DESC
+							, TRGET_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnbbsuseDAO.selectComtnbbsuseListTotCnt_S" parameterClass="ComtnbbsuseVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNBBSUSE
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BBS_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TRGET_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

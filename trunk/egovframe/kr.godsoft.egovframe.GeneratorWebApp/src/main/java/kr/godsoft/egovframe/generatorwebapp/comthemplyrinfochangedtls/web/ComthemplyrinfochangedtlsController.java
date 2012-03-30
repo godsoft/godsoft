@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsService;
+import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsService;
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.ComthemplyrinfochangedtlsVO;
 
 /**
  * @Class Name : ComthemplyrinfochangedtlsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.Co
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service.Co
  */
 
 @Controller
-@SessionAttributes(types=ComthemplyrinfochangedtlsVO.class)
 public class ComthemplyrinfochangedtlsController {
 
     @Resource(name = "comthemplyrinfochangedtlsService")
@@ -45,13 +45,13 @@ public class ComthemplyrinfochangedtlsController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comthemplyrinfochangedtls 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComthemplyrinfochangedtlsDefaultVO
+	 * COMTHEMPLYRINFOCHANGEDTLS 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComthemplyrinfochangedtlsVO
 	 * @return "/comthemplyrinfochangedtls/ComthemplyrinfochangedtlsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comthemplyrinfochangedtls/ComthemplyrinfochangedtlsList.do")
-    public String selectComthemplyrinfochangedtlsList(@ModelAttribute("searchVO") ComthemplyrinfochangedtlsDefaultVO searchVO, 
+    public String selectComthemplyrinfochangedtlsList(@ModelAttribute("searchVO") ComthemplyrinfochangedtlsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComthemplyrinfochangedtlsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comthemplyrinfochangedtlsList = comthemplyrinfochangedtlsService.selectComthemplyrinfochangedtlsList(searchVO);
+        List<EgovMap> comthemplyrinfochangedtlsList = comthemplyrinfochangedtlsService.selectComthemplyrinfochangedtlsList(searchVO);
         model.addAttribute("resultList", comthemplyrinfochangedtlsList);
         
         int totCnt = comthemplyrinfochangedtlsService.selectComthemplyrinfochangedtlsListTotCnt(searchVO);

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,78 +95,78 @@ function fn_egov_save() {
 		<tr>
 			<th>server_nm</th>
 			<td>
-				<form:input path="serverNm" cssClass="txt"/>
-				&nbsp;<form:errors path="serverNm" />
+					<form:input path="serverNm" cssClass="txt"/>
+					&nbsp;<form:errors path="serverNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>server_ip</th>
 			<td>
-				<form:input path="serverIp" cssClass="txt"/>
-				&nbsp;<form:errors path="serverIp" />
+					<form:input path="serverIp" cssClass="txt"/>
+					&nbsp;<form:errors path="serverIp" />
 			</td>
 		</tr>	
 		<tr>
 			<th>server_port</th>
 			<td>
-				<form:input path="serverPort" cssClass="txt"/>
-				&nbsp;<form:errors path="serverPort" />
+					<form:input path="serverPort" cssClass="txt"/>
+					&nbsp;<form:errors path="serverPort" />
 			</td>
 		</tr>	
 		<tr>
 			<th>ftp_id</th>
 			<td>
-				<form:input path="ftpId" cssClass="txt"/>
-				&nbsp;<form:errors path="ftpId" />
+					<form:input path="ftpId" cssClass="txt"/>
+					&nbsp;<form:errors path="ftpId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>ftp_password</th>
 			<td>
-				<form:input path="ftpPassword" cssClass="txt"/>
-				&nbsp;<form:errors path="ftpPassword" />
+					<form:input path="ftpPassword" cssClass="txt"/>
+					&nbsp;<form:errors path="ftpPassword" />
 			</td>
 		</tr>	
 		<tr>
 			<th>synchrn_lc</th>
 			<td>
-				<form:input path="synchrnLc" cssClass="txt"/>
-				&nbsp;<form:errors path="synchrnLc" />
+					<form:input path="synchrnLc" cssClass="txt"/>
+					&nbsp;<form:errors path="synchrnLc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reflct_at</th>
 			<td>
-				<form:input path="reflctAt" cssClass="txt"/>
-				&nbsp;<form:errors path="reflctAt" />
+					<form:input path="reflctAt" cssClass="txt"/>
+					&nbsp;<form:errors path="reflctAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

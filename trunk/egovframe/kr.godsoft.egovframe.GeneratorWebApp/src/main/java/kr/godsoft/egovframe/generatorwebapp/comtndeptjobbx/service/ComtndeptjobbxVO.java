@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtndeptjobbx.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ public class ComtndeptjobbxVO extends ComtndeptjobbxDefaultVO {
     private String deptId;
     
     /** INDICT_ORDR */
-    private int indictOrdr;
+    private String indictOrdr;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -63,11 +63,11 @@ public class ComtndeptjobbxVO extends ComtndeptjobbxDefaultVO {
         this.deptId = deptId;
     }
     
-    public int getIndictOrdr() {
+    public String getIndictOrdr() {
         return this.indictOrdr;
     }
     
-    public void setIndictOrdr(int indictOrdr) {
+    public void setIndictOrdr(String indictOrdr) {
         this.indictOrdr = indictOrdr;
     }
     

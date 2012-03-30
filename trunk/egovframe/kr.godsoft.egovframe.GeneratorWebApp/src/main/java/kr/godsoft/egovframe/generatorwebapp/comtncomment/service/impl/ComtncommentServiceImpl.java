@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentService;
+import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentService;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.impl.ComtncommentDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtncommentServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.impl.Comtncomme
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtncommentServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtncomment을 등록한다.
+	 * COMTNCOMMENT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncommentVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtncommentServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncomment을 수정한다.
+	 * COMTNCOMMENT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncommentVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtncommentServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncomment을 삭제한다.
+	 * COMTNCOMMENT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncommentVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtncommentServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncomment을 조회한다.
+	 * COMTNCOMMENT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncommentVO
-	 * @return 조회한 comtncomment
+	 * @return 조회한 COMTNCOMMENT
 	 * @exception Exception
 	 */
     public ComtncommentVO selectComtncomment(ComtncommentVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtncommentServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncomment 목록을 조회한다.
+	 * COMTNCOMMENT 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncomment 목록
+	 * @return COMTNCOMMENT 목록
 	 * @exception Exception
 	 */
-    public List selectComtncommentList(ComtncommentDefaultVO searchVO) throws Exception {
-        return comtncommentDAO.selectComtncommentList(searchVO);
+    public List<EgovMap> selectComtncommentList(ComtncommentVO vo) throws Exception {
+        return comtncommentDAO.selectComtncommentList(vo);
     }
 
     /**
-	 * comtncomment 총 갯수를 조회한다.
+	 * COMTNCOMMENT 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncomment 총 갯수
+	 * @return COMTNCOMMENT 총 갯수
 	 * @exception
 	 */
-    public int selectComtncommentListTotCnt(ComtncommentDefaultVO searchVO) {
-		return comtncommentDAO.selectComtncommentListTotCnt(searchVO);
+    public int selectComtncommentListTotCnt(ComtncommentVO vo) {
+		return comtncommentDAO.selectComtncommentListTotCnt(vo);
 	}
     
 }

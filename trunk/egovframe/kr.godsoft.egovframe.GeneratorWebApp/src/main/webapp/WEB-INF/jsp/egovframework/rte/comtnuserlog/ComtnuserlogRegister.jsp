@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -134,43 +134,43 @@ function fn_egov_save() {
 		<tr>
 			<th>creat_co</th>
 			<td>
-				<form:input path="creatCo" cssClass="txt"/>
-				&nbsp;<form:errors path="creatCo" />
+					<form:input path="creatCo" cssClass="txt"/>
+					&nbsp;<form:errors path="creatCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>updt_co</th>
 			<td>
-				<form:input path="updtCo" cssClass="txt"/>
-				&nbsp;<form:errors path="updtCo" />
+					<form:input path="updtCo" cssClass="txt"/>
+					&nbsp;<form:errors path="updtCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rdcnt</th>
 			<td>
-				<form:input path="rdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="rdcnt" />
+					<form:input path="rdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>delete_co</th>
 			<td>
-				<form:input path="deleteCo" cssClass="txt"/>
-				&nbsp;<form:errors path="deleteCo" />
+					<form:input path="deleteCo" cssClass="txt"/>
+					&nbsp;<form:errors path="deleteCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>outpt_co</th>
 			<td>
-				<form:input path="outptCo" cssClass="txt"/>
-				&nbsp;<form:errors path="outptCo" />
+					<form:input path="outptCo" cssClass="txt"/>
+					&nbsp;<form:errors path="outptCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_co</th>
 			<td>
-				<form:input path="errorCo" cssClass="txt"/>
-				&nbsp;<form:errors path="errorCo" />
+					<form:input path="errorCo" cssClass="txt"/>
+					&nbsp;<form:errors path="errorCo" />
 			</td>
 		</tr>	
 	</table>

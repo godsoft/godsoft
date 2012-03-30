@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnauthorinfoService {
 	
 	/**
-	 * comtnauthorinfo을 등록한다.
+	 * COMTNAUTHORINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnauthorinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnauthorinfoService {
     String insertComtnauthorinfo(ComtnauthorinfoVO vo) throws Exception;
     
     /**
-	 * comtnauthorinfo을 수정한다.
+	 * COMTNAUTHORINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnauthorinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnauthorinfoService {
     void updateComtnauthorinfo(ComtnauthorinfoVO vo) throws Exception;
     
     /**
-	 * comtnauthorinfo을 삭제한다.
+	 * COMTNAUTHORINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnauthorinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnauthorinfoService {
     void deleteComtnauthorinfo(ComtnauthorinfoVO vo) throws Exception;
     
     /**
-	 * comtnauthorinfo을 조회한다.
+	 * COMTNAUTHORINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnauthorinfoVO
-	 * @return 조회한 comtnauthorinfo
+	 * @return 조회한 COMTNAUTHORINFO
 	 * @exception Exception
 	 */
     ComtnauthorinfoVO selectComtnauthorinfo(ComtnauthorinfoVO vo) throws Exception;
     
     /**
-	 * comtnauthorinfo 목록을 조회한다.
+	 * COMTNAUTHORINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorinfo 목록
+	 * @return COMTNAUTHORINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnauthorinfoList(ComtnauthorinfoVO vo) throws Exception;
     
     /**
-	 * comtnauthorinfo 총 갯수를 조회한다.
+	 * COMTNAUTHORINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorinfo 총 갯수
+	 * @return COMTNAUTHORINFO 총 갯수
 	 * @exception
 	 */
     int selectComtnauthorinfoListTotCnt(ComtnauthorinfoVO vo);

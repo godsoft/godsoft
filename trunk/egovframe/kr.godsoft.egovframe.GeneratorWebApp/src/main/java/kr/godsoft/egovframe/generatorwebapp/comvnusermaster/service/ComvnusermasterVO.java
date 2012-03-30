@@ -6,43 +6,43 @@ package kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComvnusermasterVO extends ComvnusermasterDefaultVO{
+public class ComvnusermasterVO extends ComvnusermasterDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** ESNTL_ID */
     private String esntlId;
     
-    /**  */
+    /** USER_ID */
     private String userId;
     
-    /**  */
+    /** PASSWORD */
     private String password;
     
-    /**  */
+    /** USER_NM */
     private String userNm;
     
-    /**  */
+    /** USER_ZIP */
     private String userZip;
     
-    /**  */
+    /** USER_ADRES */
     private String userAdres;
     
-    /**  */
+    /** USER_EMAIL */
     private String userEmail;
     
-    /**  */
+    /** GROUP_ID */
     private String groupId;
     
-    /**  */
+    /** USER_SE */
     private String userSe;
     
-    /**  */
+    /** ORGNZT_ID */
     private String orgnztId;
     
     public String getEsntlId() {

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -26,8 +26,7 @@
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 /* 글 수정 화면 function */
-function fn_egov_select(scrtyDtrmnTrgetId) {
-	document.getElementById("listForm").scrtyDtrmnTrgetId.value = scrtyDtrmnTrgetId;
+function fn_egov_select() {
    	document.getElementById("listForm").action = "<c:url value='/comtnemplyrscrtyestbs/updateComtnemplyrscrtyestbsView.do'/>";
    	document.getElementById("listForm").submit();		
 }
@@ -50,7 +49,6 @@ function fn_egov_link_page(pageNo){
 </head>
 <body>
 <form:form commandName="searchVO" name="listForm" id="listForm" method="post">
-	<input type="hidden" name="scrtyDtrmnTrgetId" />
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -74,8 +72,8 @@ function fn_egov_link_page(pageNo){
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
-																											
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.scrtyDtrmnTrgetId}"/>')"><c:out value="${result.scrtyDtrmnTrgetId}"/></a>&nbsp;</td>
+															
+												<td align="center" class="listtd"><c:out value="${result.scrtyDtrmnTrgetId}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.mberTyCode}"/>&nbsp;</td>
 																<td align="center" class="listtd"><c:out value="${result.authorCode}"/>&nbsp;</td>
 											</tr>

@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.Comtnuserabs
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnuserabsnce.service.Comtnuserabs
 public class ComtnuserabsnceDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnuserabsnce을 등록한다.
+	 * COMTNUSERABSNCE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnuserabsnceVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnuserabsnceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnuserabsnce을 수정한다.
+	 * COMTNUSERABSNCE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnuserabsnceVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnuserabsnceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnuserabsnce을 삭제한다.
+	 * COMTNUSERABSNCE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnuserabsnceVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnuserabsnceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnuserabsnce을 조회한다.
+	 * COMTNUSERABSNCE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnuserabsnceVO
-	 * @return 조회한 comtnuserabsnce
+	 * @return 조회한 COMTNUSERABSNCE
 	 * @exception Exception
 	 */
     public ComtnuserabsnceVO selectComtnuserabsnce(ComtnuserabsnceVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnuserabsnceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnuserabsnce 목록을 조회한다.
+	 * COMTNUSERABSNCE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnuserabsnce 목록
+	 * @return COMTNUSERABSNCE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnuserabsnceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnuserabsnce 총 갯수를 조회한다.
+	 * COMTNUSERABSNCE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnuserabsnce 총 갯수
+	 * @return COMTNUSERABSNCE 총 갯수
 	 * @exception
 	 */
     public int selectComtnuserabsnceListTotCnt(ComtnuserabsnceVO vo) {

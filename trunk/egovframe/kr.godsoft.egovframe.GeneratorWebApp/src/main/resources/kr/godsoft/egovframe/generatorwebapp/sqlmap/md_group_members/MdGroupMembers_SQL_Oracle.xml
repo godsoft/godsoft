@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdGroupMembers">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdGroupMembersVO" type="kr.godsoft.egovframe.generatorwebapp.md_group_members.service.MdGroupMembersVO"/>
+	
+	<resultMap id="mdGroupMembers" class="kr.godsoft.egovframe.generatorwebapp.md_group_members.service.MdGroupMembersVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="groupIdFk" column="group_id_fk" columnIndex="2"/>
+		<result property="userIdFk" column="user_id_fk" columnIndex="3"/>
+		<result property="groupMemberIdFk" column="group_member_id_fk" columnIndex="4"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="5"/>
+		<result property="createdOn" column="created_on" columnIndex="6"/>
+		<result property="createdBy" column="created_by" columnIndex="7"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="8"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="mdGroupMembersDAO.insertMdGroupMembers_S">
+		<![CDATA[
+            INSERT INTO md_group_members (
+                id
+                , group_id_fk
+                , user_id_fk
+                , group_member_id_fk
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #groupIdFk#
+                , #userIdFk#
+                , #groupMemberIdFk#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdGroupMembersDAO.updateMdGroupMembers_S">
+		<![CDATA[
+            UPDATE md_group_members
+                SET
+                id = #id#
+                , group_id_fk = #groupIdFk#
+                , user_id_fk = #userIdFk#
+                , group_member_id_fk = #groupMemberIdFk#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdGroupMembersDAO.deleteMdGroupMembers_S">
+		<![CDATA[
+			DELETE FROM md_group_members
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdGroupMembersDAO.selectMdGroupMembers_S" resultMap="mdGroupMembers">
+		<![CDATA[
+			SELECT
+				id
+				, group_id_fk
+				, user_id_fk
+				, group_member_id_fk
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_GROUP_MEMBERS
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdGroupMembersDAO.selectMdGroupMembersList_D" parameterClass="MdGroupMembersVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.GROUP_ID_FK
+								, A.USER_ID_FK
+								, A.GROUP_MEMBER_ID_FK
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, GROUP_ID_FK
+								, USER_ID_FK
+								, GROUP_MEMBER_ID_FK
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_GROUP_MEMBERS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					GROUP_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdGroupMembersDAO.selectMdGroupMembersListTotCnt_S" parameterClass="MdGroupMembersVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_GROUP_MEMBERS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				GROUP_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

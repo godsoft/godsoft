@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.ComtnqustnrqesitmVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.impl.ComtnqustnrqesitmDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnqustnrqesitmServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrqesitm.service.impl.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnqustnrqesitmServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnqustnrqesitm을 등록한다.
+	 * COMTNQUSTNRQESITM을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqustnrqesitmVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnqustnrqesitmServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnrqesitm을 수정한다.
+	 * COMTNQUSTNRQESITM을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqustnrqesitmVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnqustnrqesitmServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnrqesitm을 삭제한다.
+	 * COMTNQUSTNRQESITM을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqustnrqesitmVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnqustnrqesitmServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnrqesitm을 조회한다.
+	 * COMTNQUSTNRQESITM을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqustnrqesitmVO
-	 * @return 조회한 comtnqustnrqesitm
+	 * @return 조회한 COMTNQUSTNRQESITM
 	 * @exception Exception
 	 */
     public ComtnqustnrqesitmVO selectComtnqustnrqesitm(ComtnqustnrqesitmVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnqustnrqesitmServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnqustnrqesitm 목록을 조회한다.
+	 * COMTNQUSTNRQESITM 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqustnrqesitm 목록
+	 * @return COMTNQUSTNRQESITM 목록
 	 * @exception Exception
 	 */
-    public List selectComtnqustnrqesitmList(ComtnqustnrqesitmDefaultVO searchVO) throws Exception {
-        return comtnqustnrqesitmDAO.selectComtnqustnrqesitmList(searchVO);
+    public List<EgovMap> selectComtnqustnrqesitmList(ComtnqustnrqesitmVO vo) throws Exception {
+        return comtnqustnrqesitmDAO.selectComtnqustnrqesitmList(vo);
     }
 
     /**
-	 * comtnqustnrqesitm 총 갯수를 조회한다.
+	 * COMTNQUSTNRQESITM 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnqustnrqesitm 총 갯수
+	 * @return COMTNQUSTNRQESITM 총 갯수
 	 * @exception
 	 */
-    public int selectComtnqustnrqesitmListTotCnt(ComtnqustnrqesitmDefaultVO searchVO) {
-		return comtnqustnrqesitmDAO.selectComtnqustnrqesitmListTotCnt(searchVO);
+    public int selectComtnqustnrqesitmListTotCnt(ComtnqustnrqesitmVO vo) {
+		return comtnqustnrqesitmDAO.selectComtnqustnrqesitmListTotCnt(vo);
 	}
     
 }

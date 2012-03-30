@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,127 +95,127 @@ function fn_egov_save() {
 		<tr>
 			<th>qestn_sj</th>
 			<td>
-				<form:input path="qestnSj" cssClass="txt"/>
-				&nbsp;<form:errors path="qestnSj" />
+					<form:input path="qestnSj" cssClass="txt"/>
+					&nbsp;<form:errors path="qestnSj" />
 			</td>
 		</tr>	
 		<tr>
 			<th>qestn_cn</th>
 			<td>
-				<form:input path="qestnCn" cssClass="txt"/>
-				&nbsp;<form:errors path="qestnCn" />
+					<form:input path="qestnCn" cssClass="txt"/>
+					&nbsp;<form:errors path="qestnCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>writng_de</th>
 			<td>
-				<form:input path="writngDe" cssClass="txt"/>
-				&nbsp;<form:errors path="writngDe" />
+					<form:input path="writngDe" cssClass="txt"/>
+					&nbsp;<form:errors path="writngDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rdcnt</th>
 			<td>
-				<form:input path="rdcnt" cssClass="txt"/>
-				&nbsp;<form:errors path="rdcnt" />
+					<form:input path="rdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>email_adres</th>
 			<td>
-				<form:input path="emailAdres" cssClass="txt"/>
-				&nbsp;<form:errors path="emailAdres" />
+					<form:input path="emailAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="emailAdres" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>qna_process_sttus_code</th>
 			<td>
-				<form:input path="qnaProcessSttusCode" cssClass="txt"/>
-				&nbsp;<form:errors path="qnaProcessSttusCode" />
+					<form:input path="qnaProcessSttusCode" cssClass="txt"/>
+					&nbsp;<form:errors path="qnaProcessSttusCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>wrter_nm</th>
 			<td>
-				<form:input path="wrterNm" cssClass="txt"/>
-				&nbsp;<form:errors path="wrterNm" />
+					<form:input path="wrterNm" cssClass="txt"/>
+					&nbsp;<form:errors path="wrterNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>answer_cn</th>
 			<td>
-				<form:input path="answerCn" cssClass="txt"/>
-				&nbsp;<form:errors path="answerCn" />
+					<form:input path="answerCn" cssClass="txt"/>
+					&nbsp;<form:errors path="answerCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>writng_password</th>
 			<td>
-				<form:input path="writngPassword" cssClass="txt"/>
-				&nbsp;<form:errors path="writngPassword" />
+					<form:input path="writngPassword" cssClass="txt"/>
+					&nbsp;<form:errors path="writngPassword" />
 			</td>
 		</tr>	
 		<tr>
 			<th>answer_de</th>
 			<td>
-				<form:input path="answerDe" cssClass="txt"/>
-				&nbsp;<form:errors path="answerDe" />
+					<form:input path="answerDe" cssClass="txt"/>
+					&nbsp;<form:errors path="answerDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>email_answer_at</th>
 			<td>
-				<form:input path="emailAnswerAt" cssClass="txt"/>
-				&nbsp;<form:errors path="emailAnswerAt" />
+					<form:input path="emailAnswerAt" cssClass="txt"/>
+					&nbsp;<form:errors path="emailAnswerAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>area_no</th>
 			<td>
-				<form:input path="areaNo" cssClass="txt"/>
-				&nbsp;<form:errors path="areaNo" />
+					<form:input path="areaNo" cssClass="txt"/>
+					&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>middle_telno</th>
 			<td>
-				<form:input path="middleTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="middleTelno" />
+					<form:input path="middleTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="middleTelno" />
 			</td>
 		</tr>	
 		<tr>
 			<th>end_telno</th>
 			<td>
-				<form:input path="endTelno" cssClass="txt"/>
-				&nbsp;<form:errors path="endTelno" />
+					<form:input path="endTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="endTelno" />
 			</td>
 		</tr>	
 	</table>

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,64 +95,64 @@ function fn_egov_save() {
 		<tr>
 			<th>image_nm</th>
 			<td>
-				<form:input path="imageNm" cssClass="txt"/>
-				&nbsp;<form:errors path="imageNm" />
+					<form:input path="imageNm" cssClass="txt"/>
+					&nbsp;<form:errors path="imageNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>image</th>
 			<td>
-				<form:input path="image" cssClass="txt"/>
-				&nbsp;<form:errors path="image" />
+					<form:input path="image" cssClass="txt"/>
+					&nbsp;<form:errors path="image" />
 			</td>
 		</tr>	
 		<tr>
 			<th>image_dc</th>
 			<td>
-				<form:input path="imageDc" cssClass="txt"/>
-				&nbsp;<form:errors path="imageDc" />
+					<form:input path="imageDc" cssClass="txt"/>
+					&nbsp;<form:errors path="imageDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reflct_at</th>
 			<td>
-				<form:input path="reflctAt" cssClass="txt"/>
-				&nbsp;<form:errors path="reflctAt" />
+					<form:input path="reflctAt" cssClass="txt"/>
+					&nbsp;<form:errors path="reflctAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>image_file</th>
 			<td>
-				<form:input path="imageFile" cssClass="txt"/>
-				&nbsp;<form:errors path="imageFile" />
+					<form:input path="imageFile" cssClass="txt"/>
+					&nbsp;<form:errors path="imageFile" />
 			</td>
 		</tr>	
 	</table>

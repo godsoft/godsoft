@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrss.service.ComtnrssVO;
 public class ComtnrssDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnrss을 등록한다.
+	 * COMTNRSS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnrssVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnrssDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrss을 수정한다.
+	 * COMTNRSS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnrssVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnrssDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrss을 삭제한다.
+	 * COMTNRSS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnrssVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnrssDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrss을 조회한다.
+	 * COMTNRSS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnrssVO
-	 * @return 조회한 comtnrss
+	 * @return 조회한 COMTNRSS
 	 * @exception Exception
 	 */
     public ComtnrssVO selectComtnrss(ComtnrssVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnrssDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrss 목록을 조회한다.
+	 * COMTNRSS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnrss 목록
+	 * @return COMTNRSS 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnrssDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnrss 총 갯수를 조회한다.
+	 * COMTNRSS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnrss 총 갯수
+	 * @return COMTNRSS 총 갯수
 	 * @exception
 	 */
     public int selectComtnrssListTotCnt(ComtnrssVO vo) {

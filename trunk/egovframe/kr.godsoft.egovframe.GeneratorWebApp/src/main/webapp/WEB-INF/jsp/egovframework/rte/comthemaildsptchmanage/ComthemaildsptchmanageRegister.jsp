@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comthemaildsptchmanageVO.mssageId ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<title>comthemaildsptchmanage <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +64,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,7 +77,7 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>mssage_id *</th>
 			<td>
 				<form:input path="mssageId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -85,7 +85,7 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>mssage_id *</th>
 			<td>
 				<form:input path="mssageId" cssClass="txt" readonly="false" />
 			</td>			
@@ -93,73 +93,52 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>email_cn</th>
 			<td>
-	
-				<form:input path="emailCn" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="emailCn" />
+					<form:input path="emailCn" cssClass="txt"/>
+					&nbsp;<form:errors path="emailCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>sndr</th>
 			<td>
-	
-				<form:input path="sndr" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sndr" />
+					<form:input path="sndr" cssClass="txt"/>
+					&nbsp;<form:errors path="sndr" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>rcver</th>
 			<td>
-	
-				<form:input path="rcver" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="rcver" />
+					<form:input path="rcver" cssClass="txt"/>
+					&nbsp;<form:errors path="rcver" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>sj</th>
 			<td>
-	
-				<form:input path="sj" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sj" />
+					<form:input path="sj" cssClass="txt"/>
+					&nbsp;<form:errors path="sj" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>sndng_result_code</th>
 			<td>
-	
-				<form:input path="sndngResultCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sndngResultCode" />
+					<form:input path="sndngResultCode" cssClass="txt"/>
+					&nbsp;<form:errors path="sndngResultCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>dsptch_dt</th>
 			<td>
-	
-				<form:input path="dsptchDt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="dsptchDt" />
+					<form:input path="dsptchDt" cssClass="txt"/>
+					&nbsp;<form:errors path="dsptchDt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>atch_file_id</th>
 			<td>
-	
-				<form:input path="atchFileId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="atchFileId" />
+					<form:input path="atchFileId" cssClass="txt"/>
+					&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 	</table>

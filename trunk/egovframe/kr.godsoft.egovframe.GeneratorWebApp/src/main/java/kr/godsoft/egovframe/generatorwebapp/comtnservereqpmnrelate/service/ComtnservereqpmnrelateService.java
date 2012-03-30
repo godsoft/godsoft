@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service.ComtnservereqpmnrelateDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service.ComtnservereqpmnrelateVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnservereqpmnrelateService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service.Comtn
 public interface ComtnservereqpmnrelateService {
 	
 	/**
-	 * comtnservereqpmnrelate을 등록한다.
+	 * COMTNSERVEREQPMNRELATE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnservereqpmnrelateVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnservereqpmnrelateService {
     String insertComtnservereqpmnrelate(ComtnservereqpmnrelateVO vo) throws Exception;
     
     /**
-	 * comtnservereqpmnrelate을 수정한다.
+	 * COMTNSERVEREQPMNRELATE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnservereqpmnrelateVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnservereqpmnrelateService {
     void updateComtnservereqpmnrelate(ComtnservereqpmnrelateVO vo) throws Exception;
     
     /**
-	 * comtnservereqpmnrelate을 삭제한다.
+	 * COMTNSERVEREQPMNRELATE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnservereqpmnrelateVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnservereqpmnrelateService {
     void deleteComtnservereqpmnrelate(ComtnservereqpmnrelateVO vo) throws Exception;
     
     /**
-	 * comtnservereqpmnrelate을 조회한다.
+	 * COMTNSERVEREQPMNRELATE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnservereqpmnrelateVO
-	 * @return 조회한 comtnservereqpmnrelate
+	 * @return 조회한 COMTNSERVEREQPMNRELATE
 	 * @exception Exception
 	 */
     ComtnservereqpmnrelateVO selectComtnservereqpmnrelate(ComtnservereqpmnrelateVO vo) throws Exception;
     
     /**
-	 * comtnservereqpmnrelate 목록을 조회한다.
+	 * COMTNSERVEREQPMNRELATE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnservereqpmnrelate 목록
+	 * @return COMTNSERVEREQPMNRELATE 목록
 	 * @exception Exception
 	 */
-    List selectComtnservereqpmnrelateList(ComtnservereqpmnrelateDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnservereqpmnrelateList(ComtnservereqpmnrelateVO vo) throws Exception;
     
     /**
-	 * comtnservereqpmnrelate 총 갯수를 조회한다.
+	 * COMTNSERVEREQPMNRELATE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnservereqpmnrelate 총 갯수
+	 * @return COMTNSERVEREQPMNRELATE 총 갯수
 	 * @exception
 	 */
-    int selectComtnservereqpmnrelateListTotCnt(ComtnservereqpmnrelateDefaultVO searchVO);
+    int selectComtnservereqpmnrelateListTotCnt(ComtnservereqpmnrelateVO vo);
     
 }

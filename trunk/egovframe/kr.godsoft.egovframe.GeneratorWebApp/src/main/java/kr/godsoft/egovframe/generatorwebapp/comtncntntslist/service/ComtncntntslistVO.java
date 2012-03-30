@@ -6,19 +6,19 @@ package kr.godsoft.egovframe.generatorwebapp.comtncntntslist.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtncntntslistVO extends ComtncntntslistDefaultVO{
+public class ComtncntntslistVO extends ComtncntntslistDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** CNTNTS_ID */
     private String cntntsId;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
     public String getCntntsId() {

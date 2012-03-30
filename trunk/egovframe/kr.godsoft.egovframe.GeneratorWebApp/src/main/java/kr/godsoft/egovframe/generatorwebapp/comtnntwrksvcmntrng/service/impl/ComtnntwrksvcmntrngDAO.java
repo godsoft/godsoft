@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.Comtnntw
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnntwrksvcmntrng.service.Comtnntw
 public class ComtnntwrksvcmntrngDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnntwrksvcmntrng을 등록한다.
+	 * COMTNNTWRKSVCMNTRNG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnntwrksvcmntrngVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnntwrksvcmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnntwrksvcmntrng을 수정한다.
+	 * COMTNNTWRKSVCMNTRNG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnntwrksvcmntrngVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnntwrksvcmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnntwrksvcmntrng을 삭제한다.
+	 * COMTNNTWRKSVCMNTRNG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnntwrksvcmntrngVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnntwrksvcmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnntwrksvcmntrng을 조회한다.
+	 * COMTNNTWRKSVCMNTRNG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnntwrksvcmntrngVO
-	 * @return 조회한 comtnntwrksvcmntrng
+	 * @return 조회한 COMTNNTWRKSVCMNTRNG
 	 * @exception Exception
 	 */
     public ComtnntwrksvcmntrngVO selectComtnntwrksvcmntrng(ComtnntwrksvcmntrngVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnntwrksvcmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnntwrksvcmntrng 목록을 조회한다.
+	 * COMTNNTWRKSVCMNTRNG 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnntwrksvcmntrng 목록
+	 * @return COMTNNTWRKSVCMNTRNG 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnntwrksvcmntrngDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnntwrksvcmntrng 총 갯수를 조회한다.
+	 * COMTNNTWRKSVCMNTRNG 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnntwrksvcmntrng 총 갯수
+	 * @return COMTNNTWRKSVCMNTRNG 총 갯수
 	 * @exception
 	 */
     public int selectComtnntwrksvcmntrngListTotCnt(ComtnntwrksvcmntrngVO vo) {

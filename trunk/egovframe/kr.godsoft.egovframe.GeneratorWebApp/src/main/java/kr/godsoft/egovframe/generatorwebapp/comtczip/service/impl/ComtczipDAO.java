@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO;
 public class ComtczipDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtczip을 등록한다.
+	 * COMTCZIP을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtczipVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtczipDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtczip을 수정한다.
+	 * COMTCZIP을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtczipVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtczipDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtczip을 삭제한다.
+	 * COMTCZIP을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtczipVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtczipDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtczip을 조회한다.
+	 * COMTCZIP을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtczipVO
-	 * @return 조회한 comtczip
+	 * @return 조회한 COMTCZIP
 	 * @exception Exception
 	 */
     public ComtczipVO selectComtczip(ComtczipVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtczipDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtczip 목록을 조회한다.
+	 * COMTCZIP 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtczip 목록
+	 * @return COMTCZIP 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtczipDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtczip 총 갯수를 조회한다.
+	 * COMTCZIP 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtczip 총 갯수
+	 * @return COMTCZIP 총 갯수
 	 * @exception
 	 */
     public int selectComtczipListTotCnt(ComtczipVO vo) {

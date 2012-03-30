@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnservereqpmninfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnservereqpmninfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoVO"/>
+	
+	<resultMap id="comtnservereqpmninfo" class="kr.godsoft.egovframe.generatorwebapp.comtnservereqpmninfo.service.ComtnservereqpmninfoVO">
+		<result property="serverEqpmnId" column="server_eqpmn_id" columnIndex="1"/>
+		<result property="serverEqpmnNm" column="server_eqpmn_nm" columnIndex="2"/>
+		<result property="serverEqpmnIp" column="server_eqpmn_ip" columnIndex="3"/>
+		<result property="serverEqpmnMngr" column="server_eqpmn_mngr" columnIndex="4"/>
+		<result property="mngrEmailAdres" column="mngr_email_adres" columnIndex="5"/>
+		<result property="opersysmInfo" column="opersysm_info" columnIndex="6"/>
+		<result property="cpuInfo" column="cpu_info" columnIndex="7"/>
+		<result property="moryInfo" column="mory_info" columnIndex="8"/>
+		<result property="hddisk" column="hddisk" columnIndex="9"/>
+		<result property="etcInfo" column="etc_info" columnIndex="10"/>
+		<result property="rgsde" column="rgsde" columnIndex="11"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="12"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="13"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="14"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="15"/>
+	</resultMap>
+	
+	<insert id="comtnservereqpmninfoDAO.insertComtnservereqpmninfo_S">
+		<![CDATA[
+            INSERT INTO comtnservereqpmninfo (
+                server_eqpmn_id
+                , server_eqpmn_nm
+                , server_eqpmn_ip
+                , server_eqpmn_mngr
+                , mngr_email_adres
+                , opersysm_info
+                , cpu_info
+                , mory_info
+                , hddisk
+                , etc_info
+                , rgsde
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #serverEqpmnId#
+                , #serverEqpmnNm#
+                , #serverEqpmnIp#
+                , #serverEqpmnMngr#
+                , #mngrEmailAdres#
+                , #opersysmInfo#
+                , #cpuInfo#
+                , #moryInfo#
+                , #hddisk#
+                , #etcInfo#
+                , #rgsde#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnservereqpmninfoDAO.updateComtnservereqpmninfo_S">
+		<![CDATA[
+            UPDATE comtnservereqpmninfo
+                SET
+                server_eqpmn_id = #serverEqpmnId#
+                , server_eqpmn_nm = #serverEqpmnNm#
+                , server_eqpmn_ip = #serverEqpmnIp#
+                , server_eqpmn_mngr = #serverEqpmnMngr#
+                , mngr_email_adres = #mngrEmailAdres#
+                , opersysm_info = #opersysmInfo#
+                , cpu_info = #cpuInfo#
+                , mory_info = #moryInfo#
+                , hddisk = #hddisk#
+                , etc_info = #etcInfo#
+                , rgsde = #rgsde#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND server_eqpmn_id = #serverEqpmnId#
+		]]>
+	</update>
+	
+	<delete id="comtnservereqpmninfoDAO.deleteComtnservereqpmninfo_S">
+		<![CDATA[
+			DELETE FROM comtnservereqpmninfo
+				WHERE 1 = 1
+				AND server_eqpmn_id = #serverEqpmnId#
+		]]>
+	</delete>
+	
+	<select id="comtnservereqpmninfoDAO.selectComtnservereqpmninfo_S" resultMap="comtnservereqpmninfo">
+		<![CDATA[
+			SELECT
+				server_eqpmn_id
+				, server_eqpmn_nm
+				, server_eqpmn_ip
+				, server_eqpmn_mngr
+				, mngr_email_adres
+				, opersysm_info
+				, cpu_info
+				, mory_info
+				, hddisk
+				, etc_info
+				, rgsde
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNSERVEREQPMNINFO
+			WHERE server_eqpmn_id = #serverEqpmnId#
+		]]>
+	</select>
+	
+	<select id="comtnservereqpmninfoDAO.selectComtnservereqpmninfoList_D" parameterClass="ComtnservereqpmninfoVO" resultClass="egovMap">
+	       SELECT 
+								A.SERVER_EQPMN_ID
+								, A.SERVER_EQPMN_NM
+								, A.SERVER_EQPMN_IP
+								, A.SERVER_EQPMN_MNGR
+								, A.MNGR_EMAIL_ADRES
+								, A.OPERSYSM_INFO
+								, A.CPU_INFO
+								, A.MORY_INFO
+								, A.HDDISK
+								, A.ETC_INFO
+								, A.RGSDE
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								SERVER_EQPMN_ID
+								, SERVER_EQPMN_NM
+								, SERVER_EQPMN_IP
+								, SERVER_EQPMN_MNGR
+								, MNGR_EMAIL_ADRES
+								, OPERSYSM_INFO
+								, CPU_INFO
+								, MORY_INFO
+								, HDDISK
+								, ETC_INFO
+								, RGSDE
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNSERVEREQPMNINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					SERVER_EQPMN_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SERVER_EQPMN_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							SERVER_EQPMN_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnservereqpmninfoDAO.selectComtnservereqpmninfoListTotCnt_S" parameterClass="ComtnservereqpmninfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNSERVEREQPMNINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SERVER_EQPMN_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SERVER_EQPMN_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

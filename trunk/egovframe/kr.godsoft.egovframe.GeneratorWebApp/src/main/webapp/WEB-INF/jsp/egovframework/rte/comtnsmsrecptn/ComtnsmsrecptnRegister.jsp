@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -108,15 +108,15 @@ function fn_egov_save() {
 		<tr>
 			<th>result_code</th>
 			<td>
-				<form:input path="resultCode" cssClass="txt"/>
-				&nbsp;<form:errors path="resultCode" />
+					<form:input path="resultCode" cssClass="txt"/>
+					&nbsp;<form:errors path="resultCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>result_mssage</th>
 			<td>
-				<form:input path="resultMssage" cssClass="txt"/>
-				&nbsp;<form:errors path="resultMssage" />
+					<form:input path="resultMssage" cssClass="txt"/>
+					&nbsp;<form:errors path="resultMssage" />
 			</td>
 		</tr>	
 	</table>

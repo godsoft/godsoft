@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MigrationReservedWords">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MigrationReservedWordsVO" type="kr.godsoft.egovframe.generatorwebapp.migration_reserved_words.service.MigrationReservedWordsVO"/>
+	
+	<resultMap id="migrationReservedWords" class="kr.godsoft.egovframe.generatorwebapp.migration_reserved_words.service.MigrationReservedWordsVO">
+		<result property="keyword" column="keyword" columnIndex="1"/>
+	</resultMap>
+	
+	<insert id="migrationReservedWordsDAO.insertMigrationReservedWords_S">
+		<![CDATA[
+            INSERT INTO migration_reserved_words (
+                keyword
+            ) VALUES (
+                #keyword#
+            )
+		]]>
+	</insert>
+	
+	<update id="migrationReservedWordsDAO.updateMigrationReservedWords_S">
+		<![CDATA[
+            UPDATE migration_reserved_words
+                SET
+                keyword = #keyword#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="migrationReservedWordsDAO.deleteMigrationReservedWords_S">
+		<![CDATA[
+			DELETE FROM migration_reserved_words
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="migrationReservedWordsDAO.selectMigrationReservedWords_S" resultMap="migrationReservedWords">
+		<![CDATA[
+			SELECT
+				keyword
+			FROM MIGRATION_RESERVED_WORDS
+		]]>
+	</select>
+	
+	<select id="migrationReservedWordsDAO.selectMigrationReservedWordsList_D" parameterClass="MigrationReservedWordsVO" resultClass="egovMap">
+	       SELECT 
+								A.KEYWORD
+			       FROM
+            (
+				SELECT
+								KEYWORD
+							, ROWNUM
+				FROM MIGRATION_RESERVED_WORDS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					KEYWORD = #searchKeyword#
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="migrationReservedWordsDAO.selectMigrationReservedWordsListTotCnt_S" parameterClass="MigrationReservedWordsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MIGRATION_RESERVED_WORDS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				KEYWORD = #searchKeyword#
+			</isEqual>
+		</select>
+
+</sqlMap>

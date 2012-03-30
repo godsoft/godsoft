@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnqainfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnqainfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service.ComtnqainfoVO"/>
+	
+	<resultMap id="comtnqainfo" class="kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service.ComtnqainfoVO">
+		<result property="qaId" column="qa_id" columnIndex="1"/>
+		<result property="qestnSj" column="qestn_sj" columnIndex="2"/>
+		<result property="qestnCn" column="qestn_cn" columnIndex="3"/>
+		<result property="writngDe" column="writng_de" columnIndex="4"/>
+		<result property="rdcnt" column="rdcnt" columnIndex="5"/>
+		<result property="emailAdres" column="email_adres" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="qnaProcessSttusCode" column="qna_process_sttus_code" columnIndex="11"/>
+		<result property="wrterNm" column="wrter_nm" columnIndex="12"/>
+		<result property="answerCn" column="answer_cn" columnIndex="13"/>
+		<result property="writngPassword" column="writng_password" columnIndex="14"/>
+		<result property="answerDe" column="answer_de" columnIndex="15"/>
+		<result property="emailAnswerAt" column="email_answer_at" columnIndex="16"/>
+		<result property="areaNo" column="area_no" columnIndex="17"/>
+		<result property="middleTelno" column="middle_telno" columnIndex="18"/>
+		<result property="endTelno" column="end_telno" columnIndex="19"/>
+	</resultMap>
+	
+	<insert id="comtnqainfoDAO.insertComtnqainfo_S">
+		<![CDATA[
+            INSERT INTO comtnqainfo (
+                qa_id
+                , qestn_sj
+                , qestn_cn
+                , writng_de
+                , rdcnt
+                , email_adres
+                , frst_regist_pnttm
+                , frst_register_id
+                , qna_process_sttus_code
+                , wrter_nm
+                , answer_cn
+                , writng_password
+                , answer_de
+                , email_answer_at
+                , area_no
+                , middle_telno
+                , end_telno
+            ) VALUES (
+                #qaId#
+                , #qestnSj#
+                , #qestnCn#
+                , #writngDe#
+                , #rdcnt#
+                , #emailAdres#
+                , SYSDATE
+                , #frstRegisterId#
+                , #qnaProcessSttusCode#
+                , #wrterNm#
+                , #answerCn#
+                , #writngPassword#
+                , #answerDe#
+                , #emailAnswerAt#
+                , #areaNo#
+                , #middleTelno#
+                , #endTelno#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnqainfoDAO.updateComtnqainfo_S">
+		<![CDATA[
+            UPDATE comtnqainfo
+                SET
+                qa_id = #qaId#
+                , qestn_sj = #qestnSj#
+                , qestn_cn = #qestnCn#
+                , writng_de = #writngDe#
+                , rdcnt = #rdcnt#
+                , email_adres = #emailAdres#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                , qna_process_sttus_code = #qnaProcessSttusCode#
+                , wrter_nm = #wrterNm#
+                , answer_cn = #answerCn#
+                , writng_password = #writngPassword#
+                , answer_de = #answerDe#
+                , email_answer_at = #emailAnswerAt#
+                , area_no = #areaNo#
+                , middle_telno = #middleTelno#
+                , end_telno = #endTelno#
+                WHERE 1 = 1
+                AND qa_id = #qaId#
+		]]>
+	</update>
+	
+	<delete id="comtnqainfoDAO.deleteComtnqainfo_S">
+		<![CDATA[
+			DELETE FROM comtnqainfo
+				WHERE 1 = 1
+				AND qa_id = #qaId#
+		]]>
+	</delete>
+	
+	<select id="comtnqainfoDAO.selectComtnqainfo_S" resultMap="comtnqainfo">
+		<![CDATA[
+			SELECT
+				qa_id
+				, qestn_sj
+				, qestn_cn
+				, writng_de
+				, rdcnt
+				, email_adres
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+				, qna_process_sttus_code
+				, wrter_nm
+				, answer_cn
+				, writng_password
+				, answer_de
+				, email_answer_at
+				, area_no
+				, middle_telno
+				, end_telno
+			FROM COMTNQAINFO
+			WHERE qa_id = #qaId#
+		]]>
+	</select>
+	
+	<select id="comtnqainfoDAO.selectComtnqainfoList_D" parameterClass="ComtnqainfoVO" resultClass="egovMap">
+	       SELECT 
+								A.QA_ID
+								, A.QESTN_SJ
+								, A.QESTN_CN
+								, A.WRITNG_DE
+								, A.RDCNT
+								, A.EMAIL_ADRES
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.QNA_PROCESS_STTUS_CODE
+								, A.WRTER_NM
+								, A.ANSWER_CN
+								, A.WRITNG_PASSWORD
+								, A.ANSWER_DE
+								, A.EMAIL_ANSWER_AT
+								, A.AREA_NO
+								, A.MIDDLE_TELNO
+								, A.END_TELNO
+			       FROM
+            (
+				SELECT
+								QA_ID
+								, QESTN_SJ
+								, QESTN_CN
+								, WRITNG_DE
+								, RDCNT
+								, EMAIL_ADRES
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+								, QNA_PROCESS_STTUS_CODE
+								, WRTER_NM
+								, ANSWER_CN
+								, WRITNG_PASSWORD
+								, ANSWER_DE
+								, EMAIL_ANSWER_AT
+								, AREA_NO
+								, MIDDLE_TELNO
+								, END_TELNO
+							, ROWNUM
+				FROM COMTNQAINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					QA_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					QESTN_SJ LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							QA_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnqainfoDAO.selectComtnqainfoListTotCnt_S" parameterClass="ComtnqainfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNQAINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				QA_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				QESTN_SJ LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

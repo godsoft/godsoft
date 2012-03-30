@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnscrap">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnscrapVO" type="kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO"/>
+	
+	<resultMap id="comtnscrap" class="kr.godsoft.egovframe.generatorwebapp.comtnscrap.service.ComtnscrapVO">
+		<result property="scrapId" column="scrap_id" columnIndex="1"/>
+		<result property="nttId" column="ntt_id" columnIndex="2"/>
+		<result property="bbsId" column="bbs_id" columnIndex="3"/>
+		<result property="scrapNm" column="scrap_nm" columnIndex="4"/>
+		<result property="useAt" column="use_at" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="comtnscrapDAO.insertComtnscrap_S">
+		<![CDATA[
+            INSERT INTO comtnscrap (
+                scrap_id
+                , ntt_id
+                , bbs_id
+                , scrap_nm
+                , use_at
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #scrapId#
+                , #nttId#
+                , #bbsId#
+                , #scrapNm#
+                , #useAt#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnscrapDAO.updateComtnscrap_S">
+		<![CDATA[
+            UPDATE comtnscrap
+                SET
+                scrap_id = #scrapId#
+                , ntt_id = #nttId#
+                , bbs_id = #bbsId#
+                , scrap_nm = #scrapNm#
+                , use_at = #useAt#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND scrap_id = #scrapId#
+		]]>
+	</update>
+	
+	<delete id="comtnscrapDAO.deleteComtnscrap_S">
+		<![CDATA[
+			DELETE FROM comtnscrap
+				WHERE 1 = 1
+				AND scrap_id = #scrapId#
+		]]>
+	</delete>
+	
+	<select id="comtnscrapDAO.selectComtnscrap_S" resultMap="comtnscrap">
+		<![CDATA[
+			SELECT
+				scrap_id
+				, ntt_id
+				, bbs_id
+				, scrap_nm
+				, use_at
+				, frst_regist_pnttm
+				, last_updt_pnttm
+				, frst_register_id
+				, last_updusr_id
+			FROM COMTNSCRAP
+			WHERE scrap_id = #scrapId#
+		]]>
+	</select>
+	
+	<select id="comtnscrapDAO.selectComtnscrapList_D" parameterClass="ComtnscrapVO" resultClass="egovMap">
+	       SELECT 
+								A.SCRAP_ID
+								, A.NTT_ID
+								, A.BBS_ID
+								, A.SCRAP_NM
+								, A.USE_AT
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDT_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								SCRAP_ID
+								, NTT_ID
+								, BBS_ID
+								, SCRAP_NM
+								, USE_AT
+								, FRST_REGIST_PNTTM
+								, LAST_UPDT_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTNSCRAP
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					SCRAP_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					NTT_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							SCRAP_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnscrapDAO.selectComtnscrapListTotCnt_S" parameterClass="ComtnscrapVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNSCRAP
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				SCRAP_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NTT_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

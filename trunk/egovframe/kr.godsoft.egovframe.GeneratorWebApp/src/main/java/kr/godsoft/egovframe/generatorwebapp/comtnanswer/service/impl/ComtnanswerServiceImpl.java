@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerService;
+import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerService;
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.impl.ComtnanswerDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnanswerServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.impl.Comtnanswer
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnanswerServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnanswer을 등록한다.
+	 * COMTNANSWER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnanswerVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnanswerServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnanswer을 수정한다.
+	 * COMTNANSWER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnanswerVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnanswerServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnanswer을 삭제한다.
+	 * COMTNANSWER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnanswerVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnanswerServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnanswer을 조회한다.
+	 * COMTNANSWER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnanswerVO
-	 * @return 조회한 comtnanswer
+	 * @return 조회한 COMTNANSWER
 	 * @exception Exception
 	 */
     public ComtnanswerVO selectComtnanswer(ComtnanswerVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnanswerServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnanswer 목록을 조회한다.
+	 * COMTNANSWER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnanswer 목록
+	 * @return COMTNANSWER 목록
 	 * @exception Exception
 	 */
-    public List selectComtnanswerList(ComtnanswerDefaultVO searchVO) throws Exception {
-        return comtnanswerDAO.selectComtnanswerList(searchVO);
+    public List<EgovMap> selectComtnanswerList(ComtnanswerVO vo) throws Exception {
+        return comtnanswerDAO.selectComtnanswerList(vo);
     }
 
     /**
-	 * comtnanswer 총 갯수를 조회한다.
+	 * COMTNANSWER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnanswer 총 갯수
+	 * @return COMTNANSWER 총 갯수
 	 * @exception
 	 */
-    public int selectComtnanswerListTotCnt(ComtnanswerDefaultVO searchVO) {
-		return comtnanswerDAO.selectComtnanswerListTotCnt(searchVO);
+    public int selectComtnanswerListTotCnt(ComtnanswerVO vo) {
+		return comtnanswerDAO.selectComtnanswerListTotCnt(vo);
 	}
     
 }

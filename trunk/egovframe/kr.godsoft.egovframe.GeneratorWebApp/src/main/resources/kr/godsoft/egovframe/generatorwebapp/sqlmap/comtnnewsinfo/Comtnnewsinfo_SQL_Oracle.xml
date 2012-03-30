@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnnewsinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnnewsinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoVO"/>
+	
+	<resultMap id="comtnnewsinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnnewsinfo.service.ComtnnewsinfoVO">
+		<result property="newsId" column="news_id" columnIndex="1"/>
+		<result property="newsSj" column="news_sj" columnIndex="2"/>
+		<result property="newsCn" column="news_cn" columnIndex="3"/>
+		<result property="newsOrigin" column="news_origin" columnIndex="4"/>
+		<result property="ntceAt" column="ntce_at" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+		<result property="ntceDe" column="ntce_de" columnIndex="10"/>
+		<result property="atchFileId" column="atch_file_id" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnnewsinfoDAO.insertComtnnewsinfo_S">
+		<![CDATA[
+            INSERT INTO comtnnewsinfo (
+                news_id
+                , news_sj
+                , news_cn
+                , news_origin
+                , ntce_at
+                , frst_regist_pnttm
+                , frst_register_id
+                , ntce_de
+                , atch_file_id
+            ) VALUES (
+                #newsId#
+                , #newsSj#
+                , #newsCn#
+                , #newsOrigin#
+                , #ntceAt#
+                , SYSDATE
+                , #frstRegisterId#
+                , #ntceDe#
+                , #atchFileId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnnewsinfoDAO.updateComtnnewsinfo_S">
+		<![CDATA[
+            UPDATE comtnnewsinfo
+                SET
+                news_id = #newsId#
+                , news_sj = #newsSj#
+                , news_cn = #newsCn#
+                , news_origin = #newsOrigin#
+                , ntce_at = #ntceAt#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                , ntce_de = #ntceDe#
+                , atch_file_id = #atchFileId#
+                WHERE 1 = 1
+                AND news_id = #newsId#
+		]]>
+	</update>
+	
+	<delete id="comtnnewsinfoDAO.deleteComtnnewsinfo_S">
+		<![CDATA[
+			DELETE FROM comtnnewsinfo
+				WHERE 1 = 1
+				AND news_id = #newsId#
+		]]>
+	</delete>
+	
+	<select id="comtnnewsinfoDAO.selectComtnnewsinfo_S" resultMap="comtnnewsinfo">
+		<![CDATA[
+			SELECT
+				news_id
+				, news_sj
+				, news_cn
+				, news_origin
+				, ntce_at
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+				, ntce_de
+				, atch_file_id
+			FROM COMTNNEWSINFO
+			WHERE news_id = #newsId#
+		]]>
+	</select>
+	
+	<select id="comtnnewsinfoDAO.selectComtnnewsinfoList_D" parameterClass="ComtnnewsinfoVO" resultClass="egovMap">
+	       SELECT 
+								A.NEWS_ID
+								, A.NEWS_SJ
+								, A.NEWS_CN
+								, A.NEWS_ORIGIN
+								, A.NTCE_AT
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.NTCE_DE
+								, A.ATCH_FILE_ID
+			       FROM
+            (
+				SELECT
+								NEWS_ID
+								, NEWS_SJ
+								, NEWS_CN
+								, NEWS_ORIGIN
+								, NTCE_AT
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+								, NTCE_DE
+								, ATCH_FILE_ID
+							, ROWNUM
+				FROM COMTNNEWSINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					NEWS_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					NEWS_SJ LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							NEWS_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnnewsinfoDAO.selectComtnnewsinfoListTotCnt_S" parameterClass="ComtnnewsinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNNEWSINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NEWS_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				NEWS_SJ LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

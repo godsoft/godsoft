@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.Comtnloginp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnloginpolicy.service.Comtnloginp
 public class ComtnloginpolicyDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnloginpolicy을 등록한다.
+	 * COMTNLOGINPOLICY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnloginpolicyVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnloginpolicyDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginpolicy을 수정한다.
+	 * COMTNLOGINPOLICY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnloginpolicyVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnloginpolicyDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginpolicy을 삭제한다.
+	 * COMTNLOGINPOLICY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnloginpolicyVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnloginpolicyDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginpolicy을 조회한다.
+	 * COMTNLOGINPOLICY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnloginpolicyVO
-	 * @return 조회한 comtnloginpolicy
+	 * @return 조회한 COMTNLOGINPOLICY
 	 * @exception Exception
 	 */
     public ComtnloginpolicyVO selectComtnloginpolicy(ComtnloginpolicyVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnloginpolicyDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginpolicy 목록을 조회한다.
+	 * COMTNLOGINPOLICY 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnloginpolicy 목록
+	 * @return COMTNLOGINPOLICY 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnloginpolicyDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnloginpolicy 총 갯수를 조회한다.
+	 * COMTNLOGINPOLICY 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnloginpolicy 총 갯수
+	 * @return COMTNLOGINPOLICY 총 갯수
 	 * @exception
 	 */
     public int selectComtnloginpolicyListTotCnt(ComtnloginpolicyVO vo) {

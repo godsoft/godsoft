@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.Comtnbatchs
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchschdul.service.Comtnbatchs
 public class ComtnbatchschdulDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnbatchschdul을 등록한다.
+	 * COMTNBATCHSCHDUL을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbatchschdulVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchschdul을 수정한다.
+	 * COMTNBATCHSCHDUL을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbatchschdulVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchschdul을 삭제한다.
+	 * COMTNBATCHSCHDUL을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbatchschdulVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchschdul을 조회한다.
+	 * COMTNBATCHSCHDUL을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbatchschdulVO
-	 * @return 조회한 comtnbatchschdul
+	 * @return 조회한 COMTNBATCHSCHDUL
 	 * @exception Exception
 	 */
     public ComtnbatchschdulVO selectComtnbatchschdul(ComtnbatchschdulVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchschdul 목록을 조회한다.
+	 * COMTNBATCHSCHDUL 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbatchschdul 목록
+	 * @return COMTNBATCHSCHDUL 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnbatchschdulDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchschdul 총 갯수를 조회한다.
+	 * COMTNBATCHSCHDUL 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbatchschdul 총 갯수
+	 * @return COMTNBATCHSCHDUL 총 갯수
 	 * @exception
 	 */
     public int selectComtnbatchschdulListTotCnt(ComtnbatchschdulVO vo) {

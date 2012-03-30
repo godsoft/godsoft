@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbkmkmenumanageresult.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -16,7 +16,7 @@ public class ComtnbkmkmenumanageresultVO extends ComtnbkmkmenumanageresultDefaul
     private static final long serialVersionUID = 1L;
     
     /** MENU_ID */
-    private int menuId;
+    private String menuId;
     
     /** EMPLYR_ID */
     private String emplyrId;
@@ -27,11 +27,11 @@ public class ComtnbkmkmenumanageresultVO extends ComtnbkmkmenumanageresultDefaul
     /** PROGRM_STRE_PATH */
     private String progrmStrePath;
     
-    public int getMenuId() {
+    public String getMenuId() {
         return this.menuId;
     }
     
-    public void setMenuId(int menuId) {
+    public void setMenuId(String menuId) {
         this.menuId = menuId;
     }
     

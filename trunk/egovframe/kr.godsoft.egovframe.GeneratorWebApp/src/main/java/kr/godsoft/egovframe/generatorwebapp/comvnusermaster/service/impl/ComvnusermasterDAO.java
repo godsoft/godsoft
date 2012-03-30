@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterVO;
-import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.ComvnusermasterDefaultVO;
 
 /**
  * @Class Name : ComvnusermasterDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.Comvnusermas
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comvnusermaster.service.Comvnusermas
 public class ComvnusermasterDAO extends EgovAbstractDAO {
 
 	/**
-	 * comvnusermaster을 등록한다.
+	 * COMVNUSERMASTER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComvnusermasterVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComvnusermasterDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comvnusermaster을 수정한다.
+	 * COMVNUSERMASTER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComvnusermasterVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComvnusermasterDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comvnusermaster을 삭제한다.
+	 * COMVNUSERMASTER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComvnusermasterVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComvnusermasterDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comvnusermaster을 조회한다.
+	 * COMVNUSERMASTER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComvnusermasterVO
-	 * @return 조회한 comvnusermaster
+	 * @return 조회한 COMVNUSERMASTER
 	 * @exception Exception
 	 */
     public ComvnusermasterVO selectComvnusermaster(ComvnusermasterVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComvnusermasterDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comvnusermaster 목록을 조회한다.
+	 * COMVNUSERMASTER 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comvnusermaster 목록
+	 * @return COMVNUSERMASTER 목록
 	 * @exception Exception
 	 */
-    public List selectComvnusermasterList(ComvnusermasterDefaultVO searchVO) throws Exception {
-        return list("comvnusermasterDAO.selectComvnusermasterList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComvnusermasterList(ComvnusermasterVO vo) throws Exception {
+        return list("comvnusermasterDAO.selectComvnusermasterList_D", vo);
     }
 
     /**
-	 * comvnusermaster 총 갯수를 조회한다.
+	 * COMVNUSERMASTER 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comvnusermaster 총 갯수
+	 * @return COMVNUSERMASTER 총 갯수
 	 * @exception
 	 */
-    public int selectComvnusermasterListTotCnt(ComvnusermasterDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comvnusermasterDAO.selectComvnusermasterListTotCnt_S", searchVO);
+    public int selectComvnusermasterListTotCnt(ComvnusermasterVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comvnusermasterDAO.selectComvnusermasterListTotCnt_S", vo);
     }
 
 }

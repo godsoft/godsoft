@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.Comtncn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcmessageitem.service.Comtncn
 public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtncntcmessageitem을 등록한다.
+	 * COMTNCNTCMESSAGEITEM을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncntcmessageitemVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcmessageitem을 수정한다.
+	 * COMTNCNTCMESSAGEITEM을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncntcmessageitemVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcmessageitem을 삭제한다.
+	 * COMTNCNTCMESSAGEITEM을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncntcmessageitemVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcmessageitem을 조회한다.
+	 * COMTNCNTCMESSAGEITEM을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncntcmessageitemVO
-	 * @return 조회한 comtncntcmessageitem
+	 * @return 조회한 COMTNCNTCMESSAGEITEM
 	 * @exception Exception
 	 */
     public ComtncntcmessageitemVO selectComtncntcmessageitem(ComtncntcmessageitemVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcmessageitem 목록을 조회한다.
+	 * COMTNCNTCMESSAGEITEM 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncntcmessageitem 목록
+	 * @return COMTNCNTCMESSAGEITEM 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtncntcmessageitemDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcmessageitem 총 갯수를 조회한다.
+	 * COMTNCNTCMESSAGEITEM 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncntcmessageitem 총 갯수
+	 * @return COMTNCNTCMESSAGEITEM 총 갯수
 	 * @exception
 	 */
     public int selectComtncntcmessageitemListTotCnt(ComtncntcmessageitemVO vo) {

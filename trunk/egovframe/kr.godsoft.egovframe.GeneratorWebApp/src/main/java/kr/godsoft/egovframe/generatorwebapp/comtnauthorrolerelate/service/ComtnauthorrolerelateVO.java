@@ -6,22 +6,22 @@ package kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnauthorrolerelateVO extends ComtnauthorrolerelateDefaultVO{
+public class ComtnauthorrolerelateVO extends ComtnauthorrolerelateDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** AUTHOR_CODE */
     private String authorCode;
     
-    /**  */
+    /** ROLE_CODE */
     private String roleCode;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
     public String getAuthorCode() {

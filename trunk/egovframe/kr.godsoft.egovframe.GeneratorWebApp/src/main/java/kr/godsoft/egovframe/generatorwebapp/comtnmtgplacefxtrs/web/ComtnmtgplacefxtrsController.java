@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsVO;
 
 /**
  * @Class Name : ComtnmtgplacefxtrsController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.Comtnmtgp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.Comtnmtgp
  */
 
 @Controller
-@SessionAttributes(types=ComtnmtgplacefxtrsVO.class)
 public class ComtnmtgplacefxtrsController {
 
     @Resource(name = "comtnmtgplacefxtrsService")
@@ -45,13 +45,13 @@ public class ComtnmtgplacefxtrsController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnmtgplacefxtrs 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnmtgplacefxtrsDefaultVO
+	 * COMTNMTGPLACEFXTRS 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnmtgplacefxtrsVO
 	 * @return "/comtnmtgplacefxtrs/ComtnmtgplacefxtrsList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnmtgplacefxtrs/ComtnmtgplacefxtrsList.do")
-    public String selectComtnmtgplacefxtrsList(@ModelAttribute("searchVO") ComtnmtgplacefxtrsDefaultVO searchVO, 
+    public String selectComtnmtgplacefxtrsList(@ModelAttribute("searchVO") ComtnmtgplacefxtrsVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnmtgplacefxtrsController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnmtgplacefxtrsList = comtnmtgplacefxtrsService.selectComtnmtgplacefxtrsList(searchVO);
+        List<EgovMap> comtnmtgplacefxtrsList = comtnmtgplacefxtrsService.selectComtnmtgplacefxtrsList(searchVO);
         model.addAttribute("resultList", comtnmtgplacefxtrsList);
         
         int totCnt = comtnmtgplacefxtrsService.selectComtnmtgplacefxtrsListTotCnt(searchVO);

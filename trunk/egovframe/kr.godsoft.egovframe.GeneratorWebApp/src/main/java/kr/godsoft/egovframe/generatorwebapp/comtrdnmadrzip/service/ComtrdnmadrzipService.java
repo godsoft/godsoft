@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtrdnmadrzipService {
 	
 	/**
-	 * comtrdnmadrzip을 등록한다.
+	 * COMTRDNMADRZIP을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtrdnmadrzipVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtrdnmadrzipService {
     String insertComtrdnmadrzip(ComtrdnmadrzipVO vo) throws Exception;
     
     /**
-	 * comtrdnmadrzip을 수정한다.
+	 * COMTRDNMADRZIP을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtrdnmadrzipVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtrdnmadrzipService {
     void updateComtrdnmadrzip(ComtrdnmadrzipVO vo) throws Exception;
     
     /**
-	 * comtrdnmadrzip을 삭제한다.
+	 * COMTRDNMADRZIP을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtrdnmadrzipVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtrdnmadrzipService {
     void deleteComtrdnmadrzip(ComtrdnmadrzipVO vo) throws Exception;
     
     /**
-	 * comtrdnmadrzip을 조회한다.
+	 * COMTRDNMADRZIP을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtrdnmadrzipVO
-	 * @return 조회한 comtrdnmadrzip
+	 * @return 조회한 COMTRDNMADRZIP
 	 * @exception Exception
 	 */
     ComtrdnmadrzipVO selectComtrdnmadrzip(ComtrdnmadrzipVO vo) throws Exception;
     
     /**
-	 * comtrdnmadrzip 목록을 조회한다.
+	 * COMTRDNMADRZIP 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtrdnmadrzip 목록
+	 * @return COMTRDNMADRZIP 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtrdnmadrzipList(ComtrdnmadrzipVO vo) throws Exception;
     
     /**
-	 * comtrdnmadrzip 총 갯수를 조회한다.
+	 * COMTRDNMADRZIP 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtrdnmadrzip 총 갯수
+	 * @return COMTRDNMADRZIP 총 갯수
 	 * @exception
 	 */
     int selectComtrdnmadrzipListTotCnt(ComtrdnmadrzipVO vo);

@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.Comtnreprtst
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.Comtnreprtst
 public class ComtnreprtstatsDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnreprtstats을 등록한다.
+	 * COMTNREPRTSTATS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnreprtstatsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnreprtstatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnreprtstats을 수정한다.
+	 * COMTNREPRTSTATS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnreprtstatsVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnreprtstatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnreprtstats을 삭제한다.
+	 * COMTNREPRTSTATS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnreprtstatsVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnreprtstatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnreprtstats을 조회한다.
+	 * COMTNREPRTSTATS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnreprtstatsVO
-	 * @return 조회한 comtnreprtstats
+	 * @return 조회한 COMTNREPRTSTATS
 	 * @exception Exception
 	 */
     public ComtnreprtstatsVO selectComtnreprtstats(ComtnreprtstatsVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnreprtstatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnreprtstats 목록을 조회한다.
+	 * COMTNREPRTSTATS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnreprtstats 목록
+	 * @return COMTNREPRTSTATS 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnreprtstatsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnreprtstats 총 갯수를 조회한다.
+	 * COMTNREPRTSTATS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnreprtstats 총 갯수
+	 * @return COMTNREPRTSTATS 총 갯수
 	 * @exception
 	 */
     public int selectComtnreprtstatsListTotCnt(ComtnreprtstatsVO vo) {

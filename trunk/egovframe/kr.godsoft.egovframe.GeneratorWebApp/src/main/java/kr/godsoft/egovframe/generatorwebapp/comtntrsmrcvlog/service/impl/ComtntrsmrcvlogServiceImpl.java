@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtntrsmrcvlog을 등록한다.
+	 * COMTNTRSMRCVLOG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtntrsmrcvlogVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntrsmrcvlog을 수정한다.
+	 * COMTNTRSMRCVLOG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtntrsmrcvlogVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntrsmrcvlog을 삭제한다.
+	 * COMTNTRSMRCVLOG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtntrsmrcvlogVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntrsmrcvlog을 조회한다.
+	 * COMTNTRSMRCVLOG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtntrsmrcvlogVO
-	 * @return 조회한 comtntrsmrcvlog
+	 * @return 조회한 COMTNTRSMRCVLOG
 	 * @exception Exception
 	 */
     public ComtntrsmrcvlogVO selectComtntrsmrcvlog(ComtntrsmrcvlogVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntrsmrcvlog 목록을 조회한다.
+	 * COMTNTRSMRCVLOG 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtntrsmrcvlog 목록
+	 * @return COMTNTRSMRCVLOG 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtntrsmrcvlogList(ComtntrsmrcvlogVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtntrsmrcvlogServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtntrsmrcvlog 총 갯수를 조회한다.
+	 * COMTNTRSMRCVLOG 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtntrsmrcvlog 총 갯수
+	 * @return COMTNTRSMRCVLOG 총 갯수
 	 * @exception
 	 */
     public int selectComtntrsmrcvlogListTotCnt(ComtntrsmrcvlogVO vo) {

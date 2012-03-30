@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmtginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,10 +25,10 @@ public class ComtnmtginfoVO extends ComtnmtginfoDefaultVO {
     private String mtgMtrCn;
     
     /** MTG_SN */
-    private int mtgSn;
+    private String mtgSn;
     
     /** MTG_CO */
-    private int mtgCo;
+    private String mtgCo;
     
     /** MTG_DE */
     private String mtgDe;
@@ -73,10 +73,10 @@ public class ComtnmtginfoVO extends ComtnmtginfoDefaultVO {
     private String mtgAt;
     
     /** NONATDRN_CO */
-    private int nonatdrnCo;
+    private String nonatdrnCo;
     
     /** ATDRN_CO */
-    private int atdrnCo;
+    private String atdrnCo;
     
     /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
@@ -114,19 +114,19 @@ public class ComtnmtginfoVO extends ComtnmtginfoDefaultVO {
         this.mtgMtrCn = mtgMtrCn;
     }
     
-    public int getMtgSn() {
+    public String getMtgSn() {
         return this.mtgSn;
     }
     
-    public void setMtgSn(int mtgSn) {
+    public void setMtgSn(String mtgSn) {
         this.mtgSn = mtgSn;
     }
     
-    public int getMtgCo() {
+    public String getMtgCo() {
         return this.mtgCo;
     }
     
-    public void setMtgCo(int mtgCo) {
+    public void setMtgCo(String mtgCo) {
         this.mtgCo = mtgCo;
     }
     
@@ -242,19 +242,19 @@ public class ComtnmtginfoVO extends ComtnmtginfoDefaultVO {
         this.mtgAt = mtgAt;
     }
     
-    public int getNonatdrnCo() {
+    public String getNonatdrnCo() {
         return this.nonatdrnCo;
     }
     
-    public void setNonatdrnCo(int nonatdrnCo) {
+    public void setNonatdrnCo(String nonatdrnCo) {
         this.nonatdrnCo = nonatdrnCo;
     }
     
-    public int getAtdrnCo() {
+    public String getAtdrnCo() {
         return this.atdrnCo;
     }
     
-    public void setAtdrnCo(int atdrnCo) {
+    public void setAtdrnCo(String atdrnCo) {
         this.atdrnCo = atdrnCo;
     }
     

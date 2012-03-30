@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemService;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemService;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemVO;
 
 /**
  * @Class Name : ComtnonlinepolliemController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.Comtnonli
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.Comtnonli
  */
 
 @Controller
-@SessionAttributes(types=ComtnonlinepolliemVO.class)
 public class ComtnonlinepolliemController {
 
     @Resource(name = "comtnonlinepolliemService")
@@ -45,13 +45,13 @@ public class ComtnonlinepolliemController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnonlinepolliem 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinepolliemDefaultVO
+	 * COMTNONLINEPOLLIEM 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnonlinepolliemVO
 	 * @return "/comtnonlinepolliem/ComtnonlinepolliemList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnonlinepolliem/ComtnonlinepolliemList.do")
-    public String selectComtnonlinepolliemList(@ModelAttribute("searchVO") ComtnonlinepolliemDefaultVO searchVO, 
+    public String selectComtnonlinepolliemList(@ModelAttribute("searchVO") ComtnonlinepolliemVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnonlinepolliemController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnonlinepolliemList = comtnonlinepolliemService.selectComtnonlinepolliemList(searchVO);
+        List<EgovMap> comtnonlinepolliemList = comtnonlinepolliemService.selectComtnonlinepolliemList(searchVO);
         model.addAttribute("resultList", comtnonlinepolliemList);
         
         int totCnt = comtnonlinepolliemService.selectComtnonlinepolliemListTotCnt(searchVO);

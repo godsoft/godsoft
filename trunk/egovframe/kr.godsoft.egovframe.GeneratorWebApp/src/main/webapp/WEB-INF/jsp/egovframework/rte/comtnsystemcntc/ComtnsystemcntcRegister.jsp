@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,106 +95,106 @@ function fn_egov_save() {
 		<tr>
 			<th>cntc_nm</th>
 			<td>
-				<form:input path="cntcNm" cssClass="txt"/>
-				&nbsp;<form:errors path="cntcNm" />
+					<form:input path="cntcNm" cssClass="txt"/>
+					&nbsp;<form:errors path="cntcNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>provd_instt_id</th>
 			<td>
-				<form:input path="provdInsttId" cssClass="txt"/>
-				&nbsp;<form:errors path="provdInsttId" />
+					<form:input path="provdInsttId" cssClass="txt"/>
+					&nbsp;<form:errors path="provdInsttId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>provd_sys_id</th>
 			<td>
-				<form:input path="provdSysId" cssClass="txt"/>
-				&nbsp;<form:errors path="provdSysId" />
+					<form:input path="provdSysId" cssClass="txt"/>
+					&nbsp;<form:errors path="provdSysId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>provd_svc_id</th>
 			<td>
-				<form:input path="provdSvcId" cssClass="txt"/>
-				&nbsp;<form:errors path="provdSvcId" />
+					<form:input path="provdSvcId" cssClass="txt"/>
+					&nbsp;<form:errors path="provdSvcId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>requst_instt_id</th>
 			<td>
-				<form:input path="requstInsttId" cssClass="txt"/>
-				&nbsp;<form:errors path="requstInsttId" />
+					<form:input path="requstInsttId" cssClass="txt"/>
+					&nbsp;<form:errors path="requstInsttId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>requst_sys_id</th>
 			<td>
-				<form:input path="requstSysId" cssClass="txt"/>
-				&nbsp;<form:errors path="requstSysId" />
+					<form:input path="requstSysId" cssClass="txt"/>
+					&nbsp;<form:errors path="requstSysId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confm_at</th>
 			<td>
-				<form:input path="confmAt" cssClass="txt"/>
-				&nbsp;<form:errors path="confmAt" />
+					<form:input path="confmAt" cssClass="txt"/>
+					&nbsp;<form:errors path="confmAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>use_at</th>
 			<td>
-				<form:input path="useAt" cssClass="txt"/>
-				&nbsp;<form:errors path="useAt" />
+					<form:input path="useAt" cssClass="txt" value="Y"/>
+					&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>valid_bgnde</th>
 			<td>
-				<form:input path="validBgnde" cssClass="txt"/>
-				&nbsp;<form:errors path="validBgnde" />
+					<form:input path="validBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="validBgnde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>valid_endde</th>
 			<td>
-				<form:input path="validEndde" cssClass="txt"/>
-				&nbsp;<form:errors path="validEndde" />
+					<form:input path="validEndde" cssClass="txt"/>
+					&nbsp;<form:errors path="validEndde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cntc_ty</th>
 			<td>
-				<form:input path="cntcTy" cssClass="txt"/>
-				&nbsp;<form:errors path="cntcTy" />
+					<form:input path="cntcTy" cssClass="txt"/>
+					&nbsp;<form:errors path="cntcTy" />
 			</td>
 		</tr>	
 	</table>

@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtneventmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -49,10 +49,10 @@ public class ComtneventmanageVO extends ComtneventmanageDefaultVO {
     private String ctOccrrncAt;
     
     /** PARTCPT_CT */
-    private int partcptCt;
+    private String partcptCt;
     
     /** GARDEN */
-    private int garden;
+    private String garden;
     
     /** REFRN_URL */
     private String refrnUrl;
@@ -163,19 +163,19 @@ public class ComtneventmanageVO extends ComtneventmanageDefaultVO {
         this.ctOccrrncAt = ctOccrrncAt;
     }
     
-    public int getPartcptCt() {
+    public String getPartcptCt() {
         return this.partcptCt;
     }
     
-    public void setPartcptCt(int partcptCt) {
+    public void setPartcptCt(String partcptCt) {
         this.partcptCt = partcptCt;
     }
     
-    public int getGarden() {
+    public String getGarden() {
         return this.garden;
     }
     
-    public void setGarden(int garden) {
+    public void setGarden(String garden) {
         this.garden = garden;
     }
     

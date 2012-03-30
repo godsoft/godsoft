@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageService;
+import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageService;
-import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.ComthemaildsptchmanageVO;
 
 /**
  * @Class Name : ComthemaildsptchmanageController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.Comth
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comthemaildsptchmanage.service.Comth
  */
 
 @Controller
-@SessionAttributes(types=ComthemaildsptchmanageVO.class)
 public class ComthemaildsptchmanageController {
 
     @Resource(name = "comthemaildsptchmanageService")
@@ -45,13 +45,13 @@ public class ComthemaildsptchmanageController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comthemaildsptchmanage 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComthemaildsptchmanageDefaultVO
+	 * COMTHEMAILDSPTCHMANAGE 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComthemaildsptchmanageVO
 	 * @return "/comthemaildsptchmanage/ComthemaildsptchmanageList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comthemaildsptchmanage/ComthemaildsptchmanageList.do")
-    public String selectComthemaildsptchmanageList(@ModelAttribute("searchVO") ComthemaildsptchmanageDefaultVO searchVO, 
+    public String selectComthemaildsptchmanageList(@ModelAttribute("searchVO") ComthemaildsptchmanageVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComthemaildsptchmanageController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comthemaildsptchmanageList = comthemaildsptchmanageService.selectComthemaildsptchmanageList(searchVO);
+        List<EgovMap> comthemaildsptchmanageList = comthemaildsptchmanageService.selectComthemaildsptchmanageList(searchVO);
         model.addAttribute("resultList", comthemaildsptchmanageList);
         
         int totCnt = comthemaildsptchmanageService.selectComthemaildsptchmanageListTotCnt(searchVO);

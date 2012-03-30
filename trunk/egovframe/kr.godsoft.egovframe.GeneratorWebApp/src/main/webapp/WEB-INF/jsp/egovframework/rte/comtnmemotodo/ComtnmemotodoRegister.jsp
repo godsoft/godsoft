@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,64 +95,64 @@ function fn_egov_save() {
 		<tr>
 			<th>todo_sj</th>
 			<td>
-				<form:input path="todoSj" cssClass="txt"/>
-				&nbsp;<form:errors path="todoSj" />
+					<form:input path="todoSj" cssClass="txt"/>
+					&nbsp;<form:errors path="todoSj" />
 			</td>
 		</tr>	
 		<tr>
 			<th>todo_begin_time</th>
 			<td>
-				<form:input path="todoBeginTime" cssClass="txt"/>
-				&nbsp;<form:errors path="todoBeginTime" />
+					<form:input path="todoBeginTime" cssClass="txt"/>
+					&nbsp;<form:errors path="todoBeginTime" />
 			</td>
 		</tr>	
 		<tr>
 			<th>todo_end_time</th>
 			<td>
-				<form:input path="todoEndTime" cssClass="txt"/>
-				&nbsp;<form:errors path="todoEndTime" />
+					<form:input path="todoEndTime" cssClass="txt"/>
+					&nbsp;<form:errors path="todoEndTime" />
 			</td>
 		</tr>	
 		<tr>
 			<th>wrter_id</th>
 			<td>
-				<form:input path="wrterId" cssClass="txt"/>
-				&nbsp;<form:errors path="wrterId" />
+					<form:input path="wrterId" cssClass="txt"/>
+					&nbsp;<form:errors path="wrterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>todo_cn</th>
 			<td>
-				<form:input path="todoCn" cssClass="txt"/>
-				&nbsp;<form:errors path="todoCn" />
+					<form:input path="todoCn" cssClass="txt"/>
+					&nbsp;<form:errors path="todoCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

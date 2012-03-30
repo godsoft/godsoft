@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service.ComtnqainfoVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqainfo.service.ComtnqainfoVO;
 public class ComtnqainfoDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnqainfo을 등록한다.
+	 * COMTNQAINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqainfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnqainfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqainfo을 수정한다.
+	 * COMTNQAINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqainfoVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnqainfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqainfo을 삭제한다.
+	 * COMTNQAINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqainfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnqainfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqainfo을 조회한다.
+	 * COMTNQAINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqainfoVO
-	 * @return 조회한 comtnqainfo
+	 * @return 조회한 COMTNQAINFO
 	 * @exception Exception
 	 */
     public ComtnqainfoVO selectComtnqainfo(ComtnqainfoVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnqainfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqainfo 목록을 조회한다.
+	 * COMTNQAINFO 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqainfo 목록
+	 * @return COMTNQAINFO 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnqainfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqainfo 총 갯수를 조회한다.
+	 * COMTNQAINFO 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqainfo 총 갯수
+	 * @return COMTNQAINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnqainfoListTotCnt(ComtnqainfoVO vo) {

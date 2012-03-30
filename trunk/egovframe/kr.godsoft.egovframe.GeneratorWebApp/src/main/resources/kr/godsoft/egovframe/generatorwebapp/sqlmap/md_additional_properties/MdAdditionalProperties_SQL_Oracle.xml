@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdAdditionalProperties">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdAdditionalPropertiesVO" type="kr.godsoft.egovframe.generatorwebapp.md_additional_properties.service.MdAdditionalPropertiesVO"/>
+	
+	<resultMap id="mdAdditionalProperties" class="kr.godsoft.egovframe.generatorwebapp.md_additional_properties.service.MdAdditionalPropertiesVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="connectionIdFk" column="connection_id_fk" columnIndex="2"/>
+		<result property="refIdFk" column="ref_id_fk" columnIndex="3"/>
+		<result property="refType" column="ref_type" columnIndex="4"/>
+		<result property="propertyOrder" column="property_order" columnIndex="5"/>
+		<result property="propKey" column="prop_key" columnIndex="6"/>
+		<result property="value" column="value" columnIndex="7"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="8"/>
+		<result property="createdOn" column="created_on" columnIndex="9"/>
+		<result property="createdBy" column="created_by" columnIndex="10"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="11"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="12"/>
+	</resultMap>
+	
+	<insert id="mdAdditionalPropertiesDAO.insertMdAdditionalProperties_S">
+		<![CDATA[
+            INSERT INTO md_additional_properties (
+                id
+                , connection_id_fk
+                , ref_id_fk
+                , ref_type
+                , property_order
+                , prop_key
+                , value
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #connectionIdFk#
+                , #refIdFk#
+                , #refType#
+                , #propertyOrder#
+                , #propKey#
+                , #value#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdAdditionalPropertiesDAO.updateMdAdditionalProperties_S">
+		<![CDATA[
+            UPDATE md_additional_properties
+                SET
+                id = #id#
+                , connection_id_fk = #connectionIdFk#
+                , ref_id_fk = #refIdFk#
+                , ref_type = #refType#
+                , property_order = #propertyOrder#
+                , prop_key = #propKey#
+                , value = #value#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdAdditionalPropertiesDAO.deleteMdAdditionalProperties_S">
+		<![CDATA[
+			DELETE FROM md_additional_properties
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdAdditionalPropertiesDAO.selectMdAdditionalProperties_S" resultMap="mdAdditionalProperties">
+		<![CDATA[
+			SELECT
+				id
+				, connection_id_fk
+				, ref_id_fk
+				, ref_type
+				, property_order
+				, prop_key
+				, value
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_ADDITIONAL_PROPERTIES
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdAdditionalPropertiesDAO.selectMdAdditionalPropertiesList_D" parameterClass="MdAdditionalPropertiesVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.CONNECTION_ID_FK
+								, A.REF_ID_FK
+								, A.REF_TYPE
+								, A.PROPERTY_ORDER
+								, A.PROP_KEY
+								, A.VALUE
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, CONNECTION_ID_FK
+								, REF_ID_FK
+								, REF_TYPE
+								, PROPERTY_ORDER
+								, PROP_KEY
+								, VALUE
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_ADDITIONAL_PROPERTIES
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CONNECTION_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdAdditionalPropertiesDAO.selectMdAdditionalPropertiesListTotCnt_S" parameterClass="MdAdditionalPropertiesVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_ADDITIONAL_PROPERTIES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CONNECTION_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

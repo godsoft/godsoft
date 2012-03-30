@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.Comtncntcse
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcservice.service.Comtncntcse
 public class ComtncntcserviceDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtncntcservice을 등록한다.
+	 * COMTNCNTCSERVICE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncntcserviceVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtncntcserviceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcservice을 수정한다.
+	 * COMTNCNTCSERVICE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncntcserviceVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtncntcserviceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcservice을 삭제한다.
+	 * COMTNCNTCSERVICE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncntcserviceVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtncntcserviceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcservice을 조회한다.
+	 * COMTNCNTCSERVICE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncntcserviceVO
-	 * @return 조회한 comtncntcservice
+	 * @return 조회한 COMTNCNTCSERVICE
 	 * @exception Exception
 	 */
     public ComtncntcserviceVO selectComtncntcservice(ComtncntcserviceVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtncntcserviceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcservice 목록을 조회한다.
+	 * COMTNCNTCSERVICE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncntcservice 목록
+	 * @return COMTNCNTCSERVICE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtncntcserviceDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcservice 총 갯수를 조회한다.
+	 * COMTNCNTCSERVICE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncntcservice 총 갯수
+	 * @return COMTNCNTCSERVICE 총 갯수
 	 * @exception
 	 */
     public int selectComtncntcserviceListTotCnt(ComtncntcserviceVO vo) {

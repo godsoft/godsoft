@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.Comtnfiledet
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service.Comtnfiledet
 public class ComtnfiledetailDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnfiledetail을 등록한다.
+	 * COMTNFILEDETAIL을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnfiledetailVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnfiledetailDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfiledetail을 수정한다.
+	 * COMTNFILEDETAIL을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnfiledetailVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnfiledetailDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfiledetail을 삭제한다.
+	 * COMTNFILEDETAIL을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnfiledetailVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnfiledetailDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfiledetail을 조회한다.
+	 * COMTNFILEDETAIL을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnfiledetailVO
-	 * @return 조회한 comtnfiledetail
+	 * @return 조회한 COMTNFILEDETAIL
 	 * @exception Exception
 	 */
     public ComtnfiledetailVO selectComtnfiledetail(ComtnfiledetailVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnfiledetailDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfiledetail 목록을 조회한다.
+	 * COMTNFILEDETAIL 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnfiledetail 목록
+	 * @return COMTNFILEDETAIL 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnfiledetailDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnfiledetail 총 갯수를 조회한다.
+	 * COMTNFILEDETAIL 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnfiledetail 총 갯수
+	 * @return COMTNFILEDETAIL 총 갯수
 	 * @exception
 	 */
     public int selectComtnfiledetailListTotCnt(ComtnfiledetailVO vo) {

@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtndeptjobbxServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtndeptjobbx을 등록한다.
+	 * COMTNDEPTJOBBX을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndeptjobbxVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtndeptjobbxServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndeptjobbx을 수정한다.
+	 * COMTNDEPTJOBBX을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndeptjobbxVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtndeptjobbxServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndeptjobbx을 삭제한다.
+	 * COMTNDEPTJOBBX을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndeptjobbxVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtndeptjobbxServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndeptjobbx을 조회한다.
+	 * COMTNDEPTJOBBX을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndeptjobbxVO
-	 * @return 조회한 comtndeptjobbx
+	 * @return 조회한 COMTNDEPTJOBBX
 	 * @exception Exception
 	 */
     public ComtndeptjobbxVO selectComtndeptjobbx(ComtndeptjobbxVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtndeptjobbxServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndeptjobbx 목록을 조회한다.
+	 * COMTNDEPTJOBBX 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndeptjobbx 목록
+	 * @return COMTNDEPTJOBBX 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtndeptjobbxList(ComtndeptjobbxVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtndeptjobbxServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndeptjobbx 총 갯수를 조회한다.
+	 * COMTNDEPTJOBBX 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndeptjobbx 총 갯수
+	 * @return COMTNDEPTJOBBX 총 갯수
 	 * @exception
 	 */
     public int selectComtndeptjobbxListTotCnt(ComtndeptjobbxVO vo) {

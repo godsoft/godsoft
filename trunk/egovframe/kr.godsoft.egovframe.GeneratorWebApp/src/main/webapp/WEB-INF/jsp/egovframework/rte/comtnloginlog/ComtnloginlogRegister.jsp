@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,43 +95,43 @@ function fn_egov_save() {
 		<tr>
 			<th>conect_id</th>
 			<td>
-				<form:input path="conectId" cssClass="txt"/>
-				&nbsp;<form:errors path="conectId" />
+					<form:input path="conectId" cssClass="txt"/>
+					&nbsp;<form:errors path="conectId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>conect_ip</th>
 			<td>
-				<form:input path="conectIp" cssClass="txt"/>
-				&nbsp;<form:errors path="conectIp" />
+					<form:input path="conectIp" cssClass="txt"/>
+					&nbsp;<form:errors path="conectIp" />
 			</td>
 		</tr>	
 		<tr>
 			<th>conect_mthd</th>
 			<td>
-				<form:input path="conectMthd" cssClass="txt"/>
-				&nbsp;<form:errors path="conectMthd" />
+					<form:input path="conectMthd" cssClass="txt"/>
+					&nbsp;<form:errors path="conectMthd" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_occrrnc_at</th>
 			<td>
-				<form:input path="errorOccrrncAt" cssClass="txt"/>
-				&nbsp;<form:errors path="errorOccrrncAt" />
+					<form:input path="errorOccrrncAt" cssClass="txt"/>
+					&nbsp;<form:errors path="errorOccrrncAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>error_code</th>
 			<td>
-				<form:input path="errorCode" cssClass="txt"/>
-				&nbsp;<form:errors path="errorCode" />
+					<form:input path="errorCode" cssClass="txt"/>
+					&nbsp;<form:errors path="errorCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>creat_dt</th>
 			<td>
-				<form:input path="creatDt" cssClass="txt"/>
-				&nbsp;<form:errors path="creatDt" />
+					<form:input path="creatDt" cssClass="txt"/>
+					&nbsp;<form:errors path="creatDt" />
 			</td>
 		</tr>	
 	</table>

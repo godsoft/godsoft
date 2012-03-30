@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.Comtndammapt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndammapteam.service.Comtndammapt
 public class ComtndammapteamDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtndammapteam을 등록한다.
+	 * COMTNDAMMAPTEAM을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndammapteamVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndammapteam을 수정한다.
+	 * COMTNDAMMAPTEAM을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndammapteamVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndammapteam을 삭제한다.
+	 * COMTNDAMMAPTEAM을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndammapteamVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndammapteam을 조회한다.
+	 * COMTNDAMMAPTEAM을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndammapteamVO
-	 * @return 조회한 comtndammapteam
+	 * @return 조회한 COMTNDAMMAPTEAM
 	 * @exception Exception
 	 */
     public ComtndammapteamVO selectComtndammapteam(ComtndammapteamVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndammapteam 목록을 조회한다.
+	 * COMTNDAMMAPTEAM 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndammapteam 목록
+	 * @return COMTNDAMMAPTEAM 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtndammapteamDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndammapteam 총 갯수를 조회한다.
+	 * COMTNDAMMAPTEAM 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndammapteam 총 갯수
+	 * @return COMTNDAMMAPTEAM 총 갯수
 	 * @exception
 	 */
     public int selectComtndammapteamListTotCnt(ComtndammapteamVO vo) {

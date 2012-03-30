@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comtnqustnrrespondinfoVO.qustnrTmplatId ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnqustnrrespondinfoVO.qestnrId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnqustnrrespondinfoVO.qustnrRespondId ? '등록' : '수정'}"/>
+<title>comtnqustnrrespondinfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +66,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,19 +79,19 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>qustnr_tmplat_id *</th>
 			<td>
 				<form:input path="qustnrTmplatId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>qestnr_id *</th>
 			<td>
 				<form:input path="qestnrId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>qustnr_respond_id *</th>
 			<td>
 				<form:input path="qustnrRespondId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -97,19 +99,19 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>qustnr_tmplat_id *</th>
 			<td>
 				<form:input path="qustnrTmplatId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>qestnr_id *</th>
 			<td>
 				<form:input path="qestnrId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>qustnr_respond_id *</th>
 			<td>
 				<form:input path="qustnrRespondId" cssClass="txt" readonly="false" />
 			</td>			
@@ -117,113 +119,80 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>sexdstn_code</th>
 			<td>
-	
-				<form:input path="sexdstnCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sexdstnCode" />
+					<form:input path="sexdstnCode" cssClass="txt"/>
+					&nbsp;<form:errors path="sexdstnCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>occp_ty_code</th>
 			<td>
-	
-				<form:input path="occpTyCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="occpTyCode" />
+					<form:input path="occpTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="occpTyCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>respond_nm</th>
 			<td>
-	
-				<form:input path="respondNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="respondNm" />
+					<form:input path="respondNm" cssClass="txt"/>
+					&nbsp;<form:errors path="respondNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>brthdy</th>
 			<td>
-	
-				<form:input path="brthdy" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="brthdy" />
+					<form:input path="brthdy" cssClass="txt"/>
+					&nbsp;<form:errors path="brthdy" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>area_no</th>
 			<td>
-	
-				<form:input path="areaNo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="areaNo" />
+					<form:input path="areaNo" cssClass="txt"/>
+					&nbsp;<form:errors path="areaNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>middle_telno</th>
 			<td>
-	
-				<form:input path="middleTelno" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="middleTelno" />
+					<form:input path="middleTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="middleTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>end_telno</th>
 			<td>
-	
-				<form:input path="endTelno" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="endTelno" />
+					<form:input path="endTelno" cssClass="txt"/>
+					&nbsp;<form:errors path="endTelno" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_regist_pnttm</th>
 			<td>
-	
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_register_id</th>
 			<td>
-	
-				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updt_pnttm</th>
 			<td>
-	
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updusr_id</th>
 			<td>
-	
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 	</table>

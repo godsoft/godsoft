@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.Comtnleader
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnleadersttus.service.Comtnleader
 public class ComtnleadersttusDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnleadersttus을 등록한다.
+	 * COMTNLEADERSTTUS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnleadersttusVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnleadersttusDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnleadersttus을 수정한다.
+	 * COMTNLEADERSTTUS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnleadersttusVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnleadersttusDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnleadersttus을 삭제한다.
+	 * COMTNLEADERSTTUS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnleadersttusVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnleadersttusDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnleadersttus을 조회한다.
+	 * COMTNLEADERSTTUS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnleadersttusVO
-	 * @return 조회한 comtnleadersttus
+	 * @return 조회한 COMTNLEADERSTTUS
 	 * @exception Exception
 	 */
     public ComtnleadersttusVO selectComtnleadersttus(ComtnleadersttusVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnleadersttusDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnleadersttus 목록을 조회한다.
+	 * COMTNLEADERSTTUS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnleadersttus 목록
+	 * @return COMTNLEADERSTTUS 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnleadersttusDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnleadersttus 총 갯수를 조회한다.
+	 * COMTNLEADERSTTUS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnleadersttus 총 갯수
+	 * @return COMTNLEADERSTTUS 총 갯수
 	 * @exception
 	 */
     public int selectComtnleadersttusListTotCnt(ComtnleadersttusVO vo) {

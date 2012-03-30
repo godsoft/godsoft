@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdDerivatives">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdDerivativesVO" type="kr.godsoft.egovframe.generatorwebapp.md_derivatives.service.MdDerivativesVO"/>
+	
+	<resultMap id="mdDerivatives" class="kr.godsoft.egovframe.generatorwebapp.md_derivatives.service.MdDerivativesVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="srcId" column="src_id" columnIndex="2"/>
+		<result property="srcType" column="src_type" columnIndex="3"/>
+		<result property="derivedId" column="derived_id" columnIndex="4"/>
+		<result property="derivedType" column="derived_type" columnIndex="5"/>
+		<result property="derivedConnectionIdFk" column="derived_connection_id_fk" columnIndex="6"/>
+		<result property="transformed" column="transformed" columnIndex="7"/>
+		<result property="originalIdentifier" column="original_identifier" columnIndex="8"/>
+		<result property="newIdentifier" column="new_identifier" columnIndex="9"/>
+		<result property="derivedObjectNamespace" column="derived_object_namespace" columnIndex="10"/>
+		<result property="derivativeReason" column="derivative_reason" columnIndex="11"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="12"/>
+		<result property="createdOn" column="created_on" columnIndex="13"/>
+		<result property="createdBy" column="created_by" columnIndex="14"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="15"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="16"/>
+	</resultMap>
+	
+	<insert id="mdDerivativesDAO.insertMdDerivatives_S">
+		<![CDATA[
+            INSERT INTO md_derivatives (
+                id
+                , src_id
+                , src_type
+                , derived_id
+                , derived_type
+                , derived_connection_id_fk
+                , transformed
+                , original_identifier
+                , new_identifier
+                , derived_object_namespace
+                , derivative_reason
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #srcId#
+                , #srcType#
+                , #derivedId#
+                , #derivedType#
+                , #derivedConnectionIdFk#
+                , #transformed#
+                , #originalIdentifier#
+                , #newIdentifier#
+                , #derivedObjectNamespace#
+                , #derivativeReason#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdDerivativesDAO.updateMdDerivatives_S">
+		<![CDATA[
+            UPDATE md_derivatives
+                SET
+                id = #id#
+                , src_id = #srcId#
+                , src_type = #srcType#
+                , derived_id = #derivedId#
+                , derived_type = #derivedType#
+                , derived_connection_id_fk = #derivedConnectionIdFk#
+                , transformed = #transformed#
+                , original_identifier = #originalIdentifier#
+                , new_identifier = #newIdentifier#
+                , derived_object_namespace = #derivedObjectNamespace#
+                , derivative_reason = #derivativeReason#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdDerivativesDAO.deleteMdDerivatives_S">
+		<![CDATA[
+			DELETE FROM md_derivatives
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdDerivativesDAO.selectMdDerivatives_S" resultMap="mdDerivatives">
+		<![CDATA[
+			SELECT
+				id
+				, src_id
+				, src_type
+				, derived_id
+				, derived_type
+				, derived_connection_id_fk
+				, transformed
+				, original_identifier
+				, new_identifier
+				, derived_object_namespace
+				, derivative_reason
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_DERIVATIVES
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdDerivativesDAO.selectMdDerivativesList_D" parameterClass="MdDerivativesVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.SRC_ID
+								, A.SRC_TYPE
+								, A.DERIVED_ID
+								, A.DERIVED_TYPE
+								, A.DERIVED_CONNECTION_ID_FK
+								, A.TRANSFORMED
+								, A.ORIGINAL_IDENTIFIER
+								, A.NEW_IDENTIFIER
+								, A.DERIVED_OBJECT_NAMESPACE
+								, A.DERIVATIVE_REASON
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, SRC_ID
+								, SRC_TYPE
+								, DERIVED_ID
+								, DERIVED_TYPE
+								, DERIVED_CONNECTION_ID_FK
+								, TRANSFORMED
+								, ORIGINAL_IDENTIFIER
+								, NEW_IDENTIFIER
+								, DERIVED_OBJECT_NAMESPACE
+								, DERIVATIVE_REASON
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_DERIVATIVES
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SRC_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdDerivativesDAO.selectMdDerivativesListTotCnt_S" parameterClass="MdDerivativesVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_DERIVATIVES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SRC_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

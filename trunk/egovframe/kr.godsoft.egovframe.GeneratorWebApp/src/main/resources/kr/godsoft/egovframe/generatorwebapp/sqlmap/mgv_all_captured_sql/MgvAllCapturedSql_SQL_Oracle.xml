@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MgvAllCapturedSql">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MgvAllCapturedSqlVO" type="kr.godsoft.egovframe.generatorwebapp.mgv_all_captured_sql.service.MgvAllCapturedSqlVO"/>
+	
+	<resultMap id="mgvAllCapturedSql" class="kr.godsoft.egovframe.generatorwebapp.mgv_all_captured_sql.service.MgvAllCapturedSqlVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="objtype" column="objtype" columnIndex="2"/>
+		<result property="objectname" column="objectname" columnIndex="3"/>
+		<result property="nativeSql" column="native_sql" columnIndex="4"/>
+	</resultMap>
+	
+	<insert id="mgvAllCapturedSqlDAO.insertMgvAllCapturedSql_S">
+		<![CDATA[
+            INSERT INTO mgv_all_captured_sql (
+                id
+                , objtype
+                , objectname
+                , native_sql
+            ) VALUES (
+                #id#
+                , #objtype#
+                , #objectname#
+                , #nativeSql#
+            )
+		]]>
+	</insert>
+	
+	<update id="mgvAllCapturedSqlDAO.updateMgvAllCapturedSql_S">
+		<![CDATA[
+            UPDATE mgv_all_captured_sql
+                SET
+                id = #id#
+                , objtype = #objtype#
+                , objectname = #objectname#
+                , native_sql = #nativeSql#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="mgvAllCapturedSqlDAO.deleteMgvAllCapturedSql_S">
+		<![CDATA[
+			DELETE FROM mgv_all_captured_sql
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="mgvAllCapturedSqlDAO.selectMgvAllCapturedSql_S" resultMap="mgvAllCapturedSql">
+		<![CDATA[
+			SELECT
+				id
+				, objtype
+				, objectname
+				, native_sql
+			FROM MGV_ALL_CAPTURED_SQL
+		]]>
+	</select>
+	
+	<select id="mgvAllCapturedSqlDAO.selectMgvAllCapturedSqlList_D" parameterClass="MgvAllCapturedSqlVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.OBJTYPE
+								, A.OBJECTNAME
+								, A.NATIVE_SQL
+			       FROM
+            (
+				SELECT
+								ID
+								, OBJTYPE
+								, OBJECTNAME
+								, NATIVE_SQL
+							, ROWNUM
+				FROM MGV_ALL_CAPTURED_SQL
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					OBJTYPE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mgvAllCapturedSqlDAO.selectMgvAllCapturedSqlListTotCnt_S" parameterClass="MgvAllCapturedSqlVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MGV_ALL_CAPTURED_SQL
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OBJTYPE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

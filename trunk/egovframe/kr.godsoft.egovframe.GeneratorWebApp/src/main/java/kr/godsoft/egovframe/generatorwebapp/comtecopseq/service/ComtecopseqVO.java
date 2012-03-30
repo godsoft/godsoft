@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtecopseq.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ public class ComtecopseqVO extends ComtecopseqDefaultVO {
     private String tableName;
     
     /** NEXT_ID */
-    private int nextId;
+    private String nextId;
     
     public String getTableName() {
         return this.tableName;
@@ -29,11 +29,11 @@ public class ComtecopseqVO extends ComtecopseqDefaultVO {
         this.tableName = tableName;
     }
     
-    public int getNextId() {
+    public String getNextId() {
         return this.nextId;
     }
     
-    public void setNextId(int nextId) {
+    public void setNextId(String nextId) {
         this.nextId = nextId;
     }
     

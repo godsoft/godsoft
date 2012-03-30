@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.ComtnmenuinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.impl.ComtnmenuinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmenuinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenuinfo.service.impl.Comtnmenu
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnmenuinfoServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnmenuinfo을 등록한다.
+	 * COMTNMENUINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnmenuinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnmenuinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnmenuinfo을 수정한다.
+	 * COMTNMENUINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnmenuinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnmenuinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnmenuinfo을 삭제한다.
+	 * COMTNMENUINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnmenuinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnmenuinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnmenuinfo을 조회한다.
+	 * COMTNMENUINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnmenuinfoVO
-	 * @return 조회한 comtnmenuinfo
+	 * @return 조회한 COMTNMENUINFO
 	 * @exception Exception
 	 */
     public ComtnmenuinfoVO selectComtnmenuinfo(ComtnmenuinfoVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnmenuinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnmenuinfo 목록을 조회한다.
+	 * COMTNMENUINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmenuinfo 목록
+	 * @return COMTNMENUINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmenuinfoList(ComtnmenuinfoDefaultVO searchVO) throws Exception {
-        return comtnmenuinfoDAO.selectComtnmenuinfoList(searchVO);
+    public List<EgovMap> selectComtnmenuinfoList(ComtnmenuinfoVO vo) throws Exception {
+        return comtnmenuinfoDAO.selectComtnmenuinfoList(vo);
     }
 
     /**
-	 * comtnmenuinfo 총 갯수를 조회한다.
+	 * COMTNMENUINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmenuinfo 총 갯수
+	 * @return COMTNMENUINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmenuinfoListTotCnt(ComtnmenuinfoDefaultVO searchVO) {
-		return comtnmenuinfoDAO.selectComtnmenuinfoListTotCnt(searchVO);
+    public int selectComtnmenuinfoListTotCnt(ComtnmenuinfoVO vo) {
+		return comtnmenuinfoDAO.selectComtnmenuinfoListTotCnt(vo);
 	}
     
 }

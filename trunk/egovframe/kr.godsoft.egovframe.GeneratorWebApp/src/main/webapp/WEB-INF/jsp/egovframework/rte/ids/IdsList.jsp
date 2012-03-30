@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -26,8 +26,8 @@
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 /* 글 수정 화면 function */
-function fn_egov_select(tableName) {
-	document.getElementById("listForm").tableName.value = tableName;
+function fn_egov_select(idgenTableNm) {
+	document.getElementById("listForm").idgenTableNm.value = idgenTableNm;
    	document.getElementById("listForm").action = "<c:url value='/ids/updateIdsView.do'/>";
    	document.getElementById("listForm").submit();		
 }
@@ -50,7 +50,7 @@ function fn_egov_link_page(pageNo){
 </head>
 <body>
 <form:form commandName="searchVO" name="listForm" id="listForm" method="post">
-	<input type="hidden" name="tableName" />
+	<input type="hidden" name="idgenTableNm" />
 <div id="content_pop">
 	<!-- 타이틀 -->
 	<div id="title">
@@ -67,14 +67,14 @@ function fn_egov_link_page(pageNo){
 								<col/>				
 							</colgroup>		  
 			<tr>
-								<th align="center">table_name</th>
-								<th align="center">next_id</th>
+								<th align="center">idgen_table_nm</th>
+								<th align="center">idgen_next_id</th>
 							</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
 																											
-												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.tableName}"/>')"><c:out value="${result.tableName}"/></a>&nbsp;</td>
-																<td align="center" class="listtd"><c:out value="${result.nextId}"/>&nbsp;</td>
+												<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.idgenTableNm}"/>')"><c:out value="${result.idgenTableNm}"/></a>&nbsp;</td>
+																<td align="center" class="listtd"><c:out value="${result.idgenNextId}"/>&nbsp;</td>
 											</tr>
 			</c:forEach>
 		</table>

@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoVO;
 
 /**
  * @Class Name : ComtnfaqinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnfaqinfo.service.ComtnfaqinfoVO;
  */
 
 @Controller
-@SessionAttributes(types=ComtnfaqinfoVO.class)
 public class ComtnfaqinfoController {
 
     @Resource(name = "comtnfaqinfoService")
@@ -45,13 +45,13 @@ public class ComtnfaqinfoController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnfaqinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnfaqinfoDefaultVO
+	 * COMTNFAQINFO 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnfaqinfoVO
 	 * @return "/comtnfaqinfo/ComtnfaqinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnfaqinfo/ComtnfaqinfoList.do")
-    public String selectComtnfaqinfoList(@ModelAttribute("searchVO") ComtnfaqinfoDefaultVO searchVO, 
+    public String selectComtnfaqinfoList(@ModelAttribute("searchVO") ComtnfaqinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnfaqinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnfaqinfoList = comtnfaqinfoService.selectComtnfaqinfoList(searchVO);
+        List<EgovMap> comtnfaqinfoList = comtnfaqinfoService.selectComtnfaqinfoList(searchVO);
         model.addAttribute("resultList", comtnfaqinfoList);
         
         int totCnt = comtnfaqinfoService.selectComtnfaqinfoListTotCnt(searchVO);

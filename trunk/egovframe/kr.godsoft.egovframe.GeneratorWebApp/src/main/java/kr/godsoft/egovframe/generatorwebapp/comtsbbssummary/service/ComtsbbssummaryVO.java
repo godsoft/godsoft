@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtsbbssummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,13 +25,13 @@ public class ComtsbbssummaryVO extends ComtsbbssummaryDefaultVO {
     private String detailStatsSe;
     
     /** CREAT_CO */
-    private int creatCo;
+    private String creatCo;
     
     /** TOT_RDCNT */
-    private int totRdcnt;
+    private String totRdcnt;
     
     /** AVRG_RDCNT */
-    private int avrgRdcnt;
+    private String avrgRdcnt;
     
     /** TOP_INQIRE_BBSCTT_ID */
     private String topInqireBbscttId;
@@ -66,27 +66,27 @@ public class ComtsbbssummaryVO extends ComtsbbssummaryDefaultVO {
         this.detailStatsSe = detailStatsSe;
     }
     
-    public int getCreatCo() {
+    public String getCreatCo() {
         return this.creatCo;
     }
     
-    public void setCreatCo(int creatCo) {
+    public void setCreatCo(String creatCo) {
         this.creatCo = creatCo;
     }
     
-    public int getTotRdcnt() {
+    public String getTotRdcnt() {
         return this.totRdcnt;
     }
     
-    public void setTotRdcnt(int totRdcnt) {
+    public void setTotRdcnt(String totRdcnt) {
         this.totRdcnt = totRdcnt;
     }
     
-    public int getAvrgRdcnt() {
+    public String getAvrgRdcnt() {
         return this.avrgRdcnt;
     }
     
-    public void setAvrgRdcnt(int avrgRdcnt) {
+    public void setAvrgRdcnt(String avrgRdcnt) {
         this.avrgRdcnt = avrgRdcnt;
     }
     

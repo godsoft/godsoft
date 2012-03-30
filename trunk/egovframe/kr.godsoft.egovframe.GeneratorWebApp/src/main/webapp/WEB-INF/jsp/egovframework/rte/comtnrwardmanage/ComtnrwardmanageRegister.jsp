@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,106 +95,106 @@ function fn_egov_save() {
 		<tr>
 			<th>rwardwnr_id</th>
 			<td>
-				<form:input path="rwardwnrId" cssClass="txt"/>
-				&nbsp;<form:errors path="rwardwnrId" />
+					<form:input path="rwardwnrId" cssClass="txt"/>
+					&nbsp;<form:errors path="rwardwnrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rward_code</th>
 			<td>
-				<form:input path="rwardCode" cssClass="txt"/>
-				&nbsp;<form:errors path="rwardCode" />
+					<form:input path="rwardCode" cssClass="txt"/>
+					&nbsp;<form:errors path="rwardCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rward_de</th>
 			<td>
-				<form:input path="rwardDe" cssClass="txt"/>
-				&nbsp;<form:errors path="rwardDe" />
+					<form:input path="rwardDe" cssClass="txt"/>
+					&nbsp;<form:errors path="rwardDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rward_nm</th>
 			<td>
-				<form:input path="rwardNm" cssClass="txt"/>
-				&nbsp;<form:errors path="rwardNm" />
+					<form:input path="rwardNm" cssClass="txt"/>
+					&nbsp;<form:errors path="rwardNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>pblen_cn</th>
 			<td>
-				<form:input path="pblenCn" cssClass="txt"/>
-				&nbsp;<form:errors path="pblenCn" />
+					<form:input path="pblenCn" cssClass="txt"/>
+					&nbsp;<form:errors path="pblenCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>sanctner_id</th>
 			<td>
-				<form:input path="sanctnerId" cssClass="txt"/>
-				&nbsp;<form:errors path="sanctnerId" />
+					<form:input path="sanctnerId" cssClass="txt"/>
+					&nbsp;<form:errors path="sanctnerId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confm_at</th>
 			<td>
-				<form:input path="confmAt" cssClass="txt"/>
-				&nbsp;<form:errors path="confmAt" />
+					<form:input path="confmAt" cssClass="txt"/>
+					&nbsp;<form:errors path="confmAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>sanctn_dt</th>
 			<td>
-				<form:input path="sanctnDt" cssClass="txt"/>
-				&nbsp;<form:errors path="sanctnDt" />
+					<form:input path="sanctnDt" cssClass="txt"/>
+					&nbsp;<form:errors path="sanctnDt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>return_resn</th>
 			<td>
-				<form:input path="returnResn" cssClass="txt"/>
-				&nbsp;<form:errors path="returnResn" />
+					<form:input path="returnResn" cssClass="txt"/>
+					&nbsp;<form:errors path="returnResn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atch_file_id</th>
 			<td>
-				<form:input path="atchFileId" cssClass="txt"/>
-				&nbsp;<form:errors path="atchFileId" />
+					<form:input path="atchFileId" cssClass="txt"/>
+					&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>infrml_sanctn_id</th>
 			<td>
-				<form:input path="infrmlSanctnId" cssClass="txt"/>
-				&nbsp;<form:errors path="infrmlSanctnId" />
+					<form:input path="infrmlSanctnId" cssClass="txt"/>
+					&nbsp;<form:errors path="infrmlSanctnId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.Comtnbatchop
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbatchopert.service.Comtnbatchop
 public class ComtnbatchopertDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnbatchopert을 등록한다.
+	 * COMTNBATCHOPERT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbatchopertVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchopert을 수정한다.
+	 * COMTNBATCHOPERT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbatchopertVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchopert을 삭제한다.
+	 * COMTNBATCHOPERT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbatchopertVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchopert을 조회한다.
+	 * COMTNBATCHOPERT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbatchopertVO
-	 * @return 조회한 comtnbatchopert
+	 * @return 조회한 COMTNBATCHOPERT
 	 * @exception Exception
 	 */
     public ComtnbatchopertVO selectComtnbatchopert(ComtnbatchopertVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchopert 목록을 조회한다.
+	 * COMTNBATCHOPERT 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbatchopert 목록
+	 * @return COMTNBATCHOPERT 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnbatchopertDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbatchopert 총 갯수를 조회한다.
+	 * COMTNBATCHOPERT 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbatchopert 총 갯수
+	 * @return COMTNBATCHOPERT 총 갯수
 	 * @exception
 	 */
     public int selectComtnbatchopertListTotCnt(ComtnbatchopertVO vo) {

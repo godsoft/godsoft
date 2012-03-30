@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnroleinfoService {
 	
 	/**
-	 * comtnroleinfo을 등록한다.
+	 * COMTNROLEINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnroleinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnroleinfoService {
     String insertComtnroleinfo(ComtnroleinfoVO vo) throws Exception;
     
     /**
-	 * comtnroleinfo을 수정한다.
+	 * COMTNROLEINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnroleinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnroleinfoService {
     void updateComtnroleinfo(ComtnroleinfoVO vo) throws Exception;
     
     /**
-	 * comtnroleinfo을 삭제한다.
+	 * COMTNROLEINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnroleinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnroleinfoService {
     void deleteComtnroleinfo(ComtnroleinfoVO vo) throws Exception;
     
     /**
-	 * comtnroleinfo을 조회한다.
+	 * COMTNROLEINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnroleinfoVO
-	 * @return 조회한 comtnroleinfo
+	 * @return 조회한 COMTNROLEINFO
 	 * @exception Exception
 	 */
     ComtnroleinfoVO selectComtnroleinfo(ComtnroleinfoVO vo) throws Exception;
     
     /**
-	 * comtnroleinfo 목록을 조회한다.
+	 * COMTNROLEINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnroleinfo 목록
+	 * @return COMTNROLEINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnroleinfoList(ComtnroleinfoVO vo) throws Exception;
     
     /**
-	 * comtnroleinfo 총 갯수를 조회한다.
+	 * COMTNROLEINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnroleinfo 총 갯수
+	 * @return COMTNROLEINFO 총 갯수
 	 * @exception
 	 */
     int selectComtnroleinfoListTotCnt(ComtnroleinfoVO vo);

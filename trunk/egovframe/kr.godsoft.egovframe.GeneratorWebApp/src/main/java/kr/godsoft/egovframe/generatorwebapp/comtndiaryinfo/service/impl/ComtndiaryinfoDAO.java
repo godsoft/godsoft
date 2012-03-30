@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoDefaultVO;
 
 /**
  * @Class Name : ComtndiaryinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.Comtndiaryinf
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.Comtndiaryinf
 public class ComtndiaryinfoDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtndiaryinfo을 등록한다.
+	 * COMTNDIARYINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndiaryinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtndiaryinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndiaryinfo을 수정한다.
+	 * COMTNDIARYINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndiaryinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtndiaryinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndiaryinfo을 삭제한다.
+	 * COMTNDIARYINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndiaryinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtndiaryinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndiaryinfo을 조회한다.
+	 * COMTNDIARYINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndiaryinfoVO
-	 * @return 조회한 comtndiaryinfo
+	 * @return 조회한 COMTNDIARYINFO
 	 * @exception Exception
 	 */
     public ComtndiaryinfoVO selectComtndiaryinfo(ComtndiaryinfoVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtndiaryinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtndiaryinfo 목록을 조회한다.
+	 * COMTNDIARYINFO 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndiaryinfo 목록
+	 * @return COMTNDIARYINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtndiaryinfoList(ComtndiaryinfoDefaultVO searchVO) throws Exception {
-        return list("comtndiaryinfoDAO.selectComtndiaryinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtndiaryinfoList(ComtndiaryinfoVO vo) throws Exception {
+        return list("comtndiaryinfoDAO.selectComtndiaryinfoList_D", vo);
     }
 
     /**
-	 * comtndiaryinfo 총 갯수를 조회한다.
+	 * COMTNDIARYINFO 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtndiaryinfo 총 갯수
+	 * @return COMTNDIARYINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtndiaryinfoListTotCnt(ComtndiaryinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtndiaryinfoDAO.selectComtndiaryinfoListTotCnt_S", searchVO);
+    public int selectComtndiaryinfoListTotCnt(ComtndiaryinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtndiaryinfoDAO.selectComtndiaryinfoListTotCnt_S", vo);
     }
 
 }

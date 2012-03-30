@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,113 +95,113 @@ function fn_egov_save() {
 		<tr>
 			<th>occrrnc_de</th>
 			<td>
-				<form:input path="occrrncDe" cssClass="txt"/>
-				&nbsp;<form:errors path="occrrncDe" />
+					<form:input path="occrrncDe" cssClass="txt"/>
+					&nbsp;<form:errors path="occrrncDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trsmrcv_se_code</th>
 			<td>
-				<form:input path="trsmrcvSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="trsmrcvSeCode" />
+					<form:input path="trsmrcvSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="trsmrcvSeCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>cntc_id</th>
 			<td>
-				<form:input path="cntcId" cssClass="txt"/>
-				&nbsp;<form:errors path="cntcId" />
+					<form:input path="cntcId" cssClass="txt"/>
+					&nbsp;<form:errors path="cntcId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>provd_instt_id</th>
 			<td>
-				<form:input path="provdInsttId" cssClass="txt"/>
-				&nbsp;<form:errors path="provdInsttId" />
+					<form:input path="provdInsttId" cssClass="txt"/>
+					&nbsp;<form:errors path="provdInsttId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>provd_sys_id</th>
 			<td>
-				<form:input path="provdSysId" cssClass="txt"/>
-				&nbsp;<form:errors path="provdSysId" />
+					<form:input path="provdSysId" cssClass="txt"/>
+					&nbsp;<form:errors path="provdSysId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>provd_svc_id</th>
 			<td>
-				<form:input path="provdSvcId" cssClass="txt"/>
-				&nbsp;<form:errors path="provdSvcId" />
+					<form:input path="provdSvcId" cssClass="txt"/>
+					&nbsp;<form:errors path="provdSvcId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>requst_instt_id</th>
 			<td>
-				<form:input path="requstInsttId" cssClass="txt"/>
-				&nbsp;<form:errors path="requstInsttId" />
+					<form:input path="requstInsttId" cssClass="txt"/>
+					&nbsp;<form:errors path="requstInsttId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>requst_sys_id</th>
 			<td>
-				<form:input path="requstSysId" cssClass="txt"/>
-				&nbsp;<form:errors path="requstSysId" />
+					<form:input path="requstSysId" cssClass="txt"/>
+					&nbsp;<form:errors path="requstSysId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>requst_trnsmit_tm</th>
 			<td>
-				<form:input path="requstTrnsmitTm" cssClass="txt"/>
-				&nbsp;<form:errors path="requstTrnsmitTm" />
+					<form:input path="requstTrnsmitTm" cssClass="txt"/>
+					&nbsp;<form:errors path="requstTrnsmitTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>requst_recptn_tm</th>
 			<td>
-				<form:input path="requstRecptnTm" cssClass="txt"/>
-				&nbsp;<form:errors path="requstRecptnTm" />
+					<form:input path="requstRecptnTm" cssClass="txt"/>
+					&nbsp;<form:errors path="requstRecptnTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rspns_trnsmit_tm</th>
 			<td>
-				<form:input path="rspnsTrnsmitTm" cssClass="txt"/>
-				&nbsp;<form:errors path="rspnsTrnsmitTm" />
+					<form:input path="rspnsTrnsmitTm" cssClass="txt"/>
+					&nbsp;<form:errors path="rspnsTrnsmitTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rspns_recptn_tm</th>
 			<td>
-				<form:input path="rspnsRecptnTm" cssClass="txt"/>
-				&nbsp;<form:errors path="rspnsRecptnTm" />
+					<form:input path="rspnsRecptnTm" cssClass="txt"/>
+					&nbsp;<form:errors path="rspnsRecptnTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>result_code</th>
 			<td>
-				<form:input path="resultCode" cssClass="txt"/>
-				&nbsp;<form:errors path="resultCode" />
+					<form:input path="resultCode" cssClass="txt"/>
+					&nbsp;<form:errors path="resultCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>result_mssage</th>
 			<td>
-				<form:input path="resultMssage" cssClass="txt"/>
-				&nbsp;<form:errors path="resultMssage" />
+					<form:input path="resultMssage" cssClass="txt"/>
+					&nbsp;<form:errors path="resultMssage" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>rqester_id</th>
 			<td>
-				<form:input path="rqesterId" cssClass="txt"/>
-				&nbsp;<form:errors path="rqesterId" />
+					<form:input path="rqesterId" cssClass="txt"/>
+					&nbsp;<form:errors path="rqesterId" />
 			</td>
 		</tr>	
 	</table>

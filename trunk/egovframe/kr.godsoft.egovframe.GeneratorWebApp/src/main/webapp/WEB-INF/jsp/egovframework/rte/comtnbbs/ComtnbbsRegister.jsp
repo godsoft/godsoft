@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comtnbbsVO.nttId ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnbbsVO.bbsId ? '등록' : '수정'}"/>
+<title>comtnbbs <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +65,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>ntt_id *</th>
 			<td>
 				<form:input path="nttId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>bbs_id *</th>
 			<td>
 				<form:input path="bbsId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>ntt_id *</th>
 			<td>
 				<form:input path="nttId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>bbs_id *</th>
 			<td>
 				<form:input path="bbsId" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,193 +106,136 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>ntt_no</th>
 			<td>
-	
-				<form:input path="nttNo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="nttNo" />
+					<form:input path="nttNo" cssClass="txt"/>
+					&nbsp;<form:errors path="nttNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ntt_sj</th>
 			<td>
-	
-				<form:input path="nttSj" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="nttSj" />
+					<form:input path="nttSj" cssClass="txt"/>
+					&nbsp;<form:errors path="nttSj" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ntt_cn</th>
 			<td>
-	
-				<form:input path="nttCn" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="nttCn" />
+					<form:input path="nttCn" cssClass="txt"/>
+					&nbsp;<form:errors path="nttCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>answer_at</th>
 			<td>
-	
-				<form:input path="answerAt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="answerAt" />
+					<form:input path="answerAt" cssClass="txt"/>
+					&nbsp;<form:errors path="answerAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>parntsctt_no</th>
 			<td>
-	
-				<form:input path="parntscttNo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="parntscttNo" />
+					<form:input path="parntscttNo" cssClass="txt"/>
+					&nbsp;<form:errors path="parntscttNo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>answer_lc</th>
 			<td>
-	
-				<form:input path="answerLc" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="answerLc" />
+					<form:input path="answerLc" cssClass="txt"/>
+					&nbsp;<form:errors path="answerLc" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>sort_ordr</th>
 			<td>
-	
-				<form:input path="sortOrdr" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="sortOrdr" />
+					<form:input path="sortOrdr" cssClass="txt"/>
+					&nbsp;<form:errors path="sortOrdr" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>rdcnt</th>
 			<td>
-	
-				<form:input path="rdcnt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="rdcnt" />
+					<form:input path="rdcnt" cssClass="txt"/>
+					&nbsp;<form:errors path="rdcnt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>use_at</th>
 			<td>
-
-				<form:input path="useAt" cssClass="txt" value="Y"/>
-
-
-				&nbsp;<form:errors path="useAt" />
+					<form:input path="useAt" cssClass="txt" value="Y"/>
+					&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ntce_bgnde</th>
 			<td>
-	
-				<form:input path="ntceBgnde" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="ntceBgnde" />
+					<form:input path="ntceBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="ntceBgnde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ntce_endde</th>
 			<td>
-	
-				<form:input path="ntceEndde" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="ntceEndde" />
+					<form:input path="ntceEndde" cssClass="txt"/>
+					&nbsp;<form:errors path="ntceEndde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ntcr_id</th>
 			<td>
-	
-				<form:input path="ntcrId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="ntcrId" />
+					<form:input path="ntcrId" cssClass="txt"/>
+					&nbsp;<form:errors path="ntcrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>ntcr_nm</th>
 			<td>
-	
-				<form:input path="ntcrNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="ntcrNm" />
+					<form:input path="ntcrNm" cssClass="txt"/>
+					&nbsp;<form:errors path="ntcrNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>password</th>
 			<td>
-	
-				<form:input path="password" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="password" />
+					<form:input path="password" cssClass="txt"/>
+					&nbsp;<form:errors path="password" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>atch_file_id</th>
 			<td>
-	
-				<form:input path="atchFileId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="atchFileId" />
+					<form:input path="atchFileId" cssClass="txt"/>
+					&nbsp;<form:errors path="atchFileId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_regist_pnttm</th>
 			<td>
-	
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_register_id</th>
 			<td>
-	
-				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updt_pnttm</th>
 			<td>
-	
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updusr_id</th>
 			<td>
-	
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 	</table>

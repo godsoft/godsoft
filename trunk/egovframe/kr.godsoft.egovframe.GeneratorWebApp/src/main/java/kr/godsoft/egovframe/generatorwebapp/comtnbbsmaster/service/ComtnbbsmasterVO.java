@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbbsmaster.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -37,10 +37,10 @@ public class ComtnbbsmasterVO extends ComtnbbsmasterDefaultVO {
     private String fileAtchPosblAt;
     
     /** ATCH_POSBL_FILE_NUMBER */
-    private int atchPosblFileNumber;
+    private String atchPosblFileNumber;
     
     /** ATCH_POSBL_FILE_SIZE */
-    private int atchPosblFileSize;
+    private String atchPosblFileSize;
     
     /** USE_AT */
     private String useAt;
@@ -116,19 +116,19 @@ public class ComtnbbsmasterVO extends ComtnbbsmasterDefaultVO {
         this.fileAtchPosblAt = fileAtchPosblAt;
     }
     
-    public int getAtchPosblFileNumber() {
+    public String getAtchPosblFileNumber() {
         return this.atchPosblFileNumber;
     }
     
-    public void setAtchPosblFileNumber(int atchPosblFileNumber) {
+    public void setAtchPosblFileNumber(String atchPosblFileNumber) {
         this.atchPosblFileNumber = atchPosblFileNumber;
     }
     
-    public int getAtchPosblFileSize() {
+    public String getAtchPosblFileSize() {
         return this.atchPosblFileSize;
     }
     
-    public void setAtchPosblFileSize(int atchPosblFileSize) {
+    public void setAtchPosblFileSize(String atchPosblFileSize) {
         this.atchPosblFileSize = atchPosblFileSize;
     }
     

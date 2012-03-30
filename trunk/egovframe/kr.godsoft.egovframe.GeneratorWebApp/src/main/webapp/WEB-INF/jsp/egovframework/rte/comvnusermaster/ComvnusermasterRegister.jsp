@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -21,8 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comvnusermasterVO.esntlId ? '등록' : '수정'}"/>
-<title>VIEW <c:out value="${registerFlag}"/> </title>
+<title>comvnusermaster <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +63,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" />VIEW <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -81,103 +80,73 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>esntl_id</th>
 			<td>
-	
-				<form:input path="esntlId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="esntlId" />
+					<form:input path="esntlId" cssClass="txt"/>
+					&nbsp;<form:errors path="esntlId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_id</th>
 			<td>
-	
-				<form:input path="userId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userId" />
+					<form:input path="userId" cssClass="txt"/>
+					&nbsp;<form:errors path="userId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>password</th>
 			<td>
-	
-				<form:input path="password" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="password" />
+					<form:input path="password" cssClass="txt"/>
+					&nbsp;<form:errors path="password" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_nm</th>
 			<td>
-	
-				<form:input path="userNm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userNm" />
+					<form:input path="userNm" cssClass="txt"/>
+					&nbsp;<form:errors path="userNm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_zip</th>
 			<td>
-	
-				<form:input path="userZip" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userZip" />
+					<form:input path="userZip" cssClass="txt"/>
+					&nbsp;<form:errors path="userZip" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_adres</th>
 			<td>
-	
-				<form:input path="userAdres" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userAdres" />
+					<form:input path="userAdres" cssClass="txt"/>
+					&nbsp;<form:errors path="userAdres" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_email</th>
 			<td>
-	
-				<form:input path="userEmail" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userEmail" />
+					<form:input path="userEmail" cssClass="txt"/>
+					&nbsp;<form:errors path="userEmail" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>group_id</th>
 			<td>
-	
-				<form:input path="groupId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="groupId" />
+					<form:input path="groupId" cssClass="txt"/>
+					&nbsp;<form:errors path="groupId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>user_se</th>
 			<td>
-	
-				<form:input path="userSe" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="userSe" />
+					<form:input path="userSe" cssClass="txt"/>
+					&nbsp;<form:errors path="userSe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>orgnzt_id</th>
 			<td>
-	
-				<form:input path="orgnztId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="orgnztId" />
+					<form:input path="orgnztId" cssClass="txt"/>
+					&nbsp;<form:errors path="orgnztId" />
 			</td>
 		</tr>	
 	</table>

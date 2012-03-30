@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -108,22 +108,22 @@ function fn_egov_save() {
 		<tr>
 			<th>regist_se_code</th>
 			<td>
-				<form:input path="registSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="registSeCode" />
+					<form:input path="registSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="registSeCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>use_at</th>
 			<td>
-				<form:input path="useAt" cssClass="txt"/>
-				&nbsp;<form:errors path="useAt" />
+					<form:input path="useAt" cssClass="txt" value="Y"/>
+					&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>creat_dt</th>
 			<td>
-				<form:input path="creatDt" cssClass="txt"/>
-				&nbsp;<form:errors path="creatDt" />
+					<form:input path="creatDt" cssClass="txt"/>
+					&nbsp;<form:errors path="creatDt" />
 			</td>
 		</tr>	
 	</table>

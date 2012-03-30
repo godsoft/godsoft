@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.ComtnrecentsrchwrdService;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.ComtnrecentsrchwrdDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.ComtnrecentsrchwrdVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.ComtnrecentsrchwrdService;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.ComtnrecentsrchwrdDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.ComtnrecentsrchwrdVO;
 
 /**
  * @Class Name : ComtnrecentsrchwrdController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.Comtnrece
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnrecentsrchwrd.service.Comtnrece
  */
 
 @Controller
-@SessionAttributes(types=ComtnrecentsrchwrdVO.class)
 public class ComtnrecentsrchwrdController {
 
     @Resource(name = "comtnrecentsrchwrdService")
@@ -45,13 +45,13 @@ public class ComtnrecentsrchwrdController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnrecentsrchwrd 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnrecentsrchwrdDefaultVO
+	 * COMTNRECENTSRCHWRD 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnrecentsrchwrdVO
 	 * @return "/comtnrecentsrchwrd/ComtnrecentsrchwrdList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnrecentsrchwrd/ComtnrecentsrchwrdList.do")
-    public String selectComtnrecentsrchwrdList(@ModelAttribute("searchVO") ComtnrecentsrchwrdDefaultVO searchVO, 
+    public String selectComtnrecentsrchwrdList(@ModelAttribute("searchVO") ComtnrecentsrchwrdVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnrecentsrchwrdController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnrecentsrchwrdList = comtnrecentsrchwrdService.selectComtnrecentsrchwrdList(searchVO);
+        List<EgovMap> comtnrecentsrchwrdList = comtnrecentsrchwrdService.selectComtnrecentsrchwrdList(searchVO);
         model.addAttribute("resultList", comtnrecentsrchwrdList);
         
         int totCnt = comtnrecentsrchwrdService.selectComtnrecentsrchwrdListTotCnt(searchVO);

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtntmplatinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtntmplatinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtntmplatinfo.service.ComtntmplatinfoVO"/>
+	
+	<resultMap id="comtntmplatinfo" class="kr.godsoft.egovframe.generatorwebapp.comtntmplatinfo.service.ComtntmplatinfoVO">
+		<result property="tmplatId" column="tmplat_id" columnIndex="1"/>
+		<result property="tmplatNm" column="tmplat_nm" columnIndex="2"/>
+		<result property="tmplatCours" column="tmplat_cours" columnIndex="3"/>
+		<result property="useAt" column="use_at" columnIndex="4"/>
+		<result property="tmplatSeCode" column="tmplat_se_code" columnIndex="5"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="comtntmplatinfoDAO.insertComtntmplatinfo_S">
+		<![CDATA[
+            INSERT INTO comtntmplatinfo (
+                tmplat_id
+                , tmplat_nm
+                , tmplat_cours
+                , use_at
+                , tmplat_se_code
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #tmplatId#
+                , #tmplatNm#
+                , #tmplatCours#
+                , #useAt#
+                , #tmplatSeCode#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtntmplatinfoDAO.updateComtntmplatinfo_S">
+		<![CDATA[
+            UPDATE comtntmplatinfo
+                SET
+                tmplat_id = #tmplatId#
+                , tmplat_nm = #tmplatNm#
+                , tmplat_cours = #tmplatCours#
+                , use_at = #useAt#
+                , tmplat_se_code = #tmplatSeCode#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND tmplat_id = #tmplatId#
+		]]>
+	</update>
+	
+	<delete id="comtntmplatinfoDAO.deleteComtntmplatinfo_S">
+		<![CDATA[
+			DELETE FROM comtntmplatinfo
+				WHERE 1 = 1
+				AND tmplat_id = #tmplatId#
+		]]>
+	</delete>
+	
+	<select id="comtntmplatinfoDAO.selectComtntmplatinfo_S" resultMap="comtntmplatinfo">
+		<![CDATA[
+			SELECT
+				tmplat_id
+				, tmplat_nm
+				, tmplat_cours
+				, use_at
+				, tmplat_se_code
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNTMPLATINFO
+			WHERE tmplat_id = #tmplatId#
+		]]>
+	</select>
+	
+	<select id="comtntmplatinfoDAO.selectComtntmplatinfoList_D" parameterClass="ComtntmplatinfoVO" resultClass="egovMap">
+	       SELECT 
+								A.TMPLAT_ID
+								, A.TMPLAT_NM
+								, A.TMPLAT_COURS
+								, A.USE_AT
+								, A.TMPLAT_SE_CODE
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								TMPLAT_ID
+								, TMPLAT_NM
+								, TMPLAT_COURS
+								, USE_AT
+								, TMPLAT_SE_CODE
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNTMPLATINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					TMPLAT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					TMPLAT_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							TMPLAT_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtntmplatinfoDAO.selectComtntmplatinfoListTotCnt_S" parameterClass="ComtntmplatinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNTMPLATINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				TMPLAT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TMPLAT_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

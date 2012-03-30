@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnanswer">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnanswerVO" type="kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO"/>
+	
+	<resultMap id="comtnanswer" class="kr.godsoft.egovframe.generatorwebapp.comtnanswer.service.ComtnanswerVO">
+		<result property="nttId" column="ntt_id" columnIndex="1"/>
+		<result property="bbsId" column="bbs_id" columnIndex="2"/>
+		<result property="wrterId" column="wrter_id" columnIndex="3"/>
+		<result property="answer" column="answer" columnIndex="4"/>
+		<result property="useAt" column="use_at" columnIndex="5"/>
+		<result property="wrterNm" column="wrter_nm" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="answerNo" column="answer_no" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnanswerDAO.insertComtnanswer_S">
+		<![CDATA[
+            INSERT INTO comtnanswer (
+                ntt_id
+                , bbs_id
+                , wrter_id
+                , answer
+                , use_at
+                , wrter_nm
+                , frst_regist_pnttm
+                , frst_register_id
+                , answer_no
+            ) VALUES (
+                #nttId#
+                , #bbsId#
+                , #wrterId#
+                , #answer#
+                , #useAt#
+                , #wrterNm#
+                , SYSDATE
+                , #frstRegisterId#
+                , #answerNo#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnanswerDAO.updateComtnanswer_S">
+		<![CDATA[
+            UPDATE comtnanswer
+                SET
+                ntt_id = #nttId#
+                , bbs_id = #bbsId#
+                , wrter_id = #wrterId#
+                , answer = #answer#
+                , use_at = #useAt#
+                , wrter_nm = #wrterNm#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                , answer_no = #answerNo#
+                WHERE 1 = 1
+                AND ntt_id = #nttId#
+                AND bbs_id = #bbsId#
+                AND answer_no = #answerNo#
+		]]>
+	</update>
+	
+	<delete id="comtnanswerDAO.deleteComtnanswer_S">
+		<![CDATA[
+			DELETE FROM comtnanswer
+				WHERE 1 = 1
+				AND ntt_id = #nttId#
+				AND bbs_id = #bbsId#
+				AND answer_no = #answerNo#
+		]]>
+	</delete>
+	
+	<select id="comtnanswerDAO.selectComtnanswer_S" resultMap="comtnanswer">
+		<![CDATA[
+			SELECT
+				ntt_id
+				, bbs_id
+				, wrter_id
+				, answer
+				, use_at
+				, wrter_nm
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+				, answer_no
+			FROM COMTNANSWER
+			WHERE ntt_id = #nttId#
+				AND bbs_id = #bbsId#
+				AND answer_no = #answerNo#
+		]]>
+	</select>
+	
+	<select id="comtnanswerDAO.selectComtnanswerList_D" parameterClass="ComtnanswerVO" resultClass="egovMap">
+	       SELECT 
+								A.NTT_ID
+								, A.BBS_ID
+								, A.WRTER_ID
+								, A.ANSWER
+								, A.USE_AT
+								, A.WRTER_NM
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.ANSWER_NO
+			       FROM
+            (
+				SELECT
+								NTT_ID
+								, BBS_ID
+								, WRTER_ID
+								, ANSWER
+								, USE_AT
+								, WRTER_NM
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+								, ANSWER_NO
+							, ROWNUM
+				FROM COMTNANSWER
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					NTT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					BBS_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							NTT_ID DESC
+							, BBS_ID DESC
+							, ANSWER_NO DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnanswerDAO.selectComtnanswerListTotCnt_S" parameterClass="ComtnanswerVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNANSWER
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				NTT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BBS_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

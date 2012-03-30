@@ -6,52 +6,52 @@ package kr.godsoft.egovframe.generatorwebapp.comthhttpmonloginfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComthhttpmonloginfoVO extends ComthhttpmonloginfoDefaultVO{
+public class ComthhttpmonloginfoVO extends ComthhttpmonloginfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SYS_ID */
     private String sysId;
     
-    /**  */
+    /** SITE_URL */
     private String siteUrl;
     
-    /**  */
+    /** WEBSVC_KND */
     private String websvcKnd;
     
-    /**  */
+    /** HTTP_STTUS_CODE */
     private String httpSttusCode;
     
-    /**  */
+    /** CREAT_DT */
     private String creatDt;
     
-    /**  */
+    /** LOG_INFO */
     private String logInfo;
     
-    /**  */
+    /** MNGR_NM */
     private String mngrNm;
     
-    /**  */
+    /** MNGR_EMAIL_ADRES */
     private String mngrEmailAdres;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LOG_ID */
     private String logId;
     
     public String getSysId() {

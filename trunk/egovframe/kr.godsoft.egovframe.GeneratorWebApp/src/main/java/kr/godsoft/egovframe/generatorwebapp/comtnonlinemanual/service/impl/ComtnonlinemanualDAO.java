@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.Comtnonlin
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinemanual.service.Comtnonlin
 public class ComtnonlinemanualDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnonlinemanual을 등록한다.
+	 * COMTNONLINEMANUAL을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnonlinemanualVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinemanual을 수정한다.
+	 * COMTNONLINEMANUAL을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnonlinemanualVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinemanual을 삭제한다.
+	 * COMTNONLINEMANUAL을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnonlinemanualVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinemanual을 조회한다.
+	 * COMTNONLINEMANUAL을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnonlinemanualVO
-	 * @return 조회한 comtnonlinemanual
+	 * @return 조회한 COMTNONLINEMANUAL
 	 * @exception Exception
 	 */
     public ComtnonlinemanualVO selectComtnonlinemanual(ComtnonlinemanualVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinemanual 목록을 조회한다.
+	 * COMTNONLINEMANUAL 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnonlinemanual 목록
+	 * @return COMTNONLINEMANUAL 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnonlinemanualDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinemanual 총 갯수를 조회한다.
+	 * COMTNONLINEMANUAL 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnonlinemanual 총 갯수
+	 * @return COMTNONLINEMANUAL 총 갯수
 	 * @exception
 	 */
     public int selectComtnonlinemanualListTotCnt(ComtnonlinemanualVO vo) {

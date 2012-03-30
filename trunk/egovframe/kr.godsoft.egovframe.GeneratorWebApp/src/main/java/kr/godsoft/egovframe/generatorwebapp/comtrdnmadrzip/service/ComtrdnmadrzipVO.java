@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtrdnmadrzip.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ public class ComtrdnmadrzipVO extends ComtrdnmadrzipDefaultVO {
     private String rdmnCode;
     
     /** SN */
-    private int sn;
+    private String sn;
     
     /** CTPRVN_NM */
     private String ctprvnNm;
@@ -65,11 +65,11 @@ public class ComtrdnmadrzipVO extends ComtrdnmadrzipDefaultVO {
         this.rdmnCode = rdmnCode;
     }
     
-    public int getSn() {
+    public String getSn() {
         return this.sn;
     }
     
-    public void setSn(int sn) {
+    public void setSn(String sn) {
         this.sn = sn;
     }
     

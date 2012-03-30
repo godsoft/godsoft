@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,169 +95,169 @@ function fn_egov_save() {
 		<tr>
 			<th>mtg_nm</th>
 			<td>
-				<form:input path="mtgNm" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgNm" />
+					<form:input path="mtgNm" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_mtr_cn</th>
 			<td>
-				<form:input path="mtgMtrCn" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgMtrCn" />
+					<form:input path="mtgMtrCn" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgMtrCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_sn</th>
 			<td>
-				<form:input path="mtgSn" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgSn" />
+					<form:input path="mtgSn" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgSn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_co</th>
 			<td>
-				<form:input path="mtgCo" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgCo" />
+					<form:input path="mtgCo" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_de</th>
 			<td>
-				<form:input path="mtgDe" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgDe" />
+					<form:input path="mtgDe" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_place</th>
 			<td>
-				<form:input path="mtgPlace" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgPlace" />
+					<form:input path="mtgPlace" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgPlace" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_begin_tm</th>
 			<td>
-				<form:input path="mtgBeginTm" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgBeginTm" />
+					<form:input path="mtgBeginTm" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgBeginTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_end_tm</th>
 			<td>
-				<form:input path="mtgEndTm" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgEndTm" />
+					<form:input path="mtgEndTm" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgEndTm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>clsdr_mtg_at</th>
 			<td>
-				<form:input path="clsdrMtgAt" cssClass="txt"/>
-				&nbsp;<form:errors path="clsdrMtgAt" />
+					<form:input path="clsdrMtgAt" cssClass="txt"/>
+					&nbsp;<form:errors path="clsdrMtgAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>readng_bgnde</th>
 			<td>
-				<form:input path="readngBgnde" cssClass="txt"/>
-				&nbsp;<form:errors path="readngBgnde" />
+					<form:input path="readngBgnde" cssClass="txt"/>
+					&nbsp;<form:errors path="readngBgnde" />
 			</td>
 		</tr>	
 		<tr>
 			<th>readng_at</th>
 			<td>
-				<form:input path="readngAt" cssClass="txt"/>
-				&nbsp;<form:errors path="readngAt" />
+					<form:input path="readngAt" cssClass="txt"/>
+					&nbsp;<form:errors path="readngAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_result_cn</th>
 			<td>
-				<form:input path="mtgResultCn" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgResultCn" />
+					<form:input path="mtgResultCn" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgResultCn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_result_ennc</th>
 			<td>
-				<form:input path="mtgResultEnnc" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgResultEnnc" />
+					<form:input path="mtgResultEnnc" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgResultEnnc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>etc_matter</th>
 			<td>
-				<form:input path="etcMatter" cssClass="txt"/>
-				&nbsp;<form:errors path="etcMatter" />
+					<form:input path="etcMatter" cssClass="txt"/>
+					&nbsp;<form:errors path="etcMatter" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mngt_dept_id</th>
 			<td>
-				<form:input path="mngtDeptId" cssClass="txt"/>
-				&nbsp;<form:errors path="mngtDeptId" />
+					<form:input path="mngtDeptId" cssClass="txt"/>
+					&nbsp;<form:errors path="mngtDeptId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mnaer_id</th>
 			<td>
-				<form:input path="mnaerId" cssClass="txt"/>
-				&nbsp;<form:errors path="mnaerId" />
+					<form:input path="mnaerId" cssClass="txt"/>
+					&nbsp;<form:errors path="mnaerId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mnaer_dept_id</th>
 			<td>
-				<form:input path="mnaerDeptId" cssClass="txt"/>
-				&nbsp;<form:errors path="mnaerDeptId" />
+					<form:input path="mnaerDeptId" cssClass="txt"/>
+					&nbsp;<form:errors path="mnaerDeptId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>mtg_at</th>
 			<td>
-				<form:input path="mtgAt" cssClass="txt"/>
-				&nbsp;<form:errors path="mtgAt" />
+					<form:input path="mtgAt" cssClass="txt"/>
+					&nbsp;<form:errors path="mtgAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>nonatdrn_co</th>
 			<td>
-				<form:input path="nonatdrnCo" cssClass="txt"/>
-				&nbsp;<form:errors path="nonatdrnCo" />
+					<form:input path="nonatdrnCo" cssClass="txt"/>
+					&nbsp;<form:errors path="nonatdrnCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atdrn_co</th>
 			<td>
-				<form:input path="atdrnCo" cssClass="txt"/>
-				&nbsp;<form:errors path="atdrnCo" />
+					<form:input path="atdrnCo" cssClass="txt"/>
+					&nbsp;<form:errors path="atdrnCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 	</table>

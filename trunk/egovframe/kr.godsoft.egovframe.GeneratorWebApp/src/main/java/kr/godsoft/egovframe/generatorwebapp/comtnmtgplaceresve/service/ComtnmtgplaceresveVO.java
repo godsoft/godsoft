@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmtgplaceresve.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -37,7 +37,7 @@ public class ComtnmtgplaceresveVO extends ComtnmtgplaceresveDefaultVO {
     private String resveEndTm;
     
     /** ATNDNC_NMPR */
-    private int atndncNmpr;
+    private String atndncNmpr;
     
     /** MTG_CN */
     private String mtgCn;
@@ -110,11 +110,11 @@ public class ComtnmtgplaceresveVO extends ComtnmtgplaceresveDefaultVO {
         this.resveEndTm = resveEndTm;
     }
     
-    public int getAtndncNmpr() {
+    public String getAtndncNmpr() {
         return this.atndncNmpr;
     }
     
-    public void setAtndncNmpr(int atndncNmpr) {
+    public void setAtndncNmpr(String atndncNmpr) {
         this.atndncNmpr = atndncNmpr;
     }
     

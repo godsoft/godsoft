@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnbackupresult">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnbackupresultVO" type="kr.godsoft.egovframe.generatorwebapp.comtnbackupresult.service.ComtnbackupresultVO"/>
+	
+	<resultMap id="comtnbackupresult" class="kr.godsoft.egovframe.generatorwebapp.comtnbackupresult.service.ComtnbackupresultVO">
+		<result property="backupResultId" column="backup_result_id" columnIndex="1"/>
+		<result property="backupOpertId" column="backup_opert_id" columnIndex="2"/>
+		<result property="backupFile" column="backup_file" columnIndex="3"/>
+		<result property="sttus" column="sttus" columnIndex="4"/>
+		<result property="errorInfo" column="error_info" columnIndex="5"/>
+		<result property="executBeginTm" column="execut_begin_tm" columnIndex="6"/>
+		<result property="executEndTm" column="execut_end_tm" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtnbackupresultDAO.insertComtnbackupresult_S">
+		<![CDATA[
+            INSERT INTO comtnbackupresult (
+                backup_result_id
+                , backup_opert_id
+                , backup_file
+                , sttus
+                , error_info
+                , execut_begin_tm
+                , execut_end_tm
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #backupResultId#
+                , #backupOpertId#
+                , #backupFile#
+                , #sttus#
+                , #errorInfo#
+                , #executBeginTm#
+                , #executEndTm#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnbackupresultDAO.updateComtnbackupresult_S">
+		<![CDATA[
+            UPDATE comtnbackupresult
+                SET
+                backup_result_id = #backupResultId#
+                , backup_opert_id = #backupOpertId#
+                , backup_file = #backupFile#
+                , sttus = #sttus#
+                , error_info = #errorInfo#
+                , execut_begin_tm = #executBeginTm#
+                , execut_end_tm = #executEndTm#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND backup_result_id = #backupResultId#
+		]]>
+	</update>
+	
+	<delete id="comtnbackupresultDAO.deleteComtnbackupresult_S">
+		<![CDATA[
+			DELETE FROM comtnbackupresult
+				WHERE 1 = 1
+				AND backup_result_id = #backupResultId#
+		]]>
+	</delete>
+	
+	<select id="comtnbackupresultDAO.selectComtnbackupresult_S" resultMap="comtnbackupresult">
+		<![CDATA[
+			SELECT
+				backup_result_id
+				, backup_opert_id
+				, backup_file
+				, sttus
+				, error_info
+				, execut_begin_tm
+				, execut_end_tm
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNBACKUPRESULT
+			WHERE backup_result_id = #backupResultId#
+		]]>
+	</select>
+	
+	<select id="comtnbackupresultDAO.selectComtnbackupresultList_D" parameterClass="ComtnbackupresultVO" resultClass="egovMap">
+	       SELECT 
+								A.BACKUP_RESULT_ID
+								, A.BACKUP_OPERT_ID
+								, A.BACKUP_FILE
+								, A.STTUS
+								, A.ERROR_INFO
+								, A.EXECUT_BEGIN_TM
+								, A.EXECUT_END_TM
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								BACKUP_RESULT_ID
+								, BACKUP_OPERT_ID
+								, BACKUP_FILE
+								, STTUS
+								, ERROR_INFO
+								, EXECUT_BEGIN_TM
+								, EXECUT_END_TM
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNBACKUPRESULT
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					BACKUP_RESULT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					BACKUP_OPERT_ID LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							BACKUP_RESULT_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnbackupresultDAO.selectComtnbackupresultListTotCnt_S" parameterClass="ComtnbackupresultVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNBACKUPRESULT
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				BACKUP_RESULT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				BACKUP_OPERT_ID LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

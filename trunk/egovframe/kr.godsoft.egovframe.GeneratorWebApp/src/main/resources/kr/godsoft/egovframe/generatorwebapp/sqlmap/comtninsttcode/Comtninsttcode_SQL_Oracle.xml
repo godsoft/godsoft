@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtninsttcode">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtninsttcodeVO" type="kr.godsoft.egovframe.generatorwebapp.comtninsttcode.service.ComtninsttcodeVO"/>
+	
+	<resultMap id="comtninsttcode" class="kr.godsoft.egovframe.generatorwebapp.comtninsttcode.service.ComtninsttcodeVO">
+		<result property="insttCode" column="instt_code" columnIndex="1"/>
+		<result property="allInsttNm" column="all_instt_nm" columnIndex="2"/>
+		<result property="lowestInsttNm" column="lowest_instt_nm" columnIndex="3"/>
+		<result property="insttAbrvNm" column="instt_abrv_nm" columnIndex="4"/>
+		<result property="odr" column="odr" columnIndex="5"/>
+		<result property="ord" column="ord" columnIndex="6"/>
+		<result property="insttOdr" column="instt_odr" columnIndex="7"/>
+		<result property="upperInsttCode" column="upper_instt_code" columnIndex="8"/>
+		<result property="bestInsttCode" column="best_instt_code" columnIndex="9"/>
+		<result property="reprsntInsttCode" column="reprsnt_instt_code" columnIndex="10"/>
+		<result property="insttTyLclas" column="instt_ty_lclas" columnIndex="11"/>
+		<result property="insttTyMlsfc" column="instt_ty_mlsfc" columnIndex="12"/>
+		<result property="insttTySclas" column="instt_ty_sclas" columnIndex="13"/>
+		<result property="telno" column="telno" columnIndex="14"/>
+		<result property="fxnum" column="fxnum" columnIndex="15"/>
+		<result property="creatDe" column="creat_de" columnIndex="16"/>
+		<result property="ablDe" column="abl_de" columnIndex="17"/>
+		<result property="ablEnnc" column="abl_ennc" columnIndex="18"/>
+		<result property="changeDe" column="change_de" columnIndex="19"/>
+		<result property="changeTime" column="change_time" columnIndex="20"/>
+		<result property="bsisDe" column="bsis_de" columnIndex="21"/>
+		<result property="sortOrdr" column="sort_ordr" columnIndex="22"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="23"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="24"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="25"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="26"/>
+	</resultMap>
+	
+	<insert id="comtninsttcodeDAO.insertComtninsttcode_S">
+		<![CDATA[
+            INSERT INTO comtninsttcode (
+                instt_code
+                , all_instt_nm
+                , lowest_instt_nm
+                , instt_abrv_nm
+                , odr
+                , ord
+                , instt_odr
+                , upper_instt_code
+                , best_instt_code
+                , reprsnt_instt_code
+                , instt_ty_lclas
+                , instt_ty_mlsfc
+                , instt_ty_sclas
+                , telno
+                , fxnum
+                , creat_de
+                , abl_de
+                , abl_ennc
+                , change_de
+                , change_time
+                , bsis_de
+                , sort_ordr
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #insttCode#
+                , #allInsttNm#
+                , #lowestInsttNm#
+                , #insttAbrvNm#
+                , #odr#
+                , #ord#
+                , #insttOdr#
+                , #upperInsttCode#
+                , #bestInsttCode#
+                , #reprsntInsttCode#
+                , #insttTyLclas#
+                , #insttTyMlsfc#
+                , #insttTySclas#
+                , #telno#
+                , #fxnum#
+                , #creatDe#
+                , #ablDe#
+                , #ablEnnc#
+                , #changeDe#
+                , #changeTime#
+                , #bsisDe#
+                , #sortOrdr#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtninsttcodeDAO.updateComtninsttcode_S">
+		<![CDATA[
+            UPDATE comtninsttcode
+                SET
+                instt_code = #insttCode#
+                , all_instt_nm = #allInsttNm#
+                , lowest_instt_nm = #lowestInsttNm#
+                , instt_abrv_nm = #insttAbrvNm#
+                , odr = #odr#
+                , ord = #ord#
+                , instt_odr = #insttOdr#
+                , upper_instt_code = #upperInsttCode#
+                , best_instt_code = #bestInsttCode#
+                , reprsnt_instt_code = #reprsntInsttCode#
+                , instt_ty_lclas = #insttTyLclas#
+                , instt_ty_mlsfc = #insttTyMlsfc#
+                , instt_ty_sclas = #insttTySclas#
+                , telno = #telno#
+                , fxnum = #fxnum#
+                , creat_de = #creatDe#
+                , abl_de = #ablDe#
+                , abl_ennc = #ablEnnc#
+                , change_de = #changeDe#
+                , change_time = #changeTime#
+                , bsis_de = #bsisDe#
+                , sort_ordr = #sortOrdr#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND instt_code = #insttCode#
+		]]>
+	</update>
+	
+	<delete id="comtninsttcodeDAO.deleteComtninsttcode_S">
+		<![CDATA[
+			DELETE FROM comtninsttcode
+				WHERE 1 = 1
+				AND instt_code = #insttCode#
+		]]>
+	</delete>
+	
+	<select id="comtninsttcodeDAO.selectComtninsttcode_S" resultMap="comtninsttcode">
+		<![CDATA[
+			SELECT
+				instt_code
+				, all_instt_nm
+				, lowest_instt_nm
+				, instt_abrv_nm
+				, odr
+				, ord
+				, instt_odr
+				, upper_instt_code
+				, best_instt_code
+				, reprsnt_instt_code
+				, instt_ty_lclas
+				, instt_ty_mlsfc
+				, instt_ty_sclas
+				, telno
+				, fxnum
+				, creat_de
+				, abl_de
+				, abl_ennc
+				, change_de
+				, change_time
+				, bsis_de
+				, sort_ordr
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNINSTTCODE
+			WHERE instt_code = #insttCode#
+		]]>
+	</select>
+	
+	<select id="comtninsttcodeDAO.selectComtninsttcodeList_D" parameterClass="ComtninsttcodeVO" resultClass="egovMap">
+	       SELECT 
+								A.INSTT_CODE
+								, A.ALL_INSTT_NM
+								, A.LOWEST_INSTT_NM
+								, A.INSTT_ABRV_NM
+								, A.ODR
+								, A.ORD
+								, A.INSTT_ODR
+								, A.UPPER_INSTT_CODE
+								, A.BEST_INSTT_CODE
+								, A.REPRSNT_INSTT_CODE
+								, A.INSTT_TY_LCLAS
+								, A.INSTT_TY_MLSFC
+								, A.INSTT_TY_SCLAS
+								, A.TELNO
+								, A.FXNUM
+								, A.CREAT_DE
+								, A.ABL_DE
+								, A.ABL_ENNC
+								, A.CHANGE_DE
+								, A.CHANGE_TIME
+								, A.BSIS_DE
+								, A.SORT_ORDR
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								INSTT_CODE
+								, ALL_INSTT_NM
+								, LOWEST_INSTT_NM
+								, INSTT_ABRV_NM
+								, ODR
+								, ORD
+								, INSTT_ODR
+								, UPPER_INSTT_CODE
+								, BEST_INSTT_CODE
+								, REPRSNT_INSTT_CODE
+								, INSTT_TY_LCLAS
+								, INSTT_TY_MLSFC
+								, INSTT_TY_SCLAS
+								, TELNO
+								, FXNUM
+								, CREAT_DE
+								, ABL_DE
+								, ABL_ENNC
+								, CHANGE_DE
+								, CHANGE_TIME
+								, BSIS_DE
+								, SORT_ORDR
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNINSTTCODE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					INSTT_CODE = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					ALL_INSTT_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							INSTT_CODE DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtninsttcodeDAO.selectComtninsttcodeListTotCnt_S" parameterClass="ComtninsttcodeVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNINSTTCODE
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				INSTT_CODE = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				ALL_INSTT_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtczip.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ public class ComtczipVO extends ComtczipDefaultVO {
     private String zip;
     
     /** SN */
-    private int sn;
+    private String sn;
     
     /** CTPRVN_NM */
     private String ctprvnNm;
@@ -56,11 +56,11 @@ public class ComtczipVO extends ComtczipDefaultVO {
         this.zip = zip;
     }
     
-    public int getSn() {
+    public String getSn() {
         return this.sn;
     }
     
-    public void setSn(int sn) {
+    public void setSn(String sn) {
         this.sn = sn;
     }
     

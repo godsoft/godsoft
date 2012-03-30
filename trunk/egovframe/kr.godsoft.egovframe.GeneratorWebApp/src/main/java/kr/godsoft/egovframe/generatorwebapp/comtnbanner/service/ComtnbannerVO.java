@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbanner.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -49,7 +49,7 @@ public class ComtnbannerVO extends ComtnbannerDefaultVO {
     private String bannerImageFile;
     
     /** SORT_ORDR */
-    private int sortOrdr;
+    private String sortOrdr;
     
     public String getBannerId() {
         return this.bannerId;
@@ -139,11 +139,11 @@ public class ComtnbannerVO extends ComtnbannerDefaultVO {
         this.bannerImageFile = bannerImageFile;
     }
     
-    public int getSortOrdr() {
+    public String getSortOrdr() {
         return this.sortOrdr;
     }
     
-    public void setSortOrdr(int sortOrdr) {
+    public void setSortOrdr(String sortOrdr) {
         this.sortOrdr = sortOrdr;
     }
     

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsDefaultVO;
 
 /**
  * @Class Name : ComtnmtgplacefxtrsDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.Comtnmtgp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.Comtnmtgp
 public class ComtnmtgplacefxtrsDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnmtgplacefxtrs을 등록한다.
+	 * COMTNMTGPLACEFXTRS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnmtgplacefxtrsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnmtgplacefxtrsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmtgplacefxtrs을 수정한다.
+	 * COMTNMTGPLACEFXTRS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnmtgplacefxtrsVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnmtgplacefxtrsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmtgplacefxtrs을 삭제한다.
+	 * COMTNMTGPLACEFXTRS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnmtgplacefxtrsVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnmtgplacefxtrsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmtgplacefxtrs을 조회한다.
+	 * COMTNMTGPLACEFXTRS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnmtgplacefxtrsVO
-	 * @return 조회한 comtnmtgplacefxtrs
+	 * @return 조회한 COMTNMTGPLACEFXTRS
 	 * @exception Exception
 	 */
     public ComtnmtgplacefxtrsVO selectComtnmtgplacefxtrs(ComtnmtgplacefxtrsVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnmtgplacefxtrsDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnmtgplacefxtrs 목록을 조회한다.
+	 * COMTNMTGPLACEFXTRS 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnmtgplacefxtrs 목록
+	 * @return COMTNMTGPLACEFXTRS 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmtgplacefxtrsList(ComtnmtgplacefxtrsDefaultVO searchVO) throws Exception {
-        return list("comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrsList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnmtgplacefxtrsList(ComtnmtgplacefxtrsVO vo) throws Exception {
+        return list("comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrsList_D", vo);
     }
 
     /**
-	 * comtnmtgplacefxtrs 총 갯수를 조회한다.
+	 * COMTNMTGPLACEFXTRS 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnmtgplacefxtrs 총 갯수
+	 * @return COMTNMTGPLACEFXTRS 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmtgplacefxtrsListTotCnt(ComtnmtgplacefxtrsDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrsListTotCnt_S", searchVO);
+    public int selectComtnmtgplacefxtrsListTotCnt(ComtnmtgplacefxtrsVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrsListTotCnt_S", vo);
     }
 
 }

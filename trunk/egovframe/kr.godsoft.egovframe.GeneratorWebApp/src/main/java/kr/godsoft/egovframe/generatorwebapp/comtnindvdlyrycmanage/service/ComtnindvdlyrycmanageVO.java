@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnindvdlyrycmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,13 +19,13 @@ public class ComtnindvdlyrycmanageVO extends ComtnindvdlyrycmanageDefaultVO {
     private String occrrncYear;
     
     /** YRYC_OCCRRNC_CO */
-    private int yrycOccrrncCo;
+    private String yrycOccrrncCo;
     
     /** USE_YRYC_CO */
-    private int useYrycCo;
+    private String useYrycCo;
     
     /** REMNDR_YRYC_CO */
-    private int remndrYrycCo;
+    private String remndrYrycCo;
     
     /** FRST_REGISTER_ID */
     private String frstRegisterId;
@@ -50,27 +50,27 @@ public class ComtnindvdlyrycmanageVO extends ComtnindvdlyrycmanageDefaultVO {
         this.occrrncYear = occrrncYear;
     }
     
-    public int getYrycOccrrncCo() {
+    public String getYrycOccrrncCo() {
         return this.yrycOccrrncCo;
     }
     
-    public void setYrycOccrrncCo(int yrycOccrrncCo) {
+    public void setYrycOccrrncCo(String yrycOccrrncCo) {
         this.yrycOccrrncCo = yrycOccrrncCo;
     }
     
-    public int getUseYrycCo() {
+    public String getUseYrycCo() {
         return this.useYrycCo;
     }
     
-    public void setUseYrycCo(int useYrycCo) {
+    public void setUseYrycCo(String useYrycCo) {
         this.useYrycCo = useYrycCo;
     }
     
-    public int getRemndrYrycCo() {
+    public String getRemndrYrycCo() {
         return this.remndrYrycCo;
     }
     
-    public void setRemndrYrycCo(int remndrYrycCo) {
+    public void setRemndrYrycCo(String remndrYrycCo) {
         this.remndrYrycCo = remndrYrycCo;
     }
     

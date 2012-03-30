@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnsyslog.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -46,7 +46,7 @@ public class ComtnsyslogVO extends ComtnsyslogDefaultVO {
     private String processSeCode;
     
     /** PROCESS_CO */
-    private int processCo;
+    private String processCo;
     
     /** PROCESS_TIME */
     private String processTime;
@@ -58,7 +58,7 @@ public class ComtnsyslogVO extends ComtnsyslogDefaultVO {
     private String errorSe;
     
     /** ERROR_CO */
-    private int errorCo;
+    private String errorCo;
     
     /** ERROR_CODE */
     private String errorCode;
@@ -143,11 +143,11 @@ public class ComtnsyslogVO extends ComtnsyslogDefaultVO {
         this.processSeCode = processSeCode;
     }
     
-    public int getProcessCo() {
+    public String getProcessCo() {
         return this.processCo;
     }
     
-    public void setProcessCo(int processCo) {
+    public void setProcessCo(String processCo) {
         this.processCo = processCo;
     }
     
@@ -175,11 +175,11 @@ public class ComtnsyslogVO extends ComtnsyslogDefaultVO {
         this.errorSe = errorSe;
     }
     
-    public int getErrorCo() {
+    public String getErrorCo() {
         return this.errorCo;
     }
     
-    public void setErrorCo(int errorCo) {
+    public void setErrorCo(String errorCo) {
         this.errorCo = errorCo;
     }
     

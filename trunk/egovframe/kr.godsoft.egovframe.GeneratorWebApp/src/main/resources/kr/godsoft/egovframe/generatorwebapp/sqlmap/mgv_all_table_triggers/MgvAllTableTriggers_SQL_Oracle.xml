@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MgvAllTableTriggers">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MgvAllTableTriggersVO" type="kr.godsoft.egovframe.generatorwebapp.mgv_all_table_triggers.service.MgvAllTableTriggersVO"/>
+	
+	<resultMap id="mgvAllTableTriggers" class="kr.godsoft.egovframe.generatorwebapp.mgv_all_table_triggers.service.MgvAllTableTriggersVO">
+		<result property="projectId" column="project_id" columnIndex="1"/>
+		<result property="projectName" column="project_name" columnIndex="2"/>
+		<result property="connectionId" column="connection_id" columnIndex="3"/>
+		<result property="host" column="host" columnIndex="4"/>
+		<result property="port" column="port" columnIndex="5"/>
+		<result property="username" column="username" columnIndex="6"/>
+		<result property="catalogId" column="catalog_id" columnIndex="7"/>
+		<result property="catalogName" column="catalog_name" columnIndex="8"/>
+		<result property="dummyFlag" column="dummy_flag" columnIndex="9"/>
+		<result property="schemaId" column="schema_id" columnIndex="10"/>
+		<result property="schemaName" column="schema_name" columnIndex="11"/>
+		<result property="tableId" column="table_id" columnIndex="12"/>
+		<result property="tableName" column="table_name" columnIndex="13"/>
+		<result property="triggerId" column="trigger_id" columnIndex="14"/>
+		<result property="triggerName" column="trigger_name" columnIndex="15"/>
+	</resultMap>
+	
+	<insert id="mgvAllTableTriggersDAO.insertMgvAllTableTriggers_S">
+		<![CDATA[
+            INSERT INTO mgv_all_table_triggers (
+                project_id
+                , project_name
+                , connection_id
+                , host
+                , port
+                , username
+                , catalog_id
+                , catalog_name
+                , dummy_flag
+                , schema_id
+                , schema_name
+                , table_id
+                , table_name
+                , trigger_id
+                , trigger_name
+            ) VALUES (
+                #projectId#
+                , #projectName#
+                , #connectionId#
+                , #host#
+                , #port#
+                , #username#
+                , #catalogId#
+                , #catalogName#
+                , #dummyFlag#
+                , #schemaId#
+                , #schemaName#
+                , #tableId#
+                , #tableName#
+                , #triggerId#
+                , #triggerName#
+            )
+		]]>
+	</insert>
+	
+	<update id="mgvAllTableTriggersDAO.updateMgvAllTableTriggers_S">
+		<![CDATA[
+            UPDATE mgv_all_table_triggers
+                SET
+                project_id = #projectId#
+                , project_name = #projectName#
+                , connection_id = #connectionId#
+                , host = #host#
+                , port = #port#
+                , username = #username#
+                , catalog_id = #catalogId#
+                , catalog_name = #catalogName#
+                , dummy_flag = #dummyFlag#
+                , schema_id = #schemaId#
+                , schema_name = #schemaName#
+                , table_id = #tableId#
+                , table_name = #tableName#
+                , trigger_id = #triggerId#
+                , trigger_name = #triggerName#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="mgvAllTableTriggersDAO.deleteMgvAllTableTriggers_S">
+		<![CDATA[
+			DELETE FROM mgv_all_table_triggers
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="mgvAllTableTriggersDAO.selectMgvAllTableTriggers_S" resultMap="mgvAllTableTriggers">
+		<![CDATA[
+			SELECT
+				project_id
+				, project_name
+				, connection_id
+				, host
+				, port
+				, username
+				, catalog_id
+				, catalog_name
+				, dummy_flag
+				, schema_id
+				, schema_name
+				, table_id
+				, table_name
+				, trigger_id
+				, trigger_name
+			FROM MGV_ALL_TABLE_TRIGGERS
+		]]>
+	</select>
+	
+	<select id="mgvAllTableTriggersDAO.selectMgvAllTableTriggersList_D" parameterClass="MgvAllTableTriggersVO" resultClass="egovMap">
+	       SELECT 
+								A.PROJECT_ID
+								, A.PROJECT_NAME
+								, A.CONNECTION_ID
+								, A.HOST
+								, A.PORT
+								, A.USERNAME
+								, A.CATALOG_ID
+								, A.CATALOG_NAME
+								, A.DUMMY_FLAG
+								, A.SCHEMA_ID
+								, A.SCHEMA_NAME
+								, A.TABLE_ID
+								, A.TABLE_NAME
+								, A.TRIGGER_ID
+								, A.TRIGGER_NAME
+			       FROM
+            (
+				SELECT
+								PROJECT_ID
+								, PROJECT_NAME
+								, CONNECTION_ID
+								, HOST
+								, PORT
+								, USERNAME
+								, CATALOG_ID
+								, CATALOG_NAME
+								, DUMMY_FLAG
+								, SCHEMA_ID
+								, SCHEMA_NAME
+								, TABLE_ID
+								, TABLE_NAME
+								, TRIGGER_ID
+								, TRIGGER_NAME
+							, ROWNUM
+				FROM MGV_ALL_TABLE_TRIGGERS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					PROJECT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PROJECT_NAME LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mgvAllTableTriggersDAO.selectMgvAllTableTriggersListTotCnt_S" parameterClass="MgvAllTableTriggersVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MGV_ALL_TABLE_TRIGGERS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROJECT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROJECT_NAME LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

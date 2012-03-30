@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comtnserverresrceloginfoVO.serverEqpmnId ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comtnserverresrceloginfoVO.serverId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnserverresrceloginfoVO.logId ? '등록' : '수정'}"/>
+<title>comtnserverresrceloginfo <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +66,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,19 +79,19 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>server_eqpmn_id *</th>
 			<td>
 				<form:input path="serverEqpmnId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>server_id *</th>
 			<td>
 				<form:input path="serverId" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>log_id *</th>
 			<td>
 				<form:input path="logId" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -97,19 +99,19 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>server_eqpmn_id *</th>
 			<td>
 				<form:input path="serverEqpmnId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>server_id *</th>
 			<td>
 				<form:input path="serverId" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>log_id *</th>
 			<td>
 				<form:input path="logId" cssClass="txt" readonly="false" />
 			</td>			
@@ -117,93 +119,66 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>cpu_use_rt</th>
 			<td>
-	
-				<form:input path="cpuUseRt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="cpuUseRt" />
+					<form:input path="cpuUseRt" cssClass="txt"/>
+					&nbsp;<form:errors path="cpuUseRt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>mory_use_rt</th>
 			<td>
-	
-				<form:input path="moryUseRt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="moryUseRt" />
+					<form:input path="moryUseRt" cssClass="txt"/>
+					&nbsp;<form:errors path="moryUseRt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>svc_sttus</th>
 			<td>
-	
-				<form:input path="svcSttus" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="svcSttus" />
+					<form:input path="svcSttus" cssClass="txt"/>
+					&nbsp;<form:errors path="svcSttus" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>log_info</th>
 			<td>
-	
-				<form:input path="logInfo" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="logInfo" />
+					<form:input path="logInfo" cssClass="txt"/>
+					&nbsp;<form:errors path="logInfo" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>creat_dt</th>
 			<td>
-	
-				<form:input path="creatDt" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="creatDt" />
+					<form:input path="creatDt" cssClass="txt"/>
+					&nbsp;<form:errors path="creatDt" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_register_id</th>
 			<td>
-	
-				<form:input path="frstRegisterId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>frst_regist_pnttm</th>
 			<td>
-	
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updusr_id</th>
 			<td>
-	
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>last_updt_pnttm</th>
 			<td>
-	
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

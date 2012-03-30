@@ -6,29 +6,29 @@ package kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnmenucreatdtlsVO extends ComtnmenucreatdtlsDefaultVO{
+public class ComtnmenucreatdtlsVO extends ComtnmenucreatdtlsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
-    private int menuNo;
+    /** MENU_NO */
+    private String menuNo;
     
-    /**  */
+    /** AUTHOR_CODE */
     private String authorCode;
     
-    /**  */
+    /** MAPNG_CREAT_ID */
     private String mapngCreatId;
     
-    public int getMenuNo() {
+    public String getMenuNo() {
         return this.menuNo;
     }
     
-    public void setMenuNo(int menuNo) {
+    public void setMenuNo(String menuNo) {
         this.menuNo = menuNo;
     }
     

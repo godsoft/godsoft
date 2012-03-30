@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,78 +95,78 @@ function fn_egov_save() {
 		<tr>
 			<th>banner_nm</th>
 			<td>
-				<form:input path="bannerNm" cssClass="txt"/>
-				&nbsp;<form:errors path="bannerNm" />
+					<form:input path="bannerNm" cssClass="txt"/>
+					&nbsp;<form:errors path="bannerNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>link_url</th>
 			<td>
-				<form:input path="linkUrl" cssClass="txt"/>
-				&nbsp;<form:errors path="linkUrl" />
+					<form:input path="linkUrl" cssClass="txt"/>
+					&nbsp;<form:errors path="linkUrl" />
 			</td>
 		</tr>	
 		<tr>
 			<th>banner_image</th>
 			<td>
-				<form:input path="bannerImage" cssClass="txt"/>
-				&nbsp;<form:errors path="bannerImage" />
+					<form:input path="bannerImage" cssClass="txt"/>
+					&nbsp;<form:errors path="bannerImage" />
 			</td>
 		</tr>	
 		<tr>
 			<th>banner_dc</th>
 			<td>
-				<form:input path="bannerDc" cssClass="txt"/>
-				&nbsp;<form:errors path="bannerDc" />
+					<form:input path="bannerDc" cssClass="txt"/>
+					&nbsp;<form:errors path="bannerDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reflct_at</th>
 			<td>
-				<form:input path="reflctAt" cssClass="txt"/>
-				&nbsp;<form:errors path="reflctAt" />
+					<form:input path="reflctAt" cssClass="txt"/>
+					&nbsp;<form:errors path="reflctAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>banner_image_file</th>
 			<td>
-				<form:input path="bannerImageFile" cssClass="txt"/>
-				&nbsp;<form:errors path="bannerImageFile" />
+					<form:input path="bannerImageFile" cssClass="txt"/>
+					&nbsp;<form:errors path="bannerImageFile" />
 			</td>
 		</tr>	
 		<tr>
 			<th>sort_ordr</th>
 			<td>
-				<form:input path="sortOrdr" cssClass="txt"/>
-				&nbsp;<form:errors path="sortOrdr" />
+					<form:input path="sortOrdr" cssClass="txt"/>
+					&nbsp;<form:errors path="sortOrdr" />
 			</td>
 		</tr>	
 	</table>

@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnentrprsmber을 등록한다.
+	 * COMTNENTRPRSMBER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnentrprsmberVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnentrprsmber을 수정한다.
+	 * COMTNENTRPRSMBER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnentrprsmberVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnentrprsmber을 삭제한다.
+	 * COMTNENTRPRSMBER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnentrprsmberVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnentrprsmber을 조회한다.
+	 * COMTNENTRPRSMBER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnentrprsmberVO
-	 * @return 조회한 comtnentrprsmber
+	 * @return 조회한 COMTNENTRPRSMBER
 	 * @exception Exception
 	 */
     public ComtnentrprsmberVO selectComtnentrprsmber(ComtnentrprsmberVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnentrprsmber 목록을 조회한다.
+	 * COMTNENTRPRSMBER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnentrprsmber 목록
+	 * @return COMTNENTRPRSMBER 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnentrprsmberList(ComtnentrprsmberVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnentrprsmberServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnentrprsmber 총 갯수를 조회한다.
+	 * COMTNENTRPRSMBER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnentrprsmber 총 갯수
+	 * @return COMTNENTRPRSMBER 총 갯수
 	 * @exception
 	 */
     public int selectComtnentrprsmberListTotCnt(ComtnentrprsmberVO vo) {

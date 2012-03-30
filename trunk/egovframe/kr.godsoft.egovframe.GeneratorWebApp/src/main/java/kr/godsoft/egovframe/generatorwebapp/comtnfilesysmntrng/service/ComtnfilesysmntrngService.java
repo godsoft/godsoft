@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnfilesysmntrngService {
 	
 	/**
-	 * comtnfilesysmntrng을 등록한다.
+	 * COMTNFILESYSMNTRNG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnfilesysmntrngService {
     String insertComtnfilesysmntrng(ComtnfilesysmntrngVO vo) throws Exception;
     
     /**
-	 * comtnfilesysmntrng을 수정한다.
+	 * COMTNFILESYSMNTRNG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnfilesysmntrngService {
     void updateComtnfilesysmntrng(ComtnfilesysmntrngVO vo) throws Exception;
     
     /**
-	 * comtnfilesysmntrng을 삭제한다.
+	 * COMTNFILESYSMNTRNG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnfilesysmntrngVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnfilesysmntrngService {
     void deleteComtnfilesysmntrng(ComtnfilesysmntrngVO vo) throws Exception;
     
     /**
-	 * comtnfilesysmntrng을 조회한다.
+	 * COMTNFILESYSMNTRNG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnfilesysmntrngVO
-	 * @return 조회한 comtnfilesysmntrng
+	 * @return 조회한 COMTNFILESYSMNTRNG
 	 * @exception Exception
 	 */
     ComtnfilesysmntrngVO selectComtnfilesysmntrng(ComtnfilesysmntrngVO vo) throws Exception;
     
     /**
-	 * comtnfilesysmntrng 목록을 조회한다.
+	 * COMTNFILESYSMNTRNG 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnfilesysmntrng 목록
+	 * @return COMTNFILESYSMNTRNG 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnfilesysmntrngList(ComtnfilesysmntrngVO vo) throws Exception;
     
     /**
-	 * comtnfilesysmntrng 총 갯수를 조회한다.
+	 * COMTNFILESYSMNTRNG 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnfilesysmntrng 총 갯수
+	 * @return COMTNFILESYSMNTRNG 총 갯수
 	 * @exception
 	 */
     int selectComtnfilesysmntrngListTotCnt(ComtnfilesysmntrngVO vo);

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnService;
+import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnService;
-import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.ComtnnoterecptnVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.impl.ComtnnoterecptnDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnnoterecptnServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnnoterecptn.service.impl.Comtnno
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnnoterecptnServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnnoterecptn을 등록한다.
+	 * COMTNNOTERECPTN을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnnoterecptnVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnnoterecptnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnnoterecptn을 수정한다.
+	 * COMTNNOTERECPTN을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnnoterecptnVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnnoterecptnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnnoterecptn을 삭제한다.
+	 * COMTNNOTERECPTN을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnnoterecptnVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnnoterecptnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnnoterecptn을 조회한다.
+	 * COMTNNOTERECPTN을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnnoterecptnVO
-	 * @return 조회한 comtnnoterecptn
+	 * @return 조회한 COMTNNOTERECPTN
 	 * @exception Exception
 	 */
     public ComtnnoterecptnVO selectComtnnoterecptn(ComtnnoterecptnVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnnoterecptnServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnnoterecptn 목록을 조회한다.
+	 * COMTNNOTERECPTN 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnnoterecptn 목록
+	 * @return COMTNNOTERECPTN 목록
 	 * @exception Exception
 	 */
-    public List selectComtnnoterecptnList(ComtnnoterecptnDefaultVO searchVO) throws Exception {
-        return comtnnoterecptnDAO.selectComtnnoterecptnList(searchVO);
+    public List<EgovMap> selectComtnnoterecptnList(ComtnnoterecptnVO vo) throws Exception {
+        return comtnnoterecptnDAO.selectComtnnoterecptnList(vo);
     }
 
     /**
-	 * comtnnoterecptn 총 갯수를 조회한다.
+	 * COMTNNOTERECPTN 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnnoterecptn 총 갯수
+	 * @return COMTNNOTERECPTN 총 갯수
 	 * @exception
 	 */
-    public int selectComtnnoterecptnListTotCnt(ComtnnoterecptnDefaultVO searchVO) {
-		return comtnnoterecptnDAO.selectComtnnoterecptnListTotCnt(searchVO);
+    public int selectComtnnoterecptnListTotCnt(ComtnnoterecptnVO vo) {
+		return comtnnoterecptnDAO.selectComtnnoterecptnListTotCnt(vo);
 	}
     
 }

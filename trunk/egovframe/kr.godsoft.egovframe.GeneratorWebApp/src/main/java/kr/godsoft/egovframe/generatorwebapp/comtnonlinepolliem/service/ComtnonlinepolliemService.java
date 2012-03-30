@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.ComtnonlinepolliemVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnonlinepolliemService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.Comtnonli
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepolliem.service.Comtnonli
 public interface ComtnonlinepolliemService {
 	
 	/**
-	 * comtnonlinepolliem을 등록한다.
+	 * COMTNONLINEPOLLIEM을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnonlinepolliemVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnonlinepolliemService {
     String insertComtnonlinepolliem(ComtnonlinepolliemVO vo) throws Exception;
     
     /**
-	 * comtnonlinepolliem을 수정한다.
+	 * COMTNONLINEPOLLIEM을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnonlinepolliemVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnonlinepolliemService {
     void updateComtnonlinepolliem(ComtnonlinepolliemVO vo) throws Exception;
     
     /**
-	 * comtnonlinepolliem을 삭제한다.
+	 * COMTNONLINEPOLLIEM을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnonlinepolliemVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnonlinepolliemService {
     void deleteComtnonlinepolliem(ComtnonlinepolliemVO vo) throws Exception;
     
     /**
-	 * comtnonlinepolliem을 조회한다.
+	 * COMTNONLINEPOLLIEM을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnonlinepolliemVO
-	 * @return 조회한 comtnonlinepolliem
+	 * @return 조회한 COMTNONLINEPOLLIEM
 	 * @exception Exception
 	 */
     ComtnonlinepolliemVO selectComtnonlinepolliem(ComtnonlinepolliemVO vo) throws Exception;
     
     /**
-	 * comtnonlinepolliem 목록을 조회한다.
+	 * COMTNONLINEPOLLIEM 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnonlinepolliem 목록
+	 * @return COMTNONLINEPOLLIEM 목록
 	 * @exception Exception
 	 */
-    List selectComtnonlinepolliemList(ComtnonlinepolliemDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnonlinepolliemList(ComtnonlinepolliemVO vo) throws Exception;
     
     /**
-	 * comtnonlinepolliem 총 갯수를 조회한다.
+	 * COMTNONLINEPOLLIEM 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnonlinepolliem 총 갯수
+	 * @return COMTNONLINEPOLLIEM 총 갯수
 	 * @exception
 	 */
-    int selectComtnonlinepolliemListTotCnt(ComtnonlinepolliemDefaultVO searchVO);
+    int selectComtnonlinepolliemListTotCnt(ComtnonlinepolliemVO vo);
     
 }

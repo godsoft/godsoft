@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -134,106 +134,106 @@ function fn_egov_save() {
 		<tr>
 			<th>change_se_code</th>
 			<td>
-				<form:input path="changeSeCode" cssClass="txt"/>
-				&nbsp;<form:errors path="changeSeCode" />
+					<form:input path="changeSeCode" cssClass="txt"/>
+					&nbsp;<form:errors path="changeSeCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>process_se</th>
 			<td>
-				<form:input path="processSe" cssClass="txt"/>
-				&nbsp;<form:errors path="processSe" />
+					<form:input path="processSe" cssClass="txt"/>
+					&nbsp;<form:errors path="processSe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>administ_zone_nm</th>
 			<td>
-				<form:input path="administZoneNm" cssClass="txt"/>
-				&nbsp;<form:errors path="administZoneNm" />
+					<form:input path="administZoneNm" cssClass="txt"/>
+					&nbsp;<form:errors path="administZoneNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>lowest_administ_zone_nm</th>
 			<td>
-				<form:input path="lowestAdministZoneNm" cssClass="txt"/>
-				&nbsp;<form:errors path="lowestAdministZoneNm" />
+					<form:input path="lowestAdministZoneNm" cssClass="txt"/>
+					&nbsp;<form:errors path="lowestAdministZoneNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>ctprvn_code</th>
 			<td>
-				<form:input path="ctprvnCode" cssClass="txt"/>
-				&nbsp;<form:errors path="ctprvnCode" />
+					<form:input path="ctprvnCode" cssClass="txt"/>
+					&nbsp;<form:errors path="ctprvnCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>signgu_code</th>
 			<td>
-				<form:input path="signguCode" cssClass="txt"/>
-				&nbsp;<form:errors path="signguCode" />
+					<form:input path="signguCode" cssClass="txt"/>
+					&nbsp;<form:errors path="signguCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>emd_code</th>
 			<td>
-				<form:input path="emdCode" cssClass="txt"/>
-				&nbsp;<form:errors path="emdCode" />
+					<form:input path="emdCode" cssClass="txt"/>
+					&nbsp;<form:errors path="emdCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>li_code</th>
 			<td>
-				<form:input path="liCode" cssClass="txt"/>
-				&nbsp;<form:errors path="liCode" />
+					<form:input path="liCode" cssClass="txt"/>
+					&nbsp;<form:errors path="liCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>creat_de</th>
 			<td>
-				<form:input path="creatDe" cssClass="txt"/>
-				&nbsp;<form:errors path="creatDe" />
+					<form:input path="creatDe" cssClass="txt"/>
+					&nbsp;<form:errors path="creatDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>abl_de</th>
 			<td>
-				<form:input path="ablDe" cssClass="txt"/>
-				&nbsp;<form:errors path="ablDe" />
+					<form:input path="ablDe" cssClass="txt"/>
+					&nbsp;<form:errors path="ablDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>abl_ennc</th>
 			<td>
-				<form:input path="ablEnnc" cssClass="txt"/>
-				&nbsp;<form:errors path="ablEnnc" />
+					<form:input path="ablEnnc" cssClass="txt"/>
+					&nbsp;<form:errors path="ablEnnc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.ComtndiaryinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.impl.ComtndiaryinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtndiaryinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtndiaryinfo.service.impl.Comtndia
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtndiaryinfoServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtndiaryinfo을 등록한다.
+	 * COMTNDIARYINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndiaryinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtndiaryinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndiaryinfo을 수정한다.
+	 * COMTNDIARYINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndiaryinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtndiaryinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndiaryinfo을 삭제한다.
+	 * COMTNDIARYINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndiaryinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtndiaryinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndiaryinfo을 조회한다.
+	 * COMTNDIARYINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndiaryinfoVO
-	 * @return 조회한 comtndiaryinfo
+	 * @return 조회한 COMTNDIARYINFO
 	 * @exception Exception
 	 */
     public ComtndiaryinfoVO selectComtndiaryinfo(ComtndiaryinfoVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtndiaryinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtndiaryinfo 목록을 조회한다.
+	 * COMTNDIARYINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndiaryinfo 목록
+	 * @return COMTNDIARYINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtndiaryinfoList(ComtndiaryinfoDefaultVO searchVO) throws Exception {
-        return comtndiaryinfoDAO.selectComtndiaryinfoList(searchVO);
+    public List<EgovMap> selectComtndiaryinfoList(ComtndiaryinfoVO vo) throws Exception {
+        return comtndiaryinfoDAO.selectComtndiaryinfoList(vo);
     }
 
     /**
-	 * comtndiaryinfo 총 갯수를 조회한다.
+	 * COMTNDIARYINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndiaryinfo 총 갯수
+	 * @return COMTNDIARYINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtndiaryinfoListTotCnt(ComtndiaryinfoDefaultVO searchVO) {
-		return comtndiaryinfoDAO.selectComtndiaryinfoListTotCnt(searchVO);
+    public int selectComtndiaryinfoListTotCnt(ComtndiaryinfoVO vo) {
+		return comtndiaryinfoDAO.selectComtndiaryinfoListTotCnt(vo);
 	}
     
 }

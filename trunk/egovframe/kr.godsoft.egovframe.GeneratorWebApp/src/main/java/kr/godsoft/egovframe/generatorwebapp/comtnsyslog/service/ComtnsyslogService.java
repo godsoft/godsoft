@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnsyslogService {
 	
 	/**
-	 * comtnsyslog을 등록한다.
+	 * COMTNSYSLOG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnsyslogVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnsyslogService {
     String insertComtnsyslog(ComtnsyslogVO vo) throws Exception;
     
     /**
-	 * comtnsyslog을 수정한다.
+	 * COMTNSYSLOG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnsyslogVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnsyslogService {
     void updateComtnsyslog(ComtnsyslogVO vo) throws Exception;
     
     /**
-	 * comtnsyslog을 삭제한다.
+	 * COMTNSYSLOG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnsyslogVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnsyslogService {
     void deleteComtnsyslog(ComtnsyslogVO vo) throws Exception;
     
     /**
-	 * comtnsyslog을 조회한다.
+	 * COMTNSYSLOG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnsyslogVO
-	 * @return 조회한 comtnsyslog
+	 * @return 조회한 COMTNSYSLOG
 	 * @exception Exception
 	 */
     ComtnsyslogVO selectComtnsyslog(ComtnsyslogVO vo) throws Exception;
     
     /**
-	 * comtnsyslog 목록을 조회한다.
+	 * COMTNSYSLOG 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnsyslog 목록
+	 * @return COMTNSYSLOG 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnsyslogList(ComtnsyslogVO vo) throws Exception;
     
     /**
-	 * comtnsyslog 총 갯수를 조회한다.
+	 * COMTNSYSLOG 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnsyslog 총 갯수
+	 * @return COMTNSYSLOG 총 갯수
 	 * @exception
 	 */
     int selectComtnsyslogListTotCnt(ComtnsyslogVO vo);

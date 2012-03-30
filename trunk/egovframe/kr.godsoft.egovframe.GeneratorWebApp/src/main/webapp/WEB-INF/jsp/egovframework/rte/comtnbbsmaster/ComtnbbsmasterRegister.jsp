@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,99 +95,99 @@ function fn_egov_save() {
 		<tr>
 			<th>bbs_nm</th>
 			<td>
-				<form:input path="bbsNm" cssClass="txt"/>
-				&nbsp;<form:errors path="bbsNm" />
+					<form:input path="bbsNm" cssClass="txt"/>
+					&nbsp;<form:errors path="bbsNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bbs_intrcn</th>
 			<td>
-				<form:input path="bbsIntrcn" cssClass="txt"/>
-				&nbsp;<form:errors path="bbsIntrcn" />
+					<form:input path="bbsIntrcn" cssClass="txt"/>
+					&nbsp;<form:errors path="bbsIntrcn" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bbs_ty_code</th>
 			<td>
-				<form:input path="bbsTyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="bbsTyCode" />
+					<form:input path="bbsTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="bbsTyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bbs_attrb_code</th>
 			<td>
-				<form:input path="bbsAttrbCode" cssClass="txt"/>
-				&nbsp;<form:errors path="bbsAttrbCode" />
+					<form:input path="bbsAttrbCode" cssClass="txt"/>
+					&nbsp;<form:errors path="bbsAttrbCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>reply_posbl_at</th>
 			<td>
-				<form:input path="replyPosblAt" cssClass="txt"/>
-				&nbsp;<form:errors path="replyPosblAt" />
+					<form:input path="replyPosblAt" cssClass="txt"/>
+					&nbsp;<form:errors path="replyPosblAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>file_atch_posbl_at</th>
 			<td>
-				<form:input path="fileAtchPosblAt" cssClass="txt"/>
-				&nbsp;<form:errors path="fileAtchPosblAt" />
+					<form:input path="fileAtchPosblAt" cssClass="txt"/>
+					&nbsp;<form:errors path="fileAtchPosblAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atch_posbl_file_number</th>
 			<td>
-				<form:input path="atchPosblFileNumber" cssClass="txt"/>
-				&nbsp;<form:errors path="atchPosblFileNumber" />
+					<form:input path="atchPosblFileNumber" cssClass="txt"/>
+					&nbsp;<form:errors path="atchPosblFileNumber" />
 			</td>
 		</tr>	
 		<tr>
 			<th>atch_posbl_file_size</th>
 			<td>
-				<form:input path="atchPosblFileSize" cssClass="txt"/>
-				&nbsp;<form:errors path="atchPosblFileSize" />
+					<form:input path="atchPosblFileSize" cssClass="txt"/>
+					&nbsp;<form:errors path="atchPosblFileSize" />
 			</td>
 		</tr>	
 		<tr>
 			<th>use_at</th>
 			<td>
-				<form:input path="useAt" cssClass="txt"/>
-				&nbsp;<form:errors path="useAt" />
+					<form:input path="useAt" cssClass="txt" value="Y"/>
+					&nbsp;<form:errors path="useAt" />
 			</td>
 		</tr>	
 		<tr>
 			<th>tmplat_id</th>
 			<td>
-				<form:input path="tmplatId" cssClass="txt"/>
-				&nbsp;<form:errors path="tmplatId" />
+					<form:input path="tmplatId" cssClass="txt"/>
+					&nbsp;<form:errors path="tmplatId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

@@ -6,53 +6,53 @@ package kr.godsoft.egovframe.generatorwebapp.comtnanswer.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnanswerVO extends ComtnanswerDefaultVO{
+public class ComtnanswerVO extends ComtnanswerDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
-    private int nttId;
+    /** NTT_ID */
+    private String nttId;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
+    /** WRTER_ID */
     private String wrterId;
     
-    /**  */
+    /** ANSWER */
     private String answer;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** WRTER_NM */
     private String wrterNm;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
-    private int answerNo;
+    /** ANSWER_NO */
+    private String answerNo;
     
-    public int getNttId() {
+    public String getNttId() {
         return this.nttId;
     }
     
-    public void setNttId(int nttId) {
+    public void setNttId(String nttId) {
         this.nttId = nttId;
     }
     
@@ -128,11 +128,11 @@ public class ComtnanswerVO extends ComtnanswerDefaultVO{
         this.lastUpdusrId = lastUpdusrId;
     }
     
-    public int getAnswerNo() {
+    public String getAnswerNo() {
         return this.answerNo;
     }
     
-    public void setAnswerNo(int answerNo) {
+    public void setAnswerNo(String answerNo) {
         this.answerNo = answerNo;
     }
     

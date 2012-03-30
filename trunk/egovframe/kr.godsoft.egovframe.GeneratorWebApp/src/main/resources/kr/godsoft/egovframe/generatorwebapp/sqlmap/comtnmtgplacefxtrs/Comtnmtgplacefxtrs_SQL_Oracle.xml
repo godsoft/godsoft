@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnmtgplacefxtrs">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnmtgplacefxtrsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsVO"/>
+	
+	<resultMap id="comtnmtgplacefxtrs" class="kr.godsoft.egovframe.generatorwebapp.comtnmtgplacefxtrs.service.ComtnmtgplacefxtrsVO">
+		<result property="mtgrumId" column="mtgrum_id" columnIndex="1"/>
+		<result property="fxtrsCode" column="fxtrs_code" columnIndex="2"/>
+		<result property="qy" column="qy" columnIndex="3"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+	</resultMap>
+	
+	<insert id="comtnmtgplacefxtrsDAO.insertComtnmtgplacefxtrs_S">
+		<![CDATA[
+            INSERT INTO comtnmtgplacefxtrs (
+                mtgrum_id
+                , fxtrs_code
+                , qy
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #mtgrumId#
+                , #fxtrsCode#
+                , #qy#
+                , #frstRegisterId#
+                , SYSDATE
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnmtgplacefxtrsDAO.updateComtnmtgplacefxtrs_S">
+		<![CDATA[
+            UPDATE comtnmtgplacefxtrs
+                SET
+                mtgrum_id = #mtgrumId#
+                , fxtrs_code = #fxtrsCode#
+                , qy = #qy#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                WHERE 1 = 1
+                AND mtgrum_id = #mtgrumId#
+                AND fxtrs_code = #fxtrsCode#
+		]]>
+	</update>
+	
+	<delete id="comtnmtgplacefxtrsDAO.deleteComtnmtgplacefxtrs_S">
+		<![CDATA[
+			DELETE FROM comtnmtgplacefxtrs
+				WHERE 1 = 1
+				AND mtgrum_id = #mtgrumId#
+				AND fxtrs_code = #fxtrsCode#
+		]]>
+	</delete>
+	
+	<select id="comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrs_S" resultMap="comtnmtgplacefxtrs">
+		<![CDATA[
+			SELECT
+				mtgrum_id
+				, fxtrs_code
+				, qy
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM COMTNMTGPLACEFXTRS
+			WHERE mtgrum_id = #mtgrumId#
+				AND fxtrs_code = #fxtrsCode#
+		]]>
+	</select>
+	
+	<select id="comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrsList_D" parameterClass="ComtnmtgplacefxtrsVO" resultClass="egovMap">
+	       SELECT 
+								A.MTGRUM_ID
+								, A.FXTRS_CODE
+								, A.QY
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+			       FROM
+            (
+				SELECT
+								MTGRUM_ID
+								, FXTRS_CODE
+								, QY
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+							, ROWNUM
+				FROM COMTNMTGPLACEFXTRS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					MTGRUM_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					FXTRS_CODE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							MTGRUM_ID DESC
+							, FXTRS_CODE DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnmtgplacefxtrsDAO.selectComtnmtgplacefxtrsListTotCnt_S" parameterClass="ComtnmtgplacefxtrsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNMTGPLACEFXTRS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				MTGRUM_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FXTRS_CODE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

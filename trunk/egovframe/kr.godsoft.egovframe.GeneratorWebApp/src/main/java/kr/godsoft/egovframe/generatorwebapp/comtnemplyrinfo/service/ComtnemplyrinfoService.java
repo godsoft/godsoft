@@ -1,8 +1,8 @@
 package kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service;
 
 import java.util.List;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoVO;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : ComtnemplyrinfoService.java
@@ -10,7 +10,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.Comtnemplyri
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.Comtnemplyri
 public interface ComtnemplyrinfoService {
 	
 	/**
-	 * comtnemplyrinfo을 등록한다.
+	 * COMTNEMPLYRINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnemplyrinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnemplyrinfoService {
     String insertComtnemplyrinfo(ComtnemplyrinfoVO vo) throws Exception;
     
     /**
-	 * comtnemplyrinfo을 수정한다.
+	 * COMTNEMPLYRINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnemplyrinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnemplyrinfoService {
     void updateComtnemplyrinfo(ComtnemplyrinfoVO vo) throws Exception;
     
     /**
-	 * comtnemplyrinfo을 삭제한다.
+	 * COMTNEMPLYRINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnemplyrinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,27 +43,27 @@ public interface ComtnemplyrinfoService {
     void deleteComtnemplyrinfo(ComtnemplyrinfoVO vo) throws Exception;
     
     /**
-	 * comtnemplyrinfo을 조회한다.
+	 * COMTNEMPLYRINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnemplyrinfoVO
-	 * @return 조회한 comtnemplyrinfo
+	 * @return 조회한 COMTNEMPLYRINFO
 	 * @exception Exception
 	 */
     ComtnemplyrinfoVO selectComtnemplyrinfo(ComtnemplyrinfoVO vo) throws Exception;
     
     /**
-	 * comtnemplyrinfo 목록을 조회한다.
+	 * COMTNEMPLYRINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnemplyrinfo 목록
+	 * @return COMTNEMPLYRINFO 목록
 	 * @exception Exception
 	 */
-    List selectComtnemplyrinfoList(ComtnemplyrinfoDefaultVO searchVO) throws Exception;
+    List<EgovMap> selectComtnemplyrinfoList(ComtnemplyrinfoVO vo) throws Exception;
     
     /**
-	 * comtnemplyrinfo 총 갯수를 조회한다.
+	 * COMTNEMPLYRINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnemplyrinfo 총 갯수
+	 * @return COMTNEMPLYRINFO 총 갯수
 	 * @exception
 	 */
-    int selectComtnemplyrinfoListTotCnt(ComtnemplyrinfoDefaultVO searchVO);
+    int selectComtnemplyrinfoListTotCnt(ComtnemplyrinfoVO vo);
     
 }

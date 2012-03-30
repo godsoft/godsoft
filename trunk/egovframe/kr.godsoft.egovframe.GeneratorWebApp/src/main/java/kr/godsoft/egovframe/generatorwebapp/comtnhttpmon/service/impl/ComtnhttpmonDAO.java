@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnhttpmon.service.ComtnhttpmonVO;
 public class ComtnhttpmonDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnhttpmon을 등록한다.
+	 * COMTNHTTPMON을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnhttpmonVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnhttpmonDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnhttpmon을 수정한다.
+	 * COMTNHTTPMON을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnhttpmonVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnhttpmonDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnhttpmon을 삭제한다.
+	 * COMTNHTTPMON을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnhttpmonVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnhttpmonDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnhttpmon을 조회한다.
+	 * COMTNHTTPMON을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnhttpmonVO
-	 * @return 조회한 comtnhttpmon
+	 * @return 조회한 COMTNHTTPMON
 	 * @exception Exception
 	 */
     public ComtnhttpmonVO selectComtnhttpmon(ComtnhttpmonVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnhttpmonDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnhttpmon 목록을 조회한다.
+	 * COMTNHTTPMON 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnhttpmon 목록
+	 * @return COMTNHTTPMON 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnhttpmonDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnhttpmon 총 갯수를 조회한다.
+	 * COMTNHTTPMON 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnhttpmon 총 갯수
+	 * @return COMTNHTTPMON 총 갯수
 	 * @exception
 	 */
     public int selectComtnhttpmonListTotCnt(ComtnhttpmonVO vo) {

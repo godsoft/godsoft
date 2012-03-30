@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtncntcserviceService {
 	
 	/**
-	 * comtncntcservice을 등록한다.
+	 * COMTNCNTCSERVICE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncntcserviceVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtncntcserviceService {
     String insertComtncntcservice(ComtncntcserviceVO vo) throws Exception;
     
     /**
-	 * comtncntcservice을 수정한다.
+	 * COMTNCNTCSERVICE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncntcserviceVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtncntcserviceService {
     void updateComtncntcservice(ComtncntcserviceVO vo) throws Exception;
     
     /**
-	 * comtncntcservice을 삭제한다.
+	 * COMTNCNTCSERVICE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncntcserviceVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtncntcserviceService {
     void deleteComtncntcservice(ComtncntcserviceVO vo) throws Exception;
     
     /**
-	 * comtncntcservice을 조회한다.
+	 * COMTNCNTCSERVICE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncntcserviceVO
-	 * @return 조회한 comtncntcservice
+	 * @return 조회한 COMTNCNTCSERVICE
 	 * @exception Exception
 	 */
     ComtncntcserviceVO selectComtncntcservice(ComtncntcserviceVO vo) throws Exception;
     
     /**
-	 * comtncntcservice 목록을 조회한다.
+	 * COMTNCNTCSERVICE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncntcservice 목록
+	 * @return COMTNCNTCSERVICE 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtncntcserviceList(ComtncntcserviceVO vo) throws Exception;
     
     /**
-	 * comtncntcservice 총 갯수를 조회한다.
+	 * COMTNCNTCSERVICE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncntcservice 총 갯수
+	 * @return COMTNCNTCSERVICE 총 갯수
 	 * @exception
 	 */
     int selectComtncntcserviceListTotCnt(ComtncntcserviceVO vo);

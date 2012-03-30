@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnbbsmasterServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnbbsmaster을 등록한다.
+	 * COMTNBBSMASTER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbbsmasterVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnbbsmasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbsmaster을 수정한다.
+	 * COMTNBBSMASTER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbbsmasterVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnbbsmasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbsmaster을 삭제한다.
+	 * COMTNBBSMASTER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbbsmasterVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnbbsmasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbsmaster을 조회한다.
+	 * COMTNBBSMASTER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbbsmasterVO
-	 * @return 조회한 comtnbbsmaster
+	 * @return 조회한 COMTNBBSMASTER
 	 * @exception Exception
 	 */
     public ComtnbbsmasterVO selectComtnbbsmaster(ComtnbbsmasterVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnbbsmasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbsmaster 목록을 조회한다.
+	 * COMTNBBSMASTER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbbsmaster 목록
+	 * @return COMTNBBSMASTER 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnbbsmasterList(ComtnbbsmasterVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnbbsmasterServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbbsmaster 총 갯수를 조회한다.
+	 * COMTNBBSMASTER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbbsmaster 총 갯수
+	 * @return COMTNBBSMASTER 총 갯수
 	 * @exception
 	 */
     public int selectComtnbbsmasterListTotCnt(ComtnbbsmasterVO vo) {

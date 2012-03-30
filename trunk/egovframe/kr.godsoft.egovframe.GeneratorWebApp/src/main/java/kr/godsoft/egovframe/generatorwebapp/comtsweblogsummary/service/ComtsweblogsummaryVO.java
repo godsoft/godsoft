@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtsweblogsummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -22,7 +22,7 @@ public class ComtsweblogsummaryVO extends ComtsweblogsummaryDefaultVO {
     private String url;
     
     /** RDCNT */
-    private int rdcnt;
+    private String rdcnt;
     
     public String getOccrrncDe() {
         return this.occrrncDe;
@@ -40,11 +40,11 @@ public class ComtsweblogsummaryVO extends ComtsweblogsummaryDefaultVO {
         this.url = url;
     }
     
-    public int getRdcnt() {
+    public String getRdcnt() {
         return this.rdcnt;
     }
     
-    public void setRdcnt(int rdcnt) {
+    public void setRdcnt(String rdcnt) {
         this.rdcnt = rdcnt;
     }
     

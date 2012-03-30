@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,15 +95,15 @@ function fn_egov_save() {
 		<tr>
 			<th>orgnzt_nm</th>
 			<td>
-				<form:input path="orgnztNm" cssClass="txt"/>
-				&nbsp;<form:errors path="orgnztNm" />
+					<form:input path="orgnztNm" cssClass="txt"/>
+					&nbsp;<form:errors path="orgnztNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>orgnzt_dc</th>
 			<td>
-				<form:input path="orgnztDc" cssClass="txt"/>
-				&nbsp;<form:errors path="orgnztDc" />
+					<form:input path="orgnztDc" cssClass="txt"/>
+					&nbsp;<form:errors path="orgnztDc" />
 			</td>
 		</tr>	
 	</table>

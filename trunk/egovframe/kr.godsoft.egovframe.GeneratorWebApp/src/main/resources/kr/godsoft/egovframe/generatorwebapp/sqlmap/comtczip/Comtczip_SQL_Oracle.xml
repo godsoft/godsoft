@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtczip">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtczipVO" type="kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO"/>
+	
+	<resultMap id="comtczip" class="kr.godsoft.egovframe.generatorwebapp.comtczip.service.ComtczipVO">
+		<result property="zip" column="zip" columnIndex="1"/>
+		<result property="sn" column="sn" columnIndex="2"/>
+		<result property="ctprvnNm" column="ctprvn_nm" columnIndex="3"/>
+		<result property="signguNm" column="signgu_nm" columnIndex="4"/>
+		<result property="emdNm" column="emd_nm" columnIndex="5"/>
+		<result property="liBuldNm" column="li_buld_nm" columnIndex="6"/>
+		<result property="lnbrDongHo" column="lnbr_dong_ho" columnIndex="7"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="8"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="9"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="10"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="11"/>
+	</resultMap>
+	
+	<insert id="comtczipDAO.insertComtczip_S">
+		<![CDATA[
+            INSERT INTO comtczip (
+                zip
+                , sn
+                , ctprvn_nm
+                , signgu_nm
+                , emd_nm
+                , li_buld_nm
+                , lnbr_dong_ho
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #zip#
+                , #sn#
+                , #ctprvnNm#
+                , #signguNm#
+                , #emdNm#
+                , #liBuldNm#
+                , #lnbrDongHo#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtczipDAO.updateComtczip_S">
+		<![CDATA[
+            UPDATE comtczip
+                SET
+                zip = #zip#
+                , sn = #sn#
+                , ctprvn_nm = #ctprvnNm#
+                , signgu_nm = #signguNm#
+                , emd_nm = #emdNm#
+                , li_buld_nm = #liBuldNm#
+                , lnbr_dong_ho = #lnbrDongHo#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND zip = #zip#
+                AND sn = #sn#
+		]]>
+	</update>
+	
+	<delete id="comtczipDAO.deleteComtczip_S">
+		<![CDATA[
+			DELETE FROM comtczip
+				WHERE 1 = 1
+				AND zip = #zip#
+				AND sn = #sn#
+		]]>
+	</delete>
+	
+	<select id="comtczipDAO.selectComtczip_S" resultMap="comtczip">
+		<![CDATA[
+			SELECT
+				zip
+				, sn
+				, ctprvn_nm
+				, signgu_nm
+				, emd_nm
+				, li_buld_nm
+				, lnbr_dong_ho
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTCZIP
+			WHERE zip = #zip#
+				AND sn = #sn#
+		]]>
+	</select>
+	
+	<select id="comtczipDAO.selectComtczipList_D" parameterClass="ComtczipVO" resultClass="egovMap">
+	       SELECT 
+								A.ZIP
+								, A.SN
+								, A.CTPRVN_NM
+								, A.SIGNGU_NM
+								, A.EMD_NM
+								, A.LI_BULD_NM
+								, A.LNBR_DONG_HO
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								ZIP
+								, SN
+								, CTPRVN_NM
+								, SIGNGU_NM
+								, EMD_NM
+								, LI_BULD_NM
+								, LNBR_DONG_HO
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTCZIP
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ZIP = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SN LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ZIP DESC
+							, SN DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtczipDAO.selectComtczipListTotCnt_S" parameterClass="ComtczipVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTCZIP
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ZIP = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SN LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

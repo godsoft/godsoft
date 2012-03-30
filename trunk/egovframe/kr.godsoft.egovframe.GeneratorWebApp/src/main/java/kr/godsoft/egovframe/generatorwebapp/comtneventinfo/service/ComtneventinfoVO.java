@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtneventinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -31,7 +31,7 @@ public class ComtneventinfoVO extends ComtneventinfoDefaultVO {
     private String eventSvcBgnde;
     
     /** SVC_USE_NMPR_CO */
-    private int svcUseNmprCo;
+    private String svcUseNmprCo;
     
     /** CHARGER_NM */
     private String chargerNm;
@@ -103,11 +103,11 @@ public class ComtneventinfoVO extends ComtneventinfoDefaultVO {
         this.eventSvcBgnde = eventSvcBgnde;
     }
     
-    public int getSvcUseNmprCo() {
+    public String getSvcUseNmprCo() {
         return this.svcUseNmprCo;
     }
     
-    public void setSvcUseNmprCo(int svcUseNmprCo) {
+    public void setSvcUseNmprCo(String svcUseNmprCo) {
         this.svcUseNmprCo = svcUseNmprCo;
     }
     

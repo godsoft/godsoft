@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeV
 public class ComtccmmncodeDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtccmmncode을 등록한다.
+	 * COMTCCMMNCODE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtccmmncodeVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtccmmncodeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtccmmncode을 수정한다.
+	 * COMTCCMMNCODE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtccmmncodeVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtccmmncodeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtccmmncode을 삭제한다.
+	 * COMTCCMMNCODE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtccmmncodeVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtccmmncodeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtccmmncode을 조회한다.
+	 * COMTCCMMNCODE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtccmmncodeVO
-	 * @return 조회한 comtccmmncode
+	 * @return 조회한 COMTCCMMNCODE
 	 * @exception Exception
 	 */
     public ComtccmmncodeVO selectComtccmmncode(ComtccmmncodeVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtccmmncodeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtccmmncode 목록을 조회한다.
+	 * COMTCCMMNCODE 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtccmmncode 목록
+	 * @return COMTCCMMNCODE 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtccmmncodeDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtccmmncode 총 갯수를 조회한다.
+	 * COMTCCMMNCODE 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtccmmncode 총 갯수
+	 * @return COMTCCMMNCODE 총 갯수
 	 * @exception
 	 */
     public int selectComtccmmncodeListTotCnt(ComtccmmncodeVO vo) {

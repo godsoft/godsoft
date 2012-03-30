@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comthsyshist.service.ComthsyshistVO;
 public class ComthsyshistDAO extends EgovAbstractDAO {
 
 	/**
-	 * comthsyshist을 등록한다.
+	 * COMTHSYSHIST을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComthsyshistVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthsyshist을 수정한다.
+	 * COMTHSYSHIST을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComthsyshistVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthsyshist을 삭제한다.
+	 * COMTHSYSHIST을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComthsyshistVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthsyshist을 조회한다.
+	 * COMTHSYSHIST을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComthsyshistVO
-	 * @return 조회한 comthsyshist
+	 * @return 조회한 COMTHSYSHIST
 	 * @exception Exception
 	 */
     public ComthsyshistVO selectComthsyshist(ComthsyshistVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthsyshist 목록을 조회한다.
+	 * COMTHSYSHIST 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comthsyshist 목록
+	 * @return COMTHSYSHIST 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComthsyshistDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comthsyshist 총 갯수를 조회한다.
+	 * COMTHSYSHIST 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comthsyshist 총 갯수
+	 * @return COMTHSYSHIST 총 갯수
 	 * @exception
 	 */
     public int selectComthsyshistListTotCnt(ComthsyshistVO vo) {

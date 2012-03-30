@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkService;
+import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkService;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.ComtnadbkVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.impl.ComtnadbkDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnadbkServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnadbk.service.impl.ComtnadbkDAO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnadbkServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnadbk을 등록한다.
+	 * COMTNADBK을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnadbkVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnadbkServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnadbk을 수정한다.
+	 * COMTNADBK을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnadbkVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnadbkServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnadbk을 삭제한다.
+	 * COMTNADBK을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnadbkVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnadbkServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnadbk을 조회한다.
+	 * COMTNADBK을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnadbkVO
-	 * @return 조회한 comtnadbk
+	 * @return 조회한 COMTNADBK
 	 * @exception Exception
 	 */
     public ComtnadbkVO selectComtnadbk(ComtnadbkVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnadbkServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnadbk 목록을 조회한다.
+	 * COMTNADBK 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnadbk 목록
+	 * @return COMTNADBK 목록
 	 * @exception Exception
 	 */
-    public List selectComtnadbkList(ComtnadbkDefaultVO searchVO) throws Exception {
-        return comtnadbkDAO.selectComtnadbkList(searchVO);
+    public List<EgovMap> selectComtnadbkList(ComtnadbkVO vo) throws Exception {
+        return comtnadbkDAO.selectComtnadbkList(vo);
     }
 
     /**
-	 * comtnadbk 총 갯수를 조회한다.
+	 * COMTNADBK 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnadbk 총 갯수
+	 * @return COMTNADBK 총 갯수
 	 * @exception
 	 */
-    public int selectComtnadbkListTotCnt(ComtnadbkDefaultVO searchVO) {
-		return comtnadbkDAO.selectComtnadbkListTotCnt(searchVO);
+    public int selectComtnadbkListTotCnt(ComtnadbkVO vo) {
+		return comtnadbkDAO.selectComtnadbkListTotCnt(vo);
 	}
     
 }

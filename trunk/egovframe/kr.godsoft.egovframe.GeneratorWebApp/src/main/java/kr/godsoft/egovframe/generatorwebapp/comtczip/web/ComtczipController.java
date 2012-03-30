@@ -27,7 +27,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -45,7 +45,7 @@ public class ComtczipController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtczip 목록을 조회한다. (pageing)
+	 * COMTCZIP 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ComtczipVO
 	 * @return "/comtczip/ComtczipList"
 	 * @exception Exception
@@ -100,7 +100,7 @@ public class ComtczipController {
     @RequestMapping("/comtczip/updateComtczipView.do")
     public String updateComtczipView(
             @RequestParam("zip") String zip ,
-            @RequestParam("sn") int sn ,
+            @RequestParam("sn") String sn ,
             @ModelAttribute("searchVO") ComtczipDefaultVO searchVO, Model model)
             throws Exception {
         ComtczipVO comtczipVO = new ComtczipVO();

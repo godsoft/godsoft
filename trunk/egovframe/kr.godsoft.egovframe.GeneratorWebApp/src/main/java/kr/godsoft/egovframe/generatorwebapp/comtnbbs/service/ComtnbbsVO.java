@@ -6,83 +6,83 @@ package kr.godsoft.egovframe.generatorwebapp.comtnbbs.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnbbsVO extends ComtnbbsDefaultVO{
+public class ComtnbbsVO extends ComtnbbsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
-    private int nttId;
+    /** NTT_ID */
+    private String nttId;
     
-    /**  */
+    /** BBS_ID */
     private String bbsId;
     
-    /**  */
-    private int nttNo;
+    /** NTT_NO */
+    private String nttNo;
     
-    /**  */
+    /** NTT_SJ */
     private String nttSj;
     
-    /**  */
-    private int nttCn;
+    /** NTT_CN */
+    private String nttCn;
     
-    /**  */
+    /** ANSWER_AT */
     private String answerAt;
     
-    /**  */
-    private int parntscttNo;
+    /** PARNTSCTT_NO */
+    private String parntscttNo;
     
-    /**  */
-    private int answerLc;
+    /** ANSWER_LC */
+    private String answerLc;
     
-    /**  */
-    private int sortOrdr;
+    /** SORT_ORDR */
+    private String sortOrdr;
     
-    /**  */
-    private int rdcnt;
+    /** RDCNT */
+    private String rdcnt;
     
-    /**  */
+    /** USE_AT */
     private String useAt;
     
-    /**  */
+    /** NTCE_BGNDE */
     private String ntceBgnde;
     
-    /**  */
+    /** NTCE_ENDDE */
     private String ntceEndde;
     
-    /**  */
+    /** NTCR_ID */
     private String ntcrId;
     
-    /**  */
+    /** NTCR_NM */
     private String ntcrNm;
     
-    /**  */
+    /** PASSWORD */
     private String password;
     
-    /**  */
+    /** ATCH_FILE_ID */
     private String atchFileId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    public int getNttId() {
+    public String getNttId() {
         return this.nttId;
     }
     
-    public void setNttId(int nttId) {
+    public void setNttId(String nttId) {
         this.nttId = nttId;
     }
     
@@ -94,11 +94,11 @@ public class ComtnbbsVO extends ComtnbbsDefaultVO{
         this.bbsId = bbsId;
     }
     
-    public int getNttNo() {
+    public String getNttNo() {
         return this.nttNo;
     }
     
-    public void setNttNo(int nttNo) {
+    public void setNttNo(String nttNo) {
         this.nttNo = nttNo;
     }
     
@@ -110,11 +110,11 @@ public class ComtnbbsVO extends ComtnbbsDefaultVO{
         this.nttSj = nttSj;
     }
     
-    public int getNttCn() {
+    public String getNttCn() {
         return this.nttCn;
     }
     
-    public void setNttCn(int nttCn) {
+    public void setNttCn(String nttCn) {
         this.nttCn = nttCn;
     }
     
@@ -126,35 +126,35 @@ public class ComtnbbsVO extends ComtnbbsDefaultVO{
         this.answerAt = answerAt;
     }
     
-    public int getParntscttNo() {
+    public String getParntscttNo() {
         return this.parntscttNo;
     }
     
-    public void setParntscttNo(int parntscttNo) {
+    public void setParntscttNo(String parntscttNo) {
         this.parntscttNo = parntscttNo;
     }
     
-    public int getAnswerLc() {
+    public String getAnswerLc() {
         return this.answerLc;
     }
     
-    public void setAnswerLc(int answerLc) {
+    public void setAnswerLc(String answerLc) {
         this.answerLc = answerLc;
     }
     
-    public int getSortOrdr() {
+    public String getSortOrdr() {
         return this.sortOrdr;
     }
     
-    public void setSortOrdr(int sortOrdr) {
+    public void setSortOrdr(String sortOrdr) {
         this.sortOrdr = sortOrdr;
     }
     
-    public int getRdcnt() {
+    public String getRdcnt() {
         return this.rdcnt;
     }
     
-    public void setRdcnt(int rdcnt) {
+    public void setRdcnt(String rdcnt) {
         this.rdcnt = rdcnt;
     }
     

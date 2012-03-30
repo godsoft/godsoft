@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtneventinfoService {
 	
 	/**
-	 * comtneventinfo을 등록한다.
+	 * COMTNEVENTINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtneventinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtneventinfoService {
     String insertComtneventinfo(ComtneventinfoVO vo) throws Exception;
     
     /**
-	 * comtneventinfo을 수정한다.
+	 * COMTNEVENTINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtneventinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtneventinfoService {
     void updateComtneventinfo(ComtneventinfoVO vo) throws Exception;
     
     /**
-	 * comtneventinfo을 삭제한다.
+	 * COMTNEVENTINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtneventinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtneventinfoService {
     void deleteComtneventinfo(ComtneventinfoVO vo) throws Exception;
     
     /**
-	 * comtneventinfo을 조회한다.
+	 * COMTNEVENTINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtneventinfoVO
-	 * @return 조회한 comtneventinfo
+	 * @return 조회한 COMTNEVENTINFO
 	 * @exception Exception
 	 */
     ComtneventinfoVO selectComtneventinfo(ComtneventinfoVO vo) throws Exception;
     
     /**
-	 * comtneventinfo 목록을 조회한다.
+	 * COMTNEVENTINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtneventinfo 목록
+	 * @return COMTNEVENTINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtneventinfoList(ComtneventinfoVO vo) throws Exception;
     
     /**
-	 * comtneventinfo 총 갯수를 조회한다.
+	 * COMTNEVENTINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtneventinfo 총 갯수
+	 * @return COMTNEVENTINFO 총 갯수
 	 * @exception
 	 */
     int selectComtneventinfoListTotCnt(ComtneventinfoVO vo);

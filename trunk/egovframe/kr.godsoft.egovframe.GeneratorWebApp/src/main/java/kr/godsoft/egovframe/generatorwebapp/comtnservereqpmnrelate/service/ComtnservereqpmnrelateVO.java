@@ -6,31 +6,31 @@ package kr.godsoft.egovframe.generatorwebapp.comtnservereqpmnrelate.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnservereqpmnrelateVO extends ComtnservereqpmnrelateDefaultVO{
+public class ComtnservereqpmnrelateVO extends ComtnservereqpmnrelateDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** SERVER_EQPMN_ID */
     private String serverEqpmnId;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** SERVER_ID */
     private String serverId;
     
     public String getServerEqpmnId() {

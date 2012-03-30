@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comthprogrmchangedtls">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComthprogrmchangedtlsVO" type="kr.godsoft.egovframe.generatorwebapp.comthprogrmchangedtls.service.ComthprogrmchangedtlsVO"/>
+	
+	<resultMap id="comthprogrmchangedtls" class="kr.godsoft.egovframe.generatorwebapp.comthprogrmchangedtls.service.ComthprogrmchangedtlsVO">
+		<result property="progrmFileNm" column="progrm_file_nm" columnIndex="1"/>
+		<result property="requstNo" column="requst_no" columnIndex="2"/>
+		<result property="rqesterId" column="rqester_id" columnIndex="3"/>
+		<result property="changeRequstCn" column="change_requst_cn" columnIndex="4"/>
+		<result property="requstProcessCn" column="requst_process_cn" columnIndex="5"/>
+		<result property="opetrId" column="opetr_id" columnIndex="6"/>
+		<result property="processSttusCode" column="process_sttus_code" columnIndex="7"/>
+		<result property="processDe" column="process_de" columnIndex="8"/>
+		<result property="rqestde" column="rqestde" columnIndex="9"/>
+		<result property="requstSj" column="requst_sj" columnIndex="10"/>
+	</resultMap>
+	
+	<insert id="comthprogrmchangedtlsDAO.insertComthprogrmchangedtls_S">
+		<![CDATA[
+            INSERT INTO comthprogrmchangedtls (
+                progrm_file_nm
+                , requst_no
+                , rqester_id
+                , change_requst_cn
+                , requst_process_cn
+                , opetr_id
+                , process_sttus_code
+                , process_de
+                , rqestde
+                , requst_sj
+            ) VALUES (
+                #progrmFileNm#
+                , #requstNo#
+                , #rqesterId#
+                , #changeRequstCn#
+                , #requstProcessCn#
+                , #opetrId#
+                , #processSttusCode#
+                , #processDe#
+                , #rqestde#
+                , #requstSj#
+            )
+		]]>
+	</insert>
+	
+	<update id="comthprogrmchangedtlsDAO.updateComthprogrmchangedtls_S">
+		<![CDATA[
+            UPDATE comthprogrmchangedtls
+                SET
+                progrm_file_nm = #progrmFileNm#
+                , requst_no = #requstNo#
+                , rqester_id = #rqesterId#
+                , change_requst_cn = #changeRequstCn#
+                , requst_process_cn = #requstProcessCn#
+                , opetr_id = #opetrId#
+                , process_sttus_code = #processSttusCode#
+                , process_de = #processDe#
+                , rqestde = #rqestde#
+                , requst_sj = #requstSj#
+                WHERE 1 = 1
+                AND progrm_file_nm = #progrmFileNm#
+                AND requst_no = #requstNo#
+		]]>
+	</update>
+	
+	<delete id="comthprogrmchangedtlsDAO.deleteComthprogrmchangedtls_S">
+		<![CDATA[
+			DELETE FROM comthprogrmchangedtls
+				WHERE 1 = 1
+				AND progrm_file_nm = #progrmFileNm#
+				AND requst_no = #requstNo#
+		]]>
+	</delete>
+	
+	<select id="comthprogrmchangedtlsDAO.selectComthprogrmchangedtls_S" resultMap="comthprogrmchangedtls">
+		<![CDATA[
+			SELECT
+				progrm_file_nm
+				, requst_no
+				, rqester_id
+				, change_requst_cn
+				, requst_process_cn
+				, opetr_id
+				, process_sttus_code
+				, process_de
+				, rqestde
+				, requst_sj
+			FROM COMTHPROGRMCHANGEDTLS
+			WHERE progrm_file_nm = #progrmFileNm#
+				AND requst_no = #requstNo#
+		]]>
+	</select>
+	
+	<select id="comthprogrmchangedtlsDAO.selectComthprogrmchangedtlsList_D" parameterClass="ComthprogrmchangedtlsVO" resultClass="egovMap">
+	       SELECT 
+								A.PROGRM_FILE_NM
+								, A.REQUST_NO
+								, A.RQESTER_ID
+								, A.CHANGE_REQUST_CN
+								, A.REQUST_PROCESS_CN
+								, A.OPETR_ID
+								, A.PROCESS_STTUS_CODE
+								, A.PROCESS_DE
+								, A.RQESTDE
+								, A.REQUST_SJ
+			       FROM
+            (
+				SELECT
+								PROGRM_FILE_NM
+								, REQUST_NO
+								, RQESTER_ID
+								, CHANGE_REQUST_CN
+								, REQUST_PROCESS_CN
+								, OPETR_ID
+								, PROCESS_STTUS_CODE
+								, PROCESS_DE
+								, RQESTDE
+								, REQUST_SJ
+							, ROWNUM
+				FROM COMTHPROGRMCHANGEDTLS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					PROGRM_FILE_NM = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					REQUST_NO LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							PROGRM_FILE_NM DESC
+							, REQUST_NO DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comthprogrmchangedtlsDAO.selectComthprogrmchangedtlsListTotCnt_S" parameterClass="ComthprogrmchangedtlsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTHPROGRMCHANGEDTLS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROGRM_FILE_NM = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REQUST_NO LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

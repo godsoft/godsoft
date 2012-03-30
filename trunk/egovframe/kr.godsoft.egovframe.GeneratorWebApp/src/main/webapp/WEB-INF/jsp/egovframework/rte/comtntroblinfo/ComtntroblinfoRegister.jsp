@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,99 +95,99 @@ function fn_egov_save() {
 		<tr>
 			<th>trobl_nm</th>
 			<td>
-				<form:input path="troblNm" cssClass="txt"/>
-				&nbsp;<form:errors path="troblNm" />
+					<form:input path="troblNm" cssClass="txt"/>
+					&nbsp;<form:errors path="troblNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_knd</th>
 			<td>
-				<form:input path="troblKnd" cssClass="txt"/>
-				&nbsp;<form:errors path="troblKnd" />
+					<form:input path="troblKnd" cssClass="txt"/>
+					&nbsp;<form:errors path="troblKnd" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_dc</th>
 			<td>
-				<form:input path="troblDc" cssClass="txt"/>
-				&nbsp;<form:errors path="troblDc" />
+					<form:input path="troblDc" cssClass="txt"/>
+					&nbsp;<form:errors path="troblDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_occrrnc_time</th>
 			<td>
-				<form:input path="troblOccrrncTime" cssClass="txt"/>
-				&nbsp;<form:errors path="troblOccrrncTime" />
+					<form:input path="troblOccrrncTime" cssClass="txt"/>
+					&nbsp;<form:errors path="troblOccrrncTime" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_rqester_nm</th>
 			<td>
-				<form:input path="troblRqesterNm" cssClass="txt"/>
-				&nbsp;<form:errors path="troblRqesterNm" />
+					<form:input path="troblRqesterNm" cssClass="txt"/>
+					&nbsp;<form:errors path="troblRqesterNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_requst_time</th>
 			<td>
-				<form:input path="troblRequstTime" cssClass="txt"/>
-				&nbsp;<form:errors path="troblRequstTime" />
+					<form:input path="troblRequstTime" cssClass="txt"/>
+					&nbsp;<form:errors path="troblRequstTime" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_process_result</th>
 			<td>
-				<form:input path="troblProcessResult" cssClass="txt"/>
-				&nbsp;<form:errors path="troblProcessResult" />
+					<form:input path="troblProcessResult" cssClass="txt"/>
+					&nbsp;<form:errors path="troblProcessResult" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_opetr_nm</th>
 			<td>
-				<form:input path="troblOpetrNm" cssClass="txt"/>
-				&nbsp;<form:errors path="troblOpetrNm" />
+					<form:input path="troblOpetrNm" cssClass="txt"/>
+					&nbsp;<form:errors path="troblOpetrNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trobl_process_time</th>
 			<td>
-				<form:input path="troblProcessTime" cssClass="txt"/>
-				&nbsp;<form:errors path="troblProcessTime" />
+					<form:input path="troblProcessTime" cssClass="txt"/>
+					&nbsp;<form:errors path="troblProcessTime" />
 			</td>
 		</tr>	
 		<tr>
 			<th>process_sttus</th>
 			<td>
-				<form:input path="processSttus" cssClass="txt"/>
-				&nbsp;<form:errors path="processSttus" />
+					<form:input path="processSttus" cssClass="txt"/>
+					&nbsp;<form:errors path="processSttus" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

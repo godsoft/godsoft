@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtssyslogsummaryService {
 	
 	/**
-	 * comtssyslogsummary을 등록한다.
+	 * COMTSSYSLOGSUMMARY을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtssyslogsummaryVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtssyslogsummaryService {
     String insertComtssyslogsummary(ComtssyslogsummaryVO vo) throws Exception;
     
     /**
-	 * comtssyslogsummary을 수정한다.
+	 * COMTSSYSLOGSUMMARY을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtssyslogsummaryVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtssyslogsummaryService {
     void updateComtssyslogsummary(ComtssyslogsummaryVO vo) throws Exception;
     
     /**
-	 * comtssyslogsummary을 삭제한다.
+	 * COMTSSYSLOGSUMMARY을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtssyslogsummaryVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtssyslogsummaryService {
     void deleteComtssyslogsummary(ComtssyslogsummaryVO vo) throws Exception;
     
     /**
-	 * comtssyslogsummary을 조회한다.
+	 * COMTSSYSLOGSUMMARY을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtssyslogsummaryVO
-	 * @return 조회한 comtssyslogsummary
+	 * @return 조회한 COMTSSYSLOGSUMMARY
 	 * @exception Exception
 	 */
     ComtssyslogsummaryVO selectComtssyslogsummary(ComtssyslogsummaryVO vo) throws Exception;
     
     /**
-	 * comtssyslogsummary 목록을 조회한다.
+	 * COMTSSYSLOGSUMMARY 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtssyslogsummary 목록
+	 * @return COMTSSYSLOGSUMMARY 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtssyslogsummaryList(ComtssyslogsummaryVO vo) throws Exception;
     
     /**
-	 * comtssyslogsummary 총 갯수를 조회한다.
+	 * COMTSSYSLOGSUMMARY 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtssyslogsummary 총 갯수
+	 * @return COMTSSYSLOGSUMMARY 총 갯수
 	 * @exception
 	 */
     int selectComtssyslogsummaryListTotCnt(ComtssyslogsummaryVO vo);

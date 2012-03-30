@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultDefaultVO;
 
 /**
  * @Class Name : ComtnonlinepollresultDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.Comtno
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.Comtno
 public class ComtnonlinepollresultDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnonlinepollresult을 등록한다.
+	 * COMTNONLINEPOLLRESULT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnonlinepollresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinepollresult을 수정한다.
+	 * COMTNONLINEPOLLRESULT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnonlinepollresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinepollresult을 삭제한다.
+	 * COMTNONLINEPOLLRESULT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnonlinepollresultVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnonlinepollresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinepollresult을 조회한다.
+	 * COMTNONLINEPOLLRESULT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnonlinepollresultVO
-	 * @return 조회한 comtnonlinepollresult
+	 * @return 조회한 COMTNONLINEPOLLRESULT
 	 * @exception Exception
 	 */
     public ComtnonlinepollresultVO selectComtnonlinepollresult(ComtnonlinepollresultVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnonlinepollresultDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnonlinepollresult 목록을 조회한다.
+	 * COMTNONLINEPOLLRESULT 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnonlinepollresult 목록
+	 * @return COMTNONLINEPOLLRESULT 목록
 	 * @exception Exception
 	 */
-    public List selectComtnonlinepollresultList(ComtnonlinepollresultDefaultVO searchVO) throws Exception {
-        return list("comtnonlinepollresultDAO.selectComtnonlinepollresultList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnonlinepollresultList(ComtnonlinepollresultVO vo) throws Exception {
+        return list("comtnonlinepollresultDAO.selectComtnonlinepollresultList_D", vo);
     }
 
     /**
-	 * comtnonlinepollresult 총 갯수를 조회한다.
+	 * COMTNONLINEPOLLRESULT 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnonlinepollresult 총 갯수
+	 * @return COMTNONLINEPOLLRESULT 총 갯수
 	 * @exception
 	 */
-    public int selectComtnonlinepollresultListTotCnt(ComtnonlinepollresultDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnonlinepollresultDAO.selectComtnonlinepollresultListTotCnt_S", searchVO);
+    public int selectComtnonlinepollresultListTotCnt(ComtnonlinepollresultVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnonlinepollresultDAO.selectComtnonlinepollresultListTotCnt_S", vo);
     }
 
 }

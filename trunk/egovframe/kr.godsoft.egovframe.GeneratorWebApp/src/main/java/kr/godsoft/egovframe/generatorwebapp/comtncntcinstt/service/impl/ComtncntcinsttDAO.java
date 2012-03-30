@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.Comtncntcinst
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncntcinstt.service.Comtncntcinst
 public class ComtncntcinsttDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtncntcinstt을 등록한다.
+	 * COMTNCNTCINSTT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncntcinsttVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtncntcinsttDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcinstt을 수정한다.
+	 * COMTNCNTCINSTT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncntcinsttVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtncntcinsttDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcinstt을 삭제한다.
+	 * COMTNCNTCINSTT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncntcinsttVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtncntcinsttDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcinstt을 조회한다.
+	 * COMTNCNTCINSTT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncntcinsttVO
-	 * @return 조회한 comtncntcinstt
+	 * @return 조회한 COMTNCNTCINSTT
 	 * @exception Exception
 	 */
     public ComtncntcinsttVO selectComtncntcinstt(ComtncntcinsttVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtncntcinsttDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcinstt 목록을 조회한다.
+	 * COMTNCNTCINSTT 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncntcinstt 목록
+	 * @return COMTNCNTCINSTT 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtncntcinsttDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtncntcinstt 총 갯수를 조회한다.
+	 * COMTNCNTCINSTT 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtncntcinstt 총 갯수
+	 * @return COMTNCNTCINSTT 총 갯수
 	 * @exception
 	 */
     public int selectComtncntcinsttListTotCnt(ComtncntcinsttVO vo) {

@@ -6,73 +6,73 @@ package kr.godsoft.egovframe.generatorwebapp.comthemplyrinfochangedtls.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComthemplyrinfochangedtlsVO extends ComthemplyrinfochangedtlsDefaultVO{
+public class ComthemplyrinfochangedtlsVO extends ComthemplyrinfochangedtlsDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** EMPLYR_ID */
     private String emplyrId;
     
-    /**  */
+    /** CHANGE_DE */
     private String changeDe;
     
-    /**  */
+    /** ORGNZT_ID */
     private String orgnztId;
     
-    /**  */
+    /** GROUP_ID */
     private String groupId;
     
-    /**  */
+    /** EMPL_NO */
     private String emplNo;
     
-    /**  */
+    /** SEXDSTN_CODE */
     private String sexdstnCode;
     
-    /**  */
+    /** BRTHDY */
     private String brthdy;
     
-    /**  */
+    /** FXNUM */
     private String fxnum;
     
-    /**  */
+    /** HOUSE_ADRES */
     private String houseAdres;
     
-    /**  */
+    /** HOUSE_END_TELNO */
     private String houseEndTelno;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** DETAIL_ADRES */
     private String detailAdres;
     
-    /**  */
+    /** ZIP */
     private String zip;
     
-    /**  */
+    /** OFFM_TELNO */
     private String offmTelno;
     
-    /**  */
+    /** MBTLNUM */
     private String mbtlnum;
     
-    /**  */
+    /** EMAIL_ADRES */
     private String emailAdres;
     
-    /**  */
+    /** HOUSE_MIDDLE_TELNO */
     private String houseMiddleTelno;
     
-    /**  */
+    /** PSTINST_CODE */
     private String pstinstCode;
     
-    /**  */
+    /** EMPLYR_STTUS_CODE */
     private String emplyrSttusCode;
     
-    /**  */
+    /** ESNTL_ID */
     private String esntlId;
     
     public String getEmplyrId() {

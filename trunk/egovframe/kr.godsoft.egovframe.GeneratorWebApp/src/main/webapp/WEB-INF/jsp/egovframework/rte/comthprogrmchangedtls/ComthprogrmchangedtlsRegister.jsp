@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012.03.13
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -22,7 +22,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <c:set var="registerFlag" value="${empty comthprogrmchangedtlsVO.progrmFileNm ? '등록' : '수정'}"/>
-<title> <c:out value="${registerFlag}"/> </title>
+<c:set var="registerFlag" value="${empty comthprogrmchangedtlsVO.requstNo ? '등록' : '수정'}"/>
+<title>comthprogrmchangedtls <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
 <!--For Commons Validator Client Side-->
@@ -64,7 +65,7 @@ function fn_egov_save() {
 	<!-- 타이틀 -->
 	<div id="title">
 		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /> <c:out value="${registerFlag}"/></li>
+			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${registerFlag}"/></li>
 		</ul>
 	</div>
 	<!-- // 타이틀 -->
@@ -77,13 +78,13 @@ function fn_egov_save() {
 			
 		<c:if test="${registerFlag == '수정'}">
 		<tr>
-			<th> *</th>
+			<th>progrm_file_nm *</th>
 			<td>
 				<form:input path="progrmFileNm" cssClass="essentiality" readonly="true" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>requst_no *</th>
 			<td>
 				<form:input path="requstNo" cssClass="essentiality" readonly="true" />
 			</td>			
@@ -91,13 +92,13 @@ function fn_egov_save() {
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
 		<tr>
-			<th> *</th>
+			<th>progrm_file_nm *</th>
 			<td>
 				<form:input path="progrmFileNm" cssClass="txt" readonly="false" />
 			</td>			
 		</tr>					
 		<tr>
-			<th> *</th>
+			<th>requst_no *</th>
 			<td>
 				<form:input path="requstNo" cssClass="txt" readonly="false" />
 			</td>			
@@ -105,83 +106,59 @@ function fn_egov_save() {
 		</c:if>		
 		
 		<tr>
-			<th></th>
+			<th>rqester_id</th>
 			<td>
-	
-				<form:input path="rqesterId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="rqesterId" />
+					<form:input path="rqesterId" cssClass="txt"/>
+					&nbsp;<form:errors path="rqesterId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>change_requst_cn</th>
 			<td>
-	
-				<form:input path="changeRequstCn" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="changeRequstCn" />
+					<form:input path="changeRequstCn" cssClass="txt"/>
+					&nbsp;<form:errors path="changeRequstCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>requst_process_cn</th>
 			<td>
-	
-				<form:input path="requstProcessCn" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="requstProcessCn" />
+					<form:input path="requstProcessCn" cssClass="txt"/>
+					&nbsp;<form:errors path="requstProcessCn" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>opetr_id</th>
 			<td>
-	
-				<form:input path="opetrId" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="opetrId" />
+					<form:input path="opetrId" cssClass="txt"/>
+					&nbsp;<form:errors path="opetrId" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>process_sttus_code</th>
 			<td>
-	
-				<form:input path="processSttusCode" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="processSttusCode" />
+					<form:input path="processSttusCode" cssClass="txt"/>
+					&nbsp;<form:errors path="processSttusCode" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>process_de</th>
 			<td>
-	
-				<form:input path="processDe" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="processDe" />
+					<form:input path="processDe" cssClass="txt"/>
+					&nbsp;<form:errors path="processDe" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>rqestde</th>
 			<td>
-	
-				<form:input path="rqestde" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="rqestde" />
+					<form:input path="rqestde" cssClass="txt"/>
+					&nbsp;<form:errors path="rqestde" />
 			</td>
 		</tr>	
 		<tr>
-			<th></th>
+			<th>requst_sj</th>
 			<td>
-	
-				<form:input path="requstSj" cssClass="txt"/>
-
-
-				&nbsp;<form:errors path="requstSj" />
+					<form:input path="requstSj" cssClass="txt"/>
+					&nbsp;<form:errors path="requstSj" />
 			</td>
 		</tr>	
 	</table>

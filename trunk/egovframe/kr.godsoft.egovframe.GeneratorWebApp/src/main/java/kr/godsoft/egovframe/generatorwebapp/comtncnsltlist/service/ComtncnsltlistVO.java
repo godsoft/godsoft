@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtncnsltlist.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -37,7 +37,7 @@ public class ComtncnsltlistVO extends ComtncnsltlistDefaultVO {
     private String managtDe;
     
     /** RDCNT */
-    private int rdcnt;
+    private String rdcnt;
     
     /** ATCH_FILE_ID */
     private String atchFileId;
@@ -143,11 +143,11 @@ public class ComtncnsltlistVO extends ComtncnsltlistDefaultVO {
         this.managtDe = managtDe;
     }
     
-    public int getRdcnt() {
+    public String getRdcnt() {
         return this.rdcnt;
     }
     
-    public void setRdcnt(int rdcnt) {
+    public void setRdcnt(String rdcnt) {
         this.rdcnt = rdcnt;
     }
     

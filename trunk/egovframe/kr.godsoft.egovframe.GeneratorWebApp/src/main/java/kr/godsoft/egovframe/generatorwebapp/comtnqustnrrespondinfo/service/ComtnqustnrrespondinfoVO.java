@@ -6,55 +6,55 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqustnrrespondinfoVO extends ComtnqustnrrespondinfoDefaultVO{
+public class ComtnqustnrrespondinfoVO extends ComtnqustnrrespondinfoDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QUSTNR_TMPLAT_ID */
     private String qustnrTmplatId;
     
-    /**  */
+    /** QESTNR_ID */
     private String qestnrId;
     
-    /**  */
+    /** QUSTNR_RESPOND_ID */
     private String qustnrRespondId;
     
-    /**  */
+    /** SEXDSTN_CODE */
     private String sexdstnCode;
     
-    /**  */
+    /** OCCP_TY_CODE */
     private String occpTyCode;
     
-    /**  */
+    /** RESPOND_NM */
     private String respondNm;
     
-    /**  */
+    /** BRTHDY */
     private String brthdy;
     
-    /**  */
+    /** AREA_NO */
     private String areaNo;
     
-    /**  */
+    /** MIDDLE_TELNO */
     private String middleTelno;
     
-    /**  */
+    /** END_TELNO */
     private String endTelno;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
     public String getQustnrTmplatId() {

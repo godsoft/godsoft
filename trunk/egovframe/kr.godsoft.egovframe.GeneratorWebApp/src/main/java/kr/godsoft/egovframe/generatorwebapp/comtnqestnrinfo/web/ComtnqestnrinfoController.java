@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.ComtnqestnrinfoVO;
 
 /**
  * @Class Name : ComtnqestnrinfoController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.Comtnqestnri
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqestnrinfo.service.Comtnqestnri
  */
 
 @Controller
-@SessionAttributes(types=ComtnqestnrinfoVO.class)
 public class ComtnqestnrinfoController {
 
     @Resource(name = "comtnqestnrinfoService")
@@ -45,13 +45,13 @@ public class ComtnqestnrinfoController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnqestnrinfo 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnqestnrinfoDefaultVO
+	 * COMTNQESTNRINFO 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnqestnrinfoVO
 	 * @return "/comtnqestnrinfo/ComtnqestnrinfoList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnqestnrinfo/ComtnqestnrinfoList.do")
-    public String selectComtnqestnrinfoList(@ModelAttribute("searchVO") ComtnqestnrinfoDefaultVO searchVO, 
+    public String selectComtnqestnrinfoList(@ModelAttribute("searchVO") ComtnqestnrinfoVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnqestnrinfoController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnqestnrinfoList = comtnqestnrinfoService.selectComtnqestnrinfoList(searchVO);
+        List<EgovMap> comtnqestnrinfoList = comtnqestnrinfoService.selectComtnqestnrinfoList(searchVO);
         model.addAttribute("resultList", comtnqestnrinfoList);
         
         int totCnt = comtnqestnrinfoService.selectComtnqestnrinfoListTotCnt(searchVO);

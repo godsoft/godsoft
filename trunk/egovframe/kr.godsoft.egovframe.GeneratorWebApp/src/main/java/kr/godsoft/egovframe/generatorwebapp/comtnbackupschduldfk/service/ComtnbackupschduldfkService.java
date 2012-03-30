@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnbackupschduldfkService {
 	
 	/**
-	 * comtnbackupschduldfk을 등록한다.
+	 * COMTNBACKUPSCHDULDFK을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbackupschduldfkVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnbackupschduldfkService {
     String insertComtnbackupschduldfk(ComtnbackupschduldfkVO vo) throws Exception;
     
     /**
-	 * comtnbackupschduldfk을 수정한다.
+	 * COMTNBACKUPSCHDULDFK을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbackupschduldfkVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnbackupschduldfkService {
     void updateComtnbackupschduldfk(ComtnbackupschduldfkVO vo) throws Exception;
     
     /**
-	 * comtnbackupschduldfk을 삭제한다.
+	 * COMTNBACKUPSCHDULDFK을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbackupschduldfkVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnbackupschduldfkService {
     void deleteComtnbackupschduldfk(ComtnbackupschduldfkVO vo) throws Exception;
     
     /**
-	 * comtnbackupschduldfk을 조회한다.
+	 * COMTNBACKUPSCHDULDFK을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbackupschduldfkVO
-	 * @return 조회한 comtnbackupschduldfk
+	 * @return 조회한 COMTNBACKUPSCHDULDFK
 	 * @exception Exception
 	 */
     ComtnbackupschduldfkVO selectComtnbackupschduldfk(ComtnbackupschduldfkVO vo) throws Exception;
     
     /**
-	 * comtnbackupschduldfk 목록을 조회한다.
+	 * COMTNBACKUPSCHDULDFK 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbackupschduldfk 목록
+	 * @return COMTNBACKUPSCHDULDFK 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnbackupschduldfkList(ComtnbackupschduldfkVO vo) throws Exception;
     
     /**
-	 * comtnbackupschduldfk 총 갯수를 조회한다.
+	 * COMTNBACKUPSCHDULDFK 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbackupschduldfk 총 갯수
+	 * @return COMTNBACKUPSCHDULDFK 총 갯수
 	 * @exception
 	 */
     int selectComtnbackupschduldfkListTotCnt(ComtnbackupschduldfkVO vo);

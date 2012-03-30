@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtecopseq.service.ComtecopseqVO;
 public class ComtecopseqDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtecopseq을 등록한다.
+	 * COMTECOPSEQ을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtecopseqVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtecopseqDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtecopseq을 수정한다.
+	 * COMTECOPSEQ을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtecopseqVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtecopseqDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtecopseq을 삭제한다.
+	 * COMTECOPSEQ을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtecopseqVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtecopseqDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtecopseq을 조회한다.
+	 * COMTECOPSEQ을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtecopseqVO
-	 * @return 조회한 comtecopseq
+	 * @return 조회한 COMTECOPSEQ
 	 * @exception Exception
 	 */
     public ComtecopseqVO selectComtecopseq(ComtecopseqVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtecopseqDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtecopseq 목록을 조회한다.
+	 * COMTECOPSEQ 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtecopseq 목록
+	 * @return COMTECOPSEQ 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtecopseqDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtecopseq 총 갯수를 조회한다.
+	 * COMTECOPSEQ 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtecopseq 총 갯수
+	 * @return COMTECOPSEQ 총 갯수
 	 * @exception
 	 */
     public int selectComtecopseqListTotCnt(ComtecopseqVO vo) {

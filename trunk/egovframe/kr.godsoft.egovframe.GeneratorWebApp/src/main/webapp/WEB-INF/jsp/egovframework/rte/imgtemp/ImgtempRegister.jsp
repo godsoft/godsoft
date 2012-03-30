@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -108,15 +108,15 @@ function fn_egov_save() {
 		<tr>
 			<th>image_info</th>
 			<td>
-				<form:input path="imageInfo" cssClass="txt"/>
-				&nbsp;<form:errors path="imageInfo" />
+					<form:input path="imageInfo" cssClass="txt"/>
+					&nbsp;<form:errors path="imageInfo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>image_ty</th>
 			<td>
-				<form:input path="imageTy" cssClass="txt"/>
-				&nbsp;<form:errors path="imageTy" />
+					<form:input path="imageTy" cssClass="txt"/>
+					&nbsp;<form:errors path="imageTy" />
 			</td>
 		</tr>	
 	</table>

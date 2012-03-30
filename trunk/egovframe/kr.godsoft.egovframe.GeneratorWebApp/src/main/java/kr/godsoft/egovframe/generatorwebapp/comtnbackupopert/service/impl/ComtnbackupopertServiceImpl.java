@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnbackupopert을 등록한다.
+	 * COMTNBACKUPOPERT을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbackupopertVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbackupopert을 수정한다.
+	 * COMTNBACKUPOPERT을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbackupopertVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbackupopert을 삭제한다.
+	 * COMTNBACKUPOPERT을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbackupopertVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbackupopert을 조회한다.
+	 * COMTNBACKUPOPERT을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbackupopertVO
-	 * @return 조회한 comtnbackupopert
+	 * @return 조회한 COMTNBACKUPOPERT
 	 * @exception Exception
 	 */
     public ComtnbackupopertVO selectComtnbackupopert(ComtnbackupopertVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbackupopert 목록을 조회한다.
+	 * COMTNBACKUPOPERT 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbackupopert 목록
+	 * @return COMTNBACKUPOPERT 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnbackupopertList(ComtnbackupopertVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnbackupopertServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnbackupopert 총 갯수를 조회한다.
+	 * COMTNBACKUPOPERT 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnbackupopert 총 갯수
+	 * @return COMTNBACKUPOPERT 총 갯수
 	 * @exception
 	 */
     public int selectComtnbackupopertListTotCnt(ComtnbackupopertVO vo) {

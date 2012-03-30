@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,64 +95,64 @@ function fn_egov_save() {
 		<tr>
 			<th>confm_rqester_id</th>
 			<td>
-				<form:input path="confmRqesterId" cssClass="txt"/>
-				&nbsp;<form:errors path="confmRqesterId" />
+					<form:input path="confmRqesterId" cssClass="txt"/>
+					&nbsp;<form:errors path="confmRqesterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confmer_id</th>
 			<td>
-				<form:input path="confmerId" cssClass="txt"/>
-				&nbsp;<form:errors path="confmerId" />
+					<form:input path="confmerId" cssClass="txt"/>
+					&nbsp;<form:errors path="confmerId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confm_de</th>
 			<td>
-				<form:input path="confmDe" cssClass="txt"/>
-				&nbsp;<form:errors path="confmDe" />
+					<form:input path="confmDe" cssClass="txt"/>
+					&nbsp;<form:errors path="confmDe" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confm_ty_code</th>
 			<td>
-				<form:input path="confmTyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="confmTyCode" />
+					<form:input path="confmTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="confmTyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>confm_sttus_code</th>
 			<td>
-				<form:input path="confmSttusCode" cssClass="txt"/>
-				&nbsp;<form:errors path="confmSttusCode" />
+					<form:input path="confmSttusCode" cssClass="txt"/>
+					&nbsp;<form:errors path="confmSttusCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>opert_ty_code</th>
 			<td>
-				<form:input path="opertTyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="opertTyCode" />
+					<form:input path="opertTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="opertTyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>opert_id</th>
 			<td>
-				<form:input path="opertId" cssClass="txt"/>
-				&nbsp;<form:errors path="opertId" />
+					<form:input path="opertId" cssClass="txt"/>
+					&nbsp;<form:errors path="opertId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trget_job_ty_code</th>
 			<td>
-				<form:input path="trgetJobTyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetJobTyCode" />
+					<form:input path="trgetJobTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetJobTyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trget_job_id</th>
 			<td>
-				<form:input path="trgetJobId" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetJobId" />
+					<form:input path="trgetJobId" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetJobId" />
 			</td>
 		</tr>	
 	</table>

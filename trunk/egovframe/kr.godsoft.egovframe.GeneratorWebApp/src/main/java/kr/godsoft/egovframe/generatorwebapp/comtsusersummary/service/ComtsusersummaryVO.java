@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtsusersummary.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ public class ComtsusersummaryVO extends ComtsusersummaryDefaultVO {
     private String detailStatsSe;
     
     /** USER_CO */
-    private int userCo;
+    private String userCo;
     
     public String getOccrrncDe() {
         return this.occrrncDe;
@@ -51,11 +51,11 @@ public class ComtsusersummaryVO extends ComtsusersummaryDefaultVO {
         this.detailStatsSe = detailStatsSe;
     }
     
-    public int getUserCo() {
+    public String getUserCo() {
         return this.userCo;
     }
     
-    public void setUserCo(int userCo) {
+    public void setUserCo(String userCo) {
         this.userCo = userCo;
     }
     

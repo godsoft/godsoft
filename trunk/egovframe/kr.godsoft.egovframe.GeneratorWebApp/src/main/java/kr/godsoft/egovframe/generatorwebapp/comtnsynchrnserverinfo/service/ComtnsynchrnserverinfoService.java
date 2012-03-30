@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtnsynchrnserverinfoService {
 	
 	/**
-	 * comtnsynchrnserverinfo을 등록한다.
+	 * COMTNSYNCHRNSERVERINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnsynchrnserverinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtnsynchrnserverinfoService {
     String insertComtnsynchrnserverinfo(ComtnsynchrnserverinfoVO vo) throws Exception;
     
     /**
-	 * comtnsynchrnserverinfo을 수정한다.
+	 * COMTNSYNCHRNSERVERINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnsynchrnserverinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtnsynchrnserverinfoService {
     void updateComtnsynchrnserverinfo(ComtnsynchrnserverinfoVO vo) throws Exception;
     
     /**
-	 * comtnsynchrnserverinfo을 삭제한다.
+	 * COMTNSYNCHRNSERVERINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnsynchrnserverinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtnsynchrnserverinfoService {
     void deleteComtnsynchrnserverinfo(ComtnsynchrnserverinfoVO vo) throws Exception;
     
     /**
-	 * comtnsynchrnserverinfo을 조회한다.
+	 * COMTNSYNCHRNSERVERINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnsynchrnserverinfoVO
-	 * @return 조회한 comtnsynchrnserverinfo
+	 * @return 조회한 COMTNSYNCHRNSERVERINFO
 	 * @exception Exception
 	 */
     ComtnsynchrnserverinfoVO selectComtnsynchrnserverinfo(ComtnsynchrnserverinfoVO vo) throws Exception;
     
     /**
-	 * comtnsynchrnserverinfo 목록을 조회한다.
+	 * COMTNSYNCHRNSERVERINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnsynchrnserverinfo 목록
+	 * @return COMTNSYNCHRNSERVERINFO 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtnsynchrnserverinfoList(ComtnsynchrnserverinfoVO vo) throws Exception;
     
     /**
-	 * comtnsynchrnserverinfo 총 갯수를 조회한다.
+	 * COMTNSYNCHRNSERVERINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnsynchrnserverinfo 총 갯수
+	 * @return COMTNSYNCHRNSERVERINFO 총 갯수
 	 * @exception
 	 */
     int selectComtnsynchrnserverinfoListTotCnt(ComtnsynchrnserverinfoVO vo);

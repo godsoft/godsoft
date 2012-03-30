@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnschdulinfo을 등록한다.
+	 * COMTNSCHDULINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnschdulinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnschdulinfo을 수정한다.
+	 * COMTNSCHDULINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnschdulinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnschdulinfo을 삭제한다.
+	 * COMTNSCHDULINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnschdulinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnschdulinfo을 조회한다.
+	 * COMTNSCHDULINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnschdulinfoVO
-	 * @return 조회한 comtnschdulinfo
+	 * @return 조회한 COMTNSCHDULINFO
 	 * @exception Exception
 	 */
     public ComtnschdulinfoVO selectComtnschdulinfo(ComtnschdulinfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnschdulinfo 목록을 조회한다.
+	 * COMTNSCHDULINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnschdulinfo 목록
+	 * @return COMTNSCHDULINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnschdulinfoList(ComtnschdulinfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnschdulinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnschdulinfo 총 갯수를 조회한다.
+	 * COMTNSCHDULINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnschdulinfo 총 갯수
+	 * @return COMTNSCHDULINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnschdulinfoListTotCnt(ComtnschdulinfoVO vo) {

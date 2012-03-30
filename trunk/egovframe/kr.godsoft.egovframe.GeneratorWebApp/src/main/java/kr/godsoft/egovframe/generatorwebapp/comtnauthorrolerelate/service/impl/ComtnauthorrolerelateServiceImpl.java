@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateService;
+import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateService;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.ComtnauthorrolerelateVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.impl.ComtnauthorrolerelateDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnauthorrolerelateServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnauthorrolerelate.service.impl.C
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnauthorrolerelateServiceImpl extends AbstractServiceImpl implem
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnauthorrolerelate을 등록한다.
+	 * COMTNAUTHORROLERELATE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnauthorrolerelateServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnauthorrolerelate을 수정한다.
+	 * COMTNAUTHORROLERELATE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnauthorrolerelateServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnauthorrolerelate을 삭제한다.
+	 * COMTNAUTHORROLERELATE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnauthorrolerelateVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnauthorrolerelateServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnauthorrolerelate을 조회한다.
+	 * COMTNAUTHORROLERELATE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnauthorrolerelateVO
-	 * @return 조회한 comtnauthorrolerelate
+	 * @return 조회한 COMTNAUTHORROLERELATE
 	 * @exception Exception
 	 */
     public ComtnauthorrolerelateVO selectComtnauthorrolerelate(ComtnauthorrolerelateVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnauthorrolerelateServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnauthorrolerelate 목록을 조회한다.
+	 * COMTNAUTHORROLERELATE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorrolerelate 목록
+	 * @return COMTNAUTHORROLERELATE 목록
 	 * @exception Exception
 	 */
-    public List selectComtnauthorrolerelateList(ComtnauthorrolerelateDefaultVO searchVO) throws Exception {
-        return comtnauthorrolerelateDAO.selectComtnauthorrolerelateList(searchVO);
+    public List<EgovMap> selectComtnauthorrolerelateList(ComtnauthorrolerelateVO vo) throws Exception {
+        return comtnauthorrolerelateDAO.selectComtnauthorrolerelateList(vo);
     }
 
     /**
-	 * comtnauthorrolerelate 총 갯수를 조회한다.
+	 * COMTNAUTHORROLERELATE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorrolerelate 총 갯수
+	 * @return COMTNAUTHORROLERELATE 총 갯수
 	 * @exception
 	 */
-    public int selectComtnauthorrolerelateListTotCnt(ComtnauthorrolerelateDefaultVO searchVO) {
-		return comtnauthorrolerelateDAO.selectComtnauthorrolerelateListTotCnt(searchVO);
+    public int selectComtnauthorrolerelateListTotCnt(ComtnauthorrolerelateVO vo) {
+		return comtnauthorrolerelateDAO.selectComtnauthorrolerelateListTotCnt(vo);
 	}
     
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.ComtnqustnrrespondinfoDefaultVO;
 
 /**
  * @Class Name : ComtnqustnrrespondinfoDAO.java
@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.Comtn
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnrrespondinfo.service.Comtn
 public class ComtnqustnrrespondinfoDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnqustnrrespondinfo을 등록한다.
+	 * COMTNQUSTNRRESPONDINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnqustnrrespondinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrespondinfo을 수정한다.
+	 * COMTNQUSTNRRESPONDINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnqustnrrespondinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrespondinfo을 삭제한다.
+	 * COMTNQUSTNRRESPONDINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnqustnrrespondinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnqustnrrespondinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrespondinfo을 조회한다.
+	 * COMTNQUSTNRRESPONDINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnqustnrrespondinfoVO
-	 * @return 조회한 comtnqustnrrespondinfo
+	 * @return 조회한 COMTNQUSTNRRESPONDINFO
 	 * @exception Exception
 	 */
     public ComtnqustnrrespondinfoVO selectComtnqustnrrespondinfo(ComtnqustnrrespondinfoVO vo) throws Exception {
@@ -65,23 +65,24 @@ public class ComtnqustnrrespondinfoDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnqustnrrespondinfo 목록을 조회한다.
+	 * COMTNQUSTNRRESPONDINFO 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqustnrrespondinfo 목록
+	 * @return COMTNQUSTNRRESPONDINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtnqustnrrespondinfoList(ComtnqustnrrespondinfoDefaultVO searchVO) throws Exception {
-        return list("comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfoList_D", searchVO);
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectComtnqustnrrespondinfoList(ComtnqustnrrespondinfoVO vo) throws Exception {
+        return list("comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfoList_D", vo);
     }
 
     /**
-	 * comtnqustnrrespondinfo 총 갯수를 조회한다.
+	 * COMTNQUSTNRRESPONDINFO 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnqustnrrespondinfo 총 갯수
+	 * @return COMTNQUSTNRRESPONDINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtnqustnrrespondinfoListTotCnt(ComtnqustnrrespondinfoDefaultVO searchVO) {
-        return (Integer)getSqlMapClientTemplate().queryForObject("comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfoListTotCnt_S", searchVO);
+    public int selectComtnqustnrrespondinfoListTotCnt(ComtnqustnrrespondinfoVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("comtnqustnrrespondinfoDAO.selectComtnqustnrrespondinfoListTotCnt_S", vo);
     }
 
 }

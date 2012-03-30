@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtncntcmessageServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtncntcmessage을 등록한다.
+	 * COMTNCNTCMESSAGE을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncntcmessageVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtncntcmessageServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncntcmessage을 수정한다.
+	 * COMTNCNTCMESSAGE을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncntcmessageVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtncntcmessageServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncntcmessage을 삭제한다.
+	 * COMTNCNTCMESSAGE을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncntcmessageVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtncntcmessageServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncntcmessage을 조회한다.
+	 * COMTNCNTCMESSAGE을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncntcmessageVO
-	 * @return 조회한 comtncntcmessage
+	 * @return 조회한 COMTNCNTCMESSAGE
 	 * @exception Exception
 	 */
     public ComtncntcmessageVO selectComtncntcmessage(ComtncntcmessageVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtncntcmessageServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncntcmessage 목록을 조회한다.
+	 * COMTNCNTCMESSAGE 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncntcmessage 목록
+	 * @return COMTNCNTCMESSAGE 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtncntcmessageList(ComtncntcmessageVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtncntcmessageServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncntcmessage 총 갯수를 조회한다.
+	 * COMTNCNTCMESSAGE 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncntcmessage 총 갯수
+	 * @return COMTNCNTCMESSAGE 총 갯수
 	 * @exception
 	 */
     public int selectComtncntcmessageListTotCnt(ComtncntcmessageVO vo) {

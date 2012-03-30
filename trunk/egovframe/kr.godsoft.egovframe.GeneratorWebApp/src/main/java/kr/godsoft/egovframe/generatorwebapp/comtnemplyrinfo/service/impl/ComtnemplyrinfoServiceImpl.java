@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.ComtnemplyrinfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.impl.ComtnemplyrinfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnemplyrinfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnemplyrinfo.service.impl.Comtnem
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnemplyrinfoServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnemplyrinfo을 등록한다.
+	 * COMTNEMPLYRINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnemplyrinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnemplyrinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnemplyrinfo을 수정한다.
+	 * COMTNEMPLYRINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnemplyrinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnemplyrinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnemplyrinfo을 삭제한다.
+	 * COMTNEMPLYRINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnemplyrinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnemplyrinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnemplyrinfo을 조회한다.
+	 * COMTNEMPLYRINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnemplyrinfoVO
-	 * @return 조회한 comtnemplyrinfo
+	 * @return 조회한 COMTNEMPLYRINFO
 	 * @exception Exception
 	 */
     public ComtnemplyrinfoVO selectComtnemplyrinfo(ComtnemplyrinfoVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnemplyrinfoServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtnemplyrinfo 목록을 조회한다.
+	 * COMTNEMPLYRINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnemplyrinfo 목록
+	 * @return COMTNEMPLYRINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtnemplyrinfoList(ComtnemplyrinfoDefaultVO searchVO) throws Exception {
-        return comtnemplyrinfoDAO.selectComtnemplyrinfoList(searchVO);
+    public List<EgovMap> selectComtnemplyrinfoList(ComtnemplyrinfoVO vo) throws Exception {
+        return comtnemplyrinfoDAO.selectComtnemplyrinfoList(vo);
     }
 
     /**
-	 * comtnemplyrinfo 총 갯수를 조회한다.
+	 * COMTNEMPLYRINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnemplyrinfo 총 갯수
+	 * @return COMTNEMPLYRINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtnemplyrinfoListTotCnt(ComtnemplyrinfoDefaultVO searchVO) {
-		return comtnemplyrinfoDAO.selectComtnemplyrinfoListTotCnt(searchVO);
+    public int selectComtnemplyrinfoListTotCnt(ComtnemplyrinfoVO vo) {
+		return comtnemplyrinfoDAO.selectComtnemplyrinfoListTotCnt(vo);
 	}
     
 }

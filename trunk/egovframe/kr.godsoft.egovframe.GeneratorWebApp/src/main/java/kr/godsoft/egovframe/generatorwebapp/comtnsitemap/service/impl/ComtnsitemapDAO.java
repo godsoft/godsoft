@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnsitemap.service.ComtnsitemapVO;
 public class ComtnsitemapDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnsitemap을 등록한다.
+	 * COMTNSITEMAP을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnsitemapVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsitemap을 수정한다.
+	 * COMTNSITEMAP을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnsitemapVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsitemap을 삭제한다.
+	 * COMTNSITEMAP을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnsitemapVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsitemap을 조회한다.
+	 * COMTNSITEMAP을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnsitemapVO
-	 * @return 조회한 comtnsitemap
+	 * @return 조회한 COMTNSITEMAP
 	 * @exception Exception
 	 */
     public ComtnsitemapVO selectComtnsitemap(ComtnsitemapVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsitemap 목록을 조회한다.
+	 * COMTNSITEMAP 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnsitemap 목록
+	 * @return COMTNSITEMAP 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnsitemapDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnsitemap 총 갯수를 조회한다.
+	 * COMTNSITEMAP 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnsitemap 총 갯수
+	 * @return COMTNSITEMAP 총 갯수
 	 * @exception
 	 */
     public int selectComtnsitemapListTotCnt(ComtnsitemapVO vo) {

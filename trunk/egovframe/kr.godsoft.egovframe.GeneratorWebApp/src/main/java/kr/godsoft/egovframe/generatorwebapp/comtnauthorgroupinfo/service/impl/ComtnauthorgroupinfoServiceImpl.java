@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnauthorgroupinfo을 등록한다.
+	 * COMTNAUTHORGROUPINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnauthorgroupinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnauthorgroupinfo을 수정한다.
+	 * COMTNAUTHORGROUPINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnauthorgroupinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnauthorgroupinfo을 삭제한다.
+	 * COMTNAUTHORGROUPINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnauthorgroupinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnauthorgroupinfo을 조회한다.
+	 * COMTNAUTHORGROUPINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnauthorgroupinfoVO
-	 * @return 조회한 comtnauthorgroupinfo
+	 * @return 조회한 COMTNAUTHORGROUPINFO
 	 * @exception Exception
 	 */
     public ComtnauthorgroupinfoVO selectComtnauthorgroupinfo(ComtnauthorgroupinfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnauthorgroupinfo 목록을 조회한다.
+	 * COMTNAUTHORGROUPINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorgroupinfo 목록
+	 * @return COMTNAUTHORGROUPINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnauthorgroupinfoList(ComtnauthorgroupinfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnauthorgroupinfoServiceImpl extends AbstractServiceImpl impleme
     }
 
     /**
-	 * comtnauthorgroupinfo 총 갯수를 조회한다.
+	 * COMTNAUTHORGROUPINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnauthorgroupinfo 총 갯수
+	 * @return COMTNAUTHORGROUPINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnauthorgroupinfoListTotCnt(ComtnauthorgroupinfoVO vo) {

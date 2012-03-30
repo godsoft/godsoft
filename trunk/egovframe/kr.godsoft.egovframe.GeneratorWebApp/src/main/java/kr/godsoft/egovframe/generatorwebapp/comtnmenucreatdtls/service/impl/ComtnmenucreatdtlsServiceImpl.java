@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsService;
+import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsService;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.ComtnmenucreatdtlsVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.impl.ComtnmenucreatdtlsDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnmenucreatdtlsServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnmenucreatdtls.service.impl.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnmenucreatdtlsServiceImpl extends AbstractServiceImpl implement
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnmenucreatdtls을 등록한다.
+	 * COMTNMENUCREATDTLS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnmenucreatdtlsServiceImpl extends AbstractServiceImpl implement
     }
 
     /**
-	 * comtnmenucreatdtls을 수정한다.
+	 * COMTNMENUCREATDTLS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnmenucreatdtlsServiceImpl extends AbstractServiceImpl implement
     }
 
     /**
-	 * comtnmenucreatdtls을 삭제한다.
+	 * COMTNMENUCREATDTLS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnmenucreatdtlsVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnmenucreatdtlsServiceImpl extends AbstractServiceImpl implement
     }
 
     /**
-	 * comtnmenucreatdtls을 조회한다.
+	 * COMTNMENUCREATDTLS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnmenucreatdtlsVO
-	 * @return 조회한 comtnmenucreatdtls
+	 * @return 조회한 COMTNMENUCREATDTLS
 	 * @exception Exception
 	 */
     public ComtnmenucreatdtlsVO selectComtnmenucreatdtls(ComtnmenucreatdtlsVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnmenucreatdtlsServiceImpl extends AbstractServiceImpl implement
     }
 
     /**
-	 * comtnmenucreatdtls 목록을 조회한다.
+	 * COMTNMENUCREATDTLS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmenucreatdtls 목록
+	 * @return COMTNMENUCREATDTLS 목록
 	 * @exception Exception
 	 */
-    public List selectComtnmenucreatdtlsList(ComtnmenucreatdtlsDefaultVO searchVO) throws Exception {
-        return comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsList(searchVO);
+    public List<EgovMap> selectComtnmenucreatdtlsList(ComtnmenucreatdtlsVO vo) throws Exception {
+        return comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsList(vo);
     }
 
     /**
-	 * comtnmenucreatdtls 총 갯수를 조회한다.
+	 * COMTNMENUCREATDTLS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnmenucreatdtls 총 갯수
+	 * @return COMTNMENUCREATDTLS 총 갯수
 	 * @exception
 	 */
-    public int selectComtnmenucreatdtlsListTotCnt(ComtnmenucreatdtlsDefaultVO searchVO) {
-		return comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsListTotCnt(searchVO);
+    public int selectComtnmenucreatdtlsListTotCnt(ComtnmenucreatdtlsVO vo) {
+		return comtnmenucreatdtlsDAO.selectComtnmenucreatdtlsListTotCnt(vo);
 	}
     
 }

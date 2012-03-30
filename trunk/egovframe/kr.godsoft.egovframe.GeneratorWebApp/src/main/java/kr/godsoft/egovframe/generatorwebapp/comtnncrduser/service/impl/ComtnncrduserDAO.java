@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserV
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnncrduser.service.ComtnncrduserV
 public class ComtnncrduserDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnncrduser을 등록한다.
+	 * COMTNNCRDUSER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnncrduserVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnncrduserDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnncrduser을 수정한다.
+	 * COMTNNCRDUSER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnncrduserVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnncrduserDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnncrduser을 삭제한다.
+	 * COMTNNCRDUSER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnncrduserVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnncrduserDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnncrduser을 조회한다.
+	 * COMTNNCRDUSER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnncrduserVO
-	 * @return 조회한 comtnncrduser
+	 * @return 조회한 COMTNNCRDUSER
 	 * @exception Exception
 	 */
     public ComtnncrduserVO selectComtnncrduser(ComtnncrduserVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnncrduserDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnncrduser 목록을 조회한다.
+	 * COMTNNCRDUSER 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnncrduser 목록
+	 * @return COMTNNCRDUSER 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnncrduserDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnncrduser 총 갯수를 조회한다.
+	 * COMTNNCRDUSER 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnncrduser 총 갯수
+	 * @return COMTNNCRDUSER 총 갯수
 	 * @exception
 	 */
     public int selectComtnncrduserListTotCnt(ComtnncrduserVO vo) {

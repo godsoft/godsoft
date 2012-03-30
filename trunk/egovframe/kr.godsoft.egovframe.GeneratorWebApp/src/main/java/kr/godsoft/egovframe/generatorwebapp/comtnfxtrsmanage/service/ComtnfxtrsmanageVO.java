@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnfxtrsmanage.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ public class ComtnfxtrsmanageVO extends ComtnfxtrsmanageDefaultVO {
     private String makrNm;
     
     /** PRICE */
-    private int price;
+    private String price;
     
     public String getFxtrsCode() {
         return this.fxtrsCode;
@@ -51,11 +51,11 @@ public class ComtnfxtrsmanageVO extends ComtnfxtrsmanageDefaultVO {
         this.makrNm = makrNm;
     }
     
-    public int getPrice() {
+    public String getPrice() {
         return this.price;
     }
     
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
     

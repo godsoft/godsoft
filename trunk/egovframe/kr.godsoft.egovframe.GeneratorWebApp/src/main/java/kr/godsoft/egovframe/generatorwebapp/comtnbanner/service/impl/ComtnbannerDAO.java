@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbanner.service.ComtnbannerVO;
 public class ComtnbannerDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtnbanner을 등록한다.
+	 * COMTNBANNER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnbannerVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbanner을 수정한다.
+	 * COMTNBANNER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnbannerVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbanner을 삭제한다.
+	 * COMTNBANNER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnbannerVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbanner을 조회한다.
+	 * COMTNBANNER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnbannerVO
-	 * @return 조회한 comtnbanner
+	 * @return 조회한 COMTNBANNER
 	 * @exception Exception
 	 */
     public ComtnbannerVO selectComtnbanner(ComtnbannerVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbanner 목록을 조회한다.
+	 * COMTNBANNER 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbanner 목록
+	 * @return COMTNBANNER 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtnbannerDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtnbanner 총 갯수를 조회한다.
+	 * COMTNBANNER 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtnbanner 총 갯수
+	 * @return COMTNBANNER 총 갯수
 	 * @exception
 	 */
     public int selectComtnbannerListTotCnt(ComtnbannerVO vo) {

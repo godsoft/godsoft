@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.ComtnserverresrceloginfoService;
+import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.ComtnserverresrceloginfoVO;
+
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.ComtnserverresrceloginfoService;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.ComtnserverresrceloginfoDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.ComtnserverresrceloginfoVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.impl.ComtnserverresrceloginfoDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 /**
  * @Class Name : ComtnserverresrceloginfoServiceImpl.java
@@ -19,7 +19,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnserverresrceloginfo.service.imp
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnserverresrceloginfoServiceImpl extends AbstractServiceImpl imp
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnserverresrceloginfo을 등록한다.
+	 * COMTNSERVERRESRCELOGINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnserverresrceloginfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnserverresrceloginfoServiceImpl extends AbstractServiceImpl imp
     }
 
     /**
-	 * comtnserverresrceloginfo을 수정한다.
+	 * COMTNSERVERRESRCELOGINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnserverresrceloginfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnserverresrceloginfoServiceImpl extends AbstractServiceImpl imp
     }
 
     /**
-	 * comtnserverresrceloginfo을 삭제한다.
+	 * COMTNSERVERRESRCELOGINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnserverresrceloginfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnserverresrceloginfoServiceImpl extends AbstractServiceImpl imp
     }
 
     /**
-	 * comtnserverresrceloginfo을 조회한다.
+	 * COMTNSERVERRESRCELOGINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnserverresrceloginfoVO
-	 * @return 조회한 comtnserverresrceloginfo
+	 * @return 조회한 COMTNSERVERRESRCELOGINFO
 	 * @exception Exception
 	 */
     public ComtnserverresrceloginfoVO selectComtnserverresrceloginfo(ComtnserverresrceloginfoVO vo) throws Exception {
@@ -91,23 +91,23 @@ public class ComtnserverresrceloginfoServiceImpl extends AbstractServiceImpl imp
     }
 
     /**
-	 * comtnserverresrceloginfo 목록을 조회한다.
+	 * COMTNSERVERRESRCELOGINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnserverresrceloginfo 목록
+	 * @return COMTNSERVERRESRCELOGINFO 목록
 	 * @exception Exception
 	 */
-    public List selectComtnserverresrceloginfoList(ComtnserverresrceloginfoDefaultVO searchVO) throws Exception {
-        return comtnserverresrceloginfoDAO.selectComtnserverresrceloginfoList(searchVO);
+    public List<EgovMap> selectComtnserverresrceloginfoList(ComtnserverresrceloginfoVO vo) throws Exception {
+        return comtnserverresrceloginfoDAO.selectComtnserverresrceloginfoList(vo);
     }
 
     /**
-	 * comtnserverresrceloginfo 총 갯수를 조회한다.
+	 * COMTNSERVERRESRCELOGINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnserverresrceloginfo 총 갯수
+	 * @return COMTNSERVERRESRCELOGINFO 총 갯수
 	 * @exception
 	 */
-    public int selectComtnserverresrceloginfoListTotCnt(ComtnserverresrceloginfoDefaultVO searchVO) {
-		return comtnserverresrceloginfoDAO.selectComtnserverresrceloginfoListTotCnt(searchVO);
+    public int selectComtnserverresrceloginfoListTotCnt(ComtnserverresrceloginfoVO vo) {
+		return comtnserverresrceloginfoDAO.selectComtnserverresrceloginfoListTotCnt(vo);
 	}
     
 }

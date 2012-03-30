@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnstsfdg.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -16,10 +16,10 @@ public class ComtnstsfdgVO extends ComtnstsfdgDefaultVO {
     private static final long serialVersionUID = 1L;
     
     /** STSFDG_NO */
-    private int stsfdgNo;
+    private String stsfdgNo;
     
     /** NTT_ID */
-    private int nttId;
+    private String nttId;
     
     /** BBS_ID */
     private String bbsId;
@@ -34,7 +34,7 @@ public class ComtnstsfdgVO extends ComtnstsfdgDefaultVO {
     private String password;
     
     /** STSFDG */
-    private int stsfdg;
+    private String stsfdg;
     
     /** STSFDG_CN */
     private String stsfdgCn;
@@ -54,19 +54,19 @@ public class ComtnstsfdgVO extends ComtnstsfdgDefaultVO {
     /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    public int getStsfdgNo() {
+    public String getStsfdgNo() {
         return this.stsfdgNo;
     }
     
-    public void setStsfdgNo(int stsfdgNo) {
+    public void setStsfdgNo(String stsfdgNo) {
         this.stsfdgNo = stsfdgNo;
     }
     
-    public int getNttId() {
+    public String getNttId() {
         return this.nttId;
     }
     
-    public void setNttId(int nttId) {
+    public void setNttId(String nttId) {
         this.nttId = nttId;
     }
     
@@ -102,11 +102,11 @@ public class ComtnstsfdgVO extends ComtnstsfdgDefaultVO {
         this.password = password;
     }
     
-    public int getStsfdg() {
+    public String getStsfdg() {
         return this.stsfdg;
     }
     
-    public void setStsfdg(int stsfdg) {
+    public void setStsfdg(String stsfdg) {
         this.stsfdg = stsfdg;
     }
     

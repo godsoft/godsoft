@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnreprtstats">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnreprtstatsVO" type="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO"/>
+	
+	<resultMap id="comtnreprtstats" class="kr.godsoft.egovframe.generatorwebapp.comtnreprtstats.service.ComtnreprtstatsVO">
+		<result property="reprtId" column="reprt_id" columnIndex="1"/>
+		<result property="reprtNm" column="reprt_nm" columnIndex="2"/>
+		<result property="reprtSttus" column="reprt_sttus" columnIndex="3"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="4"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="5"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="6"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="7"/>
+		<result property="reprtTy" column="reprt_ty" columnIndex="8"/>
+	</resultMap>
+	
+	<insert id="comtnreprtstatsDAO.insertComtnreprtstats_S">
+		<![CDATA[
+            INSERT INTO comtnreprtstats (
+                reprt_id
+                , reprt_nm
+                , reprt_sttus
+                , frst_register_id
+                , frst_regist_pnttm
+                , reprt_ty
+            ) VALUES (
+                #reprtId#
+                , #reprtNm#
+                , #reprtSttus#
+                , #frstRegisterId#
+                , SYSDATE
+                , #reprtTy#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnreprtstatsDAO.updateComtnreprtstats_S">
+		<![CDATA[
+            UPDATE comtnreprtstats
+                SET
+                reprt_id = #reprtId#
+                , reprt_nm = #reprtNm#
+                , reprt_sttus = #reprtSttus#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                , reprt_ty = #reprtTy#
+                WHERE 1 = 1
+                AND reprt_id = #reprtId#
+		]]>
+	</update>
+	
+	<delete id="comtnreprtstatsDAO.deleteComtnreprtstats_S">
+		<![CDATA[
+			DELETE FROM comtnreprtstats
+				WHERE 1 = 1
+				AND reprt_id = #reprtId#
+		]]>
+	</delete>
+	
+	<select id="comtnreprtstatsDAO.selectComtnreprtstats_S" resultMap="comtnreprtstats">
+		<![CDATA[
+			SELECT
+				reprt_id
+				, reprt_nm
+				, reprt_sttus
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, reprt_ty
+			FROM COMTNREPRTSTATS
+			WHERE reprt_id = #reprtId#
+		]]>
+	</select>
+	
+	<select id="comtnreprtstatsDAO.selectComtnreprtstatsList_D" parameterClass="ComtnreprtstatsVO" resultClass="egovMap">
+	       SELECT 
+								A.REPRT_ID
+								, A.REPRT_NM
+								, A.REPRT_STTUS
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+								, A.REPRT_TY
+			       FROM
+            (
+				SELECT
+								REPRT_ID
+								, REPRT_NM
+								, REPRT_STTUS
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+								, REPRT_TY
+							, ROWNUM
+				FROM COMTNREPRTSTATS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					REPRT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					REPRT_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							REPRT_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnreprtstatsDAO.selectComtnreprtstatsListTotCnt_S" parameterClass="ComtnreprtstatsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNREPRTSTATS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				REPRT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				REPRT_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

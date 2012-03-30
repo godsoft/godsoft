@@ -6,7 +6,7 @@ package kr.godsoft.egovframe.generatorwebapp.comtnfiledetail.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ public class ComtnfiledetailVO extends ComtnfiledetailDefaultVO {
     private String atchFileId;
     
     /** FILE_SN */
-    private int fileSn;
+    private String fileSn;
     
     /** FILE_STRE_COURS */
     private String fileStreCours;
@@ -37,7 +37,7 @@ public class ComtnfiledetailVO extends ComtnfiledetailDefaultVO {
     private String fileCn;
     
     /** FILE_SIZE */
-    private int fileSize;
+    private String fileSize;
     
     public String getAtchFileId() {
         return this.atchFileId;
@@ -47,11 +47,11 @@ public class ComtnfiledetailVO extends ComtnfiledetailDefaultVO {
         this.atchFileId = atchFileId;
     }
     
-    public int getFileSn() {
+    public String getFileSn() {
         return this.fileSn;
     }
     
-    public void setFileSn(int fileSn) {
+    public void setFileSn(String fileSn) {
         this.fileSn = fileSn;
     }
     
@@ -95,11 +95,11 @@ public class ComtnfiledetailVO extends ComtnfiledetailDefaultVO {
         this.fileCn = fileCn;
     }
     
-    public int getFileSize() {
+    public String getFileSize() {
         return this.fileSize;
     }
     
-    public void setFileSize(int fileSize) {
+    public void setFileSize(String fileSize) {
         this.fileSize = fileSize;
     }
     

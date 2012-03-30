@@ -10,7 +10,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 public interface ComtndtausestatsService {
 	
 	/**
-	 * comtndtausestats을 등록한다.
+	 * COMTNDTAUSESTATS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtndtausestatsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -27,7 +27,7 @@ public interface ComtndtausestatsService {
     String insertComtndtausestats(ComtndtausestatsVO vo) throws Exception;
     
     /**
-	 * comtndtausestats을 수정한다.
+	 * COMTNDTAUSESTATS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtndtausestatsVO
 	 * @return void형
 	 * @exception Exception
@@ -35,7 +35,7 @@ public interface ComtndtausestatsService {
     void updateComtndtausestats(ComtndtausestatsVO vo) throws Exception;
     
     /**
-	 * comtndtausestats을 삭제한다.
+	 * COMTNDTAUSESTATS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtndtausestatsVO
 	 * @return void형 
 	 * @exception Exception
@@ -43,25 +43,25 @@ public interface ComtndtausestatsService {
     void deleteComtndtausestats(ComtndtausestatsVO vo) throws Exception;
     
     /**
-	 * comtndtausestats을 조회한다.
+	 * COMTNDTAUSESTATS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtndtausestatsVO
-	 * @return 조회한 comtndtausestats
+	 * @return 조회한 COMTNDTAUSESTATS
 	 * @exception Exception
 	 */
     ComtndtausestatsVO selectComtndtausestats(ComtndtausestatsVO vo) throws Exception;
     
     /**
-	 * comtndtausestats 목록을 조회한다.
+	 * COMTNDTAUSESTATS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndtausestats 목록
+	 * @return COMTNDTAUSESTATS 목록
 	 * @exception Exception
 	 */
     List<EgovMap> selectComtndtausestatsList(ComtndtausestatsVO vo) throws Exception;
     
     /**
-	 * comtndtausestats 총 갯수를 조회한다.
+	 * COMTNDTAUSESTATS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtndtausestats 총 갯수
+	 * @return COMTNDTAUSESTATS 총 갯수
 	 * @exception
 	 */
     int selectComtndtausestatsListTotCnt(ComtndtausestatsVO vo);

@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnrecomendsiteinfo을 등록한다.
+	 * COMTNRECOMENDSITEINFO을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnrecomendsiteinfoVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnrecomendsiteinfo을 수정한다.
+	 * COMTNRECOMENDSITEINFO을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnrecomendsiteinfoVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnrecomendsiteinfo을 삭제한다.
+	 * COMTNRECOMENDSITEINFO을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnrecomendsiteinfoVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnrecomendsiteinfo을 조회한다.
+	 * COMTNRECOMENDSITEINFO을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnrecomendsiteinfoVO
-	 * @return 조회한 comtnrecomendsiteinfo
+	 * @return 조회한 COMTNRECOMENDSITEINFO
 	 * @exception Exception
 	 */
     public ComtnrecomendsiteinfoVO selectComtnrecomendsiteinfo(ComtnrecomendsiteinfoVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnrecomendsiteinfo 목록을 조회한다.
+	 * COMTNRECOMENDSITEINFO 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnrecomendsiteinfo 목록
+	 * @return COMTNRECOMENDSITEINFO 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnrecomendsiteinfoList(ComtnrecomendsiteinfoVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnrecomendsiteinfoServiceImpl extends AbstractServiceImpl implem
     }
 
     /**
-	 * comtnrecomendsiteinfo 총 갯수를 조회한다.
+	 * COMTNRECOMENDSITEINFO 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnrecomendsiteinfo 총 갯수
+	 * @return COMTNRECOMENDSITEINFO 총 갯수
 	 * @exception
 	 */
     public int selectComtnrecomendsiteinfoListTotCnt(ComtnrecomendsiteinfoVO vo) {

@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -79,7 +79,7 @@ function fn_egov_link_page(pageNo){
 							</colgroup>		  
 			<tr>
 								<th align="center">zip</th>
-								<th align="center">테스트</th>
+								<th align="center">sn</th>
 								<th align="center">ctprvn_nm</th>
 								<th align="center">signgu_nm</th>
 								<th align="center">emd_nm</th>

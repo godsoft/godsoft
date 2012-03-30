@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtnindvdlpgeestbs을 등록한다.
+	 * COMTNINDVDLPGEESTBS을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtnindvdlpgeestbsVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comtnindvdlpgeestbs을 수정한다.
+	 * COMTNINDVDLPGEESTBS을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtnindvdlpgeestbsVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comtnindvdlpgeestbs을 삭제한다.
+	 * COMTNINDVDLPGEESTBS을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtnindvdlpgeestbsVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comtnindvdlpgeestbs을 조회한다.
+	 * COMTNINDVDLPGEESTBS을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtnindvdlpgeestbsVO
-	 * @return 조회한 comtnindvdlpgeestbs
+	 * @return 조회한 COMTNINDVDLPGEESTBS
 	 * @exception Exception
 	 */
     public ComtnindvdlpgeestbsVO selectComtnindvdlpgeestbs(ComtnindvdlpgeestbsVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comtnindvdlpgeestbs 목록을 조회한다.
+	 * COMTNINDVDLPGEESTBS 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnindvdlpgeestbs 목록
+	 * @return COMTNINDVDLPGEESTBS 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtnindvdlpgeestbsList(ComtnindvdlpgeestbsVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtnindvdlpgeestbsServiceImpl extends AbstractServiceImpl implemen
     }
 
     /**
-	 * comtnindvdlpgeestbs 총 갯수를 조회한다.
+	 * COMTNINDVDLPGEESTBS 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtnindvdlpgeestbs 총 갯수
+	 * @return COMTNINDVDLPGEESTBS 총 갯수
 	 * @exception
 	 */
     public int selectComtnindvdlpgeestbsListTotCnt(ComtnindvdlpgeestbsVO vo) {

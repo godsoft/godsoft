@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -95,120 +95,120 @@ function fn_egov_save() {
 		<tr>
 			<th>trget_svc_nm</th>
 			<td>
-				<form:input path="trgetSvcNm" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetSvcNm" />
+					<form:input path="trgetSvcNm" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetSvcNm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trget_svc_table</th>
 			<td>
-				<form:input path="trgetSvcTable" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetSvcTable" />
+					<form:input path="trgetSvcTable" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetSvcTable" />
 			</td>
 		</tr>	
 		<tr>
 			<th>trget_svc_list_co</th>
 			<td>
-				<form:input path="trgetSvcListCo" cssClass="txt"/>
-				&nbsp;<form:errors path="trgetSvcListCo" />
+					<form:input path="trgetSvcListCo" cssClass="txt"/>
+					&nbsp;<form:errors path="trgetSvcListCo" />
 			</td>
 		</tr>	
 		<tr>
 			<th>hder_title</th>
 			<td>
-				<form:input path="hderTitle" cssClass="txt"/>
-				&nbsp;<form:errors path="hderTitle" />
+					<form:input path="hderTitle" cssClass="txt"/>
+					&nbsp;<form:errors path="hderTitle" />
 			</td>
 		</tr>	
 		<tr>
 			<th>hder_link</th>
 			<td>
-				<form:input path="hderLink" cssClass="txt"/>
-				&nbsp;<form:errors path="hderLink" />
+					<form:input path="hderLink" cssClass="txt"/>
+					&nbsp;<form:errors path="hderLink" />
 			</td>
 		</tr>	
 		<tr>
 			<th>hder_dc</th>
 			<td>
-				<form:input path="hderDc" cssClass="txt"/>
-				&nbsp;<form:errors path="hderDc" />
+					<form:input path="hderDc" cssClass="txt"/>
+					&nbsp;<form:errors path="hderDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>hder_tag</th>
 			<td>
-				<form:input path="hderTag" cssClass="txt"/>
-				&nbsp;<form:errors path="hderTag" />
+					<form:input path="hderTag" cssClass="txt"/>
+					&nbsp;<form:errors path="hderTag" />
 			</td>
 		</tr>	
 		<tr>
 			<th>hder_etc</th>
 			<td>
-				<form:input path="hderEtc" cssClass="txt"/>
-				&nbsp;<form:errors path="hderEtc" />
+					<form:input path="hderEtc" cssClass="txt"/>
+					&nbsp;<form:errors path="hderEtc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bdt_title</th>
 			<td>
-				<form:input path="bdtTitle" cssClass="txt"/>
-				&nbsp;<form:errors path="bdtTitle" />
+					<form:input path="bdtTitle" cssClass="txt"/>
+					&nbsp;<form:errors path="bdtTitle" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bdt_link</th>
 			<td>
-				<form:input path="bdtLink" cssClass="txt"/>
-				&nbsp;<form:errors path="bdtLink" />
+					<form:input path="bdtLink" cssClass="txt"/>
+					&nbsp;<form:errors path="bdtLink" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bdt_dc</th>
 			<td>
-				<form:input path="bdtDc" cssClass="txt"/>
-				&nbsp;<form:errors path="bdtDc" />
+					<form:input path="bdtDc" cssClass="txt"/>
+					&nbsp;<form:errors path="bdtDc" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bdt_tag</th>
 			<td>
-				<form:input path="bdtTag" cssClass="txt"/>
-				&nbsp;<form:errors path="bdtTag" />
+					<form:input path="bdtTag" cssClass="txt"/>
+					&nbsp;<form:errors path="bdtTag" />
 			</td>
 		</tr>	
 		<tr>
 			<th>bdt_etc_tag</th>
 			<td>
-				<form:input path="bdtEtcTag" cssClass="txt"/>
-				&nbsp;<form:errors path="bdtEtcTag" />
+					<form:input path="bdtEtcTag" cssClass="txt"/>
+					&nbsp;<form:errors path="bdtEtcTag" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_register_id</th>
 			<td>
-				<form:input path="frstRegisterId" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegisterId" />
+					<form:input path="frstRegisterId" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegisterId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>frst_regist_pnttm</th>
 			<td>
-				<form:input path="frstRegistPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="frstRegistPnttm" />
+					<form:input path="frstRegistPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="frstRegistPnttm" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updusr_id</th>
 			<td>
-				<form:input path="lastUpdusrId" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdusrId" />
+					<form:input path="lastUpdusrId" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdusrId" />
 			</td>
 		</tr>	
 		<tr>
 			<th>last_updt_pnttm</th>
 			<td>
-				<form:input path="lastUpdtPnttm" cssClass="txt"/>
-				&nbsp;<form:errors path="lastUpdtPnttm" />
+					<form:input path="lastUpdtPnttm" cssClass="txt"/>
+					&nbsp;<form:errors path="lastUpdtPnttm" />
 			</td>
 		</tr>	
 	</table>

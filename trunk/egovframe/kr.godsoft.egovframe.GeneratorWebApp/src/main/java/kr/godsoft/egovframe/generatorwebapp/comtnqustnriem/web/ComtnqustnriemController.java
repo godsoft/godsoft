@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemService;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemService;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.ComtnqustnriemVO;
 
 /**
  * @Class Name : ComtnqustnriemController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.Comtnqustnrie
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnqustnriem.service.Comtnqustnrie
  */
 
 @Controller
-@SessionAttributes(types=ComtnqustnriemVO.class)
 public class ComtnqustnriemController {
 
     @Resource(name = "comtnqustnriemService")
@@ -45,13 +45,13 @@ public class ComtnqustnriemController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnqustnriem 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnqustnriemDefaultVO
+	 * COMTNQUSTNRIEM 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnqustnriemVO
 	 * @return "/comtnqustnriem/ComtnqustnriemList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnqustnriem/ComtnqustnriemList.do")
-    public String selectComtnqustnriemList(@ModelAttribute("searchVO") ComtnqustnriemDefaultVO searchVO, 
+    public String selectComtnqustnriemList(@ModelAttribute("searchVO") ComtnqustnriemVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnqustnriemController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnqustnriemList = comtnqustnriemService.selectComtnqustnriemList(searchVO);
+        List<EgovMap> comtnqustnriemList = comtnqustnriemService.selectComtnqustnriemList(searchVO);
         model.addAttribute("resultList", comtnqustnriemList);
         
         int totCnt = comtnqustnriemService.selectComtnqustnriemListTotCnt(searchVO);

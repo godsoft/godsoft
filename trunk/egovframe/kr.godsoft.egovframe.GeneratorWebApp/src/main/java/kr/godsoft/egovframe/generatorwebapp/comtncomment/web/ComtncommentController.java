@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentService;
+import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentService;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
 
 /**
  * @Class Name : ComtncommentController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtncomment.service.ComtncommentVO;
  */
 
 @Controller
-@SessionAttributes(types=ComtncommentVO.class)
 public class ComtncommentController {
 
     @Resource(name = "comtncommentService")
@@ -45,13 +45,13 @@ public class ComtncommentController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtncomment 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtncommentDefaultVO
+	 * COMTNCOMMENT 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtncommentVO
 	 * @return "/comtncomment/ComtncommentList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtncomment/ComtncommentList.do")
-    public String selectComtncommentList(@ModelAttribute("searchVO") ComtncommentDefaultVO searchVO, 
+    public String selectComtncommentList(@ModelAttribute("searchVO") ComtncommentVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtncommentController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtncommentList = comtncommentService.selectComtncommentList(searchVO);
+        List<EgovMap> comtncommentList = comtncommentService.selectComtncommentList(searchVO);
         model.addAttribute("resultList", comtncommentList);
         
         int totCnt = comtncommentService.selectComtncommentListTotCnt(searchVO);
@@ -99,9 +99,9 @@ public class ComtncommentController {
     
     @RequestMapping("/comtncomment/updateComtncommentView.do")
     public String updateComtncommentView(
-            @RequestParam("nttId") int nttId ,
+            @RequestParam("nttId") String nttId ,
             @RequestParam("bbsId") String bbsId ,
-            @RequestParam("answerNo") int answerNo ,
+            @RequestParam("answerNo") String answerNo ,
             @ModelAttribute("searchVO") ComtncommentDefaultVO searchVO, Model model)
             throws Exception {
         ComtncommentVO comtncommentVO = new ComtncommentVO();

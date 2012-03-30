@@ -6,49 +6,49 @@ package kr.godsoft.egovframe.generatorwebapp.comtnqustnrrspnsresult.service;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
  *  Copyright (C)  All right reserved.
  */
-public class ComtnqustnrrspnsresultVO extends ComtnqustnrrspnsresultDefaultVO{
+public class ComtnqustnrrspnsresultVO extends ComtnqustnrrspnsresultDefaultVO {
     private static final long serialVersionUID = 1L;
     
-    /**  */
+    /** QUSTNR_RSPNS_RESULT_ID */
     private String qustnrRspnsResultId;
     
-    /**  */
+    /** QESTNR_ID */
     private String qestnrId;
     
-    /**  */
+    /** QUSTNR_QESITM_ID */
     private String qustnrQesitmId;
     
-    /**  */
+    /** QUSTNR_TMPLAT_ID */
     private String qustnrTmplatId;
     
-    /**  */
+    /** RESPOND_ANSWER_CN */
     private String respondAnswerCn;
     
-    /**  */
+    /** ETC_ANSWER_CN */
     private String etcAnswerCn;
     
-    /**  */
+    /** RESPOND_NM */
     private String respondNm;
     
-    /**  */
+    /** FRST_REGIST_PNTTM */
     private String frstRegistPnttm;
     
-    /**  */
+    /** FRST_REGISTER_ID */
     private String frstRegisterId;
     
-    /**  */
+    /** LAST_UPDT_PNTTM */
     private String lastUpdtPnttm;
     
-    /**  */
+    /** LAST_UPDUSR_ID */
     private String lastUpdusrId;
     
-    /**  */
+    /** QUSTNR_IEM_ID */
     private String qustnrIemId;
     
     public String getQustnrRspnsResultId() {

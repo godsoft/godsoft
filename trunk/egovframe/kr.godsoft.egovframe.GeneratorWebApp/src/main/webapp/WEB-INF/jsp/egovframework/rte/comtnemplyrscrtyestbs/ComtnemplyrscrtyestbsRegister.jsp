@@ -10,7 +10,7 @@
   * @Modification Information
   * 
   * @author 이백행
-  * @since 2012-03-20
+  * @since 2012-03-30
   * @version 1.0
   * @see
   *  
@@ -21,7 +21,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnemplyrscrtyestbsVO.scrtyDtrmnTrgetId ? '등록' : '수정'}"/>
 <title>comtnemplyrscrtyestbs <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -76,34 +75,29 @@ function fn_egov_save() {
 		</colgroup>
 			
 		<c:if test="${registerFlag == '수정'}">
-		<tr>
-			<th>scrty_dtrmn_trget_id *</th>
-			<td>
-				<form:input path="scrtyDtrmnTrgetId" cssClass="essentiality" readonly="true" />
-			</td>			
-		</tr>					
 		</c:if>
 		<c:if test="${registerFlag == '등록'}">
-		<tr>
-			<th>scrty_dtrmn_trget_id *</th>
-			<td>
-				<form:input path="scrtyDtrmnTrgetId" cssClass="txt" readonly="false" />
-			</td>			
-		</tr>					
 		</c:if>		
 		
 		<tr>
+			<th>scrty_dtrmn_trget_id</th>
+			<td>
+					<form:input path="scrtyDtrmnTrgetId" cssClass="txt"/>
+					&nbsp;<form:errors path="scrtyDtrmnTrgetId" />
+			</td>
+		</tr>	
+		<tr>
 			<th>mber_ty_code</th>
 			<td>
-				<form:input path="mberTyCode" cssClass="txt"/>
-				&nbsp;<form:errors path="mberTyCode" />
+					<form:input path="mberTyCode" cssClass="txt"/>
+					&nbsp;<form:errors path="mberTyCode" />
 			</td>
 		</tr>	
 		<tr>
 			<th>author_code</th>
 			<td>
-				<form:input path="authorCode" cssClass="txt"/>
-				&nbsp;<form:errors path="authorCode" />
+					<form:input path="authorCode" cssClass="txt"/>
+					&nbsp;<form:errors path="authorCode" />
 			</td>
 		</tr>	
 	</table>

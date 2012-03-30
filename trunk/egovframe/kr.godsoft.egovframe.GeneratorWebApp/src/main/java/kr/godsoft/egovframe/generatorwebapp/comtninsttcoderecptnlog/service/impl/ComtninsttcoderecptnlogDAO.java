@@ -14,7 +14,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtninsttcoderecptnlog.service.Comt
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -25,7 +25,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtninsttcoderecptnlog.service.Comt
 public class ComtninsttcoderecptnlogDAO extends EgovAbstractDAO {
 
 	/**
-	 * comtninsttcoderecptnlog을 등록한다.
+	 * COMTNINSTTCODERECPTNLOG을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtninsttcoderecptnlogVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -35,7 +35,7 @@ public class ComtninsttcoderecptnlogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtninsttcoderecptnlog을 수정한다.
+	 * COMTNINSTTCODERECPTNLOG을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtninsttcoderecptnlogVO
 	 * @return void형
 	 * @exception Exception
@@ -45,7 +45,7 @@ public class ComtninsttcoderecptnlogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtninsttcoderecptnlog을 삭제한다.
+	 * COMTNINSTTCODERECPTNLOG을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtninsttcoderecptnlogVO
 	 * @return void형 
 	 * @exception Exception
@@ -55,9 +55,9 @@ public class ComtninsttcoderecptnlogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtninsttcoderecptnlog을 조회한다.
+	 * COMTNINSTTCODERECPTNLOG을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtninsttcoderecptnlogVO
-	 * @return 조회한 comtninsttcoderecptnlog
+	 * @return 조회한 COMTNINSTTCODERECPTNLOG
 	 * @exception Exception
 	 */
     public ComtninsttcoderecptnlogVO selectComtninsttcoderecptnlog(ComtninsttcoderecptnlogVO vo) throws Exception {
@@ -65,9 +65,9 @@ public class ComtninsttcoderecptnlogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtninsttcoderecptnlog 목록을 조회한다.
+	 * COMTNINSTTCODERECPTNLOG 목록을 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtninsttcoderecptnlog 목록
+	 * @return COMTNINSTTCODERECPTNLOG 목록
 	 * @exception Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -76,9 +76,9 @@ public class ComtninsttcoderecptnlogDAO extends EgovAbstractDAO {
     }
 
     /**
-	 * comtninsttcoderecptnlog 총 갯수를 조회한다.
+	 * COMTNINSTTCODERECPTNLOG 총 갯수를 조회한다.
 	 * @param searchMap - 조회할 정보가 담긴 Map
-	 * @return comtninsttcoderecptnlog 총 갯수
+	 * @return COMTNINSTTCODERECPTNLOG 총 갯수
 	 * @exception
 	 */
     public int selectComtninsttcoderecptnlogListTotCnt(ComtninsttcoderecptnlogVO vo) {

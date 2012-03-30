@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryService;
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryDefaultVO;
+import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,11 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
-
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryService;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryDefaultVO;
-import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.ComtnbndtdiaryVO;
 
 /**
  * @Class Name : ComtnbndtdiaryController.java
@@ -26,7 +27,7 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.Comtnbndtdiar
  * @Modification Information
  *
  * @author 이백행
- * @since 2012.03.13
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -34,7 +35,6 @@ import kr.godsoft.egovframe.generatorwebapp.comtnbndtdiary.service.Comtnbndtdiar
  */
 
 @Controller
-@SessionAttributes(types=ComtnbndtdiaryVO.class)
 public class ComtnbndtdiaryController {
 
     @Resource(name = "comtnbndtdiaryService")
@@ -45,13 +45,13 @@ public class ComtnbndtdiaryController {
     protected EgovPropertyService propertiesService;
 	
     /**
-	 * comtnbndtdiary 목록을 조회한다. (pageing)
-	 * @param searchVO - 조회할 정보가 담긴 ComtnbndtdiaryDefaultVO
+	 * COMTNBNDTDIARY 목록을 조회한다. (pageing)
+	 * @param searchVO - 조회할 정보가 담긴 ComtnbndtdiaryVO
 	 * @return "/comtnbndtdiary/ComtnbndtdiaryList"
 	 * @exception Exception
 	 */
     @RequestMapping(value="/comtnbndtdiary/ComtnbndtdiaryList.do")
-    public String selectComtnbndtdiaryList(@ModelAttribute("searchVO") ComtnbndtdiaryDefaultVO searchVO, 
+    public String selectComtnbndtdiaryList(@ModelAttribute("searchVO") ComtnbndtdiaryVO searchVO, 
     		ModelMap model)
             throws Exception {
     	
@@ -69,7 +69,7 @@ public class ComtnbndtdiaryController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-        List comtnbndtdiaryList = comtnbndtdiaryService.selectComtnbndtdiaryList(searchVO);
+        List<EgovMap> comtnbndtdiaryList = comtnbndtdiaryService.selectComtnbndtdiaryList(searchVO);
         model.addAttribute("resultList", comtnbndtdiaryList);
         
         int totCnt = comtnbndtdiaryService.selectComtnbndtdiaryListTotCnt(searchVO);

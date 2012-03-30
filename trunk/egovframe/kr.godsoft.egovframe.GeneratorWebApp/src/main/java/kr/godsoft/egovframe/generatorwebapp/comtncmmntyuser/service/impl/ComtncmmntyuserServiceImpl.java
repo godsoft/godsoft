@@ -19,7 +19,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
  * @Modification Information
  *
  * @author 이백행
- * @since 2012-03-20
+ * @since 2012-03-30
  * @version 1.0
  * @see
  *  
@@ -38,7 +38,7 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
     //private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * comtncmmntyuser을 등록한다.
+	 * COMTNCMMNTYUSER을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ComtncmmntyuserVO
 	 * @return 등록 결과
 	 * @exception Exception
@@ -58,7 +58,7 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncmmntyuser을 수정한다.
+	 * COMTNCMMNTYUSER을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ComtncmmntyuserVO
 	 * @return void형
 	 * @exception Exception
@@ -68,7 +68,7 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncmmntyuser을 삭제한다.
+	 * COMTNCMMNTYUSER을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ComtncmmntyuserVO
 	 * @return void형 
 	 * @exception Exception
@@ -78,9 +78,9 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncmmntyuser을 조회한다.
+	 * COMTNCMMNTYUSER을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ComtncmmntyuserVO
-	 * @return 조회한 comtncmmntyuser
+	 * @return 조회한 COMTNCMMNTYUSER
 	 * @exception Exception
 	 */
     public ComtncmmntyuserVO selectComtncmmntyuser(ComtncmmntyuserVO vo) throws Exception {
@@ -91,9 +91,9 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncmmntyuser 목록을 조회한다.
+	 * COMTNCMMNTYUSER 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncmmntyuser 목록
+	 * @return COMTNCMMNTYUSER 목록
 	 * @exception Exception
 	 */
     public List<EgovMap> selectComtncmmntyuserList(ComtncmmntyuserVO vo) throws Exception {
@@ -101,9 +101,9 @@ public class ComtncmmntyuserServiceImpl extends AbstractServiceImpl implements
     }
 
     /**
-	 * comtncmmntyuser 총 갯수를 조회한다.
+	 * COMTNCMMNTYUSER 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return comtncmmntyuser 총 갯수
+	 * @return COMTNCMMNTYUSER 총 갯수
 	 * @exception
 	 */
     public int selectComtncmmntyuserListTotCnt(ComtncmmntyuserVO vo) {
