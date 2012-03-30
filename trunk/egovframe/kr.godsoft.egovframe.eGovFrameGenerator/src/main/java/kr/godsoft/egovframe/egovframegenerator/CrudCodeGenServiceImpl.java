@@ -156,7 +156,14 @@ public class CrudCodeGenServiceImpl {
 					sb.append("    , ");
 
 					if ("frst_regist_pnttm".equals(attribute.getLcName())) {
-						sb.append("SYSDATE()");
+						if ("MySql".equals(dataModelContext.getVender())) {
+							sb.append("SYSDATE()");
+						} else if ("Oracle"
+								.equals(dataModelContext.getVender())) {
+							sb.append("SYSDATE");
+						} else {
+							sb.append("SYSDATE()");
+						}
 					} else {
 						sb.append("#");
 						sb.append(attribute.getCcName());
@@ -207,7 +214,14 @@ public class CrudCodeGenServiceImpl {
 					sb.append(" = ");
 
 					if ("last_updt_pnttm".equals(attribute.getLcName())) {
-						sb.append("SYSDATE()");
+						if ("MySql".equals(dataModelContext.getVender())) {
+							sb.append("SYSDATE()");
+						} else if ("Oracle"
+								.equals(dataModelContext.getVender())) {
+							sb.append("SYSDATE");
+						} else {
+							sb.append("SYSDATE()");
+						}
 					} else {
 						sb.append("#");
 						sb.append(attribute.getCcName());

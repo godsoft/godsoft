@@ -153,9 +153,11 @@ ${model.query.update}
 				<isEqual prepend="AND" property="searchCondition" compareValue="0">
 					${model.attributes.get(0).name} = #searchKeyword#
 				</isEqual>
+	#if (${model.attributes.size()} > 1)
 				<isEqual prepend="AND" property="searchCondition" compareValue="1">
 					${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
 				</isEqual>
+	#end
 					ORDER BY 
 	#set($i=0)				
 	#foreach($attribute in $model.primaryKeys)
@@ -222,9 +224,11 @@ ${model.query.update}
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				${model.attributes.get(0).name} = #searchKeyword#
 			</isEqual>
+	#if (${model.attributes.size()} > 1)
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
 				${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
 			</isEqual>
+	#end
 #elseif($vender == "MySql")
 			SELECT COUNT(*) totcnt
 			FROM ${model.entity.name}

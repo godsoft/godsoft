@@ -116,21 +116,21 @@ public class CrudCodeGenApp {
 				log.debug("dataModelContexts[" + i + "]=" + dataModelContext);
 			}
 
-			// crudCodeGenServiceImpl.genDefaultVO(dataModelContext);
-			// crudCodeGenServiceImpl.genVO(dataModelContext);
-			// crudCodeGenServiceImpl.genSQLMap(dataModelContext);
-			// crudCodeGenServiceImpl.genDao(dataModelContext);
-			// crudCodeGenServiceImpl.genService(dataModelContext);
-			// crudCodeGenServiceImpl.genServiceImpl(dataModelContext);
-			// crudCodeGenServiceImpl.genController(dataModelContext);
-			// crudCodeGenServiceImpl.genList(dataModelContext);
-			// crudCodeGenServiceImpl.genRegister(dataModelContext);
+			crudCodeGenServiceImpl.genDefaultVO(dataModelContext);
+			crudCodeGenServiceImpl.genVO(dataModelContext);
+			crudCodeGenServiceImpl.genSQLMap(dataModelContext);
+			crudCodeGenServiceImpl.genDao(dataModelContext);
+			crudCodeGenServiceImpl.genService(dataModelContext);
+			crudCodeGenServiceImpl.genServiceImpl(dataModelContext);
+			crudCodeGenServiceImpl.genController(dataModelContext);
+			crudCodeGenServiceImpl.genList(dataModelContext);
+			crudCodeGenServiceImpl.genRegister(dataModelContext);
 
 			crudCodeGenServiceImpl.setSqlMap(dataModelContext);
 		}
 
-		// crudCodeGenServiceImpl.genSqlMapConfig(crudCodeGenServiceImpl
-		// .getSqlMap());
+		crudCodeGenServiceImpl.genSqlMapConfig(crudCodeGenServiceImpl
+				.getSqlMap());
 	}
 
 	private EgovMap getEgovMap() {
@@ -139,9 +139,10 @@ public class CrudCodeGenApp {
 		egovMapVO.put("owner", "TEST");
 
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("COMTCADMINISTCODE");
-		tableNames.add("COMTCADMINISTCODERECPTNLOG");
+		// tableNames.add("COMTCADMINISTCODE");
+		// tableNames.add("COMTCADMINISTCODERECPTNLOG");
 		// tableNames.add("COMTCCMMNCLCODE");
+		// tableNames.add("MD_REPOVERSIONS");
 
 		egovMapVO.put("tableNames", tableNames);
 

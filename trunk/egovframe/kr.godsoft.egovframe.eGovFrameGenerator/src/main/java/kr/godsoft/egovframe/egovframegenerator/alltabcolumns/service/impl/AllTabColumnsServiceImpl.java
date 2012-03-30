@@ -157,6 +157,10 @@ public class AllTabColumnsServiceImpl extends AbstractServiceImpl implements
 		attribute.setColumnComment(columnComment);
 		attribute.setExpression(getExpression(egovMap, attribute));
 
+		if ("use_at".equals(attribute.getLcName())) {
+			attribute.setValue("Y");
+		}
+
 		return attribute;
 	}
 
@@ -185,7 +189,7 @@ public class AllTabColumnsServiceImpl extends AbstractServiceImpl implements
 		String dataType = (String) egovMap.get("dataType");
 
 		if ("datetime".equals(dataType)) {
-			sb.append("SYSDATE()");
+			sb.append("SYSDATE");
 		} else {
 			sb.append("#");
 			sb.append(attribute.getCcName());

@@ -123,7 +123,11 @@ function fn_egov_save() {
 		<tr>
 			<th>${attribute.tableHeaderCell}</th>
 			<td>
+	#if( ! $attribute.value )
 				<form:input path="${attribute.ccName}" cssClass="txt"/>
+	#else
+				<form:input path="${attribute.ccName}" cssClass="txt" value="${attribute.value}"/>
+	#end
 				&nbsp;<form:errors path="${attribute.ccName}" />
 			</td>
 		</tr>	
