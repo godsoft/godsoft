@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping>
+	<description>Description of the mapping</description>
+	<class name="egovframework.rte.rex.gds.service.GoodsVO">
+		<map-to xml="Goods" />
+		<field name="goodsId" type="string" >
+			<bind-xml name="goodsId" node="attribute" />
+		</field>
+		<field name="goodsNm" type="string">
+			<bind-xml name="name" node="element" />
+		</field>
+		<field name="price" type="integer">
+			<bind-xml name="price" node="element" />
+		</field>
+		<field name="makr" type="string">
+			<bind-xml name="maker" node="element" />
+		</field>
+	</class>
+
+
+
+</mapping>
+
