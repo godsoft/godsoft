@@ -64,10 +64,9 @@ public class EgovGoodsController {
 
 	@Resource(name = "egovIdGnrServiceImage")
 	private EgovIdGnrService egovIdGnrServiceImage; // goodsImageID Generation
-	
-//	@Resource(name = "castorMarshaller")
-//	private Marshaller marshaller;
 
+	// @Resource(name = "castorMarshaller")
+	// private Marshaller marshaller;
 
 	/**
 	 * 상품정보를 조회한다
@@ -142,9 +141,12 @@ public class EgovGoodsController {
 		final Map<String, MultipartFile> files = multiRequest.getFileMap();
 
 		// process files
-		String uploadLastPath = fileUploadProperties.getProperty("file.upload.path");
-		
-		String uploadPath = request.getSession().getServletContext().getRealPath("/") + uploadLastPath;
+		String uploadLastPath = fileUploadProperties
+				.getProperty("file.upload.path");
+
+		String uploadPath = request.getSession().getServletContext()
+				.getRealPath("/")
+				+ uploadLastPath;
 		File saveFolder = new File(uploadPath);
 
 		// 디렉토리 생성
@@ -192,7 +194,7 @@ public class EgovGoodsController {
 		goodsVO.setDetailImageVO(imageList.get(1));
 
 		egovGoodsService.insertGoods(goodsVO);
-		
+
 		status.setComplete();
 		return "redirect:/gds/selectListGoods.do";
 	}
@@ -211,7 +213,7 @@ public class EgovGoodsController {
 			@ModelAttribute("searchVO") SearchVO searchVO, Model model)
 			throws Exception {
 		model.addAttribute("goodsVO", new GoodsVO());
-		MemberVO loginVO=EgovUserUtil.getMemberInfo();
+		MemberVO loginVO = EgovUserUtil.getMemberInfo();
 		model.addAttribute("loginVO", loginVO);
 		return "/gds/EgovGoodsRegist";
 	}
@@ -245,8 +247,8 @@ public class EgovGoodsController {
 			throws Exception {
 		GoodsVO goodsVO = new GoodsVO();
 		goodsVO.setGoodsId(goodsId);
-		
-		MemberVO loginVO=EgovUserUtil.getMemberInfo();
+
+		MemberVO loginVO = EgovUserUtil.getMemberInfo();
 		model.addAttribute("loginVO", loginVO);
 
 		// 변수명은 CoC에 따라 goodsVO
@@ -270,11 +272,11 @@ public class EgovGoodsController {
 		GoodsVO goodsVO = new GoodsVO();
 
 		goodsVO.setGoodsId(goodsId);
-		
+
 		// 변수명은 CoC에 따라 goodsVO
 		model.addAttribute(selectGoods(goodsVO, searchVO));
 		GoodsVO goods = selectGoods(goodsVO, searchVO);
-		
+
 		return "/gds/EgovGoodsRegist";
 	}
 
@@ -318,37 +320,45 @@ public class EgovGoodsController {
 	public String deleteGoods(GoodsVO goodsVO, HttpServletRequest request,
 			@ModelAttribute("searchVO") SearchVO searchVO, SessionStatus status)
 			throws Exception {
-		egovGoodsService.deleteGoods(goodsVO,request);
+		egovGoodsService.deleteGoods(goodsVO, request);
 		status.setComplete();
 		return "forward:/gds/selectListGoods.do";
 	}
-	
+
 	/**
-	 * xml로 변환될 페이지를 제공한다. 
+	 * xml로 변환될 페이지를 제공한다.
 	 */
-	@Resource MarshallingView goodsMarshallingView;
+	@Resource
+	MarshallingView goodsMarshallingView;
+
 	@RequestMapping("/gds/viewXML.do")
-	public ModelAndView viewXML(@ModelAttribute("searchVO") SearchVO searchVO) throws Exception{
+	public ModelAndView viewXML(@ModelAttribute("searchVO") SearchVO searchVO)
+			throws Exception {
 
 		List<GoodsVO> goodsList = egovGoodsService.selectGoodsXml();
-		
+
+		for (GoodsVO goodsVO : goodsList) {
+			goodsVO.setGoodsNm("<![CDATA[" + goodsVO.getGoodsNm() + "]]>");
+		}
+
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("goodsList", goodsList);
-		
+
 		return new ModelAndView(goodsMarshallingView, map);
 	}
-	
+
 	/**
-	 * excel로 변환될 페이지를 제공한다. 
+	 * excel로 변환될 페이지를 제공한다.
 	 */
 	@RequestMapping("/gds/excelDownload.do")
-	public ModelAndView excelDownload(@ModelAttribute("searchVO") SearchVO searchVO) throws Exception{
-		
+	public ModelAndView excelDownload(
+			@ModelAttribute("searchVO") SearchVO searchVO) throws Exception {
+
 		List<GoodsVO> goodsList = egovGoodsService.selectGoodsXml();
-		
+
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("goodsList", goodsList);
-		
+
 		return new ModelAndView("goodsExcelView", map);
 	}
 }
