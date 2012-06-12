@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    - DispatcherServlet application context for Application's web tier.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!--
+        - The controllers are autodetected POJOs labeled with the @Controller annotation.
+    -->
+    <context:component-scan base-package="egovframework">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+    p:viewClass="org.springframework.web.servlet.view.JstlView" 
+    p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+
+    <!--
+        - Message source for this context, loaded from localized "messages_xx" files.
+        - Could also reside in the root application context, as it is generic,
+        - but is currently just used within Application's web tier.
+    -->
+    <!-- Message : SessionLocaleResolver -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+      <property name="basenames">
+        <list>
+         <value>classpath:/message/message-common</value>
+        </list>
+      </property>
+  </bean>
+  
+ 	<!-- Ajax Json View Start -->
+	<bean name="ajaxMainView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+	<!-- Ajax Json View End -->
+	 
+	
+   
+</beans>
