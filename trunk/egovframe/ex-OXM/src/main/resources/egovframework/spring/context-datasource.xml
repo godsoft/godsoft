@@ -21,7 +21,7 @@
 	<!-- mysql -->
 	<bean id="dataSource-mysql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:1623/EASYCOMPANY"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/EASYCOMPANY"/>
 		<property name="username" value="tex"/>
 		<property name="password" value="tex01"/>
 	</bean>
