@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,15 +34,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import egovframework.rte.rex.cgr.service.CategoryVO;
+import egovframework.rte.rex.cgr.service.CategoryXmlVO;
 import egovframework.rte.rex.cgr.service.EgovCategoryService;
 
 /**
  * 카테고리 정보를 관리하는 컨트롤러 클래스를 정의한다.
+ * 
  * @author 실행환경 개발팀 신혜연
  * @since 2011.07.11
  * @version 1.0
- * @see 
- * <pre>
+ * @see <pre>
  *  == 개정이력(Modification Information) ==
  *   
  *   수정일      수정자           수정내용
@@ -51,59 +53,73 @@ import egovframework.rte.rex.cgr.service.EgovCategoryService;
  * </pre>
  */
 @Controller
-@SessionAttributes(types=CategoryVO.class)
+@SessionAttributes(types = CategoryVO.class)
 public class EgovCategoryController {
 
-	/**CategoryService */
-	@Resource(name="categoryService")
+	/** CategoryService */
+	@Resource(name = "categoryService")
 	private EgovCategoryService categoryService;
 
 	/**
 	 * 카테고리 목록을 출력한다.
+	 * 
 	 * @param request
 	 * @param model
 	 * @return "cgr/egovCategoryList"
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/springrest/cgr", method=RequestMethod.GET)
+	@RequestMapping(value = "/springrest/cgr", method = RequestMethod.GET)
 	public String selectCategoryList(HttpServletRequest request, Model model)
 			throws Exception {
 		List categoryList = categoryService.selectCategoryList();
-		
+
 		List category1 = new ArrayList();
-		
-		for( int i=categoryList.size()-1; i >=0; i--){
+
+		for (int i = categoryList.size() - 1; i >= 0; i--) {
 			category1.add(categoryList.get(i));
 		}
-		
-		model.addAttribute("categoryList", category1);
+
+		String extension = FilenameUtils.getExtension(request.getRequestURI());
+
+		if ("xml".equals(extension) || "do".equals(extension)) {
+			CategoryXmlVO categoryXmlVO = new CategoryXmlVO();
+			categoryXmlVO.setCategoriesVO(categoryList);
+
+			model.addAttribute(categoryXmlVO);
+		} else {
+			model.addAttribute("categoryList", category1);
+		}
 
 		return "cgr/egovCategoryList";
 	}
-	
-	 /**
-     * 카테고리 등록 화면으로 이동한다.
-     * @param model
-     * @return "cgr/egovCategoryRegister"
-     * @throws Exception
-     */
-    @RequestMapping(value="/springrest/cgr/new", method=RequestMethod.GET)
-    public String insertCategoryView(Model model) throws Exception {
-    	model.addAttribute("categoryVO", new CategoryVO());
-    	return "cgr/egovCategoryRegister";
-    }
-    
-    
+
+	/**
+	 * 카테고리 등록 화면으로 이동한다.
+	 * 
+	 * @param model
+	 * @return "cgr/egovCategoryRegister"
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/springrest/cgr/new", method = RequestMethod.GET)
+	public String insertCategoryView(Model model) throws Exception {
+		model.addAttribute("categoryVO", new CategoryVO());
+		return "cgr/egovCategoryRegister";
+	}
+
 	/**
 	 * 카테고리 정보 저장 후 목록조회 화면으로 이동한다.
-	 * @param categoryVO 카테고리 정보
-	 * @param results validation결과
-	 * @param session 세션 정보
+	 * 
+	 * @param categoryVO
+	 *            카테고리 정보
+	 * @param results
+	 *            validation결과
+	 * @param session
+	 *            세션 정보
 	 * @param model
 	 * @return "redirect:/springrest/cgr.html"
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/springrest/cgr", method = RequestMethod.POST, headers = "Content-type=application/x-www-form-urlencoded")
+	@RequestMapping(value = "/springrest/cgr", method = RequestMethod.POST, headers = "Content-type=application/x-www-form-urlencoded")
 	public String create(@Valid CategoryVO categoryVO, BindingResult results,
 			HttpSession session, Model model) throws Exception {
 		if (results.hasErrors()) {
@@ -114,15 +130,17 @@ public class EgovCategoryController {
 
 		return "redirect:/springrest/cgr.html";
 	}
-	
+
 	/**
 	 * 카테고리 수정 화면으로 이동한다.
-	 * @param ctgryId 카테고리ID
+	 * 
+	 * @param ctgryId
+	 *            카테고리ID
 	 * @param model
 	 * @return "cgr/egovCategoryRegister"
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/springrest/cgr/{ctgryId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/springrest/cgr/{ctgryId}", method = RequestMethod.GET)
 	public String updtCategoryView(@PathVariable String ctgryId, Model model)
 			throws Exception {
 		CategoryVO vo = new CategoryVO();
@@ -130,35 +148,42 @@ public class EgovCategoryController {
 		model.addAttribute(categoryService.getCategory(vo));
 		return "cgr/egovCategoryRegister";
 	}
-	
+
 	/**
 	 * 카데고리 정보를 수정 후 목록조회 화면으로 이동한다.
-	 * @param updateCategory 카테고리 정보
-	 * @param results validation결과
+	 * 
+	 * @param updateCategory
+	 *            카테고리 정보
+	 * @param results
+	 *            validation결과
 	 * @param model
-	 * @return "redirect:/springrest/cgr.html",  Response Status : 200 OK
+	 * @return "redirect:/springrest/cgr.html", Response Status : 200 OK
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/springrest/cgr/{ctgryId}", method = RequestMethod.PUT, headers = "Content-type=application/x-www-form-urlencoded")
-	public String update(@Valid CategoryVO updateCategory, BindingResult results,
-			Model model) throws Exception {
+	public String update(@Valid CategoryVO updateCategory,
+			BindingResult results, Model model) throws Exception {
 		if (results.hasErrors()) {
 			return "cgr/egovCategoryRegister";
 		}
 		categoryService.updateCategory(updateCategory);
-		
+
 		return "redirect:/springrest/cgr.html";
 	}
-	
+
 	/**
 	 * 카테고리 정보 삭제 후 목록조회 화면으로 이동한다.
-	 * @param ctgryId 카테고리ID 리스트
-	 * @param status 세션 상태
+	 * 
+	 * @param ctgryId
+	 *            카테고리ID 리스트
+	 * @param status
+	 *            세션 상태
 	 * @param model
 	 * @return "redirect:/springrest/cgr.html"
 	 */
-	@RequestMapping(value = "/springrest/cgr/{ctgryId}", method=RequestMethod.DELETE)
-	public String deleteCategory(@PathVariable String ctgryId, SessionStatus status, Model model){
+	@RequestMapping(value = "/springrest/cgr/{ctgryId}", method = RequestMethod.DELETE)
+	public String deleteCategory(@PathVariable String ctgryId,
+			SessionStatus status, Model model) {
 		CategoryVO vo = new CategoryVO();
 		vo.setCtgryId(ctgryId);
 		try {
@@ -168,6 +193,6 @@ public class EgovCategoryController {
 		} catch (Exception e) {
 			return "cgr/EgovCategoryNotDeletable";
 		}
-		
+
 	}
 }

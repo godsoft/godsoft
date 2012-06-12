@@ -32,18 +32,23 @@
 	</bean>
 
 <!-- restful json START -->
-	<bean name="cgr/egovCategoryList" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
-		<property name="prefixJson" value="false"/>
-	 </bean>
+<!-- 	<bean name="cgr/egovCategoryList" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"> -->
+<!-- 		<property name="prefixJson" value="false"/> -->
+<!-- 	 </bean> -->
 <!-- restful json END -->
 
 <!--  restful xml (jaxb2)  START-->
+	<bean name="cgr/egovCategoryList" class="org.springframework.web.servlet.view.xml.MarshallingView">
+			<property name="marshaller" ref="marshaller" />
+	</bean>
+	
 	<bean name="cgr/egovCategoryRegister" class="org.springframework.web.servlet.view.xml.MarshallingView">
 			<property name="marshaller" ref="marshaller" />
 	</bean>
 	
 	<oxm:jaxb2-marshaller id="marshaller">
 		<oxm:class-to-be-bound name="egovframework.rte.rex.cgr.service.CategoryVO" />
+		<oxm:class-to-be-bound name="egovframework.rte.rex.cgr.service.CategoryXmlVO" />
 	</oxm:jaxb2-marshaller>
 <!--  restful xml END-->
 </beans>
