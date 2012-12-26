@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- <string name="SERVER_URL">http://leebaekhaeng-pc:7070/DeviceAPIGuideTotal_Web_V1.7.1</string> -->
+    <string name="SERVER_URL">http://192.168.0.84:7070/DeviceAPIGuideTotal_Web_V1.7.1/</string>
+
+</resources>
