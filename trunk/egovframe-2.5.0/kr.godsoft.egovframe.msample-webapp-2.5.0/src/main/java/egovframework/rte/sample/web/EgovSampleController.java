@@ -31,26 +31,22 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import egovframework.rte.sample.service.EgovSampleService;
 import egovframework.rte.sample.service.SampleDefaultVO;
 import egovframework.rte.sample.service.SampleVO;
 
-/**  
+/**
  * @Class Name : EgovSampleController.java
  * @Description : EgovSample Controller Class
- * @Modification Information  
- * @
- * @  수정일      수정자              수정내용
- * @ ---------   ---------   -------------------------------
- * @ 2009.03.16           최초생성
- * 
+ * @Modification Information @ @ 수정일 수정자 수정내용 @ --------- ---------
+ *               ------------------------------- @ 2009.03.16 최초생성
+ *
  * @author 개발프레임웍크 실행환경 개발팀
  * @since 2009. 03.16
  * @version 1.0
- * @see
- * 
- *  Copyright (C) by MOPAS All right reserved.
+ * @see Copyright (C) by MOPAS All right reserved.
  */
 @Controller
 @SessionAttributes(types = SampleVO.class)
@@ -70,7 +66,9 @@ public class EgovSampleController {
 
     /**
      * 글 목록을 조회한다. (pageing)
-     * @param searchVO 조회할 정보가 담긴 SampleDefaultVO
+     *
+     * @param searchVO
+     *            조회할 정보가 담긴 SampleDefaultVO
      * @param model
      * @return "/sample/egovSampleList"
      * @exception Exception
@@ -94,7 +92,7 @@ public class EgovSampleController {
         searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
         searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 
-        List sampleList = sampleService.selectSampleList(searchVO);
+        List<EgovMap> sampleList = sampleService.selectSampleList(searchVO);
         model.addAttribute("resultList", sampleList);
 
         int totCnt = sampleService.selectSampleListTotCnt(searchVO);
@@ -106,8 +104,11 @@ public class EgovSampleController {
 
     /**
      * 글을 조회한다.
-     * @param sampleVO 조회할 정보가 담긴 VO
-     * @param searchVO 목록 조회조건 정보가 담긴 VO
+     *
+     * @param sampleVO
+     *            조회할 정보가 담긴 VO
+     * @param searchVO
+     *            목록 조회조건 정보가 담긴 VO
      * @param status
      * @return @ModelAttribute("sampleVO") 조회한 정보
      * @exception Exception
@@ -122,7 +123,9 @@ public class EgovSampleController {
 
     /**
      * 글 등록 화면을 조회한다.
-     * @param searchVO 목록 조회조건 정보가 담긴 VO
+     *
+     * @param searchVO
+     *            목록 조회조건 정보가 담긴 VO
      * @param model
      * @return "/sample/egovSampleRegister"
      * @exception Exception
@@ -137,8 +140,11 @@ public class EgovSampleController {
 
     /**
      * 글을 등록한다.
-     * @param sampleVO 등록할 정보가 담긴 VO
-     * @param searchVO 목록 조회조건 정보가 담긴 VO
+     *
+     * @param sampleVO
+     *            등록할 정보가 담긴 VO
+     * @param searchVO
+     *            목록 조회조건 정보가 담긴 VO
      * @param status
      * @return "forward:/sample/egovSampleList.do"
      * @exception Exception
@@ -152,9 +158,8 @@ public class EgovSampleController {
         beanValidator.validate(sampleVO, bindingResult);
 
         /*
-         * if (bindingResult.hasErrors()) {
-         * model.addAttribute("sampleVO", sampleVO);
-         * return "/sample/egovSampleRegister"; }
+         * if (bindingResult.hasErrors()) { model.addAttribute("sampleVO",
+         * sampleVO); return "/sample/egovSampleRegister"; }
          */
         System.out.println("-----------------------------");
         sampleService.insertSample(sampleVO);
@@ -164,8 +169,11 @@ public class EgovSampleController {
 
     /**
      * 글 수정화면을 조회한다.
-     * @param id 수정할 글 id
-     * @param searchVO 목록 조회조건 정보가 담긴 VO
+     *
+     * @param id
+     *            수정할 글 id
+     * @param searchVO
+     *            목록 조회조건 정보가 담긴 VO
      * @param model
      * @return "/sample/egovSampleRegister"
      * @exception Exception
@@ -183,8 +191,11 @@ public class EgovSampleController {
 
     /**
      * 글을 수정한다.
-     * @param sampleVO 수정할 정보가 담긴 VO
-     * @param searchVO 목록 조회조건 정보가 담긴 VO
+     *
+     * @param sampleVO
+     *            수정할 정보가 담긴 VO
+     * @param searchVO
+     *            목록 조회조건 정보가 담긴 VO
      * @param status
      * @return "forward:/sample/egovSampleList.do"
      * @exception Exception
@@ -209,8 +220,11 @@ public class EgovSampleController {
 
     /**
      * 글을 삭제한다.
-     * @param sampleVO 삭제할 정보가 담긴 VO
-     * @param searchVO 목록 조회조건 정보가 담긴 VO
+     *
+     * @param sampleVO
+     *            삭제할 정보가 담긴 VO
+     * @param searchVO
+     *            목록 조회조건 정보가 담긴 VO
      * @param status
      * @return "forward:/sample/egovSampleList.do"
      * @exception Exception
