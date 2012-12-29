@@ -114,4 +114,10 @@ public class SampleDAO extends EgovAbstractDAO {
 				"sampleDAO.selectSampleListTotCnt_S", searchVO);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectSampleListA(SampleDefaultVO searchVO)
+			throws Exception {
+		return (List<EgovMap>) list("sampleDAO.selectSampleListA", searchVO);
+	}
+
 }

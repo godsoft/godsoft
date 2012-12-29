@@ -136,4 +136,9 @@ public class EgovSampleServiceImpl extends AbstractServiceImpl implements
 		return sampleDAO.selectSampleListTotCnt(searchVO);
 	}
 
+	public List<EgovMap> selectSampleListA(SampleDefaultVO searchVO)
+			throws Exception {
+		return sampleDAO.selectSampleListA(searchVO);
+	}
+
 }

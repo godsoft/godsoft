@@ -84,4 +84,19 @@ public class SampleDAOTest {
 		}
 	}
 
+	@Test
+	public void selectSampleListA() {
+		try {
+			SampleDefaultVO searchVO = new SampleDefaultVO();
+
+			List<EgovMap> samples = sampleDAO.selectSampleListA(searchVO);
+
+			for (EgovMap sample : samples) {
+				System.out.println(sample);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
