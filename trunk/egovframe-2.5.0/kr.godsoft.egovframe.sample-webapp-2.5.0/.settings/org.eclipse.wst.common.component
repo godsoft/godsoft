@@ -8,6 +8,6 @@
 <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
 <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
 <property name="java-output-path" value="/kr.godsoft.egovframe.sample-webapp-2.5.0/build/classes"/>
-<property name="context-root" value="test123.test123-webapp"/>
+<property name="context-root" value="sample-webapp"/>
 </wb-module>
 </project-modules>
