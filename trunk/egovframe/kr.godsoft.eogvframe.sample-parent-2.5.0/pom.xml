@@ -5,4 +5,8 @@
   <version>2.5.0</version>
   <packaging>pom</packaging>
   <name>sample-parent Project</name>
+  <modules>
+  	<module>../kr.godsoft.eogvframe.sample-dao-2.5.0</module>
+  	<module>../kr.godsoft.eogvframe.sample-webapp-2.5.0</module>
+  </modules>
 </project>
