@@ -96,6 +96,7 @@ function fn_egov_link_page(pageNo){
 				<th align="center">사용여부</th>
 				<th align="center">Description</th>
 				<th align="center">등록자</th>
+				<th align="center">sysdate</th>
 			</tr>
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<tr>
@@ -105,6 +106,7 @@ function fn_egov_link_page(pageNo){
 				<td align="center" class="listtd"><c:out value="${result.useYn}"/>&nbsp;</td>
 				<td align="center" class="listtd"><c:out value="${result.description}"/>&nbsp;</td>
 				<td align="center" class="listtd"><c:out value="${result.regUser}"/>&nbsp;</td>
+				<td align="center" class="listtd"><c:out value="${result.sysdate}"/>&nbsp;</td>
 			</tr>
 			</c:forEach>
 		</table>

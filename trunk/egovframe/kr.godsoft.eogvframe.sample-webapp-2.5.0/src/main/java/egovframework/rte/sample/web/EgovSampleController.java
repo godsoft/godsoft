@@ -93,7 +93,7 @@ public class EgovSampleController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 
-		List<EgovMap> sampleList = sampleService.selectSampleList(searchVO);
+		List<EgovMap> sampleList = sampleService.selectSampleListA(searchVO);
 		model.addAttribute("resultList", sampleList);
 
 		int totCnt = sampleService.selectSampleListTotCnt(searchVO);
