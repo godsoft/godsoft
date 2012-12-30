@@ -4,8 +4,7 @@
         2011.09.26 이기하 library 정리 2012.11.14 이기하 jsp-api 라이브러리 추가 2012.11.19 이기하
         cubrid 라이브러리 추가 -->
     <modelVersion>4.0.0</modelVersion>
-    <groupId>egovframework</groupId>
-    <artifactId>common</artifactId>
+    <groupId>kr.godsoft.egovframe</groupId>
     <packaging>war</packaging>
     <version>2.0.2</version>
     <name>com4</name>
@@ -734,4 +733,5 @@
             </plugin>
         </plugins>
     </reporting>
+    <artifactId>com-webapp</artifactId>
 </project>
