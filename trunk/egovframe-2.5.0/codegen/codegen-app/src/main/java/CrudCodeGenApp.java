@@ -1,5 +1,3 @@
-import java.util.List;
-
 import model.DataModelContext;
 
 import org.apache.commons.logging.Log;
@@ -7,16 +5,14 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import egovframework.codegen.alltables.service.impl.AllTablesDAO;
 import egovframework.codegen.cmm.service.OracleService;
 import egovframework.codegen.util.CmmUtils;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class CrudCodeGenApp {
 
     protected static final Log LOG = LogFactory.getLog(CrudCodeGenApp.class);
 
-    private AllTablesDAO allTablesDAO;
+    // private AllTablesDAO allTablesDAO;
 
     private OracleService oracleService;
 
@@ -24,7 +20,7 @@ public class CrudCodeGenApp {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "classpath:egovframework/spring/codegen-dao.xml");
 
-        this.allTablesDAO = (AllTablesDAO) context.getBean("allTablesDAO");
+        // this.allTablesDAO = (AllTablesDAO) context.getBean("allTablesDAO");
 
         this.oracleService = (OracleService) context.getBean("oracleService");
 
@@ -36,7 +32,7 @@ public class CrudCodeGenApp {
     public static void main(String[] args) {
         CrudCodeGenApp app = new CrudCodeGenApp();
 
-        app.selectAllTablesList();
+        // app.selectAllTablesList();
 
         try {
             app.oracle();
@@ -45,24 +41,24 @@ public class CrudCodeGenApp {
         }
     }
 
-    private void selectAllTablesList() {
-        try {
-            EgovMap egovMap = new EgovMap();
-
-            egovMap.put("owner", "RTE");
-            // egovMap.put("tableName", "IDS");
-
-            List<EgovMap> tables = allTablesDAO.selectAllTablesList(egovMap);
-
-            for (EgovMap table : tables) {
-                if (LOG.isDebugEnabled()) {
-                    LOG.debug(table);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    // private void selectAllTablesList() {
+    // try {
+    // EgovMap egovMap = new EgovMap();
+    //
+    // egovMap.put("owner", "RTE");
+    // // egovMap.put("tableName", "IDS");
+    //
+    // List<EgovMap> tables = allTablesDAO.selectAllTablesList(egovMap);
+    //
+    // for (EgovMap table : tables) {
+    // if (LOG.isDebugEnabled()) {
+    // LOG.debug(table);
+    // }
+    // }
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+    // }
 
     private void oracle() throws Exception {
         DataModelContext dataModel = new DataModelContext();
@@ -73,7 +69,7 @@ public class CrudCodeGenApp {
 
         dataModel.setPackageName("kr.godsoft.egovframe.codegen");
 
-        this.oracleService.init();
+        this.oracleService.init(dataModel);
     }
 
 }
