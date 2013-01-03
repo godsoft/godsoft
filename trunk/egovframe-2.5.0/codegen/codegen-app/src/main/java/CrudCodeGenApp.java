@@ -1,27 +1,51 @@
 import java.util.List;
 
+import model.DataModelContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import egovframework.codegen.alltables.service.impl.AllTablesDAO;
+import egovframework.codegen.cmm.service.OracleService;
+import egovframework.codegen.util.CmmUtils;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class CrudCodeGenApp {
 
     protected static final Log LOG = LogFactory.getLog(CrudCodeGenApp.class);
 
+    private AllTablesDAO allTablesDAO;
+
+    private OracleService oracleService;
+
+    public CrudCodeGenApp() {
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "classpath:egovframework/spring/codegen-dao.xml");
+
+        this.allTablesDAO = (AllTablesDAO) context.getBean("allTablesDAO");
+
+        this.oracleService = (OracleService) context.getBean("oracleService");
+
+    }
+
     /**
      * @param args
      */
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "classpath:egovframework/spring/codegen-dao.xml");
+        CrudCodeGenApp app = new CrudCodeGenApp();
 
-        AllTablesDAO allTablesDAO = (AllTablesDAO) context
-                .getBean("allTablesDAO");
+        app.selectAllTablesList();
 
+        try {
+            app.oracle();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void selectAllTablesList() {
         try {
             EgovMap egovMap = new EgovMap();
 
@@ -38,6 +62,18 @@ public class CrudCodeGenApp {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void oracle() throws Exception {
+        DataModelContext dataModel = new DataModelContext();
+
+        dataModel.setAuthor("이백행");
+        dataModel.setCreateDate(CmmUtils.getCreateDate());
+        dataModel.setTeam("갓소프트");
+
+        dataModel.setPackageName("kr.godsoft.egovframe.codegen");
+
+        this.oracleService.init();
     }
 
 }
