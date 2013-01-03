@@ -1,4 +1,4 @@
-package egovframework.rte.sample.service.impl;
+package egovframework.codegen.alltables.service.impl;
 
 import java.util.List;
 
@@ -15,21 +15,18 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import egovframework.rte.sample.service.SampleDefaultVO;
 
 //  필요할 경우, 스프링 컨텍스트/트랜잭션 등의 설정을 적용한다.
 @RunWith(SpringJUnit4ClassRunner.class)
-// @ContextConfiguration(locations = {
-// "classpath*:META-INF/spring/context-*.xml" })
 @ContextConfiguration(locations = { "classpath:egovframework/spring/context-*.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
 @Transactional
-public class SampleDAOTest {
+public class AllTablesDAOTest {
 
-    protected static final Log LOG = LogFactory.getLog(SampleDAOTest.class);
+    protected static final Log LOG = LogFactory.getLog(AllTablesDAOTest.class);
 
-    @Resource(name = "sampleDAO")
-    SampleDAO sampleDAO;
+    @Resource(name = "allTablesDAO")
+    AllTablesDAO allTablesDAO;
 
     // // 필요할 경우, 스프링 ApplicationContext을 선언한다.
     // @Autowired
@@ -60,14 +57,14 @@ public class SampleDAOTest {
     }
 
     /**
-     * SampleDAO의 메소드를 테스트하기 위한 코드를 작성한다.
+     * AllTablesDAO의 메소드를 테스트하기 위한 코드를 작성한다.
      */
     public void testMethodA() {
 
     }
 
     /**
-     * SampleDAO의 메소드를 테스트하기 위한 코드를 작성한다.
+     * AllTablesDAO의 메소드를 테스트하기 위한 코드를 작성한다.
      */
     public void testMethodZ() {
 
@@ -76,19 +73,21 @@ public class SampleDAOTest {
     @Test
     public void selectSampleList() {
         try {
-            SampleDefaultVO searchVO = new SampleDefaultVO();
-            searchVO.setRecordCountPerPage(10);
-            searchVO.setFirstIndex(0);
+            EgovMap egovMap = new EgovMap();
 
-            List<EgovMap> samples = sampleDAO.selectSampleList(searchVO);
+            egovMap.put("owner", "RTE");
+            egovMap.put("tableName", "IDS");
 
-            for (EgovMap sample : samples) {
+            List<EgovMap> tables = allTablesDAO.selectAllTablesList(egovMap);
+
+            for (EgovMap table : tables) {
                 if (LOG.isDebugEnabled()) {
-                    LOG.debug(sample);
+                    LOG.debug(table);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
