@@ -16,19 +16,8 @@ public class CrudCodeGenApp {
      * @param args
      */
     public static void main(String[] args) {
-        String[] configLocations = new String[] {
-                "classpath:egovframework/spring/context-aspect.xml",
-                "classpath:egovframework/spring/context-common.xml",
-                "classpath:egovframework/spring/context-datasource.xml",
-                "classpath:egovframework/spring/context-idgen.xml",
-                "classpath:egovframework/spring/context-properties.xml",
-                "classpath:egovframework/spring/context-sqlMap.xml",
-                "classpath:egovframework/spring/context-transaction.xml"
-
-        };
-
         ApplicationContext context = new ClassPathXmlApplicationContext(
-                configLocations);
+                "classpath:egovframework/spring/codegen-dao.xml");
 
         AllTablesDAO allTablesDAO = (AllTablesDAO) context
                 .getBean("allTablesDAO");
