@@ -252,10 +252,16 @@
             <version>1.1</version>
         </dependency>
 
+        <!-- <dependency> -->
+        <!-- <groupId>hsqldb</groupId> -->
+        <!-- <artifactId>hsqldb</artifactId> -->
+        <!-- <version>1.8.0.10</version> -->
+        <!-- </dependency> -->
+
         <dependency>
-            <groupId>hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>1.8.0.10</version>
+            <groupId>ojdbc</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>14</version>
         </dependency>
 
         <dependency>
