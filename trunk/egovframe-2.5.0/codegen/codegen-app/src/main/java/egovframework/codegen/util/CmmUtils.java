@@ -11,4 +11,15 @@ public class CmmUtils {
         return sdf.format(new Date());
     }
 
+    public static String getJavaType(String dataType) {
+        String javaType = "String";
+
+        if ("CHAR".equals(dataType) || "VARCHAR2".equals(dataType)) {
+        } else if ("NUMBER".equals(dataType)) {
+            javaType = "int";
+        }
+
+        return javaType;
+    }
+
 }

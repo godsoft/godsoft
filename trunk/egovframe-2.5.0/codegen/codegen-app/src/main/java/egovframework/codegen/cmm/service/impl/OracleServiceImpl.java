@@ -12,8 +12,10 @@ import operation.CrudCodeGen;
 
 import org.springframework.stereotype.Service;
 
+import egovframework.codegen.alltabcolumns.service.impl.AllTabColumnsDAO;
 import egovframework.codegen.alltables.service.impl.AllTablesDAO;
 import egovframework.codegen.cmm.service.OracleService;
+import egovframework.codegen.util.CmmUtils;
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
@@ -24,90 +26,112 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
     @Resource(name = "allTablesDAO")
     private AllTablesDAO allTablesDAO;
 
-    public void init(DataModelContext dataModel) throws Exception {
-        // DataModelContext dataModel = new DataModelContext();
-        //
-        // dataModel.setAuthor("이백행");
-        // dataModel.setCreateDate(CmmUtils.getCreateDate());
-        // dataModel.setTeam("갓소프트");
-        //
-        // dataModel.setPackageName("kr.godsoft.egovframe.codegen");
+    @Resource(name = "allTabColumnsDAO")
+    private AllTabColumnsDAO allTabColumnsDAO;
 
-        Entity entity = new Entity("SAMPLE2");
+    private List<EgovMap> tables;
+    private List<EgovMap> columns;
 
-        dataModel.setEntity(entity);
+    private DataModelContext dataModel;
+    private List<DataModelContext> dataModels;
+    private CrudCodeGen crudCodeGen;
 
-        List<Attribute> attributes = new ArrayList<Attribute>();
-
-        Attribute attr = null;
-
-        attr = new Attribute("NAME");
-        attr.setJavaType("String");
-        attributes.add(attr);
-        // primaryKeys.add(attr);
-
-        attr = new Attribute("DESCRIPTION");
-        attr.setJavaType("String");
-        attributes.add(attr);
-
-        attr = new Attribute("USE_YN");
-        attr.setJavaType("String");
-        attributes.add(attr);
-
-        attr = new Attribute("REG_USER");
-        attr.setJavaType("String");
-        attributes.add(attr);
-
-        dataModel.setAttributes(attributes);
-
-        List<Attribute> primaryKeys = new ArrayList<Attribute>();
-
-        attr = new Attribute("ID");
-        attr.setJavaType("String");
-        attributes.add(attr);
-        primaryKeys.add(attr);
-
-        dataModel.setPrimaryKeys(primaryKeys);
-
-        CrudCodeGen crudCodeGen = new CrudCodeGen();
-
-        String templateFile = null;
-        templateFile = "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.vm";
-        templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
-
-        String result = crudCodeGen.generate(dataModel, templateFile);
-
-        if (log.isDebugEnabled()) {
-            log.debug(result);
-        }
-
-        this.initA(dataModel);
+    public void tables(EgovMap egovMap) throws Exception {
+        tables = allTablesDAO.selectAllTablesList(egovMap);
     }
 
-    private void initA(DataModelContext dataModel) throws Exception {
-        EgovMap egovMap = new EgovMap();
+    public void columns(EgovMap egovMap) throws Exception {
+        columns = allTabColumnsDAO.selectAllTabColumnsList(egovMap);
+    }
 
-        egovMap.put("owner", "RTE");
-        // egovMap.put("tableName", "IDS");
+    public void init(DataModelContext dataModel) throws Exception {
+        this.dataModel = dataModel;
 
-        List<EgovMap> tables = allTablesDAO.selectAllTablesList(egovMap);
+        dataModels();
 
-        List<DataModelContext> dataModels = new ArrayList<DataModelContext>();
+        crudCodeGen = new CrudCodeGen();
 
-        CrudCodeGen crudCodeGen = new CrudCodeGen();
+        sqlMap();
+    }
+
+    private void dataModels() {
+        dataModels = new ArrayList<DataModelContext>();
 
         for (EgovMap table : tables) {
             if (log.isDebugEnabled()) {
                 log.debug(table);
             }
 
-            dataModel.setEntity(new Entity((String) table.get("tableName")));
+            // DataModelContext dataModel = BeanUtils.cloneBean(dataModel);
+            DataModelContext dataModel = new DataModelContext();
+
+            String tableName = (String) table.get("tableName");
+
+            dataModel.setEntity(new Entity(tableName));
+
+            List<Attribute> attributes = new ArrayList<Attribute>();
+
+            for (EgovMap column : columns) {
+                String tableNameColumn = (String) column.get("tableName");
+                String columnName = (String) column.get("columnName");
+                String dataType = (String) column.get("dataType");
+                // String columnComments = (String)
+                // column.get("columnComments");
+
+                if (tableNameColumn.equals(tableName)) {
+                    Attribute attr = new Attribute(columnName);
+                    attr.setJavaType(CmmUtils.getJavaType(dataType));
+
+                    attributes.add(attr);
+                }
+            }
+
+            dataModel.setAttributes(attributes);
 
             dataModels.add(dataModel);
+        }
 
-            crudCodeGen
-                    .generate(dataModel,
-                            "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm");
+        // Entity entity = new Entity("SAMPLE2");
+        //
+        // dataModel.setEntity(entity);
+        //
+        // List<Attribute> attributes = new ArrayList<Attribute>();
+        //
+        // Attribute attr = null;
+        //
+        // attr = new Attribute("NAME");
+        // attr.setJavaType("String");
+        // attributes.add(attr);
+        // // primaryKeys.add(attr);
+        //
+        // attr = new Attribute("DESCRIPTION");
+        // attr.setJavaType("String");
+        // attributes.add(attr);
+        //
+        // attr = new Attribute("USE_YN");
+        // attr.setJavaType("String");
+        // attributes.add(attr);
+        //
+        // attr = new Attribute("REG_USER");
+        // attr.setJavaType("String");
+        // attributes.add(attr);
+        //
+        // dataModel.setAttributes(attributes);
+        //
+        // List<Attribute> primaryKeys = new ArrayList<Attribute>();
+        //
+        // attr = new Attribute("ID");
+        // attr.setJavaType("String");
+        // attributes.add(attr);
+        // primaryKeys.add(attr);
+        //
+        // dataModel.setPrimaryKeys(primaryKeys);
+    }
+
+    private void sqlMap() throws Exception {
+        for (DataModelContext dataModel : dataModels) {
+            crudCodeGen.generate(dataModel,
+                    "godsoft/crud/resource/pkg/EgovSample_Sample2_SQL.vm");
         }
     }
 

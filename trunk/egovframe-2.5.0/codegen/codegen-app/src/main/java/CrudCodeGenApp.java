@@ -7,12 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import egovframework.codegen.cmm.service.OracleService;
 import egovframework.codegen.util.CmmUtils;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class CrudCodeGenApp {
 
     protected static final Log LOG = LogFactory.getLog(CrudCodeGenApp.class);
-
-    // private AllTablesDAO allTablesDAO;
 
     private OracleService oracleService;
 
@@ -20,10 +19,7 @@ public class CrudCodeGenApp {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "classpath:egovframework/spring/codegen-dao.xml");
 
-        // this.allTablesDAO = (AllTablesDAO) context.getBean("allTablesDAO");
-
-        this.oracleService = (OracleService) context.getBean("oracleService");
-
+        oracleService = (OracleService) context.getBean("oracleService");
     }
 
     /**
@@ -32,8 +28,6 @@ public class CrudCodeGenApp {
     public static void main(String[] args) {
         CrudCodeGenApp app = new CrudCodeGenApp();
 
-        // app.selectAllTablesList();
-
         try {
             app.oracle();
         } catch (Exception e) {
@@ -41,26 +35,18 @@ public class CrudCodeGenApp {
         }
     }
 
-    // private void selectAllTablesList() {
-    // try {
-    // EgovMap egovMap = new EgovMap();
-    //
-    // egovMap.put("owner", "RTE");
-    // // egovMap.put("tableName", "IDS");
-    //
-    // List<EgovMap> tables = allTablesDAO.selectAllTablesList(egovMap);
-    //
-    // for (EgovMap table : tables) {
-    // if (LOG.isDebugEnabled()) {
-    // LOG.debug(table);
-    // }
-    // }
-    // } catch (Exception e) {
-    // e.printStackTrace();
-    // }
-    // }
-
     private void oracle() throws Exception {
+        // tables, columns
+        EgovMap egovMap = new EgovMap();
+        egovMap.put("owner", "RTE");
+
+        // egovMap.put("tableName", "IDS");
+
+        oracleService.tables(egovMap);
+
+        oracleService.columns(egovMap);
+
+        // init
         DataModelContext dataModel = new DataModelContext();
 
         dataModel.setAuthor("이백행");
@@ -69,7 +55,7 @@ public class CrudCodeGenApp {
 
         dataModel.setPackageName("kr.godsoft.egovframe.codegen");
 
-        this.oracleService.init(dataModel);
+        oracleService.init(dataModel);
     }
 
 }
