@@ -10,6 +10,7 @@ import model.DataModelContext;
 import model.Entity;
 import operation.CrudCodeGen;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import egovframework.codegen.alltabcolumns.service.impl.AllTabColumnsDAO;
@@ -54,7 +55,7 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
         sqlMap();
     }
 
-    private void dataModels() {
+    private void dataModels() throws Exception {
         dataModels = new ArrayList<DataModelContext>();
 
         for (EgovMap table : tables) {
@@ -62,12 +63,13 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 log.debug(table);
             }
 
-            // DataModelContext dataModel = BeanUtils.cloneBean(dataModel);
             DataModelContext dataModel = new DataModelContext();
+
+            BeanUtils.copyProperties(dataModel, this.dataModel);
 
             String tableName = (String) table.get("tableName");
 
-            dataModel.setEntity(new Entity(tableName));
+            dataModel.setEntity(new Entity(tableName.toLowerCase()));
 
             List<Attribute> attributes = new ArrayList<Attribute>();
 
@@ -75,12 +77,13 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 String tableNameColumn = (String) column.get("tableName");
                 String columnName = (String) column.get("columnName");
                 String dataType = (String) column.get("dataType");
-                // String columnComments = (String)
-                // column.get("columnComments");
+                String columnComments = (String) column.get("columnComments");
 
                 if (tableNameColumn.equals(tableName)) {
-                    Attribute attr = new Attribute(columnName);
+                    Attribute attr = new Attribute(columnName.toLowerCase());
                     attr.setJavaType(CmmUtils.getJavaType(dataType));
+
+                    attr.setColumnComments(columnComments);
 
                     attributes.add(attr);
                 }

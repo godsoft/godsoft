@@ -41,6 +41,7 @@ public class CrudCodeGenApp {
         egovMap.put("owner", "RTE");
 
         // egovMap.put("tableName", "IDS");
+        egovMap.put("tableName", "SAMPLE");
 
         oracleService.tables(egovMap);
 
