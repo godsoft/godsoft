@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="AllTabColumns">
+
+    <typeAlias alias="egovMap"
+        type="egovframework.rte.psl.dataaccess.util.EgovMap" />
+
+    <select id="allTabColumnsDAO.selectAllTabColumnsList" parameterClass="egovMap"
+        resultClass="egovMap">
+        /* allTabColumnsDAO.selectAllTabColumnsList */
+        SELECT
+            atc.*
+            , (SELECT comments FROM all_col_comments WHERE owner = atc.owner AND table_name = atc.table_name AND column_name = atc.column_name ) AS column_comments
+        FROM ALL_TAB_COLUMNS atc
+        WHERE 1 = 1
+
+        <isNotEmpty property="owner">
+            AND atc.owner = #owner#
+        </isNotEmpty>
+
+        <isNotEmpty property="tableName">
+            AND atc.table_name = #tableName#
+        </isNotEmpty>
+
+        ORDER BY
+            atc.owner
+            , atc.table_name
+            , atc.column_id
+    </select>
+
+</sqlMap>
