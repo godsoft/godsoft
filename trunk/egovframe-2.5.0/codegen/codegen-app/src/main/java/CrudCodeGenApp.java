@@ -54,7 +54,7 @@ public class CrudCodeGenApp {
         dataModel.setCreateDate(CmmUtils.getCreateDate());
         dataModel.setTeam("갓소프트");
 
-        dataModel.setPackageName("kr.godsoft.egovframe.codegen");
+        dataModel.setPackageName("egovframework.codegen");
 
         oracleService.init(dataModel);
     }

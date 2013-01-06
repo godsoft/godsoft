@@ -131,6 +131,14 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
         // dataModel.setPrimaryKeys(primaryKeys);
     }
 
+    private void setPackageName(DataModelContext dataModel) {
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(dataModel.getPackageName());
+        sb.append(".");
+        sb.append(dataModel.getEntity().getLcName());
+    }
+
     private void sqlMap() throws Exception {
         for (DataModelContext dataModel : dataModels) {
             crudCodeGen.generate(dataModel,
