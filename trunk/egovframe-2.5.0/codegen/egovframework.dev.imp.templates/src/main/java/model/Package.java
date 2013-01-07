@@ -12,4 +12,15 @@ public class Package {
         this.voPackage = voPackage;
     }
 
+    public void setVoPackage(DataModelContext dataModel) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(dataModel.getPackageName());
+        sb.append(".");
+        sb.append(dataModel.getEntity().getLcName());
+        sb.append(".service");
+
+        this.voPackage = sb.toString();
+    }
+
 }

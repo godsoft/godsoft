@@ -1,5 +1,5 @@
 ##
-#set($voPackage="${voPackage}")
+#set($voPackage="${model.package.voPackage}")
 #set($voClassName="${model.entity.pcName}VO")
 #set($defaultVoClassName="${model.entity.pcName}DefaultVO")
 #set($searchVOAlias="${model.entity.ccName}SerarchVO")
@@ -9,7 +9,7 @@
 #set($daoInstanceName="${model.entity.ccName}DAO")
 ##
 ##
-#set($vender="$model.vender")
+#set($vendor="$model.vendor")
 #set($namespace="$model.entity.pcName")
 #set($resultMapId="${model.entity.ccName}")
 #set($resultMapClass="${voPackage}.${voClassName}")
@@ -32,10 +32,10 @@ since ${createDate}
 -->
 
 <sqlMap namespace="$namespace">
-    
+
 ## --------------------------------------------------------------------------------------------------------
-    <typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-    <typeAlias  alias="${searchVOAlias}" type="${voPackage}.${defaultVoClassName}"/>
+    <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias alias="${searchVOAlias}" type="${voPackage}.${defaultVoClassName}"/>
     
 ## --------------------------------------------------------------------------------------------------------
     <resultMap id="$resultMapId" class="$resultMapClass">
@@ -45,7 +45,7 @@ since ${createDate}
         <result property="${attribute.ccName}" column="${attribute.name}" columnIndex="$i"/>
 #end
     </resultMap>
-    
+
 ## ##################################################################################################
     <insert id="${insertQueryId}">
         <![CDATA[
@@ -75,7 +75,7 @@ since ${createDate}
 #end
         ]]>
     </insert>
-    
+
 ## ##################################################################################################
     <update id="${updateQueryId}">
         <![CDATA[
@@ -83,9 +83,9 @@ since ${createDate}
 #set($i=0)
 #foreach($attribute in $model.attributes)
 #if($i == 0)
-            SET ${attribute.name}=#${attribute.ccName}#
+            SET ${attribute.name} = #${attribute.ccName}#
 #else
-                , ${attribute.name}=#${attribute.ccName}#
+                , ${attribute.name} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
@@ -93,15 +93,15 @@ since ${createDate}
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-            WHERE ${attribute.name}=#${attribute.ccName}#
+            WHERE ${attribute.name} = #${attribute.ccName}#
 #else
-                AND ${attribute.name}=#${attribute.ccName}#
+                AND ${attribute.name} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
         ]]>
     </update>
-    
+
 ## ##################################################################################################
     <delete id="${deleteQueryId}">
         <![CDATA[
@@ -109,15 +109,15 @@ since ${createDate}
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-            WHERE ${attribute.name}=#${attribute.ccName}#
+            WHERE ${attribute.name} = #${attribute.ccName}#
 #else
-                AND ${attribute.name}=#${attribute.ccName}#
+                AND ${attribute.name} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
         ]]>
     </delete>
-    
+
 ## ##################################################################################################
     <select id="${selectQueryId}" resultMap="$resultMapId">
         <![CDATA[
@@ -135,18 +135,18 @@ since ${createDate}
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-            WHERE ${attribute.name}=#${attribute.ccName}#
+            WHERE ${attribute.name} = #${attribute.ccName}#
 #else
-                AND ${attribute.name}=#${attribute.ccName}#
+                AND ${attribute.name} = #${attribute.ccName}#
 #end
 #set($i=$i+1)
 #end
         ]]>
     </select>
-    
+
 ## ##################################################################################################
     <select id="${selectListQueryId}" parameterClass="${searchVOAlias}" resultClass="egovMap">
-#if($vender == "HSQLDB")
+#if($vendor == "HSQLDB")
             SELECT
     #set($i=0)
     #foreach($attribute in $model.attributes)
@@ -158,7 +158,7 @@ since ${createDate}
     #set($i=$i+1)
     #end
             FROM ${model.entity.name}
-            WHERE 1=1
+            WHERE 1 = 1
             <isEqual prepend="AND" property="searchCondition" compareValue="0">
                 ${model.attributes.get(0).name} = #searchKeyword#
             </isEqual>
@@ -176,7 +176,7 @@ since ${createDate}
     #set($i=$i+1)
     #end
             LIMIT #recordCountPerPage# OFFSET #firstIndex#
-#elseif($vender == "Oracle")
+#elseif($vendor == "Oracle")
            SELECT
     #set($i=0)
     #foreach($attribute in $model.attributes)
@@ -201,7 +201,7 @@ since ${createDate}
     #end
                     , ROWNUM
                 FROM ${model.entity.name}
-                WHERE 1=1
+                WHERE 1 = 1
                 <isEqual prepend="AND" property="searchCondition" compareValue="0">
                     ${model.attributes.get(0).name} = #searchKeyword#
                 </isEqual>
@@ -220,7 +220,7 @@ since ${createDate}
     #end
             ) A
             WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
-#elseif($vender == "MySql")
+#elseif($vendor == "MySql")
             SELECT
     #set($i=0)
     #foreach($attribute in $model.attributes)
@@ -232,7 +232,7 @@ since ${createDate}
     #set($i=$i+1)
     #end
             FROM ${model.entity.name}
-            WHERE 1=1
+            WHERE 1 = 1
             <isEqual prepend="AND" property="searchCondition" compareValue="0">
                 ${model.attributes.get(0).name} = #searchKeyword#
             </isEqual>
@@ -255,37 +255,38 @@ since ${createDate}
 #end
     </select>
 ## ##################################################################################################
+
     <select id="${selectListTotCntQueryId}" parameterClass="${searchVOAlias}" resultClass="int">
-#if($vender == "HSQLDB")
-            SELECT COUNT(*) totcnt
-            FROM ${model.entity.name}
-            WHERE 1=1
-            <isEqual prepend="AND" property="searchCondition" compareValue="0">
-                ${model.attributes.get(0).name} = #searchKeyword#
-            </isEqual>
-            <isEqual prepend="AND" property="searchCondition" compareValue="1">
-                ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-            </isEqual>
-#elseif($vender == "Oracle")
-            SELECT COUNT(*) totcnt
-            FROM ${model.entity.name}
-            WHERE 1=1
-            <isEqual prepend="AND" property="searchCondition" compareValue="0">
-                ${model.attributes.get(0).name} = #searchKeyword#
-            </isEqual>
-            <isEqual prepend="AND" property="searchCondition" compareValue="1">
-                ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-            </isEqual>
-#elseif($vender == "MySql")
-            SELECT COUNT(*) totcnt
-            FROM ${model.entity.name}
-            WHERE 1=1
-            <isEqual prepend="AND" property="searchCondition" compareValue="0">
-                ${model.attributes.get(0).name} = #searchKeyword#
-            </isEqual>
-            <isEqual prepend="AND" property="searchCondition" compareValue="1">
-                ${model.attributes.get(1).name} LIKE CONCAT('%',#searchKeyword#,'%')
-            </isEqual>
+#if($vendor == "HSQLDB")
+        SELECT COUNT(*) totcnt
+        FROM ${model.entity.name}
+        WHERE 1 = 1
+        <isEqual prepend="AND" property="searchCondition" compareValue="0">
+            ${model.attributes.get(0).name} = #searchKeyword#
+        </isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="1">
+            ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
+        </isEqual>
+#elseif($vendor == "Oracle")
+        SELECT COUNT(*) totcnt
+        FROM ${model.entity.name}
+        WHERE 1 = 1
+        <isEqual prepend="AND" property="searchCondition" compareValue="0">
+            ${model.attributes.get(0).name} = #searchKeyword#
+        </isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="1">
+            ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
+        </isEqual>
+#elseif($vendor == "MySql")
+        SELECT COUNT(*) totcnt
+        FROM ${model.entity.name}
+        WHERE 1 = 1
+        <isEqual prepend="AND" property="searchCondition" compareValue="0">
+            ${model.attributes.get(0).name} = #searchKeyword#
+        </isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="1">
+            ${model.attributes.get(1).name} LIKE CONCAT('%',#searchKeyword#,'%')
+        </isEqual>
 #else
 
 #end
