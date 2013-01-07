@@ -56,7 +56,11 @@ public class CrudCodeGenApp {
 
         dataModel.setPackageName("egovframework.codegen");
 
+        dataModel.setVendor("Oracle");
+
         oracleService.init(dataModel);
+
+        oracleService.sqlMap();
     }
 
 }

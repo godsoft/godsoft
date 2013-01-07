@@ -11,4 +11,6 @@ public interface OracleService {
 
     void init(DataModelContext dataModel) throws Exception;
 
+    void sqlMap() throws Exception;
+
 }

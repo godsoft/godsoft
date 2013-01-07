@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import model.Attribute;
 import model.DataModelContext;
 import model.Entity;
+import model.Package;
 import operation.CrudCodeGen;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -51,8 +52,6 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
         dataModels();
 
         crudCodeGen = new CrudCodeGen();
-
-        sqlMap();
     }
 
     private void dataModels() throws Exception {
@@ -63,14 +62,15 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 log.debug(table);
             }
 
+            String tableName = (String) table.get("tableName");
+
             DataModelContext dataModel = new DataModelContext();
 
             BeanUtils.copyProperties(dataModel, this.dataModel);
 
-            String tableName = (String) table.get("tableName");
-
             dataModel.setEntity(new Entity(tableName.toLowerCase()));
 
+            List<Attribute> primaryKeys = new ArrayList<Attribute>();
             List<Attribute> attributes = new ArrayList<Attribute>();
 
             for (EgovMap column : columns) {
@@ -78,71 +78,48 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 String columnName = (String) column.get("columnName");
                 String dataType = (String) column.get("dataType");
                 String columnComments = (String) column.get("columnComments");
+                String constraintType = (String) column.get("constraintType");
 
                 if (tableNameColumn.equals(tableName)) {
-                    Attribute attr = new Attribute(columnName.toLowerCase());
-                    attr.setJavaType(CmmUtils.getJavaType(dataType));
+                    Attribute attribute = new Attribute(
+                            columnName.toLowerCase());
+                    attribute.setJavaType(CmmUtils.getJavaType(dataType));
 
-                    attr.setColumnComments(columnComments);
+                    attribute.setColumnComments(columnComments);
 
-                    attributes.add(attr);
+                    attributes.add(attribute);
+
+                    if ("P".equals(constraintType)) {
+                        primaryKeys.add(attribute);
+                    }
                 }
             }
 
+            dataModel.setPrimaryKeys(primaryKeys);
             dataModel.setAttributes(attributes);
+
+            setPackage(dataModel);
 
             dataModels.add(dataModel);
         }
-
-        // Entity entity = new Entity("SAMPLE2");
-        //
-        // dataModel.setEntity(entity);
-        //
-        // List<Attribute> attributes = new ArrayList<Attribute>();
-        //
-        // Attribute attr = null;
-        //
-        // attr = new Attribute("NAME");
-        // attr.setJavaType("String");
-        // attributes.add(attr);
-        // // primaryKeys.add(attr);
-        //
-        // attr = new Attribute("DESCRIPTION");
-        // attr.setJavaType("String");
-        // attributes.add(attr);
-        //
-        // attr = new Attribute("USE_YN");
-        // attr.setJavaType("String");
-        // attributes.add(attr);
-        //
-        // attr = new Attribute("REG_USER");
-        // attr.setJavaType("String");
-        // attributes.add(attr);
-        //
-        // dataModel.setAttributes(attributes);
-        //
-        // List<Attribute> primaryKeys = new ArrayList<Attribute>();
-        //
-        // attr = new Attribute("ID");
-        // attr.setJavaType("String");
-        // attributes.add(attr);
-        // primaryKeys.add(attr);
-        //
-        // dataModel.setPrimaryKeys(primaryKeys);
     }
 
-    private void setPackageName(DataModelContext dataModel) {
-        StringBuilder sb = new StringBuilder();
-        
-        sb.append(dataModel.getPackageName());
-        sb.append(".");
-        sb.append(dataModel.getEntity().getLcName());
+    private void setPackage(DataModelContext dataModel) {
+        Package package1 = new Package();
+
+        package1.setVoPackage(dataModel);
+
+        dataModel.setPackage(package1);
     }
 
-    private void sqlMap() throws Exception {
+    public void sqlMap() throws Exception {
         for (DataModelContext dataModel : dataModels) {
-            crudCodeGen.generate(dataModel,
+            String pathname = "target/Sample_SQL_Oracle.xml";
+
+            String data = crudCodeGen.generate(dataModel,
                     "godsoft/crud/resource/pkg/EgovSample_Sample2_SQL.vm");
+
+            CmmUtils.writeStringToFile(pathname, data);
         }
     }
 

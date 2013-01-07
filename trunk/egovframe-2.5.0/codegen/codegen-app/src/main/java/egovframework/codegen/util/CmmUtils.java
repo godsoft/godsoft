@@ -1,7 +1,10 @@
 package egovframework.codegen.util;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
 
 public class CmmUtils {
 
@@ -20,6 +23,13 @@ public class CmmUtils {
         }
 
         return javaType;
+    }
+
+    public static void writeStringToFile(String pathname, String data)
+            throws Exception {
+        File file = new File(pathname);
+
+        FileUtils.writeStringToFile(file, data, "utf-8");
     }
 
 }
