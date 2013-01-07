@@ -52,8 +52,6 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
 
         dataModels();
 
-        // pathname();
-
         sqlMapResources();
 
         crudCodeGen = new CrudCodeGen();
@@ -97,11 +95,13 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
 
                     attribute.setColumnComments(columnComments);
 
-                    attributes.add(attribute);
-
                     if ("P".equals(constraintType)) {
+                        attribute.setPrimaryKey(true);
+                        
                         primaryKeys.add(attribute);
                     }
+
+                    attributes.add(attribute);
                 }
             }
 
