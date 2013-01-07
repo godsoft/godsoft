@@ -1,10 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import model.DataModelContext;
+import model.Pathname;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import egovframework.codegen.cmm.service.IsGen;
 import egovframework.codegen.cmm.service.OracleService;
 import egovframework.codegen.util.CmmUtils;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -38,10 +43,18 @@ public class CrudCodeGenApp {
     private void oracle() throws Exception {
         // tables, columns
         EgovMap egovMap = new EgovMap();
+
         egovMap.put("owner", "RTE");
 
         // egovMap.put("tableName", "IDS");
-        egovMap.put("tableName", "SAMPLE");
+        // egovMap.put("tableName", "SAMPLE");
+
+        List<String> tableNames = new ArrayList<String>();
+
+        tableNames.add("IDS");
+        tableNames.add("SAMPLE");
+
+        egovMap.put("tableNames", tableNames);
 
         oracleService.tables(egovMap);
 
@@ -58,9 +71,34 @@ public class CrudCodeGenApp {
 
         dataModel.setVendor("Oracle");
 
+        dataModel.setPathname(new Pathname("../codegen-webapp"));
+
+        dataModel.setProjectName("codegen");
+
         oracleService.init(dataModel);
 
-        oracleService.sqlMap();
+        IsGen isGen = new IsGen();
+
+        isGen.setSqlMap(true);
+        isGen.setSqlMapConfig(true);
+
+        // service
+        isGen.setDefaultVO(true);
+        isGen.setVo(true);
+        isGen.setService(true);
+
+        // service.impl
+        isGen.setDao(true);
+        isGen.setServiceImpl(true);
+
+        // web
+        isGen.setController(true);
+
+        // jsp
+        isGen.setList(true);
+        isGen.setRegist(true);
+
+        oracleService.sqlMap(isGen);
     }
 
 }
