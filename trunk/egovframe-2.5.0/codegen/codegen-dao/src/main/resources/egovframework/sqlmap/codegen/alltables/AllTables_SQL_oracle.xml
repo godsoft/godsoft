@@ -6,8 +6,7 @@
     <typeAlias alias="egovMap"
         type="egovframework.rte.psl.dataaccess.util.EgovMap" />
 
-    <select id="allTablesDAO.selectAllTablesList" parameterClass="egovMap"
-        resultClass="egovMap">
+    <select id="allTablesDAO.selectAllTablesList" parameterClass="egovMap" resultClass="egovMap">
         /* allTablesDAO.selectAllTablesList */
         SELECT *
         FROM ALL_TABLES
@@ -21,9 +20,15 @@
             AND table_name = #tableName#
         </isNotEmpty>
 
+        <isNotEmpty property="tableNames">
+            <iterate prepend="AND table_name IN " property="tableNames" open="(" close=")" conjunction=",">
+                #tableNames[]#
+            </iterate>
+        </isNotEmpty>
+
         ORDER BY
-        owner
-        , table_name
+            owner
+            , table_name
     </select>
 
 

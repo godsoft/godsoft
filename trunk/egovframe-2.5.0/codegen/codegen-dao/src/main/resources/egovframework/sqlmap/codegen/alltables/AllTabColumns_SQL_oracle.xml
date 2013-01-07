@@ -33,6 +33,12 @@
             AND atc.table_name = #tableName#
         </isNotEmpty>
 
+        <isNotEmpty property="tableNames">
+            <iterate prepend="AND atc.table_name IN " property="tableNames" open="(" close=")" conjunction=",">
+                #tableNames[]#
+            </iterate>
+        </isNotEmpty>
+
         ORDER BY
             atc.owner
             , atc.table_name
