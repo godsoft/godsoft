@@ -36,8 +36,8 @@ since ${createDate}
 ## --------------------------------------------------------------------------------------------------------
     <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
     <typeAlias alias="${searchVOAlias}" type="${voPackage}.${defaultVoClassName}"/>
-    
 ## --------------------------------------------------------------------------------------------------------
+
     <resultMap id="$resultMapId" class="$resultMapClass">
 #set($i=0)
 #foreach($attribute in $model.attributes)
@@ -178,46 +178,45 @@ since ${createDate}
             LIMIT #recordCountPerPage# OFFSET #firstIndex#
 #elseif($vendor == "Oracle")
            SELECT
-    #set($i=0)
-    #foreach($attribute in $model.attributes)
-    #if($i == 0)
-                    A.${attribute.name}
-    #else
-                    , A.${attribute.name}
-    #end
-    #set($i=$i+1)
-    #end
-           FROM
-            (
-                SELECT
-    #set($i=0)
-    #foreach($attribute in $model.attributes)
-    #if($i == 0)
-                    ${attribute.name}
-    #else
-                    , ${attribute.name}
-    #end
-    #set($i=$i+1)
-    #end
-                    , ROWNUM
-                FROM ${model.entity.name}
-                WHERE 1 = 1
-                <isEqual prepend="AND" property="searchCondition" compareValue="0">
-                    ${model.attributes.get(0).name} = #searchKeyword#
-                </isEqual>
-                <isEqual prepend="AND" property="searchCondition" compareValue="1">
-                    ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-                </isEqual>
-                    ORDER BY
-    #set($i=0)
-    #foreach($attribute in $model.primaryKeys)
-    #if($i == 0)
+#set($i=0)
+#foreach($attribute in $model.attributes)
+#if($i == 0)
+               A.${attribute.name}
+#else
+               , A.${attribute.name}
+#end
+#set($i=$i+1)
+#end
+           FROM (
+               SELECT
+#set($i=0)
+#foreach($attribute in $model.attributes)
+#if($i == 0)
+                   ${attribute.name}
+#else
+                   , ${attribute.name}
+#end
+#set($i=$i+1)
+#end
+                   , ROWNUM
+               FROM ${model.entity.name}
+               WHERE 1 = 1
+               <isEqual prepend="AND" property="searchCondition" compareValue="0">
+                   ${model.attributes.get(0).name} = #searchKeyword#
+               </isEqual>
+               <isEqual prepend="AND" property="searchCondition" compareValue="1">
+                   ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
+               </isEqual>
+               ORDER BY
+#set($i=0)
+#foreach($attribute in $model.primaryKeys)
+#if($i == 0)
                 ${attribute.name} DESC
-    #else
+#else
                 , ${attribute.name} DESC
-    #end
-    #set($i=$i+1)
-    #end
+#end
+#set($i=$i+1)
+#end
             ) A
             WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
 #elseif($vendor == "MySql")
@@ -254,8 +253,8 @@ since ${createDate}
 
 #end
     </select>
-## ##################################################################################################
 
+## ##################################################################################################
     <select id="${selectListTotCntQueryId}" parameterClass="${searchVOAlias}" resultClass="int">
 #if($vendor == "HSQLDB")
         SELECT COUNT(*) totcnt

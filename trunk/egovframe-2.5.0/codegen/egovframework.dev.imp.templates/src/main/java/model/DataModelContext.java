@@ -70,6 +70,11 @@ public class DataModelContext {
     }
 
     private String vendor;
+    private Packages packages;
+    private Pathname pathname;
+    private String projectName;
+
+    private List<String> sqlMapResources;
 
     public String getVendor() {
         return vendor;
@@ -79,14 +84,36 @@ public class DataModelContext {
         this.vendor = vendor;
     }
 
-    private Package package1;
-
-    public Package getPackage() {
-        return package1;
+    public Packages getPackages() {
+        return packages;
     }
 
-    public void setPackage(Package package1) {
-        this.package1 = package1;
+    public void setPackages(Packages packages) {
+        this.packages = packages;
+    }
+
+    public Pathname getPathname() {
+        return pathname;
+    }
+
+    public void setPathname(Pathname pathname) {
+        this.pathname = pathname;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public List<String> getSqlMapResources() {
+        return sqlMapResources;
+    }
+
+    public void setSqlMapResources(List<String> sqlMapResources) {
+        this.sqlMapResources = sqlMapResources;
     }
 
 }
