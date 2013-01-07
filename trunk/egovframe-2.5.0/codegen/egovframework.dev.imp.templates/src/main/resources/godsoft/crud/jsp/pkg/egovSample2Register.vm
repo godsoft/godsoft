@@ -53,33 +53,31 @@
 <!--
 /* 글 목록 화면 function */
 function fn_egov_selectList() {
-       document.getElementById("detailForm").action = "<c:url value='${listPath}'/>";
-       document.getElementById("detailForm").submit();
+    document.getElementById("detailForm").action = "<c:url value='${listPath}'/>";
+    document.getElementById("detailForm").method = "get";
+    document.getElementById("detailForm").submit();
 }
 
 /* 글 삭제 function */
 function fn_egov_delete() {
-       document.getElementById("detailForm").action = "<c:url value='${deletePath}'/>";
-       document.getElementById("detailForm").submit();
+    document.getElementById("detailForm").action = "<c:url value='${deletePath}'/>";
+    document.getElementById("detailForm").submit();
 }
 
 /* 글 등록 function */
 function fn_egov_save() {
-    frm = document.getElementById("detailForm");
+    var form = document.getElementById("detailForm");
 
     /* TODO Validation기능 보완 */
-    
-      frm.action = "<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}"/>";
-    frm.submit();
-
+    form.action = "<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}"/>";
+    form.submit();
 }
-
-// -->
+//-->
 </script>
 </head>
 <body>
 
-<form:form commandName="${voInstanceName}" name="detailForm">
+<form:form commandName="${voInstanceName}" name="detailForm" id="detailForm">
 <div id="content_pop">
     <!-- 타이틀 -->
     <div id="title">

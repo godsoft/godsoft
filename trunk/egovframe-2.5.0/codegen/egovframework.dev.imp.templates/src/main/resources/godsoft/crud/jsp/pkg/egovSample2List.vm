@@ -62,28 +62,28 @@ function fn_egov_select(${params}) {
 #foreach($attribute in $model.primaryKeys)
     document.getElementById("listForm").${attribute.ccName}.value = ${attribute.ccName};
 #end
-       document.getElementById("listForm").action = "<c:url value='${updateViewPath}'/>";
-       document.getElementById("listForm").submit();
+    document.getElementById("listForm").action = "<c:url value='${updateViewPath}'/>";
+    document.getElementById("listForm").submit();
 }
 
 /* 글 등록 화면 function */
 function fn_egov_addView() {
-       document.getElementById("listForm").action = "<c:url value='${addViewPath}'/>";
-       document.getElementById("listForm").submit();
+    document.getElementById("listForm").action = "<c:url value='${addViewPath}'/>";
+    document.getElementById("listForm").submit();
 }
 
 /* pagination 페이지 링크 function */
 function fn_egov_link_page(pageNo){
     document.getElementById("listForm").pageIndex.value = pageNo;
     document.getElementById("listForm").action = "<c:url value='${listPath}'/>";
-       document.getElementById("listForm").submit();
+    document.getElementById("listForm").submit();
 }
 
  // -->
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="get">
 #foreach($attribute in $model.primaryKeys)
     <input type="hidden" name="${attribute.ccName}" />
 #end

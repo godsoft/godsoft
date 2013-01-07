@@ -10,6 +10,8 @@ public class Attribute extends NameCasing {
 
     private String columnComments;
 
+    private boolean primaryKey;
+
     public String getJavaType() {
         return javaType;
     }
@@ -32,6 +34,14 @@ public class Attribute extends NameCasing {
 
     public void setColumnComments(String columnComments) {
         this.columnComments = columnComments;
+    }
+
+    public boolean isPrimaryKey() {
+        return primaryKey;
+    }
+
+    public void setPrimaryKey(boolean primaryKey) {
+        this.primaryKey = primaryKey;
     }
 
 }
