@@ -65,15 +65,20 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
         for (EgovMap table : tables) {
             String tableName = (String) table.get("tableName");
 
-            if ("SAMPLE".equals(tableName)) {
-                tableName = "SAMPLE2";
-            }
-
             DataModelContext dataModel = new DataModelContext();
 
             BeanUtils.copyProperties(dataModel, this.dataModel);
 
-            dataModel.setEntity(new Entity(tableName.toLowerCase()));
+            String alias = "";
+
+            if ("SAMPLE".equals(tableName)) {
+                alias = tableName.toLowerCase();
+                tableName = "sample2";
+            }
+
+            Entity entity = new Entity(tableName.toLowerCase());
+            entity.setAlias(alias);
+            dataModel.setEntity(entity);
 
             List<Attribute> primaryKeys = new ArrayList<Attribute>();
             List<Attribute> attributes = new ArrayList<Attribute>();
@@ -85,7 +90,7 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 String columnComments = (String) column.get("columnComments");
                 String constraintType = (String) column.get("constraintType");
 
-                if (tableNameColumn.equals(tableName)) {
+                if (tableNameColumn.equals((String) table.get("tableName"))) {
                     Attribute attribute = new Attribute(
                             columnName.toLowerCase());
                     attribute.setJavaType(CmmUtils.getJavaType(dataType));
@@ -120,61 +125,6 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
 
         dataModel.setPackages(packages);
     }
-
-    // private void pathname() throws Exception {
-    // for (DataModelContext dataModel : dataModels) {
-    // dataModel.getPathname().setSqlMapPath(dataModel);
-    //
-    // // service
-    // dataModel.getPathname().setDefaultVoPath(dataModel);
-    // dataModel.getPathname().setVoPath(dataModel);
-    // dataModel.getPathname().setServicePath(dataModel);
-    //
-    // // service.impl
-    // dataModel.getPathname().setDaoPath(dataModel);
-    // dataModel.getPathname().setServiceImplPath(dataModel);
-    //
-    // // web
-    // dataModel.getPathname().setControllerPath(dataModel);
-    //
-    // // jsp
-    // dataModel.getPathname().setListPath(dataModel);
-    // dataModel.getPathname().setRegistPath(dataModel);
-    //
-    // if (log.isDebugEnabled()) {
-    // log.debug("sqlMapPath="
-    // + dataModel.getPathname().getSqlMapPath());
-    //
-    // // service
-    // log.debug("defaultVoPath="
-    // + dataModel.getPathname().getDefaultVoPath());
-    // log.debug("voPath=" + dataModel.getPathname().getVoPath());
-    // log.debug("servicePath="
-    // + dataModel.getPathname().getServicePath());
-    //
-    // // service.impl
-    // log.debug("daoPath=" + dataModel.getPathname().getDaoPath());
-    // log.debug("daoPath="
-    // + dataModel.getPathname().getServiceImplPath());
-    //
-    // // web
-    // log.debug("controllerPath="
-    // + dataModel.getPathname().getControllerPath());
-    //
-    // // jsp
-    // log.debug("listPath=" + dataModel.getPathname().getListPath());
-    // log.debug("registPath="
-    // + dataModel.getPathname().getRegistPath());
-    // }
-    // }
-    //
-    // dataModel.getPathname().setSqlMapConfigPath(dataModel);
-    //
-    // if (log.isDebugEnabled()) {
-    // log.debug("sqlMapConfigPath="
-    // + dataModel.getPathname().getSqlMapConfigPath());
-    // }
-    // }
 
     private void sqlMapResources() throws Exception {
         List<String> sqlMapResources = new ArrayList<String>();
