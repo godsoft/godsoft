@@ -9,7 +9,7 @@
 
     <!-- SqlMap setup for iBATIS Database Layer -->
     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-        <property name="configLocation">
+        <property name="configLocations">
             <list>
                 <value>classpath:egovframework/sqlmap/rte/sql-map-config.xml
                 </value>
