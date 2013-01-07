@@ -5,7 +5,7 @@
 #set($voInstanceName="${model.entity.ccName}VO")
 ##
 ##
-#set($listPath="/${model.entity.ccName}/${model.entity.pcName}List.do")
+#set($listPath="/${model.entity.ccName}/select${model.entity.pcName}List.do")
 #set($addViewPath="/${model.entity.ccName}/add${model.entity.pcName}View.do")
 #set($addPath="/${model.entity.ccName}/add${model.entity.pcName}.do")
 #set($selectPath="/${model.entity.ccName}/select${model.entity.pcName}.do")
@@ -28,12 +28,12 @@
   * @Class Name : ${registerPageName}
   * @Description : ${model.entity.pcName} Register 화면
   * @Modification Information
-  * 
+  *
   * @author ${author}
   * @since ${createDate}
   * @version 1.0
   * @see
-  *  
+  *
   * Copyright (C) All right reserved.
   */
 %>
@@ -53,23 +53,23 @@
 <!--
 /* 글 목록 화면 function */
 function fn_egov_selectList() {
-   	document.getElementById("detailForm").action = "<c:url value='${listPath}'/>";
-   	document.getElementById("detailForm").submit();		
+       document.getElementById("detailForm").action = "<c:url value='${listPath}'/>";
+       document.getElementById("detailForm").submit();
 }
 
 /* 글 삭제 function */
 function fn_egov_delete() {
-   	document.getElementById("detailForm").action = "<c:url value='${deletePath}'/>";
-   	document.getElementById("detailForm").submit();		
+       document.getElementById("detailForm").action = "<c:url value='${deletePath}'/>";
+       document.getElementById("detailForm").submit();
 }
 
 /* 글 등록 function */
-function fn_egov_save() {	
-	frm = document.getElementById("detailForm");
+function fn_egov_save() {
+    frm = document.getElementById("detailForm");
 
-	/* TODO Validation기능 보완 */
-	
-  	frm.action = "<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}"/>";
+    /* TODO Validation기능 보완 */
+    
+      frm.action = "<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}"/>";
     frm.submit();
 
 }
@@ -81,63 +81,63 @@ function fn_egov_save() {
 
 <form:form commandName="${voInstanceName}" name="detailForm">
 <div id="content_pop">
-	<!-- 타이틀 -->
-	<div id="title">
-		<ul>
-			<li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${D}{registerFlag}"/></li>
-		</ul>
-	</div>
-	<!-- // 타이틀 -->
-	<div id="table">
-	<table width="100%" border="1" cellpadding="0" cellspacing="0" >
-		<colgroup>
-			<col width="150"/>
-			<col width=""/>
-		</colgroup>
-			
-		<c:if test="${D}{registerFlag == '수정'}">
+    <!-- 타이틀 -->
+    <div id="title">
+        <ul>
+            <li><img src="<c:url value='/images/egovframework/rte/title_dot.gif'/>" alt="" /><c:out value="${D}{registerFlag}"/></li>
+        </ul>
+    </div>
+    <!-- // 타이틀 -->
+    <div id="table">
+    <table width="100%" border="1" cellpadding="0" cellspacing="0" >
+        <colgroup>
+            <col width="150"/>
+            <col width=""/>
+        </colgroup>
+            
+        <c:if test="${D}{registerFlag == '수정'}">
 #foreach($attribute in $model.primaryKeys)
-		<tr>
-			<th>${attribute.name} *</th>
-			<td>
-				<form:input path="${attribute.ccName}" cssClass="essentiality" readonly="true" />
-			</td>			
-		</tr>					
-#end	
-		</c:if>
-		<c:if test="${D}{registerFlag == '등록'}">
+        <tr>
+            <th>${attribute.name} *</th>
+            <td>
+                <form:input path="${attribute.ccName}" cssClass="essentiality" readonly="true" />
+            </td>
+        </tr>
+#end
+        </c:if>
+        <c:if test="${D}{registerFlag == '등록'}">
 #foreach($attribute in $model.primaryKeys)
-		<tr>
-			<th>${attribute.name} *</th>
-			<td>
-				<form:input path="${attribute.ccName}" cssClass="txt" readonly="false" />
-			</td>			
-		</tr>					
-#end	
-		</c:if>		
-		
+        <tr>
+            <th>${attribute.name} *</th>
+            <td>
+                <form:input path="${attribute.ccName}" cssClass="txt" readonly="false" />
+            </td>
+        </tr>
+#end
+        </c:if>
+        
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == false)
-		<tr>
-			<th>${attribute.name}</th>
-			<td>
-				<form:input path="${attribute.ccName}" cssClass="txt"/>
-				&nbsp;<form:errors path="${attribute.ccName}" />
-			</td>
-		</tr>	
+        <tr>
+            <th>${attribute.name}</th>
+            <td>
+                <form:input path="${attribute.ccName}" cssClass="txt"/>
+                &nbsp;<form:errors path="${attribute.ccName}" />
+            </td>
+        </tr>
 #end
 #end
-	</table>
+    </table>
   </div>
-	<div id="sysbtn">
-		<ul>
-			<li><span class="btn_blue_l"><a href="javascript:fn_egov_selectList();">List</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li>
-			<li><span class="btn_blue_l"><a href="javascript:fn_egov_save();"><c:out value='${D}{registerFlag}'/></a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li>
-			<c:if test="${D}{registerFlag == '수정'}">
-			<li><span class="btn_blue_l"><a href="javascript:fn_egov_delete();">삭제</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li>
-			</c:if>
-			<li><span class="btn_blue_l"><a href="javascript:document.getElementById("detailForm").reset();">Reset</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li></ul>
-	</div>
+    <div id="sysbtn">
+        <ul>
+            <li><span class="btn_blue_l"><a href="javascript:fn_egov_selectList();">List</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li>
+            <li><span class="btn_blue_l"><a href="javascript:fn_egov_save();"><c:out value='${D}{registerFlag}'/></a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li>
+            <c:if test="${D}{registerFlag == '수정'}">
+            <li><span class="btn_blue_l"><a href="javascript:fn_egov_delete();">삭제</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li>
+            </c:if>
+            <li><span class="btn_blue_l"><a href="javascript:document.getElementById("detailForm").reset();">Reset</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></span></li></ul>
+    </div>
 </div>
 <!-- 검색조건 유지 -->
 <input type="hidden" name="searchCondition" value="<c:out value='${D}{searchVO.searchCondition}'/>"/>

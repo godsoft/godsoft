@@ -7,7 +7,7 @@
 #set($voInstanceName="${model.entity.ccName}VO")
 ##
 ##
-#set($listPath="/${model.entity.ccName}/${model.entity.pcName}List.do")
+#set($listPath="/${model.entity.ccName}/select${model.entity.pcName}List.do")
 #set($addViewPath="/${model.entity.ccName}/add${model.entity.pcName}View.do")
 #set($addPath="/${model.entity.ccName}/add${model.entity.pcName}.do")
 #set($selectPath="/${model.entity.ccName}/select${model.entity.pcName}.do")
@@ -15,7 +15,7 @@
 #set($updateViewPath="/${model.entity.ccName}/update${model.entity.pcName}View.do")
 #set($deletePath="/${model.entity.ccName}/delete${model.entity.pcName}.do")
 ##
-#set($listPageName="${model.entity.pcName}List.jsp")
+#set($listPageName="select${model.entity.pcName}List.jsp")
 ##
 #set($selectFunctionName="fncSelect${model.entity.pcName}")
 #set($addViewFunctionName="fncAdd${model.entity.pcName}View")
@@ -83,7 +83,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-<form:form commandName="searchVO" name="listForm" method="post">
+<form:form commandName="searchVO" name="listForm" id="listForm" method="post">
 #foreach($attribute in $model.primaryKeys)
     <input type="hidden" name="${attribute.ccName}" />
 #end

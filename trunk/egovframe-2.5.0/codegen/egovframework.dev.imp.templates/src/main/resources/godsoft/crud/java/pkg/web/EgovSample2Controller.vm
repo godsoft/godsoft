@@ -24,7 +24,7 @@
 #set($addMethodName="add${model.entity.pcName}")
 #set($addViewMethodName="add${model.entity.pcName}View")
 ##
-#set($listPath="/${model.entity.ccName}/${model.entity.pcName}List.do")
+#set($listPath="/${model.entity.ccName}/select${model.entity.pcName}List.do")
 #set($addViewPath="/${model.entity.ccName}/add${model.entity.pcName}View.do")
 #set($addPath="/${model.entity.ccName}/add${model.entity.pcName}.do")
 #set($selectPath="/${model.entity.ccName}/select${model.entity.pcName}.do")
@@ -32,8 +32,8 @@
 #set($updateViewPath="/${model.entity.ccName}/update${model.entity.pcName}View.do")
 #set($deletePath="/${model.entity.ccName}/delete${model.entity.pcName}.do")
 ##
-#set($listView="/${model.entity.ccName}/${model.entity.pcName}List")
-#set($registerView="/${model.entity.ccName}/${model.entity.pcName}Regist")
+#set($listView="$model.getPackageNamePath()/${model.entity.ccName}/${model.entity.pcName}List")
+#set($registerView="$model.getPackageNamePath()/${model.entity.ccName}/${model.entity.pcName}Regist")
 ##
 ##
 package ${controllerPackage};

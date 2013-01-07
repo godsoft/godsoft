@@ -1,5 +1,5 @@
 ##
-#set($voPackage="${model.package.voPackage}")
+#set($voPackage="${model.packages.voPackage}")
 #set($voClassName="${model.entity.pcName}VO")
 #set($defaultVoClassName="${model.entity.pcName}DefaultVO")
 #set($searchVOAlias="${model.entity.ccName}SerarchVO")
@@ -22,6 +22,12 @@
 #set($selectListQueryId="${daoInstanceName}.select${model.entity.pcName}List_D")
 #set($selectListTotCntQueryId="${daoInstanceName}.select${model.entity.pcName}ListTotCnt_S")
 ##
+##
+#if(!${model.entity.alias})
+    #set($table = "${model.entity.name}")
+#else
+    #set($table = "${model.entity.alias}")
+#end
 ##
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
@@ -49,7 +55,7 @@ since ${createDate}
 ## ##################################################################################################
     <insert id="${insertQueryId}">
         <![CDATA[
-            INSERT INTO ${model.entity.name}
+            INSERT INTO ${table}
 #set($i=0)
 #foreach($attribute in $model.attributes)
 #if($i == 0)
@@ -79,7 +85,7 @@ since ${createDate}
 ## ##################################################################################################
     <update id="${updateQueryId}">
         <![CDATA[
-            UPDATE ${model.entity.name}
+            UPDATE ${table}
 #set($i=0)
 #foreach($attribute in $model.attributes)
 #if($i == 0)
@@ -105,7 +111,7 @@ since ${createDate}
 ## ##################################################################################################
     <delete id="${deleteQueryId}">
         <![CDATA[
-            DELETE FROM ${model.entity.name}
+            DELETE FROM ${table}
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
@@ -131,7 +137,7 @@ since ${createDate}
 #end
 #set($i=$i+1)
 #end
-            FROM ${model.entity.name}
+            FROM ${table}
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
@@ -199,14 +205,14 @@ since ${createDate}
 #set($i=$i+1)
 #end
                    , ROWNUM
-               FROM ${model.entity.name}
+               FROM ${table}
                WHERE 1 = 1
-               <isEqual prepend="AND" property="searchCondition" compareValue="0">
-                   ${model.attributes.get(0).name} = #searchKeyword#
-               </isEqual>
-               <isEqual prepend="AND" property="searchCondition" compareValue="1">
-                   ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-               </isEqual>
+##               <isEqual prepend="AND" property="searchCondition" compareValue="0">
+##                   ${model.attributes.get(0).name} = #searchKeyword#
+##               </isEqual>
+##               <isEqual prepend="AND" property="searchCondition" compareValue="1">
+##                   ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
+##               </isEqual>
                ORDER BY
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
@@ -268,14 +274,14 @@ since ${createDate}
         </isEqual>
 #elseif($vendor == "Oracle")
         SELECT COUNT(*) totcnt
-        FROM ${model.entity.name}
+        FROM ${table}
         WHERE 1 = 1
-        <isEqual prepend="AND" property="searchCondition" compareValue="0">
-            ${model.attributes.get(0).name} = #searchKeyword#
-        </isEqual>
-        <isEqual prepend="AND" property="searchCondition" compareValue="1">
-            ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-        </isEqual>
+##        <isEqual prepend="AND" property="searchCondition" compareValue="0">
+##            ${model.attributes.get(0).name} = #searchKeyword#
+##        </isEqual>
+##        <isEqual prepend="AND" property="searchCondition" compareValue="1">
+##            ${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
+##        </isEqual>
 #elseif($vendor == "MySql")
         SELECT COUNT(*) totcnt
         FROM ${model.entity.name}

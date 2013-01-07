@@ -37,6 +37,10 @@ public class DataModelContext {
         return packageName;
     }
 
+    public String getPackageNamePath() {
+        return packageName.replaceAll("\\.", "/");
+    }
+
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
