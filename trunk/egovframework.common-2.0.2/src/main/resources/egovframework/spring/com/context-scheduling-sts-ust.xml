@@ -18,7 +18,7 @@
         <!-- <property name="startDelay" value="120000" /> -->
         <!-- 매 12시간마다 실행한다. 43200000(milisecond) -->
         <!-- <property name="repeatInterval" value="43200000" /> -->
-        <property name="cronExpression" value="0 0 1 * * ?" />
+        <property name="cronExpression" value="0 0 12 * * ?" />
     </bean>
 
     <!-- 사용자 통계 스케줄러 정의, 스케줄러 적용시 아래 주석 제거 필요 -->
