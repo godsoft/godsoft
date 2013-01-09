@@ -39,6 +39,10 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
     private List<DataModelContext> dataModels;
     private CrudCodeGen crudCodeGen;
 
+    private StringBuilder appJs = new StringBuilder();
+    private StringBuilder appJs1 = new StringBuilder();
+    private StringBuilder appJs2 = new StringBuilder();
+
     public void tables(EgovMap egovMap) throws Exception {
         tables = allTablesDAO.selectAllTablesList(egovMap);
     }
@@ -97,7 +101,7 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
 
                     if ("P".equals(constraintType)) {
                         attribute.setPrimaryKey(true);
-                        
+
                         primaryKeys.add(attribute);
                     }
 
@@ -212,7 +216,6 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
 
             // jsp
             if (isGen.isList() == true) {
-
                 dataModel.getPathname().setListPath(dataModel);
 
                 generate(dataModel, "godsoft/crud/jsp/pkg/egovSample2List.vm",
@@ -226,6 +229,36 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                         "godsoft/crud/jsp/pkg/egovSample2Register.vm",
                         dataModel.getPathname().getRegistPath());
             }
+
+            // js
+            if (isGen.isExtjs() == true) {
+                dataModel.getPathname().setExtjsPath(dataModel);
+
+                generate(dataModel, "godsoft/crud/js/GridWindow.vm", dataModel
+                        .getPathname().getExtjsPath());
+
+                // 'MyDesktop.GridWindow',
+                appJs.append("'MyDesktop.");
+                appJs.append(dataModel.getEntity().getPcName());
+                appJs.append("GridWindow',");
+                appJs.append("\n");
+
+                // new MyDesktop.GridWindow(),
+                appJs1.append("new MyDesktop.");
+                appJs1.append(dataModel.getEntity().getPcName());
+                appJs1.append("GridWindow(),");
+                appJs1.append("\n");
+
+                // { name: 'Grid Window', iconCls: 'grid-shortcut', module:
+                // 'grid-win' },
+                appJs2.append("{ name: '");
+                appJs2.append(dataModel.getEntity().getPcName());
+                appJs2.append(" Grid Window', iconCls: 'grid-shortcut'");
+                appJs2.append(", module: 'grid-win-");
+                appJs2.append(dataModel.getEntity().getLcName());
+                appJs2.append("' },");
+                appJs2.append("\n");
+            }
         }
 
         if (isGen.isSqlMapConfig() == true) {
@@ -233,6 +266,16 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
 
             generate(dataModel, "godsoft/crud/resource/pkg/sql-map-config.vm",
                     dataModel.getPathname().getSqlMapConfigPath());
+
+        }
+
+        // js
+        if (isGen.isExtjs() == true) {
+            if (log.isDebugEnabled()) {
+                log.debug(appJs.toString());
+                log.debug(appJs1.toString());
+                log.debug(appJs2.toString());
+            }
         }
     }
 

@@ -21,6 +21,9 @@ public class IsGen {
     private boolean list;
     private boolean regist;
 
+    // js
+    private boolean extjs;
+
     public boolean isSqlMap() {
         return sqlMap;
     }
@@ -99,6 +102,14 @@ public class IsGen {
 
     public void setRegist(boolean regist) {
         this.regist = regist;
+    }
+
+    public boolean isExtjs() {
+        return extjs;
+    }
+
+    public void setExtjs(boolean extjs) {
+        this.extjs = extjs;
     }
 
 }
