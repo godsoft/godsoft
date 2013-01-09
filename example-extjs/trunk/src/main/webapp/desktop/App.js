@@ -16,6 +16,21 @@ Ext.define('MyDesktop.App', {
         'MyDesktop.SystemStatus',
         'MyDesktop.VideoWindow',
         'MyDesktop.GridWindow',
+//
+        'MyDesktop.ComtccmmncodeGridWindow',
+        'MyDesktop.ComtccmmndetailcodeGridWindow',
+        'MyDesktop.ComtnauthorinfoGridWindow',
+        'MyDesktop.ComtnmenuinfoGridWindow',
+        'MyDesktop.ComtnprogrmlistGridWindow',
+        'MyDesktop.ComtnroleinfoGridWindow',
+        'MyDesktop.ComtnsyslogGridWindow',
+        'MyDesktop.ComtnuserlogGridWindow',
+        'MyDesktop.ComtnweblogGridWindow',
+        'MyDesktop.ComtssyslogsummaryGridWindow',
+        'MyDesktop.ComtsusersummaryGridWindow',
+        'MyDesktop.ComtsweblogsummaryGridWindow',
+        'MyDesktop.IdsGridWindow',
+//
         'MyDesktop.TabWindow',
         'MyDesktop.AccordionWindow',
         'MyDesktop.Notepad',
@@ -40,6 +55,21 @@ Ext.define('MyDesktop.App', {
             //new MyDesktop.Blockalanche(),
             new MyDesktop.SystemStatus(),
             new MyDesktop.GridWindow(),
+//
+            new MyDesktop.ComtccmmncodeGridWindow(),
+            new MyDesktop.ComtccmmndetailcodeGridWindow(),
+            new MyDesktop.ComtnauthorinfoGridWindow(),
+            new MyDesktop.ComtnmenuinfoGridWindow(),
+            new MyDesktop.ComtnprogrmlistGridWindow(),
+            new MyDesktop.ComtnroleinfoGridWindow(),
+            new MyDesktop.ComtnsyslogGridWindow(),
+            new MyDesktop.ComtnuserlogGridWindow(),
+            new MyDesktop.ComtnweblogGridWindow(),
+            new MyDesktop.ComtssyslogsummaryGridWindow(),
+            new MyDesktop.ComtsusersummaryGridWindow(),
+            new MyDesktop.ComtsweblogsummaryGridWindow(),
+            new MyDesktop.IdsGridWindow(),
+//
             new MyDesktop.TabWindow(),
             new MyDesktop.AccordionWindow(),
             new MyDesktop.Notepad(),
@@ -62,6 +92,21 @@ Ext.define('MyDesktop.App', {
                 model: 'Ext.ux.desktop.ShortcutModel',
                 data: [
                     { name: '샘플 Grid Window', iconCls: 'grid-shortcut', module: 'grid-win' },
+//
+                    { name: '코드 Comtccmmncode test', iconCls: 'grid-shortcut', module: 'grid-win-comtccmmncode' },
+                    { name: '이 Comtccmmndetailcode 테', iconCls: 'grid-shortcut', module: 'grid-win-comtccmmndetailcode' },
+                    { name: '백 Comtnauthorinfo 스', iconCls: 'grid-shortcut', module: 'grid-win-comtnauthorinfo' },
+                    { name: '행 Comtnmenuinfo 트', iconCls: 'grid-shortcut', module: 'grid-win-comtnmenuinfo' },
+                    { name: 'Comtnprogrmlist', iconCls: 'grid-shortcut', module: 'grid-win-comtnprogrmlist' },
+                    { name: 'Comtnroleinfo', iconCls: 'grid-shortcut', module: 'grid-win-comtnroleinfo' },
+                    { name: 'Comtnsyslog', iconCls: 'grid-shortcut', module: 'grid-win-comtnsyslog' },
+                    { name: 'Comtnuserlog', iconCls: 'grid-shortcut', module: 'grid-win-comtnuserlog' },
+                    { name: 'Comtnweblog', iconCls: 'grid-shortcut', module: 'grid-win-comtnweblog' },
+                    { name: 'Comtssyslogsummary', iconCls: 'grid-shortcut', module: 'grid-win-comtssyslogsummary' },
+                    { name: 'Comtsusersummary', iconCls: 'grid-shortcut', module: 'grid-win-comtsusersummary' },
+                    { name: 'Comtsweblogsummary', iconCls: 'grid-shortcut', module: 'grid-win-comtsweblogsummary' },
+                    { name: 'Ids', iconCls: 'grid-shortcut', module: 'grid-win-ids' },
+//
                     { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
                     { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
                     { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'}
@@ -80,7 +125,7 @@ Ext.define('MyDesktop.App', {
         return Ext.apply(ret, {
             title: 'Don Griffin',
             iconCls: 'user',
-            height: 300,
+            height: 600,
             toolConfig: {
                 width: 100,
                 items: [

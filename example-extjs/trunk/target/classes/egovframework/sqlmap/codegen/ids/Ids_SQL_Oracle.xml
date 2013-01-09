@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<!--
+author 이백행
+since 2013-01-09
+-->
+
+<sqlMap namespace="Ids">
+
+    <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias alias="idsSerarchVO" type="egovframework.codegen.ids.service.IdsDefaultVO"/>
+
+    <resultMap id="ids" class="egovframework.codegen.ids.service.IdsVO">
+        <result property="tableName" column="table_name" columnIndex="1"/>
+        <result property="nextId" column="next_id" columnIndex="2"/>
+    </resultMap>
+
+    <insert id="idsDAO.insertIds_S">
+        <![CDATA[
+            INSERT INTO ids
+                ( table_name
+                  , next_id )
+            VALUES ( #tableName#
+                  , #nextId# )
+        ]]>
+    </insert>
+
+    <update id="idsDAO.updateIds_S">
+        <![CDATA[
+            UPDATE ids
+            SET table_name = #tableName#
+                , next_id = #nextId#
+            WHERE table_name = #tableName#
+        ]]>
+    </update>
+
+    <delete id="idsDAO.deleteIds_S">
+        <![CDATA[
+            DELETE FROM ids
+            WHERE table_name = #tableName#
+        ]]>
+    </delete>
+
+    <select id="idsDAO.selectIds_S" resultMap="ids">
+        <![CDATA[
+            SELECT
+                table_name
+                , next_id /* 다음 아이디 */
+            FROM ids
+            WHERE table_name = #tableName#
+        ]]>
+    </select>
+
+    <select id="idsDAO.selectIdsList_D" parameterClass="idsSerarchVO" resultClass="egovMap">
+           SELECT
+               A.table_name
+               , A.next_id
+           FROM (
+               SELECT
+                   table_name
+                   , next_id
+                   , ROWNUM
+               FROM ids
+               WHERE 1 = 1
+               ORDER BY
+                table_name DESC
+            ) A
+            WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+    </select>
+
+    <select id="idsDAO.selectIdsListTotCnt_S" parameterClass="idsSerarchVO" resultClass="int">
+        SELECT COUNT(*) totcnt
+        FROM ids
+        WHERE 1 = 1
+    </select>
+
+</sqlMap>

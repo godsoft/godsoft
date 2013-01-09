@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<!--
+author 이백행
+since 2013-01-09
+-->
+
+<sqlMap namespace="Comtsusersummary">
+
+    <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias alias="comtsusersummarySerarchVO" type="egovframework.codegen.comtsusersummary.service.ComtsusersummaryDefaultVO"/>
+
+    <resultMap id="comtsusersummary" class="egovframework.codegen.comtsusersummary.service.ComtsusersummaryVO">
+        <result property="occrrncDe" column="occrrnc_de" columnIndex="1"/>
+        <result property="statsSe" column="stats_se" columnIndex="2"/>
+        <result property="detailStatsSe" column="detail_stats_se" columnIndex="3"/>
+        <result property="userCo" column="user_co" columnIndex="4"/>
+    </resultMap>
+
+    <insert id="comtsusersummaryDAO.insertComtsusersummary_S">
+        <![CDATA[
+            INSERT INTO comtsusersummary
+                ( occrrnc_de
+                  , stats_se
+                  , detail_stats_se
+                  , user_co )
+            VALUES ( #occrrncDe#
+                  , #statsSe#
+                  , #detailStatsSe#
+                  , #userCo# )
+        ]]>
+    </insert>
+
+    <update id="comtsusersummaryDAO.updateComtsusersummary_S">
+        <![CDATA[
+            UPDATE comtsusersummary
+            SET occrrnc_de = #occrrncDe#
+                , stats_se = #statsSe#
+                , detail_stats_se = #detailStatsSe#
+                , user_co = #userCo#
+            WHERE occrrnc_de = #occrrncDe#
+                AND stats_se = #statsSe#
+                AND detail_stats_se = #detailStatsSe#
+        ]]>
+    </update>
+
+    <delete id="comtsusersummaryDAO.deleteComtsusersummary_S">
+        <![CDATA[
+            DELETE FROM comtsusersummary
+            WHERE occrrnc_de = #occrrncDe#
+                AND stats_se = #statsSe#
+                AND detail_stats_se = #detailStatsSe#
+        ]]>
+    </delete>
+
+    <select id="comtsusersummaryDAO.selectComtsusersummary_S" resultMap="comtsusersummary">
+        <![CDATA[
+            SELECT
+                occrrnc_de
+                , stats_se /* ${attribute.columnComments} */
+                , detail_stats_se /* ${attribute.columnComments} */
+                , user_co /* ${attribute.columnComments} */
+            FROM comtsusersummary
+            WHERE occrrnc_de = #occrrncDe#
+                AND stats_se = #statsSe#
+                AND detail_stats_se = #detailStatsSe#
+        ]]>
+    </select>
+
+    <select id="comtsusersummaryDAO.selectComtsusersummaryList_D" parameterClass="comtsusersummarySerarchVO" resultClass="egovMap">
+           SELECT
+               A.occrrnc_de
+               , A.stats_se
+               , A.detail_stats_se
+               , A.user_co
+           FROM (
+               SELECT
+                   occrrnc_de
+                   , stats_se
+                   , detail_stats_se
+                   , user_co
+                   , ROWNUM
+               FROM comtsusersummary
+               WHERE 1 = 1
+               ORDER BY
+                occrrnc_de DESC
+                , stats_se DESC
+                , detail_stats_se DESC
+            ) A
+            WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+    </select>
+
+    <select id="comtsusersummaryDAO.selectComtsusersummaryListTotCnt_S" parameterClass="comtsusersummarySerarchVO" resultClass="int">
+        SELECT COUNT(*) totcnt
+        FROM comtsusersummary
+        WHERE 1 = 1
+    </select>
+
+</sqlMap>
