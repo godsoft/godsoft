@@ -23,11 +23,11 @@
 #set($selectListTotCntQueryId="${daoInstanceName}.select${model.entity.pcName}ListTotCnt_S")
 ##
 ##
-#if(!${model.entity.alias})
+###if("${model.entity.alias" == ""})
     #set($table = "${model.entity.name}")
-#else
-    #set($table = "${model.entity.alias}")
-#end
+###else
+##    #set($table = "${model.entity.alias}")
+###end
 ##
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">

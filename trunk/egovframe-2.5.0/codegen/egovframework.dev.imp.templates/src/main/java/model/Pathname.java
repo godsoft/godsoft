@@ -24,6 +24,9 @@ public class Pathname {
     private String listPath;
     private String registPath;
 
+    // js
+    private String extjsPath;
+
     public Pathname(String projectPath) {
         this.projectPath = projectPath;
     }
@@ -268,6 +271,25 @@ public class Pathname {
         sb.append("Regist.jsp");
 
         this.registPath = sb.toString();
+    }
+
+    public String getExtjsPath() {
+        return extjsPath;
+    }
+
+    public void setExtjsPath(String extjsPath) {
+        this.extjsPath = extjsPath;
+    }
+
+    public void setExtjsPath(DataModelContext dataModel) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(dataModel.getPathname().getProjectPath());
+        sb.append("/src/main/webapp/desktop/");
+        sb.append(dataModel.getEntity().getPcName());
+        sb.append("GridWindow.js");
+
+        this.extjsPath = sb.toString();
     }
 
 }

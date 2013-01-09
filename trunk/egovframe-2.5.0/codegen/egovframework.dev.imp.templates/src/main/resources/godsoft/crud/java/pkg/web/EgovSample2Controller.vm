@@ -25,6 +25,7 @@
 #set($addViewMethodName="add${model.entity.pcName}View")
 ##
 #set($listPath="/${model.entity.ccName}/select${model.entity.pcName}List.do")
+#set($listPathJson="/${model.entity.ccName}/select${model.entity.pcName}ListJson.do")
 #set($addViewPath="/${model.entity.ccName}/add${model.entity.pcName}View.do")
 #set($addPath="/${model.entity.ccName}/add${model.entity.pcName}.do")
 #set($selectPath="/${model.entity.ccName}/select${model.entity.pcName}.do")
@@ -50,6 +51,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -128,7 +132,36 @@ public class ${controllerClassName} {
         
         return "${listView}";
     }
-    
+
+    @RequestMapping(value="${listPathJson}")
+    public ModelAndView ${selectListMethodName}Json(@ModelAttribute("searchVO") ${defaultVoClassName} searchVO,
+            ModelMap model)
+            throws Exception {
+        
+        /** EgovPropertyService.sample */
+        searchVO.setPageUnit(propertiesService.getInt("pageUnit"));
+        searchVO.setPageSize(propertiesService.getInt("pageSize"));
+        
+        /** pageing */
+        PaginationInfo paginationInfo = new PaginationInfo();
+        paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
+        paginationInfo.setRecordCountPerPage(1000);
+        paginationInfo.setPageSize(searchVO.getPageSize());
+        
+        searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+        searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+        searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+        
+        List<EgovMap> ${listInstanceName} = ${serviceInstanceName}.${selectListMethodName}(searchVO);
+        model.addAttribute("resultList", ${listInstanceName});
+        
+        int totCnt = ${serviceInstanceName}.${selectListTotCntMethodName}(searchVO);
+        paginationInfo.setTotalRecordCount(totCnt);
+        model.addAttribute("paginationInfo", paginationInfo);
+        
+        return new ModelAndView(new MappingJacksonJsonView(), model);
+    }
+
     @RequestMapping("${addViewPath}")
     public String ${addViewMethodName}(
             @ModelAttribute("searchVO") ${defaultVoClassName} searchVO, Model model)
