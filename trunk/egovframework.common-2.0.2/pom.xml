@@ -545,9 +545,14 @@
             <version>1.8.0.10</version> </dependency> -->
 
         <!-- 3rd party 라이브러리로 별도의 설치 필요 -->
+
         <!-- oracle 10g driver -->
-        <!-- <dependency> <groupId>ojdbc</groupId> <artifactId>ojdbc</artifactId>
-            <version>14</version> </dependency> -->
+        <dependency>
+            <groupId>ojdbc</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>14</version>
+        </dependency>
+
         <!-- altibase driver -->
         <!-- <dependency> <groupId>altibase</groupId> <artifactId>altibase-jdbc-driver</artifactId>
             <version>5.1.3.18</version> </dependency> -->
@@ -650,12 +655,12 @@
                     </includes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>emma-maven-plugin</artifactId>
-                <version>1.0-alpha-1</version>
-                <inherited>true</inherited>
-            </plugin>
+            <!-- <plugin> -->
+            <!-- <groupId>org.codehaus.mojo</groupId> -->
+            <!-- <artifactId>emma-maven-plugin</artifactId> -->
+            <!-- <version>1.0-alpha-1</version> -->
+            <!-- <inherited>true</inherited> -->
+            <!-- </plugin> -->
             <!-- JavaDoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
