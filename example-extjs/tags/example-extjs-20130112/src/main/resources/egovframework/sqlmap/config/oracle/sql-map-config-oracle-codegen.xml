@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+    <sqlMap resource="egovframework/sqlmap/codegen/comtccmmncode/Comtccmmncode_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtccmmndetailcode/Comtccmmndetailcode_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnauthorinfo/Comtnauthorinfo_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnmenuinfo/Comtnmenuinfo_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnprogrmlist/Comtnprogrmlist_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnroleinfo/Comtnroleinfo_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnsyslog/Comtnsyslog_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnuserlog/Comtnuserlog_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtnweblog/Comtnweblog_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtssyslogsummary/Comtssyslogsummary_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtsusersummary/Comtsusersummary_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/comtsweblogsummary/Comtsweblogsummary_SQL_Oracle.xml"/>
+    <sqlMap resource="egovframework/sqlmap/codegen/ids/Ids_SQL_Oracle.xml"/>
+
+</sqlMapConfig>

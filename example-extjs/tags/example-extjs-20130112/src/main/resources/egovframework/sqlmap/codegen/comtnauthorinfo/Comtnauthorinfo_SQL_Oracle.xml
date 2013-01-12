@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<!--
+author 이백행
+since 2013-01-09
+-->
+
+<sqlMap namespace="Comtnauthorinfo">
+
+    <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias alias="comtnauthorinfoSerarchVO" type="egovframework.codegen.comtnauthorinfo.service.ComtnauthorinfoDefaultVO"/>
+
+    <resultMap id="comtnauthorinfo" class="egovframework.codegen.comtnauthorinfo.service.ComtnauthorinfoVO">
+        <result property="authorCode" column="author_code" columnIndex="1"/>
+        <result property="authorNm" column="author_nm" columnIndex="2"/>
+        <result property="authorDc" column="author_dc" columnIndex="3"/>
+        <result property="authorCreatDe" column="author_creat_de" columnIndex="4"/>
+    </resultMap>
+
+    <insert id="comtnauthorinfoDAO.insertComtnauthorinfo_S">
+        <![CDATA[
+            INSERT INTO comtnauthorinfo
+                ( author_code
+                  , author_nm
+                  , author_dc
+                  , author_creat_de )
+            VALUES ( #authorCode#
+                  , #authorNm#
+                  , #authorDc#
+                  , #authorCreatDe# )
+        ]]>
+    </insert>
+
+    <update id="comtnauthorinfoDAO.updateComtnauthorinfo_S">
+        <![CDATA[
+            UPDATE comtnauthorinfo
+            SET author_code = #authorCode#
+                , author_nm = #authorNm#
+                , author_dc = #authorDc#
+                , author_creat_de = #authorCreatDe#
+            WHERE author_code = #authorCode#
+        ]]>
+    </update>
+
+    <delete id="comtnauthorinfoDAO.deleteComtnauthorinfo_S">
+        <![CDATA[
+            DELETE FROM comtnauthorinfo
+            WHERE author_code = #authorCode#
+        ]]>
+    </delete>
+
+    <select id="comtnauthorinfoDAO.selectComtnauthorinfo_S" resultMap="comtnauthorinfo">
+        <![CDATA[
+            SELECT
+                author_code
+                , author_nm /* ${attribute.columnComments} */
+                , author_dc /* ${attribute.columnComments} */
+                , author_creat_de /* ${attribute.columnComments} */
+            FROM comtnauthorinfo
+            WHERE author_code = #authorCode#
+        ]]>
+    </select>
+
+    <select id="comtnauthorinfoDAO.selectComtnauthorinfoList_D" parameterClass="comtnauthorinfoSerarchVO" resultClass="egovMap">
+           SELECT
+               A.author_code
+               , A.author_nm
+               , A.author_dc
+               , A.author_creat_de
+           FROM (
+               SELECT
+                   author_code
+                   , author_nm
+                   , author_dc
+                   , author_creat_de
+                   , ROWNUM
+               FROM comtnauthorinfo
+               WHERE 1 = 1
+               ORDER BY
+                author_code DESC
+            ) A
+            WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+    </select>
+
+    <select id="comtnauthorinfoDAO.selectComtnauthorinfoListTotCnt_S" parameterClass="comtnauthorinfoSerarchVO" resultClass="int">
+        SELECT COUNT(*) totcnt
+        FROM comtnauthorinfo
+        WHERE 1 = 1
+    </select>
+
+</sqlMap>
