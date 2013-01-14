@@ -10,7 +10,7 @@
   * @Modification Information
   *
   * @author 이백행
-  * @since 2013-01-09
+  * @since 2013-01-13
   * @version 1.0
   * @see
   *
@@ -21,7 +21,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtccmmndetailcodeVO.id ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtccmmndetailcodeVO.codeId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtccmmndetailcodeVO.code ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -125,10 +126,7 @@ function fn_egov_save() {
         </tr>
         <tr>
             <th>frst_regist_pnttm</th>
-            <td>
-                <form:input path="frstRegistPnttm" cssClass="txt"/>
-                &nbsp;<form:errors path="frstRegistPnttm" />
-            </td>
+            <td>${comtccmmndetailcodeVO.frstRegistPnttm}</td>
         </tr>
         <tr>
             <th>frst_register_id</th>
@@ -139,10 +137,7 @@ function fn_egov_save() {
         </tr>
         <tr>
             <th>last_updt_pnttm</th>
-            <td>
-                <form:input path="lastUpdtPnttm" cssClass="txt"/>
-                &nbsp;<form:errors path="lastUpdtPnttm" />
-            </td>
+            <td>${comtccmmndetailcodeVO.lastUpdtPnttm}</td>
         </tr>
         <tr>
             <th>last_updusr_id</th>

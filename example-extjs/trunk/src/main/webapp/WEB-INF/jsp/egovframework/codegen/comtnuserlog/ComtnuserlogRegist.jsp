@@ -10,7 +10,7 @@
   * @Modification Information
   *
   * @author 이백행
-  * @since 2013-01-09
+  * @since 2013-01-13
   * @version 1.0
   * @see
   *
@@ -21,7 +21,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${empty comtnuserlogVO.id ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.occrrncDe ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.rqesterId ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.svcNm ? '등록' : '수정'}"/>
+<c:set var="registerFlag" value="${empty comtnuserlogVO.methodNm ? '등록' : '수정'}"/>
 <title> <c:out value="${registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 

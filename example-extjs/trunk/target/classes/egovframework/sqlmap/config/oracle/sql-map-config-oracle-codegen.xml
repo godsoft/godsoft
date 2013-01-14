@@ -16,6 +16,5 @@
     <sqlMap resource="egovframework/sqlmap/codegen/comtssyslogsummary/Comtssyslogsummary_SQL_Oracle.xml"/>
     <sqlMap resource="egovframework/sqlmap/codegen/comtsusersummary/Comtsusersummary_SQL_Oracle.xml"/>
     <sqlMap resource="egovframework/sqlmap/codegen/comtsweblogsummary/Comtsweblogsummary_SQL_Oracle.xml"/>
-    <sqlMap resource="egovframework/sqlmap/codegen/ids/Ids_SQL_Oracle.xml"/>
 
 </sqlMapConfig>

@@ -3,7 +3,7 @@
 
 <!--
 author 이백행
-since 2013-01-09
+since 2013-01-13
 -->
 
 <sqlMap namespace="Comtccmmncode">
@@ -55,9 +55,9 @@ since 2013-01-09
                 , code_id_dc = #codeIdDc#
                 , use_at = #useAt#
                 , cl_code = #clCode#
-                , frst_regist_pnttm = #frstRegistPnttm#
+                , frst_regist_pnttm = SYSDATE
                 , frst_register_id = #frstRegisterId#
-                , last_updt_pnttm = #lastUpdtPnttm#
+                , last_updt_pnttm = SYSDATE
                 , last_updusr_id = #lastUpdusrId#
             WHERE code_id = #codeId#
         ]]>

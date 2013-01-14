@@ -30,7 +30,7 @@ import egovframework.codegen.comtssyslogsummary.service.ComtssyslogsummaryVO;
  * @Modification Information
  *
  * @author 이백행
- * @since 2013-01-09
+ * @since 2013-01-13
  * @version 1.0
  * @see
  *

@@ -10,7 +10,7 @@
   * @Modification Information
   *
   * @author 이백행
-  * @since 2013-01-09
+  * @since 2013-01-13
   * @version 1.0
   * @see
   *
@@ -89,8 +89,8 @@ function fn_egov_link_page(pageNo){
             <c:forEach var="result" items="${resultList}" varStatus="status">
             <tr>
                                                                                                                                                             
-                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.codeId}"/>, <c:out value="{D}{result.code}"/>')"><c:out value="${result.codeId}"/></a>&nbsp;</td>
-                                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.codeId}"/>, <c:out value="{D}{result.code}"/>')"><c:out value="${result.code}"/></a>&nbsp;</td>
+                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.codeId}"/>', '<c:out value="${result.code}"/>')"><c:out value="${result.codeId}"/></a>&nbsp;</td>
+                                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.codeId}"/>', '<c:out value="${result.code}"/>')"><c:out value="${result.code}"/></a>&nbsp;</td>
                                                                 <td align="center" class="listtd"><c:out value="${result.codeNm}"/>&nbsp;</td>
                                                                 <td align="center" class="listtd"><c:out value="${result.codeDc}"/>&nbsp;</td>
                                                                 <td align="center" class="listtd"><c:out value="${result.useAt}"/>&nbsp;</td>

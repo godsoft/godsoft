@@ -10,7 +10,7 @@
   * @Modification Information
   *
   * @author 이백행
-  * @since 2013-01-09
+  * @since 2013-01-13
   * @version 1.0
   * @see
   *
@@ -81,9 +81,9 @@ function fn_egov_link_page(pageNo){
             <c:forEach var="result" items="${resultList}" varStatus="status">
             <tr>
                                                                                                                                                                                                             
-                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.statsSe}"/>, <c:out value="{D}{result.detailStatsSe}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
-                                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.statsSe}"/>, <c:out value="{D}{result.detailStatsSe}"/>')"><c:out value="${result.statsSe}"/></a>&nbsp;</td>
-                                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>, <c:out value="{D}{result.statsSe}"/>, <c:out value="{D}{result.detailStatsSe}"/>')"><c:out value="${result.detailStatsSe}"/></a>&nbsp;</td>
+                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.statsSe}"/>', '<c:out value="${result.detailStatsSe}"/>')"><c:out value="${result.occrrncDe}"/></a>&nbsp;</td>
+                                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.statsSe}"/>', '<c:out value="${result.detailStatsSe}"/>')"><c:out value="${result.statsSe}"/></a>&nbsp;</td>
+                                                                <td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.occrrncDe}"/>', '<c:out value="${result.statsSe}"/>', '<c:out value="${result.detailStatsSe}"/>')"><c:out value="${result.detailStatsSe}"/></a>&nbsp;</td>
                                                                 <td align="center" class="listtd"><c:out value="${result.userCo}"/>&nbsp;</td>
                                             </tr>
             </c:forEach>
