@@ -116,7 +116,7 @@ function fn_egov_link_page(pageNo){
                 #if($i == 0)
                   #set($linkParams="<c:out value=${Q}${D}{result.${attribute.ccName}}${Q}/>")
                 #else
-                  #set($linkParams="$linkParams, <c:out value=${Q}{D}{result.${attribute.ccName}}${Q}/>")
+                  #set($linkParams="$linkParams', '<c:out value=${Q}${D}{result.${attribute.ccName}}${Q}/>")
                 #end
                 #set($i=$i+1)
                 #end

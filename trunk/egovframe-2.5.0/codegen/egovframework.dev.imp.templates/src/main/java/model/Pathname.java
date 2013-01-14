@@ -23,9 +23,11 @@ public class Pathname {
     // jsp
     private String listPath;
     private String registPath;
+    private String indexPath;
 
     // js
     private String extjsPath;
+    private String appJsPath;
 
     public Pathname(String projectPath) {
         this.projectPath = projectPath;
@@ -273,6 +275,23 @@ public class Pathname {
         this.registPath = sb.toString();
     }
 
+    public String getIndexPath() {
+        return indexPath;
+    }
+
+    public void setIndexPath(String indexPath) {
+        this.indexPath = indexPath;
+    }
+
+    public void setIndexPath(DataModelContext dataModel) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(dataModel.getPathname().getProjectPath());
+        sb.append("/src/main/webapp/index-codegen.jsp");
+
+        this.indexPath = sb.toString();
+    }
+
     public String getExtjsPath() {
         return extjsPath;
     }
@@ -290,6 +309,24 @@ public class Pathname {
         sb.append("GridWindow.js");
 
         this.extjsPath = sb.toString();
+    }
+
+    public String getAppJsPath() {
+        return appJsPath;
+    }
+
+    public void setAppJsPath(String appJsPath) {
+        this.appJsPath = appJsPath;
+    }
+
+    public void setAppJsPath(DataModelContext dataModel) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(dataModel.getPathname().getProjectPath());
+        sb.append("/src/main/webapp/desktop/");
+        sb.append("App.js");
+
+        this.appJsPath = sb.toString();
     }
 
 }

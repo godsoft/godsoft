@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataModelContext {
@@ -78,7 +79,13 @@ public class DataModelContext {
     private Pathname pathname;
     private String projectName;
 
+    private String appJs;
+    private String appJs1;
+    private String appJs2;
+
     private List<String> sqlMapResources;
+
+    private List<Entity> entities = new ArrayList<Entity>();
 
     public String getVendor() {
         return vendor;
@@ -118,6 +125,38 @@ public class DataModelContext {
 
     public void setSqlMapResources(List<String> sqlMapResources) {
         this.sqlMapResources = sqlMapResources;
+    }
+
+    public String getAppJs() {
+        return appJs;
+    }
+
+    public void setAppJs(String appJs) {
+        this.appJs = appJs;
+    }
+
+    public String getAppJs1() {
+        return appJs1;
+    }
+
+    public void setAppJs1(String appJs1) {
+        this.appJs1 = appJs1;
+    }
+
+    public String getAppJs2() {
+        return appJs2;
+    }
+
+    public void setAppJs2(String appJs2) {
+        this.appJs2 = appJs2;
+    }
+
+    public List<Entity> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<Entity> entities) {
+        this.entities = entities;
     }
 
 }

@@ -41,7 +41,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.id ? '등록' : '수정'}"/>
+#foreach($attribute in $model.primaryKeys)
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${attribute.ccName} ? '등록' : '수정'}"/>
+#end
 <title> <c:out value="${D}{registerFlag}"/> </title>
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
 
@@ -116,6 +118,12 @@ function fn_egov_save() {
         
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == false)
+#if($attribute.lcName == 'frst_regist_pnttm' || $attribute.lcName == 'last_updt_pnttm')
+        <tr>
+            <th>${attribute.name}</th>
+            <td>${D}{$voInstanceName.${attribute.ccName}}</td>
+        </tr>
+#else
         <tr>
             <th>${attribute.name}</th>
             <td>
@@ -123,6 +131,7 @@ function fn_egov_save() {
                 &nbsp;<form:errors path="${attribute.ccName}" />
             </td>
         </tr>
+#end
 #end
 #end
     </table>
