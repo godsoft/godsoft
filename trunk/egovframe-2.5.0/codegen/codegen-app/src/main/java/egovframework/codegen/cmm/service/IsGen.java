@@ -20,9 +20,12 @@ public class IsGen {
     // jsp
     private boolean list;
     private boolean regist;
+    private boolean index;
 
     // js
     private boolean extjs;
+
+    // private boolean appJs;
 
     public boolean isSqlMap() {
         return sqlMap;
@@ -104,6 +107,14 @@ public class IsGen {
         this.regist = regist;
     }
 
+    public boolean isIndex() {
+        return index;
+    }
+
+    public void setIndex(boolean index) {
+        this.index = index;
+    }
+
     public boolean isExtjs() {
         return extjs;
     }
@@ -111,5 +122,13 @@ public class IsGen {
     public void setExtjs(boolean extjs) {
         this.extjs = extjs;
     }
+
+    // public boolean isAppJs() {
+    // return appJs;
+    // }
+    //
+    // public void setAppJs(boolean appJs) {
+    // this.appJs = appJs;
+    // }
 
 }

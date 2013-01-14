@@ -133,9 +133,10 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
     private void sqlMapResources() throws Exception {
         List<String> sqlMapResources = new ArrayList<String>();
 
-        for (DataModelContext dataModel : dataModels) {
-            StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
+        for (DataModelContext dataModel : dataModels) {
+            sb.setLength(0);
             sb.append("egovframework/sqlmap/");
             sb.append(dataModel.getProjectName());
             sb.append("/");
@@ -230,6 +231,10 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                         dataModel.getPathname().getRegistPath());
             }
 
+            if (isGen.isIndex() == true) {
+                this.dataModel.getEntities().add(dataModel.getEntity());
+            }
+
             // js
             if (isGen.isExtjs() == true) {
                 dataModel.getPathname().setExtjsPath(dataModel);
@@ -258,6 +263,17 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 appJs2.append(dataModel.getEntity().getLcName());
                 appJs2.append("' },");
                 appJs2.append("\n");
+
+                // if (isGen.isAppJs() == true) {
+                dataModel.getPathname().setAppJsPath(dataModel);
+
+                dataModel.setAppJs(appJs.toString());
+                dataModel.setAppJs1(appJs1.toString());
+                dataModel.setAppJs2(appJs2.toString());
+
+                generate(dataModel, "godsoft/crud/js/App.vm", dataModel
+                        .getPathname().getAppJsPath());
+                // }
             }
         }
 
@@ -276,6 +292,14 @@ public class OracleServiceImpl extends AbstractServiceImpl implements
                 log.debug(appJs1.toString());
                 log.debug(appJs2.toString());
             }
+        }
+
+        // jsp
+        if (isGen.isIndex() == true) {
+            dataModel.getPathname().setIndexPath(dataModel);
+
+            generate(dataModel, "godsoft/crud/jsp/pkg/index-codegen.vm",
+                    dataModel.getPathname().getIndexPath());
         }
     }
 

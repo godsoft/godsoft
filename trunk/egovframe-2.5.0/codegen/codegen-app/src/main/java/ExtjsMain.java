@@ -51,7 +51,7 @@ public class ExtjsMain {
 
         List<String> tableNames = new ArrayList<String>();
 
-        tableNames.add("IDS");
+        // tableNames.add("IDS");
         // tableNames.add("SAMPLE");
 
         tableNames.add("COMTCCMMNCODE");
@@ -110,9 +110,11 @@ public class ExtjsMain {
         // jsp
         isGen.setList(true);
         isGen.setRegist(true);
+        isGen.setIndex(true);
 
         // js
         isGen.setExtjs(true);
+        // isGen.setAppJs(true);
 
         oracleService.sqlMap(isGen);
     }
