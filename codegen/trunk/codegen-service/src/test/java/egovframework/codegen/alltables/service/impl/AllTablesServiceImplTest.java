@@ -3,17 +3,23 @@ package egovframework.codegen.alltables.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Test;
 
+import egovframework.codegen.alltables.service.AllTablesService;
 import egovframework.codegen.alltables.service.AllTablesServiceTest;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public class AllTablesServiceImplTest extends AllTablesServiceTest {
 
     protected Log log = LogFactory.getLog(this.getClass());
+
+    @Resource(name = "allTablesService")
+    AllTablesService allTablesService;
 
     // // 필요할 경우, 스프링 ApplicationContext을 선언한다.
     // @Autowired
@@ -58,25 +64,25 @@ public class AllTablesServiceImplTest extends AllTablesServiceTest {
     }
 
     @Override
+    @Test
     public void selectAllTabColumnsList() throws Exception {
-//        EgovMap egovMap = new EgovMap();
-//
-//        egovMap.put("owner", "RTE");
-//
-//        List<String> tableNames = new ArrayList<String>();
-//
-//        tableNames.add("SAMPLE");
-//
-//        egovMap.put("tableNames", tableNames);
-//
-//        List<EgovMap> columns = allTablesService
-//                .selectAllTabColumnsList(egovMap);
-//
-//        for (EgovMap table : columns) {
-//            if (log.isDebugEnabled()) {
-//                log.debug(table);
-//            }
-//        }
+        EgovMap egovMap = new EgovMap();
+
+        egovMap.put("owner", "RTE");
+
+        List<String> tableNames = new ArrayList<String>();
+
+        tableNames.add("SAMPLE");
+
+        egovMap.put("tableNames", tableNames);
+
+        List<EgovMap> columns = allTablesService.selectAllTablesList(egovMap);
+
+        for (EgovMap table : columns) {
+            if (log.isDebugEnabled()) {
+                log.debug(table);
+            }
+        }
     }
 
 }
