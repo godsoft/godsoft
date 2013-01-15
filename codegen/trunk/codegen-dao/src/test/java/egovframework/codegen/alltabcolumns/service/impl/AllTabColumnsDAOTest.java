@@ -72,7 +72,7 @@ public class AllTabColumnsDAOTest {
     }
 
     @Test
-    public void selectSampleList() throws Exception {
+    public void selectAllTabColumnsList() throws Exception {
         EgovMap egovMap = new EgovMap();
 
         egovMap.put("owner", "RTE");
