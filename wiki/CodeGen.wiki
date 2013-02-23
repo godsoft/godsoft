@@ -11,7 +11,7 @@ Add your content here.  Format your content with:
   * eGovFrame CodeGen
   * eGovFrame CodeGen Templates
 
-egovframework.dev.imp.all.sources-2.5.0.zip
+= egovframework.dev.imp.all.sources-2.5.0.zip =
 
 * egovframework.dev.imp.codegen.template
 * egovframework.dev.imp.codegen.template.templates
