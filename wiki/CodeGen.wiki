@@ -17,3 +17,6 @@ Add your content here.  Format your content with:
  * egovframework.dev.imp.codegen.template.templates
 
  * egovframework.dev.imp.templates
+
+= SVN URL =
+https://godsoft.googlecode.com/svn/godsoft-codegen/20130224/trunk
