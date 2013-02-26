@@ -22,4 +22,4 @@ Add your content here.  Format your content with:
  * https://godsoft.googlecode.com/svn/godsoft-codegen/20130224/trunk
 
 = Project =
- * godsoft.codegen.1.0.0
+ * godsoft.codegen-1.0.0.jar
