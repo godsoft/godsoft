@@ -1,2 +1,8 @@
-﻿INSERT INTO IDS VALUES('SAMPLE', 0);
+﻿--INSERT INTO IDS VALUES('SAMPLE', 0);
+
+INSERT INTO SAMPLE VALUES('SAMPLE-00001','Sample Test','This is initial test data.','Y','test');
+INSERT INTO SAMPLE VALUES('SAMPLE-00002','test Name','test Desc','Y','test');
+INSERT INTO SAMPLE VALUES('SAMPLE-00003','test','tset111222','Y','qqqq');
+INSERT INTO SAMPLE VALUES('SAMPLE-00004','Sample Test1','This is initial test data.','Y','test');
+
 COMMIT;
