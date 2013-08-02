@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="AllTabCols">
+
+	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
+	<typeAlias alias="allTabColsVO" type="egovframework.rte.sample.service.AllTabColsVO"/>
+
+	<select id="allTabColsDAO.selectAllTabColsList" parameterClass="allTabColsVO" resultClass="egovMap">
+		SELECT
+			*
+		FROM all_tab_cols
+		WHERE 1 = 1
+
+		<isNotEmpty property="owner">
+			AND owner = #owner#
+		</isNotEmpty>
+
+		<isNotEmpty property="tableName">
+			AND table_name = #tableName#
+		</isNotEmpty>
+
+		<isNotEmpty property="tableNames">
+			<iterate close="(" conjunction="," open=")" prepend="AND" property="tableNames">
+				table_name IN #tableNames[]#
+			</iterate>
+		</isNotEmpty>
+
+		ORDER BY
+			table_name
+			, column_id
+	</select>
+
+</sqlMap>
