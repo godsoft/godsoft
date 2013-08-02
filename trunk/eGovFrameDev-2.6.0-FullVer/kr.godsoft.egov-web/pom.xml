@@ -14,6 +14,17 @@
 
 	<repositories>
 		<repository>
+			<id>pms</id>
+			<url>http://192.168.0.35:7070/nexus/content/groups/FGIS-Repositories/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
 			<id>mvn2</id>
 			<url>http://repo1.maven.org/maven2/</url>
 			<releases>
