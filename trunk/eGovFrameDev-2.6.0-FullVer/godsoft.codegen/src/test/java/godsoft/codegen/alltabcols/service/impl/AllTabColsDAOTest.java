@@ -24,13 +24,18 @@ public class AllTabColsDAOTest {
 	private AllTabColsDAO allTabColsDAO;
 
 	@Test
-	public void test() throws Exception {
+	public void selectAllTabColsList() throws Exception {
 		AllTabColsVO allTabColsVO = new AllTabColsVO();
-		allTabColsVO.setOwner("");
-		allTabColsVO.setOwner("");
+		allTabColsVO.setOwner("RTE");
+		allTabColsVO.setTableName("SAMPLE");
 
-		List<EgovMap> resultVO = allTabColsDAO.selectAllTabColsList(allTabColsVO);
+		//		List<String> tableNames = new ArrayList<String>();
+		//		tableNames.add("IDS");
+		//		tableNames.add("SAMPLE");
+		//		allTabColsVO.setTableNames(tableNames);
 
-		System.out.println(resultVO);
+		List<EgovMap> results = allTabColsDAO.selectAllTabColsList(allTabColsVO);
+
+		System.out.println(results);
 	}
 }

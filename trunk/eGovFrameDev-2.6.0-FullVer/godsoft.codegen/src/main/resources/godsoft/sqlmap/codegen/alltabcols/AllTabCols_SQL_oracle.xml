@@ -4,7 +4,7 @@
 <sqlMap namespace="AllTabCols">
 
 	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
-	<typeAlias alias="allTabColsVO" type="egovframework.rte.sample.service.AllTabColsVO"/>
+	<typeAlias alias="allTabColsVO" type="godsoft.codegen.alltabcols.service.AllTabColsVO"/>
 
 	<select id="allTabColsDAO.selectAllTabColsList" parameterClass="allTabColsVO" resultClass="egovMap">
 		SELECT
@@ -21,8 +21,8 @@
 		</isNotEmpty>
 
 		<isNotEmpty property="tableNames">
-			<iterate close="(" conjunction="," open=")" prepend="AND" property="tableNames">
-				table_name IN #tableNames[]#
+			<iterate close="(" conjunction="," open=")" prepend="AND table_name IN " property="tableNames">
+				#tableNames[]#
 			</iterate>
 		</isNotEmpty>
 
