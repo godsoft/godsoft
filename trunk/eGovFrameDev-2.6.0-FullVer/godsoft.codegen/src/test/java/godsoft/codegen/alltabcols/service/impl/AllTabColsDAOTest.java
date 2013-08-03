@@ -3,6 +3,7 @@ package godsoft.codegen.alltabcols.service.impl;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.alltabcols.service.AllTabColsVO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -27,12 +28,12 @@ public class AllTabColsDAOTest {
 	public void selectAllTabColsList() throws Exception {
 		AllTabColsVO allTabColsVO = new AllTabColsVO();
 		allTabColsVO.setOwner("RTE");
-		allTabColsVO.setTableName("SAMPLE");
+		//		allTabColsVO.setTableName("SAMPLE");
 
-		//		List<String> tableNames = new ArrayList<String>();
-		//		tableNames.add("IDS");
-		//		tableNames.add("SAMPLE");
-		//		allTabColsVO.setTableNames(tableNames);
+		List<String> tableNames = new ArrayList<String>();
+		tableNames.add("IDS");
+		tableNames.add("SAMPLE");
+		allTabColsVO.setTableNames(tableNames);
 
 		List<EgovMap> results = allTabColsDAO.selectAllTabColsList(allTabColsVO);
 

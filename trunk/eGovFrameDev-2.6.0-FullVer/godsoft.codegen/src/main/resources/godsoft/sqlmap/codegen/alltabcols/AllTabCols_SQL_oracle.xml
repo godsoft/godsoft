@@ -21,7 +21,7 @@
 		</isNotEmpty>
 
 		<isNotEmpty property="tableNames">
-			<iterate close="(" conjunction="," open=")" prepend="AND table_name IN " property="tableNames">
+			<iterate close=")" conjunction="," open="(" prepend="AND table_name IN " property="tableNames">
 				#tableNames[]#
 			</iterate>
 		</isNotEmpty>
