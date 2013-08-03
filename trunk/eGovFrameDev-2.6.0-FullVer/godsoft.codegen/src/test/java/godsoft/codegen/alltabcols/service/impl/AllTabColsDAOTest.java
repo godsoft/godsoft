@@ -1,9 +1,7 @@
-package godsoft.codegen.alltabcols.service;
+package godsoft.codegen.alltabcols.service.impl;
 
-import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.codegen.alltabcols.service.AllTabColsVO;
 import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
-
-import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -13,6 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
+
+import antlr.collections.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:context.xml" })
@@ -29,7 +29,8 @@ public class AllTabColsDAOTest {
 		allTabColsVO.setOwner("");
 		allTabColsVO.setOwner("");
 
-		List<EgovMap> resultVO = allTabColsDAO.selectAllTabColsList(allTabColsVO)
+		List<EgovMap> resultVO = allTabColsDAO
+				.selectAllTabColsList(allTabColsVO);
 
 		System.out.println(resultVO);
 	}
