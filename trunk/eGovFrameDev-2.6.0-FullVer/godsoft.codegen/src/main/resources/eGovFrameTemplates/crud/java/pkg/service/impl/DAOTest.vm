@@ -1,0 +1,78 @@
+##
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($voInstanceName="${model.entity.ccName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($daoPackage="${daoPackage}")
+#set($daoClassName="${model.entity.pcName}DAOTest")
+#set($daoName="${model.entity.pcName}DAO")
+#set($daoInstanceName="${model.entity.ccName}DAO")
+##
+##
+#set($insertMethodName="insert${model.entity.pcName}")
+#set($updateMethodName="update${model.entity.pcName}")
+#set($deleteMethodName="delete${model.entity.pcName}")
+#set($selectMethodName="select${model.entity.pcName}")
+#set($selectListMethodName="select${model.entity.pcName}List")
+#set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
+##
+##
+#set($insertQueryId="${daoInstanceName}.insert${model.entity.pcName}_S")
+#set($updateQueryId="${daoInstanceName}.update${model.entity.pcName}_S")
+#set($deleteQueryId="${daoInstanceName}.delete${model.entity.pcName}_S")
+#set($selectQueryId="${daoInstanceName}.select${model.entity.pcName}_S")
+#set($selectListQueryId="${daoInstanceName}.select${model.entity.pcName}List_D")
+#set($selectListTotCntQueryId="${daoInstanceName}.select${model.entity.pcName}ListTotCnt_S")
+##
+##
+package ${daoPackage};
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import ${voPackage}.${voClassName};
+
+/**
+ * @Class Name : ${daoClassName}.java
+ * @Description : ${model.entity.pcName} TestDAO Class
+ * @Modification Information
+ *
+ * @author ${author}
+ * @since ${createDate}
+ * @version 1.0
+ * @see
+ *
+ *  Copyright (C)  All right reserved.
+ */
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:context.xml" })
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
+@Transactional
+public class ${daoClassName} {
+
+	@Resource(name = "${daoInstanceName}")
+	private ${daoName} ${daoInstanceName};
+
+	@Test
+	public void select${model.entity.pcName}List() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+		${voInstanceName}.setFirstIndex(0);
+		${voInstanceName}.setRecordCountPerPage(10);
+
+		@SuppressWarnings("unchecked")
+		List<EgovMap> resultList = ${daoInstanceName}.select${model.entity.pcName}List(${voInstanceName});
+
+		System.out.println(resultList);
+	}
+
+}

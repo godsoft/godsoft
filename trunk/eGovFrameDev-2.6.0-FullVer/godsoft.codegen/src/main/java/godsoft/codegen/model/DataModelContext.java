@@ -59,6 +59,8 @@ public class DataModelContext {
 
 	private String projectName;
 
+	private List<String> sqlMaps;
+
 	/**
 	 * 데이타베이스 제품명
 	 * @return
@@ -181,6 +183,14 @@ public class DataModelContext {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public List<String> getSqlMaps() {
+		return sqlMaps;
+	}
+
+	public void setSqlMaps(List<String> sqlMaps) {
+		this.sqlMaps = sqlMaps;
 	}
 
 	public String toString() {

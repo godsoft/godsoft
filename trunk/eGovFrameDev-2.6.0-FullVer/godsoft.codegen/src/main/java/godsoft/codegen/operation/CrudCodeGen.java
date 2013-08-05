@@ -1,5 +1,6 @@
 package godsoft.codegen.operation;
 
+import godsoft.codegen.cmm.GodsoftUtils;
 import godsoft.codegen.model.DataModelContext;
 
 import java.io.StringWriter;
@@ -46,9 +47,10 @@ public class CrudCodeGen {
 
 		context.put("model", dataModel);
 
-		String servicePackage = getServicePackage(dataModel);
-		String serviceImplPackage = getServiceImplPackage(dataModel);
+		String servicePackage = GodsoftUtils.getServicePackage(dataModel);
+		String serviceImplPackage = GodsoftUtils.getServiceImplPackage(dataModel);
 		context.put("voPackage", servicePackage);
+		context.put("daoPackage", serviceImplPackage);
 
 		Template template = null;
 
@@ -66,28 +68,6 @@ public class CrudCodeGen {
 
 		template.merge(context, writer);
 
-	}
-
-	private String getServicePackage(DataModelContext dataModel) {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(dataModel.getPackageName());
-		sb.append(".");
-		sb.append(dataModel.getEntity().getLcName());
-		sb.append(".service");
-
-		return sb.toString();
-	}
-
-	private String getServiceImplPackage(DataModelContext dataModel) {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(dataModel.getPackageName());
-		sb.append(".");
-		sb.append(dataModel.getEntity().getLcName());
-		sb.append(".service.impl");
-
-		return sb.toString();
 	}
 
 }

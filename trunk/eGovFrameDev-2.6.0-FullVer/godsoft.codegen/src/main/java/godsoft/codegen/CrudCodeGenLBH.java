@@ -3,13 +3,13 @@ package godsoft.codegen;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
 import godsoft.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
+import godsoft.codegen.cmm.GodsoftUtils;
 import godsoft.codegen.cmm.OracleVO;
 import godsoft.codegen.model.Attribute;
 import godsoft.codegen.model.DataModelContext;
 import godsoft.codegen.model.Entity;
 import godsoft.codegen.operation.CrudCodeGen;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +46,14 @@ public class CrudCodeGenLBH {
 
 		//		List<DataModelContext> dataModels = new ArrayList<DataModelContext>();
 
+		DataModelContext dataModel2 = new DataModelContext();
+		dataModel2.setProjectName("pms-webapp");
+		dataModel2.setVender("Oracle");
+		dataModel2.setPackageName("forest.pms");
+		List<String> sqlMaps = new ArrayList<String>();
+
+		CrudCodeGen crudCodeGen = new CrudCodeGen();
+
 		for (EgovMap allTabComment : allTabComments) {
 			String allTabCommentTableName = (String) allTabComment.get("tableName");
 
@@ -53,12 +61,12 @@ public class CrudCodeGenLBH {
 
 			DataModelContext dataModel = new DataModelContext();
 
-			dataModel.setProjectName("pms-webapp");
+			dataModel.setProjectName(dataModel2.getProjectName());
 
-			dataModel.setVender("Oracle");
+			dataModel.setVender(dataModel2.getVender());
 			dataModel.setAuthor("(주)메타지아이에스컨설팅 이백행");
-			dataModel.setCreateDate("2009.02.01");
-			dataModel.setPackageName("forest.pms");
+			dataModel.setCreateDate(GodsoftUtils.getToday());
+			dataModel.setPackageName(dataModel2.getPackageName());
 
 			Entity entity = new Entity(allTabCommentTableName);
 
@@ -87,36 +95,38 @@ public class CrudCodeGenLBH {
 
 			//			dataModels.add(dataModel);
 
-			CrudCodeGen crudCodeGen = new CrudCodeGen();
+			String templateFileDefaultVO = "eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
+			String dataDefaultVO = crudCodeGen.generate(dataModel, templateFileDefaultVO);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileDefaultVO(dataModel), dataDefaultVO);
 
-			String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
-			String data = crudCodeGen.generate(dataModel, templateFile);
-			FileUtils.writeStringToFile(new File(getSqlMapPath(dataModel)), data);
+			String templateFileVO = "eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
+			String dataVO = crudCodeGen.generate(dataModel, templateFileVO);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileVO(dataModel), dataVO);
+
+			String templateFileSqlMap = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+			String dataSqlMap = crudCodeGen.generate(dataModel, templateFileSqlMap);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileSqlMap(dataModel), dataSqlMap);
+
+			sqlMaps.add(GodsoftUtils.getSqlMap(dataModel));
+
+			String templateFileDAO = "eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
+			String dataDAO = crudCodeGen.generate(dataModel, templateFileDAO);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileDAO(dataModel), dataDAO);
+
+			String templateFileDAOTest = "eGovFrameTemplates/crud/java/pkg/service/impl/DAOTest.vm";
+			String dataDAOTest = crudCodeGen.generate(dataModel, templateFileDAOTest);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileDAOTest(dataModel), dataDAOTest);
+
 			//			templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
 			//			result = crudCodeGen.generate(dataModel, templateFile);
+
 		}
-	}
 
-	private static String getSqlMapPath(DataModelContext dataModel) {
-		//			/pms-webapp/src/main/resources/forest/sqlmap/pms/fpuser/Fpuser_SQL_Oracle.xml
+		dataModel2.setSqlMaps(sqlMaps);
 
-		String[] packageNames = dataModel.getPackageName().split("\\.");
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("../");
-		sb.append(dataModel.getProjectName());
-		sb.append("/src/main/resources/");
-		sb.append(packageNames[0]);
-		sb.append("/sqlmap/");
-		sb.append(packageNames[1]);
-		sb.append("/");
-		sb.append(dataModel.getEntity().getLcName());
-		sb.append("/");
-		sb.append(dataModel.getEntity().getPcName());
-		sb.append("_SQL_Oracle.xml");
-
-		return sb.toString();
+		String templateFileSqlMapConfig = "eGovFrameTemplates/crud/resource/pkg/sqlMapConfig.vm";
+		String dataSqlMapConfig = crudCodeGen.generate(dataModel2, templateFileSqlMapConfig);
+		FileUtils.writeStringToFile(GodsoftUtils.getFileSqlMapConfig(dataModel2), dataSqlMapConfig);
 	}
 
 }

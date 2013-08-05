@@ -30,7 +30,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+##import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
 import ${voPackage}.${voClassName};
 import ${voPackage}.${defaultVoClassName};
 
@@ -43,12 +44,13 @@ import ${voPackage}.${defaultVoClassName};
  * @since ${createDate}
  * @version 1.0
  * @see
- *  
+ *
  *  Copyright (C)  All right reserved.
  */
 
 @Repository("${daoName}")
-public class ${daoClassName} extends EgovAbstractDAO {
+##public class ${daoClassName} extends EgovAbstractDAO {
+public class ${daoClassName} extends EgovComAbstractDAO {
 
 	/**
 	 * ${model.entity.name}을 등록한다.
@@ -73,7 +75,7 @@ public class ${daoClassName} extends EgovAbstractDAO {
     /**
 	 * ${model.entity.name}을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ${voClassName}
-	 * @return void형 
+	 * @return void형
 	 * @exception Exception
 	 */
     public void ${deleteMethodName}(${voClassName} vo) throws Exception {
