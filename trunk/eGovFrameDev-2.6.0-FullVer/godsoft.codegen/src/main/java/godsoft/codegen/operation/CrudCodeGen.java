@@ -41,10 +41,14 @@ public class CrudCodeGen {
 		context.put("entity", dataModel.getEntity());
 		context.put("attributes", dataModel.getAttributes());
 		context.put("primaryKeys", dataModel.getPrimaryKeys());
-		//		context.put("createDate", dataModel.getCreateDate());
-		//		context.put("author", dataModel.getAuthor());
+		context.put("createDate", dataModel.getCreateDate());
+		context.put("author", dataModel.getAuthor());
 
 		context.put("model", dataModel);
+
+		String servicePackage = getServicePackage(dataModel);
+		String serviceImplPackage = getServiceImplPackage(dataModel);
+		context.put("voPackage", servicePackage);
 
 		Template template = null;
 
@@ -62,6 +66,28 @@ public class CrudCodeGen {
 
 		template.merge(context, writer);
 
+	}
+
+	private String getServicePackage(DataModelContext dataModel) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(dataModel.getPackageName());
+		sb.append(".");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append(".service");
+
+		return sb.toString();
+	}
+
+	private String getServiceImplPackage(DataModelContext dataModel) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(dataModel.getPackageName());
+		sb.append(".");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append(".service.impl");
+
+		return sb.toString();
 	}
 
 }

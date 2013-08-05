@@ -9,9 +9,11 @@ import godsoft.codegen.model.DataModelContext;
 import godsoft.codegen.model.Entity;
 import godsoft.codegen.operation.CrudCodeGen;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -51,10 +53,12 @@ public class CrudCodeGenLBH {
 
 			DataModelContext dataModel = new DataModelContext();
 
-			//			dataModel.setPackageName("forest.pms");
-			//			dataModel.setAuthor("이백행");
-			//			dataModel.setTeam("(주)메타지아이에스컨설팅");
-			//			dataModel.setCreateDate("2009.02.01");
+			dataModel.setProjectName("pms-webapp");
+
+			dataModel.setVender("Oracle");
+			dataModel.setAuthor("(주)메타지아이에스컨설팅 이백행");
+			dataModel.setCreateDate("2009.02.01");
+			dataModel.setPackageName("forest.pms");
 
 			Entity entity = new Entity(allTabCommentTableName);
 
@@ -85,14 +89,34 @@ public class CrudCodeGenLBH {
 
 			CrudCodeGen crudCodeGen = new CrudCodeGen();
 
-			String templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
-			//		String targetFile = "templates/crud/src/main/resources/pkg/EgovSample_Sample2_SQL.xml";
-
-			String result = crudCodeGen.generate(dataModel, templateFile);
-
-			//		System.out.println(result);
+			String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+			String data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(new File(getSqlMapPath(dataModel)), data);
+			//			templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+			//			result = crudCodeGen.generate(dataModel, templateFile);
 		}
+	}
 
+	private static String getSqlMapPath(DataModelContext dataModel) {
+		//			/pms-webapp/src/main/resources/forest/sqlmap/pms/fpuser/Fpuser_SQL_Oracle.xml
+
+		String[] packageNames = dataModel.getPackageName().split("\\.");
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/resources/");
+		sb.append(packageNames[0]);
+		sb.append("/sqlmap/");
+		sb.append(packageNames[1]);
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("_SQL_Oracle.xml");
+
+		return sb.toString();
 	}
 
 }

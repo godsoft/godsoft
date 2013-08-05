@@ -17,11 +17,13 @@ package godsoft.codegen.model;
 
 import java.util.List;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 /**
- * 
+ *
  * 데이터베이스 Context 클래스
  * <p><b>NOTE:</b> 데이터베이스 정보 및 테이블, 컬럼 정보를 담기위한 클래스
- * 
+ *
  * @author 개발환경 개발팀 이흥주
  * @since 2009.08.03
  * @version 1.0
@@ -29,7 +31,7 @@ import java.util.List;
  *
  * <pre>
  *  == 개정이력(Modification Information) ==
- *   
+ *
  *   수정일      수정자           수정내용
  *  -------    --------    ---------------------------
  *   2009.08.03  이흥주          최초 생성
@@ -48,6 +50,14 @@ public class DataModelContext {
 	private List<Attribute> attributes;
 	/** 기본키 컬럼 정보 */
 	private List<Attribute> primaryKeys;
+
+	// 추가
+	private String author;
+	private String createDate;
+	private String packageName;
+	private String voPackage;
+
+	private String projectName;
 
 	/**
 	 * 데이타베이스 제품명
@@ -83,7 +93,7 @@ public class DataModelContext {
 
 	/**
 	 * 기본키 목록 가져오기
-	 * 
+	 *
 	 * @return
 	 */
 	public List<Attribute> getPrimaryKeys() {
@@ -108,7 +118,7 @@ public class DataModelContext {
 
 	/**
 	 * 엔티티 세팅하기
-	 * 
+	 *
 	 * @param entity
 	 */
 	public void setEntity(Entity entity) {
@@ -117,7 +127,7 @@ public class DataModelContext {
 
 	/**
 	 * 속성 목록 가져오기
-	 * 
+	 *
 	 * @return
 	 */
 	public List<Attribute> getAttributes() {
@@ -126,10 +136,55 @@ public class DataModelContext {
 
 	/**
 	 * 속성 목록 세팅하기
-	 * 
+	 *
 	 * @param attributes
 	 */
 	public void setAttributes(List<Attribute> attributes) {
 		this.attributes = attributes;
 	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
+	}
+
+	public String getVoPackage() {
+		return voPackage;
+	}
+
+	public void setVoPackage(String voPackage) {
+		this.voPackage = voPackage;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+
 }
