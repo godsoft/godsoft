@@ -25,7 +25,7 @@ public class AllTabCommentsDAOTest {
 	private AllTabCommentsDAO allTabCommentsDAO;
 
 	@Test
-	public void selectAllTabColsList() throws Exception {
+	public void selectAllTabCommentsList() throws Exception {
 		AllTabCommentsVO allTabCommentsVO = new AllTabCommentsVO();
 		allTabCommentsVO.setOwner("RTE");
 
