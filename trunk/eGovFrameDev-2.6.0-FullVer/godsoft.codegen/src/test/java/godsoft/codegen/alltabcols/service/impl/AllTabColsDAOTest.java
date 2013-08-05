@@ -28,11 +28,12 @@ public class AllTabColsDAOTest {
 	public void selectAllTabColsList() throws Exception {
 		AllTabColsVO allTabColsVO = new AllTabColsVO();
 		allTabColsVO.setOwner("RTE");
-		//		allTabColsVO.setTableName("SAMPLE");
 
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("IDS");
+
+		//		tableNames.add("IDS");
 		tableNames.add("SAMPLE");
+
 		allTabColsVO.setTableNames(tableNames);
 
 		List<EgovMap> results = allTabColsDAO.selectAllTabColsList(allTabColsVO);

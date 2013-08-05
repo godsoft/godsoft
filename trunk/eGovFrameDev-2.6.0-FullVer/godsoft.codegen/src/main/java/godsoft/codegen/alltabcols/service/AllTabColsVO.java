@@ -7,7 +7,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class AllTabColsVO {
 
 	private String owner;
-	private String tableName;
 
 	private List<String> tableNames;
 
@@ -17,14 +16,6 @@ public class AllTabColsVO {
 
 	public void setOwner(String owner) {
 		this.owner = owner;
-	}
-
-	public String getTableName() {
-		return tableName;
-	}
-
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
 	}
 
 	public List<String> getTableNames() {
