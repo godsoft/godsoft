@@ -315,11 +315,17 @@
 			<version>14</version>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>godsoft</groupId> -->
-<!-- 			<artifactId>codegen-app</artifactId> -->
-<!-- 			<version>1.0.0</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>godsoft</groupId> -->
+		<!-- <artifactId>codegen-app</artifactId> -->
+		<!-- <version>1.0.0</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.6.2</version>
+		</dependency>
 
 	</dependencies>
 
