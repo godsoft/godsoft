@@ -16,7 +16,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:context.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/codegen-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
 @Transactional
 public class AllTabColsDAOTest {
