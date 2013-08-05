@@ -22,7 +22,7 @@ public class CrudCodeGenLBH {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		String configLocation = "godsoft/spring/codegen-context.xml";
+		String configLocation = "classpath:godsoft/spring/codegen-context.xml";
 		ApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
 
 		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) context.getBean("allTabColsDAO");
@@ -32,7 +32,7 @@ public class CrudCodeGenLBH {
 
 		List<String> tableNames = new ArrayList<String>();
 
-		//		tableNames.add("IDS");
+		tableNames.add("IDS");
 		tableNames.add("SAMPLE");
 
 		allTabColsVO.setTableNames(tableNames);
