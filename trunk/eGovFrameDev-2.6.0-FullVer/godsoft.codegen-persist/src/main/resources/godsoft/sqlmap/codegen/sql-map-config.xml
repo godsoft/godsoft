@@ -5,5 +5,7 @@
 <sqlMapConfig>
 	<!-- <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL.xml"/> -->
 	<!-- <sqlMap resource="egovframework/sqlmap/rte/sample/EgovSample_Sample_SQL_mysql.xml"/> -->
+
 	<sqlMap resource="godsoft/sqlmap/codegen/alltabcols/AllTabCols_SQL_oracle.xml" />
+	<sqlMap resource="godsoft/sqlmap/codegen/alltabcomments/AllTabComments_SQL_oracle.xml" />
 </sqlMapConfig>

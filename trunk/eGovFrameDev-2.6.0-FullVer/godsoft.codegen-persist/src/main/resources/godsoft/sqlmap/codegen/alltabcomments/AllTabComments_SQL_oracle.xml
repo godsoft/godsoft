@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="AllTabCols">
+<sqlMap namespace="AllTabComments">
 
 	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
-	<typeAlias alias="allTabColsVO" type="godsoft.codegen.alltabcols.service.AllTabColsVO" />
+	<typeAlias alias="allTabCommentsVO" type="godsoft.codegen.alltabcomments.service.AllTabCommentsVO" />
 
-	<select id="allTabColsDAO.selectAllTabColsList" parameterClass="allTabColsVO" resultClass="egovMap">
+	<select id="allTabCommentsDAO.selectAllTabCommentsList" parameterClass="allTabCommentsVO" resultClass="egovMap">
 		SELECT
 			*
-		FROM all_tab_cols
+		FROM all_tab_comments
 		WHERE 1 = 1
 
 		<isNotEmpty property="owner">
@@ -24,7 +24,6 @@
 
 		ORDER BY
 			table_name
-			, column_id
 	</select>
 
 </sqlMap>
