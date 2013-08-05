@@ -35,7 +35,7 @@ public class CrudCodeGenLBH {
 		oracleVO.setOwner("RTE");
 
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("IDS");
+		//		tableNames.add("IDS");
 		tableNames.add("SAMPLE");
 		oracleVO.setTableNames(tableNames);
 
