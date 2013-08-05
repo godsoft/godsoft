@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: eGovFramework Templates Plug-in
-Bundle-SymbolicName: egovframework.dev.imp.templates;singleton:=true
+Bundle-SymbolicName: godsoft.codegen-app;singleton:=true
 Bundle-Version: 2.0.1.qualifier
 Bundle-Activator: egovframework.dev.imp.templates.TemplatesPlugin
 Bundle-Vendor: MOPAS
