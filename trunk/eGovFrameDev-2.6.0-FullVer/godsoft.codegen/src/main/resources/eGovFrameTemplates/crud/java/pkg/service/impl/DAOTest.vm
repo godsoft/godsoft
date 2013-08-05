@@ -43,7 +43,7 @@ import ${voPackage}.${voClassName};
 
 /**
  * @Class Name : ${daoClassName}.java
- * @Description : ${model.entity.pcName} TestDAO Class
+ * @Description : ${model.entity.pcName} DAOTest Class
  * @Modification Information
  *
  * @author ${author}
