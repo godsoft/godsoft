@@ -1,4 +1,5 @@
 package godsoft.codegen.java;
+
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.alltabcols.service.AllTabColsVO;
 import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
@@ -21,7 +22,7 @@ public class CrudCodeGenLBH {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		String configLocation = "egovframework/spring/codegen-context.xml";
+		String configLocation = "godsoft/spring/codegen-context.xml";
 		ApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
 
 		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) context.getBean("allTabColsDAO");
