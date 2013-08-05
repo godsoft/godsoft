@@ -51,6 +51,8 @@ public class CrudCodeGen {
 		String serviceImplPackage = GodsoftUtils.getServiceImplPackage(dataModel);
 		context.put("voPackage", servicePackage);
 		context.put("daoPackage", serviceImplPackage);
+		context.put("servicePackage", servicePackage);
+		context.put("implPackage", serviceImplPackage);
 
 		Template template = null;
 

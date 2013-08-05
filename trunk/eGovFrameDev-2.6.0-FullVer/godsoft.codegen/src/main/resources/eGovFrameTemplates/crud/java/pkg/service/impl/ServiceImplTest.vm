@@ -1,0 +1,75 @@
+##
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($daoPackage="${daoPackage}")
+#set($daoClassName="${model.entity.pcName}DAO")
+#set($daoName="${model.entity.ccName}DAO")
+#set($daoInstanceName="${model.entity.ccName}DAO")
+#set($servicePackage="${servicePackage}")
+#set($serviceClassName="${model.entity.pcName}Service")
+#set($serviceImplPackage="${implPackage}")
+#set($serviceImplClassName="${model.entity.pcName}ServiceImpl")
+#set($serviceImplTestClassName="${model.entity.pcName}ServiceImplTest")
+#set($serviceName="${model.entity.ccName}Service")
+##
+##
+#set($insertMethodName="insert${model.entity.pcName}")
+#set($updateMethodName="update${model.entity.pcName}")
+#set($deleteMethodName="delete${model.entity.pcName}")
+#set($selectMethodName="select${model.entity.pcName}")
+#set($selectListMethodName="select${model.entity.pcName}List")
+#set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
+#set($idGnrService="egov${model.entity.pcName}IdGnrService")
+##
+##
+package ${serviceImplPackage};
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import ${servicePackage}.${serviceClassName};
+import ${voPackage}.${voClassName};
+
+/**
+ * @Class Name : ${serviceImplClassName}.java
+ * @Description : ${model.entity.pcName} Business Implement class
+ * @Modification Information
+ *
+ * @author ${author}
+ * @since ${createDate}
+ * @version 1.0
+ * @see
+ *
+ *  Copyright (C)  All right reserved.
+ */
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:context.xml" })
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
+@Transactional
+public class ${serviceImplTestClassName} {
+
+    @Resource(name="${serviceName}")
+    private ${serviceClassName} ${serviceName};
+
+    /**
+	 * ${model.entity.name} 목록을 조회한다.
+	 * @param searchVO - 조회할 정보가 담긴 VO
+	 * @return ${model.entity.name} 목록
+	 * @exception Exception
+	 */
+    public List ${selectListMethodName}(${voClassName} searchVO) throws Exception {
+        return ${serviceName}.${selectListMethodName}(searchVO);
+    }
+
+}

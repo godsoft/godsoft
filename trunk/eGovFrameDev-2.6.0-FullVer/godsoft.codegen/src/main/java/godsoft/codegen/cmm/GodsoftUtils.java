@@ -179,4 +179,58 @@ public class GodsoftUtils {
 		return new File(sb.toString());
 	}
 
+	public static File getFileService(DataModelContext dataModel) {
+		// /pms-webapp/src/main/java/forest/pms/fpuser/service/FpuserService.java
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/java/");
+		sb.append(dataModel.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/service/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("Service.java");
+
+		return new File(sb.toString());
+	}
+
+	public static File getFileServiceImpl(DataModelContext dataModel) {
+		// /pms-webapp/src/main/java/forest/pms/fpuser/service/impl/FpuserServiceImpl.java
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/java/");
+		sb.append(dataModel.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/service/impl/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("ServiceImpl.java");
+
+		return new File(sb.toString());
+	}
+
+	public static File getFileServiceImplTest(DataModelContext dataModel) {
+		// /pms-webapp/src/test/java/forest/pms/fpuser/service/impl/FpuserServiceImplTest.java
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/test/java/");
+		sb.append(dataModel.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/service/impl/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("ServiceImplTest.java");
+
+		return new File(sb.toString());
+	}
+
 }

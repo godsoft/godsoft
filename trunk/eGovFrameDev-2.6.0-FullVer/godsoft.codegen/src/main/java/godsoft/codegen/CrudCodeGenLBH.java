@@ -117,6 +117,18 @@ public class CrudCodeGenLBH {
 			String dataDAOTest = crudCodeGen.generate(dataModel, templateFileDAOTest);
 			FileUtils.writeStringToFile(GodsoftUtils.getFileDAOTest(dataModel), dataDAOTest);
 
+			String templateFileService = "eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
+			String dataService = crudCodeGen.generate(dataModel, templateFileService);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileService(dataModel), dataService);
+
+			String templateFileServiceImpl = "eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
+			String dataServiceImpl = crudCodeGen.generate(dataModel, templateFileServiceImpl);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileServiceImpl(dataModel), dataServiceImpl);
+
+			String templateFileServiceImplTest = "eGovFrameTemplates/crud/java/pkg/service/impl/ServiceImplTest.vm";
+			String dataServiceImplTest = crudCodeGen.generate(dataModel, templateFileServiceImplTest);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileServiceImplTest(dataModel), dataServiceImplTest);
+
 			//			templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
 			//			result = crudCodeGen.generate(dataModel, templateFile);
 
