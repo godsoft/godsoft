@@ -1,4 +1,4 @@
-package godsoft.codegen;
+package godsoft.codegen.java;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.alltabcols.service.AllTabColsVO;
 import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
