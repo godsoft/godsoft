@@ -4,9 +4,9 @@
 <sqlMap namespace="AllTabCols">
 
 	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
-	<typeAlias alias="allTabColsVO" type="godsoft.codegen.alltabcols.service.AllTabColsVO" />
+	<typeAlias alias="oracleVO" type="godsoft.codegen.cmm.OracleVO" />
 
-	<select id="allTabColsDAO.selectAllTabColsList" parameterClass="allTabColsVO" resultClass="egovMap">
+	<select id="allTabColsDAO.selectAllTabColsList" parameterClass="oracleVO" resultClass="egovMap">
 		SELECT
 			*
 		FROM all_tab_cols

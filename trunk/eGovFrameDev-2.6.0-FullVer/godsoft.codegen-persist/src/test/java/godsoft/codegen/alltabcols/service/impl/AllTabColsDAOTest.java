@@ -1,8 +1,5 @@
 package godsoft.codegen.alltabcols.service.impl;
 
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.codegen.alltabcols.service.AllTabColsVO;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +12,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.codegen.cmm.OracleVO;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:godsoft/spring/codegen-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
@@ -26,17 +26,17 @@ public class AllTabColsDAOTest {
 
 	@Test
 	public void selectAllTabColsList() throws Exception {
-		AllTabColsVO allTabColsVO = new AllTabColsVO();
-		allTabColsVO.setOwner("RTE");
+		OracleVO oracleVO = new OracleVO();
+		oracleVO.setOwner("RTE");
 
 		List<String> tableNames = new ArrayList<String>();
 
 		//		tableNames.add("IDS");
 		tableNames.add("SAMPLE");
 
-		allTabColsVO.setTableNames(tableNames);
+		oracleVO.setTableNames(tableNames);
 
-		List<EgovMap> results = allTabColsDAO.selectAllTabColsList(allTabColsVO);
+		List<EgovMap> results = allTabColsDAO.selectAllTabColsList(oracleVO);
 
 		System.out.println(results);
 	}

@@ -6,14 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.codegen.alltabcols.service.AllTabColsVO;
+import godsoft.codegen.cmm.OracleVO;
 
 @Repository("allTabColsDAO")
 public class AllTabColsDAO extends EgovAbstractDAO {
 
 	@SuppressWarnings("unchecked")
-	public List<EgovMap> selectAllTabColsList(AllTabColsVO allTabColsVO) throws Exception {
-		return list("allTabColsDAO.selectAllTabColsList", allTabColsVO);
+	public List<EgovMap> selectAllTabColsList(OracleVO oracleVO) throws Exception {
+		return list("allTabColsDAO.selectAllTabColsList", oracleVO);
 	}
 
 }

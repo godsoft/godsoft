@@ -4,9 +4,9 @@
 <sqlMap namespace="AllTabComments">
 
 	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
-	<typeAlias alias="allTabCommentsVO" type="godsoft.codegen.alltabcomments.service.AllTabCommentsVO" />
+	<typeAlias alias="oracleVO" type="godsoft.codegen.cmm.OracleVO" />
 
-	<select id="allTabCommentsDAO.selectAllTabCommentsList" parameterClass="allTabCommentsVO" resultClass="egovMap">
+	<select id="allTabCommentsDAO.selectAllTabCommentsList" parameterClass="oracleVO" resultClass="egovMap">
 		SELECT
 			*
 		FROM all_tab_comments
