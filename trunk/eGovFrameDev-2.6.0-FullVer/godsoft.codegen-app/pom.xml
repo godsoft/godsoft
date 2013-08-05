@@ -11,7 +11,7 @@
 		</dependency>
 		<dependency>
 			<groupId>godsoft</groupId>
-			<artifactId>codegen-persist</artifactId>
+			<artifactId>codegen</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
