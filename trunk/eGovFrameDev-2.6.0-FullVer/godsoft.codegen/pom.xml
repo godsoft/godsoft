@@ -315,11 +315,11 @@
 			<version>14</version>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>egovframework.dev.imp</groupId> -->
-		<!-- <artifactId>templates</artifactId> -->
-		<!-- <version>0.0.1-SNAPSHOT</version> -->
-		<!-- </dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>godsoft</groupId> -->
+<!-- 			<artifactId>codegen-app</artifactId> -->
+<!-- 			<version>1.0.0</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 
