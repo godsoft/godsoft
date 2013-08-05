@@ -8,6 +8,13 @@
 	<name>codegen</name>
 	<url>http://maven.apache.org</url>
 
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>http://192.168.0.35:7070/nexus/content/groups/FGIS-Repositories/</url>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<spring.maven.artifact.version>3.0.5.RELEASE</spring.maven.artifact.version>
 	</properties>
@@ -472,4 +479,6 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
+
 </project>
