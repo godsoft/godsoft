@@ -11,8 +11,11 @@ import godsoft.codegen.model.Entity;
 import godsoft.codegen.operation.CrudCodeGen;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.io.FileUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -54,6 +57,9 @@ public class CrudCodeGenLBH {
 
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
+		Map<String, String> entityTableName = new HashMap<String, String>();
+		entityTableName.put("SAMPLE", "PMSSAMPLE");
+
 		for (EgovMap allTabComment : allTabComments) {
 			String allTabCommentTableName = (String) allTabComment.get("tableName");
 
@@ -68,7 +74,8 @@ public class CrudCodeGenLBH {
 			dataModel.setCreateDate(GodsoftUtils.getToday());
 			dataModel.setPackageName(dataModel2.getPackageName());
 
-			Entity entity = new Entity(allTabCommentTableName);
+			Entity entity = new Entity(entityTableName.get(allTabCommentTableName));
+			entity.setTableName(allTabCommentTableName);
 
 			dataModel.setEntity(entity);
 
@@ -78,15 +85,21 @@ public class CrudCodeGenLBH {
 			for (EgovMap allTabCol : allTabCols) {
 				String allTabColTableName = (String) allTabCol.get("tableName");
 				String columnName = (String) allTabCol.get("columnName");
+				String dataType = (String) allTabCol.get("dataType");
+				int dataLength = MapUtils.getIntValue(allTabCol, "dataLength", 0);
+				String columnComments = (String) allTabCol.get("columnComments");
+				int position = MapUtils.getIntValue(allTabCol, "position", 0);
 
 				if (allTabColTableName.equals(allTabCommentTableName)) {
 					System.out.println(columnName);
 
 					Attribute attribute = new Attribute(columnName);
-					attribute.setJavaType("String");
+					attribute.setJavaType(GodsoftUtils.getDataType(dataType));
 					attributes.add(attribute);
 
-					//			primaryKeys.add(attr);
+					if (position > 0) {
+						primaryKeys.add(attribute);
+					}
 				}
 			}
 
@@ -151,5 +164,4 @@ public class CrudCodeGenLBH {
 		String dataSqlMapConfig = crudCodeGen.generate(dataModel2, templateFileSqlMapConfig);
 		FileUtils.writeStringToFile(GodsoftUtils.getFileSqlMapConfig(dataModel2), dataSqlMapConfig);
 	}
-
 }

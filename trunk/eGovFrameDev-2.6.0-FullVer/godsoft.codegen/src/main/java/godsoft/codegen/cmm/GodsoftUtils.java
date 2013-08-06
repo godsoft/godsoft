@@ -300,4 +300,14 @@ public class GodsoftUtils {
 		return new File(sb.toString());
 	}
 
+	public static String getDataType(String dataType) {
+		String s = "String";
+
+		if ("NUMBER".equals(dataType)) {
+			s = "int";
+		}
+
+		return s;
+	}
+
 }
