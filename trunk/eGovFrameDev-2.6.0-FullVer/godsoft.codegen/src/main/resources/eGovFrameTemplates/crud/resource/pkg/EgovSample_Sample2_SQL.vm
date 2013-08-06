@@ -44,7 +44,7 @@
 ## ##################################################################################################
 	<insert id="${insertQueryId}">
 		<![CDATA[
-			INSERT INTO ${model.entity.name}
+			INSERT INTO ${model.entity.tableName}
 #set($i=0)
 #foreach($attribute in $model.attributes)
 #if($i == 0)
@@ -74,7 +74,7 @@
 ## ##################################################################################################
 	<update id="${updateQueryId}">
 		<![CDATA[
-			UPDATE ${model.entity.name}
+			UPDATE ${model.entity.tableName}
 #set($i=0)
 #foreach($attribute in $model.attributes)
 #if($i == 0)
@@ -104,7 +104,7 @@
 ## ##################################################################################################
 	<delete id="${deleteQueryId}">
 		<![CDATA[
-			DELETE FROM ${model.entity.name}
+			DELETE FROM ${model.entity.tableName}
 #if(!${model.primaryKeys} == [])
                 WHERE ${model.attributes.get(0).name}=#${model.attributes.get(0).ccName}#
 #else
@@ -134,7 +134,7 @@
 #end
 #set($i=$i+1)
 #end
-			FROM ${model.entity.name}
+			FROM ${model.entity.tableName}
 #if(!${model.primaryKeys} == [])
                 WHERE ${model.attributes.get(0).name}=#${model.attributes.get(0).ccName}#
 #else
@@ -164,7 +164,7 @@
 	#end
 	#set($i=$i+1)
 	#end
-			FROM ${model.entity.name}
+			FROM ${model.entity.tableName}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				${model.attributes.get(0).name} = #searchKeyword#
@@ -200,7 +200,7 @@ SELECT * FROM (
 	#end
 	#set($i=$i+1)
 	#end
-				FROM ${model.entity.name}
+				FROM ${model.entity.tableName}
 				WHERE 1=1
 				<isEqual prepend="AND" property="searchCondition" compareValue="0">
 					${model.attributes.get(0).name} = #searchKeyword#
@@ -238,7 +238,7 @@ SELECT * FROM (
 	#end
 	#set($i=$i+1)
 	#end
-			FROM ${model.entity.name}
+			FROM ${model.entity.tableName}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				${model.attributes.get(0).name} = #searchKeyword#
@@ -269,7 +269,7 @@ SELECT * FROM (
 	<select id="${selectListTotCntQueryId}" parameterClass="${searchVOAlias}" resultClass="int">
 #if($vender == "HSQLDB")
 			SELECT COUNT(*) totcnt
-			FROM ${model.entity.name}
+			FROM ${model.entity.tableName}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				${model.attributes.get(0).name} = #searchKeyword#
@@ -279,7 +279,7 @@ SELECT * FROM (
 			</isEqual>
 #elseif($vender == "Oracle")
 			SELECT COUNT(*) totcnt
-			FROM ${model.entity.name}
+			FROM ${model.entity.tableName}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				${model.attributes.get(0).name} = #searchKeyword#
@@ -289,7 +289,7 @@ SELECT * FROM (
 			</isEqual>
 #elseif($vender == "MySql")
 			SELECT COUNT(*) totcnt
-			FROM ${model.entity.name}
+			FROM ${model.entity.tableName}
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				${model.attributes.get(0).name} = #searchKeyword#
