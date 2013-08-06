@@ -32,7 +32,7 @@
 #set($updateViewPath="/${model.entity.ccName}/update${model.entity.pcName}View.do")
 #set($deletePath="/${model.entity.ccName}/delete${model.entity.pcName}.do")
 ##
-#set($listView="/${model.entity.ccName}/${model.entity.pcName}List")
+#set($listView="${model.packageName.replaceAll('\.', '/')}/${model.entity.ccName}/${model.entity.pcName}List")
 #set($registerView="/${model.entity.ccName}/${model.entity.pcName}Register")
 ##
 ##
@@ -78,7 +78,7 @@ import ${voPackage}.${voClassName};
  * @since ${createDate}
  * @version 1.0
  * @see
- *  
+ *
  *  Copyright (C)  All right reserved.
  */
 
@@ -88,11 +88,11 @@ public class ${controllerClassName} {
 
     @Resource(name = "${serviceName}")
     private ${serviceClassName} ${serviceInstanceName};
-    
+
     /** EgovPropertyService */
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertiesService;
-	
+
     /**
 	 * ${model.entity.name} 목록을 조회한다. (pageing)
 	 * @param searchVO - 조회할 정보가 담긴 ${defaultVoClassName}
@@ -100,34 +100,34 @@ public class ${controllerClassName} {
 	 * @exception Exception
 	 */
     @RequestMapping(value="${listPath}")
-    public String ${selectListMethodName}(@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, 
+    public String ${selectListMethodName}(@ModelAttribute("searchVO") ${defaultVoClassName} searchVO,
     		ModelMap model)
             throws Exception {
-    	
+
     	/** EgovPropertyService.sample */
     	searchVO.setPageUnit(propertiesService.getInt("pageUnit"));
     	searchVO.setPageSize(propertiesService.getInt("pageSize"));
-    	
+
     	/** pageing */
     	PaginationInfo paginationInfo = new PaginationInfo();
 		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
 		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
 		paginationInfo.setPageSize(searchVO.getPageSize());
-		
+
 		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-		
+
         List ${listInstanceName} = ${serviceInstanceName}.${selectListMethodName}(searchVO);
         model.addAttribute("resultList", ${listInstanceName});
-        
+
         int totCnt = ${serviceInstanceName}.${selectListTotCntMethodName}(searchVO);
 		paginationInfo.setTotalRecordCount(totCnt);
         model.addAttribute("paginationInfo", paginationInfo);
-        
+
         return "${listView}";
-    } 
-    
+    }
+
     @RequestMapping("${addViewPath}")
     public String ${addViewMethodName}(
             @ModelAttribute("searchVO") ${defaultVoClassName} searchVO, Model model)
@@ -135,7 +135,7 @@ public class ${controllerClassName} {
         model.addAttribute("${voInstanceName}", new ${voClassName}());
         return "${registerView}";
     }
-    
+
     @RequestMapping("${addPath}")
     public String ${addMethodName}(
             ${voClassName} ${voInstanceName},
@@ -145,26 +145,26 @@ public class ${controllerClassName} {
         status.setComplete();
         return "forward:${listPath}";
     }
-    
+
     @RequestMapping("${updateViewPath}")
     public String ${updateViewMethodName}(
 #if(${model.primaryKeys} == [])
             @RequestParam("${model.attributes.get(0).ccName}") ${model.attributes.get(0).javaType} ${model.attributes.get(0).ccName} ,
-#else                     
+#else
 #foreach($attribute in $model.primaryKeys)
             @RequestParam("${attribute.ccName}") ${attribute.javaType} ${attribute.ccName} ,
-#end    
+#end
 #end
             @ModelAttribute("searchVO") ${defaultVoClassName} searchVO, Model model)
             throws Exception {
         ${voClassName} ${voInstanceName} = new ${voClassName}();
 #if(${model.primaryKeys} == [])
-        ${voInstanceName}.set${model.attributes.get(0).pcName}(${model.attributes.get(0).ccName});        
-#else        
-#foreach($attribute in $model.primaryKeys)        
+        ${voInstanceName}.set${model.attributes.get(0).pcName}(${model.attributes.get(0).ccName});
+#else
+#foreach($attribute in $model.primaryKeys)
         ${voInstanceName}.set${attribute.pcName}(${attribute.ccName});
-#end 
-#end       
+#end
+#end
         // 변수명은 CoC 에 따라 ${voInstanceName}
         model.addAttribute(${selectMethodName}(${voInstanceName}, searchVO));
         return "${registerView}";
@@ -187,7 +187,7 @@ public class ${controllerClassName} {
         status.setComplete();
         return "forward:${listPath}";
     }
-    
+
     @RequestMapping("${deletePath}")
     public String ${deleteMethodName}(
             ${voClassName} ${voInstanceName},

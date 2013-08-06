@@ -42,6 +42,19 @@ public class GodsoftUtils {
 		return sb.toString();
 	}
 
+	public static String getControllerPackage(DataModelContext dataModel) {
+		StringBuilder sb = new StringBuilder();
+
+		if (dataModel.getEntity() != null) {
+			sb.append(dataModel.getPackageName());
+			sb.append(".");
+			sb.append(dataModel.getEntity().getLcName());
+			sb.append(".web");
+		}
+
+		return sb.toString();
+	}
+
 	public static File getFileDefaultVO(DataModelContext dataModel) {
 		// /pms-webapp/src/main/java/forest/pms/fpuser/service/FpuserVO.java
 
@@ -229,6 +242,60 @@ public class GodsoftUtils {
 		sb.append("/service/impl/");
 		sb.append(dataModel.getEntity().getPcName());
 		sb.append("ServiceImplTest.java");
+
+		return new File(sb.toString());
+	}
+
+	public static File getFileController(DataModelContext dataModel) {
+		// /pms-webapp/src/main/java/forest/pms/fpuser/web/FpuserController.java
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/java/");
+		sb.append(dataModel.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/web/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("Controller.java");
+
+		return new File(sb.toString());
+	}
+
+	public static File getFileList(DataModelContext dataModel) {
+		// /pms-webapp/src/main/webapp/WEB-INF/jsp/forest/pms/fpuser/FpuserList.jsp
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/webapp/WEB-INF/jsp/");
+		sb.append(dataModel.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("List.jsp");
+
+		return new File(sb.toString());
+	}
+
+	public static File getFileRegister(DataModelContext dataModel) {
+		// /pms-webapp/src/main/webapp/WEB-INF/jsp/forest/pms/fpuser/FpuserRegister.jsp
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("../");
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/webapp/WEB-INF/jsp/");
+		sb.append(dataModel.getPackageName().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getLcName());
+		sb.append("/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("Register.jsp");
 
 		return new File(sb.toString());
 	}

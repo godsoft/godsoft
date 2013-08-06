@@ -53,6 +53,7 @@ public class CrudCodeGen {
 		context.put("daoPackage", serviceImplPackage);
 		context.put("servicePackage", servicePackage);
 		context.put("implPackage", serviceImplPackage);
+		context.put("controllerPackage", GodsoftUtils.getControllerPackage(dataModel));
 
 		Template template = null;
 

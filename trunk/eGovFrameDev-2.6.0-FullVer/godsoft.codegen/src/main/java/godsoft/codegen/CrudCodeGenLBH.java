@@ -95,43 +95,54 @@ public class CrudCodeGenLBH {
 
 			//			dataModels.add(dataModel);
 
-			String templateFileDefaultVO = "eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
-			String dataDefaultVO = crudCodeGen.generate(dataModel, templateFileDefaultVO);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileDefaultVO(dataModel), dataDefaultVO);
+			String templateFile = "";
+			String data = "";
 
-			String templateFileVO = "eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
-			String dataVO = crudCodeGen.generate(dataModel, templateFileVO);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileVO(dataModel), dataVO);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileDefaultVO(dataModel), data);
 
-			String templateFileSqlMap = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
-			String dataSqlMap = crudCodeGen.generate(dataModel, templateFileSqlMap);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileSqlMap(dataModel), dataSqlMap);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileVO(dataModel), data);
+
+			templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileSqlMap(dataModel), data);
 
 			sqlMaps.add(GodsoftUtils.getSqlMap(dataModel));
 
-			String templateFileDAO = "eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
-			String dataDAO = crudCodeGen.generate(dataModel, templateFileDAO);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileDAO(dataModel), dataDAO);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileDAO(dataModel), data);
 
-			String templateFileDAOTest = "eGovFrameTemplates/crud/java/pkg/service/impl/DAOTest.vm";
-			String dataDAOTest = crudCodeGen.generate(dataModel, templateFileDAOTest);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileDAOTest(dataModel), dataDAOTest);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/DAOTest.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileDAOTest(dataModel), data);
 
-			String templateFileService = "eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
-			String dataService = crudCodeGen.generate(dataModel, templateFileService);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileService(dataModel), dataService);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileService(dataModel), data);
 
-			String templateFileServiceImpl = "eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
-			String dataServiceImpl = crudCodeGen.generate(dataModel, templateFileServiceImpl);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileServiceImpl(dataModel), dataServiceImpl);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileServiceImpl(dataModel), data);
 
-			String templateFileServiceImplTest = "eGovFrameTemplates/crud/java/pkg/service/impl/ServiceImplTest.vm";
-			String dataServiceImplTest = crudCodeGen.generate(dataModel, templateFileServiceImplTest);
-			FileUtils.writeStringToFile(GodsoftUtils.getFileServiceImplTest(dataModel), dataServiceImplTest);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/service/impl/ServiceImplTest.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileServiceImplTest(dataModel), data);
 
-			//			templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
-			//			result = crudCodeGen.generate(dataModel, templateFile);
+			templateFile = "eGovFrameTemplates/crud/java/pkg/web/EgovSample2Controller.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileController(dataModel), data);
 
+			templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileList(dataModel), data);
+
+			templateFile = "eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+			data = crudCodeGen.generate(dataModel, templateFile);
+			FileUtils.writeStringToFile(GodsoftUtils.getFileRegister(dataModel), data);
 		}
 
 		dataModel2.setSqlMaps(sqlMaps);
