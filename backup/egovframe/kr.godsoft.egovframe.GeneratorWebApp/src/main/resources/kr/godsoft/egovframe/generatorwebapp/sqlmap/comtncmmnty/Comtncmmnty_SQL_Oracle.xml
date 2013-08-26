@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtncmmnty">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtncmmntyVO" type="kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO"/>
+	
+	<resultMap id="comtncmmnty" class="kr.godsoft.egovframe.generatorwebapp.comtncmmnty.service.ComtncmmntyVO">
+		<result property="cmmntyId" column="cmmnty_id" columnIndex="1"/>
+		<result property="cmmntyNm" column="cmmnty_nm" columnIndex="2"/>
+		<result property="cmmntyIntrcn" column="cmmnty_intrcn" columnIndex="3"/>
+		<result property="useAt" column="use_at" columnIndex="4"/>
+		<result property="registSeCode" column="regist_se_code" columnIndex="5"/>
+		<result property="tmplatId" column="tmplat_id" columnIndex="6"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+	</resultMap>
+	
+	<insert id="comtncmmntyDAO.insertComtncmmnty_S">
+		<![CDATA[
+            INSERT INTO comtncmmnty (
+                cmmnty_id
+                , cmmnty_nm
+                , cmmnty_intrcn
+                , use_at
+                , regist_se_code
+                , tmplat_id
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #cmmntyId#
+                , #cmmntyNm#
+                , #cmmntyIntrcn#
+                , #useAt#
+                , #registSeCode#
+                , #tmplatId#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtncmmntyDAO.updateComtncmmnty_S">
+		<![CDATA[
+            UPDATE comtncmmnty
+                SET
+                cmmnty_id = #cmmntyId#
+                , cmmnty_nm = #cmmntyNm#
+                , cmmnty_intrcn = #cmmntyIntrcn#
+                , use_at = #useAt#
+                , regist_se_code = #registSeCode#
+                , tmplat_id = #tmplatId#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND cmmnty_id = #cmmntyId#
+		]]>
+	</update>
+	
+	<delete id="comtncmmntyDAO.deleteComtncmmnty_S">
+		<![CDATA[
+			DELETE FROM comtncmmnty
+				WHERE 1 = 1
+				AND cmmnty_id = #cmmntyId#
+		]]>
+	</delete>
+	
+	<select id="comtncmmntyDAO.selectComtncmmnty_S" resultMap="comtncmmnty">
+		<![CDATA[
+			SELECT
+				cmmnty_id
+				, cmmnty_nm
+				, cmmnty_intrcn
+				, use_at
+				, regist_se_code
+				, tmplat_id
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTNCMMNTY
+			WHERE cmmnty_id = #cmmntyId#
+		]]>
+	</select>
+	
+	<select id="comtncmmntyDAO.selectComtncmmntyList_D" parameterClass="ComtncmmntyVO" resultClass="egovMap">
+	       SELECT 
+								A.CMMNTY_ID
+								, A.CMMNTY_NM
+								, A.CMMNTY_INTRCN
+								, A.USE_AT
+								, A.REGIST_SE_CODE
+								, A.TMPLAT_ID
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								CMMNTY_ID
+								, CMMNTY_NM
+								, CMMNTY_INTRCN
+								, USE_AT
+								, REGIST_SE_CODE
+								, TMPLAT_ID
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTNCMMNTY
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					CMMNTY_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CMMNTY_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							CMMNTY_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtncmmntyDAO.selectComtncmmntyListTotCnt_S" parameterClass="ComtncmmntyVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNCMMNTY
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CMMNTY_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CMMNTY_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

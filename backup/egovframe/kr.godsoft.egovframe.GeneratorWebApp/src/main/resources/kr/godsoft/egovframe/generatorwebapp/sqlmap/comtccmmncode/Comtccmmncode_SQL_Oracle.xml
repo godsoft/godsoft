@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtccmmncode">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtccmmncodeVO" type="kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeVO"/>
+	
+	<resultMap id="comtccmmncode" class="kr.godsoft.egovframe.generatorwebapp.comtccmmncode.service.ComtccmmncodeVO">
+		<result property="codeId" column="code_id" columnIndex="1"/>
+		<result property="codeIdNm" column="code_id_nm" columnIndex="2"/>
+		<result property="codeIdDc" column="code_id_dc" columnIndex="3"/>
+		<result property="useAt" column="use_at" columnIndex="4"/>
+		<result property="clCode" column="cl_code" columnIndex="5"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="6"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="7"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="8"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="comtccmmncodeDAO.insertComtccmmncode_S">
+		<![CDATA[
+            INSERT INTO comtccmmncode (
+                code_id
+                , code_id_nm
+                , code_id_dc
+                , use_at
+                , cl_code
+                , frst_regist_pnttm
+                , frst_register_id
+            ) VALUES (
+                #codeId#
+                , #codeIdNm#
+                , #codeIdDc#
+                , #useAt#
+                , #clCode#
+                , SYSDATE
+                , #frstRegisterId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtccmmncodeDAO.updateComtccmmncode_S">
+		<![CDATA[
+            UPDATE comtccmmncode
+                SET
+                code_id = #codeId#
+                , code_id_nm = #codeIdNm#
+                , code_id_dc = #codeIdDc#
+                , use_at = #useAt#
+                , cl_code = #clCode#
+                , last_updt_pnttm = SYSDATE
+                , last_updusr_id = #lastUpdusrId#
+                WHERE 1 = 1
+                AND code_id = #codeId#
+		]]>
+	</update>
+	
+	<delete id="comtccmmncodeDAO.deleteComtccmmncode_S">
+		<![CDATA[
+			DELETE FROM comtccmmncode
+				WHERE 1 = 1
+				AND code_id = #codeId#
+		]]>
+	</delete>
+	
+	<select id="comtccmmncodeDAO.selectComtccmmncode_S" resultMap="comtccmmncode">
+		<![CDATA[
+			SELECT
+				code_id
+				, code_id_nm
+				, code_id_dc
+				, use_at
+				, cl_code
+				, frst_regist_pnttm
+				, frst_register_id
+				, last_updt_pnttm
+				, last_updusr_id
+			FROM COMTCCMMNCODE
+			WHERE code_id = #codeId#
+		]]>
+	</select>
+	
+	<select id="comtccmmncodeDAO.selectComtccmmncodeList_D" parameterClass="ComtccmmncodeVO" resultClass="egovMap">
+	       SELECT 
+								A.CODE_ID
+								, A.CODE_ID_NM
+								, A.CODE_ID_DC
+								, A.USE_AT
+								, A.CL_CODE
+								, A.FRST_REGIST_PNTTM
+								, A.FRST_REGISTER_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LAST_UPDUSR_ID
+			       FROM
+            (
+				SELECT
+								CODE_ID
+								, CODE_ID_NM
+								, CODE_ID_DC
+								, USE_AT
+								, CL_CODE
+								, FRST_REGIST_PNTTM
+								, FRST_REGISTER_ID
+								, LAST_UPDT_PNTTM
+								, LAST_UPDUSR_ID
+							, ROWNUM
+				FROM COMTCCMMNCODE
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					CODE_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					CODE_ID_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							CODE_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtccmmncodeDAO.selectComtccmmncodeListTotCnt_S" parameterClass="ComtccmmncodeVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTCCMMNCODE
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				CODE_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				CODE_ID_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MdSynonyms">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MdSynonymsVO" type="kr.godsoft.egovframe.generatorwebapp.md_synonyms.service.MdSynonymsVO"/>
+	
+	<resultMap id="mdSynonyms" class="kr.godsoft.egovframe.generatorwebapp.md_synonyms.service.MdSynonymsVO">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="schemaIdFk" column="schema_id_fk" columnIndex="2"/>
+		<result property="name" column="name" columnIndex="3"/>
+		<result property="synonymForId" column="synonym_for_id" columnIndex="4"/>
+		<result property="forObjectType" column="for_object_type" columnIndex="5"/>
+		<result property="privateVisibility" column="private_visibility" columnIndex="6"/>
+		<result property="nativeSql" column="native_sql" columnIndex="7"/>
+		<result property="nativeKey" column="native_key" columnIndex="8"/>
+		<result property="comments" column="comments" columnIndex="9"/>
+		<result property="securityGroupId" column="security_group_id" columnIndex="10"/>
+		<result property="createdOn" column="created_on" columnIndex="11"/>
+		<result property="createdBy" column="created_by" columnIndex="12"/>
+		<result property="lastUpdatedOn" column="last_updated_on" columnIndex="13"/>
+		<result property="lastUpdatedBy" column="last_updated_by" columnIndex="14"/>
+	</resultMap>
+	
+	<insert id="mdSynonymsDAO.insertMdSynonyms_S">
+		<![CDATA[
+            INSERT INTO md_synonyms (
+                id
+                , schema_id_fk
+                , name
+                , synonym_for_id
+                , for_object_type
+                , private_visibility
+                , native_sql
+                , native_key
+                , comments
+                , security_group_id
+                , created_on
+                , created_by
+                , last_updated_on
+                , last_updated_by
+            ) VALUES (
+                #id#
+                , #schemaIdFk#
+                , #name#
+                , #synonymForId#
+                , #forObjectType#
+                , #privateVisibility#
+                , #nativeSql#
+                , #nativeKey#
+                , #comments#
+                , #securityGroupId#
+                , #createdOn#
+                , #createdBy#
+                , #lastUpdatedOn#
+                , #lastUpdatedBy#
+            )
+		]]>
+	</insert>
+	
+	<update id="mdSynonymsDAO.updateMdSynonyms_S">
+		<![CDATA[
+            UPDATE md_synonyms
+                SET
+                id = #id#
+                , schema_id_fk = #schemaIdFk#
+                , name = #name#
+                , synonym_for_id = #synonymForId#
+                , for_object_type = #forObjectType#
+                , private_visibility = #privateVisibility#
+                , native_sql = #nativeSql#
+                , native_key = #nativeKey#
+                , comments = #comments#
+                , security_group_id = #securityGroupId#
+                , created_on = #createdOn#
+                , created_by = #createdBy#
+                , last_updated_on = #lastUpdatedOn#
+                , last_updated_by = #lastUpdatedBy#
+                WHERE 1 = 1
+                AND id = #id#
+		]]>
+	</update>
+	
+	<delete id="mdSynonymsDAO.deleteMdSynonyms_S">
+		<![CDATA[
+			DELETE FROM md_synonyms
+				WHERE 1 = 1
+				AND id = #id#
+		]]>
+	</delete>
+	
+	<select id="mdSynonymsDAO.selectMdSynonyms_S" resultMap="mdSynonyms">
+		<![CDATA[
+			SELECT
+				id
+				, schema_id_fk
+				, name
+				, synonym_for_id
+				, for_object_type
+				, private_visibility
+				, native_sql
+				, native_key
+				, comments
+				, security_group_id
+				, created_on
+				, created_by
+				, last_updated_on
+				, last_updated_by
+			FROM MD_SYNONYMS
+			WHERE id = #id#
+		]]>
+	</select>
+	
+	<select id="mdSynonymsDAO.selectMdSynonymsList_D" parameterClass="MdSynonymsVO" resultClass="egovMap">
+	       SELECT 
+								A.ID
+								, A.SCHEMA_ID_FK
+								, A.NAME
+								, A.SYNONYM_FOR_ID
+								, A.FOR_OBJECT_TYPE
+								, A.PRIVATE_VISIBILITY
+								, A.NATIVE_SQL
+								, A.NATIVE_KEY
+								, A.COMMENTS
+								, A.SECURITY_GROUP_ID
+								, A.CREATED_ON
+								, A.CREATED_BY
+								, A.LAST_UPDATED_ON
+								, A.LAST_UPDATED_BY
+			       FROM
+            (
+				SELECT
+								ID
+								, SCHEMA_ID_FK
+								, NAME
+								, SYNONYM_FOR_ID
+								, FOR_OBJECT_TYPE
+								, PRIVATE_VISIBILITY
+								, NATIVE_SQL
+								, NATIVE_KEY
+								, COMMENTS
+								, SECURITY_GROUP_ID
+								, CREATED_ON
+								, CREATED_BY
+								, LAST_UPDATED_ON
+								, LAST_UPDATED_BY
+							, ROWNUM
+				FROM MD_SYNONYMS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mdSynonymsDAO.selectMdSynonymsListTotCnt_S" parameterClass="MdSynonymsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MD_SYNONYMS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				SCHEMA_ID_FK LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

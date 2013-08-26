@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtninsttcoderecptnlog">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtninsttcoderecptnlogVO" type="kr.godsoft.egovframe.generatorwebapp.comtninsttcoderecptnlog.service.ComtninsttcoderecptnlogVO"/>
+	
+	<resultMap id="comtninsttcoderecptnlog" class="kr.godsoft.egovframe.generatorwebapp.comtninsttcoderecptnlog.service.ComtninsttcoderecptnlogVO">
+		<result property="occrrncDe" column="occrrnc_de" columnIndex="1"/>
+		<result property="insttCode" column="instt_code" columnIndex="2"/>
+		<result property="opertSn" column="opert_sn" columnIndex="3"/>
+		<result property="changeSeCode" column="change_se_code" columnIndex="4"/>
+		<result property="processSe" column="process_se" columnIndex="5"/>
+		<result property="etcCode" column="etc_code" columnIndex="6"/>
+		<result property="allInsttNm" column="all_instt_nm" columnIndex="7"/>
+		<result property="lowestInsttNm" column="lowest_instt_nm" columnIndex="8"/>
+		<result property="insttAbrvNm" column="instt_abrv_nm" columnIndex="9"/>
+		<result property="odr" column="odr" columnIndex="10"/>
+		<result property="ord" column="ord" columnIndex="11"/>
+		<result property="insttOdr" column="instt_odr" columnIndex="12"/>
+		<result property="upperInsttCode" column="upper_instt_code" columnIndex="13"/>
+		<result property="bestInsttCode" column="best_instt_code" columnIndex="14"/>
+		<result property="reprsntInsttCode" column="reprsnt_instt_code" columnIndex="15"/>
+		<result property="insttTyLclas" column="instt_ty_lclas" columnIndex="16"/>
+		<result property="insttTyMlsfc" column="instt_ty_mlsfc" columnIndex="17"/>
+		<result property="insttTySclas" column="instt_ty_sclas" columnIndex="18"/>
+		<result property="telno" column="telno" columnIndex="19"/>
+		<result property="fxnum" column="fxnum" columnIndex="20"/>
+		<result property="creatDe" column="creat_de" columnIndex="21"/>
+		<result property="ablDe" column="abl_de" columnIndex="22"/>
+		<result property="ablEnnc" column="abl_ennc" columnIndex="23"/>
+		<result property="changeDe" column="change_de" columnIndex="24"/>
+		<result property="changeTime" column="change_time" columnIndex="25"/>
+		<result property="bsisDe" column="bsis_de" columnIndex="26"/>
+		<result property="sortOrdr" column="sort_ordr" columnIndex="27"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="28"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="29"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="30"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="31"/>
+	</resultMap>
+	
+	<insert id="comtninsttcoderecptnlogDAO.insertComtninsttcoderecptnlog_S">
+		<![CDATA[
+            INSERT INTO comtninsttcoderecptnlog (
+                occrrnc_de
+                , instt_code
+                , opert_sn
+                , change_se_code
+                , process_se
+                , etc_code
+                , all_instt_nm
+                , lowest_instt_nm
+                , instt_abrv_nm
+                , odr
+                , ord
+                , instt_odr
+                , upper_instt_code
+                , best_instt_code
+                , reprsnt_instt_code
+                , instt_ty_lclas
+                , instt_ty_mlsfc
+                , instt_ty_sclas
+                , telno
+                , fxnum
+                , creat_de
+                , abl_de
+                , abl_ennc
+                , change_de
+                , change_time
+                , bsis_de
+                , sort_ordr
+                , frst_register_id
+                , frst_regist_pnttm
+            ) VALUES (
+                #occrrncDe#
+                , #insttCode#
+                , #opertSn#
+                , #changeSeCode#
+                , #processSe#
+                , #etcCode#
+                , #allInsttNm#
+                , #lowestInsttNm#
+                , #insttAbrvNm#
+                , #odr#
+                , #ord#
+                , #insttOdr#
+                , #upperInsttCode#
+                , #bestInsttCode#
+                , #reprsntInsttCode#
+                , #insttTyLclas#
+                , #insttTyMlsfc#
+                , #insttTySclas#
+                , #telno#
+                , #fxnum#
+                , #creatDe#
+                , #ablDe#
+                , #ablEnnc#
+                , #changeDe#
+                , #changeTime#
+                , #bsisDe#
+                , #sortOrdr#
+                , #frstRegisterId#
+                , SYSDATE()
+            )
+		]]>
+	</insert>
+	
+	<update id="comtninsttcoderecptnlogDAO.updateComtninsttcoderecptnlog_S">
+		<![CDATA[
+            UPDATE comtninsttcoderecptnlog
+                SET
+                occrrnc_de = #occrrncDe#
+                , instt_code = #insttCode#
+                , opert_sn = #opertSn#
+                , change_se_code = #changeSeCode#
+                , process_se = #processSe#
+                , etc_code = #etcCode#
+                , all_instt_nm = #allInsttNm#
+                , lowest_instt_nm = #lowestInsttNm#
+                , instt_abrv_nm = #insttAbrvNm#
+                , odr = #odr#
+                , ord = #ord#
+                , instt_odr = #insttOdr#
+                , upper_instt_code = #upperInsttCode#
+                , best_instt_code = #bestInsttCode#
+                , reprsnt_instt_code = #reprsntInsttCode#
+                , instt_ty_lclas = #insttTyLclas#
+                , instt_ty_mlsfc = #insttTyMlsfc#
+                , instt_ty_sclas = #insttTySclas#
+                , telno = #telno#
+                , fxnum = #fxnum#
+                , creat_de = #creatDe#
+                , abl_de = #ablDe#
+                , abl_ennc = #ablEnnc#
+                , change_de = #changeDe#
+                , change_time = #changeTime#
+                , bsis_de = #bsisDe#
+                , sort_ordr = #sortOrdr#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE()
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND instt_code = #insttCode#
+                AND opert_sn = #opertSn#
+		]]>
+	</update>
+	
+	<delete id="comtninsttcoderecptnlogDAO.deleteComtninsttcoderecptnlog_S">
+		<![CDATA[
+			DELETE FROM comtninsttcoderecptnlog
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
+				AND instt_code = #insttCode#
+				AND opert_sn = #opertSn#
+		]]>
+	</delete>
+	
+	<select id="comtninsttcoderecptnlogDAO.selectComtninsttcoderecptnlog_S" resultMap="comtninsttcoderecptnlog">
+		<![CDATA[
+			SELECT
+				occrrnc_de
+				, instt_code
+				, opert_sn
+				, change_se_code
+				, process_se
+				, etc_code
+				, all_instt_nm
+				, lowest_instt_nm
+				, instt_abrv_nm
+				, odr
+				, ord
+				, instt_odr
+				, upper_instt_code
+				, best_instt_code
+				, reprsnt_instt_code
+				, instt_ty_lclas
+				, instt_ty_mlsfc
+				, instt_ty_sclas
+				, telno
+				, fxnum
+				, creat_de
+				, abl_de
+				, abl_ennc
+				, change_de
+				, change_time
+				, bsis_de
+				, sort_ordr
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+			FROM comtninsttcoderecptnlog
+			WHERE occrrnc_de = #occrrncDe#
+				AND instt_code = #insttCode#
+				AND opert_sn = #opertSn#
+		]]>
+	</select>
+	
+	<select id="comtninsttcoderecptnlogDAO.selectComtninsttcoderecptnlogList_D" parameterClass="ComtninsttcoderecptnlogVO" resultClass="egovMap">
+			SELECT
+								occrrnc_de
+								, instt_code
+								, opert_sn
+								, change_se_code
+								, process_se
+								, etc_code
+								, all_instt_nm
+								, lowest_instt_nm
+								, instt_abrv_nm
+								, odr
+								, ord
+								, instt_odr
+								, upper_instt_code
+								, best_instt_code
+								, reprsnt_instt_code
+								, instt_ty_lclas
+								, instt_ty_mlsfc
+								, instt_ty_sclas
+								, telno
+								, fxnum
+								, creat_de
+								, abl_de
+								, abl_ennc
+								, change_de
+								, change_time
+								, bsis_de
+								, sort_ordr
+								, frst_register_id
+								, frst_regist_pnttm
+								, last_updusr_id
+								, last_updt_pnttm
+					FROM comtninsttcoderecptnlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				occrrnc_de = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				instt_code LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+				ORDER BY 
+							occrrnc_de DESC
+							, instt_code DESC
+							, opert_sn DESC
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>
+
+	<select id="comtninsttcoderecptnlogDAO.selectComtninsttcoderecptnlogListTotCnt_S" parameterClass="ComtninsttcoderecptnlogVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtninsttcoderecptnlog
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				occrrnc_de = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				instt_code LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+	</select>
+
+</sqlMap>

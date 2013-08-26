@@ -1,0 +1,88 @@
+package kr.godsoft.egovframe.generatorwebapp.md_repoversions.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import kr.godsoft.egovframe.generatorwebapp.md_repoversions.service.MdRepoversionsVO;
+
+/**
+ * @Class Name : MdRepoversionsDAO.java
+ * @Description : MdRepoversions DAO Class
+ * @Modification Information
+ *
+ * @author 이백행
+ * @since 2012-03-30
+ * @version 1.0
+ * @see
+ *  
+ *  Copyright (C)  All right reserved.
+ */
+
+@Repository("mdRepoversionsDAO")
+public class MdRepoversionsDAO extends EgovAbstractDAO {
+
+	/**
+	 * MD_REPOVERSIONS을 등록한다.
+	 * @param vo - 등록할 정보가 담긴 MdRepoversionsVO
+	 * @return 등록 결과
+	 * @exception Exception
+	 */
+    public String insertMdRepoversions(MdRepoversionsVO vo) throws Exception {
+        return (String)insert("mdRepoversionsDAO.insertMdRepoversions_S", vo);
+    }
+
+    /**
+	 * MD_REPOVERSIONS을 수정한다.
+	 * @param vo - 수정할 정보가 담긴 MdRepoversionsVO
+	 * @return void형
+	 * @exception Exception
+	 */
+    public void updateMdRepoversions(MdRepoversionsVO vo) throws Exception {
+        update("mdRepoversionsDAO.updateMdRepoversions_S", vo);
+    }
+
+    /**
+	 * MD_REPOVERSIONS을 삭제한다.
+	 * @param vo - 삭제할 정보가 담긴 MdRepoversionsVO
+	 * @return void형 
+	 * @exception Exception
+	 */
+    public void deleteMdRepoversions(MdRepoversionsVO vo) throws Exception {
+        delete("mdRepoversionsDAO.deleteMdRepoversions_S", vo);
+    }
+
+    /**
+	 * MD_REPOVERSIONS을 조회한다.
+	 * @param vo - 조회할 정보가 담긴 MdRepoversionsVO
+	 * @return 조회한 MD_REPOVERSIONS
+	 * @exception Exception
+	 */
+    public MdRepoversionsVO selectMdRepoversions(MdRepoversionsVO vo) throws Exception {
+        return (MdRepoversionsVO) selectByPk("mdRepoversionsDAO.selectMdRepoversions_S", vo);
+    }
+
+    /**
+	 * MD_REPOVERSIONS 목록을 조회한다.
+	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @return MD_REPOVERSIONS 목록
+	 * @exception Exception
+	 */
+	@SuppressWarnings("unchecked")
+    public List<EgovMap> selectMdRepoversionsList(MdRepoversionsVO vo) throws Exception {
+        return list("mdRepoversionsDAO.selectMdRepoversionsList_D", vo);
+    }
+
+    /**
+	 * MD_REPOVERSIONS 총 갯수를 조회한다.
+	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @return MD_REPOVERSIONS 총 갯수
+	 * @exception
+	 */
+    public int selectMdRepoversionsListTotCnt(MdRepoversionsVO vo) {
+        return (Integer)getSqlMapClientTemplate().queryForObject("mdRepoversionsDAO.selectMdRepoversionsListTotCnt_S", vo);
+    }
+
+}

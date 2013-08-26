@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnroleinfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnroleinfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoVO"/>
+	
+	<resultMap id="comtnroleinfo" class="kr.godsoft.egovframe.generatorwebapp.comtnroleinfo.service.ComtnroleinfoVO">
+		<result property="roleCode" column="role_code" columnIndex="1"/>
+		<result property="roleNm" column="role_nm" columnIndex="2"/>
+		<result property="rolePttrn" column="role_pttrn" columnIndex="3"/>
+		<result property="roleDc" column="role_dc" columnIndex="4"/>
+		<result property="roleTy" column="role_ty" columnIndex="5"/>
+		<result property="roleSort" column="role_sort" columnIndex="6"/>
+		<result property="roleCreatDe" column="role_creat_de" columnIndex="7"/>
+	</resultMap>
+	
+	<insert id="comtnroleinfoDAO.insertComtnroleinfo_S">
+		<![CDATA[
+            INSERT INTO comtnroleinfo (
+                role_code
+                , role_nm
+                , role_pttrn
+                , role_dc
+                , role_ty
+                , role_sort
+                , role_creat_de
+            ) VALUES (
+                #roleCode#
+                , #roleNm#
+                , #rolePttrn#
+                , #roleDc#
+                , #roleTy#
+                , #roleSort#
+                , #roleCreatDe#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnroleinfoDAO.updateComtnroleinfo_S">
+		<![CDATA[
+            UPDATE comtnroleinfo
+                SET
+                role_code = #roleCode#
+                , role_nm = #roleNm#
+                , role_pttrn = #rolePttrn#
+                , role_dc = #roleDc#
+                , role_ty = #roleTy#
+                , role_sort = #roleSort#
+                , role_creat_de = #roleCreatDe#
+                WHERE 1 = 1
+                AND role_code = #roleCode#
+		]]>
+	</update>
+	
+	<delete id="comtnroleinfoDAO.deleteComtnroleinfo_S">
+		<![CDATA[
+			DELETE FROM comtnroleinfo
+				WHERE 1 = 1
+				AND role_code = #roleCode#
+		]]>
+	</delete>
+	
+	<select id="comtnroleinfoDAO.selectComtnroleinfo_S" resultMap="comtnroleinfo">
+		<![CDATA[
+			SELECT
+				role_code
+				, role_nm
+				, role_pttrn
+				, role_dc
+				, role_ty
+				, role_sort
+				, role_creat_de
+			FROM comtnroleinfo
+			WHERE role_code = #roleCode#
+		]]>
+	</select>
+	
+	<select id="comtnroleinfoDAO.selectComtnroleinfoList_D" parameterClass="ComtnroleinfoVO" resultClass="egovMap">
+			SELECT
+								role_code
+								, role_nm
+								, role_pttrn
+								, role_dc
+								, role_ty
+								, role_sort
+								, role_creat_de
+					FROM comtnroleinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				role_code = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				role_nm LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+				ORDER BY 
+							role_code DESC
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>
+
+	<select id="comtnroleinfoDAO.selectComtnroleinfoListTotCnt_S" parameterClass="ComtnroleinfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnroleinfo
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				role_code = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				role_nm LIKE CONCAT('%',#searchKeyword#,'%')
+			</isEqual>
+	</select>
+
+</sqlMap>

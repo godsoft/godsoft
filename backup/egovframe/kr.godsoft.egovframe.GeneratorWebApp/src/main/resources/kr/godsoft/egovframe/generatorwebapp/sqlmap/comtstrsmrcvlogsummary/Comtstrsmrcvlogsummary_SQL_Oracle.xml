@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtstrsmrcvlogsummary">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtstrsmrcvlogsummaryVO" type="kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryVO"/>
+	
+	<resultMap id="comtstrsmrcvlogsummary" class="kr.godsoft.egovframe.generatorwebapp.comtstrsmrcvlogsummary.service.ComtstrsmrcvlogsummaryVO">
+		<result property="occrrncDe" column="occrrnc_de" columnIndex="1"/>
+		<result property="trsmrcvSeCode" column="trsmrcv_se_code" columnIndex="2"/>
+		<result property="provdInsttId" column="provd_instt_id" columnIndex="3"/>
+		<result property="provdSysId" column="provd_sys_id" columnIndex="4"/>
+		<result property="provdSvcId" column="provd_svc_id" columnIndex="5"/>
+		<result property="requstInsttId" column="requst_instt_id" columnIndex="6"/>
+		<result property="requstSysId" column="requst_sys_id" columnIndex="7"/>
+		<result property="rdcnt" column="rdcnt" columnIndex="8"/>
+		<result property="errorCo" column="error_co" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="comtstrsmrcvlogsummaryDAO.insertComtstrsmrcvlogsummary_S">
+		<![CDATA[
+            INSERT INTO comtstrsmrcvlogsummary (
+                occrrnc_de
+                , trsmrcv_se_code
+                , provd_instt_id
+                , provd_sys_id
+                , provd_svc_id
+                , requst_instt_id
+                , requst_sys_id
+                , rdcnt
+                , error_co
+            ) VALUES (
+                #occrrncDe#
+                , #trsmrcvSeCode#
+                , #provdInsttId#
+                , #provdSysId#
+                , #provdSvcId#
+                , #requstInsttId#
+                , #requstSysId#
+                , #rdcnt#
+                , #errorCo#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtstrsmrcvlogsummaryDAO.updateComtstrsmrcvlogsummary_S">
+		<![CDATA[
+            UPDATE comtstrsmrcvlogsummary
+                SET
+                occrrnc_de = #occrrncDe#
+                , trsmrcv_se_code = #trsmrcvSeCode#
+                , provd_instt_id = #provdInsttId#
+                , provd_sys_id = #provdSysId#
+                , provd_svc_id = #provdSvcId#
+                , requst_instt_id = #requstInsttId#
+                , requst_sys_id = #requstSysId#
+                , rdcnt = #rdcnt#
+                , error_co = #errorCo#
+                WHERE 1 = 1
+                AND occrrnc_de = #occrrncDe#
+                AND trsmrcv_se_code = #trsmrcvSeCode#
+                AND provd_instt_id = #provdInsttId#
+                AND provd_sys_id = #provdSysId#
+                AND provd_svc_id = #provdSvcId#
+                AND requst_instt_id = #requstInsttId#
+                AND requst_sys_id = #requstSysId#
+		]]>
+	</update>
+	
+	<delete id="comtstrsmrcvlogsummaryDAO.deleteComtstrsmrcvlogsummary_S">
+		<![CDATA[
+			DELETE FROM comtstrsmrcvlogsummary
+				WHERE 1 = 1
+				AND occrrnc_de = #occrrncDe#
+				AND trsmrcv_se_code = #trsmrcvSeCode#
+				AND provd_instt_id = #provdInsttId#
+				AND provd_sys_id = #provdSysId#
+				AND provd_svc_id = #provdSvcId#
+				AND requst_instt_id = #requstInsttId#
+				AND requst_sys_id = #requstSysId#
+		]]>
+	</delete>
+	
+	<select id="comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummary_S" resultMap="comtstrsmrcvlogsummary">
+		<![CDATA[
+			SELECT
+				occrrnc_de
+				, trsmrcv_se_code
+				, provd_instt_id
+				, provd_sys_id
+				, provd_svc_id
+				, requst_instt_id
+				, requst_sys_id
+				, rdcnt
+				, error_co
+			FROM COMTSTRSMRCVLOGSUMMARY
+			WHERE occrrnc_de = #occrrncDe#
+				AND trsmrcv_se_code = #trsmrcvSeCode#
+				AND provd_instt_id = #provdInsttId#
+				AND provd_sys_id = #provdSysId#
+				AND provd_svc_id = #provdSvcId#
+				AND requst_instt_id = #requstInsttId#
+				AND requst_sys_id = #requstSysId#
+		]]>
+	</select>
+	
+	<select id="comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummaryList_D" parameterClass="ComtstrsmrcvlogsummaryVO" resultClass="egovMap">
+	       SELECT 
+								A.OCCRRNC_DE
+								, A.TRSMRCV_SE_CODE
+								, A.PROVD_INSTT_ID
+								, A.PROVD_SYS_ID
+								, A.PROVD_SVC_ID
+								, A.REQUST_INSTT_ID
+								, A.REQUST_SYS_ID
+								, A.RDCNT
+								, A.ERROR_CO
+			       FROM
+            (
+				SELECT
+								OCCRRNC_DE
+								, TRSMRCV_SE_CODE
+								, PROVD_INSTT_ID
+								, PROVD_SYS_ID
+								, PROVD_SVC_ID
+								, REQUST_INSTT_ID
+								, REQUST_SYS_ID
+								, RDCNT
+								, ERROR_CO
+							, ROWNUM
+				FROM COMTSTRSMRCVLOGSUMMARY
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					OCCRRNC_DE = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					TRSMRCV_SE_CODE LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							OCCRRNC_DE DESC
+							, TRSMRCV_SE_CODE DESC
+							, PROVD_INSTT_ID DESC
+							, PROVD_SYS_ID DESC
+							, PROVD_SVC_ID DESC
+							, REQUST_INSTT_ID DESC
+							, REQUST_SYS_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtstrsmrcvlogsummaryDAO.selectComtstrsmrcvlogsummaryListTotCnt_S" parameterClass="ComtstrsmrcvlogsummaryVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTSTRSMRCVLOGSUMMARY
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OCCRRNC_DE = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				TRSMRCV_SE_CODE LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

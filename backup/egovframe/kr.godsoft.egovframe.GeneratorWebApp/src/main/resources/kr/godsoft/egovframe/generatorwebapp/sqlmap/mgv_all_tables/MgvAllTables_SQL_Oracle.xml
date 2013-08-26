@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MgvAllTables">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MgvAllTablesVO" type="kr.godsoft.egovframe.generatorwebapp.mgv_all_tables.service.MgvAllTablesVO"/>
+	
+	<resultMap id="mgvAllTables" class="kr.godsoft.egovframe.generatorwebapp.mgv_all_tables.service.MgvAllTablesVO">
+		<result property="projectId" column="project_id" columnIndex="1"/>
+		<result property="projectName" column="project_name" columnIndex="2"/>
+		<result property="connectionId" column="connection_id" columnIndex="3"/>
+		<result property="host" column="host" columnIndex="4"/>
+		<result property="port" column="port" columnIndex="5"/>
+		<result property="username" column="username" columnIndex="6"/>
+		<result property="dburl" column="dburl" columnIndex="7"/>
+		<result property="catalogId" column="catalog_id" columnIndex="8"/>
+		<result property="catalogName" column="catalog_name" columnIndex="9"/>
+		<result property="schemaId" column="schema_id" columnIndex="10"/>
+		<result property="schemaName" column="schema_name" columnIndex="11"/>
+		<result property="tableId" column="table_id" columnIndex="12"/>
+		<result property="tableName" column="table_name" columnIndex="13"/>
+	</resultMap>
+	
+	<insert id="mgvAllTablesDAO.insertMgvAllTables_S">
+		<![CDATA[
+            INSERT INTO mgv_all_tables (
+                project_id
+                , project_name
+                , connection_id
+                , host
+                , port
+                , username
+                , dburl
+                , catalog_id
+                , catalog_name
+                , schema_id
+                , schema_name
+                , table_id
+                , table_name
+            ) VALUES (
+                #projectId#
+                , #projectName#
+                , #connectionId#
+                , #host#
+                , #port#
+                , #username#
+                , #dburl#
+                , #catalogId#
+                , #catalogName#
+                , #schemaId#
+                , #schemaName#
+                , #tableId#
+                , #tableName#
+            )
+		]]>
+	</insert>
+	
+	<update id="mgvAllTablesDAO.updateMgvAllTables_S">
+		<![CDATA[
+            UPDATE mgv_all_tables
+                SET
+                project_id = #projectId#
+                , project_name = #projectName#
+                , connection_id = #connectionId#
+                , host = #host#
+                , port = #port#
+                , username = #username#
+                , dburl = #dburl#
+                , catalog_id = #catalogId#
+                , catalog_name = #catalogName#
+                , schema_id = #schemaId#
+                , schema_name = #schemaName#
+                , table_id = #tableId#
+                , table_name = #tableName#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="mgvAllTablesDAO.deleteMgvAllTables_S">
+		<![CDATA[
+			DELETE FROM mgv_all_tables
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="mgvAllTablesDAO.selectMgvAllTables_S" resultMap="mgvAllTables">
+		<![CDATA[
+			SELECT
+				project_id
+				, project_name
+				, connection_id
+				, host
+				, port
+				, username
+				, dburl
+				, catalog_id
+				, catalog_name
+				, schema_id
+				, schema_name
+				, table_id
+				, table_name
+			FROM MGV_ALL_TABLES
+		]]>
+	</select>
+	
+	<select id="mgvAllTablesDAO.selectMgvAllTablesList_D" parameterClass="MgvAllTablesVO" resultClass="egovMap">
+	       SELECT 
+								A.PROJECT_ID
+								, A.PROJECT_NAME
+								, A.CONNECTION_ID
+								, A.HOST
+								, A.PORT
+								, A.USERNAME
+								, A.DBURL
+								, A.CATALOG_ID
+								, A.CATALOG_NAME
+								, A.SCHEMA_ID
+								, A.SCHEMA_NAME
+								, A.TABLE_ID
+								, A.TABLE_NAME
+			       FROM
+            (
+				SELECT
+								PROJECT_ID
+								, PROJECT_NAME
+								, CONNECTION_ID
+								, HOST
+								, PORT
+								, USERNAME
+								, DBURL
+								, CATALOG_ID
+								, CATALOG_NAME
+								, SCHEMA_ID
+								, SCHEMA_NAME
+								, TABLE_ID
+								, TABLE_NAME
+							, ROWNUM
+				FROM MGV_ALL_TABLES
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					PROJECT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PROJECT_NAME LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mgvAllTablesDAO.selectMgvAllTablesListTotCnt_S" parameterClass="MgvAllTablesVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MGV_ALL_TABLES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROJECT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROJECT_NAME LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

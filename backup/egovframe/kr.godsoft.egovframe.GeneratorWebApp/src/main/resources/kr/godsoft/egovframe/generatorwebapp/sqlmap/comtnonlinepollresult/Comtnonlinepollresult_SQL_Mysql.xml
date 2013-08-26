@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnonlinepollresult">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="comtnonlinepollresultSerarchVO" type="kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultDefaultVO"/>
+	
+	<resultMap id="comtnonlinepollresult" class="kr.godsoft.egovframe.generatorwebapp.comtnonlinepollresult.service.ComtnonlinepollresultVO">
+		<result property="pollResultId" column="POLL_RESULT_ID" columnIndex="1"/> <!--  -->
+		<result property="frstRegisterId" column="FRST_REGISTER_ID" columnIndex="2"/> <!--  -->
+		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM" columnIndex="3"/> <!--  -->
+		<result property="lastUpdusrId" column="LAST_UPDUSR_ID" columnIndex="4"/> <!--  -->
+		<result property="lastUpdtPnttm" column="LAST_UPDT_PNTTM" columnIndex="5"/> <!--  -->
+		<result property="pollIemId" column="POLL_IEM_ID" columnIndex="6"/> <!--  -->
+		<result property="pollId" column="POLL_ID" columnIndex="7"/> <!--  -->
+	</resultMap>
+	
+	<insert id="comtnonlinepollresultDAO.insertComtnonlinepollresult_S">
+		<![CDATA[
+			INSERT INTO comtnonlinepollresult 
+				( POLL_RESULT_ID /*  */
+				  , FRST_REGISTER_ID /*  */
+				  , FRST_REGIST_PNTTM /*  */
+				  , LAST_UPDUSR_ID /*  */
+				  , LAST_UPDT_PNTTM /*  */
+				  , POLL_IEM_ID /*  */
+				  , POLL_ID /*  */ )
+			VALUES ( #pollResultId# /*  */
+					  , #frstRegisterId# /*  */
+						  , SYSDATE() /*  */
+						  , #lastUpdusrId# /*  */
+						  , SYSDATE() /*  */
+						  , #pollIemId# /*  */
+					  , #pollId# /*  */ )
+		]]>
+	</insert>
+	
+	<update id="comtnonlinepollresultDAO.updateComtnonlinepollresult_S">
+		<![CDATA[
+			UPDATE comtnonlinepollresult
+			SET POLL_RESULT_ID=#pollResultId# /*  */
+				, FRST_REGISTER_ID=#frstRegisterId# /*  */
+				, FRST_REGIST_PNTTM=#frstRegistPnttm# /*  */
+				, LAST_UPDUSR_ID=#lastUpdusrId# /*  */
+				, LAST_UPDT_PNTTM=#lastUpdtPnttm# /*  */
+				, POLL_IEM_ID=#pollIemId# /*  */
+				, POLL_ID=#pollId# /*  */
+			WHERE POLL_RESULT_ID=#pollResultId# /*  */
+				AND POLL_IEM_ID=#pollIemId# /*  */
+				AND POLL_ID=#pollId# /*  */
+		]]>
+	</update>
+	
+	<delete id="comtnonlinepollresultDAO.deleteComtnonlinepollresult_S">
+		<![CDATA[
+			DELETE FROM comtnonlinepollresult 
+			WHERE POLL_RESULT_ID=#pollResultId# /*  */
+				AND POLL_IEM_ID=#pollIemId# /*  */
+				AND POLL_ID=#pollId# /*  */
+		]]>
+	</delete>
+	
+	<select id="comtnonlinepollresultDAO.selectComtnonlinepollresult_S" resultMap="comtnonlinepollresult">
+		<![CDATA[
+			SELECT
+				POLL_RESULT_ID /*  */
+				, FRST_REGISTER_ID /*  */
+				, FRST_REGIST_PNTTM /*  */
+				, LAST_UPDUSR_ID /*  */
+				, LAST_UPDT_PNTTM /*  */
+				, POLL_IEM_ID /*  */
+				, POLL_ID /*  */
+			FROM comtnonlinepollresult
+			WHERE POLL_RESULT_ID=#pollResultId# /*  */
+				AND POLL_IEM_ID=#pollIemId# /*  */
+				AND POLL_ID=#pollId# /*  */
+		]]>
+	</select>
+	
+	<select id="comtnonlinepollresultDAO.selectComtnonlinepollresultList_D" parameterClass="comtnonlinepollresultSerarchVO" resultClass="egovMap">
+			SELECT
+								POLL_RESULT_ID /*  */
+								, FRST_REGISTER_ID /*  */
+								, FRST_REGIST_PNTTM /*  */
+								, LAST_UPDUSR_ID /*  */
+								, LAST_UPDT_PNTTM /*  */
+								, POLL_IEM_ID /*  */
+								, POLL_ID /*  */
+					FROM comtnonlinepollresult
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				POLL_RESULT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FRST_REGISTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+				ORDER BY 
+							POLL_RESULT_ID DESC /*  */
+							, POLL_IEM_ID DESC /*  */
+							, POLL_ID DESC /*  */
+					limit #firstIndex#, #recordCountPerPage#	
+	</select>	
+	<select id="comtnonlinepollresultDAO.selectComtnonlinepollresultListTotCnt_S" parameterClass="comtnonlinepollresultSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM comtnonlinepollresult
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				POLL_RESULT_ID = #searchKeyword# /*  */
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				FRST_REGISTER_ID LIKE CONCAT('%',#searchKeyword#,'%') /*  */
+			</isEqual>
+	</select>
+
+</sqlMap>

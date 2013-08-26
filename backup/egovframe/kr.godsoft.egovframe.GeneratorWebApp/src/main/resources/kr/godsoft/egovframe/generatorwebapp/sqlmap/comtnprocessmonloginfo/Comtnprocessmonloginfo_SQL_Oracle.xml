@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Comtnprocessmonloginfo">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="ComtnprocessmonloginfoVO" type="kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO"/>
+	
+	<resultMap id="comtnprocessmonloginfo" class="kr.godsoft.egovframe.generatorwebapp.comtnprocessmonloginfo.service.ComtnprocessmonloginfoVO">
+		<result property="procsId" column="procs_id" columnIndex="1"/>
+		<result property="procsNm" column="procs_nm" columnIndex="2"/>
+		<result property="procsSttus" column="procs_sttus" columnIndex="3"/>
+		<result property="creatDt" column="creat_dt" columnIndex="4"/>
+		<result property="logInfo" column="log_info" columnIndex="5"/>
+		<result property="mngrNm" column="mngr_nm" columnIndex="6"/>
+		<result property="mngrEmailAdres" column="mngr_email_adres" columnIndex="7"/>
+		<result property="frstRegisterId" column="frst_register_id" columnIndex="8"/>
+		<result property="frstRegistPnttm" column="frst_regist_pnttm" columnIndex="9"/>
+		<result property="lastUpdusrId" column="last_updusr_id" columnIndex="10"/>
+		<result property="lastUpdtPnttm" column="last_updt_pnttm" columnIndex="11"/>
+		<result property="logId" column="log_id" columnIndex="12"/>
+	</resultMap>
+	
+	<insert id="comtnprocessmonloginfoDAO.insertComtnprocessmonloginfo_S">
+		<![CDATA[
+            INSERT INTO comtnprocessmonloginfo (
+                procs_id
+                , procs_nm
+                , procs_sttus
+                , creat_dt
+                , log_info
+                , mngr_nm
+                , mngr_email_adres
+                , frst_register_id
+                , frst_regist_pnttm
+                , log_id
+            ) VALUES (
+                #procsId#
+                , #procsNm#
+                , #procsSttus#
+                , #creatDt#
+                , #logInfo#
+                , #mngrNm#
+                , #mngrEmailAdres#
+                , #frstRegisterId#
+                , SYSDATE
+                , #logId#
+            )
+		]]>
+	</insert>
+	
+	<update id="comtnprocessmonloginfoDAO.updateComtnprocessmonloginfo_S">
+		<![CDATA[
+            UPDATE comtnprocessmonloginfo
+                SET
+                procs_id = #procsId#
+                , procs_nm = #procsNm#
+                , procs_sttus = #procsSttus#
+                , creat_dt = #creatDt#
+                , log_info = #logInfo#
+                , mngr_nm = #mngrNm#
+                , mngr_email_adres = #mngrEmailAdres#
+                , last_updusr_id = #lastUpdusrId#
+                , last_updt_pnttm = SYSDATE
+                , log_id = #logId#
+                WHERE 1 = 1
+                AND procs_id = #procsId#
+                AND log_id = #logId#
+		]]>
+	</update>
+	
+	<delete id="comtnprocessmonloginfoDAO.deleteComtnprocessmonloginfo_S">
+		<![CDATA[
+			DELETE FROM comtnprocessmonloginfo
+				WHERE 1 = 1
+				AND procs_id = #procsId#
+				AND log_id = #logId#
+		]]>
+	</delete>
+	
+	<select id="comtnprocessmonloginfoDAO.selectComtnprocessmonloginfo_S" resultMap="comtnprocessmonloginfo">
+		<![CDATA[
+			SELECT
+				procs_id
+				, procs_nm
+				, procs_sttus
+				, creat_dt
+				, log_info
+				, mngr_nm
+				, mngr_email_adres
+				, frst_register_id
+				, frst_regist_pnttm
+				, last_updusr_id
+				, last_updt_pnttm
+				, log_id
+			FROM COMTNPROCESSMONLOGINFO
+			WHERE procs_id = #procsId#
+				AND log_id = #logId#
+		]]>
+	</select>
+	
+	<select id="comtnprocessmonloginfoDAO.selectComtnprocessmonloginfoList_D" parameterClass="ComtnprocessmonloginfoVO" resultClass="egovMap">
+	       SELECT 
+								A.PROCS_ID
+								, A.PROCS_NM
+								, A.PROCS_STTUS
+								, A.CREAT_DT
+								, A.LOG_INFO
+								, A.MNGR_NM
+								, A.MNGR_EMAIL_ADRES
+								, A.FRST_REGISTER_ID
+								, A.FRST_REGIST_PNTTM
+								, A.LAST_UPDUSR_ID
+								, A.LAST_UPDT_PNTTM
+								, A.LOG_ID
+			       FROM
+            (
+				SELECT
+								PROCS_ID
+								, PROCS_NM
+								, PROCS_STTUS
+								, CREAT_DT
+								, LOG_INFO
+								, MNGR_NM
+								, MNGR_EMAIL_ADRES
+								, FRST_REGISTER_ID
+								, FRST_REGIST_PNTTM
+								, LAST_UPDUSR_ID
+								, LAST_UPDT_PNTTM
+								, LOG_ID
+							, ROWNUM
+				FROM COMTNPROCESSMONLOGINFO
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					PROCS_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PROCS_NM LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+							PROCS_ID DESC
+							, LOG_ID DESC
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="comtnprocessmonloginfoDAO.selectComtnprocessmonloginfoListTotCnt_S" parameterClass="ComtnprocessmonloginfoVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM COMTNPROCESSMONLOGINFO
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROCS_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROCS_NM LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>

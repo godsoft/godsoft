@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MgvAllCatalogs">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="MgvAllCatalogsVO" type="kr.godsoft.egovframe.generatorwebapp.mgv_all_catalogs.service.MgvAllCatalogsVO"/>
+	
+	<resultMap id="mgvAllCatalogs" class="kr.godsoft.egovframe.generatorwebapp.mgv_all_catalogs.service.MgvAllCatalogsVO">
+		<result property="projectId" column="project_id" columnIndex="1"/>
+		<result property="projectName" column="project_name" columnIndex="2"/>
+		<result property="connectionId" column="connection_id" columnIndex="3"/>
+		<result property="host" column="host" columnIndex="4"/>
+		<result property="port" column="port" columnIndex="5"/>
+		<result property="username" column="username" columnIndex="6"/>
+		<result property="dburl" column="dburl" columnIndex="7"/>
+		<result property="catalogId" column="catalog_id" columnIndex="8"/>
+		<result property="catalogName" column="catalog_name" columnIndex="9"/>
+	</resultMap>
+	
+	<insert id="mgvAllCatalogsDAO.insertMgvAllCatalogs_S">
+		<![CDATA[
+            INSERT INTO mgv_all_catalogs (
+                project_id
+                , project_name
+                , connection_id
+                , host
+                , port
+                , username
+                , dburl
+                , catalog_id
+                , catalog_name
+            ) VALUES (
+                #projectId#
+                , #projectName#
+                , #connectionId#
+                , #host#
+                , #port#
+                , #username#
+                , #dburl#
+                , #catalogId#
+                , #catalogName#
+            )
+		]]>
+	</insert>
+	
+	<update id="mgvAllCatalogsDAO.updateMgvAllCatalogs_S">
+		<![CDATA[
+            UPDATE mgv_all_catalogs
+                SET
+                project_id = #projectId#
+                , project_name = #projectName#
+                , connection_id = #connectionId#
+                , host = #host#
+                , port = #port#
+                , username = #username#
+                , dburl = #dburl#
+                , catalog_id = #catalogId#
+                , catalog_name = #catalogName#
+                WHERE 1 = 1
+
+		]]>
+	</update>
+	
+	<delete id="mgvAllCatalogsDAO.deleteMgvAllCatalogs_S">
+		<![CDATA[
+			DELETE FROM mgv_all_catalogs
+				WHERE 1 = 1
+		]]>
+	</delete>
+	
+	<select id="mgvAllCatalogsDAO.selectMgvAllCatalogs_S" resultMap="mgvAllCatalogs">
+		<![CDATA[
+			SELECT
+				project_id
+				, project_name
+				, connection_id
+				, host
+				, port
+				, username
+				, dburl
+				, catalog_id
+				, catalog_name
+			FROM MGV_ALL_CATALOGS
+		]]>
+	</select>
+	
+	<select id="mgvAllCatalogsDAO.selectMgvAllCatalogsList_D" parameterClass="MgvAllCatalogsVO" resultClass="egovMap">
+	       SELECT 
+								A.PROJECT_ID
+								, A.PROJECT_NAME
+								, A.CONNECTION_ID
+								, A.HOST
+								, A.PORT
+								, A.USERNAME
+								, A.DBURL
+								, A.CATALOG_ID
+								, A.CATALOG_NAME
+			       FROM
+            (
+				SELECT
+								PROJECT_ID
+								, PROJECT_NAME
+								, CONNECTION_ID
+								, HOST
+								, PORT
+								, USERNAME
+								, DBURL
+								, CATALOG_ID
+								, CATALOG_NAME
+							, ROWNUM
+				FROM MGV_ALL_CATALOGS
+				WHERE 1=1
+				<isEqual prepend="AND" property="searchCondition" compareValue="0">
+					PROJECT_ID = #searchKeyword#
+				</isEqual>
+					<isEqual prepend="AND" property="searchCondition" compareValue="1">
+					PROJECT_NAME LIKE '%' || #searchKeyword# || '%'
+				</isEqual>
+						ORDER BY 
+					) A
+			WHERE ROWNUM BETWEEN #firstIndex# AND #recordCountPerPage#
+	</select>
+
+	<select id="mgvAllCatalogsDAO.selectMgvAllCatalogsListTotCnt_S" parameterClass="MgvAllCatalogsVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM MGV_ALL_CATALOGS
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				PROJECT_ID = #searchKeyword#
+			</isEqual>
+				<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				PROJECT_NAME LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+		</select>
+
+</sqlMap>
