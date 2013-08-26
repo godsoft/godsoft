@@ -26,6 +26,6 @@ public class SampleDAOTest {
 		searchVO.setRecordCountPerPage(10);
 		searchVO.setFirstIndex(0);
 
-		System.out.println(sampleDAO.selectSampleList(searchVO));
+		sampleDAO.selectSampleList(searchVO);
 	}
 }
