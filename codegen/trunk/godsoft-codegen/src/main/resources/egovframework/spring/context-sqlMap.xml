@@ -11,7 +11,7 @@
 		<property name="configLocations">
 			<list>
 				<value>classpath:/egovframework/sqlmap/rte/sql-map-config.xml</value>
-				<value>classpath:/godsoft/sqlmap/codegen/*.xml</value>
+				<value>classpath:godsoft/sqlmap/codegen/*.xml</value>
 			</list>
 		</property>
 
