@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="AllTabComments">
+
+	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" />
+	<typeAlias alias="oracleVO" type="godsoft.codegen.cmm.OracleVO" />
+
+	<select id="allTabCommentsDAO.selectAllTabCommentsList" parameterClass="oracleVO" resultClass="egovMap">
+		SELECT
+			*
+		FROM all_tab_comments
+		WHERE 1 = 1
+
+		<isNotEmpty property="owner">
+			AND owner = #owner#
+		</isNotEmpty>
+
+		<isNotEmpty property="tableNames">
+			<iterate close=")" conjunction="," open="(" prepend="AND table_name IN" property="tableNames">
+				#tableNames[]#
+			</iterate>
+		</isNotEmpty>
+
+		ORDER BY
+			table_name
+	</select>
+
+</sqlMap>
