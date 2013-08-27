@@ -15,8 +15,6 @@
  */
 package egovframework.dev.imp.codegen.template.model;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-
 /**
  *
  * 엔티티 정보 클래스
@@ -38,9 +36,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  */
 public class Entity extends DbModelElement {
 
-	private String tableName;
-	private String tableComments;
-
 	/**
 	 *
 	 * 생성자
@@ -50,6 +45,9 @@ public class Entity extends DbModelElement {
 	public Entity(String name) {
 		super(name);
 	}
+
+	private String tableName;
+	private String tableComments;
 
 	public String getTableName() {
 		return tableName;
@@ -65,10 +63,6 @@ public class Entity extends DbModelElement {
 
 	public void setTableComments(String tableComments) {
 		this.tableComments = tableComments;
-	}
-
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
 	}
 
 }

@@ -10,8 +10,6 @@ public class OracleVO {
 
 	private String owner;
 
-	//	private List<String> tableNames;
-
 	private List<Entity> tableNames;
 
 	public String getOwner() {
@@ -21,14 +19,6 @@ public class OracleVO {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-
-	//	public List<String> getTableNames() {
-	//		return tableNames;
-	//	}
-	//
-	//	public void setTableNames(List<String> tableNames) {
-	//		this.tableNames = tableNames;
-	//	}
 
 	public List<Entity> getTableNames() {
 		return tableNames;
