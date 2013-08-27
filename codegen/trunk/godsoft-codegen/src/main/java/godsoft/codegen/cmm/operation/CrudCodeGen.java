@@ -4,6 +4,8 @@ import godsoft.codegen.cmm.model.DataModelContext;
 
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.velocity.Template;
@@ -46,6 +48,14 @@ public class CrudCodeGen {
 		//		context.put("createDate", dataModel.getCreateDate());
 		//		context.put("author", dataModel.getAuthor());
 
+		//		String servicePackage = getServicePackage(dataModel);
+		//		String serviceImplPackage = getServiceImplPackage(dataModel);
+		Map<String, Object> packageMap = getPackageMap(dataModel);
+		context.put("voPackage", packageMap.get("service"));
+
+		context.put("author", dataModel.getAuthor());
+		context.put("createDate", dataModel.getCreateDate());
+
 		Template template = null;
 
 		try {
@@ -62,5 +72,54 @@ public class CrudCodeGen {
 
 		template.merge(context, writer);
 	}
+
+	//	private String getServicePackage(DataModelContext dataModel) throws Exception {
+	//		StringBuilder sb = new StringBuilder();
+	//
+	//		sb.append(dataModel.getPackageName());
+	//		sb.append(".");
+	//		sb.append(dataModel.getEntity().getLcName());
+	//		sb.append(".service");
+	//
+	//		return sb.toString();
+	//	}
+
+	private Map<String, Object> getPackageMap(DataModelContext dataModel) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("service", String.format("%s.%s.service", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
+
+		map.put("serviceImpl", String.format("%s.%s.service.impl", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
+
+		map.put("controller", String.format("%s.%s.web", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
+
+		return map;
+	}
+
+	//	private String getServicePackage(DataModelContext dataModel) throws Exception {
+	//		return String.format("%s.%s.service", dataModel.getPackageName(), dataModel.getEntity().getLcName());
+	//	}
+
+	//	private String getServiceImplPackage(DataModelContext dataModel) throws Exception {
+	//		StringBuilder sb = new StringBuilder();
+	//
+	//		sb.append(dataModel.getPackageName());
+	//		sb.append(".");
+	//		sb.append(dataModel.getEntity().getLcName());
+	//		sb.append(".service.impl");
+	//
+	//		return sb.toString();
+	//	}
+	//
+	//	private String getControllerPackage(DataModelContext dataModel) throws Exception {
+	//		StringBuilder sb = new StringBuilder();
+	//
+	//		sb.append(dataModel.getPackageName());
+	//		sb.append(".");
+	//		sb.append(dataModel.getEntity().getLcName());
+	//		sb.append(".web");
+	//
+	//		return sb.toString();
+	//	}
 
 }
