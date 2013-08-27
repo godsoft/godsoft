@@ -35,8 +35,6 @@ public class AllTabColsDAOTest {
 		entity.setTableName("IDS");
 		tableNames.add(entity);
 
-		System.out.println("entity=" + entity);
-
 		entity = new Entity("SAMPLE001");
 		entity.setTableName("SAMPLE");
 		tableNames.add(entity);

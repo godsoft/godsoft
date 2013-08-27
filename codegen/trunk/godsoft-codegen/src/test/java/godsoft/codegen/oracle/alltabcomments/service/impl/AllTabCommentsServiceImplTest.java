@@ -1,8 +1,8 @@
-package godsoft.codegen.oracle.alltabcols.service.impl;
+package godsoft.codegen.oracle.alltabcomments.service.impl;
 
 import godsoft.codegen.cmm.OracleVO;
 import godsoft.codegen.cmm.model.Entity;
-import godsoft.codegen.oracle.alltabcols.service.AllTabColsService;
+import godsoft.codegen.oracle.alltabcomments.service.AllTabCommentsService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +20,13 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(locations = { "classpath:egovframework/spring/core-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
 @Transactional
-public class AllTabColsServiceImplTest {
+public class AllTabCommentsServiceImplTest {
 
-	@Resource(name = "allTabColsService")
-	private AllTabColsService allTabColsService;
+	@Resource(name = "allTabCommentsService")
+	private AllTabCommentsService allTabCommentsService;
 
 	@Test
-	public void selectAllTabColsList() throws Exception {
+	public void selectAllTabCommentsList004() throws Exception {
 		OracleVO oracleVO = new OracleVO();
 		oracleVO.setOwner("RTE");
 
@@ -42,7 +42,7 @@ public class AllTabColsServiceImplTest {
 
 		oracleVO.setTableNames(tableNames);
 
-		allTabColsService.selectAllTabColsList(oracleVO);
+		allTabCommentsService.selectAllTabCommentsList(oracleVO);
 	}
 
 }
