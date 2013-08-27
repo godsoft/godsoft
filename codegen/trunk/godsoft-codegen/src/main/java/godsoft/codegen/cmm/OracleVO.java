@@ -1,10 +1,10 @@
 package godsoft.codegen.cmm;
 
+import godsoft.codegen.cmm.model.Entity;
+
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-
-import egovframework.dev.imp.codegen.template.model.Entity;
 
 public class OracleVO {
 
