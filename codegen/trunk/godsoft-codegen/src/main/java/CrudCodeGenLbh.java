@@ -129,7 +129,7 @@ public class CrudCodeGenLbh {
 		String templateFile = "";
 		String data = "";
 
-		Map<String, Object> pathnameMap = CodeGenUtils.getPathnameMap(dataModel);
+		Map<String, Object> pathnameMap = CodeGenUtils.pathnameMap(dataModel);
 
 		templateFile = String.format("eGovFrameTemplates/%s/java/pkg/service/Sample2VO.vm", template);
 		data = crudCodeGen.generate(dataModel, templateFile);

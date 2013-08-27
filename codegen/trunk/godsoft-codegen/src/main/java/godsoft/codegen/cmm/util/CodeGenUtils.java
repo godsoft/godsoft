@@ -27,7 +27,7 @@ public class CodeGenUtils {
 		return s;
 	}
 
-	public static Map<String, Object> getPathnameMap(DataModelContext dataModel) throws Exception {
+	public static Map<String, Object> pathnameMap(DataModelContext dataModel) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		String format = "%s/src/main/java/%s/%s/service/%sVO.java";

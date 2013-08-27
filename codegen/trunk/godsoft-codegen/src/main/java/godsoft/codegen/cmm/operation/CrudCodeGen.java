@@ -48,9 +48,7 @@ public class CrudCodeGen {
 		//		context.put("createDate", dataModel.getCreateDate());
 		//		context.put("author", dataModel.getAuthor());
 
-		//		String servicePackage = getServicePackage(dataModel);
-		//		String serviceImplPackage = getServiceImplPackage(dataModel);
-		Map<String, Object> packageMap = getPackageMap(dataModel);
+		Map<String, Object> packageMap = packageMap(dataModel);
 		context.put("voPackage", packageMap.get("service"));
 
 		context.put("author", dataModel.getAuthor());
@@ -73,18 +71,7 @@ public class CrudCodeGen {
 		template.merge(context, writer);
 	}
 
-	//	private String getServicePackage(DataModelContext dataModel) throws Exception {
-	//		StringBuilder sb = new StringBuilder();
-	//
-	//		sb.append(dataModel.getPackageName());
-	//		sb.append(".");
-	//		sb.append(dataModel.getEntity().getLcName());
-	//		sb.append(".service");
-	//
-	//		return sb.toString();
-	//	}
-
-	private Map<String, Object> getPackageMap(DataModelContext dataModel) throws Exception {
+	private Map<String, Object> packageMap(DataModelContext dataModel) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		map.put("service", String.format("%s.%s.service", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
@@ -95,31 +82,5 @@ public class CrudCodeGen {
 
 		return map;
 	}
-
-	//	private String getServicePackage(DataModelContext dataModel) throws Exception {
-	//		return String.format("%s.%s.service", dataModel.getPackageName(), dataModel.getEntity().getLcName());
-	//	}
-
-	//	private String getServiceImplPackage(DataModelContext dataModel) throws Exception {
-	//		StringBuilder sb = new StringBuilder();
-	//
-	//		sb.append(dataModel.getPackageName());
-	//		sb.append(".");
-	//		sb.append(dataModel.getEntity().getLcName());
-	//		sb.append(".service.impl");
-	//
-	//		return sb.toString();
-	//	}
-	//
-	//	private String getControllerPackage(DataModelContext dataModel) throws Exception {
-	//		StringBuilder sb = new StringBuilder();
-	//
-	//		sb.append(dataModel.getPackageName());
-	//		sb.append(".");
-	//		sb.append(dataModel.getEntity().getLcName());
-	//		sb.append(".web");
-	//
-	//		return sb.toString();
-	//	}
 
 }
