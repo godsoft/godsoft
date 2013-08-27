@@ -14,7 +14,7 @@ public class CrudCodeGenLbh {
 	private String configLocation = "classpath:egovframework/spring/core-context.xml";
 	private ApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
 
-	private AllTabCommentsService allTabCommentsService = (AllTabCommentsService) context.getBean("godsoft.codegen.oracle.alltabcomments.service.allTabCommentsService");
+	private AllTabCommentsService allTabCommentsService = (AllTabCommentsService) context.getBean("allTabCommentsService");
 
 	//			AllTabColsDAO allTabColsDAO = (AllTabColsDAO) context.getBean("allTabColsDAO");
 	//	private AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) context.getBean("godsoft.codegen.oracle.alltabcomments.service.impl.allTabCommentsDAO");

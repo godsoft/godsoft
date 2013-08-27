@@ -11,10 +11,10 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.cmm.OracleVO;
 import godsoft.codegen.oracle.alltabcomments.service.AllTabCommentsService;
 
-@Service("godsoft.codegen.oracle.alltabcomments.service.allTabCommentsService")
+@Service("allTabCommentsService")
 public class AllTabCommentsServiceImpl extends AbstractServiceImpl implements AllTabCommentsService {
 
-	@Resource(name = "godsoft.codegen.oracle.alltabcomments.service.impl.allTabCommentsDAO")
+	@Resource(name = "allTabCommentsDAO")
 	private AllTabCommentsDAO allTabCommentsDAO;
 
 	public List<EgovMap> selectAllTabCommentsList(OracleVO oracleVO) throws Exception {
