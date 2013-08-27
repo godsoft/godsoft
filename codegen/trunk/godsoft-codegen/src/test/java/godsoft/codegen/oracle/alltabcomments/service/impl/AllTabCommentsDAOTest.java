@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AllTabCommentsDAOTest {
 
-	@Resource(name = "allTabCommentsDAO")
+	@Resource(name = "godsoft.codegen.oracle.alltabcomments.service.impl.allTabCommentsDAO")
 	private AllTabCommentsDAO allTabCommentsDAO;
 
 	@Test

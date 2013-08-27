@@ -8,7 +8,7 @@ import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.cmm.OracleVO;
 
-@Repository("allTabCommentsDAO")
+@Repository("godsoft.codegen.oracle.alltabcomments.service.impl.allTabCommentsDAO")
 public class AllTabCommentsDAO extends EgovAbstractDAO {
 
 	@SuppressWarnings("unchecked")
