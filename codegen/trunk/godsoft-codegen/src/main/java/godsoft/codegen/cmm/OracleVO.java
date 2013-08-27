@@ -4,11 +4,15 @@ import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+import egovframework.dev.imp.codegen.template.model.Entity;
+
 public class OracleVO {
 
 	private String owner;
 
-	private List<String> tableNames;
+	//	private List<String> tableNames;
+
+	private List<Entity> tableNames;
 
 	public String getOwner() {
 		return owner;
@@ -18,11 +22,19 @@ public class OracleVO {
 		this.owner = owner;
 	}
 
-	public List<String> getTableNames() {
+	//	public List<String> getTableNames() {
+	//		return tableNames;
+	//	}
+	//
+	//	public void setTableNames(List<String> tableNames) {
+	//		this.tableNames = tableNames;
+	//	}
+
+	public List<Entity> getTableNames() {
 		return tableNames;
 	}
 
-	public void setTableNames(List<String> tableNames) {
+	public void setTableNames(List<Entity> tableNames) {
 		this.tableNames = tableNames;
 	}
 

@@ -27,4 +27,9 @@ public class AllTabCommentsDAO extends EgovAbstractDAO {
 		return list("allTabCommentsDAO.selectAllTabCommentsList.003", parameterObject);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> selectAllTabCommentsList004(OracleVO oracleVO) throws Exception {
+		return list("allTabCommentsDAO.selectAllTabCommentsList.004", oracleVO);
+	}
+
 }
