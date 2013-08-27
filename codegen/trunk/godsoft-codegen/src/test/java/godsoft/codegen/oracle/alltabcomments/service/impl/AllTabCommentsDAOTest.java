@@ -1,7 +1,7 @@
 package godsoft.codegen.oracle.alltabcomments.service.impl;
 
-import egovframework.dev.imp.codegen.template.model.Entity;
 import godsoft.codegen.cmm.OracleVO;
+import godsoft.codegen.cmm.model.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
