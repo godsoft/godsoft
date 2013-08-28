@@ -81,6 +81,8 @@ public class CrudCodeGenLbh {
 		List<EgovMap> allTabComments = allTabCommentsService.selectAllTabCommentsList(oracleVO);
 		List<EgovMap> allTabCols = allTabColsService.selectAllTabColsList(oracleVO);
 
+		List<DataModelContext> dataModels = new ArrayList<DataModelContext>();
+
 		for (Entity entity : oracleVO.getTableNames()) {
 			DataModelContext dataModel = dataModel();
 
@@ -117,7 +119,11 @@ public class CrudCodeGenLbh {
 			dataModel.setPrimaryKeys(primaryKeys);
 
 			generateCom(dataModel);
+
+			dataModels.add(dataModel);
 		}
+
+		generateCom(dataModels);
 	}
 
 	private void generateCom(DataModelContext dataModel) throws Exception {
@@ -131,6 +137,17 @@ public class CrudCodeGenLbh {
 		FileUtils.writeStringToFile(pathnameCom.getDao(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/Sample2DAO.vm"));
 
 		FileUtils.writeStringToFile(pathnameCom.getDaoTest(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/DAOTest.vm"));
+	}
+
+	private void generateCom(List<DataModelContext> dataModels) throws Exception {
+		DataModelContext dataModel = dataModel();
+		dataModel.setDataModels(dataModels);
+
+		//		PathnameCom pathnameCom = new PathnameCom(dataModel, dataModels);
+		PathnameCom pathnameCom = new PathnameCom(dataModel);
+		CrudCodeGen crudCodeGen = new CrudCodeGen();
+
+		FileUtils.writeStringToFile(pathnameCom.getSqlMapConfig(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/resource/pkg/sqlMapConfig.vm"));
 	}
 
 }

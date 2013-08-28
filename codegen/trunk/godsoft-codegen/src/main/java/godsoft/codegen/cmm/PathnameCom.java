@@ -13,18 +13,30 @@ public class PathnameCom {
 		setSqlMap(dataModel);
 		setDao(dataModel);
 		setDaoTest(dataModel);
+		setSqlMapConfig(dataModel);
 	}
+
+	//	public PathnameCom(DataModelContext dataModel, List<DataModelContext> dataModels) {
+	//		dataModel.setDataModels(dataModels);
+	//
+	//		setSqlMapConfig(dataModel);
+	//	}
 
 	private File vo;
 	private File sqlMap;
 	private File dao;
 	private File daoTest;
+	private File sqlMapConfig;
 
 	public File getVo() {
 		return vo;
 	}
 
 	public void setVo(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
 		String format = "%s/src/main/java/%s/%s/service/%sVO.java";
 
 		List<String> args = new ArrayList<String>();
@@ -41,6 +53,10 @@ public class PathnameCom {
 	}
 
 	public void setSqlMap(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(dataModel.getProjectName());
@@ -70,6 +86,10 @@ public class PathnameCom {
 	}
 
 	public void setDao(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
 		String format = "%s/src/main/java/%s/%s/service/impl/%sDAO.java";
 
 		List<String> args = new ArrayList<String>();
@@ -86,6 +106,10 @@ public class PathnameCom {
 	}
 
 	public void setDaoTest(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
 		String format = "%s/src/test/java/%s/%s/service/impl/%sDAOTest.java";
 
 		List<String> args = new ArrayList<String>();
@@ -95,6 +119,35 @@ public class PathnameCom {
 		args.add(dataModel.getEntity().getPcName());
 
 		this.daoTest = new File(String.format(format, args.toArray()));
+	}
+
+	public File getSqlMapConfig() {
+		return sqlMapConfig;
+	}
+
+	public void setSqlMapConfig(DataModelContext dataModel) {
+		String[] packageNames = dataModel.getPackageName().split("\\.");
+
+		String vender = dataModel.getVender().toLowerCase();
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(dataModel.getProjectName());
+		sb.append("/src/main/resources/");
+		sb.append(packageNames[0]);
+		sb.append("/sqlmap/config/");
+		sb.append(vender);
+		sb.append("/sql-map-config-");
+		sb.append(vender);
+
+		for (int i = 1; i < packageNames.length; i++) {
+			sb.append("-");
+			sb.append(packageNames[i]);
+		}
+
+		sb.append(".xml");
+
+		this.sqlMapConfig = new File(sb.toString());
 	}
 
 }

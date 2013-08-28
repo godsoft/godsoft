@@ -58,6 +58,8 @@ public class DataModelContext {
 
 	private String projectName;
 
+	private List<DataModelContext> dataModels;
+
 	/**
 	 * 데이타베이스 제품명
 	 * @return
@@ -172,6 +174,14 @@ public class DataModelContext {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public List<DataModelContext> getDataModels() {
+		return dataModels;
+	}
+
+	public void setDataModels(List<DataModelContext> dataModels) {
+		this.dataModels = dataModels;
 	}
 
 	public String toString() {
