@@ -36,7 +36,7 @@ public class ${voClassName} extends ComDefaultVO {
 #set($i=0)
 #foreach($attribute in $model.attributes)
 	/**
-	 * ${attribute.columnComments}
+	 * ${attribute.columnComments} 값읽기
 	 *
 	 * @return
 	 */
@@ -45,7 +45,7 @@ public class ${voClassName} extends ComDefaultVO {
 	}
 
 	/**
-	 * ${attribute.columnComments}
+	 * ${attribute.columnComments} 값설정
 	 *
 	 * @param ${attribute.ccName}
 	 */

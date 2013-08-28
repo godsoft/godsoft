@@ -50,6 +50,7 @@ public class CrudCodeGen {
 
 		Map<String, Object> packageMap = packageMap(dataModel);
 		context.put("voPackage", packageMap.get("service"));
+		context.put("daoPackage", packageMap.get("serviceImpl"));
 
 		context.put("author", dataModel.getAuthor());
 		context.put("createDate", dataModel.getCreateDate());

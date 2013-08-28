@@ -11,10 +11,12 @@ public class PathnameCom {
 	public PathnameCom(DataModelContext dataModel) {
 		setVo(dataModel);
 		setSqlMap(dataModel);
+		setDao(dataModel);
 	}
 
 	private File vo;
 	private File sqlMap;
+	private File dao;
 
 	public File getVo() {
 		return vo;
@@ -59,6 +61,22 @@ public class PathnameCom {
 		sb.append("_SQL_Oracle.xml");
 
 		this.sqlMap = new File(sb.toString());
+	}
+
+	public File getDao() {
+		return dao;
+	}
+
+	public void setDao(DataModelContext dataModel) {
+		String format = "%s/src/main/java/%s/%s/service/impl/%sDAO.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.dao = new File(String.format(format, args.toArray()));
 	}
 
 }

@@ -22,6 +22,7 @@
 #set($selectQueryId="${daoInstanceName}.select${model.entity.pcName}")
 #set($selectListQueryId="${daoInstanceName}.select${model.entity.pcName}List")
 #set($selectListTotCntQueryId="${daoInstanceName}.select${model.entity.pcName}ListTotCnt")
+#set($selectListWhereQueryId="${daoInstanceName}.select${model.entity.pcName}List.where")
 ##
 ##
 <?xml version="1.0" encoding="UTF-8"?>
@@ -45,7 +46,7 @@
 ## ##################################################################################################
 	<insert id="${insertQueryId}" parameterClass="${voClassNameAlias}">
 		/* ${insertQueryId} */
-		/* ${model.entity.tableComments} 저장 */
+		/* ${model.entity.tableComments} 등록 */
 		INSERT INTO ${model.entity.tableName} (
 #set($i=0)
 #foreach($attribute in $model.attributes)
@@ -106,56 +107,73 @@
 
 ## ##################################################################################################
 	<delete id="${deleteQueryId}" parameterClass="${voClassNameAlias}">
-		<![CDATA[
-			DELETE FROM ${model.entity.name}
+		/* ${deleteQueryId} */
+		/* ${model.entity.tableComments} 삭제 */
+		DELETE FROM ${model.entity.tableName}
 #if(!${model.primaryKeys} == [])
                 WHERE ${model.attributes.get(0).name}=#${model.attributes.get(0).ccName}#
 #else
-	#set($i=0)
-	#foreach($attribute in $model.primaryKeys)
-	#if($i == 0)
-				WHERE ${attribute.name}=#${attribute.ccName}#
-	#else
-					AND ${attribute.name}=#${attribute.ccName}#
-	#end
-	#set($i=$i+1)
-	#end
-#end
-		]]>
-	</delete>
-
-## ##################################################################################################
-	<select id="${selectQueryId}" resultMap="$resultMapId">
-		<![CDATA[
-			SELECT
 #set($i=0)
-#foreach($attribute in $model.attributes)
+#foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-				${attribute.name}
+		WHERE ${attribute.lcName} = #${attribute.ccName}# /* ${attribute.columnComments} */
 #else
-				, ${attribute.name}
+		AND ${attribute.lcName} = #${attribute.ccName}# /* ${attribute.columnComments} */
 #end
 #set($i=$i+1)
 #end
-			FROM ${model.entity.name}
+#end
+	</delete>
+
+## ##################################################################################################
+	<select id="${selectQueryId}" parameterClass="${voClassNameAlias}" resultClass="${voClassNameAlias}">
+		/* ${selectQueryId} */
+		/* ${model.entity.tableComments} 조회(단건) */
+		SELECT
+#set($i=0)
+#foreach($attribute in $model.attributes)
+#if($i == 0)
+			${attribute.lcName} AS ${attribute.ccName} /* ${attribute.columnComments} */
+#else
+			, ${attribute.lcName} AS ${attribute.ccName} /* ${attribute.columnComments} */
+#end
+#set($i=$i+1)
+#end
+		FROM ${model.entity.tableName}
 #if(!${model.primaryKeys} == [])
                 WHERE ${model.attributes.get(0).name}=#${model.attributes.get(0).ccName}#
 #else
-	#set($i=0)
-	#foreach($attribute in $model.primaryKeys)
-	#if($i == 0)
-				WHERE ${attribute.name}=#${attribute.ccName}#
-	#else
-					AND ${attribute.name}=#${attribute.ccName}#
-	#end
-	#set($i=$i+1)
-	#end
+#set($i=0)
+#foreach($attribute in $model.primaryKeys)
+#if($i == 0)
+		WHERE ${attribute.lcName} = #${attribute.ccName}# /* ${attribute.columnComments} */
+#else
+		AND ${attribute.lcName} = #${attribute.ccName}# /* ${attribute.columnComments} */
 #end
-		]]>
+#set($i=$i+1)
+#end
+#end
 	</select>
 
 ## ##################################################################################################
+	<sql id="${selectListWhereQueryId}">
+		/* ${selectListWhereQueryId} */
+		/* ${model.entity.tableComments} 목록 조건 */
+		WHERE 1 = 1
+#foreach($attribute in $model.attributes)
+
+		<isNotEmpty property="${attribute.ccName}">
+			<![CDATA[
+				AND ${attribute.lcName} = #${attribute.ccName}# /* ${attribute.columnComments} */
+			]]>
+		</isNotEmpty>
+#end
+	</sql>
+
+## ##################################################################################################
 	<select id="${selectListQueryId}" parameterClass="${voClassNameAlias}" resultClass="egovMap">
+		/* ${selectListQueryId} */
+		/* ${model.entity.tableComments} 조회(멀티건) */
 #if($vender == "HSQLDB")
 			SELECT
 	#set($i=0)
@@ -191,45 +209,20 @@
 #end
 			LIMIT #recordCountPerPage# OFFSET #firstIndex#
 #elseif($vender == "Oracle")
-SELECT * FROM (
-	SELECT A.*, ROWNUM RNUM FROM (
-				SELECT
-	#set($i=0)
-	#foreach($attribute in $model.attributes)
-	#if($i == 0)
-					${attribute.name}
-	#else
-					, ${attribute.name}
-	#end
-	#set($i=$i+1)
-	#end
-				FROM ${model.entity.name}
-				WHERE 1=1
-				<isEqual prepend="AND" property="searchCondition" compareValue="0">
-					${model.attributes.get(0).name} = #searchKeyword#
-				</isEqual>
-				<isEqual prepend="AND" property="searchCondition" compareValue="1">
-					${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-				</isEqual>
-					ORDER BY
-#if(!${model.primaryKeys} == [])
-                ${model.attributes.get(0).name} DESC
+		SELECT * FROM (SELECT ROWNUM AS rn, tb.* FROM (
+			SELECT
+#set($i=0)
+#foreach($attribute in $model.attributes)
+#if($i == 0)
+				${attribute.lcName} /* ${attribute.columnComments} */
 #else
-	#set($i=0)
-	#foreach($attribute in $model.primaryKeys)
-	#if($i == 0)
-				${attribute.name} DESC
-	#else
-				, ${attribute.name} DESC
-	#end
-	#set($i=$i+1)
-	#end
+				, ${attribute.lcName} /* ${attribute.columnComments} */
 #end
-
-		<![CDATA[
-	) A WHERE ROWNUM <= #lastIndex#
-)WHERE RNUM > #firstIndex#
-]]>
+#set($i=$i+1)
+#end
+			FROM ${model.entity.tableName}
+		<include refid="${selectListWhereQueryId}" />
+		) tb) WHERE rn BETWEEN #firstIndex# + 1 AND #firstIndex# + #recordCountPerPage#
 #elseif($vender == "MySql")
 			SELECT
 	#set($i=0)
@@ -268,8 +261,11 @@ SELECT * FROM (
 
 #end
 	</select>
+
 ## ##################################################################################################
 	<select id="${selectListTotCntQueryId}" parameterClass="${voClassNameAlias}" resultClass="int">
+		/* ${selectListTotCntQueryId} */
+		/* ${model.entity.tableComments} 목록 총 카운트 */
 #if($vender == "HSQLDB")
 			SELECT COUNT(*) totcnt
 			FROM ${model.entity.name}
@@ -281,15 +277,9 @@ SELECT * FROM (
 				${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
 			</isEqual>
 #elseif($vender == "Oracle")
-			SELECT COUNT(*) totcnt
-			FROM ${model.entity.name}
-			WHERE 1=1
-			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				${model.attributes.get(0).name} = #searchKeyword#
-			</isEqual>
-			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-			</isEqual>
+		SELECT COUNT(*)
+		FROM ${model.entity.tableName}
+		<include refid="${selectListWhereQueryId}" />
 #elseif($vender == "MySql")
 			SELECT COUNT(*) totcnt
 			FROM ${model.entity.name}
