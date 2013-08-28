@@ -25,7 +25,7 @@
             <ref bean="messageSource" />
         </property>
     </bean>
-    
+
 	<!-- 실행환경에서 빈 이름 참조(AbstractServiceImpl) -->
 	<bean id="leaveaTrace" class="egovframework.rte.fdl.cmmn.trace.LeaveaTrace">
 		<property name="traceHandlerServices">
@@ -73,7 +73,7 @@
     <!-- alias name="local.MultiCommonsMultipartResolver" alias="multipartResolver" /-->
     <alias name="spring.RegularCommonsMultipartResolver" alias="multipartResolver" />
 
-	<context:component-scan base-package="egovframework">
+	<context:component-scan base-package="egovframework, godsoft">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
