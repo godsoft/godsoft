@@ -9,7 +9,7 @@ package $voPackage;
 import egovframework.com.cmm.ComDefaultVO;
 
 /**
- * ${model.entity.tableComments}
+ * ${model.entity.tableComments} VO
  *
  * @Class Name : ${voClassName}.java
  * @Description : ${model.entity.pcName} VO class

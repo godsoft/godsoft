@@ -12,11 +12,13 @@ public class PathnameCom {
 		setVo(dataModel);
 		setSqlMap(dataModel);
 		setDao(dataModel);
+		setDaoTest(dataModel);
 	}
 
 	private File vo;
 	private File sqlMap;
 	private File dao;
+	private File daoTest;
 
 	public File getVo() {
 		return vo;
@@ -77,6 +79,22 @@ public class PathnameCom {
 		args.add(dataModel.getEntity().getPcName());
 
 		this.dao = new File(String.format(format, args.toArray()));
+	}
+
+	public File getDaoTest() {
+		return daoTest;
+	}
+
+	public void setDaoTest(DataModelContext dataModel) {
+		String format = "%s/src/test/java/%s/%s/service/impl/%sDAOTest.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.daoTest = new File(String.format(format, args.toArray()));
 	}
 
 }

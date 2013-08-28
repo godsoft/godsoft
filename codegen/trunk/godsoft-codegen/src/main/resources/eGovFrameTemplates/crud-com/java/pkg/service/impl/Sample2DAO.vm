@@ -38,7 +38,7 @@ import ${voPackage}.${voClassName};
 ##import ${voPackage}.${defaultVoClassName};
 
 /**
- * ${model.entity.tableComments}
+ * ${model.entity.tableComments} DAO
  *
  * @Class Name : ${daoClassName}.java
  * @Description : ${model.entity.pcName} DAO Class

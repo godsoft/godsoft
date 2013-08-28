@@ -129,6 +129,8 @@ public class CrudCodeGenLbh {
 		FileUtils.writeStringToFile(pathnameCom.getSqlMap(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/resource/pkg/EgovSample_Sample2_SQL.vm"));
 
 		FileUtils.writeStringToFile(pathnameCom.getDao(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/Sample2DAO.vm"));
+
+		FileUtils.writeStringToFile(pathnameCom.getDaoTest(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/DAOTest.vm"));
 	}
 
 }
