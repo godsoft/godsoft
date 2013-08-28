@@ -68,17 +68,21 @@ public class CrudCodeGen {
 		} catch (Exception e) {
 		}
 
-		template.merge(context, writer);
+		if (template != null) {
+			template.merge(context, writer);
+		}
 	}
 
 	private Map<String, Object> packageMap(DataModelContext dataModel) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 
-		map.put("service", String.format("%s.%s.service", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
+		String entity = dataModel.getEntity().getLcName().replaceAll("_", "");
 
-		map.put("serviceImpl", String.format("%s.%s.service.impl", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
+		map.put("service", String.format("%s.%s.service", dataModel.getPackageName(), entity));
 
-		map.put("controller", String.format("%s.%s.web", dataModel.getPackageName(), dataModel.getEntity().getLcName()));
+		map.put("serviceImpl", String.format("%s.%s.service.impl", dataModel.getPackageName(), entity));
+
+		map.put("controller", String.format("%s.%s.web", dataModel.getPackageName(), entity));
 
 		return map;
 	}

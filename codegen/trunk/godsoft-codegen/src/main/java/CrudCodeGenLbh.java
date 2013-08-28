@@ -1,5 +1,6 @@
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.cmm.OracleVO;
+import godsoft.codegen.cmm.PathnameCom;
 import godsoft.codegen.cmm.model.Attribute;
 import godsoft.codegen.cmm.model.DataModelContext;
 import godsoft.codegen.cmm.model.Entity;
@@ -8,10 +9,8 @@ import godsoft.codegen.cmm.util.CodeGenUtils;
 import godsoft.codegen.oracle.alltabcols.service.AllTabColsService;
 import godsoft.codegen.oracle.alltabcomments.service.AllTabCommentsService;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.io.FileUtils;
@@ -39,7 +38,7 @@ public class CrudCodeGenLbh {
 	private OracleVO oracleVO() throws Exception {
 		OracleVO oracleVO = new OracleVO();
 
-		oracleVO.setOwner("RTE");
+		oracleVO.setOwner("TEST");
 
 		// tableNames
 		List<Entity> tableNames = new ArrayList<Entity>();
@@ -50,7 +49,7 @@ public class CrudCodeGenLbh {
 		//		entity.setTableName("IDS");
 		//		tableNames.add(entity);
 
-		entity = new Entity("SAMPLE001");
+		entity = new Entity("TEST_SAMPLE");
 		entity.setTableName("SAMPLE");
 		tableNames.add(entity);
 
@@ -64,7 +63,7 @@ public class CrudCodeGenLbh {
 
 		dataModel.setVender("Oracle");
 
-		dataModel.setPackageName("godsoft.sample");
+		dataModel.setPackageName("godsoft.samples");
 		//		dataModel.setPackageName("godsoft.sample.jqgrid");
 		//		dataModel.setPackageName("godsoft.sample.extjs");
 
@@ -86,7 +85,7 @@ public class CrudCodeGenLbh {
 			DataModelContext dataModel = dataModel();
 
 			entity.setTableName(entity.getTableName().toLowerCase());
-			entity.setTableComments(allTabCommentsService.getTableComments(allTabComments, entity.getTableName()));
+			entity.setTableComments(allTabCommentsService.getTableComments(allTabComments, entity.getTableName().toUpperCase()));
 
 			dataModel.setEntity(entity);
 
@@ -95,7 +94,7 @@ public class CrudCodeGenLbh {
 
 			for (EgovMap allTabCol : allTabCols) {
 				if (entity.getTableName().equalsIgnoreCase((String) allTabCol.get("tableName"))) {
-					String columnName = (String) allTabCol.get("columnName");
+					//					String columnName = (String) allTabCol.get("columnName");
 					String dataType = (String) allTabCol.get("dataType");
 					int dataLength = MapUtils.getIntValue(allTabCol, "dataLength", 0);
 					String columnComments = (String) allTabCol.get("columnComments");
@@ -104,8 +103,8 @@ public class CrudCodeGenLbh {
 					Attribute attribute = new Attribute((String) allTabCol.get("columnName"));
 					attribute.setJavaType(CodeGenUtils.getDataType(dataType));
 					attribute.setPrimaryKey((position > 0) ? true : false);
-					//					attribute.setDataLength(dataLength);
-					//					attribute.setColumnComments(columnComments);
+					attribute.setDataLength(dataLength);
+					attribute.setColumnComments(columnComments);
 					attributes.add(attribute);
 
 					if (position > 0) {
@@ -117,11 +116,11 @@ public class CrudCodeGenLbh {
 			dataModel.setAttributes(attributes);
 			dataModel.setPrimaryKeys(primaryKeys);
 
-			generate(dataModel);
+			generateCom(dataModel);
 		}
 	}
 
-	private void generate(DataModelContext dataModel) throws Exception {
+	private void generateCom(DataModelContext dataModel) throws Exception {
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
 		String template = "crud-godsoft";
@@ -129,11 +128,15 @@ public class CrudCodeGenLbh {
 		String templateFile = "";
 		String data = "";
 
-		Map<String, Object> pathnameMap = CodeGenUtils.pathnameMap(dataModel);
+		PathnameCom pathnameCom = new PathnameCom(dataModel);
 
 		templateFile = String.format("eGovFrameTemplates/%s/java/pkg/service/Sample2VO.vm", template);
 		data = crudCodeGen.generate(dataModel, templateFile);
-		FileUtils.writeStringToFile(new File((String) pathnameMap.get("vo")), data);
+		FileUtils.writeStringToFile(pathnameCom.getVo(), data);
+
+		templateFile = String.format("eGovFrameTemplates/%s/resource/pkg/EgovSample_Sample2_SQL.vm", template);
+		data = crudCodeGen.generate(dataModel, templateFile);
+		FileUtils.writeStringToFile(pathnameCom.getSqlMap(), data);
 	}
 
 }
