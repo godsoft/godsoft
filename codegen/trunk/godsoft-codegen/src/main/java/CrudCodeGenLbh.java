@@ -123,7 +123,7 @@ public class CrudCodeGenLbh {
 	private void generateCom(DataModelContext dataModel) throws Exception {
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
-		String template = "crud-godsoft";
+		String template = "crud-com";
 
 		String templateFile = "";
 		String data = "";
