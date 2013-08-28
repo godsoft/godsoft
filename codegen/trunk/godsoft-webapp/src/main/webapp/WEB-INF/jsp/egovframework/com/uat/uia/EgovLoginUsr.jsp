@@ -159,10 +159,38 @@ function fnInit() {
     //document.loginForm.rdoSlctUsr.focus();
 }
 
+function fn_godsoft_login(userSe) {
+	if (userSe == "GNR") {
+		// 일반회원
+		document.loginForm.id.value = "USER";
+		document.loginForm.password.value = "rhdxhd12";
+
+		document.loginForm.userSe.value = "GNR";
+	} else if (userSe == "ENT") {
+		// 기업회원
+		document.loginForm.id.value = "ENTERPRISE";
+		document.loginForm.password.value = "rhdxhd12";
+
+		document.loginForm.userSe.value = "ENT";
+	} else if (userSe == "USR") {
+		// 업무사용자
+		document.loginForm.id.value = "TEST1";
+		document.loginForm.password.value = "rhdxhd12";
+
+		document.loginForm.userSe.value = "USR";
+	}
+
+	actionLogin();
+}
 </script>
 </head>
 <body onLoad="fnInit();">
-<!--
+
+<input type="button" value="일반" onclick="fn_godsoft_login('GNR')" />
+<input type="button" value="기업" onclick="fn_godsoft_login('ENT')" />
+<input type="button" value="업무" onclick="fn_godsoft_login('USR')" />
+
+				<!--
     <div id="gnb">
     <div id="top_logo"><img src="/images/egovframework/com/main_top.gif" alt="egovframe" /></div>
     </div>-->
@@ -356,7 +384,7 @@ function fnInit() {
 <!-- bottom -->
     <div id="new_footer_login">
     	<ul>
-        
+
     	</ul>
     </div>
 
