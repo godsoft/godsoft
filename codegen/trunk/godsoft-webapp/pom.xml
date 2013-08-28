@@ -542,11 +542,11 @@
 		</dependency>
 
 		<!-- mysql -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.17</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
+		<!-- <version>5.1.17</version> -->
+		<!-- </dependency> -->
 
 		<!-- hsqldb driver -->
 		<!--
@@ -559,13 +559,13 @@
 
 		<!-- 3rd party 라이브러리로 별도의 설치 필요 -->
 		<!-- oracle 10g driver -->
-		<!--
-			<dependency>
+		<!-- -->
+		<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>14</version>
-			</dependency>
-		-->
+		</dependency>
+
 		<!-- altibase driver -->
 		<!--
 			<dependency>
