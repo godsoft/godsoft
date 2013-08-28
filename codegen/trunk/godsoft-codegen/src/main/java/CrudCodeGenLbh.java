@@ -121,22 +121,12 @@ public class CrudCodeGenLbh {
 	}
 
 	private void generateCom(DataModelContext dataModel) throws Exception {
+		PathnameCom pathnameCom = new PathnameCom(dataModel);
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
-		String template = "crud-com";
+		FileUtils.writeStringToFile(pathnameCom.getVo(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/Sample2VO.vm"));
 
-		String templateFile = "";
-		String data = "";
-
-		PathnameCom pathnameCom = new PathnameCom(dataModel);
-
-		templateFile = String.format("eGovFrameTemplates/%s/java/pkg/service/Sample2VO.vm", template);
-		data = crudCodeGen.generate(dataModel, templateFile);
-		FileUtils.writeStringToFile(pathnameCom.getVo(), data);
-
-		templateFile = String.format("eGovFrameTemplates/%s/resource/pkg/EgovSample_Sample2_SQL.vm", template);
-		data = crudCodeGen.generate(dataModel, templateFile);
-		FileUtils.writeStringToFile(pathnameCom.getSqlMap(), data);
+		FileUtils.writeStringToFile(pathnameCom.getSqlMap(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/resource/pkg/EgovSample_Sample2_SQL.vm"));
 	}
 
 }
