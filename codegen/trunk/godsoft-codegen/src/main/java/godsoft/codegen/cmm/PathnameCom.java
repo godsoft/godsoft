@@ -19,6 +19,7 @@ public class PathnameCom {
 		setService(dataModel);
 		setServiceImpl(dataModel);
 		setServiceImplTest(dataModel);
+		setController(dataModel);
 	}
 
 	private File vo;
@@ -29,6 +30,7 @@ public class PathnameCom {
 	private File service;
 	private File serviceImpl;
 	private File serviceImplTest;
+	private File controller;
 
 	public File getVo() {
 		return vo;
@@ -231,6 +233,26 @@ public class PathnameCom {
 		args.add(dataModel.getEntity().getPcName());
 
 		this.serviceImplTest = new File(String.format(format, args.toArray()));
+	}
+
+	public File getController() {
+		return controller;
+	}
+
+	public void setController(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
+		String format = "%s/src/main/java/%s/%s/web/%sController.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.controller = new File(String.format(format, args.toArray()));
 	}
 
 }

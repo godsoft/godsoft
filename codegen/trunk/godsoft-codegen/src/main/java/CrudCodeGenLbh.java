@@ -146,6 +146,8 @@ public class CrudCodeGenLbh {
 		FileUtils.writeStringToFile(pathnameCom.getServiceImpl(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/EgovSample2ServiceImpl.vm"));
 
 		FileUtils.writeStringToFile(pathnameCom.getServiceImplTest(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/ServiceImplTest.vm"));
+
+		FileUtils.writeStringToFile(pathnameCom.getController(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/web/EgovSample2Controller.vm"));
 	}
 
 	private void generateCom(List<DataModelContext> dataModels) throws Exception {

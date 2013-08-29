@@ -53,6 +53,7 @@ public class CrudCodeGen {
 		context.put("daoPackage", packageMap.get("serviceImpl"));
 		context.put("servicePackage", packageMap.get("service"));
 		context.put("implPackage", packageMap.get("serviceImpl"));
+		context.put("controllerPackage", packageMap.get("controller"));
 
 		context.put("author", dataModel.getAuthor());
 		context.put("createDate", dataModel.getCreateDate());
