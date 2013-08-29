@@ -18,6 +18,7 @@ public class PathnameCom {
 
 		setService(dataModel);
 		setServiceImpl(dataModel);
+		setServiceImplTest(dataModel);
 	}
 
 	private File vo;
@@ -27,6 +28,7 @@ public class PathnameCom {
 	private File sqlMapConfig;
 	private File service;
 	private File serviceImpl;
+	private File serviceImplTest;
 
 	public File getVo() {
 		return vo;
@@ -209,6 +211,26 @@ public class PathnameCom {
 		args.add(dataModel.getEntity().getPcName());
 
 		this.serviceImpl = new File(String.format(format, args.toArray()));
+	}
+
+	public File getServiceImplTest() {
+		return serviceImplTest;
+	}
+
+	public void setServiceImplTest(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
+		String format = "%s/src/test/java/%s/%s/service/impl/%sServiceImplTest.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.serviceImplTest = new File(String.format(format, args.toArray()));
 	}
 
 }
