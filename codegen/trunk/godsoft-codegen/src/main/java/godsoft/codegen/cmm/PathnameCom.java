@@ -150,4 +150,25 @@ public class PathnameCom {
 		this.sqlMapConfig = new File(sb.toString());
 	}
 
+	public static String getSqlMap(DataModelContext dataModel) {
+		String[] packageNames = dataModel.getPackageName().split("\\.");
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(packageNames[0]);
+		sb.append("/sqlmap/");
+
+		for (int i = 1; i < packageNames.length; i++) {
+			sb.append(packageNames[i]);
+			sb.append("/");
+		}
+
+		sb.append(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		sb.append("/");
+		sb.append(dataModel.getEntity().getPcName());
+		sb.append("_SQL_Oracle.xml");
+
+		return sb.toString();
+	}
+
 }

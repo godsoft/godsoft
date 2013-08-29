@@ -64,9 +64,9 @@ public class ${daoClassName} {
 
 	@Test
 	public void test() throws Exception {
-		//		${insertMethodName}();
-		//		${updateMethodName}();
-		//		${deleteMethodName}();
+		${insertMethodName}();
+		${updateMethodName}();
+		${deleteMethodName}();
 		${selectMethodName}();
 		${selectListMethodName}();
 		${selectListTotCntMethodName}();
@@ -107,9 +107,7 @@ public class ${daoClassName} {
 #end
 #end
 
-		int updateRows = ${daoInstanceName}.${updateMethodName}(${voInstanceName});
-
-		System.out.println(updateRows);
+		${daoInstanceName}.${updateMethodName}(${voInstanceName});
 	}
 
 ##	@Test
@@ -123,9 +121,7 @@ public class ${daoClassName} {
 #end
 #end
 
-		int deleteRows = ${daoInstanceName}.${deleteMethodName}(${voInstanceName});
-
-		System.out.println(deleteRows);
+		${daoInstanceName}.${deleteMethodName}(${voInstanceName});
 	}
 
 ##	@Test

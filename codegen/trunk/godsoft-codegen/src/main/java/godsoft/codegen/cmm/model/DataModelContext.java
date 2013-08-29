@@ -59,6 +59,7 @@ public class DataModelContext {
 	private String projectName;
 
 	private List<DataModelContext> dataModels;
+	private String sqlMapResource;
 
 	/**
 	 * 데이타베이스 제품명
@@ -182,6 +183,14 @@ public class DataModelContext {
 
 	public void setDataModels(List<DataModelContext> dataModels) {
 		this.dataModels = dataModels;
+	}
+
+	public String getSqlMapResource() {
+		return sqlMapResource;
+	}
+
+	public void setSqlMapResource(String sqlMapResource) {
+		this.sqlMapResource = sqlMapResource;
 	}
 
 	public String toString() {

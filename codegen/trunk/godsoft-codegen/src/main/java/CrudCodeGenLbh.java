@@ -120,6 +120,9 @@ public class CrudCodeGenLbh {
 
 			generateCom(dataModel);
 
+			// dataModels
+			dataModel.setSqlMapResource(PathnameCom.getSqlMap(dataModel));
+
 			dataModels.add(dataModel);
 		}
 
@@ -143,7 +146,6 @@ public class CrudCodeGenLbh {
 		DataModelContext dataModel = dataModel();
 		dataModel.setDataModels(dataModels);
 
-		//		PathnameCom pathnameCom = new PathnameCom(dataModel, dataModels);
 		PathnameCom pathnameCom = new PathnameCom(dataModel);
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
