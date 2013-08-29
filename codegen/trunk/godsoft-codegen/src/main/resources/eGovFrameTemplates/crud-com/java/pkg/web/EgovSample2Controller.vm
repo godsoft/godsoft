@@ -41,18 +41,18 @@ package ${controllerPackage};
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+#if (${voPackage}=='${voPackage}')
+// Vo 객체에 대한 import 구문
+// import (vo package).${defaultVoClassName};
+// import (vo package).${voClassName};
+#else
+import ${voPackage}.${defaultVoClassName};
 #if (${servicePackage}=='${servicePackage}')
 // Servoce 객체에 대한 import 구문
 // import (service package).${serviceClassName};
 #else
 import ${servicePackage}.${serviceClassName};
 #end
-#if (${voPackage}=='${voPackage}')
-// Vo 객체에 대한 import 구문
-// import (vo package).${defaultVoClassName};
-// import (vo package).${voClassName};
-#else
-##import ${voPackage}.${defaultVoClassName};
 import ${voPackage}.${voClassName};
 #end
 
@@ -128,13 +128,13 @@ public class ${controllerClassName} {
 	}
 
 	@RequestMapping("${addViewPath}")
-	public String ${addViewMethodName}(@ModelAttribute("searchVO") ${voClassName} searchVO, Model model) throws Exception {
+	public String ${addViewMethodName}(@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, Model model) throws Exception {
 		model.addAttribute("${voInstanceName}", new ${voClassName}());
 		return "${registerView}";
 	}
 
 	@RequestMapping("${addPath}")
-	public String ${addMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${voClassName} searchVO, SessionStatus status) throws Exception {
+	public String ${addMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${defaultVoClassName} searchVO, SessionStatus status) throws Exception {
 		${serviceInstanceName}.${insertMethodName}(${voInstanceName});
 		status.setComplete();
 		return "redirect:${listPath}";
@@ -149,8 +149,7 @@ public class ${controllerClassName} {
 			@RequestParam("${attribute.ccName}") ${attribute.javaType} ${attribute.ccName} ,
 #end
 #end
-			@ModelAttribute("searchVO") ${voClassName} searchVO, Model model)
-			throws Exception {
+			@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, Model model) throws Exception {
 		${voClassName} ${voInstanceName} = new ${voClassName}();
 #if(${model.primaryKeys} == [])
 		${voInstanceName}.set${model.attributes.get(0).pcName}(${model.attributes.get(0).ccName});
@@ -166,19 +165,19 @@ public class ${controllerClassName} {
 
 	@RequestMapping("${selectPath}")
 	public @ModelAttribute("${voInstanceName}")
-	${voClassName} ${selectMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${voClassName} searchVO) throws Exception {
+	${voClassName} ${selectMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${defaultVoClassName} searchVO) throws Exception {
 		return ${serviceInstanceName}.${selectMethodName}(${voInstanceName});
 	}
 
 	@RequestMapping("${updatePath}")
-	public String ${updateMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${voClassName} searchVO, SessionStatus status) throws Exception {
+	public String ${updateMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${defaultVoClassName} searchVO, SessionStatus status) throws Exception {
 		${serviceInstanceName}.${updateMethodName}(${voInstanceName});
 		status.setComplete();
 		return "redirect:${listPath}";
 	}
 
 	@RequestMapping("${deletePath}")
-	public String ${deleteMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${voClassName} searchVO, SessionStatus status) throws Exception {
+	public String ${deleteMethodName}(${voClassName} ${voInstanceName}, @ModelAttribute("searchVO") ${defaultVoClassName} searchVO, SessionStatus status) throws Exception {
 		${serviceInstanceName}.${deleteMethodName}(${voInstanceName});
 		status.setComplete();
 		return "redirect:${listPath}";

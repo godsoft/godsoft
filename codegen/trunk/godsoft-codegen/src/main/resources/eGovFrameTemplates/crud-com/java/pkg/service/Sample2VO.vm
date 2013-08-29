@@ -5,8 +5,8 @@
 ##
 ##
 package $voPackage;
-
-import egovframework.com.cmm.ComDefaultVO;
+##
+##import egovframework.com.cmm.ComDefaultVO;
 
 /**
  * ${model.entity.tableComments} VO
@@ -23,7 +23,8 @@ import egovframework.com.cmm.ComDefaultVO;
  *  Copyright (C)  All right reserved.
  */
 @SuppressWarnings("serial")
-public class ${voClassName} extends ComDefaultVO {
+public class ${voClassName} extends ${defaultVoClassName} {
+##public class ${voClassName} extends ComDefaultVO {
 
 #set($i=0)
 #foreach($attribute in $model.attributes)

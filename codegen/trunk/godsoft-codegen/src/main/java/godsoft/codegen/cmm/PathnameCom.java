@@ -9,6 +9,7 @@ import java.util.List;
 public class PathnameCom {
 
 	public PathnameCom(DataModelContext dataModel) {
+		setDefaultVO(dataModel);
 		setVo(dataModel);
 		setSqlMap(dataModel);
 		setDao(dataModel);
@@ -22,6 +23,7 @@ public class PathnameCom {
 		setController(dataModel);
 	}
 
+	private File defaultVO;
 	private File vo;
 	private File sqlMap;
 	private File dao;
@@ -31,6 +33,26 @@ public class PathnameCom {
 	private File serviceImpl;
 	private File serviceImplTest;
 	private File controller;
+
+	public File getDefaultVO() {
+		return defaultVO;
+	}
+
+	public void setDefaultVO(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
+		String format = "%s/src/main/java/%s/%s/service/%sDefaultVO.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.defaultVO = new File(String.format(format, args.toArray()));
+	}
 
 	public File getVo() {
 		return vo;

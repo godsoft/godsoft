@@ -133,6 +133,8 @@ public class CrudCodeGenLbh {
 		PathnameCom pathnameCom = new PathnameCom(dataModel);
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
+		FileUtils.writeStringToFile(pathnameCom.getDefaultVO(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/Sample2DefaultVO.vm"));
+
 		FileUtils.writeStringToFile(pathnameCom.getVo(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/Sample2VO.vm"));
 
 		FileUtils.writeStringToFile(pathnameCom.getSqlMap(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/resource/pkg/EgovSample_Sample2_SQL.vm"));
