@@ -21,6 +21,7 @@ public class PathnameCom {
 		setServiceImpl(dataModel);
 		setServiceImplTest(dataModel);
 		setController(dataModel);
+		setList(dataModel);
 	}
 
 	private File defaultVO;
@@ -33,6 +34,7 @@ public class PathnameCom {
 	private File serviceImpl;
 	private File serviceImplTest;
 	private File controller;
+	private File list;
 
 	public File getDefaultVO() {
 		return defaultVO;
@@ -275,6 +277,26 @@ public class PathnameCom {
 		args.add(dataModel.getEntity().getPcName());
 
 		this.controller = new File(String.format(format, args.toArray()));
+	}
+
+	public File getList() {
+		return list;
+	}
+
+	public void setList(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
+		String format = "%s/src/main/webapp/WEB-INF/jsp/%s/%s/%sList.jsp";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.list = new File(String.format(format, args.toArray()));
 	}
 
 }
