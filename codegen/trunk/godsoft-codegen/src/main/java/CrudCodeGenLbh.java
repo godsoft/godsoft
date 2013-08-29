@@ -140,6 +140,10 @@ public class CrudCodeGenLbh {
 		FileUtils.writeStringToFile(pathnameCom.getDao(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/Sample2DAO.vm"));
 
 		FileUtils.writeStringToFile(pathnameCom.getDaoTest(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/DAOTest.vm"));
+
+		FileUtils.writeStringToFile(pathnameCom.getService(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/EgovSample2Service.vm"));
+
+		FileUtils.writeStringToFile(pathnameCom.getServiceImpl(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/EgovSample2ServiceImpl.vm"));
 	}
 
 	private void generateCom(List<DataModelContext> dataModels) throws Exception {

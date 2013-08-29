@@ -1,6 +1,7 @@
 ##
 #set($voPackage="${voPackage}")
 #set($voClassName="${model.entity.pcName}VO")
+#set($voInstanceName="${model.entity.pcName}VO")
 #set($defaultVoClassName="${model.entity.pcName}DefaultVO")
 #set($daoPackage="${daoPackage}")
 #set($daoClassName="${model.entity.pcName}DAO")
@@ -31,24 +32,27 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+##import egovframework.rte.fdl.idgnr.EgovIdGnrService;
 import ${servicePackage}.${serviceClassName};
 #if (${voPackage}=='${voPackage}')
 // Vo 객체에 대한 import 구문
 // import (vo package).${defaultVoClassName};
 // import (vo package).${voClassName};
 #else
-import ${voPackage}.${defaultVoClassName};
+##import ${voPackage}.${defaultVoClassName};
 import ${voPackage}.${voClassName};
 #end
 #if (${daoPackage}=='${daoPackage}')
 // Dao 객체에 대한 import 구문
 // import (dao package).${daoClassName};
 #else
-import ${daoPackage}.${daoClassName};
+##import ${daoPackage}.${daoClassName};
 #end
 
 /**
+ * ${model.entity.tableComments} ServiceImpl
+ *
  * @Class Name : ${serviceImplClassName}.java
  * @Description : ${model.entity.pcName} Business Implement class
  * @Modification Information
@@ -57,92 +61,91 @@ import ${daoPackage}.${daoClassName};
  * @since ${createDate}
  * @version 1.0
  * @see
- *  
+ *
  *  Copyright (C)  All right reserved.
  */
 
 @Service("${serviceName}")
-public class ${serviceImplClassName} extends AbstractServiceImpl implements
-        ${serviceClassName} {
+public class ${serviceImplClassName} extends AbstractServiceImpl implements ${serviceClassName} {
 
-    @Resource(name="${daoName}")
-    private ${daoClassName} ${daoInstanceName};
-    
-    /** ID Generation */
-    //@Resource(name="{$idGnrService}")    
-    //private EgovIdGnrService egovIdGnrService;
+	@Resource(name = "${daoName}")
+	private ${daoClassName} ${daoInstanceName};
 
+##	/** ID Generation */
+##	//@Resource(name="{$idGnrService}")
+##	//private EgovIdGnrService egovIdGnrService;
+##
 	/**
-	 * ${model.entity.name}을 등록한다.
-	 * @param vo - 등록할 정보가 담긴 ${voClassName}
+	 * ${model.entity.tableComments}을 등록한다.
+	 * @param ${voInstanceName} - 등록할 정보가 담긴 ${voClassName}
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-    public String ${insertMethodName}(${voClassName} vo) throws Exception {
-    	log.debug(vo.toString());
-    	
-    	/** ID Generation Service */
-    	//TODO 해당 테이블 속성에 따라 ID 제너레이션 서비스 사용
-    	//String id = egovIdGnrService.getNextStringId();
-    	//vo.setId(id);
-    	log.debug(vo.toString());
-    	
-    	${daoInstanceName}.${insertMethodName}(vo);
-    	//TODO 해당 테이블 정보에 맞게 수정    	
-        return null;
-    }
+	public String ${insertMethodName}(${voClassName} ${voInstanceName}) throws Exception {
+##		log.debug(vo.toString());
+##
+##		/** ID Generation Service */
+##		//TODO 해당 테이블 속성에 따라 ID 제너레이션 서비스 사용
+##		//String id = egovIdGnrService.getNextStringId();
+##		//vo.setId(id);
+##		log.debug(vo.toString());
+##
+		return ${daoInstanceName}.${insertMethodName}(${voInstanceName});
+##		//TODO 해당 테이블 정보에 맞게 수정
+##		return null;
+	}
 
-    /**
-	 * ${model.entity.name}을 수정한다.
-	 * @param vo - 수정할 정보가 담긴 ${voClassName}
+	/**
+	 * ${model.entity.tableComments}을 수정한다.
+	 * @param ${voInstanceName} - 수정할 정보가 담긴 ${voClassName}
 	 * @return void형
 	 * @exception Exception
 	 */
-    public void ${updateMethodName}(${voClassName} vo) throws Exception {
-        ${daoInstanceName}.${updateMethodName}(vo);
-    }
+	public int ${updateMethodName}(${voClassName} ${voInstanceName}) throws Exception {
+		return ${daoInstanceName}.${updateMethodName}(${voInstanceName});
+	}
 
-    /**
-	 * ${model.entity.name}을 삭제한다.
-	 * @param vo - 삭제할 정보가 담긴 ${voClassName}
-	 * @return void형 
+	/**
+	 * ${model.entity.tableComments}을 삭제한다.
+	 * @param ${voInstanceName} - 삭제할 정보가 담긴 ${voClassName}
+	 * @return void형
 	 * @exception Exception
 	 */
-    public void ${deleteMethodName}(${voClassName} vo) throws Exception {
-        ${daoInstanceName}.${deleteMethodName}(vo);
-    }
+	public int ${deleteMethodName}(${voClassName} ${voInstanceName}) throws Exception {
+		return ${daoInstanceName}.${deleteMethodName}(${voInstanceName});
+	}
 
-    /**
-	 * ${model.entity.name}을 조회한다.
-	 * @param vo - 조회할 정보가 담긴 ${voClassName}
-	 * @return 조회한 ${model.entity.name}
+	/**
+	 * ${model.entity.tableComments}을 조회한다.
+	 * @param ${voInstanceName} - 조회할 정보가 담긴 ${voClassName}
+	 * @return 조회한 ${model.entity.tableName}
 	 * @exception Exception
 	 */
-    public ${voClassName} ${selectMethodName}(${voClassName} vo) throws Exception {
-        ${voClassName} resultVO = ${daoInstanceName}.${selectMethodName}(vo);
-        if (resultVO == null)
-            throw processException("info.nodata.msg");
-        return resultVO;
-    }
+	public ${voClassName} ${selectMethodName}(${voClassName} ${voInstanceName}) throws Exception {
+		${voClassName} resultVO = ${daoInstanceName}.${selectMethodName}(${voInstanceName});
+		if (resultVO == null)
+			throw processException("info.nodata.msg");
+		return resultVO;
+	}
 
-    /**
-	 * ${model.entity.name} 목록을 조회한다.
+	/**
+	 * ${model.entity.tableComments} 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return ${model.entity.name} 목록
+	 * @return ${model.entity.tableName} 목록
 	 * @exception Exception
 	 */
-    public List ${selectListMethodName}(${defaultVoClassName} searchVO) throws Exception {
-        return ${daoInstanceName}.${selectListMethodName}(searchVO);
-    }
+	public List<EgovMap> ${selectListMethodName}(${voClassName} ${voInstanceName}) throws Exception {
+		return ${daoInstanceName}.${selectListMethodName}(${voInstanceName});
+	}
 
-    /**
-	 * ${model.entity.name} 총 갯수를 조회한다.
+	/**
+	 * ${model.entity.tableComments} 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
-	 * @return ${model.entity.name} 총 갯수
+	 * @return ${model.entity.tableName} 총 갯수
 	 * @exception
 	 */
-    public int ${selectListTotCntMethodName}(${defaultVoClassName} searchVO) {
-		return ${daoInstanceName}.${selectListTotCntMethodName}(searchVO);
+	public int ${selectListTotCntMethodName}(${voClassName} ${voInstanceName}) {
+		return ${daoInstanceName}.${selectListTotCntMethodName}(${voInstanceName});
 	}
-    
+
 }

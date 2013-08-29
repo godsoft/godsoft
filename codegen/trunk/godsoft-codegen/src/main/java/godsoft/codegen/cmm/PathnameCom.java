@@ -13,20 +13,20 @@ public class PathnameCom {
 		setSqlMap(dataModel);
 		setDao(dataModel);
 		setDaoTest(dataModel);
-		setSqlMapConfig(dataModel);
-	}
 
-	//	public PathnameCom(DataModelContext dataModel, List<DataModelContext> dataModels) {
-	//		dataModel.setDataModels(dataModels);
-	//
-	//		setSqlMapConfig(dataModel);
-	//	}
+		setSqlMapConfig(dataModel);
+
+		setService(dataModel);
+		setServiceImpl(dataModel);
+	}
 
 	private File vo;
 	private File sqlMap;
 	private File dao;
 	private File daoTest;
 	private File sqlMapConfig;
+	private File service;
+	private File serviceImpl;
 
 	public File getVo() {
 		return vo;
@@ -169,6 +169,46 @@ public class PathnameCom {
 		sb.append("_SQL_Oracle.xml");
 
 		return sb.toString();
+	}
+
+	public File getService() {
+		return service;
+	}
+
+	public void setService(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
+		String format = "%s/src/main/java/%s/%s/service/%sService.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.service = new File(String.format(format, args.toArray()));
+	}
+
+	public File getServiceImpl() {
+		return serviceImpl;
+	}
+
+	public void setServiceImpl(DataModelContext dataModel) {
+		if (dataModel.getEntity() == null) {
+			return;
+		}
+
+		String format = "%s/src/main/java/%s/%s/service/impl/%sServiceImpl.java";
+
+		List<String> args = new ArrayList<String>();
+		args.add(dataModel.getProjectName());
+		args.add(dataModel.getPackageName().replaceAll("\\.", "/"));
+		args.add(dataModel.getEntity().getLcName().replaceAll("_", ""));
+		args.add(dataModel.getEntity().getPcName());
+
+		this.serviceImpl = new File(String.format(format, args.toArray()));
 	}
 
 }
