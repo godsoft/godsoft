@@ -20,10 +20,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class CrudCodeGenLbh {
 
 	private String configLocation = "classpath:egovframework/spring/core-context.xml";
-	private ApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
+	private ApplicationContext context = new ClassPathXmlApplicationContext(
+			configLocation);
 
-	private AllTabCommentsService allTabCommentsService = (AllTabCommentsService) context.getBean("allTabCommentsService");
-	private AllTabColsService allTabColsService = (AllTabColsService) context.getBean("allTabColsService");
+	private AllTabCommentsService allTabCommentsService = (AllTabCommentsService) context
+			.getBean("allTabCommentsService");
+	private AllTabColsService allTabColsService = (AllTabColsService) context
+			.getBean("allTabColsService");
 
 	/**
 	 * @param args
@@ -45,9 +48,9 @@ public class CrudCodeGenLbh {
 
 		Entity entity = null;
 
-		//		entity = new Entity("IDS001");
-		//		entity.setTableName("IDS");
-		//		tableNames.add(entity);
+		// entity = new Entity("IDS001");
+		// entity.setTableName("IDS");
+		// tableNames.add(entity);
 
 		entity = new Entity("TEST_SAMPLE");
 		entity.setTableName("SAMPLE");
@@ -64,13 +67,15 @@ public class CrudCodeGenLbh {
 		dataModel.setVender("Oracle");
 
 		dataModel.setPackageName("godsoft.samples");
-		//		dataModel.setPackageName("godsoft.sample.jqgrid");
-		//		dataModel.setPackageName("godsoft.sample.extjs");
+		// dataModel.setPackageName("godsoft.sample.jqgrid");
+		// dataModel.setPackageName("godsoft.sample.extjs");
 
 		dataModel.setAuthor("(주)메타지아이에스컨설팅 이백행");
 		dataModel.setCreateDate(CodeGenUtils.getToday());
 
-		dataModel.setProjectName("../godsoft-webapp");
+		// dataModel.setProjectName("../godsoft-webapp");
+		// dataModel.setProjectName("../com-webapp");
+		dataModel.setProjectName("../com2-webapp");
 
 		return dataModel;
 	}
@@ -78,8 +83,10 @@ public class CrudCodeGenLbh {
 	private void crudCodeGen() throws Exception {
 		OracleVO oracleVO = oracleVO();
 
-		List<EgovMap> allTabComments = allTabCommentsService.selectAllTabCommentsList(oracleVO);
-		List<EgovMap> allTabCols = allTabColsService.selectAllTabColsList(oracleVO);
+		List<EgovMap> allTabComments = allTabCommentsService
+				.selectAllTabCommentsList(oracleVO);
+		List<EgovMap> allTabCols = allTabColsService
+				.selectAllTabColsList(oracleVO);
 
 		List<DataModelContext> dataModels = new ArrayList<DataModelContext>();
 
@@ -87,7 +94,8 @@ public class CrudCodeGenLbh {
 			DataModelContext dataModel = dataModel();
 
 			entity.setTableName(entity.getTableName().toLowerCase());
-			entity.setTableComments(allTabCommentsService.getTableComments(allTabComments, entity.getTableName().toUpperCase()));
+			entity.setTableComments(allTabCommentsService.getTableComments(
+					allTabComments, entity.getTableName().toUpperCase()));
 
 			dataModel.setEntity(entity);
 
@@ -95,14 +103,19 @@ public class CrudCodeGenLbh {
 			List<Attribute> primaryKeys = new ArrayList<Attribute>();
 
 			for (EgovMap allTabCol : allTabCols) {
-				if (entity.getTableName().equalsIgnoreCase((String) allTabCol.get("tableName"))) {
-					//					String columnName = (String) allTabCol.get("columnName");
+				if (entity.getTableName().equalsIgnoreCase(
+						(String) allTabCol.get("tableName"))) {
+					// String columnName = (String) allTabCol.get("columnName");
 					String dataType = (String) allTabCol.get("dataType");
-					int dataLength = MapUtils.getIntValue(allTabCol, "dataLength", 0);
-					String columnComments = (String) allTabCol.get("columnComments");
-					int position = MapUtils.getIntValue(allTabCol, "position", 0);
+					int dataLength = MapUtils.getIntValue(allTabCol,
+							"dataLength", 0);
+					String columnComments = (String) allTabCol
+							.get("columnComments");
+					int position = MapUtils.getIntValue(allTabCol, "position",
+							0);
 
-					Attribute attribute = new Attribute((String) allTabCol.get("columnName"));
+					Attribute attribute = new Attribute(
+							(String) allTabCol.get("columnName"));
 					attribute.setJavaType(CodeGenUtils.getDataType(dataType));
 					attribute.setPrimaryKey((position > 0) ? true : false);
 					attribute.setDataLength(dataLength);
@@ -133,33 +146,81 @@ public class CrudCodeGenLbh {
 		PathnameCom pathnameCom = new PathnameCom(dataModel);
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
-		FileUtils.writeStringToFile(pathnameCom.getDefaultVO(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/Sample2DefaultVO.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getDefaultVO(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/service/Sample2DefaultVO.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getVo(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/Sample2VO.vm"));
+		FileUtils.writeStringToFile(pathnameCom.getVo(), crudCodeGen.generate(
+				dataModel,
+				"eGovFrameTemplates/crud-com/java/pkg/service/Sample2VO.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getSqlMap(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/resource/pkg/EgovSample_Sample2_SQL.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getSqlMap(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/resource/pkg/EgovSample_Sample2_SQL.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getDao(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/Sample2DAO.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getDao(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/service/impl/Sample2DAO.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getDaoTest(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/DAOTest.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getDaoTest(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/service/impl/DAOTest.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getService(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/EgovSample2Service.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getService(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/service/EgovSample2Service.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getServiceImpl(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/EgovSample2ServiceImpl.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getServiceImpl(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/service/impl/EgovSample2ServiceImpl.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getServiceImplTest(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/service/impl/ServiceImplTest.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getServiceImplTest(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/service/impl/ServiceImplTest.vm"));
 
-		FileUtils.writeStringToFile(pathnameCom.getController(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/java/pkg/web/EgovSample2Controller.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getController(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/java/pkg/web/EgovSample2Controller.vm"));
 	}
 
-	private void generateCom(List<DataModelContext> dataModels) throws Exception {
+	private void generateCom(List<DataModelContext> dataModels)
+			throws Exception {
 		DataModelContext dataModel = dataModel();
 		dataModel.setDataModels(dataModels);
 
 		PathnameCom pathnameCom = new PathnameCom(dataModel);
 		CrudCodeGen crudCodeGen = new CrudCodeGen();
 
-		FileUtils.writeStringToFile(pathnameCom.getSqlMapConfig(), crudCodeGen.generate(dataModel, "eGovFrameTemplates/crud-com/resource/pkg/sqlMapConfig.vm"));
+		FileUtils
+				.writeStringToFile(
+						pathnameCom.getSqlMapConfig(),
+						crudCodeGen
+								.generate(dataModel,
+										"eGovFrameTemplates/crud-com/resource/pkg/sqlMapConfig.vm"));
 	}
 
 }
