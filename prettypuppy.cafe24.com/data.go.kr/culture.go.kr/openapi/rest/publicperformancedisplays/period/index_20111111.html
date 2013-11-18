@@ -1,0 +1,35 @@
+<!-- http://stackoverflow.com/questions/4821293/jquery-mobile-listviewrefresh-not-working -->
+
+	<link rel="stylesheet"  href="/vendor/jquery.mobile/css/themes/default/" />
+	<link rel="stylesheet" href="/vendor/jquery.mobile/docs/_assets/css/jqm-docs.css"/>
+	<script src="/vendor/jquery.mobile/js/jquery.js"></script>
+	<script src="/vendor/jquery.mobile/experiments/themeswitcher/jquery.mobile.themeswitcher.js"></script>
+	<script src="/vendor/jquery.mobile/docs/_assets/js/jqm-docs.js"></script>
+	<script src="/vendor/jquery.mobile/js/"></script>
+
+<div id="podcastList"></div>
+
+<script type="text/javascript">
+        $(window).load(function(){
+
+//var map = {data:['from':'20111201', 'to':'20111231']};
+
+            $.ajax({
+                type: "GET",
+//                url: "podcast.xml",
+                url: "index.php",
+                dataType: "xml",
+                async: false,
+                success: parseXml
+//                , data: map
+            });
+        });
+        function parseXml(xml){
+            var podcastList = "";
+            $(xml).find("perforList").each(function(){
+                podcastList += "<li class='ui-li-has-thumb ui-btn ui-btn-icon-right ui-li ui-btn-up-c' role='option' data-theme='c'><img src='" + $(this).find("itunes\\:image").attr("href") + "' class='ui-li-thumb'><h3 class='ui-li-heading'><a href='" + $(this).find("enclosure").attr("url") + "' class='ui-link-inherit'>" + $(this).find("title").text() + "</a></h3><p class='ui-li-desc'>" + $(this).find("itunes\\:subtitle").text() + "</p></li>";
+            });
+            $("#podcastList").append(podcastList);
+            //$("#podcastList").listview('refresh');
+        }
+    </script>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>기간별공연전시목록조회</title>
+	<link rel="stylesheet"  href="../../../../../../vendor/jquery.mobile/css/themes/default/" />
+	<link rel="stylesheet" href="../../../../../../vendor/jquery.mobile/docs/_assets/css/jqm-docs.css"/>
+
+
+
+	<script src="../../../../../../vendor/jquery.mobile/js/jquery.js"></script>
+	<script src="../../../../../../vendor/jquery.mobile/experiments/themeswitcher/jquery.mobile.themeswitcher.js"></script>
+	<script src="../../../../../../vendor/jquery.mobile/docs/_assets/js/jqm-docs.js"></script>
+	<script src="../../../../../../vendor/jquery.mobile/js/"></script>
+
+        <script type="text/javascript">
+            $( document ).bind( "mobileinit", function(){
+                $.mobile.page.prototype.options.degradeInputs.date = 'text';
+            });
+        </script>
+
+        <!-- datebox  import-->
+        <script type="text/javascript" src="/vendor/m.egovframe.go.kr/mguide/js/egovframework/mbl/cmm/datepicker/jquery.mobile.datebox.js"></script>
+
+        <!-- guide import -->
+
+        <!-- <link rel="stylesheet" href="/vendor/m.egovframe.go.kr/mguide/css/egovframework/mbl/rte/guide/guide.css">
+        <script type="text/javascript"  src="/vendor/m.egovframe.go.kr/mguide/js/egovframework/mbl/rte/guide/guide.js"></script> -->
+
+		<script type="text/javascript">
+//			$(function(){
+//				$('#example').hide();
+//				$('#exampleView').bind('vclick',function(e)
+//				{
+//					$('#example').toggle();
+//				})
+//			});
+		</script>
+
+  <!-- <script type="text/javascript" src="/vendor/aquaron.com/aqPaging.js"></script> -->
+
+  <script type="text/javascript">
+
+  var cPage = 1;
+
+  $(window).load(function(){
+
+//$('<div/>')
+//        .appendTo('#demo')
+//        .aqPaging({
+//            pages: 100,
+//            current: 5
+//        });
+
+//$("#btn_hasmore").live("click", function (event) {
+//    $.mobile.pageLoading(); // 페이지 로딩
+//
+//    var href = $(this).attr('href'); // 호출 url
+//    var bbs = $(this).parents('[id*=listview_]'); // 추가할 리스트 id 값
+//
+//    $.get(href, function(data) {
+//     $('.li_btn_hasmore').remove(); // 버튼 삭제
+// $(bbs).append(data); // 게시물 데이터 추가
+// $(bbs).listview('refresh'); // 게시물 새로 고침
+// $.mobile.pageLoading(true); // 페이지 로딩 제거
+//    });
+//});
+
+      $.ajax({
+          type: "GET",
+          url: "index.php",
+          dataType: "xml",
+          async: false,
+          success: parseXml,
+          data: "cPage=" + cPage
+      });
+  });
+  function parseXml(xml){
+      cPage = $(xml).find("cPage").text();
+      //alert(cPage);
+
+      var perforList = "";
+      $(xml).find("perforList").each(function(){
+          //perforList += "<li class='ui-li-has-thumb ui-btn ui-btn-icon-right ui-li ui-btn-up-c' role='option' data-theme='c'><img src='" + $(this).find("itunes\\:image").attr("href") + "' class='ui-li-thumb'><h3 class='ui-li-heading'><a href='" + $(this).find("enclosure").attr("url") + "' class='ui-link-inherit'>" + $(this).find("title").text() + "</a></h3><p class='ui-li-desc'>" + $(this).find("itunes\\:subtitle").text() + "</p></li>";
+
+//          perforList += '<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><a href="index.html">';
+//          perforList += '  <img src="images/album-bb.jpg" />';
+//          perforList += '  <h3>' + $(this).find("title").text() + '</h3>';
+//          perforList += '  <p>Broken Bells</p>';
+//          perforList += '</a></li>';
+
+          var ui_li_desc = $(this).find("seq").text();
+          ui_li_desc += ', ' + $(this).find("startDate").text();
+          ui_li_desc += ', ' + $(this).find("endDate").text();
+          ui_li_desc += ', ' + $(this).find("place").text();
+          ui_li_desc += ', ' + $(this).find("realmName").text();
+          ui_li_desc += ', ' + $(this).find("area").text();
+          ui_li_desc += ', ' + $(this).find("thumbnail").text();
+          ui_li_desc += ', ' + $(this).find("gpsX").text();
+          ui_li_desc += ', ' + $(this).find("gpsY").text();
+
+          perforList += '<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="../d/?seq=' + $(this).find("seq").text() + '" class="ui-link-inherit" data-ajax="false">';
+          perforList += '  <img src="' + $(this).find("thumbnail").text() + '" class="ui-li-thumb">';
+          perforList += '  <h3 class="ui-li-heading">' + $(this).find("title").text() + '</h3>';
+          perforList += '  <p class="ui-li-desc">' + ui_li_desc + '</p>';
+          perforList += '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>';
+      });
+      $("#perforList").append(perforList);
+      //$("#perforList").listview('refresh');
+  }
+
+  function doSomething() {
+      //alert(cPage);
+
+//      $('#verify').click(function() {
+//          alert('Button has been clicked');
+//      });
+
+      cPage = Number(cPage) + 1;
+
+      $.ajax({
+          type: "GET",
+          url: "index.php",
+          dataType: "xml",
+          async: false,
+          success: parseXml,
+          data: "cPage=" + cPage
+      });
+  }
+  </script>
+
+</head>
+<body>
+
+	<div data-role="page" class="type-interior">
+
+		<div data-role="header" data-theme="f">
+		<h1>기간별공연전시목록조회</h1>
+		<a href="/data.go.kr/culture.go.kr/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div class="content-primary">
+
+    <!-- <div data-role="fieldcontain">
+    <label for="defandroid">Some Date</label>
+    <input name="defandroid" type="date" data-role="datebox" id="defandroid"/>
+    </div> -->
+
+<!-- <div class="ui-input-datebox ui-shadow-inset ui-corner-all ui-body-c"><input type="text" data-type="date" data-options="{&quot;mode&quot;: &quot;calbox&quot; }" data-role="datebox" id="defandroid" name="mydate" class="ui-input-text ui-body-null ui-corner-all ui-shadow-inset ui-body-c"><a title="date picker" class="ui-input-clear ui-btn ui-btn-up-c ui-btn-icon-notext ui-btn-corner-all ui-shadow" href="#" data-theme="c" style="vertical-align: middle; float: right;"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">date picker</span><span class="ui-icon ui-icon-grid ui-icon-shadow"></span></span></a></div> -->
+
+								<!-- <div data-role="fieldcontain">
+									<label for="defandroid">Some Date</label>
+
+									<input name="defandroid" type="date" data-role="datebox" id="defandroid" />
+						</div> -->
+
+		<ul data-role="listview" id="perforList">
+			<!-- <li><a href="index.html">
+				<img src="images/album-bb.jpg" />
+				<h3>Broken Bells</h3>
+				<p>Broken Bells</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-hc.jpg" />
+				<h3>Warning</h3>
+				<p>Hot Chip</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-p.jpg" />
+				<h3>Wolfgang Amadeus Phoenix</h3>
+				<p>Phoenix</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-ok.jpg" />
+				<h3>Of The Blue Colour Of The Sky</h3>
+				<p>Ok Go</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-ws.jpg" />
+				<h3>Elephant</h3>
+				<p>The White Stripes</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-rh.jpg" />
+				<h3>Kid A</h3>
+				<p>Radiohead</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-xx.jpg" />
+				<h3>XX</h3>
+				<p>XX</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-mg.jpg" />
+				<h3>Congratulations</h3>
+				<p>MGMT</p>
+			</a></li>
+
+			<li><a href="index.html">
+				<img src="images/album-ag.jpg" />
+				<h3>Ashes Grammar</h3>
+				<p>A Sunny Day in Glasgow</p>
+			</a></li>
+
+			<li><a href="index.html">
+				<img src="images/album-k.jpg" />
+				<h3>Hot Fuss</h3>
+				<p>Killers</p>
+			</a></li>
+			<li><a href="index.html">
+				<img src="images/album-af.jpg" />
+				<h3>The Suburbs</h3>
+				<p>Arcade Fire</p>
+			</a></li> -->
+
+<!-- <li data-theme="c">
+<a href="" id="btn_hasmore">Load More.</a>
+</li> -->
+
+		</ul>
+
+<!-- <div id="demo"></div> -->
+
+    <p style="padding: 10px 0 0 0;">
+        <a href="../period/" data-role="button" data-ajax="false" onclick="doSomething(); return false" id="verify">더 보기</a>
+    </p>
+
+
+		</div><!--/content-primary -->
+
+		<div class="content-secondary">
+
+			<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+
+					<!-- <h3>More in this section</h3>
+
+					<ul data-role="listview" data-theme="c" data-dividertheme="d">
+
+						<li data-role="list-divider">List views</li>
+						<li><a href="docs-lists.html">List markup conventions</a></li>
+						<li><a href="lists-ul.html">Basic linked list</a></li>
+						<li><a href="lists-nested.html">Nested list</a></li>
+						<li><a href="lists-ol.html">Numbered list</a></li>
+
+						<li><a href="lists-split.html">Split button list</a></li>
+						<li><a href="lists-divider.html">List dividers</a></li>
+						<li><a href="lists-count.html">Count bubble</a></li>
+						<li data-theme="a"><a href="lists-thumbnails.html">Thumbnails</a></li>
+						<li><a href="lists-icons.html">Icons</a></li>
+						<li><a href="lists-formatting.html">Content formatting</a></li>
+						<li><a href="lists-search.html">Search filter bar</a></li>
+						<li><a href="lists-search-inset.html">Inset search filter bar</a></li>
+						<li><a href="lists-search-with-dividers.html">Search filter bar with dividers</a></li>
+
+						<li><a href="lists-readonly.html">Read-only lists</a></li>
+						<li><a href="lists-readonly-inset.html">Read-only inset lists</a></li>
+						<li><a href="lists-forms.html">Lists with forms</a></li>
+						<li><a href="lists-forms-inset.html">Inset lists with forms</a></li>
+
+						<li><a href="lists-inset.html">Inset styled lists</a></li>
+						<li><a href="lists-performance.html">List performance test</a></li>
+						<li><a href="lists-themes.html">Theming lists</a></li>
+
+					</ul> -->
+			</div>
+		</div>
+
+	</div><!-- /content -->
+
+	<div data-role="footer" class="footer-docs" data-theme="c">
+			<p>&copy; 2011 문화포털</p>
+	</div>
+
+	</div><!-- /page -->
+
+	</body>
+	</html>
+
+    <!-- datebox javascript-->
+    <script type="text/javascript" src="/vendor/m.egovframe.go.kr/mguide/js/egovframework/mbl/cmm/datepicker/jquery.mobile.datebox.js"></script>
