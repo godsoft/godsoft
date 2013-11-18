@@ -1,0 +1,13 @@
+.project
+*~
+*.diff
+*.patch
+.DS_Store
+cache/
+combined/
+combine/
+compiled/
+gitstatus.log
+refreshCDN
+*.swp
+.gitignore
