@@ -1,44 +1,3 @@
-<?php
-header('Location: bbs/board.php?bo_table=customer');
-exit;
-?>
-
-<?php
-if (false) {
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <title>예쁜강아지</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="generator" content="예쁜강아지" />
-  <meta name="author" content="예쁜강아지" />
-  <meta name="keywords" content="예쁜강아지" />
-  <meta name="description" content="예쁜강아지" />
- </head>
-
-  <!-- <frameset rows="," cols="30%,30%,40%">
-    <frame src="bbs/board.php?bo_table=customer" id="customer_frame" name="customer_frame" />
-    <frame src="bbs/board.php?bo_table=pet" id="pet_frame" name="pet_frame" />
-    <frame src="bbs/board.php?bo_table=sale" id="sale_frame" name="sale_frame" />
-  </frameset> -->
-
-  <frameset rows="," cols="50%,50%">
-    <frame src="bbs/board.php?bo_table=customer" id="customer_frame" name="customer_frame" />
-    <frame src="bbs/board.php?bo_table=pet" id="pet_frame" name="pet_frame" />
-  </frameset>
-
- <body>
-
- </body>
-</html>
-
-<?php
-}
-//exit;
-?>
-
 <?
 include_once("./_common.php");
 include_once("$g4[path]/lib/latest.lib.php");
@@ -87,4 +46,45 @@ if (is_null($member['mb_id']) == true) {
 
 <?
 include_once("./_tail.php");
+?>
+
+<?php
+//header('Location: bbs/board.php?bo_table=customer');
+//exit;
+?>
+
+<?php
+if (false) {
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>예쁜강아지</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="예쁜강아지" />
+  <meta name="author" content="예쁜강아지" />
+  <meta name="keywords" content="예쁜강아지" />
+  <meta name="description" content="예쁜강아지" />
+ </head>
+
+  <!-- <frameset rows="," cols="30%,30%,40%">
+    <frame src="bbs/board.php?bo_table=customer" id="customer_frame" name="customer_frame" />
+    <frame src="bbs/board.php?bo_table=pet" id="pet_frame" name="pet_frame" />
+    <frame src="bbs/board.php?bo_table=sale" id="sale_frame" name="sale_frame" />
+  </frameset> -->
+
+  <frameset rows="," cols="50%,50%">
+    <frame src="bbs/board.php?bo_table=customer" id="customer_frame" name="customer_frame" />
+    <frame src="bbs/board.php?bo_table=pet" id="pet_frame" name="pet_frame" />
+  </frameset>
+
+ <body>
+
+ </body>
+</html>
+
+<?php
+}
+//exit;
 ?>
