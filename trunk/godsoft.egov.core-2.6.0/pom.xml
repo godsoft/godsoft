@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>godsoft.egov</groupId>
-	<artifactId>core</artifactId>
+	<groupId>godsoft</groupId>
+	<artifactId>egov-core</artifactId>
 	<packaging>jar</packaging>
 	<version>2.6.0</version>
-	<name>core</name>
+	<name>egov-core</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -294,7 +294,7 @@
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<directory>${basedir}/target</directory>
-		<finalName>core</finalName>
+		<finalName>egov-core</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
