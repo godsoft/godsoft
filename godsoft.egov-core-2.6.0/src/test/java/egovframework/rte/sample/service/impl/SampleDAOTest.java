@@ -15,12 +15,12 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.sample.service.SampleDefaultVO;
 
 /**
- * @Class Name : UserDAOTest.java
- * @Description : User DAOTest Class
+ * @Class Name : SampleDAOTest.java
+ * @Description : Sample DAOTest Class
  * @Modification Information
  *
- * @author (주)메타지아이에스컨설팅 이백행
- * @since 2013-11-14
+ * @author 갓소프트 이백행
+ * @since 2013-11-20
  * @version 1.0
  * @see
  *
