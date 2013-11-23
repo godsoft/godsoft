@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:godsoft/spring/test-context.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/egov/core/test-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class SampleDAOTest {
