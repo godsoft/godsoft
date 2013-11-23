@@ -6,7 +6,7 @@
 	<artifactId>egov-core</artifactId>
 	<packaging>jar</packaging>
 	<version>2.6.0</version>
-	<name>egov-core</name>
+	<name>godsoft.egov-core-2.6.0</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -294,7 +294,7 @@
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<directory>${basedir}/target</directory>
-		<finalName>egov-core</finalName>
+		<finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
