@@ -20,7 +20,7 @@ public class Main {
 		try {
 			Main main = new Main();
 			main.crudCodeGen();
-			main.testSQLMap();
+			main.sqlMap();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -69,8 +69,8 @@ public class Main {
 		dataModel.setPrimaryKeys(primaryKeys);
 	}
 
-	public void testSQLMap() throws Exception {
-		String templateFile = "eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+	public void sqlMap() throws Exception {
+		String templateFile = "eGovFrameTemplates/crud/resource/godsoft/egov/core/EgovSample_Sample2_SQL.vm";
 
 		String result = crudCodeGen.generate(dataModel, templateFile);
 
