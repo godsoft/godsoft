@@ -1,0 +1,25 @@
+<project>
+
+	<property name="catalina.home" value="E:\eGovFrameSvr\tomcat6" />
+
+	<!-- =================================================================== -->
+	<!-- Tomcat START                                                                                 -->
+	<!-- =================================================================== -->
+	<target name="was-start">
+		<echo message="Start Tomcat" />
+		<java dir="${catalina.home}/bin/" jar="${catalina.home}/bin/bootstrap.jar" fork="true">
+			<arg value="start" />
+		</java>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Tomcat STOP                                                                                   -->
+	<!-- =================================================================== -->
+	<target name="was-stop">
+		<echo message="Stop Tomcat" />
+		<java dir="${catalina.home}/bin/" jar="${catalina.home}/bin/bootstrap.jar" fork="true">
+			<arg value="stop" />
+		</java>
+	</target>
+
+</project>
