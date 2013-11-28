@@ -1,7 +1,6 @@
 package godsoft.egov.codegen.alltabcols.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.egov.codegen.alltabcols.service.impl.AllTabColsDAO;
 import godsoft.egov.codegen.cmm.OracleVO;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:godsoft/spring/codegen/test-context.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/egov/codegen/test-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class AllTabColsDAOTest {
