@@ -1,4 +1,4 @@
-package godsoft.codegen.run;
+package godsoft.egov.codegen.run;
 
 import godsoft.codegen.cmm.Attribute;
 import godsoft.codegen.cmm.CrudCodeGen;
