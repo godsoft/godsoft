@@ -1,4 +1,4 @@
-package godsoft.codegen.cmm;
+package godsoft.egov.codegen.cmm;
 
 import java.io.StringWriter;
 import java.io.Writer;
