@@ -3,7 +3,7 @@
 
 <sqlMap namespace="godsoft.egov.web.sample.service.impl.sampleDAO">
 
-	<resultMap id="godsoft.egov.web.sample.service.impl.sampleDAO.resultMapSample" class="egovframework.rte.sample.service.SampleVO">
+	<resultMap id="godsoft.egov.web.sample.service.impl.sampleDAO.resultMapSample" class="godsoft.egov.web.sample.service.SampleVO">
 		<result property="id" column="id"/>
 		<result property="name" column="name"/>
 		<result property="description" column="description"/>
@@ -56,7 +56,7 @@
 	</select>
 	
 	<select id="godsoft.egov.web.sample.service.impl.sampleDAO.selectSampleList"
-		parameterClass="egovframework.rte.sample.service.SampleDefaultVO"
+		parameterClass="godsoft.egov.web.sample.service.SampleDefaultVO"
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 	       SELECT A.ID, A.NAME, A.DESCRIPTION, A.USE_YN, A.REG_USER
 	       FROM (
@@ -79,7 +79,7 @@
 	</select>
 	
 	<select id="godsoft.egov.web.sample.service.impl.sampleDAO.selectSampleListTotCnt"
-		parameterClass="egovframework.rte.sample.service.SampleDefaultVO"
+		parameterClass="godsoft.egov.web.sample.service.SampleDefaultVO"
 		resultClass="int">
 
 			SELECT COUNT(*) totcnt

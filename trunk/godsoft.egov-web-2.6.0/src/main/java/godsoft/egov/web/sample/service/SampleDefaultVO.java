@@ -35,6 +35,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
+@SuppressWarnings("serial")
 public class SampleDefaultVO implements Serializable {
 
 	/** 검색조건 */

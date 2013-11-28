@@ -1,5 +1,8 @@
 package godsoft.egov.web.sample.service.impl;
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.egov.web.sample.service.SampleDefaultVO;
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,9 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
-
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-import egovframework.rte.sample.service.SampleDefaultVO;
 
 /**
  * @Class Name : SampleDAOTest.java

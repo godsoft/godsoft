@@ -13,20 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package godsoft.egov.web.sample.service.impl;
+package godsoft.egov.web.sample.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
-import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.egov.web.sample.service.SampleDefaultVO;
-import godsoft.egov.web.sample.service.SampleVO;
 
 /**  
- * @Class Name : SampleDAO.java
- * @Description : Sample DAO Class
+ * @Class Name : EgovSampleService.java
+ * @Description : EgovSampleService Class
  * @Modification Information  
  * @
  * @  수정일      수정자              수정내용
@@ -40,9 +35,7 @@ import godsoft.egov.web.sample.service.SampleVO;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
-
-@Repository("godsoft.egov.web.sample.service.impl.sampleDAO")
-public class SampleDAO extends EgovAbstractDAO {
+public interface SampleService {
 
 	/**
 	 * 글을 등록한다.
@@ -50,9 +43,7 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	public String insertSample(SampleVO vo) throws Exception {
-		return (String) insert("godsoft.egov.web.sample.service.impl.sampleDAO.insertSample", vo);
-	}
+	String insertSample(SampleVO vo) throws Exception;
 
 	/**
 	 * 글을 수정한다.
@@ -60,9 +51,7 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public int updateSample(SampleVO vo) throws Exception {
-		return update("godsoft.egov.web.sample.service.impl.sampleDAO.updateSample", vo);
-	}
+	void updateSample(SampleVO vo) throws Exception;
 
 	/**
 	 * 글을 삭제한다.
@@ -70,9 +59,7 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return void형 
 	 * @exception Exception
 	 */
-	public int deleteSample(SampleVO vo) throws Exception {
-		return delete("godsoft.egov.web.sample.service.impl.sampleDAO.deleteSample", vo);
-	}
+	void deleteSample(SampleVO vo) throws Exception;
 
 	/**
 	 * 글을 조회한다.
@@ -80,29 +67,22 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	public SampleVO selectSample(SampleVO vo) throws Exception {
-		return (SampleVO) selectByPk("godsoft.egov.web.sample.service.impl.sampleDAO.selectSample", vo);
-	}
+	SampleVO selectSample(SampleVO vo) throws Exception;
 
 	/**
 	 * 글 목록을 조회한다.
-	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @param searchVO - 조회할 정보가 담긴 VO
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	@SuppressWarnings("unchecked")
-	public List<EgovMap> selectSampleList(SampleDefaultVO searchVO) throws Exception {
-		return list("godsoft.egov.web.sample.service.impl.sampleDAO.selectSampleList", searchVO);
-	}
+	List<EgovMap> selectSampleList(SampleDefaultVO searchVO) throws Exception;
 
 	/**
 	 * 글 총 갯수를 조회한다.
-	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @param searchVO - 조회할 정보가 담긴 VO
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	public int selectSampleListTotCnt(SampleDefaultVO searchVO) {
-		return (Integer) getSqlMapClientTemplate().queryForObject("godsoft.egov.web.sample.service.impl.sampleDAO.selectSampleListTotCnt", searchVO);
-	}
+	int selectSampleListTotCnt(SampleDefaultVO searchVO);
 
 }

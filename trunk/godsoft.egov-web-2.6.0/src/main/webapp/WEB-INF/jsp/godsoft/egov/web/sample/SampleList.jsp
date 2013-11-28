@@ -30,26 +30,26 @@
 /* 글 수정 화면 function */
 function fn_egov_select(id) {
 	document.listForm.selectedId.value = id;
-   	document.listForm.action = "<c:url value='/sample/updateSampleView.do'/>";
+   	document.listForm.action = "<c:url value='/godsoft/egov/web/sample/updateSampleView.do'/>";
    	document.listForm.submit();		
 }
 
 /* 글 등록 화면 function */
 function fn_egov_addView() {
-   	document.listForm.action = "<c:url value='/sample/addSampleView.do'/>";
+   	document.listForm.action = "<c:url value='/godsoft/egov/web/sample/addSampleView.do'/>";
    	document.listForm.submit();		
 }
 
 /* 글 목록 화면 function */
 function fn_egov_selectList() {
-	document.listForm.action = "<c:url value='/sample/egovSampleList.do'/>";
+	document.listForm.action = "<c:url value='/godsoft/egov/web/sample/selectSampleList.do'/>";
    	document.listForm.submit();
 }
 
 /* pagination 페이지 링크 function */
 function fn_egov_link_page(pageNo){
 	document.listForm.pageIndex.value = pageNo;
-	document.listForm.action = "<c:url value='/sample/egovSampleList.do'/>";
+	document.listForm.action = "<c:url value='/godsoft/egov/web/sample/selectSampleList.do'/>";
    	document.listForm.submit();
 }
 
@@ -57,9 +57,6 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body style="text-align:center; margin:0 auto; display:inline; padding-top:100px;">
-
-<a href="<c:url value='/godsoft/egov/web/sample/selectSampleList.do'/>">갓소프트 샘플</a>
-
 <form:form commandName="searchVO" name="listForm" method="post">
 <input type="hidden" name="selectedId" />
 <div id="content_pop">

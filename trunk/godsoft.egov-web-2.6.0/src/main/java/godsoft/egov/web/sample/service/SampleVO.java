@@ -31,9 +31,8 @@ package godsoft.egov.web.sample.service;
  * 
  *  Copyright (C) by MOPAS All right reserved.
  */
+@SuppressWarnings("serial")
 public class SampleVO extends SampleDefaultVO {
-
-	private static final long serialVersionUID = 1L;
 
 	/** 아이디 */
 	private String id;
