@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="godsoft.codegen.alltabcols.allTabColsDAO">
+<sqlMap namespace="godsoft.egov.codegen.alltabcols.allTabColsDAO">
 
-	<select id="godsoft.codegen.alltabcols.allTabColsDAO.selectAllTabColsList"
-		parameterClass="godsoft.codegen.cmm.OracleVO"
+	<select id="godsoft.egov.codegen.alltabcols.allTabColsDAO.selectAllTabColsList"
+		parameterClass="godsoft.egov.codegen.cmm.OracleVO"
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 		SELECT
 			all_tab_cols.table_name
