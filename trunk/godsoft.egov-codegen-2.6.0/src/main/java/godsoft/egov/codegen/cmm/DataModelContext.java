@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package godsoft.codegen.cmm;
+package godsoft.egov.codegen.cmm;
 
 import java.util.List;
 /**

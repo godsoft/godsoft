@@ -1,4 +1,4 @@
-package godsoft.codegen.cmm;
+package godsoft.egov.codegen.cmm;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

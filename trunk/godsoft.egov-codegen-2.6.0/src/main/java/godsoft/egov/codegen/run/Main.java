@@ -1,9 +1,9 @@
 package godsoft.egov.codegen.run;
 
-import godsoft.codegen.cmm.Attribute;
-import godsoft.codegen.cmm.CrudCodeGen;
-import godsoft.codegen.cmm.DataModelContext;
-import godsoft.codegen.cmm.Entity;
+import godsoft.egov.codegen.cmm.Attribute;
+import godsoft.egov.codegen.cmm.CrudCodeGen;
+import godsoft.egov.codegen.cmm.DataModelContext;
+import godsoft.egov.codegen.cmm.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
