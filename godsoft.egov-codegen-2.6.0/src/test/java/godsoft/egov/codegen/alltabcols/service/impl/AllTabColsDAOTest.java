@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AllTabColsDAOTest {
 
-	@Resource(name = "godsoft.codegen.alltabcols.allTabColsDAO")
+	@Resource(name = "godsoft.egov.codegen.alltabcols.allTabColsDAO")
 	private AllTabColsDAO allTabColsDAO;
 
 	@Test
