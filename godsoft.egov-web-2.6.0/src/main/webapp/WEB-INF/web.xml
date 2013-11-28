@@ -47,6 +47,7 @@
 			<param-value>
 				/WEB-INF/config/egovframework/springmvc/dispatcher-servlet.xml,
 				/WEB-INF/config/egovframework/springmvc/urlfilename-servlet.xml
+				/WEB-INF/config/godsoft/egov/web/springmvc/dispatcher-servlet.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
