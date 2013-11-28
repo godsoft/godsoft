@@ -1,6 +1,7 @@
 package godsoft.codegen.alltabcols.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.egov.codegen.alltabcols.service.impl.AllTabColsDAO;
 import godsoft.egov.codegen.cmm.OracleVO;
 
 import java.util.ArrayList;
