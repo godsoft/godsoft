@@ -29,6 +29,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 				classpath*:egovframework/spring/context-*.xml
+				classpath:godsoft/spring/egov/web/context-*.xml
 		</param-value>
 	</context-param>
 	
