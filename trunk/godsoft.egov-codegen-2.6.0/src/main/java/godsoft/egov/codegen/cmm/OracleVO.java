@@ -10,7 +10,13 @@ public class OracleVO {
 
 	private List<String> tableNames;
 
+	private List<Entity> entitys;
+
 	private boolean isSde;
+
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
 
 	public String getOwner() {
 		return owner;
@@ -36,8 +42,12 @@ public class OracleVO {
 		this.isSde = isSde;
 	}
 
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
+	public List<Entity> getEntitys() {
+		return entitys;
+	}
+
+	public void setEntitys(List<Entity> entitys) {
+		this.entitys = entitys;
 	}
 
 }

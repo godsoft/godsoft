@@ -16,6 +16,7 @@
 package godsoft.egov.codegen.cmm;
 
 import java.util.List;
+
 /**
  * 
  * 데이터베이스 Context 클래스
@@ -37,99 +38,175 @@ import java.util.List;
  */
 public class DataModelContext {
 
-    /** 데이터베이스 벤더 */
-    private String vender;
-    /** 데이터베이스 제품 명 */
-    private String databaseProductName;
-    /** 엔티티(테이블) 정보 */
-    private Entity entity;
-    /** 어트리뷰트(컬럼) 정보 */
-    private List<Attribute> attributes;
-    /** 기본키 컬럼 정보 */
-    private List<Attribute> primaryKeys;    
-    
-    /**
-     * 데이타베이스 제품명
-     * @return
-     */
-    public String getDatabaseProductName() {
-        return databaseProductName;
-    }
-    
-    /**
-     * 데이타베이스 제품명 세팅하기
-     * @param databaseProductName
-     */
-    public void setDatabaseProductName(String databaseProductName) {
-        this.databaseProductName = databaseProductName;
-    }
-    
-    /**
-     * 벤더 정보 가져오기
-     * @return
-     */
-    public String getVender() {
-        return vender;
-    }
-    
-    /**
-     * 벤더 정보 세팅하기
-     * @param vender
-     */
-    public void setVender(String vender) {
-        this.vender = vender;
-    }
+	/** 데이터베이스 벤더 */
+	private String vender;
+	/** 데이터베이스 제품 명 */
+	private String databaseProductName;
+	/** 엔티티(테이블) 정보 */
+	private Entity entity;
+	/** 어트리뷰트(컬럼) 정보 */
+	private List<Attribute> attributes;
+	/** 기본키 컬럼 정보 */
+	private List<Attribute> primaryKeys;
 
+	// 추가
+	private String author;
+	private String createDate;
+	private String packageName;
+	private String voPackage;
 
-    /**
-     * 기본키 목록 가져오기
-     * 
-     * @return
-     */
-    public List<Attribute> getPrimaryKeys() {
-        return primaryKeys;
-    }
-    
-    /**
-     * 기본키 목록 세팅하기
-     * @param primaryKeys
-     */
-    public void setPrimaryKeys(List<Attribute> primaryKeys) {
-        this.primaryKeys = primaryKeys;
-    }
-    
-    /**
-     * 엔티티 가져오기
-     * @return
-     */
-    public Entity getEntity() {
-        return entity;
-    }
-    
-    /**
-     * 엔티티 세팅하기
-     * 
-     * @param entity
-     */
-    public void setEntity(Entity entity) {
-        this.entity = entity;
-    }
-    
-    /**
-     * 속성 목록 가져오기
-     * 
-     * @return
-     */
-    public List<Attribute> getAttributes() {
-        return attributes;
-    }
-    
-    /**
-     * 속성 목록 세팅하기
-     * 
-     * @param attributes
-     */
-    public void setAttributes(List<Attribute> attributes) {
-        this.attributes = attributes;
-    }
+	private String projectLocation;
+
+	private List<String> sqlMaps;
+	private List<String> jqGridMenus;
+	private List<DataModelContext> dataModelContexts;
+
+	/**
+	 * 데이타베이스 제품명
+	 * @return
+	 */
+	public String getDatabaseProductName() {
+		return databaseProductName;
+	}
+
+	/**
+	 * 데이타베이스 제품명 세팅하기
+	 * @param databaseProductName
+	 */
+	public void setDatabaseProductName(String databaseProductName) {
+		this.databaseProductName = databaseProductName;
+	}
+
+	/**
+	 * 벤더 정보 가져오기
+	 * @return
+	 */
+	public String getVender() {
+		return vender;
+	}
+
+	/**
+	 * 벤더 정보 세팅하기
+	 * @param vender
+	 */
+	public void setVender(String vender) {
+		this.vender = vender;
+	}
+
+	/**
+	 * 기본키 목록 가져오기
+	 * 
+	 * @return
+	 */
+	public List<Attribute> getPrimaryKeys() {
+		return primaryKeys;
+	}
+
+	/**
+	 * 기본키 목록 세팅하기
+	 * @param primaryKeys
+	 */
+	public void setPrimaryKeys(List<Attribute> primaryKeys) {
+		this.primaryKeys = primaryKeys;
+	}
+
+	/**
+	 * 엔티티 가져오기
+	 * @return
+	 */
+	public Entity getEntity() {
+		return entity;
+	}
+
+	/**
+	 * 엔티티 세팅하기
+	 * 
+	 * @param entity
+	 */
+	public void setEntity(Entity entity) {
+		this.entity = entity;
+	}
+
+	/**
+	 * 속성 목록 가져오기
+	 * 
+	 * @return
+	 */
+	public List<Attribute> getAttributes() {
+		return attributes;
+	}
+
+	/**
+	 * 속성 목록 세팅하기
+	 * 
+	 * @param attributes
+	 */
+	public void setAttributes(List<Attribute> attributes) {
+		this.attributes = attributes;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
+	}
+
+	public String getVoPackage() {
+		return voPackage;
+	}
+
+	public void setVoPackage(String voPackage) {
+		this.voPackage = voPackage;
+	}
+
+	public String getProjectLocation() {
+		return projectLocation;
+	}
+
+	public void setProjectLocation(String projectLocation) {
+		this.projectLocation = projectLocation;
+	}
+
+	public List<String> getSqlMaps() {
+		return sqlMaps;
+	}
+
+	public void setSqlMaps(List<String> sqlMaps) {
+		this.sqlMaps = sqlMaps;
+	}
+
+	public List<String> getJqGridMenus() {
+		return jqGridMenus;
+	}
+
+	public void setJqGridMenus(List<String> jqGridMenus) {
+		this.jqGridMenus = jqGridMenus;
+	}
+
+	public List<DataModelContext> getDataModelContexts() {
+		return dataModelContexts;
+	}
+
+	public void setDataModelContexts(List<DataModelContext> dataModelContexts) {
+		this.dataModelContexts = dataModelContexts;
+	}
+
 }

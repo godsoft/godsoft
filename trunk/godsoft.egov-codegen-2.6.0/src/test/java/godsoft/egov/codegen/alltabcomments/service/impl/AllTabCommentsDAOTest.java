@@ -1,6 +1,7 @@
 package godsoft.egov.codegen.alltabcomments.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.egov.codegen.cmm.Entity;
 import godsoft.egov.codegen.cmm.OracleVO;
 
 import java.util.ArrayList;
@@ -8,6 +9,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.beanutils.BeanPredicate;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.functors.EqualPredicate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -50,5 +54,51 @@ public class AllTabCommentsDAOTest {
 
 			i++;
 		}
+	}
+
+	@Test
+	public void selectAllTabCommentsList2() throws Exception {
+		OracleVO oracleVO = new OracleVO();
+
+		//		oracleVO.setOwner("RTE");
+		oracleVO.setOwner("EGOV");
+
+		List<Entity> entitys = new ArrayList<Entity>();
+
+		Entity entity = new Entity("TEST_IDS");
+		entity.setTableName("IDS");
+		entitys.add(entity);
+
+		entity = new Entity("TEST_SAMPLE");
+		entity.setTableName("SAMPLE");
+		entitys.add(entity);
+
+		oracleVO.setEntitys(entitys);
+
+		List<EgovMap> items = allTabCommentsDAO.selectAllTabCommentsList(oracleVO);
+
+		System.out.println("items=" + items);
+		System.out.println("items.size()=" + items.size());
+
+		int i = 0;
+
+		for (EgovMap item : items) {
+			System.out.println("item[" + i + "]=" + item);
+
+			i++;
+		}
+
+		//		System.out.println(oracleVO.getEntitys().contains(new Entity("TEST_IDS")));
+		//		System.out.println(oracleVO.getEntitys().contains("TEST_IDS"));
+
+		//		CollectionUtils.
+
+		String propertyName = "tableName";
+		String value = "IDS";
+
+		EqualPredicate nameEqlPredicate = new EqualPredicate(value);
+		BeanPredicate beanPredicate = new BeanPredicate(propertyName, nameEqlPredicate);
+		System.out.println("Below are person object whose " + propertyName + " is " + value);
+		System.out.println(CollectionUtils.find(oracleVO.getEntitys(), beanPredicate));
 	}
 }

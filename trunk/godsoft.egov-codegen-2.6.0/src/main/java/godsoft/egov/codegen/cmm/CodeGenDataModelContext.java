@@ -47,8 +47,8 @@ public class CodeGenDataModelContext {
 			//			dataModel.setPackageName(dataModel2.getPackageName());
 
 			Entity entity = new Entity((String) entityName.get(allTabCommentTableName));
-			//			entity.setTableName(allTabCommentTableName.toLowerCase());
-			//			entity.setTableComments(allTabCommentComments);
+			entity.setTableName(allTabCommentTableName.toLowerCase());
+			entity.setTableComments(allTabCommentComments);
 
 			DataModelContext dataModel = getDataModel(parameterDataModel);
 
@@ -99,11 +99,11 @@ public class CodeGenDataModelContext {
 
 		dataModel.setVender(parameterDataModel.getVender());
 
-		//		dataModel.setAuthor(parameterDataModel.getAuthor());
-		//		dataModel.setCreateDate(GodsoftUtils.getToday());
-		//		dataModel.setPackageName(parameterDataModel.getPackageName());
+		dataModel.setAuthor(parameterDataModel.getAuthor());
+		dataModel.setCreateDate(parameterDataModel.getCreateDate());
+		dataModel.setPackageName(parameterDataModel.getPackageName());
 
-		//		dataModel.setProjectName(parameterDataModel.getProjectName());
+		dataModel.setProjectLocation(parameterDataModel.getProjectLocation());
 
 		return dataModel;
 	}
