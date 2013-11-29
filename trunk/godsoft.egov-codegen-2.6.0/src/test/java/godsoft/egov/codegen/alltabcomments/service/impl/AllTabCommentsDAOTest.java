@@ -43,8 +43,12 @@ public class AllTabCommentsDAOTest {
 		System.out.println("items=" + items);
 		System.out.println("items.size()=" + items.size());
 
+		int i = 0;
+
 		for (EgovMap item : items) {
-			System.out.println("item=" + item);
+			System.out.println("item[" + i + "]=" + item);
+
+			i++;
 		}
 	}
 }
