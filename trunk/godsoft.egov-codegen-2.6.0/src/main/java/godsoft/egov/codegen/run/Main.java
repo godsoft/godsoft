@@ -20,7 +20,8 @@ public class Main {
 		try {
 			Main main = new Main();
 			main.crudCodeGen();
-			main.sqlMap();
+			main.defaultVO();
+			//			main.sqlMap();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,6 +68,14 @@ public class Main {
 
 		dataModel.setAttributes(attributes);
 		dataModel.setPrimaryKeys(primaryKeys);
+	}
+
+	public void defaultVO() throws Exception {
+		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
+
+		String result = crudCodeGen.generate(dataModel, templateFile);
+
+		//		System.out.println(result);
 	}
 
 	public void sqlMap() throws Exception {
