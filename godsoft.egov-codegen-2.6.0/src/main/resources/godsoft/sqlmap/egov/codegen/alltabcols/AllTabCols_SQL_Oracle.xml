@@ -35,6 +35,12 @@
 			</iterate>
 		</isNotEmpty>
 
+		<isNotEmpty property="entitys">
+			<iterate close=")" conjunction="," open="(" prepend="AND table_name IN" property="entitys">
+				#entitys[].tableName#
+			</iterate>
+		</isNotEmpty>
+
 		<isEqual compareValue="true" property="isSde">
 			AND all_tab_cols.column_name != 'SHAPE'
 			AND all_tab_cols.column_name NOT LIKE 'SYS_%'

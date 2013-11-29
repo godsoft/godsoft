@@ -1,9 +1,12 @@
 package godsoft.egov.codegen.run;
 
 import godsoft.egov.codegen.cmm.Attribute;
+import godsoft.egov.codegen.cmm.CodeGenDataModelContext;
+import godsoft.egov.codegen.cmm.CodeGenUtils;
 import godsoft.egov.codegen.cmm.CrudCodeGen;
 import godsoft.egov.codegen.cmm.DataModelContext;
 import godsoft.egov.codegen.cmm.Entity;
+import godsoft.egov.codegen.cmm.OracleVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,48 @@ public class Main {
 			//			main.sqlMap();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public OracleVO getOracleVO() {
+		OracleVO oracleVO = new OracleVO();
+
+		oracleVO.setOwner("EGOV");
+
+		List<Entity> entitys = new ArrayList<Entity>();
+
+		Entity entity = new Entity("TEST_IDS");
+		entity.setTableName("IDS");
+		entitys.add(entity);
+
+		entity = new Entity("TEST_SAMPLE");
+		entity.setTableName("SAMPLE");
+		entitys.add(entity);
+
+		oracleVO.setEntitys(entitys);
+
+		return oracleVO;
+	}
+
+	public DataModelContext getParameterDataModel() {
+		DataModelContext dataModel = new DataModelContext();
+
+		dataModel.setVender("Oracle");
+
+		dataModel.setAuthor("갓소프트 이백행");
+		dataModel.setCreateDate(CodeGenUtils.getToday());
+		dataModel.setPackageName("godsoft.egov.com.user");
+
+		dataModel.setProjectLocation("../godsoft.egov-com-2.6.0");
+
+		return dataModel;
+	}
+
+	public void getDataModelContexts() throws Exception {
+		CodeGenDataModelContext codeGenDataModelContext = new CodeGenDataModelContext(getOracleVO(), null, getParameterDataModel());
+
+		for (DataModelContext dataModel : codeGenDataModelContext.getDataModelContexts()) {
+			System.out.println(dataModel);
 		}
 	}
 

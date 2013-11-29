@@ -36,14 +36,33 @@ package godsoft.egov.codegen.cmm;
  */
 public class Entity extends DbModelElement {
 
-    /**
-     * 
-     * 생성자
-     *
-     * @param name 이름
-     */
-    public Entity(String name) {
-        super(name);
-    }
+	/**
+	 * 
+	 * 생성자
+	 *
+	 * @param name 이름
+	 */
+	public Entity(String name) {
+		super(name);
+	}
+
+	private String tableName;
+	private String tableComments;
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public String getTableComments() {
+		return tableComments;
+	}
+
+	public void setTableComments(String tableComments) {
+		this.tableComments = tableComments;
+	}
 
 }

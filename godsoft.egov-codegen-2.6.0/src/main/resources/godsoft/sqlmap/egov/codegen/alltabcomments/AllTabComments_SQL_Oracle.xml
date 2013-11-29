@@ -21,6 +21,12 @@
 			</iterate>
 		</isNotEmpty>
 
+		<isNotEmpty property="entitys">
+			<iterate close=")" conjunction="," open="(" prepend="AND table_name IN" property="entitys">
+				#entitys[].tableName#
+			</iterate>
+		</isNotEmpty>
+
 		ORDER BY
 			table_name
 	</select>
