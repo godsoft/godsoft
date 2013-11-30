@@ -125,7 +125,7 @@ public class Main {
 		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
-		String data = crudCodeGen.generate(dataModelContext, templateFile);
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		FileUtils.writeStringToFile(new File(pathname), data);
 	}
@@ -133,7 +133,7 @@ public class Main {
 	public void sqlMap(DataModelContext dataModelContext) throws Exception {
 		String templateFile = "eGovFrameTemplates/crud/resource/godsoft/egov/core/EgovSample_Sample2_SQL.vm";
 
-		crudCodeGen.generate(dataModelContext, templateFile);
+		this.crudCodeGen.generate(dataModelContext, templateFile);
 	}
 
 }
