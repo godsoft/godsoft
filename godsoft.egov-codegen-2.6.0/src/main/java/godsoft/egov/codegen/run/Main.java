@@ -124,11 +124,12 @@ public class Main {
 	public void defaultVO(DataModelContext dataModelContext) throws Exception {
 		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
 
+		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
 		String data = crudCodeGen.generate(dataModelContext, templateFile);
 
-		//		System.out.println(dataModelContext.getCodeGenFile().getDefaultVOPathname());
+		System.out.println(pathname);
 
-		FileUtils.writeStringToFile(new File(dataModelContext.getCodeGenFile().getDefaultVOPathname()), data);
+		FileUtils.writeStringToFile(new File(pathname), data);
 	}
 
 	public void sqlMap(DataModelContext dataModelContext) throws Exception {

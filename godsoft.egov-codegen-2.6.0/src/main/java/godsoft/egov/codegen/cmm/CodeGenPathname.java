@@ -1,6 +1,6 @@
 package godsoft.egov.codegen.cmm;
 
-public class CodeGenFile {
+public class CodeGenPathname {
 
 	private DataModelContext dataModelContext;
 
@@ -12,7 +12,7 @@ public class CodeGenFile {
 
 	private String defaultVOPathname;
 
-	public CodeGenFile(DataModelContext dataModelContext) {
+	public CodeGenPathname(DataModelContext dataModelContext) {
 		this.dataModelContext = dataModelContext;
 
 		this.setTopLevelPathname();

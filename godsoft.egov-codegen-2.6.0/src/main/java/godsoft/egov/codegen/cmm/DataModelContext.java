@@ -62,7 +62,7 @@ public class DataModelContext {
 	private List<DataModelContext> dataModelContexts;
 
 	private CodeGenPackage codeGenPackage;
-	private CodeGenFile codeGenFile;
+	private CodeGenPathname codeGenPathname;
 
 	/**
 	 * 데이타베이스 제품명
@@ -220,12 +220,12 @@ public class DataModelContext {
 		this.codeGenPackage = new CodeGenPackage(dataModelContext);
 	}
 
-	public CodeGenFile getCodeGenFile() {
-		return codeGenFile;
+	public CodeGenPathname getCodeGenPathname() {
+		return codeGenPathname;
 	}
 
-	public void setCodeGenFile(DataModelContext dataModelContext) {
-		this.codeGenFile = new CodeGenFile(dataModelContext);
+	public void setCodeGenPathname(DataModelContext dataModelContext) {
+		this.codeGenPathname = new CodeGenPathname(dataModelContext);
 	}
 
 }

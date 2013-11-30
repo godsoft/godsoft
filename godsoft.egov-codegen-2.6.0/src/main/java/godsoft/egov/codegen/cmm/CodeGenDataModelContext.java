@@ -86,7 +86,7 @@ public class CodeGenDataModelContext {
 			dataModel.setPrimaryKeys(primaryKeys);
 
 			dataModel.setCodeGenPackage(dataModel);
-			dataModel.setCodeGenFile(dataModel);
+			dataModel.setCodeGenPathname(dataModel);
 
 			dataModelContexts.add(dataModel);
 		}
