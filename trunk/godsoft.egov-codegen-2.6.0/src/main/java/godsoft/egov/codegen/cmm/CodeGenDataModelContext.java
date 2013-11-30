@@ -14,8 +14,9 @@ public class CodeGenDataModelContext {
 
 	//	public void setDataModelContexts(OracleVO oracleVO, Map<String, Object> entityName, DataModelContext dataModel) throws Exception {
 	public CodeGenDataModelContext(OracleVO oracleVO, Map<String, Object> entityName, DataModelContext parameterDataModel) throws Exception {
-		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("allTabColsDAO");
-		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext().getBean("allTabCommentsDAO");
+		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.egov.codegen.alltabcols.allTabColsDAO");
+		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext()
+				.getBean("godsoft.egov.codegen.alltabcomments.allTabCommentsDAO");
 
 		//		OracleVO oracleVO = gisOracleVO();
 
@@ -46,7 +47,8 @@ public class CodeGenDataModelContext {
 			//			dataModel.setCreateDate(GodsoftUtils.getToday());
 			//			dataModel.setPackageName(dataModel2.getPackageName());
 
-			Entity entity = new Entity((String) entityName.get(allTabCommentTableName));
+			//			Entity entity = new Entity((String) entityName.get(allTabCommentTableName));
+			Entity entity = new Entity(((Entity) CodeGenUtils.CollectionUtilsFind(oracleVO.getEntitys(), "tableName", allTabCommentTableName)).getName());
 			entity.setTableName(allTabCommentTableName.toLowerCase());
 			entity.setTableComments(allTabCommentComments);
 

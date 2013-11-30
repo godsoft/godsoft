@@ -15,6 +15,8 @@
  */
 package godsoft.egov.codegen.cmm;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 /**
  * 
  * 엔티티 정보 클래스
@@ -35,6 +37,10 @@ package godsoft.egov.codegen.cmm;
  * </pre>
  */
 public class Entity extends DbModelElement {
+
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
 
 	/**
 	 * 
