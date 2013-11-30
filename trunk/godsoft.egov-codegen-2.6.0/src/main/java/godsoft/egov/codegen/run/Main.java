@@ -63,7 +63,7 @@ public class Main {
 
 		dataModel.setAuthor("갓소프트 이백행");
 		dataModel.setCreateDate(CodeGenUtils.getToday());
-		dataModel.setTopLevelPackage("godsoft.egov.com.user");
+		dataModel.setTopLevelPackage("godsoft.egov.user");
 
 		dataModel.setProjectLocation("../godsoft.egov-com-2.6.0");
 
@@ -126,8 +126,6 @@ public class Main {
 
 		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
 		String data = crudCodeGen.generate(dataModelContext, templateFile);
-
-		System.out.println(pathname);
 
 		FileUtils.writeStringToFile(new File(pathname), data);
 	}
