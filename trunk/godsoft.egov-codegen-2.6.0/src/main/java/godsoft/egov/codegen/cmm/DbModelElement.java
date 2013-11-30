@@ -47,6 +47,8 @@ public class DbModelElement {
 	/** Pascal Case 명 */
 	private String pcName;
 
+	private String packageName;
+
 	/**
 	 * 
 	 * 생성자
@@ -77,6 +79,8 @@ public class DbModelElement {
 		setLcName(name.toLowerCase());
 		setCcName(NamingUtils.convertUnderscoreNameToCamelcase(name));
 		setPcName(NamingUtils.convertCamelcaseToPascalcase(getCcName()));
+
+		setPackageName(getLcName().replaceAll("_", ""));
 	}
 
 	/**
@@ -147,6 +151,14 @@ public class DbModelElement {
 	 */
 	public void setPcName(String pascalcaseName) {
 		this.pcName = pascalcaseName;
+	}
+
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
 	}
 
 }

@@ -6,14 +6,15 @@ import godsoft.egov.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.collections.MapUtils;
 
 public class CodeGenDataModelContext {
 
+	private List<DataModelContext> dataModelContexts;
+
 	//	public void setDataModelContexts(OracleVO oracleVO, Map<String, Object> entityName, DataModelContext dataModel) throws Exception {
-	public CodeGenDataModelContext(OracleVO oracleVO, Map<String, Object> entityName, DataModelContext parameterDataModel) throws Exception {
+	public CodeGenDataModelContext(OracleVO oracleVO, DataModelContext parameterDataModel) throws Exception {
 		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.egov.codegen.alltabcols.allTabColsDAO");
 		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext()
 				.getBean("godsoft.egov.codegen.alltabcomments.allTabCommentsDAO");
@@ -52,7 +53,7 @@ public class CodeGenDataModelContext {
 			entity.setTableName(allTabCommentTableName.toLowerCase());
 			entity.setTableComments(allTabCommentComments);
 
-			DataModelContext dataModel = getDataModel(parameterDataModel);
+			DataModelContext dataModel = this.getDataModel(parameterDataModel);
 
 			dataModel.setEntity(entity);
 
@@ -60,19 +61,19 @@ public class CodeGenDataModelContext {
 			List<Attribute> primaryKeys = new ArrayList<Attribute>();
 
 			for (EgovMap allTabCol : allTabCols) {
-				String allTabColTableName = (String) allTabCol.get("tableName");
-				String columnName = (String) allTabCol.get("columnName");
-				String dataType = (String) allTabCol.get("dataType");
-				int dataLength = MapUtils.getIntValue(allTabCol, "dataLength", 0);
-				String columnComments = (String) allTabCol.get("columnComments");
-				int position = MapUtils.getIntValue(allTabCol, "position", 0);
+				String allTabColTableName = MapUtils.getString(allTabCol, "tableName");
+				String columnName = MapUtils.getString(allTabCol, "columnName");
+				String dataType = MapUtils.getString(allTabCol, "dataType");
+				int dataLength = MapUtils.getIntValue(allTabCol, "dataLength");
+				String columnComments = MapUtils.getString(allTabCol, "columnComments");
+				int position = MapUtils.getIntValue(allTabCol, "position");
 
 				if (allTabColTableName.equals(allTabCommentTableName)) {
 					Attribute attribute = new Attribute(columnName);
-					//					attribute.setJavaType(GodsoftUtils.getDataType(dataType));
+					attribute.setJavaType(CodeGenUtils.getJavaType(dataType));
 					attribute.setPrimaryKey((position > 0) ? true : false);
-					//					attribute.setDataLength(dataLength);
-					//					attribute.setColumnComments(columnComments);
+					attribute.setDataLength(dataLength);
+					attribute.setColumnComments(columnComments);
 					attributes.add(attribute);
 
 					if (position > 0) {
@@ -84,16 +85,13 @@ public class CodeGenDataModelContext {
 			dataModel.setAttributes(attributes);
 			dataModel.setPrimaryKeys(primaryKeys);
 
+			dataModel.setCodeGenPackage(dataModel);
+			dataModel.setCodeGenFile(dataModel);
+
 			dataModelContexts.add(dataModel);
 		}
 
 		this.dataModelContexts = dataModelContexts;
-	}
-
-	private List<DataModelContext> dataModelContexts;
-
-	public List<DataModelContext> getDataModelContexts() {
-		return dataModelContexts;
 	}
 
 	private DataModelContext getDataModel(DataModelContext parameterDataModel) {
@@ -103,11 +101,15 @@ public class CodeGenDataModelContext {
 
 		dataModel.setAuthor(parameterDataModel.getAuthor());
 		dataModel.setCreateDate(parameterDataModel.getCreateDate());
-		dataModel.setPackageName(parameterDataModel.getPackageName());
+		dataModel.setTopLevelPackage(parameterDataModel.getTopLevelPackage());
 
 		dataModel.setProjectLocation(parameterDataModel.getProjectLocation());
 
 		return dataModel;
+	}
+
+	public List<DataModelContext> getDataModelContexts() {
+		return dataModelContexts;
 	}
 
 }
