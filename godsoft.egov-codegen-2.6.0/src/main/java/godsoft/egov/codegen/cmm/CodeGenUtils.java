@@ -26,4 +26,15 @@ public class CodeGenUtils {
 		return CollectionUtils.find(collection, beanPredicate);
 	}
 
+	public static String getJavaType(String dataType) {
+		String javaType = "String";
+
+		if ("NUMBER".equals(dataType)) {
+			javaType = "int";
+			//			s = "Integer";
+		}
+
+		return javaType;
+	}
+
 }

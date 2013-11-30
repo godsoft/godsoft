@@ -39,10 +39,14 @@ public class CrudCodeGen {
 		context.put("entity", dataModel.getEntity());
 		context.put("attributes", dataModel.getAttributes());
 		context.put("primaryKeys", dataModel.getPrimaryKeys());
-		//		context.put("createDate", dataModel.getCreateDate());
-		//		context.put("author", dataModel.getAuthor());
+		context.put("createDate", dataModel.getCreateDate());
+		context.put("author", dataModel.getAuthor());
 
 		context.put("model", dataModel);
+
+		//		CodeGenPackage codeGenPackage = new CodeGenPackage(dataModel);;
+		//		context.put("voPackage", codeGenPackage.getServicePackage());
+		context.put("voPackage", dataModel.getCodeGenPackage().getServicePackage());
 
 		Template template = null;
 

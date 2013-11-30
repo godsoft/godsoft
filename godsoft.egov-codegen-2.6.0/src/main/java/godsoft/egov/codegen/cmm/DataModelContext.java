@@ -52,7 +52,7 @@ public class DataModelContext {
 	// 추가
 	private String author;
 	private String createDate;
-	private String packageName;
+	private String topLevelPackage;
 	private String voPackage;
 
 	private String projectLocation;
@@ -60,6 +60,9 @@ public class DataModelContext {
 	private List<String> sqlMaps;
 	private List<String> jqGridMenus;
 	private List<DataModelContext> dataModelContexts;
+
+	private CodeGenPackage codeGenPackage;
+	private CodeGenFile codeGenFile;
 
 	/**
 	 * 데이타베이스 제품명
@@ -161,12 +164,12 @@ public class DataModelContext {
 		this.createDate = createDate;
 	}
 
-	public String getPackageName() {
-		return packageName;
+	public String getTopLevelPackage() {
+		return topLevelPackage;
 	}
 
-	public void setPackageName(String packageName) {
-		this.packageName = packageName;
+	public void setTopLevelPackage(String topLevelPackage) {
+		this.topLevelPackage = topLevelPackage;
 	}
 
 	public String getVoPackage() {
@@ -207,6 +210,22 @@ public class DataModelContext {
 
 	public void setDataModelContexts(List<DataModelContext> dataModelContexts) {
 		this.dataModelContexts = dataModelContexts;
+	}
+
+	public CodeGenPackage getCodeGenPackage() {
+		return codeGenPackage;
+	}
+
+	public void setCodeGenPackage(DataModelContext dataModelContext) {
+		this.codeGenPackage = new CodeGenPackage(dataModelContext);
+	}
+
+	public CodeGenFile getCodeGenFile() {
+		return codeGenFile;
+	}
+
+	public void setCodeGenFile(DataModelContext dataModelContext) {
+		this.codeGenFile = new CodeGenFile(dataModelContext);
 	}
 
 }

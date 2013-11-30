@@ -35,79 +35,99 @@ package godsoft.egov.codegen.cmm;
  * </pre>
  */
 public class Attribute extends DbModelElement {
-    
-    /**
-     * 
-     * 생성자
-     *
-     * @param name
-     */
-    public Attribute(String name) {
-        super(name);
-    }
 
-    /** 데이터 타입 */
-    private String type;
-    
-    /** 자바 타입 */
-    private String javaType;
-    
-    /** 프라이머리 키 여부 */
-    private boolean isPrimaryKey;
+	/**
+	 * 
+	 * 생성자
+	 *
+	 * @param name
+	 */
+	public Attribute(String name) {
+		super(name);
+	}
 
-    /**
-     * 필수 키 여부 가져오기
-     * @return
-     */
-    public boolean getIsPrimaryKey() {
-        return isPrimaryKey;
-    }
-    
-    /**
-     * 필수 키 여부 가져오기
-     * @return
-     */
-    public boolean isPrimaryKey() {
-        return isPrimaryKey;
-    }    
+	/** 데이터 타입 */
+	private String type;
 
-    /**
-     * 필수키 여부 세팅하기
-     * @param isPrimaryKey
-     */
-    public void setPrimaryKey(boolean isPrimaryKey) {
-        this.isPrimaryKey = isPrimaryKey;
-    }
+	/** 자바 타입 */
+	private String javaType;
 
-    /**
-     * 자바 타입 가져오기
-     * @return
-     */
-    public String getJavaType() {
-        return javaType;
-    }
+	/** 프라이머리 키 여부 */
+	private boolean isPrimaryKey;
 
-    /**
-     * 자바 타입 세팅하기
-     * @param javaType
-     */
-    public void setJavaType(String javaType) {
-        this.javaType = javaType;
-    }
+	private int dataLength;
+	private String columnComments;
 
-    /**
-     * 타입 가져오기
-     * @return
-     */
-    public String getType() {
-        return type;
-    }
+	/**
+	 * 필수 키 여부 가져오기
+	 * @return
+	 */
+	public boolean getIsPrimaryKey() {
+		return isPrimaryKey;
+	}
 
-    /**
-     * 타입 세팅하기
-     * @param type
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
+	/**
+	 * 필수 키 여부 가져오기
+	 * @return
+	 */
+	public boolean isPrimaryKey() {
+		return isPrimaryKey;
+	}
+
+	/**
+	 * 필수키 여부 세팅하기
+	 * @param isPrimaryKey
+	 */
+	public void setPrimaryKey(boolean isPrimaryKey) {
+		this.isPrimaryKey = isPrimaryKey;
+	}
+
+	/**
+	 * 자바 타입 가져오기
+	 * @return
+	 */
+	public String getJavaType() {
+		return javaType;
+	}
+
+	/**
+	 * 자바 타입 세팅하기
+	 * @param javaType
+	 */
+	public void setJavaType(String javaType) {
+		this.javaType = javaType;
+	}
+
+	/**
+	 * 타입 가져오기
+	 * @return
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * 타입 세팅하기
+	 * @param type
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getDataLength() {
+		return dataLength;
+	}
+
+	public void setDataLength(int dataLength) {
+		this.dataLength = dataLength;
+	}
+
+	public String getColumnComments() {
+		return columnComments;
+	}
+
+	public void setColumnComments(String columnComments) {
+		this.columnComments = columnComments;
+	}
+
 }
