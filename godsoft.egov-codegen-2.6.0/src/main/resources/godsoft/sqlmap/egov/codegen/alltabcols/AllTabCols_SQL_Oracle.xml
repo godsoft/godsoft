@@ -36,7 +36,7 @@
 		</isNotEmpty>
 
 		<isNotEmpty property="entitys">
-			<iterate close=")" conjunction="," open="(" prepend="AND table_name IN" property="entitys">
+			<iterate close=")" conjunction="," open="(" prepend="AND all_tab_cols.table_name IN" property="entitys">
 				#entitys[].tableName#
 			</iterate>
 		</isNotEmpty>

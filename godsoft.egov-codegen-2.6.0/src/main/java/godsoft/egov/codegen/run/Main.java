@@ -22,8 +22,11 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			Main main = new Main();
-			main.crudCodeGen();
-			main.defaultVO();
+
+			main.getDataModelContexts();
+
+			//			main.crudCodeGen();
+			//			main.defaultVO();
 			//			main.sqlMap();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,7 +71,8 @@ public class Main {
 		CodeGenDataModelContext codeGenDataModelContext = new CodeGenDataModelContext(getOracleVO(), null, getParameterDataModel());
 
 		for (DataModelContext dataModel : codeGenDataModelContext.getDataModelContexts()) {
-			System.out.println(dataModel);
+			//			System.out.println(dataModel);
+			System.out.println(dataModel.getEntity().getCcName());
 		}
 	}
 

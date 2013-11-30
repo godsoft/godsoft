@@ -1,6 +1,7 @@
 package godsoft.egov.codegen.alltabcols.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.egov.codegen.cmm.Entity;
 import godsoft.egov.codegen.cmm.OracleVO;
 
 import java.util.ArrayList;
@@ -47,4 +48,34 @@ public class AllTabColsDAOTest {
 			System.out.println("item=" + item);
 		}
 	}
+
+	@Test
+	public void selectAllTabColsList2() throws Exception {
+		OracleVO oracleVO = new OracleVO();
+
+		//		oracleVO.setOwner("RTE");
+		oracleVO.setOwner("EGOV");
+
+		List<Entity> entitys = new ArrayList<Entity>();
+
+		Entity entity = new Entity("TEST_IDS");
+		entity.setTableName("IDS");
+		entitys.add(entity);
+
+		entity = new Entity("TEST_SAMPLE");
+		entity.setTableName("SAMPLE");
+		entitys.add(entity);
+
+		oracleVO.setEntitys(entitys);
+
+		List<EgovMap> items = allTabColsDAO.selectAllTabColsList(oracleVO);
+
+		System.out.println("items=" + items);
+		System.out.println("items.size()=" + items.size());
+
+		for (EgovMap item : items) {
+			System.out.println("item=" + item);
+		}
+	}
+
 }

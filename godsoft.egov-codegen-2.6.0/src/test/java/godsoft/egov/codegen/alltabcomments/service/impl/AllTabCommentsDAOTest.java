@@ -1,6 +1,7 @@
 package godsoft.egov.codegen.alltabcomments.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.egov.codegen.cmm.CodeGenUtils;
 import godsoft.egov.codegen.cmm.Entity;
 import godsoft.egov.codegen.cmm.OracleVO;
 
@@ -96,9 +97,15 @@ public class AllTabCommentsDAOTest {
 		String propertyName = "tableName";
 		String value = "IDS";
 
-		EqualPredicate nameEqlPredicate = new EqualPredicate(value);
-		BeanPredicate beanPredicate = new BeanPredicate(propertyName, nameEqlPredicate);
+		EqualPredicate equalPredicate = new EqualPredicate(value);
+		BeanPredicate beanPredicate = new BeanPredicate(propertyName, equalPredicate);
 		System.out.println("Below are person object whose " + propertyName + " is " + value);
 		System.out.println(CollectionUtils.find(oracleVO.getEntitys(), beanPredicate));
+
+		Entity entity2 = (Entity) CollectionUtils.find(oracleVO.getEntitys(), beanPredicate);
+		System.out.println(entity2.getTableName());
+
+		System.out.println(CodeGenUtils.CollectionUtilsFind(oracleVO.getEntitys(), "tableName", "sample"));
+		System.out.println(CodeGenUtils.CollectionUtilsFind(oracleVO.getEntitys(), "tableName", "SAMPLE"));
 	}
 }
