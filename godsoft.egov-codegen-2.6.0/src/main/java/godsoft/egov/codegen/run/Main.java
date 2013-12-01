@@ -27,10 +27,6 @@ public class Main {
 			Main main = new Main();
 
 			main.getDataModelContexts();
-
-			//			main.crudCodeGen();
-			//			main.defaultVO();
-			//			main.sqlMap();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,52 +70,10 @@ public class Main {
 		CodeGenDataModelContext codeGenDataModelContext = new CodeGenDataModelContext(getOracleVO(), getParameterDataModel());
 
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
-			this.defaultVO(dataModelContext);
+			//			this.defaultVO(dataModelContext);
+			this.sqlMap(dataModelContext);
 		}
 	}
-
-	//	public void crudCodeGen() {
-	//		crudCodeGen = new CrudCodeGen();
-	//
-	//		dataModel = new DataModelContext();
-	//
-	//		//		dataModel.setPackageName("pkg");
-	//		//		dataModel.setAuthor("홍길동");
-	//		//		dataModel.setTeam("실행환경 개발팀");
-	//		//		dataModel.setCreateDate("2009.02.01");
-	//
-	//		Entity entity = new Entity("SAMPLE2");
-	//
-	//		dataModel.setEntity(entity);
-	//
-	//		List<Attribute> attributes = new ArrayList<Attribute>();
-	//		List<Attribute> primaryKeys = new ArrayList<Attribute>();
-	//
-	//		Attribute attr = new Attribute("ID");
-	//		attr.setJavaType("String");
-	//		attributes.add(attr);
-	//		primaryKeys.add(attr);
-	//
-	//		attr = new Attribute("NAME");
-	//		attr.setJavaType("String");
-	//		attributes.add(attr);
-	//		//		primaryKeys.add(attr);
-	//
-	//		attr = new Attribute("DESCRIPTION");
-	//		attr.setJavaType("String");
-	//		attributes.add(attr);
-	//
-	//		attr = new Attribute("USE_YN");
-	//		attr.setJavaType("String");
-	//		attributes.add(attr);
-	//
-	//		attr = new Attribute("REG_USER");
-	//		attr.setJavaType("String");
-	//		attributes.add(attr);
-	//
-	//		dataModel.setAttributes(attributes);
-	//		dataModel.setPrimaryKeys(primaryKeys);
-	//	}
 
 	public void defaultVO(DataModelContext dataModelContext) throws Exception {
 		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
@@ -136,7 +90,7 @@ public class Main {
 		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
-		FileUtils.writeStringToFile(new File(pathname), data);
+		//		FileUtils.writeStringToFile(new File(pathname), data);
 	}
 
 }
