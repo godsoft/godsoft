@@ -164,7 +164,30 @@
 		<![CDATA[
 		]]>
 	</select>
-	
+
+## ##################################################################################################	
+	<sql id="${selectListQueryId}.where">
+		WHERE 1 = 1
+
+		<isEqual property="searchCondition" compareValue="0">
+			AND ${model.attributes.get(0).lcName} = #searchKeyword#
+		</isEqual>
+
+		<isEqual property="searchCondition" compareValue="1">
+			AND ${model.attributes.get(1).lcName} LIKE '%' || #searchKeyword# || '%'
+		</isEqual>
+			
+#foreach($attribute in $model.attributes)
+
+		<isNotEmpty property="${attribute.ccName}">
+			<![CDATA[
+				/* ${attribute.columnComments} */
+				AND ${attribute.lcName} = #${attribute.ccName}#
+			]]>
+		<isNotEmpty>
+#end
+	</sql>
+
 ## ##################################################################################################	
 	<select id="${selectListQueryId}"
 		parameterClass="${namespace}.${voInstanceName}"
@@ -218,14 +241,7 @@
 #set($i=$i+1)
 #end
 			FROM ${model.entity.tableName}
-			WHERE 1 = 1
-			<isEqual prepend="AND" property="searchCondition" compareValue="0">
-				${model.attributes.get(0).lcName} = #searchKeyword#
-			</isEqual>
-			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				${model.attributes.get(1).lcName} LIKE '%' || #searchKeyword# || '%'
-			</isEqual>
-
+		<include refid="${selectListQueryId}.where" />
 #if(!${model.primaryKeys} == [])
                 ${model.attributes.get(0).name} DESC
 #else					
@@ -299,13 +315,7 @@
 #elseif($vender == "Oracle")
 		SELECT COUNT(*) AS totcnt
 		FROM ${model.entity.tableName}
-		WHERE 1 = 1
-		<isEqual prepend="AND" property="searchCondition" compareValue="0">
-			${model.attributes.get(0).name} = #searchKeyword#
-		</isEqual>
-		<isEqual prepend="AND" property="searchCondition" compareValue="1">
-			${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
-		</isEqual>
+		<include refid="${selectListQueryId}.where" />
 #elseif($vender == "MySql")
 			SELECT COUNT(*) totcnt
 			FROM ${model.entity.name}
