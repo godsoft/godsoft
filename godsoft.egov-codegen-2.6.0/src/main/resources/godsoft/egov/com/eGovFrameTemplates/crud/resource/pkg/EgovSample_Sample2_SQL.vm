@@ -28,13 +28,13 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="$namespace">
-	
+
 ## --------------------------------------------------------------------------------------------------------
 	<typeAlias alias="egovMap"
 		type="egovframework.rte.psl.dataaccess.util.EgovMap" />
 	<typeAlias alias="${namespace}.${voInstanceName}"
 		type="${voPackage}.${voClassName}" />
-	
+
 ## --------------------------------------------------------------------------------------------------------
 	<resultMap id="$resultMapId"
 		class="$resultMapClass">
@@ -44,7 +44,7 @@
 		<result property="${attribute.ccName}" column="${attribute.lcName}" columnIndex="$i" /> <!-- ${attribute.columnComments} -->
 #end		
 	</resultMap>
-	
+
 ## ##################################################################################################
 	<insert id="${insertQueryId}">
 		/* ${insertQueryId} */
@@ -76,7 +76,7 @@
 #set($i=$i+1)
 #end
 	</insert>
-	
+
 ## ##################################################################################################	
 	<update id="${updateQueryId}">
 		/* ${updateQueryId} */
@@ -109,7 +109,7 @@
 #end
 #end
 	</update>
-	
+
 ## ##################################################################################################
 	<delete id="${deleteQueryId}">
 		/* ${deleteQueryId} */
@@ -130,7 +130,7 @@
 #end
 #end
 	</delete>
-	
+
 ## ##################################################################################################	
 	<select id="${selectQueryId}"
 		resultMap="$resultMapId">
@@ -161,8 +161,6 @@
 #set($i=$i+1)
 #end
 #end
-		<![CDATA[
-		]]>
 	</select>
 
 ## ##################################################################################################	
@@ -176,7 +174,6 @@
 		<isEqual property="searchCondition" compareValue="1">
 			AND ${model.attributes.get(1).lcName} LIKE '%' || #searchKeyword# || '%'
 		</isEqual>
-			
 #foreach($attribute in $model.attributes)
 
 		<isNotEmpty property="${attribute.ccName}">

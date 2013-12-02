@@ -24,6 +24,8 @@ public class CodeGenPackage {
 		StringBuffer sb = new StringBuffer();
 		sb.append(dataModelContext.getTopLevelPackage());
 		sb.append(".");
+		sb.append(dataModelContext.getMiddleLevelPackage());
+		sb.append(".");
 		sb.append(dataModelContext.getEntity().getPackageName());
 
 		this.topLevelPackage = sb.toString();

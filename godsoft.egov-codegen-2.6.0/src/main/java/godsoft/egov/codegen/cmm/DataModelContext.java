@@ -53,7 +53,8 @@ public class DataModelContext {
 	private String author;
 	private String createDate;
 	private String topLevelPackage;
-	private String voPackage;
+	private String middleLevelPackage;
+	//	private String voPackage;
 
 	private String projectLocation;
 
@@ -172,12 +173,20 @@ public class DataModelContext {
 		this.topLevelPackage = topLevelPackage;
 	}
 
-	public String getVoPackage() {
-		return voPackage;
+	//	public String getVoPackage() {
+	//		return voPackage;
+	//	}
+	//
+	//	public void setVoPackage(String voPackage) {
+	//		this.voPackage = voPackage;
+	//	}
+
+	public String getMiddleLevelPackage() {
+		return middleLevelPackage;
 	}
 
-	public void setVoPackage(String voPackage) {
-		this.voPackage = voPackage;
+	public void setMiddleLevelPackage(String middleLevelPackage) {
+		this.middleLevelPackage = middleLevelPackage;
 	}
 
 	public String getProjectLocation() {
