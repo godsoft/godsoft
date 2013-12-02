@@ -14,6 +14,7 @@ public class CodeGenPathname {
 	private String voPathname;
 	private String sqlMapPathname;
 	private String daoPathname;
+	private String daoTestPathname;
 
 	public CodeGenPathname(DataModelContext dataModelContext) {
 		this.dataModelContext = dataModelContext;
@@ -26,6 +27,7 @@ public class CodeGenPathname {
 		this.setVoPathname();
 		this.setSqlMapPathname();
 		this.setDaoPathname();
+		this.setDaoTestPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -107,6 +109,22 @@ public class CodeGenPathname {
 		this.daoPathname = sb.toString();
 	}
 
+	public void setDaoTestPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/test/java/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/service/impl/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("DAOTest.java");
+
+		this.daoTestPathname = sb.toString();
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
 	}
@@ -133,6 +151,10 @@ public class CodeGenPathname {
 
 	public String getDaoPathname() {
 		return daoPathname;
+	}
+
+	public String getDaoTestPathname() {
+		return daoTestPathname;
 	}
 
 }
