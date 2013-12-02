@@ -11,6 +11,7 @@ public class CodeGenPathname {
 	private String webPathname;
 
 	private String defaultVOPathname;
+	private String voPathname;
 	private String sqlMapPathname;
 
 	public CodeGenPathname(DataModelContext dataModelContext) {
@@ -21,6 +22,8 @@ public class CodeGenPathname {
 		this.setServicePathname();
 
 		this.setDefaultVOPathname();
+
+		this.setVoPathname();
 
 		this.setSqlMapPathname();
 	}
@@ -54,6 +57,16 @@ public class CodeGenPathname {
 		sb.append("DefaultVO.java");
 
 		this.defaultVOPathname = sb.toString();
+	}
+
+	public void setVoPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.servicePathname);
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("VO.java");
+
+		this.voPathname = sb.toString();
 	}
 
 	public void setSqlMapPathname() {
@@ -90,6 +103,10 @@ public class CodeGenPathname {
 
 	public String getDefaultVOPathname() {
 		return defaultVOPathname;
+	}
+
+	public String getVoPathname() {
+		return voPathname;
 	}
 
 	public String getSqlMapPathname() {
