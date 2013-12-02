@@ -72,7 +72,8 @@ public class Main {
 
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
 			//			this.defaultVO(dataModelContext);
-			this.sqlMap(dataModelContext);
+			this.vo(dataModelContext);
+			//			this.sqlMap(dataModelContext);
 		}
 	}
 
@@ -80,6 +81,17 @@ public class Main {
 		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void vo(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getVoPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
