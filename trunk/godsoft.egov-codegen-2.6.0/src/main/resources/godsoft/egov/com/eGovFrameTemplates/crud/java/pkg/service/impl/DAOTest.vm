@@ -172,6 +172,7 @@ public class ${daoClassName} {
 		List<EgovMap> items = ${daoInstanceName}.${selectListMethodName}(${voInstanceName});
 
 		System.out.println("items=" + items);
+		System.out.println("items.size()=" + items.size());
 
 		for (EgovMap item : items) {
 			System.out.println("item=" + item);
