@@ -1,7 +1,8 @@
 package godsoft.core.sample.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.core.sample.service.SampleDefaultVO;
+import godsoft.core.user.sample.service.SampleDefaultVO;
+import godsoft.core.user.sample.service.impl.SampleDAO;
 
 import java.util.List;
 

@@ -4,6 +4,7 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.cmm.CodeGenUtils;
 import godsoft.codegen.cmm.Entity;
 import godsoft.codegen.cmm.OracleVO;
+import godsoft.codegen.user.alltabcomments.service.impl.AllTabCommentsDAO;
 
 import java.util.ArrayList;
 import java.util.List;
