@@ -15,8 +15,9 @@ public class CodeGenDataModelContext {
 
 	//	public void setDataModelContexts(OracleVO oracleVO, Map<String, Object> entityName, DataModelContext dataModel) throws Exception {
 	public CodeGenDataModelContext(OracleVO oracleVO, DataModelContext parameterDataModel) throws Exception {
-		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.codegen.alltabcols.allTabColsDAO");
-		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.codegen.alltabcomments.allTabCommentsDAO");
+		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.codegen.user.alltabcols.allTabColsDAO");
+		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext()
+				.getBean("godsoft.codegen.user.alltabcomments.allTabCommentsDAO");
 
 		//		OracleVO oracleVO = gisOracleVO();
 
