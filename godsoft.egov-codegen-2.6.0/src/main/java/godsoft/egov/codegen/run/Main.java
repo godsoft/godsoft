@@ -62,7 +62,7 @@ public class Main {
 		dataModel.setTopLevelPackage("godsoft.com");
 		dataModel.setMiddleLevelPackage("user");
 
-		dataModel.setProjectLocation("../godsoft.egov-com-2.6.0");
+		dataModel.setProjectLocation("../godsoft.com-2.6.0");
 
 		return dataModel;
 	}

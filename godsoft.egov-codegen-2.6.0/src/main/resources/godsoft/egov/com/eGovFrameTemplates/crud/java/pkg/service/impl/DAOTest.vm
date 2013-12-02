@@ -57,7 +57,7 @@ import ${voPackage}.${voClassName};
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:context.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/com/test-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class ${daoClassName} {
@@ -71,7 +71,7 @@ public class ${daoClassName} {
 		//		this.${updateMethodName}();
 		//		this.${deleteMethodName}();
 		//		this.${selectMethodName}();
-		//		this.${selectListMethodName}();
+		this.${selectListMethodName}();
 		//		this.${selectListTotCntMethodName}();
 	}
 
@@ -112,7 +112,7 @@ public class ${daoClassName} {
 
 		int updateRows = ${daoInstanceName}.${updateMethodName}(${voInstanceName});
 
-		System.out.println(updateRows);
+		System.out.println("updateRows=" + updateRows);
 	}
 
 ##	@Test
@@ -128,7 +128,7 @@ public class ${daoClassName} {
 
 		int deleteRows = ${daoInstanceName}.${deleteMethodName}(${voInstanceName});
 
-		System.out.println(deleteRows);
+		System.out.println("deleteRows=" + deleteRows);
 	}
 
 ##	@Test
@@ -144,7 +144,7 @@ public class ${daoClassName} {
 
 		${voClassName} item = ${daoInstanceName}.${selectMethodName}(${voInstanceName});
 
-		System.out.println(item);
+		System.out.println("item=" + item);
 	}
 ##
 ##	@Test
@@ -160,7 +160,7 @@ public class ${daoClassName} {
 ##
 ##		EgovMap item = ${daoInstanceName}.${selectMethodName}EgovMap(${voInstanceName});
 ##
-##		System.out.println(item);
+##		System.out.println("item=" + item);
 ##	}
 
 ##	@Test
@@ -171,10 +171,10 @@ public class ${daoClassName} {
 
 		List<EgovMap> items = ${daoInstanceName}.${selectListMethodName}(${voInstanceName});
 
-		System.out.println(items);
+		System.out.println("items=" + items);
 
 		for (EgovMap item : items) {
-			System.out.println(item);
+			System.out.println("item=" + item);
 		}
 	}
 
@@ -182,9 +182,9 @@ public class ${daoClassName} {
 	public void ${selectListTotCntMethodName}() throws Exception {
 		${voClassName} ${voInstanceName} = new ${voClassName}();
 
-		int listTotCnt = ${daoInstanceName}.${selectListTotCntMethodName}(${voInstanceName});
+		int totCnt = ${daoInstanceName}.${selectListTotCntMethodName}(${voInstanceName});
 
-		System.out.println(listTotCnt);
+		System.out.println("totCnt" + totCnt);
 	}
 
 }
