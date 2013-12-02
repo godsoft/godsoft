@@ -8,12 +8,12 @@ import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.cmm.OracleVO;
 
-@Repository("godsoft.codegen.alltabcols.allTabColsDAO")
+@Repository("godsoft.codegen.user.alltabcols.allTabColsDAO")
 public class AllTabColsDAO extends EgovAbstractDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<EgovMap> selectAllTabColsList(OracleVO oracleVO) throws Exception {
-		return list("godsoft.codegen.alltabcols.allTabColsDAO.selectAllTabColsList", oracleVO);
+		return list("godsoft.codegen.user.alltabcols.allTabColsDAO.selectAllTabColsList", oracleVO);
 	}
 
 }
