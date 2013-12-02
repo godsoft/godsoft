@@ -59,7 +59,8 @@ public class Main {
 
 		dataModel.setAuthor("갓소프트 이백행");
 		dataModel.setCreateDate(CodeGenUtils.getToday());
-		dataModel.setTopLevelPackage("godsoft.com.user");
+		dataModel.setTopLevelPackage("godsoft.com");
+		dataModel.setMiddleLevelPackage("user");
 
 		dataModel.setProjectLocation("../godsoft.egov-com-2.6.0");
 
@@ -81,16 +82,20 @@ public class Main {
 		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
+		System.out.println(pathname);
+
 		FileUtils.writeStringToFile(new File(pathname), data);
 	}
 
 	public void sqlMap(DataModelContext dataModelContext) throws Exception {
 		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
 
-		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
+		String pathname = dataModelContext.getCodeGenPathname().getSqlMapPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
-		//		FileUtils.writeStringToFile(new File(pathname), data);
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
 	}
 
 }

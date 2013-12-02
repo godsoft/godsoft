@@ -11,6 +11,7 @@ public class CodeGenPathname {
 	private String webPathname;
 
 	private String defaultVOPathname;
+	private String sqlMapPathname;
 
 	public CodeGenPathname(DataModelContext dataModelContext) {
 		this.dataModelContext = dataModelContext;
@@ -20,6 +21,8 @@ public class CodeGenPathname {
 		this.setServicePathname();
 
 		this.setDefaultVOPathname();
+
+		this.setSqlMapPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -27,6 +30,8 @@ public class CodeGenPathname {
 		sb.append(this.dataModelContext.getProjectLocation());
 		sb.append("/src/main/java/");
 		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
 		sb.append("/");
 		sb.append(this.dataModelContext.getEntity().getPackageName());
 
@@ -51,6 +56,26 @@ public class CodeGenPathname {
 		this.defaultVOPathname = sb.toString();
 	}
 
+	public void setSqlMapPathname() {
+		String sqlMapPathname = this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/");
+
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/resources/");
+		sb.append(sqlMapPathname.substring(0, sqlMapPathname.indexOf("/")));
+		sb.append("/sqlmap");
+		sb.append(sqlMapPathname.substring(sqlMapPathname.indexOf("/")));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("_SQL_Oracle.xml");
+
+		this.sqlMapPathname = sb.toString();
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
 	}
@@ -65,6 +90,10 @@ public class CodeGenPathname {
 
 	public String getDefaultVOPathname() {
 		return defaultVOPathname;
+	}
+
+	public String getSqlMapPathname() {
+		return sqlMapPathname;
 	}
 
 }

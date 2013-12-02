@@ -102,6 +102,7 @@ public class CodeGenDataModelContext {
 		dataModel.setAuthor(parameterDataModel.getAuthor());
 		dataModel.setCreateDate(parameterDataModel.getCreateDate());
 		dataModel.setTopLevelPackage(parameterDataModel.getTopLevelPackage());
+		dataModel.setMiddleLevelPackage(parameterDataModel.getMiddleLevelPackage());
 
 		dataModel.setProjectLocation(parameterDataModel.getProjectLocation());
 
