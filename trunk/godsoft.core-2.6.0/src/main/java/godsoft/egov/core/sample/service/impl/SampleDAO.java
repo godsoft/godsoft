@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.egov.core.sample.service.SampleDefaultVO;
+import godsoft.core.sample.service.SampleDefaultVO;
 
 /**  
  * @Class Name : SampleDAO.java
