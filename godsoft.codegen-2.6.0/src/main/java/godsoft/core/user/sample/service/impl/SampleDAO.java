@@ -40,7 +40,7 @@ import godsoft.core.user.sample.service.SampleDefaultVO;
  *  Copyright (C) by MOPAS All right reserved.
  */
 
-@Repository("godsoft.core.sample.service.impl.sampleDAO")
+@Repository("godsoft.core.user.sample.service.impl.sampleDAO")
 public class SampleDAO extends EgovAbstractDAO {
 
 	/**
@@ -51,7 +51,7 @@ public class SampleDAO extends EgovAbstractDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<EgovMap> selectSampleList(SampleDefaultVO searchVO) throws Exception {
-		return list("godsoft.core.sample.service.impl.sampleDAO.selectSampleList", searchVO);
+		return list("godsoft.core.user.sample.service.impl.sampleDAO.selectSampleList", searchVO);
 	}
 
 }
