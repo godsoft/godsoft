@@ -73,7 +73,7 @@ public class Main {
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
 			//			this.defaultVO(dataModelContext);
 			this.vo(dataModelContext);
-			//			this.sqlMap(dataModelContext);
+			this.sqlMap(dataModelContext);
 		}
 	}
 
