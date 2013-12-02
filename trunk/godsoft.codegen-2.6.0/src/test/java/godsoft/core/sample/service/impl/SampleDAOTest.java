@@ -2,7 +2,6 @@ package godsoft.core.sample.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.core.sample.service.SampleDefaultVO;
-import godsoft.core.sample.service.impl.SampleDAO;
 
 import java.util.List;
 
@@ -29,12 +28,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:godsoft/spring/egov/core/test-context.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/core/test-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class SampleDAOTest {
 
-	@Resource(name = "godsoft.egov.core.sample.service.impl.sampleDAO")
+	@Resource(name = "godsoft.core.sample.service.impl.sampleDAO")
 	private SampleDAO sampleDAO;
 
 	@Test
