@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="godsoft.egov.core.sample.service.impl.sampleDAO.Sample">
+<sqlMap namespace="godsoft.core.sample.service.impl.sampleDAO.Sample">
 
 <!-- 	<typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap" /> -->
 <!-- 	<typeAlias alias="searchVO" type="godsoft.egov.core.sample.service.SampleDefaultVO" /> -->
 
-	<resultMap id="godsoft.egov.core.sample.service.impl.sampleDAO.sample.resultMap"
-		class="godsoft.egov.core.sample.service.SampleVO">
+	<resultMap id="godsoft.core.sample.service.impl.sampleDAO.sample.resultMap"
+		class="godsoft.core.sample.service.SampleVO">
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="description" column="description" />
@@ -15,8 +15,8 @@
 		<result property="regUser" column="reg_user" />
 	</resultMap>
 
-	<select id="godsoft.egov.core.sample.service.impl.sampleDAO.selectSampleList"
-		parameterClass="godsoft.egov.core.sample.service.SampleDefaultVO"
+	<select id="godsoft.core.sample.service.impl.sampleDAO.selectSampleList"
+		parameterClass="godsoft.core.sample.service.SampleDefaultVO"
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 		SELECT
 			id

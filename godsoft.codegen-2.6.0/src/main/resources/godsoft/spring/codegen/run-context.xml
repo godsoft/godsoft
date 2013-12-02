@@ -16,6 +16,6 @@
 	<!-- <import resource="classpath:egovframework/spring/context-validator.xml" 
 		/> -->
 
-	<import resource="classpath:godsoft/spring/egov/codegen/context-common.xml" />
+	<import resource="classpath:godsoft/spring/codegen/context-common.xml" />
 
 </beans>
