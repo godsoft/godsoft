@@ -1,9 +1,10 @@
 package godsoft.egov.codegen.alltabcomments.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.egov.codegen.cmm.CodeGenUtils;
-import godsoft.egov.codegen.cmm.Entity;
-import godsoft.egov.codegen.cmm.OracleVO;
+import godsoft.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
+import godsoft.codegen.cmm.CodeGenUtils;
+import godsoft.codegen.cmm.Entity;
+import godsoft.codegen.cmm.OracleVO;
 
 import java.util.ArrayList;
 import java.util.List;

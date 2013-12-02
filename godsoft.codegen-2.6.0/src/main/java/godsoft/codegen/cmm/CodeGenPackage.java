@@ -1,4 +1,4 @@
-package godsoft.egov.codegen.cmm;
+package godsoft.codegen.cmm;
 
 public class CodeGenPackage {
 
