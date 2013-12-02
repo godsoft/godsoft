@@ -13,19 +13,19 @@ public class CodeGenPathname {
 	private String defaultVOPathname;
 	private String voPathname;
 	private String sqlMapPathname;
+	private String daoPathname;
 
 	public CodeGenPathname(DataModelContext dataModelContext) {
 		this.dataModelContext = dataModelContext;
 
 		this.setTopLevelPathname();
-
 		this.setServicePathname();
+		this.setServiceImplPathname();
 
 		this.setDefaultVOPathname();
-
 		this.setVoPathname();
-
 		this.setSqlMapPathname();
+		this.setDaoPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -47,6 +47,14 @@ public class CodeGenPathname {
 		sb.append("/service");
 
 		this.servicePathname = sb.toString();
+	}
+
+	public void setServiceImplPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.topLevelPathname);
+		sb.append("/service/impl");
+
+		this.serviceImplPathname = sb.toString();
 	}
 
 	public void setDefaultVOPathname() {
@@ -89,6 +97,16 @@ public class CodeGenPathname {
 		this.sqlMapPathname = sb.toString();
 	}
 
+	public void setDaoPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.serviceImplPathname);
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("DAO.java");
+
+		this.daoPathname = sb.toString();
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
 	}
@@ -111,6 +129,10 @@ public class CodeGenPathname {
 
 	public String getSqlMapPathname() {
 		return sqlMapPathname;
+	}
+
+	public String getDaoPathname() {
+		return daoPathname;
 	}
 
 }
