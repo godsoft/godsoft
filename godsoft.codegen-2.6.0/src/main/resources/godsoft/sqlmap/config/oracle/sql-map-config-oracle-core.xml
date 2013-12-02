@@ -4,6 +4,6 @@
 
 <sqlMapConfig>
 
-	<sqlMap resource="godsoft/sqlmap/core/sample/Sample_SQL_Oracle.xml" />
+	<sqlMap resource="godsoft/sqlmap/core/user/sample/Sample_SQL_Oracle.xml" />
 
 </sqlMapConfig>

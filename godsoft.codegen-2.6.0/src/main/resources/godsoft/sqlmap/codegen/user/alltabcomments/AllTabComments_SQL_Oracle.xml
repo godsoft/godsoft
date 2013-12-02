@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="godsoft.codegen.alltabcomments.allTabCommentsDAO">
+<sqlMap namespace="godsoft.codegen.user.alltabcomments.allTabCommentsDAO">
 
-	<select id="godsoft.codegen.alltabcomments.allTabCommentsDAO.selectAllTabCommentsList"
+	<select id="godsoft.codegen.user.alltabcomments.allTabCommentsDAO.selectAllTabCommentsList"
 		parameterClass="godsoft.codegen.cmm.OracleVO"
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 		SELECT
