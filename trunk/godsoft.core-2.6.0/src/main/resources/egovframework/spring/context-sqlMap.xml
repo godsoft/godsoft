@@ -14,9 +14,7 @@
 		<property name="configLocations">
 			<list>
 				<value>classpath:egovframework/sqlmap/rte/sql-map-config.xml</value>
-				<!-- <value>classpath:godsoft/sqlmap/config/oracle/sql-map-config-oracle-egov-core.xml</value> -->
-				<value>classpath:godsoft/sqlmap/config/oracle/*.xml
-				</value>
+				<value>classpath:godsoft/sqlmap/com/*.xml</value>
 			</list>
 		</property>
 
