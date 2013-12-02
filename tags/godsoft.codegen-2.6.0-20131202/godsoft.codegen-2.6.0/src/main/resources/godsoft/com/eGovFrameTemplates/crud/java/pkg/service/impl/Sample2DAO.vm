@@ -1,0 +1,121 @@
+##
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($daoPackage="${daoPackage}")
+#set($daoClassName="${model.entity.pcName}DAO")
+#set($daoName="${model.entity.ccName}DAO")
+#set($daoInstanceName="${model.entity.ccName}DAO")
+##
+##
+#set($insertMethodName="insert${model.entity.pcName}")
+#set($updateMethodName="update${model.entity.pcName}")
+#set($deleteMethodName="delete${model.entity.pcName}")
+#set($selectMethodName="select${model.entity.pcName}")
+#set($selectListMethodName="select${model.entity.pcName}List")
+#set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
+##
+##
+#set($insertQueryId="${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}.insert${model.entity.pcName}")
+#set($updateQueryId="${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}.update${model.entity.pcName}")
+#set($deleteQueryId="${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}.delete${model.entity.pcName}")
+#set($selectQueryId="${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}.select${model.entity.pcName}")
+#set($selectListQueryId="${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}.select${model.entity.pcName}List")
+#set($selectListTotCntQueryId="${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}.select${model.entity.pcName}ListTotCnt")
+##
+##
+package ${daoPackage};
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+##import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
+import egovframework.com.cmm.service.impl.EgovComAbstractDAO;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import ${voPackage}.${voClassName};
+##import ${voPackage}.${defaultVoClassName};
+
+/**
+ * ${model.entity.tableComments}
+ *
+ * @Class Name : ${daoClassName}.java
+ * @Description : ${model.entity.pcName} DAO Class
+ * @Modification Information
+ *
+ * @author ${author}
+ * @since ${createDate}
+ * @version 1.0
+ * @see
+ *  
+ *  Copyright (C)  All right reserved.
+ */
+
+@Repository("${model.codeGenPackage.serviceImplPackage}.${daoName}")
+##public class ${daoClassName} extends EgovAbstractDAO {
+public class ${daoClassName} extends EgovComAbstractDAO {
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 등록한다.
+	 * @param vo - 등록할 정보가 담긴 ${voClassName}
+	 * @return 등록 결과
+	 * @exception Exception
+	 */
+	public String ${insertMethodName}(${voClassName} vo) throws Exception {
+		return (String) insert("${insertQueryId}", vo);
+	}
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 수정한다.
+	 * @param vo - 수정할 정보가 담긴 ${voClassName}
+	 * @return 수정 결과
+	 * @exception Exception
+	 */
+	public int ${updateMethodName}(${voClassName} vo) throws Exception {
+		return update("${updateQueryId}", vo);
+	}
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 삭제한다.
+	 * @param vo - 삭제할 정보가 담긴 ${voClassName}
+	 * @return 삭제 결과 
+	 * @exception Exception
+	 */
+	public int ${deleteMethodName}(${voClassName} vo) throws Exception {
+		return delete("${deleteQueryId}", vo);
+	}
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 조회한다.
+	 * @param vo - 조회할 정보가 담긴 ${voClassName}
+	 * @return 조회한 ${model.entity.tableName}
+	 * @exception Exception
+	 */
+	public ${voClassName} ${selectMethodName}(${voClassName} vo) throws Exception {
+		return (${voClassName}) selectByPk("${selectQueryId}", vo);
+	}
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName}) 목록을 조회한다.
+##	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @param vo - 조회할 정보가 담긴 ${voClassName}
+	 * @return ${model.entity.tableName} 목록
+	 * @exception Exception
+	 */
+	@SuppressWarnings("unchecked")
+	public List<EgovMap> ${selectListMethodName}(${voClassName} vo) throws Exception {
+		return list("${selectListQueryId}", vo);
+	}
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName}) 총 갯수를 조회한다.
+##	 * @param searchMap - 조회할 정보가 담긴 Map
+	 * @param vo - 조회할 정보가 담긴 ${voClassName}
+	 * @return ${model.entity.tableName} 총 갯수
+	 * @exception
+	 */
+	public int ${selectListTotCntMethodName}(${voClassName} vo) {
+		return (Integer) selectByPk("${selectListTotCntQueryId}", vo);
+	}
+
+}

@@ -1,0 +1,191 @@
+##
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($voInstanceName="${model.entity.ccName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($daoPackage="${daoPackage}")
+#set($daoClassName="${model.entity.pcName}DAOTest")
+#set($daoName="${model.entity.pcName}DAO")
+#set($daoInstanceName="${model.entity.ccName}DAO")
+##
+##
+#set($insertMethodName="insert${model.entity.pcName}")
+#set($updateMethodName="update${model.entity.pcName}")
+#set($deleteMethodName="delete${model.entity.pcName}")
+#set($selectMethodName="select${model.entity.pcName}")
+#set($selectListMethodName="select${model.entity.pcName}List")
+#set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
+##
+##
+#set($insertQueryId="${daoInstanceName}.insert${model.entity.pcName}_S")
+#set($updateQueryId="${daoInstanceName}.update${model.entity.pcName}_S")
+#set($deleteQueryId="${daoInstanceName}.delete${model.entity.pcName}_S")
+#set($selectQueryId="${daoInstanceName}.select${model.entity.pcName}_S")
+#set($selectListQueryId="${daoInstanceName}.select${model.entity.pcName}List_D")
+#set($selectListTotCntQueryId="${daoInstanceName}.select${model.entity.pcName}ListTotCnt_S")
+##
+##
+package ${daoPackage};
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import ${voPackage}.${voClassName};
+
+/**
+ * ${model.entity.tableComments} 테스트
+ *
+ * @Class Name : ${daoClassName}.java
+ * @Description : ${model.entity.pcName} DAOTest Class
+ * @Modification Information
+ *
+ * @author ${author}
+ * @since ${createDate}
+ * @version 1.0
+ * @see
+ *
+ *  Copyright (C)  All right reserved.
+ */
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:godsoft/spring/com/test-context.xml" })
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
+@Transactional
+public class ${daoClassName} {
+
+	@Resource(name = "${model.codeGenPackage.serviceImplPackage}.${daoInstanceName}")
+	private ${daoName} ${daoInstanceName};
+
+	@Test
+	public void test() throws Exception {
+		//		this.${insertMethodName}();
+		//		this.${updateMethodName}();
+		//		this.${deleteMethodName}();
+		//		this.${selectMethodName}();
+		this.${selectListMethodName}();
+		//		this.${selectListTotCntMethodName}();
+	}
+
+##	@Test
+	public void ${insertMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.attributes)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		${daoInstanceName}.${insertMethodName}(${voInstanceName});
+	}
+
+##	@Test
+	public void ${updateMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.attributes)
+#if(${attribute.isPrimaryKey} == false)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}("${attribute.columnComments}"); // ${attribute.columnComments}
+#end
+#end
+#end
+
+#foreach($attribute in $model.primaryKeys)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		int updateRows = ${daoInstanceName}.${updateMethodName}(${voInstanceName});
+
+		System.out.println("updateRows=" + updateRows);
+	}
+
+##	@Test
+	public void ${deleteMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.primaryKeys)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		int deleteRows = ${daoInstanceName}.${deleteMethodName}(${voInstanceName});
+
+		System.out.println("deleteRows=" + deleteRows);
+	}
+
+##	@Test
+	public void ${selectMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.primaryKeys)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}("${attribute.columnComments}"); // ${attribute.columnComments}
+#end
+#end
+
+		${voClassName} item = ${daoInstanceName}.${selectMethodName}(${voInstanceName});
+
+		System.out.println("item=" + item);
+	}
+##
+##	@Test
+##	public void ${selectMethodName}EgovMap() throws Exception {
+##		${voClassName} ${voInstanceName} = new ${voClassName}();
+###foreach($attribute in $model.primaryKeys)
+###if(${attribute.javaType} == "int")
+##		${voInstanceName}.set${attribute.pcName}(0);
+###else
+##		${voInstanceName}.set${attribute.pcName}("${attribute.columnComments}");
+###end
+###end
+##
+##		EgovMap item = ${daoInstanceName}.${selectMethodName}EgovMap(${voInstanceName});
+##
+##		System.out.println("item=" + item);
+##	}
+
+##	@Test
+	public void ${selectListMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+		${voInstanceName}.setFirstIndex(0);
+		${voInstanceName}.setRecordCountPerPage(10);
+
+		List<EgovMap> items = ${daoInstanceName}.${selectListMethodName}(${voInstanceName});
+
+		System.out.println("items=" + items);
+		System.out.println("items.size()=" + items.size());
+
+		for (EgovMap item : items) {
+			System.out.println("item=" + item);
+		}
+	}
+
+##	@Test
+	public void ${selectListTotCntMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+
+		int totCnt = ${daoInstanceName}.${selectListTotCntMethodName}(${voInstanceName});
+
+		System.out.println("totCnt" + totCnt);
+	}
+
+}

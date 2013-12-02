@@ -1,0 +1,56 @@
+##
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+##
+##
+package $voPackage;
+
+import egovframework.com.cmm.ComDefaultVO;
+
+/**
+ * ${model.entity.tableComments}
+ *
+ * @Class Name : ${voClassName}.java
+ * @Description : ${model.entity.pcName} VO class
+ * @Modification Information
+ *
+ * @author ${author}
+ * @since ${createDate}
+ * @version 1.0
+ * @see
+ *  
+ *  Copyright (C)  All right reserved.
+ */
+@SuppressWarnings("serial")
+public class ${voClassName} extends ComDefaultVO {
+
+#set($i=0)	
+#foreach($attribute in $model.attributes)
+	/** ${attribute.lcName}, ${attribute.columnComments} */
+	private ${attribute.javaType} ${attribute.ccName};
+
+#set($i=$i+1)
+#end
+##
+#set($i=0)	
+#foreach($attribute in $model.attributes)
+	/**
+	 * ${attribute.columnComments} 값읽기
+	 * @return
+	 */
+	public ${attribute.javaType} get${attribute.pcName}() {
+		return this.${attribute.ccName};
+	}
+
+	/**
+	 * ${attribute.columnComments} 값설정
+	 * @param tableName
+	 */
+	public void set${attribute.pcName}(${attribute.javaType} ${attribute.ccName}) {
+		this.${attribute.ccName} = ${attribute.ccName};
+	}
+
+#set($i=$i+1)
+#end  
+}
