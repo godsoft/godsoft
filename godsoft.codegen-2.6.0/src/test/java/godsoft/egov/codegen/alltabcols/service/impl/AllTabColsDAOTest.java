@@ -1,6 +1,7 @@
 package godsoft.egov.codegen.alltabcols.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
+import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
 import godsoft.egov.codegen.cmm.Entity;
 import godsoft.egov.codegen.cmm.OracleVO;
 
@@ -22,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AllTabColsDAOTest {
 
-	@Resource(name = "godsoft.egov.codegen.alltabcols.allTabColsDAO")
+	@Resource(name = "godsoft.codegen.alltabcols.allTabColsDAO")
 	private AllTabColsDAO allTabColsDAO;
 
 	@Test
