@@ -4,7 +4,7 @@
 
 <sqlMapConfig>
 
-	<sqlMap resource="godsoft/sqlmap/codegen/alltabcols/AllTabCols_SQL_Oracle.xml" />
-	<sqlMap resource="godsoft/sqlmap/codegen/alltabcomments/AllTabComments_SQL_Oracle.xml" />
+	<sqlMap resource="godsoft/sqlmap/codegen/user/alltabcols/AllTabCols_SQL_Oracle.xml" />
+	<sqlMap resource="godsoft/sqlmap/codegen/user/alltabcomments/AllTabComments_SQL_Oracle.xml" />
 
 </sqlMapConfig>
