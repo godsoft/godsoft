@@ -1,7 +1,6 @@
 package godsoft.codegen.alltabcomments.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
 import godsoft.codegen.cmm.CodeGenUtils;
 import godsoft.codegen.cmm.Entity;
 import godsoft.codegen.cmm.OracleVO;
@@ -22,12 +21,12 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:godsoft/spring/egov/codegen/test-context.xml" })
+@ContextConfiguration(locations = { "classpath:godsoft/spring/codegen/test-context.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class AllTabCommentsDAOTest {
 
-	@Resource(name = "godsoft.egov.codegen.alltabcomments.allTabCommentsDAO")
+	@Resource(name = "godsoft.codegen.alltabcomments.allTabCommentsDAO")
 	private AllTabCommentsDAO allTabCommentsDAO;
 
 	@Test

@@ -3,7 +3,7 @@
 
 <sqlMap namespace="godsoft.codegen.alltabcomments.allTabCommentsDAO">
 
-	<select id="godsoft.egov.codegen.alltabcomments.allTabCommentsDAO.selectAllTabCommentsList"
+	<select id="godsoft.codegen.alltabcomments.allTabCommentsDAO.selectAllTabCommentsList"
 		parameterClass="godsoft.codegen.cmm.OracleVO"
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 		SELECT
