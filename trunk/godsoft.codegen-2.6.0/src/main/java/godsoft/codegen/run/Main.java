@@ -80,7 +80,7 @@ public class Main {
 	}
 
 	public void defaultVO(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/Sample2DefaultVO.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getDefaultVOPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -91,7 +91,7 @@ public class Main {
 	}
 
 	public void vo(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/Sample2VO.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getVoPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -102,7 +102,7 @@ public class Main {
 	}
 
 	public void sqlMap(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getSqlMapPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -113,7 +113,7 @@ public class Main {
 	}
 
 	public void dao(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getDaoPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -124,7 +124,7 @@ public class Main {
 	}
 
 	public void daoTest(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/impl/DAOTest.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/impl/DAOTest.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getDaoTestPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);

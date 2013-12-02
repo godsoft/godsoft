@@ -8,7 +8,7 @@ public class CodeGenApplicationContext {
 	private static ApplicationContext applicationContext;
 
 	static {
-		String configLocation = "classpath:godsoft/spring/egov/codegen/run-context.xml";
+		String configLocation = "classpath:godsoft/spring/codegen/run-context.xml";
 
 		applicationContext = new ClassPathXmlApplicationContext(configLocation);
 	}
