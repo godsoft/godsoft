@@ -11,7 +11,7 @@
 ##
 ##
 #set($vender="$model.vender")
-#set($namespace="$model.codeGenPackage.serviceImplPackage.$daoName")
+#set($namespace="$model.codeGenPackage.serviceImplPackage")
 #set($resultMapId="${namespace}.${model.entity.ccName}.resultMap")
 #set($resultMapClass="${voPackage}.${voClassName}")
 ##
@@ -27,7 +27,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="$namespace">
+<sqlMap namespace="$namespace.$daoName">
 
 ## --------------------------------------------------------------------------------------------------------
 	<typeAlias alias="egovMap"
@@ -181,7 +181,7 @@
 				/* ${attribute.columnComments} */
 				AND ${attribute.lcName} = #${attribute.ccName}#
 			]]>
-		<isNotEmpty>
+		</isNotEmpty>
 #end
 	</sql>
 
@@ -310,7 +310,7 @@
 				${model.attributes.get(1).name} LIKE '%' || #searchKeyword# || '%'
 			</isEqual>
 #elseif($vender == "Oracle")
-		SELECT COUNT(*) AS totcnt
+		SELECT COUNT(*) AS totCnt
 		FROM ${model.entity.tableName}
 		<include refid="${selectListQueryId}.where" />
 #elseif($vender == "MySql")
