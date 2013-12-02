@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package godsoft.egov.core.sample.service.impl;
+package godsoft.core.sample.service.impl;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.egov.core.sample.service.SampleDefaultVO;
+import godsoft.core.sample.service.SampleDefaultVO;
 
 /**  
  * @Class Name : SampleDAO.java
