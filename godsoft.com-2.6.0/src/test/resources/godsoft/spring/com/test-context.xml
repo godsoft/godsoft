@@ -16,4 +16,6 @@
 	<import resource="classpath:egovframework/spring/com/context-transaction.xml" />
 	<import resource="classpath:egovframework/spring/com/context-validator.xml" />
 
+	<import resource="classpath:godsoft/spring/com/context-common.xml" />
+
 </beans>
