@@ -1,11 +1,11 @@
-package godsoft.egov.codegen.run;
+package godsoft.codegen.run;
 
-import godsoft.egov.codegen.cmm.CodeGenDataModelContext;
-import godsoft.egov.codegen.cmm.CodeGenUtils;
-import godsoft.egov.codegen.cmm.CrudCodeGen;
-import godsoft.egov.codegen.cmm.DataModelContext;
-import godsoft.egov.codegen.cmm.Entity;
-import godsoft.egov.codegen.cmm.OracleVO;
+import godsoft.codegen.cmm.CodeGenDataModelContext;
+import godsoft.codegen.cmm.CodeGenUtils;
+import godsoft.codegen.cmm.CrudCodeGen;
+import godsoft.codegen.cmm.DataModelContext;
+import godsoft.codegen.cmm.Entity;
+import godsoft.codegen.cmm.OracleVO;
 
 import java.io.File;
 import java.util.ArrayList;

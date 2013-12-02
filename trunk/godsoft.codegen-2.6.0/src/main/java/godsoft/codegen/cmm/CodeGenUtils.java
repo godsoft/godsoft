@@ -1,4 +1,4 @@
-package godsoft.egov.codegen.cmm;
+package godsoft.codegen.cmm;
 
 import java.text.SimpleDateFormat;
 import java.util.Collection;

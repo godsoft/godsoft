@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package godsoft.egov.codegen.cmm;
+package godsoft.codegen.cmm;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

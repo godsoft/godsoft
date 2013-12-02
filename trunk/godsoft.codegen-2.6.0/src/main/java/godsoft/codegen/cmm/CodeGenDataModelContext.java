@@ -1,8 +1,8 @@
-package godsoft.egov.codegen.cmm;
+package godsoft.codegen.cmm;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
-import godsoft.egov.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
+import godsoft.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +15,8 @@ public class CodeGenDataModelContext {
 
 	//	public void setDataModelContexts(OracleVO oracleVO, Map<String, Object> entityName, DataModelContext dataModel) throws Exception {
 	public CodeGenDataModelContext(OracleVO oracleVO, DataModelContext parameterDataModel) throws Exception {
-		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.egov.codegen.alltabcols.allTabColsDAO");
-		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext()
-				.getBean("godsoft.egov.codegen.alltabcomments.allTabCommentsDAO");
+		AllTabColsDAO allTabColsDAO = (AllTabColsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.codegen.alltabcols.allTabColsDAO");
+		AllTabCommentsDAO allTabCommentsDAO = (AllTabCommentsDAO) CodeGenApplicationContext.getApplicationContext().getBean("godsoft.codegen.alltabcomments.allTabCommentsDAO");
 
 		//		OracleVO oracleVO = gisOracleVO();
 
