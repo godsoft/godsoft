@@ -27,7 +27,7 @@ public class ${voClassName} extends ComDefaultVO {
 
 #set($i=0)	
 #foreach($attribute in $model.attributes)
-	/** ${attribute.name}, ${attribute.columnComments} */
+	/** ${attribute.lcName}, ${attribute.columnComments} */
 	private ${attribute.javaType} ${attribute.ccName};
 
 #set($i=$i+1)
