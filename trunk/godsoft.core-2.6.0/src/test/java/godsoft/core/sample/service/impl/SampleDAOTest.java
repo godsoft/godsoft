@@ -1,4 +1,4 @@
-package godsoft.egov.core.sample.service.impl;
+package godsoft.core.sample.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.core.sample.service.SampleDefaultVO;
