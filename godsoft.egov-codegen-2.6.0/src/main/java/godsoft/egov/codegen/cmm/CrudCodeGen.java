@@ -47,6 +47,7 @@ public class CrudCodeGen {
 		//		CodeGenPackage codeGenPackage = new CodeGenPackage(dataModel);;
 		//		context.put("voPackage", codeGenPackage.getServicePackage());
 		context.put("voPackage", dataModel.getCodeGenPackage().getServicePackage());
+		context.put("daoPackage", dataModel.getCodeGenPackage().getServiceImplPackage());
 
 		Template template = null;
 

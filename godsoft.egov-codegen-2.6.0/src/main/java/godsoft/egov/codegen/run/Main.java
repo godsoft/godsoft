@@ -72,8 +72,9 @@ public class Main {
 
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
 			//			this.defaultVO(dataModelContext);
-			this.vo(dataModelContext);
-			this.sqlMap(dataModelContext);
+			//			this.vo(dataModelContext);
+			//			this.sqlMap(dataModelContext);
+			this.dao(dataModelContext);
 		}
 	}
 
@@ -103,6 +104,17 @@ public class Main {
 		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/resource/pkg/EgovSample_Sample2_SQL.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getSqlMapPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void dao(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/egov/com/eGovFrameTemplates/crud/java/pkg/service/impl/Sample2DAO.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getDaoPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
