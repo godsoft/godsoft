@@ -1,4 +1,4 @@
-package godsoft.codegen.alltabcomments.service.impl;
+package godsoft.codegen.user.alltabcomments.service.impl;
 
 import java.util.List;
 

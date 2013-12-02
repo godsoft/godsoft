@@ -1,8 +1,8 @@
 package godsoft.codegen.cmm;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
-import godsoft.codegen.alltabcols.service.impl.AllTabColsDAO;
-import godsoft.codegen.alltabcomments.service.impl.AllTabCommentsDAO;
+import godsoft.codegen.user.alltabcols.service.impl.AllTabColsDAO;
+import godsoft.codegen.user.alltabcomments.service.impl.AllTabCommentsDAO;
 
 import java.util.ArrayList;
 import java.util.List;

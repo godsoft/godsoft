@@ -1,4 +1,4 @@
-package godsoft.codegen.alltabcols.service.impl;
+package godsoft.codegen.user.alltabcols.service.impl;
 
 import java.util.List;
 
