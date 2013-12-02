@@ -2,7 +2,6 @@ package godsoft.core.user.sample.service.impl;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 import godsoft.core.user.sample.service.SampleDefaultVO;
-import godsoft.core.user.sample.service.impl.SampleDAO;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class SampleDAOTest {
 
-	@Resource(name = "godsoft.core.sample.service.impl.sampleDAO")
+	@Resource(name = "godsoft.core.user.sample.service.impl.sampleDAO")
 	private SampleDAO sampleDAO;
 
 	@Test

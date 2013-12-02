@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AllTabCommentsDAOTest {
 
-	@Resource(name = "godsoft.codegen.alltabcomments.allTabCommentsDAO")
+	@Resource(name = "godsoft.codegen.user.alltabcomments.allTabCommentsDAO")
 	private AllTabCommentsDAO allTabCommentsDAO;
 
 	@Test

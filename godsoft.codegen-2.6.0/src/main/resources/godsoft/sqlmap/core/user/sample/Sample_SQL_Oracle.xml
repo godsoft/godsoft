@@ -7,7 +7,7 @@
 <!-- 	<typeAlias alias="searchVO" type="godsoft.egov.core.sample.service.SampleDefaultVO" /> -->
 
 	<resultMap id="godsoft.core.user.sample.service.impl.sampleDAO.sample.resultMap"
-		class="godsoft.core.sample.service.SampleVO">
+		class="godsoft.core.user.sample.service.SampleVO">
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="description" column="description" />
@@ -16,7 +16,7 @@
 	</resultMap>
 
 	<select id="godsoft.core.user.sample.service.impl.sampleDAO.selectSampleList"
-		parameterClass="godsoft.core.sample.service.SampleDefaultVO"
+		parameterClass="godsoft.core.user.sample.service.SampleDefaultVO"
 		resultClass="egovframework.rte.psl.dataaccess.util.EgovMap">
 		SELECT
 			id
