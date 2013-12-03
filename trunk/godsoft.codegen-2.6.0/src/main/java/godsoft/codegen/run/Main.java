@@ -17,8 +17,6 @@ public class Main {
 
 	private CrudCodeGen crudCodeGen = new CrudCodeGen();;
 
-	//	private DataModelContext dataModel;
-
 	/**
 	 * @param args
 	 */
@@ -76,6 +74,7 @@ public class Main {
 			this.sqlMap(dataModelContext);
 			this.dao(dataModelContext);
 			this.daoTest(dataModelContext);
+			this.service(dataModelContext);
 		}
 	}
 
@@ -127,6 +126,17 @@ public class Main {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/impl/DAOTest.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getDaoTestPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void service(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getService2Pathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
