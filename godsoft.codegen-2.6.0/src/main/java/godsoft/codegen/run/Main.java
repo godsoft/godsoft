@@ -75,6 +75,7 @@ public class Main {
 			this.dao(dataModelContext);
 			this.daoTest(dataModelContext);
 			this.service(dataModelContext);
+			this.serviceImpl(dataModelContext);
 		}
 	}
 
@@ -137,6 +138,17 @@ public class Main {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/EgovSample2Service.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getService2Pathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void serviceImpl(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/impl/EgovSample2ServiceImpl.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getServiceImpl2Pathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
