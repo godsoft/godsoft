@@ -1,0 +1,173 @@
+##
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($voInstanceName="${model.entity.ccName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($daoPackage="${daoPackage}")
+#set($daoClassName="${model.entity.pcName}DAO")
+#set($daoName="${model.entity.ccName}DAO")
+#set($daoInstanceName="${model.entity.ccName}DAO")
+#set($servicePackage="${servicePackage}")
+#set($serviceClassName="${model.entity.pcName}Service")
+#set($serviceImplPackage="${implPackage}")
+#set($serviceImplClassName="${model.entity.pcName}ServiceImpl")
+#set($serviceImplTestClassName="${model.entity.pcName}ServiceImplTest")
+#set($serviceName="${model.entity.ccName}Service")
+##
+##
+#set($insertMethodName="insert${model.entity.pcName}")
+#set($updateMethodName="update${model.entity.pcName}")
+#set($deleteMethodName="delete${model.entity.pcName}")
+#set($selectMethodName="select${model.entity.pcName}")
+#set($selectListMethodName="select${model.entity.pcName}List")
+#set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
+#set($idGnrService="egov${model.entity.pcName}IdGnrService")
+##
+##
+package ${serviceImplPackage};
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+import ${servicePackage}.${serviceClassName};
+import ${voPackage}.${voClassName};
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * @Class Name : ${serviceImplClassName}.java
+ * @Description : ${model.entity.pcName} Business Implement class
+ * @Modification Information
+ *
+ * @author ${author}
+ * @since ${createDate}
+ * @version 1.0
+ * @see
+ *
+ *  Copyright (C)  All right reserved.
+ */
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:godsoft/spring/com/test-context.xml" })
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
+@Transactional
+public class ${serviceImplTestClassName} {
+
+	@Resource(name = "${model.codeGenPackage.serviceImplPackage}.${serviceName}")
+	private ${serviceClassName} ${serviceName};
+
+	@Test
+	public void test() throws Exception {
+		//		this.${insertMethodName}();
+		//		this.${updateMethodName}();
+		//		this.${deleteMethodName}();
+		//		this.${selectMethodName}();
+		this.${selectListMethodName}();
+		//		this.${selectListTotCntMethodName}();
+	}
+
+##	@Test
+	public void ${insertMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.attributes)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		${serviceName}.${insertMethodName}(${voInstanceName});
+	}
+
+##	@Test
+	public void ${updateMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.attributes)
+#if(${attribute.isPrimaryKey} == false)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+#end
+
+#foreach($attribute in $model.primaryKeys)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		int updateRows = ${serviceName}.${updateMethodName}(${voInstanceName});
+
+		System.out.println("updateRows=" + updateRows);
+	}
+
+##	@Test
+	public void ${deleteMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.primaryKeys)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		int deleteRows = ${serviceName}.${deleteMethodName}(${voInstanceName});
+
+		System.out.println("deleteRows=" + deleteRows);
+	}
+
+##	@Test
+	public void ${selectMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+#foreach($attribute in $model.primaryKeys)
+#if(${attribute.javaType} == "int")
+		${voInstanceName}.set${attribute.pcName}(0); // ${attribute.columnComments}
+#else
+		${voInstanceName}.set${attribute.pcName}(""); // ${attribute.columnComments}
+#end
+#end
+
+		${voClassName} item = ${serviceName}.${selectMethodName}(${voInstanceName});
+
+		System.out.println("item=" + item);
+	}
+
+##	@Test
+	public void ${selectListMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+		${voInstanceName}.setFirstIndex(0);
+		${voInstanceName}.setRecordCountPerPage(10);
+
+		List<EgovMap> items = ${serviceName}.${selectListMethodName}(${voInstanceName});
+
+		System.out.println("items=" + items);
+		System.out.println("items.size()=" + items.size());
+
+		for (EgovMap item : items) {
+			System.out.println("item=" + item);
+		}
+	}
+
+##	@Test
+	public void ${selectListTotCntMethodName}() throws Exception {
+		${voClassName} ${voInstanceName} = new ${voClassName}();
+
+		int totCnt = ${serviceName}.${selectListTotCntMethodName}(${voInstanceName});
+
+		System.out.println("totCnt=" + totCnt);
+	}
+
+}
