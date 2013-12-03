@@ -25,11 +25,15 @@ import java.util.List;
 // import (vo package).${defaultVoClassName};
 // import (vo package).${voClassName};
 #else
-import ${voPackage}.${defaultVoClassName};
-import ${voPackage}.${voClassName};
+##import ${voPackage}.${defaultVoClassName};
+##import ${voPackage}.${voClassName};
 #end
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 /**
+ * ${model.entity.tableComments}
+ *
  * @Class Name : ${serviceClassName}.java
  * @Description : ${model.entity.pcName} Business class
  * @Modification Information
@@ -42,53 +46,53 @@ import ${voPackage}.${voClassName};
  *  Copyright (C)  All right reserved.
  */
 public interface $serviceClassName {
-	
+
 	/**
-	 * ${model.entity.name}을 등록한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 $voClassName
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-    String $insertMethodName($voClassName vo) throws Exception;
-    
-    /**
-	 * ${model.entity.name}을 수정한다.
+	String $insertMethodName($voClassName vo) throws Exception;
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 $voClassName
-	 * @return void형
+	 * @return int형
 	 * @exception Exception
 	 */
-    void $updateMethodName($voClassName vo) throws Exception;
-    
-    /**
-	 * ${model.entity.name}을 삭제한다.
+	int $updateMethodName($voClassName vo) throws Exception;
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 $voClassName
-	 * @return void형 
+	 * @return int형 
 	 * @exception Exception
 	 */
-    void $deleteMethodName($voClassName vo) throws Exception;
-    
-    /**
-	 * ${model.entity.name}을 조회한다.
+	int $deleteMethodName($voClassName vo) throws Exception;
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 $voClassName
 	 * @return 조회한 ${model.entity.name}
 	 * @exception Exception
 	 */
-    $voClassName $selectMethodName($voClassName vo) throws Exception;
-    
-    /**
-	 * ${model.entity.name} 목록을 조회한다.
+	$voClassName $selectMethodName($voClassName vo) throws Exception;
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName}) 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
 	 * @return ${model.entity.name} 목록
 	 * @exception Exception
 	 */
-    List $selectListMethodName(${defaultVoClassName} searchVO) throws Exception;
-    
-    /**
-	 * ${model.entity.name} 총 갯수를 조회한다.
+	List<EgovMap> $selectListMethodName(${voClassName} vo) throws Exception;
+
+	/**
+	 * ${model.entity.tableComments}(${model.entity.tableName}) 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
 	 * @return ${model.entity.name} 총 갯수
 	 * @exception
 	 */
-    int $selectListTotCntMethodName(${defaultVoClassName} searchVO);
-    
+	int $selectListTotCntMethodName(${voClassName} vo);
+
 }
