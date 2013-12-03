@@ -64,7 +64,7 @@ import ${voPackage}.${voClassName};
  *  Copyright (C)  All right reserved.
  */
 
-@Service("${serviceName}")
+@Service("${model.codeGenPackage.serviceImplPackage}.${serviceName}")
 public class ${serviceImplClassName} extends AbstractServiceImpl implements ${serviceClassName} {
 
 	@Resource(name = "${model.codeGenPackage.serviceImplPackage}.${daoName}")
