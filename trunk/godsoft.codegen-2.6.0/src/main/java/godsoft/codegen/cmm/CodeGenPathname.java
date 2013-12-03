@@ -16,6 +16,7 @@ public class CodeGenPathname {
 	private String daoPathname;
 	private String daoTestPathname;
 	private String service2Pathname;
+	private String serviceImpl2Pathname;
 
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
@@ -37,6 +38,7 @@ public class CodeGenPathname {
 		this.setDaoPathname();
 		this.setDaoTestPathname();
 		this.setService2Pathname();
+		this.setServiceImpl2Pathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -144,6 +146,16 @@ public class CodeGenPathname {
 		this.service2Pathname = sb.toString();
 	}
 
+	public void setServiceImpl2Pathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.serviceImplPathname);
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("ServiceImpl.java");
+
+		this.serviceImpl2Pathname = sb.toString();
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
 	}
@@ -178,6 +190,10 @@ public class CodeGenPathname {
 
 	public String getService2Pathname() {
 		return service2Pathname;
+	}
+
+	public String getServiceImpl2Pathname() {
+		return serviceImpl2Pathname;
 	}
 
 }
