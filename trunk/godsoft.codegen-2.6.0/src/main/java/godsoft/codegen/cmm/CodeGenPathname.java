@@ -6,7 +6,7 @@ public class CodeGenPathname {
 
 	private String topLevelPathname;
 
-	private String servicePathname;
+	private String servicePathname; // Pathname -> Directory
 	private String serviceImplPathname;
 	private String webPathname;
 
@@ -18,6 +18,7 @@ public class CodeGenPathname {
 	private String service2Pathname;
 	private String serviceImpl2Pathname;
 	private String serviceImplTestPathname;
+	private String controllerPathname;
 
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
@@ -32,6 +33,7 @@ public class CodeGenPathname {
 		this.setTopLevelPathname();
 		this.setServicePathname();
 		this.setServiceImplPathname();
+		this.setWebPathname();
 
 		this.setDefaultVOPathname();
 		this.setVoPathname();
@@ -41,6 +43,7 @@ public class CodeGenPathname {
 		this.setService2Pathname();
 		this.setServiceImpl2Pathname();
 		this.setServiceImplTestPathname();
+		this.setControllerPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -70,6 +73,14 @@ public class CodeGenPathname {
 		sb.append("/service/impl");
 
 		this.serviceImplPathname = sb.toString();
+	}
+
+	public void setWebPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.topLevelPathname);
+		sb.append("/web");
+
+		this.webPathname = sb.toString();
 	}
 
 	public void setDefaultVOPathname() {
@@ -174,6 +185,16 @@ public class CodeGenPathname {
 		this.serviceImplTestPathname = sb.toString();
 	}
 
+	public void setControllerPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.webPathname);
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("Controller.java");
+
+		this.controllerPathname = sb.toString();
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
 	}
@@ -216,6 +237,10 @@ public class CodeGenPathname {
 
 	public String getServiceImplTestPathname() {
 		return serviceImplTestPathname;
+	}
+
+	public String getControllerPathname() {
+		return controllerPathname;
 	}
 
 }
