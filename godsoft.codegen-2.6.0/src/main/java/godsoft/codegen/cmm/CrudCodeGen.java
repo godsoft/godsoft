@@ -50,6 +50,7 @@ public class CrudCodeGen {
 		context.put("daoPackage", dataModel.getCodeGenPackage().getServiceImplPackage());
 		context.put("servicePackage", dataModel.getCodeGenPackage().getServicePackage());
 		context.put("implPackage", dataModel.getCodeGenPackage().getServiceImplPackage());
+		context.put("controllerPackage", dataModel.getCodeGenPackage().getWebPackage());
 
 		Template template = null;
 

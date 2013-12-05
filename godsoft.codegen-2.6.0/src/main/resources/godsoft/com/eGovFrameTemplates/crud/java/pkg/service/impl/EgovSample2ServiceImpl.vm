@@ -74,7 +74,7 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements ${se
 	//private EgovIdGnrService egovIdGnrService;
 
 	/**
-	 * ${model.entity.name}을 등록한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 ${voClassName}
 	 * @return 등록 결과
 	 * @exception Exception
@@ -87,7 +87,7 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements ${se
 	}
 
 	/**
-	 * ${model.entity.name}을 수정한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 수정한다.
 	 * @param vo - 수정할 정보가 담긴 ${voClassName}
 	 * @return int형
 	 * @exception Exception
@@ -97,7 +97,7 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements ${se
 	}
 
 	/**
-	 * ${model.entity.name}을 삭제한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 삭제한다.
 	 * @param vo - 삭제할 정보가 담긴 ${voClassName}
 	 * @return int형 
 	 * @exception Exception
@@ -107,7 +107,7 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements ${se
 	}
 
 	/**
-	 * ${model.entity.name}을 조회한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName})을 조회한다.
 	 * @param vo - 조회할 정보가 담긴 ${voClassName}
 	 * @return 조회한 ${model.entity.name}
 	 * @exception Exception
@@ -120,7 +120,7 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements ${se
 	}
 
 	/**
-	 * ${model.entity.name} 목록을 조회한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName}) 목록을 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
 	 * @return ${model.entity.name} 목록
 	 * @exception Exception
@@ -130,7 +130,7 @@ public class ${serviceImplClassName} extends AbstractServiceImpl implements ${se
 	}
 
 	/**
-	 * ${model.entity.name} 총 갯수를 조회한다.
+	 * ${model.entity.tableComments}(${model.entity.tableName}) 총 갯수를 조회한다.
 	 * @param searchVO - 조회할 정보가 담긴 VO
 	 * @return ${model.entity.name} 총 갯수
 	 * @exception

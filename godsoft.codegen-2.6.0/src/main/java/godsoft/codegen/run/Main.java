@@ -77,6 +77,7 @@ public class Main {
 			this.service(dataModelContext);
 			this.serviceImpl(dataModelContext);
 			this.serviceImplTest(dataModelContext);
+			this.controller(dataModelContext);
 		}
 	}
 
@@ -161,6 +162,17 @@ public class Main {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/service/impl/ServiceImplTest.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getServiceImplTestPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void controller(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/java/pkg/web/EgovSample2Controller.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getControllerPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
