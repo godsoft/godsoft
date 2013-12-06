@@ -7,13 +7,17 @@
 #set($voInstanceName="${model.entity.ccName}VO")
 ##
 ##
-#set($listPath="/${model.entity.ccName}/${model.entity.pcName}List.do")
-#set($addViewPath="/${model.entity.ccName}/add${model.entity.pcName}View.do")
-#set($addPath="/${model.entity.ccName}/add${model.entity.pcName}.do")
-#set($selectPath="/${model.entity.ccName}/select${model.entity.pcName}.do")
-#set($updatePath="/${model.entity.ccName}/update${model.entity.pcName}.do")
-#set($updateViewPath="/${model.entity.ccName}/update${model.entity.pcName}View.do")
-#set($deletePath="/${model.entity.ccName}/delete${model.entity.pcName}.do")
+
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+
+#set($listPath="$prefixPath/${model.entity.ccName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.ccName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.ccName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.ccName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.ccName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.ccName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.ccName}/delete${model.entity.pcName}.do")
 ##
 #set($listPageName="${model.entity.pcName}List.jsp")
 ##
@@ -119,18 +123,18 @@ function fn_egov_link_page(pageNo){
 			</colgroup>		  
 			<tr>
 				#foreach($attribute in $model.attributes)
-				<th align="center">${attribute.pcName}</th>
+				<th align="center">${attribute.columnComments}</th>
 				#end			
 			</tr>
-			<c:forEach var="result" items="${D}{resultList}" varStatus="status">
+			<c:forEach items="${D}{items}" var="item" varStatus="i">
 			<tr>
 	#if(${model.primaryKeys} == [])
-	 	#set($linkParams="'<c:out value=${Q}${D}{result.${model.attributes.get(0).ccName}}${Q}/>'")
+	 	#set($linkParams="'<c:out value=${Q}${D}{item.${model.attributes.get(0).ccName}}${Q}/>'")
 	 	#foreach($attribute in $model.attributes)
 			#if($attribute.ccName == ${model.attributes.get(0).ccName})				
-<td align="center" class="listtd"><a href="javascript:fn_egov_select(${linkParams})"><c:out value="${D}{result.${attribute.ccName}}"/></a>&nbsp;</td>
+<td align="center" class="listtd"><a href="javascript:fn_egov_select(${linkParams})"><c:out value="${D}{item.${attribute.ccName}}"/></a>&nbsp;</td>
 			#else
-<td align="center" class="listtd"><c:out value="${D}{result.${attribute.ccName}}"/>&nbsp;</td>
+<td align="center" class="listtd"><c:out value="${D}{item.${attribute.ccName}}"/>&nbsp;</td>
 			#end
 		#end
 	#else
@@ -138,17 +142,17 @@ function fn_egov_link_page(pageNo){
 		#set($i=0)
 		#foreach($attribute in $model.primaryKeys)
 		#if($i == 0)
-		  #set($linkParams="'<c:out value=${Q}${D}{result.${attribute.ccName}}${Q}/>'")
+		  #set($linkParams="'<c:out value=${Q}${D}{item.${attribute.ccName}}${Q}/>'")
 		#else
-		  #set($linkParams="$linkParams, '<c:out value=${Q}${D}{result.${attribute.ccName}}${Q}/>'")
+		  #set($linkParams="$linkParams, '<c:out value=${Q}${D}{item.${attribute.ccName}}${Q}/>'")
 		#end
 		#set($i=$i+1)					
 		#end
 		#foreach($attribute in $model.attributes)
 		#if($attribute.primaryKey == true)				
-<td align="center" class="listtd"><a href="javascript:fn_egov_select(${linkParams})"><c:out value="${D}{result.${attribute.ccName}}"/></a>&nbsp;</td>
+<td align="center" class="listtd"><a href="javascript:fn_egov_select(${linkParams})"><c:out value="${D}{item.${attribute.ccName}}"/></a>&nbsp;</td>
 		#else
-<td align="center" class="listtd"><c:out value="${D}{result.${attribute.ccName}}"/>&nbsp;</td>
+<td align="center" class="listtd"><c:out value="${D}{item.${attribute.ccName}}"/>&nbsp;</td>
 		#end
 		#end
     #end
