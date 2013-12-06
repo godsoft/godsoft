@@ -9,6 +9,7 @@
 #set($serviceInstanceName="${model.entity.ccName}Service")
 #set($controllerPackage="${controllerPackage}")
 #set($controllerClassName="${model.entity.pcName}Controller")
+#set($controllerInstanceName="${model.entity.ccName}Controller")
 ##
 ##
 #set($listInstanceName="${model.entity.ccName}List")
@@ -24,16 +25,23 @@
 #set($addMethodName="add${model.entity.pcName}")
 #set($addViewMethodName="add${model.entity.pcName}View")
 ##
-#set($listPath="/${model.entity.ccName}/select${model.entity.pcName}List.do")
-#set($addViewPath="/${model.entity.ccName}/add${model.entity.pcName}View.do")
-#set($addPath="/${model.entity.ccName}/add${model.entity.pcName}.do")
-#set($selectPath="/${model.entity.ccName}/select${model.entity.pcName}.do")
-#set($updatePath="/${model.entity.ccName}/update${model.entity.pcName}.do")
-#set($updateViewPath="/${model.entity.ccName}/update${model.entity.pcName}View.do")
-#set($deletePath="/${model.entity.ccName}/delete${model.entity.pcName}.do")
+
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+
+#set($listPath="$prefixPath/${model.entity.ccName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.ccName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.ccName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.ccName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.ccName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.ccName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.ccName}/delete${model.entity.pcName}.do")
 ##
-#set($listView="/${model.entity.ccName}/${model.entity.pcName}List")
-#set($registerView="/${model.entity.ccName}/${model.entity.pcName}Register")
+
+#set( $prefixView = "$topLevelPath/$model.middleLevelPackage" )
+
+#set($listView="$prefixView/${model.entity.ccName}/${model.entity.pcName}List")
+#set($registerView="$prefixView/${model.entity.ccName}/${model.entity.pcName}Regist")
 ##
 ##
 package ${controllerPackage};
@@ -65,8 +73,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+##import org.springframework.web.bind.annotation.RequestParam;
+##import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 /**
@@ -82,14 +90,12 @@ import org.springframework.web.bind.support.SessionStatus;
  *  Copyright (C)  All right reserved.
  */
 
-@Controller
-@SessionAttributes(types=${voClassName}.class)
+@Controller("${model.codeGenPackage.webPackage}.${controllerInstanceName}")
 public class ${controllerClassName} {
 
 	@Resource(name = "${model.codeGenPackage.serviceImplPackage}.${serviceName}")
 	private ${serviceClassName} ${serviceInstanceName};
 
-	/** EgovPropertyService */
 	@Resource(name = "egovPropertyService")
 	protected EgovPropertyService egovPropertyService;
 
@@ -137,52 +143,20 @@ public class ${controllerClassName} {
 	}
 
 	@RequestMapping("${updateViewPath}")
-	public String ${updateViewMethodName}(
-#if(${model.primaryKeys} == [])
-			@RequestParam("${model.attributes.get(0).ccName}") ${model.attributes.get(0).javaType} ${model.attributes.get(0).ccName} ,
-#else					 
-#foreach($attribute in $model.primaryKeys)
-			@RequestParam("${attribute.ccName}") ${attribute.javaType} ${attribute.ccName} ,
-#end	
-#end
-			@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, Model model)
-			throws Exception {
-		${voClassName} ${voInstanceName} = new ${voClassName}();
-#if(${model.primaryKeys} == [])
-		${voInstanceName}.set${model.attributes.get(0).pcName}(${model.attributes.get(0).ccName});		
-#else		
-#foreach($attribute in $model.primaryKeys)		
-		${voInstanceName}.set${attribute.pcName}(${attribute.ccName});
-#end 
-#end	   
-		// 변수명은 CoC 에 따라 ${voInstanceName}
-		model.addAttribute(${selectMethodName}(${voInstanceName}, searchVO));
+	public String ${updateViewMethodName}(@ModelAttribute("searchVO") ${voClassName} ${voInstanceName}, Model model) throws Exception {
+		model.addAttribute("${voInstanceName}", ${serviceInstanceName}.${selectMethodName}(${voInstanceName}));
 		return "${registerView}";
 	}
 
-	@RequestMapping("${selectPath}")
-	public @ModelAttribute("${voInstanceName}")
-	${voClassName} ${selectMethodName}(
-			${voClassName} ${voInstanceName},
-			@ModelAttribute("searchVO") ${defaultVoClassName} searchVO) throws Exception {
-		return ${serviceInstanceName}.${selectMethodName}(${voInstanceName});
-	}
-
 	@RequestMapping("${updatePath}")
-	public String ${updateMethodName}(
-			${voClassName} ${voInstanceName},
-			@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, SessionStatus status)
-			throws Exception {
+	public String ${updateMethodName}(${voClassName} ${voInstanceName}, SessionStatus status) throws Exception {
 		${serviceInstanceName}.${updateMethodName}(${voInstanceName});
 		status.setComplete();
 		return "forward:${listPath}";
 	}
 
 	@RequestMapping("${deletePath}")
-	public String ${deleteMethodName}(
-			${voClassName} ${voInstanceName},
-			@ModelAttribute("searchVO") ${defaultVoClassName} searchVO, SessionStatus status)
-			throws Exception {
+	public String ${deleteMethodName}(${voClassName} ${voInstanceName}, SessionStatus status) throws Exception {
 		${serviceInstanceName}.${deleteMethodName}(${voInstanceName});
 		status.setComplete();
 		return "forward:${listPath}";

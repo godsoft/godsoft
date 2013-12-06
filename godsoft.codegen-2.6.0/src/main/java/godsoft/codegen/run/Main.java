@@ -78,6 +78,9 @@ public class Main {
 			this.serviceImpl(dataModelContext);
 			this.serviceImplTest(dataModelContext);
 			this.controller(dataModelContext);
+
+			this.list(dataModelContext);
+			this.regist(dataModelContext);
 		}
 	}
 
@@ -180,4 +183,25 @@ public class Main {
 		FileUtils.writeStringToFile(new File(pathname), data);
 	}
 
+	public void list(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getListPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void regist(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getRegistPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
 }

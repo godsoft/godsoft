@@ -55,6 +55,10 @@ public class CodeGenPackage {
 		this.webPackage = sb.toString();
 	}
 
+	public String getTopLevelPackage() {
+		return topLevelPackage;
+	}
+
 	public String getServicePackage() {
 		return servicePackage;
 	}
