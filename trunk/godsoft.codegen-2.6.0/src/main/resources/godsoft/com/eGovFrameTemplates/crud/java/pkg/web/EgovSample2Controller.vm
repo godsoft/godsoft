@@ -40,8 +40,8 @@
 
 #set( $prefixView = "$topLevelPath/$model.middleLevelPackage" )
 
-#set($listView="$prefixView/${model.entity.ccName}/${model.entity.pcName}List")
-#set($registerView="$prefixView/${model.entity.ccName}/${model.entity.pcName}Regist")
+#set($listView="$prefixView/${model.entity.packageName}/${model.entity.pcName}List")
+#set($registerView="$prefixView/${model.entity.packageName}/${model.entity.pcName}Regist")
 ##
 ##
 package ${controllerPackage};
@@ -96,7 +96,7 @@ public class ${controllerClassName} {
 	@Resource(name = "${model.codeGenPackage.serviceImplPackage}.${serviceName}")
 	private ${serviceClassName} ${serviceInstanceName};
 
-	@Resource(name = "egovPropertyService")
+	@Resource(name = "propertiesService")
 	protected EgovPropertyService egovPropertyService;
 
 	/**
