@@ -20,6 +20,9 @@ public class CodeGenPathname {
 	private String serviceImplTestPathname;
 	private String controllerPathname;
 
+	private String listPathname;
+	private String registPathname;
+
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
 	//    <testSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\test\java</testSourceDirectory>
@@ -44,6 +47,9 @@ public class CodeGenPathname {
 		this.setServiceImpl2Pathname();
 		this.setServiceImplTestPathname();
 		this.setControllerPathname();
+
+		this.setListPathname();
+		this.setRegistPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -195,6 +201,38 @@ public class CodeGenPathname {
 		this.controllerPathname = sb.toString();
 	}
 
+	public void setListPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/WEB-INF/jsp/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("List.jsp");
+
+		this.listPathname = sb.toString();
+	}
+
+	public void setRegistPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/WEB-INF/jsp/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("Regist.jsp");
+
+		this.registPathname = sb.toString();
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
 	}
@@ -241,6 +279,14 @@ public class CodeGenPathname {
 
 	public String getControllerPathname() {
 		return controllerPathname;
+	}
+
+	public String getListPathname() {
+		return listPathname;
+	}
+
+	public String getRegistPathname() {
+		return registPathname;
 	}
 
 }
