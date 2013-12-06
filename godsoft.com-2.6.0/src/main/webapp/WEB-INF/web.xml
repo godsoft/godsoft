@@ -53,7 +53,10 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:egovframework/spring/com/context-*.xml</param-value>
+        <param-value>
+        	classpath*:egovframework/spring/com/context-*.xml
+        	classpath*:godsoft/spring/com/context-*.xml
+        </param-value>
     </context-param>
 
     <listener>
@@ -65,7 +68,10 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/config/egovframework/springmvc/egov-com-*.xml</param-value>
+            <param-value>
+            	/WEB-INF/config/egovframework/springmvc/egov-com-*.xml
+            	/WEB-INF/config/godsoft/springmvc/egov-com-*.xml
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -183,13 +189,13 @@
         <session-timeout>600</session-timeout>
     </session-config>
 
-    <error-page>
-      <error-code>404</error-code>
-      <location>/code404.jsp</location>
-    </error-page>
-    <error-page>
-      <error-code>500</error-code>
-      <location>/code500.jsp</location>
-    </error-page>
+<!--     <error-page> -->
+<!--       <error-code>404</error-code> -->
+<!--       <location>/code404.jsp</location> -->
+<!--     </error-page> -->
+<!--     <error-page> -->
+<!--       <error-code>500</error-code> -->
+<!--       <location>/code500.jsp</location> -->
+<!--     </error-page> -->
 
 </web-app>
