@@ -185,6 +185,7 @@ public class Main {
 
 	public void list(DataModelContext dataModelContext) throws Exception {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List-header-footer.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getListPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
