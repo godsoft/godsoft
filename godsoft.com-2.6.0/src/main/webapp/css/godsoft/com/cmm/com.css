@@ -1,59 +1,77 @@
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
+/* table { */
+/* 	width: 100%; */
+/* 	border-collapse: collapse; */
+/* } */
 
-table,th,td {
-	border: 1px solid black;
+/* table,th,td { */
+/* 	border: 1px solid black; */
+/* } */
+caption {
+	text-align: left;
+	font-weight: bold;
 }
 
 /* 목록 시작 */
 div.godsoft-com-list {
-	background-color: red;
+	/* 	background-color: red; */
+	
 }
 
 div.godsoft-com-list table.list {
-	background-color: orange;
+	/* 	background-color: orange; */
+	
 }
 
 div.godsoft-com-list div.pagination {
-	background-color: yellow;
+	/* 	background-color: yellow; */
+	width: 100%;
+	text-align: center;
 }
 
 div.godsoft-com-list ul.button {
-	background-color: green;
+	/* 	background-color: green; */
+	list-style: none;
+	text-align: right;
 }
 
 #godsoft-com-user-testSample-list {
-	background-color: green;
+	/* 	background-color: green; */
+	
 }
 
 #godsoft-com-user-testSample-list table.list {
-	background-color: yellow;
+	/* 	background-color: yellow; */
+	
 }
 
 #godsoft-com-user-testSample-list div.pagination {
-	background-color: orange;
+	/* 	background-color: orange; */
+	
 }
 
 #godsoft-com-user-testSample-list ul.button {
-	background-color: red;
+	/* 	background-color: red; */
+	
 }
 
 /* 목록 끝 */
 
 /* 등록 시작 */
 div.godsoft-com-regist {
-	background-color: red;
+	/* 	background-color: red; */
+	
 }
 
 #godsoft-com-user-testSample-regist {
-	background-color: orange;
+	/* 	background-color: orange; */
+	
 }
 
 div.godsoft-com-regist ul.button {
-	background-color: yellow;
+	/* 	background-color: yellow; */
 	list-style: none;
+	/* 	width: 100%; */
+	/* 	text-align: right; */
 }
 
 div.godsoft-com-regist ul.button li {
@@ -62,7 +80,8 @@ div.godsoft-com-regist ul.button li {
 }
 
 #godsoft-com-user-testSample-regist ul.button {
-	background-color: green;
+	/* 	background-color: green; */
+	
 }
 
 div.godsoft-com-regist input.txt {
