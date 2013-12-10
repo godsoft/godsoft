@@ -1,0 +1,193 @@
+##
+#set($D='$')
+#set($Q='"')
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($voInstanceName="${model.entity.ccName}VO")
+##
+##
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+##
+#set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
+##
+#set($listPageName="${model.entity.pcName}List.jsp")
+##
+#set($selectFunctionName="fncSelect${model.entity.pcName}")
+#set($addViewFunctionName="fncAdd${model.entity.pcName}View")
+##
+#set( $title = "$model.entity.tableComments 목록" )
+##
+#set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
+#set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
+#set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
+#set( $listId = "${prefixDash}-${model.entity.ccName}-list")
+#set( $listClass = "${topLevelDash}-list")
+##
+#set( $formId = "${listId}-form")
+##
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%
+ /**
+  * @Class Name : ${listPageName}
+  * @Description : ${model.entity.pcName} List 화면
+  * @Modification Information
+  * 
+  * @author ${author}
+  * @since ${createDate}
+  * @version 1.0
+  * @see
+  *  
+  * Copyright (C) All right reserved.
+  */
+%>
+##<!-- <!DOCTYPE html> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"> -->
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>$title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<%@include file="/WEB-INF/jsp/godsoft/com/cmm/BootstrapCDN.jsp"%>
+
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
+<script type="text/javascript" defer="defer">
+<!--
+#set($params="")
+#set($i=0)
+#if(${model.primaryKeys} == [])
+#set($params="${model.attributes.get(0).ccName}")
+#else
+#foreach($attribute in $model.primaryKeys)
+#if($i == 0)
+#set($params="${attribute.ccName}")
+#else
+#set($params="$params, ${attribute.ccName}")
+#end
+#set($i=$i+1)
+#end
+#end
+/* 글 수정 화면 function */
+function fn_egov_select(${params}) {
+	var form = document.getElementById('$formId');
+#if(${model.primaryKeys} == [])
+	form.${model.attributes.get(0).ccName}.value = ${model.attributes.get(0).ccName};
+#else
+#foreach($attribute in $model.primaryKeys)
+	form.${attribute.ccName}.value = ${attribute.ccName};
+#end
+#end
+	form.action = '<c:url value='${updateViewPath}' />';
+	form.submit();
+}
+
+/* 글 등록 화면 function */
+function fn_egov_addView() {
+	var form = document.getElementById('$formId');
+	form.action = '<c:url value='${addViewPath}' />';
+	form.submit();
+}
+
+/* pagination 페이지 링크 function */
+function fn_egov_link_page(pageNo) {
+	var form = document.getElementById('$formId');
+	form.pageIndex.value = pageNo;
+	form.action = '<c:url value='${listPath}' />';
+	form.submit();
+}
+//-->
+</script>
+</head>
+<body>
+	<div class="$listClass table-responsive" id="$listId">
+		<form:form commandName="$voInstanceName" id="$formId" method="get">
+#if(${model.primaryKeys} == [])
+			<div>
+				<input type="hidden" name="${model.attributes.get(0).ccName}" />
+			</div>
+#else
+#foreach($attribute in ${model.primaryKeys})
+			<div>
+				<input type="hidden" name="${attribute.ccName}" />
+			</div>
+#end
+#end
+
+##			<table class="$listClass">
+			<table class="list table table-striped table-bordered table-hover table-condensed" summary="$title">
+				<caption>$title</caption>
+				<thead>
+					<tr>
+#foreach($attribute in $model.attributes)
+						<th>${attribute.columnComments}</th>
+#end
+					</tr>
+				</thead>
+				<tbody>
+<c:forEach items="${D}{items}" var="item" varStatus="i">
+				<tr>
+#if(${model.primaryKeys} == [])
+#set($linkParams="'${Q}${D}{item.${model.attributes.get(0).ccName}}${Q}'")
+#foreach($attribute in $model.attributes)
+#if($attribute.ccName == ${model.attributes.get(0).ccName})				
+					<td><a href="" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
+#else
+					<td>${D}{item.${attribute.ccName}}</td>
+#end
+#end
+#else
+#set($linkParams="")
+#set($i=0)
+#foreach($attribute in $model.primaryKeys)
+#if($i == 0)
+#set($linkParams="'${D}{item.${attribute.ccName}}'")
+#else
+#set($linkParams="$linkParams, '${Q}${D}{item.${attribute.ccName}}${Q}'")
+#end
+#set($i=$i+1)					
+#end
+#foreach($attribute in $model.attributes)
+#if($attribute.primaryKey == true)				
+					<td><a href="$selectPath?${attribute.ccName}=${D}{item.${attribute.ccName}}" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
+#else
+					<td>${D}{item.${attribute.ccName}}</td>
+#end
+#end
+#end
+				</tr>
+</c:forEach>
+			</tbody>
+		</table>
+
+##		<div class="${listClass}-pagination">
+		<div class="pagination">
+			<ui:pagination paginationInfo="${D}{paginationInfo}" type="image" jsFunction="fn_egov_link_page" />
+			<form:hidden path="pageIndex" />
+		</div>
+
+##		<ul class="${listClass}-button">
+		<ul class="button">
+			<li><a href="$addViewPath" onclick="fn_egov_addView(); return false;" class="btn btn-default">등록</a></li>
+		</ul>
+
+		</form:form>
+	</div>
+</body>
+</html>

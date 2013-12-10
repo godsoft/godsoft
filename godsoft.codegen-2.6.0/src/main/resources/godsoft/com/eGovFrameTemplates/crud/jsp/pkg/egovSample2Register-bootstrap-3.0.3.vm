@@ -1,0 +1,193 @@
+##
+#set($D='$')
+#set($voPackage="${servicePackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($voInstanceName="${model.entity.ccName}VO")
+##
+##
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+##
+#set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
+##
+#set($registerPageName="${model.entity.pcName}Register.jsp")
+##
+#set($selectFunctionName="fncSelect${model.entity.pcName}")
+#set($addViewFunctionName="fncAdd${model.entity.pcName}View")
+##
+#set( $title = "$model.entity.tableComments ${D}{registerFlag}" )
+##
+#set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
+#set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
+#set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
+#set( $registId = "${prefixDash}-${model.entity.ccName}-regist")
+#set( $registClass = "${topLevelDash}-regist")
+##
+#set( $formId = "${registId}-form")
+##
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%
+ /**
+  * @Class Name : ${registerPageName}
+  * @Description : ${model.entity.pcName} Register 화면
+  * @Modification Information
+  * 
+  * @author ${author}
+  * @since ${createDate}
+  * @version 1.0
+  * @see
+  *  
+  * Copyright (C) All right reserved.
+  */
+%>
+
+#if(${model.primaryKeys} == [])	
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${model.attributes.get(0).ccName} ? '등록' : '수정'}" />			
+#else
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${model.primaryKeys.get(0).ccName} ? '등록' : '수정'}" />
+#end
+
+##<!-- <!DOCTYPE html> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"> -->
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>$title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<%@include file="/WEB-INF/jsp/godsoft/com/cmm/BootstrapCDN.jsp"%>
+
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
+
+<!--For Commons Validator Client Side-->
+<!-- script type="text/javascript" src="<c:url value='/cmmn/validator.do'/>"></script -->
+<!-- validator:javascript formName="${voInstanceName}" staticJavascript="false" xhtml="true" cdata="false"/ -->
+
+<script type="text/javascript" defer="defer">
+<!--
+/* 글 목록 화면 function */
+function fn_egov_selectList() {
+##	var form = document.getElementById('$formId');
+##	form.action = "<c:url value='${listPath}' />";
+##	form.method = 'get';
+##	form.submit();
+	var href = '';
+	href += "<c:url value='${listPath}' />";
+	href += '?pageIndex=${D}{searchVO.pageIndex}';
+	href += '&searchCondition=${D}{searchVO.searchCondition}';
+	href += '&searchKeyword=${D}{searchVO.searchKeyword}';
+	
+	location.href = href;
+}
+
+/* 글 삭제 function */
+function fn_egov_delete() {
+	var form = document.getElementById('$formId');
+	form.action = "<c:url value='${deletePath}' />";
+	form.method = 'get';
+	form.submit();
+}
+
+/* 글 등록 function */
+function fn_egov_save() {	
+	var form = document.getElementById('$formId');
+
+	/* TODO Validation기능 보완 */
+	
+	form.action = '<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}" />';
+	form.submit();
+}
+//-->
+</script>
+</head>
+<body>
+	<div class="$registClass" id="$registId">
+		<form:form commandName="$voInstanceName" id="$formId">
+			<table class="list">
+				<caption>$title</caption>
+<c:if test="${D}{registerFlag == '수정'}">
+#if(${model.primaryKeys} == [])	
+#foreach($attribute in $model.primaryKeys)
+				<tr>
+					<th scope="row">${attribute.columnComments} *</th>
+					<td>
+						<form:input path="${attribute.ccName}" cssClass="essentiality" readonly="true" />
+					</td>
+				</tr>
+#end
+#else
+				<tr>
+					<th scope="row">${model.attributes.get(0).columnComments} *</th>
+					<td>
+						<form:input path="${model.attributes.get(0).ccName}" cssClass="essentiality" readonly="true" />
+					</td>
+				</tr>
+#end
+</c:if>
+<c:if test="${D}{registerFlag == '등록'}">
+#if(${model.primaryKeys} == [])	
+#foreach($attribute in $model.primaryKeys)
+				<tr>
+					<th scope="row">${attribute.columnComments} *</th>
+					<td>
+						<form:input path="${attribute.ccName}" cssClass="txt" readonly="false" />
+					</td>
+				</tr>
+#end
+#else
+				<tr>
+					<th scope="row">${model.attributes.get(0).columnComments} *</th>
+					<td>
+						<form:input path="${model.attributes.get(0).ccName}" cssClass="txt" readonly="false" />
+					</td>			
+				</tr>
+#end	
+</c:if>
+#foreach($attribute in $model.attributes)
+#if($attribute.primaryKey == false)
+				<tr>
+					<th scope="row">${attribute.columnComments}</th>
+					<td>
+						<form:input path="${attribute.ccName}" cssClass="txt" />
+						<form:errors path="${attribute.ccName}" />
+					</td>
+				</tr>
+#end
+#end
+			</table>
+
+			<ul class="button">
+				<li><a href="<c:url value='${listPath}' />?pageIndex=${D}{searchVO.pageIndex}&amp;searchCondition=${D}{searchVO.searchCondition}&amp;searchKeyword=${D}{searchVO.searchKeyword}" onclick="fn_egov_selectList(); return false;">목록</a></li>
+				<li><a href="<c:url value='${addViewPath}' />" onclick="fn_egov_save(); return false;">${D}{registerFlag}</a></li>
+<c:if test="${D}{registerFlag == '수정'}">
+				<li><a href="<c:url value='${deletePath}' />" onclick="fn_egov_delete(); return false;">삭제</a></li>
+</c:if>
+				<li><a href="" onclick="document.getElementById('$formId').reset(); return false;">리셋</a></li>
+			</ul>
+
+			<!-- 검색조건 유지 -->
+			<div>
+				<input type="hidden" name="searchCondition" value="${D}{searchVO.searchCondition}" />
+				<input type="hidden" name="searchKeyword" value="${D}{searchVO.searchKeyword}" />
+				<input type="hidden" name="pageIndex" value="${D}{searchVO.pageIndex}" />
+			</div>
+		</form:form>
+	</div>
+</body>
+</html>
+
