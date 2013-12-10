@@ -5,10 +5,9 @@
 #set($voInstanceName="${model.entity.ccName}VO")
 ##
 ##
-
 #set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
 #set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
-
+##
 #set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
 #set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
 #set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
@@ -22,17 +21,16 @@
 #set($selectFunctionName="fncSelect${model.entity.pcName}")
 #set($addViewFunctionName="fncAdd${model.entity.pcName}View")
 ##
-
-#set( $title = "$model.entity.tableComments 등록" )
-
+#set( $title = "$model.entity.tableComments ${D}{registerFlag}" )
+##
 #set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
 #set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
 #set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
 #set( $registId = "${prefixDash}-${model.entity.ccName}-regist")
 #set( $registClass = "${topLevelDash}-regist")
-
+##
 #set( $formId = "${registId}-form")
-
+##
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -54,9 +52,9 @@
 %>
 
 #if(${model.primaryKeys} == [])	
-<c:set var="registerFlag" value="${model.entity.tableComments} ${D}{empty ${voInstanceName}.${model.attributes.get(0).ccName} ? '등록' : '수정'}" />			
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${model.attributes.get(0).ccName} ? '등록' : '수정'}" />			
 #else
-<c:set var="registerFlag" value="${model.entity.tableComments} ${D}{empty ${voInstanceName}.${model.primaryKeys.get(0).ccName} ? '등록' : '수정'}" />
+<c:set var="registerFlag" value="${D}{empty ${voInstanceName}.${model.primaryKeys.get(0).ccName} ? '등록' : '수정'}" />
 #end
 
 ##<!-- <!DOCTYPE html> -->
@@ -69,7 +67,7 @@
 ##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>${D}{registerFlag}</title>
+<title>$title</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
@@ -82,33 +80,44 @@
 <!--
 /* 글 목록 화면 function */
 function fn_egov_selectList() {
-	document.getElementById('$formId').action = "<c:url value='${listPath}' />";
-	document.getElementById('$formId').submit();		
+##	var form = document.getElementById('$formId');
+##	form.action = "<c:url value='${listPath}' />";
+##	form.method = 'get';
+##	form.submit();
+	var href = '';
+	href += "<c:url value='${listPath}' />";
+	href += '?pageIndex=${D}{searchVO.pageIndex}';
+	href += '&searchCondition=${D}{searchVO.searchCondition}';
+	href += '&searchKeyword=${D}{searchVO.searchKeyword}';
+	
+	location.href = href;
 }
 
 /* 글 삭제 function */
 function fn_egov_delete() {
-	document.getElementById('$formId').action = "<c:url value='${deletePath}' />";
-	document.getElementById('$formId').submit();		
+	var form = document.getElementById('$formId');
+	form.action = "<c:url value='${deletePath}' />";
+	form.method = 'get';
+	form.submit();
 }
 
 /* 글 등록 function */
 function fn_egov_save() {	
-	var frm = document.getElementById('$formId');
+	var form = document.getElementById('$formId');
 
 	/* TODO Validation기능 보완 */
 	
-	frm.action = "<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}"/>";
-	frm.submit();
+	form.action = '<c:url value="${D}{registerFlag == '등록' ? '${addPath}' : '${updatePath}'}" />';
+	form.submit();
 }
 //-->
 </script>
 </head>
 <body>
 	<div class="$registClass" id="$registId">
-		<form:form commandName="${voInstanceName}" id="$formId">
+		<form:form commandName="$voInstanceName" id="$formId">
 			<table class="list">
-				<caption>${D}{registerFlag}</caption>
+				<caption>$title</caption>
 <c:if test="${D}{registerFlag == '수정'}">
 #if(${model.primaryKeys} == [])	
 #foreach($attribute in $model.primaryKeys)
@@ -161,7 +170,7 @@ function fn_egov_save() {
 			</table>
 
 			<ul class="button">
-				<li><a href="<c:url value='${listPath}' />" onclick="fn_egov_selectList(); return false;">목록</a></li>
+				<li><a href="<c:url value='${listPath}' />?pageIndex=${D}{searchVO.pageIndex}&amp;searchCondition=${D}{searchVO.searchCondition}&amp;searchKeyword=${D}{searchVO.searchKeyword}" onclick="fn_egov_selectList(); return false;">목록</a></li>
 				<li><a href="<c:url value='${addViewPath}' />" onclick="fn_egov_save(); return false;">${D}{registerFlag}</a></li>
 <c:if test="${D}{registerFlag == '수정'}">
 				<li><a href="<c:url value='${deletePath}' />" onclick="fn_egov_delete(); return false;">삭제</a></li>
