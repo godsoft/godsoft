@@ -27,9 +27,11 @@
 
 #set( $title = "$model.entity.tableComments 목록" )
 
-###set( $prefixDash = "$model.topLevelPackage.replaceAll('\.', '-')-$model.middleLevelPackage" )
-###set( $listClass = "${prefixDash}-${model.entity.ccName}-list")
-#set( $listClass = "${model.topLevelPackage.replaceAll('\.', '-')}-list")
+#set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
+#set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
+#set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
+#set( $listId = "${prefixDash}-${model.entity.ccName}-list")
+#set( $listClass = "${topLevelDash}-list")
 
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -111,7 +113,7 @@ function fn_egov_link_page(pageNo){
 </script>
 </head>
 <body>
-	<div class="$listClass">
+	<div class="$listClass" id="$listId">
 		<form:form commandName="searchVO" id="listForm">
 #if(${model.primaryKeys} == [])
 			<div>
@@ -142,7 +144,7 @@ function fn_egov_link_page(pageNo){
 #set($linkParams="'${Q}${D}{item.${model.attributes.get(0).ccName}}${Q}'")
 #foreach($attribute in $model.attributes)
 #if($attribute.ccName == ${model.attributes.get(0).ccName})				
-					<td><a href="javascript:fn_egov_select(${linkParams})">${D}{item.${attribute.ccName}}</a></td>
+					<td><a href="" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
 #else
 					<td>${D}{item.${attribute.ccName}}</td>
 #end
@@ -152,7 +154,7 @@ function fn_egov_link_page(pageNo){
 #set($i=0)
 #foreach($attribute in $model.primaryKeys)
 #if($i == 0)
-#set($linkParams="'${Q}${D}{item.${attribute.ccName}}${Q}'")
+#set($linkParams="'${D}{item.${attribute.ccName}}'")
 #else
 #set($linkParams="$linkParams, '${Q}${D}{item.${attribute.ccName}}${Q}'")
 #end
@@ -160,7 +162,7 @@ function fn_egov_link_page(pageNo){
 #end
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == true)				
-					<td><a href="javascript:fn_egov_select(${linkParams})">${D}{item.${attribute.ccName}}</a></td>
+					<td><a href="" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
 #else
 					<td>${D}{item.${attribute.ccName}}"</td>
 #end
