@@ -165,7 +165,7 @@ function fn_egov_link_page(pageNo) {
 #end
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == true)				
-					<td><a href="$selectPath?${attribute.ccName}=${D}{item.${attribute.ccName}}" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
+					<td><a href="<c:url value='$updateViewPath' />?${attribute.ccName}=${D}{item.${attribute.ccName}}" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
 #else
 					<td>${D}{item.${attribute.ccName}}</td>
 #end
@@ -184,7 +184,7 @@ function fn_egov_link_page(pageNo) {
 
 ##		<ul class="${listClass}-button">
 		<ul class="button">
-			<li><a href="$addViewPath" onclick="fn_egov_addView(); return false;" class="btn btn-default">등록</a></li>
+			<li><a href="<c:url value='$addViewPath' />" onclick="fn_egov_addView(); return false;" class="btn btn-default">등록</a></li>
 		</ul>
 
 		</form:form>

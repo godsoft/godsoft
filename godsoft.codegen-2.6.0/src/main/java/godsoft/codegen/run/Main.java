@@ -78,8 +78,8 @@ public class Main {
 			//			this.serviceImpl(dataModelContext);
 			//			this.serviceImplTest(dataModelContext);
 			//			this.controller(dataModelContext);
-			//
-			//			this.list(dataModelContext);
+
+			this.list(dataModelContext);
 			this.regist(dataModelContext);
 		}
 	}
