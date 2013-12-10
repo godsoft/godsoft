@@ -92,29 +92,28 @@ function fn_egov_select(${params}) {
 	document.getElementById("listForm").${attribute.ccName}.value = ${attribute.ccName};
 #end
 #end
-	document.getElementById("listForm").action = "<c:url value='${updateViewPath}'/>";
+	document.getElementById("listForm").action = "<c:url value='${updateViewPath}' />";
 	document.getElementById("listForm").submit();
 }
 
 /* 글 등록 화면 function */
 function fn_egov_addView() {
-	document.getElementById("listForm").action = "<c:url value='${addViewPath}'/>";
-	document.getElementById("listForm").submit();		
-}
-
-/* pagination 페이지 링크 function */
-function fn_egov_link_page(pageNo){
-	document.getElementById("listForm").pageIndex.value = pageNo;
-	document.getElementById("listForm").action = "<c:url value='${listPath}'/>";
+	document.getElementById("listForm").action = "<c:url value='${addViewPath}' />";
 	document.getElementById("listForm").submit();
 }
 
+/* pagination 페이지 링크 function */
+function fn_egov_link_page(pageNo) {
+	document.getElementById("listForm").pageIndex.value = pageNo;
+	document.getElementById("listForm").action = "<c:url value='${listPath}' />";
+	document.getElementById("listForm").submit();
+}
 //-->
 </script>
 </head>
 <body>
 	<div class="$listClass" id="$listId">
-		<form:form commandName="searchVO" id="listForm">
+		<form:form commandName="searchVO" id="$listId-form" method="get">
 #if(${model.primaryKeys} == [])
 			<div>
 				<input type="hidden" name="${model.attributes.get(0).ccName}" />
@@ -162,9 +161,9 @@ function fn_egov_link_page(pageNo){
 #end
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == true)				
-					<td><a href="" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
+					<td><a href="$selectPath?${attribute.ccName}=${D}{item.${attribute.ccName}}" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
 #else
-					<td>${D}{item.${attribute.ccName}}"</td>
+					<td>${D}{item.${attribute.ccName}}</td>
 #end
 #end
 #end
@@ -181,7 +180,7 @@ function fn_egov_link_page(pageNo){
 
 ##		<ul class="${listClass}-button">
 		<ul class="button">
-			<li><a href="javascript:fn_egov_addView();">등록</a><img src="<c:url value='/images/egovframework/rte/btn_bg_r.gif'/>" alt="" /></li>
+			<li><a href="$addViewPath" onclick="fn_egov_addView(); return false;">등록</a></li>
 		</ul>
 
 		</form:form>
