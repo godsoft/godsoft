@@ -23,7 +23,7 @@ div.godsoft-com-list div.pagination {
 div.godsoft-com-list ul.button {
 	background-color: green;
 }
-/* 목록 끝 */
+
 #godsoft-com-user-testSample-list {
 	background-color: green;
 }
@@ -39,3 +39,37 @@ div.godsoft-com-list ul.button {
 #godsoft-com-user-testSample-list ul.button {
 	background-color: red;
 }
+
+/* 목록 끝 */
+
+/* 등록 시작 */
+div.godsoft-com-regist {
+	background-color: red;
+}
+
+#godsoft-com-user-testSample-regist {
+	background-color: orange;
+}
+
+div.godsoft-com-regist ul.button {
+	background-color: yellow;
+	list-style: none;
+}
+
+div.godsoft-com-regist ul.button li {
+	float: left;
+	margin-left: 10px;
+}
+
+#godsoft-com-user-testSample-regist ul.button {
+	background-color: green;
+}
+
+div.godsoft-com-regist input.txt {
+	width: 100%;
+}
+
+#godsoft-com-user-testSample-regist input.txt {
+	width: 90%;
+}
+/* 등록 끝 */
