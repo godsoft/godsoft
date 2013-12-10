@@ -11,13 +11,13 @@
 #set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
 #set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
 
-#set($listPath="$prefixPath/${model.entity.ccName}/select${model.entity.pcName}List.do")
-#set($addViewPath="$prefixPath/${model.entity.ccName}/add${model.entity.pcName}View.do")
-#set($addPath="$prefixPath/${model.entity.ccName}/add${model.entity.pcName}.do")
-#set($selectPath="$prefixPath/${model.entity.ccName}/select${model.entity.pcName}.do")
-#set($updatePath="$prefixPath/${model.entity.ccName}/update${model.entity.pcName}.do")
-#set($updateViewPath="$prefixPath/${model.entity.ccName}/update${model.entity.pcName}View.do")
-#set($deletePath="$prefixPath/${model.entity.ccName}/delete${model.entity.pcName}.do")
+#set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
 ##
 #set($listPageName="${model.entity.pcName}List.jsp")
 ##
