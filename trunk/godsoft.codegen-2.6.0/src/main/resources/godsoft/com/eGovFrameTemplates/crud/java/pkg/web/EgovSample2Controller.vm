@@ -129,6 +129,7 @@ public class ${controllerClassName} {
 
 	@RequestMapping("${addViewPath}")
 	public String ${addViewMethodName}(@ModelAttribute("searchVO") ${voClassName} ${voInstanceName}, Model model) throws Exception {
+		model.addAttribute("$voInstanceName", new ${voClassName}());
 		return "${registerView}";
 	}
 

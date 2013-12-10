@@ -69,17 +69,17 @@ public class Main {
 		CodeGenDataModelContext codeGenDataModelContext = new CodeGenDataModelContext(getOracleVO(), getParameterDataModel());
 
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
-			//						this.defaultVO(dataModelContext);
-			this.vo(dataModelContext);
-			this.sqlMap(dataModelContext);
-			this.dao(dataModelContext);
-			this.daoTest(dataModelContext);
-			this.service(dataModelContext);
-			this.serviceImpl(dataModelContext);
-			this.serviceImplTest(dataModelContext);
-			this.controller(dataModelContext);
-
-			this.list(dataModelContext);
+			//			//						this.defaultVO(dataModelContext);
+			//			this.vo(dataModelContext);
+			//			this.sqlMap(dataModelContext);
+			//			this.dao(dataModelContext);
+			//			this.daoTest(dataModelContext);
+			//			this.service(dataModelContext);
+			//			this.serviceImpl(dataModelContext);
+			//			this.serviceImplTest(dataModelContext);
+			//			this.controller(dataModelContext);
+			//
+			//			this.list(dataModelContext);
 			this.regist(dataModelContext);
 		}
 	}
@@ -184,8 +184,9 @@ public class Main {
 	}
 
 	public void list(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
 		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List-header-footer.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List-bootstrap-3.0.3.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getListPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -196,7 +197,8 @@ public class Main {
 	}
 
 	public void regist(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register-bootstrap-3.0.3.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getRegistPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
