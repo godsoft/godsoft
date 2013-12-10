@@ -1,4 +1,3 @@
-<%@page import="godsoft.com.cmm.service.Globals"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,17 +23,17 @@
 	 */
 %>
 
-<c:set var="pathWebapp"><%=Globals.PATH_WEBAPP%></c:set>
-<c:set var="pathWeb"><%=Globals.PATH_WEB%></c:set>
-<c:set var="pathVendor"><%=Globals.PATH_VENDOR%></c:set>
+<!-- jquery.jqGrid-4.5.4.zip -->
 
-<script type="text/javascript">
-	var godsoft = {};
-	godsoft.com = {};
-	godsoft.com.cmm = {};
-	godsoft.com.cmm.path = {
-		webapp : '${pathWebapp}',
-		web : '${pathWeb}',
-		vendor : '${pathVendor}'
-	};
-</script>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${pathVendor}/jquery.jqGrid-4.5.4/css/ui.jqgrid.css" />
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"
+	type="text/javascript"></script>
+<script
+	src="${pathVendor}/jquery.jqGrid-4.5.4/js/i18n/grid.locale-kr.js"
+	type="text/javascript"></script>
+<script src="${pathVendor}/jquery.jqGrid-4.5.4/js/jquery.jqGrid.min.js"
+	type="text/javascript"></script>
