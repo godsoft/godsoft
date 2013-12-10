@@ -117,9 +117,12 @@ function fn_egov_save() {
 </head>
 <body>
 	<div class="$registClass" id="$registId">
-		<form:form commandName="$voInstanceName" id="$formId">
-			<table class="list">
-				<caption>$title</caption>
+		<form:form commandName="$voInstanceName" id="$formId" cssClass="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">$title</label>
+				<div class="col-sm-10">
+				</div>
+			</div>
 <c:if test="${D}{registerFlag == '수정'}">
 #if(${model.primaryKeys} == [])	
 #foreach($attribute in $model.primaryKeys)
@@ -131,12 +134,12 @@ function fn_egov_save() {
 				</tr>
 #end
 #else
-				<tr>
-					<th scope="row">${model.attributes.get(0).columnComments} *</th>
-					<td>
-						<form:input path="${model.attributes.get(0).ccName}" cssClass="essentiality" readonly="true" />
-					</td>
-				</tr>
+			<div class="form-group">
+				<label for="${attribute.ccName}" class="col-sm-2 control-label">${model.attributes.get(0).columnComments} *</label>
+				<div class="col-sm-10">
+					<form:input path="${model.attributes.get(0).ccName}" cssClass="txt form-control" readonly="true" />
+				</div>
+			</div>
 #end
 </c:if>
 <c:if test="${D}{registerFlag == '등록'}">
@@ -150,35 +153,35 @@ function fn_egov_save() {
 				</tr>
 #end
 #else
-				<tr>
-					<th scope="row">${model.attributes.get(0).columnComments} *</th>
-					<td>
-						<form:input path="${model.attributes.get(0).ccName}" cssClass="txt" readonly="false" />
-					</td>			
-				</tr>
+			<div class="form-group">
+				<label for="${model.attributes.get(0).ccName}" class="col-sm-2 control-label">${model.attributes.get(0).columnComments} *</label>
+				<div class="col-sm-10">
+					<form:input path="${model.attributes.get(0).ccName}" cssClass="txt form-control" readonly="false" />
+				</div>
+			</div>
 #end	
 </c:if>
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == false)
-				<tr>
-					<th scope="row">${attribute.columnComments}</th>
-					<td>
-						<form:input path="${attribute.ccName}" cssClass="txt" />
-						<form:errors path="${attribute.ccName}" />
-					</td>
-				</tr>
+			<div class="form-group">
+				<label for="${attribute.ccName}" class="col-sm-2 control-label">${attribute.columnComments}</label>
+				<div class="col-sm-10">
+					<form:input path="${attribute.ccName}" cssClass="txt form-control" />
+					<form:errors path="${attribute.ccName}" />
+				</div>
+			</div>
 #end
 #end
-			</table>
-
-			<ul class="button">
-				<li><a href="<c:url value='${listPath}' />?pageIndex=${D}{searchVO.pageIndex}&amp;searchCondition=${D}{searchVO.searchCondition}&amp;searchKeyword=${D}{searchVO.searchKeyword}" onclick="fn_egov_selectList(); return false;">목록</a></li>
-				<li><a href="<c:url value='${addViewPath}' />" onclick="fn_egov_save(); return false;">${D}{registerFlag}</a></li>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<a href="<c:url value='${listPath}' />?pageIndex=${D}{searchVO.pageIndex}&amp;searchCondition=${D}{searchVO.searchCondition}&amp;searchKeyword=${D}{searchVO.searchKeyword}" onclick="fn_egov_selectList(); return false;" class="btn btn-default">목록</a>
+					<a href="<c:url value='${addViewPath}' />" onclick="fn_egov_save(); return false;" class="btn btn-default">${D}{registerFlag}</a>
 <c:if test="${D}{registerFlag == '수정'}">
-				<li><a href="<c:url value='${deletePath}' />" onclick="fn_egov_delete(); return false;">삭제</a></li>
+					<a href="<c:url value='${deletePath}' />" onclick="fn_egov_delete(); return false;" class="btn btn-default">삭제</a>
 </c:if>
-				<li><a href="" onclick="document.getElementById('$formId').reset(); return false;">리셋</a></li>
-			</ul>
+					<a href="" onclick="document.getElementById('$formId').reset(); return false;" class="btn btn-default">리셋</a>
+				</div>
+			</div>
 
 			<!-- 검색조건 유지 -->
 			<div>
