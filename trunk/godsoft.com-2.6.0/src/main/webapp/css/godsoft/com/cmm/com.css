@@ -23,5 +23,19 @@ div.godsoft-com-list div.pagination {
 div.godsoft-com-list ul.button {
 	background-color: green;
 }
-
 /* 목록 끝 */
+#godsoft-com-user-testSample-list {
+	background-color: green;
+}
+
+#godsoft-com-user-testSample-list table.list {
+	background-color: yellow;
+}
+
+#godsoft-com-user-testSample-list div.pagination {
+	background-color: orange;
+}
+
+#godsoft-com-user-testSample-list ul.button {
+	background-color: red;
+}
