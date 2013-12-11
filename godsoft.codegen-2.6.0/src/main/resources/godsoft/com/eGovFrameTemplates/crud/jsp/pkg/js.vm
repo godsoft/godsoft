@@ -1,0 +1,118 @@
+##
+#set($D='$')
+#set($Q='"')
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($voInstanceName="${model.entity.ccName}VO")
+##
+##
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+##
+#set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
+##
+#set($listPageName="${model.entity.pcName}List.jsp")
+##
+#set($selectFunctionName="fncSelect${model.entity.pcName}")
+#set($addViewFunctionName="fncAdd${model.entity.pcName}View")
+##
+#set( $title = "$model.entity.tableComments 목록" )
+##
+#set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
+#set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
+#set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
+#set( $listId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}List")
+#set( $listClass = "${topLevelDash}-list")
+##
+#set( $formId = "${listId}-form")
+##
+#set($params="")
+#set($i=0)
+#if(${model.primaryKeys} == [])
+#set($params="${model.attributes.get(0).ccName}")
+#else
+#foreach($attribute in $model.primaryKeys)
+#if($i == 0)
+#set($params="${attribute.ccName}")
+#else
+#set($params="$params, ${attribute.ccName}")
+#end
+#set($i=$i+1)
+#end
+#end
+##
+/********************************************************
+파일명 : /js$prefixPath/$model.entity.packageName/${model.entity.pcName}.js
+설 명 : $model.entity.tableComments JavaScript
+수정일 수정자 Version Function 명
+------- -------- ---------- --------------
+${createDate} ${author} 1.0 최초 생성
+*********************************************************/
+
+/************************************************************************
+함수명 : fn_egov_check_period
+설 명 : 행정달력으로 받은 날짜값이 정상적인 허용범위에 속한
+값인지를 검사 검색시작일과 끝나는 일자의 크기 비교
+인 자 : sdt( 시작일 control명) edt( 시작일 control명)
+사용법 : checkPeriodBeforeSearch(input1, input2)
+텍스트 입력값은 반드시 10자리(2004-05-01)로 구성되어야 한다.
+상황에 따라 구분자(sep)는 '-'(2004-05-01) or '.'(2004.05.01)
+작성일 : 2009-02-01
+작성자 : 각팀명(예. 공통서비스 개발팀) 홍길동
+수정일 수정자 수정내용
+------ ------ -------------------
+2009.02.01 길동이 윤년 처리 추가
+************************************************************************/
+/* 글 수정 화면 function */
+function fn_egov_select(${params}) {
+	var form = document.getElementById('$formId');
+#if(${model.primaryKeys} == [])
+	form.${model.attributes.get(0).ccName}.value = ${model.attributes.get(0).ccName};
+#else
+#foreach($attribute in $model.primaryKeys)
+	form.${attribute.ccName}.value = ${attribute.ccName};
+#end
+#end
+
+	var action = '';
+	action += ${model.topLevelPackage}.cmm.path.webapp;
+	action += '${updateViewPath}';
+
+	form.action = action;
+	
+	form.submit();
+}
+
+/* 글 등록 화면 function */
+function fn_egov_addView() {
+	var form = document.getElementById('$formId');
+
+	var action = '';
+	action += ${model.topLevelPackage}.cmm.path.webapp;
+	action += '${addViewPath}';
+
+	form.action = action;
+
+	form.submit();
+}
+
+/* pagination 페이지 링크 function */
+function fn_egov_link_page(pageNo) {
+	var form = document.getElementById('$formId');
+	form.pageIndex.value = pageNo;
+
+	var action = '';
+	action += ${model.topLevelPackage}.cmm.path.webapp;
+	action += '${listPath}';
+
+	form.action = action;
+
+	form.submit();
+}

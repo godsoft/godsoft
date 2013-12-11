@@ -83,6 +83,7 @@ public class Main {
 			this.regist(dataModelContext);
 
 			this.css(dataModelContext);
+			this.js(dataModelContext);
 		}
 	}
 
@@ -214,6 +215,17 @@ public class Main {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/css.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getCssPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void js(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/js.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getJsPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);

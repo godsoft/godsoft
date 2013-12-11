@@ -62,56 +62,12 @@
 ##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<%@include file="/WEB-INF/jsp/${topLevelPath}/cmm/path.jsp"%>
 <title>$title</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/$topLevelPath/cmm/com.css' />" />
 <link type="text/css" rel="stylesheet" href="<c:url value='/css$prefixPath/$model.entity.packageName/${model.entity.pcName}.css' />" />
-<script type="text/javascript" defer="defer">
-<!--
-#set($params="")
-#set($i=0)
-#if(${model.primaryKeys} == [])
-#set($params="${model.attributes.get(0).ccName}")
-#else
-#foreach($attribute in $model.primaryKeys)
-#if($i == 0)
-#set($params="${attribute.ccName}")
-#else
-#set($params="$params, ${attribute.ccName}")
-#end
-#set($i=$i+1)
-#end
-#end
-/* 글 수정 화면 function */
-function fn_egov_select(${params}) {
-	var form = document.getElementById('$formId');
-#if(${model.primaryKeys} == [])
-	form.${model.attributes.get(0).ccName}.value = ${model.attributes.get(0).ccName};
-#else
-#foreach($attribute in $model.primaryKeys)
-	form.${attribute.ccName}.value = ${attribute.ccName};
-#end
-#end
-	form.action = '<c:url value='${updateViewPath}' />';
-	form.submit();
-}
-
-/* 글 등록 화면 function */
-function fn_egov_addView() {
-	var form = document.getElementById('$formId');
-	form.action = '<c:url value='${addViewPath}' />';
-	form.submit();
-}
-
-/* pagination 페이지 링크 function */
-function fn_egov_link_page(pageNo) {
-	var form = document.getElementById('$formId');
-	form.pageIndex.value = pageNo;
-	form.action = '<c:url value='${listPath}' />';
-	form.submit();
-}
-//-->
-</script>
+<script type="text/javascript" src="<c:url value='/js$prefixPath/$model.entity.packageName/${model.entity.pcName}.js' />"></script>
 </head>
 <body>
 	<div class="$listClass" id="${listId}-div">

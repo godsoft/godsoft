@@ -24,6 +24,7 @@ public class CodeGenPathname {
 	private String registPathname;
 
 	private String cssPathname;
+	private String jsPathname;
 
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
@@ -54,6 +55,7 @@ public class CodeGenPathname {
 		this.setRegistPathname();
 
 		this.setCssPathname();
+		this.setJsPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -253,6 +255,22 @@ public class CodeGenPathname {
 		this.cssPathname = sb.toString();
 	}
 
+	public void setJsPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/js/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append(".js");
+
+		this.jsPathname = sb.toString();
+	}
+
 	public DataModelContext getDataModelContext() {
 		return dataModelContext;
 	}
@@ -387,6 +405,14 @@ public class CodeGenPathname {
 
 	public void setCssPathname(String cssPathname) {
 		this.cssPathname = cssPathname;
+	}
+
+	public String getJsPathname() {
+		return jsPathname;
+	}
+
+	public void setJsPathname(String jsPathname) {
+		this.jsPathname = jsPathname;
 	}
 
 }
