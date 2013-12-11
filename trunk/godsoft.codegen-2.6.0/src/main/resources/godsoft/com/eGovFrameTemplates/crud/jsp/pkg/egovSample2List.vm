@@ -28,7 +28,7 @@
 #set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
 #set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
 #set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
-#set( $listId = "${prefixDash}-${model.entity.ccName}-list")
+#set( $listId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}List")
 #set( $listClass = "${topLevelDash}-list")
 ##
 #set( $formId = "${listId}-form")
@@ -64,7 +64,8 @@
 <head>
 <title>$title</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/$topLevelPath/cmm/com.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css$prefixPath/$model.entity.packageName/${model.entity.pcName}.css' />" />
 <script type="text/javascript" defer="defer">
 <!--
 #set($params="")
@@ -113,7 +114,7 @@ function fn_egov_link_page(pageNo) {
 </script>
 </head>
 <body>
-	<div class="$listClass" id="$listId">
+	<div class="$listClass" id="${listId}-div">
 		<form:form commandName="$voInstanceName" id="$formId" method="get">
 #if(${model.primaryKeys} == [])
 			<div>

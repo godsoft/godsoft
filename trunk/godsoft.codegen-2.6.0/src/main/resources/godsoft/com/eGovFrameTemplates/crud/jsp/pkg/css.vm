@@ -1,0 +1,50 @@
+##
+#set($D='$')
+#set($Q='"')
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($voInstanceName="${model.entity.ccName}VO")
+##
+##
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+##
+#set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
+##
+#set($listPageName="${model.entity.pcName}List.jsp")
+##
+#set($selectFunctionName="fncSelect${model.entity.pcName}")
+#set($addViewFunctionName="fncAdd${model.entity.pcName}View")
+##
+#set( $title = "$model.entity.tableComments 목록" )
+##
+#set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
+#set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
+#set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
+#set( $listId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}List")
+#set( $listClass = "${topLevelDash}-list")
+##
+#set( $listIdDiv = "${listId}-div")
+##
+#$listIdDiv {
+	background-color: green;
+}
+
+#$listIdDiv table.list {
+	background-color: yellow;
+}
+
+#$listIdDiv div.pagination {
+	background-color: orange;
+}
+
+#$listIdDiv ul.button {
+	background-color: red;
+}

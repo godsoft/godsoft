@@ -81,6 +81,8 @@ public class Main {
 
 			this.list(dataModelContext);
 			this.regist(dataModelContext);
+
+			this.css(dataModelContext);
 		}
 	}
 
@@ -184,9 +186,9 @@ public class Main {
 	}
 
 	public void list(DataModelContext dataModelContext) throws Exception {
-		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List.vm";
 		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List-header-footer.vm";
-		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List-bootstrap-3.0.3.vm";
+		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2List-bootstrap-3.0.3.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getListPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -197,8 +199,8 @@ public class Main {
 	}
 
 	public void regist(DataModelContext dataModelContext) throws Exception {
-		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
-		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register-bootstrap-3.0.3.vm";
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register.vm";
+		//		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/egovSample2Register-bootstrap-3.0.3.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getRegistPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
@@ -207,4 +209,16 @@ public class Main {
 
 		FileUtils.writeStringToFile(new File(pathname), data);
 	}
+
+	public void css(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/css.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getCssPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
 }

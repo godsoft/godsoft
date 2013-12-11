@@ -23,6 +23,8 @@ public class CodeGenPathname {
 	private String listPathname;
 	private String registPathname;
 
+	private String cssPathname;
+
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
 	//    <testSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\test\java</testSourceDirectory>
@@ -50,6 +52,8 @@ public class CodeGenPathname {
 
 		this.setListPathname();
 		this.setRegistPathname();
+
+		this.setCssPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -233,60 +237,156 @@ public class CodeGenPathname {
 		this.registPathname = sb.toString();
 	}
 
+	public void setCssPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/css/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append(".css");
+
+		this.cssPathname = sb.toString();
+	}
+
+	public DataModelContext getDataModelContext() {
+		return dataModelContext;
+	}
+
+	public void setDataModelContext(DataModelContext dataModelContext) {
+		this.dataModelContext = dataModelContext;
+	}
+
+	public String getTopLevelPathname() {
+		return topLevelPathname;
+	}
+
+	public void setTopLevelPathname(String topLevelPathname) {
+		this.topLevelPathname = topLevelPathname;
+	}
+
 	public String getServicePathname() {
 		return servicePathname;
+	}
+
+	public void setServicePathname(String servicePathname) {
+		this.servicePathname = servicePathname;
 	}
 
 	public String getServiceImplPathname() {
 		return serviceImplPathname;
 	}
 
+	public void setServiceImplPathname(String serviceImplPathname) {
+		this.serviceImplPathname = serviceImplPathname;
+	}
+
 	public String getWebPathname() {
 		return webPathname;
+	}
+
+	public void setWebPathname(String webPathname) {
+		this.webPathname = webPathname;
 	}
 
 	public String getDefaultVOPathname() {
 		return defaultVOPathname;
 	}
 
+	public void setDefaultVOPathname(String defaultVOPathname) {
+		this.defaultVOPathname = defaultVOPathname;
+	}
+
 	public String getVoPathname() {
 		return voPathname;
+	}
+
+	public void setVoPathname(String voPathname) {
+		this.voPathname = voPathname;
 	}
 
 	public String getSqlMapPathname() {
 		return sqlMapPathname;
 	}
 
+	public void setSqlMapPathname(String sqlMapPathname) {
+		this.sqlMapPathname = sqlMapPathname;
+	}
+
 	public String getDaoPathname() {
 		return daoPathname;
+	}
+
+	public void setDaoPathname(String daoPathname) {
+		this.daoPathname = daoPathname;
 	}
 
 	public String getDaoTestPathname() {
 		return daoTestPathname;
 	}
 
+	public void setDaoTestPathname(String daoTestPathname) {
+		this.daoTestPathname = daoTestPathname;
+	}
+
 	public String getService2Pathname() {
 		return service2Pathname;
+	}
+
+	public void setService2Pathname(String service2Pathname) {
+		this.service2Pathname = service2Pathname;
 	}
 
 	public String getServiceImpl2Pathname() {
 		return serviceImpl2Pathname;
 	}
 
+	public void setServiceImpl2Pathname(String serviceImpl2Pathname) {
+		this.serviceImpl2Pathname = serviceImpl2Pathname;
+	}
+
 	public String getServiceImplTestPathname() {
 		return serviceImplTestPathname;
+	}
+
+	public void setServiceImplTestPathname(String serviceImplTestPathname) {
+		this.serviceImplTestPathname = serviceImplTestPathname;
 	}
 
 	public String getControllerPathname() {
 		return controllerPathname;
 	}
 
+	public void setControllerPathname(String controllerPathname) {
+		this.controllerPathname = controllerPathname;
+	}
+
 	public String getListPathname() {
 		return listPathname;
 	}
 
+	public void setListPathname(String listPathname) {
+		this.listPathname = listPathname;
+	}
+
 	public String getRegistPathname() {
 		return registPathname;
+	}
+
+	public void setRegistPathname(String registPathname) {
+		this.registPathname = registPathname;
+	}
+
+	public String getCssPathname() {
+		return cssPathname;
+	}
+
+	public void setCssPathname(String cssPathname) {
+		this.cssPathname = cssPathname;
 	}
 
 }
