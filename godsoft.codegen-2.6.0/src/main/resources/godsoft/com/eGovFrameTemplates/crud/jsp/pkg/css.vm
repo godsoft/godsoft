@@ -37,6 +37,7 @@
 #set( $listIdDiv = "${listId}-div")
 #set( $registIdDiv = "${registId}-div")
 ##
+/* 목록(List) 시작 */
 #$listIdDiv {
 	background-color: green;
 }
@@ -52,7 +53,9 @@
 #$listIdDiv div.button {
 	background-color: red;
 }
+/* 목록(List) 끝 */
 
+/* 등록(Regist) 시작 */
 #$registIdDiv {
 	background-color: red;
 }
@@ -64,3 +67,4 @@
 #$registIdDiv div.button {
 	background-color: yellow;
 }
+/* 등록(Regist) 끝 */
