@@ -3,7 +3,7 @@ caption {
 	font-weight: bold;
 }
 
-/* 목록 시작 */
+/* 목록(List) 시작 */
 div.godsoft-com-list {
 	background-color: red;
 }
@@ -28,9 +28,9 @@ div.godsoft-com-list div.button {
 	background-color: green;
 	text-align: right;
 }
-/* 목록 끝 */
+/* 목록(List) 끝 */
 
-/* 등록 시작 */
+/* 등록(Regist) 시작 */
 div.godsoft-com-regist {
 	background-color: red;
 }
@@ -57,4 +57,4 @@ div.godsoft-com-regist div.button {
 div.godsoft-com-regist input.txt {
 	width: 100%;
 }
-/* 등록 끝 */
+/* 등록(Regist) 끝 */
