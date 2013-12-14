@@ -69,15 +69,15 @@ public class Main {
 		CodeGenDataModelContext codeGenDataModelContext = new CodeGenDataModelContext(getOracleVO(), getParameterDataModel());
 
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
-			//			//						this.defaultVO(dataModelContext);
-			//			this.vo(dataModelContext);
-			//			this.sqlMap(dataModelContext);
-			//			this.dao(dataModelContext);
-			//			this.daoTest(dataModelContext);
-			//			this.service(dataModelContext);
-			//			this.serviceImpl(dataModelContext);
-			//			this.serviceImplTest(dataModelContext);
-			//			this.controller(dataModelContext);
+			//						this.defaultVO(dataModelContext);
+			this.vo(dataModelContext);
+			this.sqlMap(dataModelContext);
+			this.dao(dataModelContext);
+			this.daoTest(dataModelContext);
+			this.service(dataModelContext);
+			this.serviceImpl(dataModelContext);
+			this.serviceImplTest(dataModelContext);
+			this.controller(dataModelContext);
 
 			this.list(dataModelContext);
 			this.regist(dataModelContext);

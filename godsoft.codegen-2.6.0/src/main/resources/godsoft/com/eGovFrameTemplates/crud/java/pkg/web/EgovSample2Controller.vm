@@ -29,12 +29,18 @@
 #set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
 ##
 #set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($listPathRest="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List")
 #set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addViewPathRest="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View")
 #set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($addPathRest="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}")
 #set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
 #set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updatePathRest="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}")
 #set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($updateViewPathRest="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View")
 #set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
+#set($deletePathRest="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}")
 ##
 #set( $prefixView = "$topLevelPath/$model.middleLevelPackage" )
 ##
@@ -103,55 +109,55 @@ public class ${controllerClassName} {
 	 * @return "${listView}"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "${listPath}")
+	@RequestMapping(value = { "${listPath}", "${listPathRest}" })
 	public String ${selectListMethodName}(${voClassName} ${voInstanceName}, ModelMap model) throws Exception {
 		${voInstanceName}.setPageUnit(egovPropertyService.getInt("pageUnit"));
 		${voInstanceName}.setPageSize(egovPropertyService.getInt("pageSize"));
-		
+
 		PaginationInfo paginationInfo = new PaginationInfo();
 		paginationInfo.setCurrentPageNo(${voInstanceName}.getPageIndex());
 		paginationInfo.setRecordCountPerPage(${voInstanceName}.getPageUnit());
 		paginationInfo.setPageSize(${voInstanceName}.getPageSize());
-		
+
 		${voInstanceName}.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		${voInstanceName}.setLastIndex(paginationInfo.getLastRecordIndex());
 		${voInstanceName}.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-		
+
 		List<EgovMap> items = ${serviceInstanceName}.${selectListMethodName}(${voInstanceName});
 		model.addAttribute("items", items);
-		
+
 		int totCnt = ${serviceInstanceName}.${selectListTotCntMethodName}(${voInstanceName});
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
-		
-		return "${listView}";
-	} 
 
-	@RequestMapping("${addViewPath}")
+		return "${listView}";
+	}
+
+	@RequestMapping(value = { "${addViewPath}", "${addViewPathRest}" })
 	public String ${addViewMethodName}(@ModelAttribute("searchVO") ${voClassName} ${voInstanceName}, Model model) throws Exception {
 		model.addAttribute("$voInstanceName", new ${voClassName}());
 		return "${registerView}";
 	}
 
-	@RequestMapping("${addPath}")
+	@RequestMapping(value = { "${addPath}", "${addPathRest}" })
 	public String ${addMethodName}(${voClassName} ${voInstanceName}) throws Exception {
 		${serviceInstanceName}.${insertMethodName}(${voInstanceName});
 		return "redirect:${listPath}";
 	}
 
-	@RequestMapping("${updateViewPath}")
+	@RequestMapping(value = { "${updateViewPath}", "${updateViewPathRest}" })
 	public String ${updateViewMethodName}(@ModelAttribute("searchVO") ${voClassName} ${voInstanceName}, Model model) throws Exception {
 		model.addAttribute("$voInstanceName", ${serviceInstanceName}.${selectMethodName}(${voInstanceName}));
 		return "${registerView}";
 	}
 
-	@RequestMapping("${updatePath}")
+	@RequestMapping(value = { "${updatePath}", "${updatePathRest}" })
 	public String ${updateMethodName}(${voClassName} ${voInstanceName}) throws Exception {
 		${serviceInstanceName}.${updateMethodName}(${voInstanceName});
 		return "redirect:${listPath}";
 	}
 
-	@RequestMapping("${deletePath}")
+	@RequestMapping(value = { "${deletePath}", "${deletePathRest}" })
 	public String ${deleteMethodName}(${voClassName} ${voInstanceName}) throws Exception {
 		${serviceInstanceName}.${deleteMethodName}(${voInstanceName});
 		return "redirect:${listPath}";
