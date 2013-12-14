@@ -38,9 +38,9 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-        	classpath*:egovframework/spring/com/context-*.xml
-        	classpath*:godsoft/spring/com/context-*.xml
-        </param-value>
+			classpath*:egovframework/spring/com/context-*.xml
+			classpath*:godsoft/spring/com/context-*.xml
+		</param-value>
 	</context-param>
 
 	<listener>
@@ -53,15 +53,19 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-            	/WEB-INF/config/egovframework/springmvc/egov-com-*.xml
-            	/WEB-INF/config/godsoft/springmvc/egov-com-*.xml
-            </param-value>
+				/WEB-INF/config/egovframework/springmvc/egov-com-*.xml
+				/WEB-INF/config/godsoft/springmvc/egov-com-*.xml
+			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
 
 	<!-- 1. 스프링 시큐리티 설정 -->
