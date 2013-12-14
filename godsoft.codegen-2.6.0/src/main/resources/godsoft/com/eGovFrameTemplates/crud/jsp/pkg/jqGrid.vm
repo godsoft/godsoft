@@ -1,0 +1,77 @@
+##
+#set($D='$')
+#set($Q='"')
+#set($voPackage="${voPackage}")
+#set($voClassName="${model.entity.pcName}VO")
+#set($defaultVoClassName="${model.entity.pcName}DefaultVO")
+#set($voInstanceName="${model.entity.ccName}VO")
+##
+##
+#set( $topLevelPath = "$model.topLevelPackage.replaceAll('\.', '/')" )
+#set( $prefixPath = "/$topLevelPath/$model.middleLevelPackage" )
+##
+#set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
+#set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
+#set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
+#set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
+#set($updatePath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}.do")
+#set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
+#set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
+##
+#set($listPageName="${model.entity.pcName}List.jsp")
+##
+#set($selectFunctionName="fncSelect${model.entity.pcName}")
+#set($addViewFunctionName="fncAdd${model.entity.pcName}View")
+##
+#set( $title = "$model.entity.tableComments 목록" )
+##
+#set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
+#set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
+#set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
+#set( $listId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}List")
+#set( $listClass = "${topLevelDash}-list")
+##
+#set( $formId = "${listId}-form")
+##
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%
+ /**
+  * @Class Name : ${listPageName}
+  * @Description : ${model.entity.pcName} jqGrid 화면
+  * @Modification Information
+  * 
+  * @author ${author}
+  * @since ${createDate}
+  * @version 1.0
+  * @see
+  *  
+  * Copyright (C) All right reserved.
+  */
+%>
+##<!-- <!DOCTYPE html> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+##<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"> -->
+##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@include file="/WEB-INF/jsp/${topLevelPath}/cmm/path.jsp"%>
+<%@include file="/WEB-INF/jsp/${topLevelPath}/cmm/jqGrid.jsp"%>
+<title>$title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/$topLevelPath/cmm/com.css' />" />
+##<link type="text/css" rel="stylesheet" href="<c:url value='/css$prefixPath/$model.entity.packageName/${model.entity.pcName}.css' />" />
+##<script type="text/javascript" src="<c:url value='/js$prefixPath/$model.entity.packageName/${model.entity.pcName}.js' />"></script>
+</head>
+<body>
+	<table id="list2"></table>
+	<div id="pager2"></div>
+</body>
+</html>
