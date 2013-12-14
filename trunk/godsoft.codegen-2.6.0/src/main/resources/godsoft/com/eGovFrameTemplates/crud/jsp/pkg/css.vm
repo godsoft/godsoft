@@ -31,7 +31,11 @@
 #set( $listId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}List")
 #set( $listClass = "${topLevelDash}-list")
 ##
+#set( $registId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}Regist")
+#set( $registClass = "${topLevelDash}-regist")
+##
 #set( $listIdDiv = "${listId}-div")
+#set( $registIdDiv = "${registId}-div")
 ##
 #$listIdDiv {
 	background-color: green;
@@ -45,6 +49,18 @@
 	background-color: orange;
 }
 
-#$listIdDiv ul.button {
+#$listIdDiv div.button {
 	background-color: red;
+}
+
+#$registIdDiv {
+	background-color: red;
+}
+
+#$registIdDiv table.regist {
+	background-color: orange;
+}
+
+#$registIdDiv div.button {
+	background-color: yellow;
 }

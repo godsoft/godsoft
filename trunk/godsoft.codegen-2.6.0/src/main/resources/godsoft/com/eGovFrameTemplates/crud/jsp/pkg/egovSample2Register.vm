@@ -26,7 +26,8 @@
 #set( $topLevelDash = $model.topLevelPackage.replaceAll('\.', '-') )
 #set( $middleLevelDash = $model.middleLevelPackage.replaceAll('\.', '-') )
 #set( $prefixDash = "${topLevelDash}-${middleLevelDash}" )
-#set( $registId = "${prefixDash}-${model.entity.ccName}-regist")
+##set( $registId = "${prefixDash}-${model.entity.ccName}-regist")
+#set( $registId = "${prefixDash}-${model.entity.packageName}-${model.entity.pcName}Regist")
 #set( $registClass = "${topLevelDash}-regist")
 ##
 #set( $formId = "${registId}-form")
@@ -67,10 +68,12 @@
 ##<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<%@include file="/WEB-INF/jsp/${topLevelPath}/cmm/path.jsp"%>
 <title>$title</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css$prefixPath/$model.entity.packageName/${model.entity.pcName}.css' />" />
 
 <!--For Commons Validator Client Side-->
 <!-- script type="text/javascript" src="<c:url value='/cmmn/validator.do'/>"></script -->
@@ -114,9 +117,9 @@ function fn_egov_save() {
 </script>
 </head>
 <body>
-	<div class="$registClass" id="$registId">
+	<div class="$registClass" id="${registId}-div">
 		<form:form commandName="$voInstanceName" id="$formId">
-			<table class="list">
+			<table class="regist">
 				<caption>$title</caption>
 <c:if test="${D}{registerFlag == '수정'}">
 #if(${model.primaryKeys} == [])	
@@ -169,14 +172,14 @@ function fn_egov_save() {
 #end
 			</table>
 
-			<ul class="button">
-				<li><a href="<c:url value='${listPath}' />?pageIndex=${D}{searchVO.pageIndex}&amp;searchCondition=${D}{searchVO.searchCondition}&amp;searchKeyword=${D}{searchVO.searchKeyword}" onclick="fn_egov_selectList(); return false;">목록</a></li>
-				<li><a href="<c:url value='${addViewPath}' />" onclick="fn_egov_save(); return false;">${D}{registerFlag}</a></li>
+			<div class="button">
+				<a href="<c:url value='${listPath}' />?pageIndex=${D}{searchVO.pageIndex}&amp;searchCondition=${D}{searchVO.searchCondition}&amp;searchKeyword=${D}{searchVO.searchKeyword}" onclick="fn_egov_selectList(); return false;">목록</a>
+				<a href="<c:url value='${addViewPath}' />" onclick="fn_egov_save(); return false;">${D}{registerFlag}</a>
 <c:if test="${D}{registerFlag == '수정'}">
-				<li><a href="<c:url value='${deletePath}' />" onclick="fn_egov_delete(); return false;">삭제</a></li>
+				<a href="<c:url value='${deletePath}' />" onclick="fn_egov_delete(); return false;">삭제</a>
 </c:if>
-				<li><a href="" onclick="document.getElementById('$formId').reset(); return false;">리셋</a></li>
-			</ul>
+				<a href="" onclick="document.getElementById('$formId').reset(); return false;">리셋</a>
+			</div>
 
 			<!-- 검색조건 유지 -->
 			<div>

@@ -119,7 +119,7 @@
 #end
 #foreach($attribute in $model.attributes)
 #if($attribute.primaryKey == true)				
-					<td><a href="$selectPath?${attribute.ccName}=${D}{item.${attribute.ccName}}" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
+					<td><a href="<c:url value='$selectPath?${attribute.ccName}=${D}{item.${attribute.ccName}}' />" onclick="fn_egov_select(${linkParams}); return false;">${D}{item.${attribute.ccName}}</a></td>
 #else
 					<td>${D}{item.${attribute.ccName}}</td>
 #end
@@ -137,9 +137,9 @@
 		</div>
 
 ##		<ul class="${listClass}-button">
-		<ul class="button">
-			<li><a href="$addViewPath" onclick="fn_egov_addView(); return false;">등록</a></li>
-		</ul>
+		<div class="button">
+			<a href="<c:url value='$addViewPath' />" onclick="fn_egov_addView(); return false;">등록</a>
+		</div>
 
 		</form:form>
 	</div>
