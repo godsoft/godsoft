@@ -30,26 +30,26 @@ public class JqGridRun {
 		CodeGenDataModelContext codeGenDataModelContext = new CodeGenDataModelContext(main.getOracleVO(), main.getParameterDataModel());
 
 		for (DataModelContext dataModelContext : codeGenDataModelContext.getDataModelContexts()) {
-			this.jqGrid(dataModelContext);
-			//			this.js(dataModelContext);
+			this.jqGridJsp(dataModelContext);
+			this.jqGridJs(dataModelContext);
 		}
 	}
 
-	public void jqGrid(DataModelContext dataModelContext) throws Exception {
+	public void jqGridJsp(DataModelContext dataModelContext) throws Exception {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/jqGrid.vm";
 
-		String pathname = dataModelContext.getCodeGenPathname().getListPathname();
+		String pathname = dataModelContext.getCodeGenPathname().getJqGridPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
 
-		//		FileUtils.writeStringToFile(new File(pathname), data);
+		FileUtils.writeStringToFile(new File(pathname), data);
 	}
 
-	public void js(DataModelContext dataModelContext) throws Exception {
-		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/js.vm";
+	public void jqGridJs(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/js/pkg/jqGrid.vm";
 
-		String pathname = dataModelContext.getCodeGenPathname().getJsPathname();
+		String pathname = dataModelContext.getCodeGenPathname().getJqGridJsPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);

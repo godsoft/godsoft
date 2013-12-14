@@ -20,6 +20,8 @@
 #set($selectListMethodName="select${model.entity.pcName}List")
 #set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
 ##
+#set( $jqGridMethodName = "jqGrid${model.entity.pcName}" )
+##
 ##
 #set($updateViewMethodName="update${model.entity.pcName}View")
 #set($addMethodName="add${model.entity.pcName}")
@@ -42,10 +44,15 @@
 #set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
 #set($deletePathRest="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}")
 ##
+#set( $jqGridPath = "$prefixPath/$model.entity.packageName/jqGrid${model.entity.pcName}.do")
+#set( $jqGridPathRest = "$prefixPath/$model.entity.packageName/jqGrid${model.entity.pcName}")
+##
 #set( $prefixView = "$topLevelPath/$model.middleLevelPackage" )
 ##
 #set($listView="$prefixView/${model.entity.packageName}/${model.entity.pcName}List")
 #set($registerView="$prefixView/${model.entity.packageName}/${model.entity.pcName}Regist")
+##
+#set( $jqGridView = "$prefixView/$model.entity.packageName/${model.entity.pcName}JqGrid")
 ##
 ##
 package ${controllerPackage};
@@ -161,6 +168,11 @@ public class ${controllerClassName} {
 	public String ${deleteMethodName}(${voClassName} ${voInstanceName}) throws Exception {
 		${serviceInstanceName}.${deleteMethodName}(${voInstanceName});
 		return "redirect:${listPath}";
+	}
+
+	@RequestMapping(value = { "${jqGridPath}", "${jqGridPathRest}" })
+	public String $jqGridMethodName(${voClassName} ${voInstanceName}) throws Exception {
+		return "$jqGridView";
 	}
 
 }

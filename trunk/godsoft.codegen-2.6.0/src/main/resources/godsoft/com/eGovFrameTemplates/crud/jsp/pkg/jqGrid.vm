@@ -66,12 +66,12 @@
 <%@include file="/WEB-INF/jsp/${topLevelPath}/cmm/jqGrid.jsp"%>
 <title>$title</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/$topLevelPath/cmm/com.css' />" />
+##<link type="text/css" rel="stylesheet" href="<c:url value='/css/$topLevelPath/cmm/com.css' />" />
 ##<link type="text/css" rel="stylesheet" href="<c:url value='/css$prefixPath/$model.entity.packageName/${model.entity.pcName}.css' />" />
-##<script type="text/javascript" src="<c:url value='/js$prefixPath/$model.entity.packageName/${model.entity.pcName}.js' />"></script>
+<script type="text/javascript" src="<c:url value='/js$prefixPath/$model.entity.packageName/${model.entity.pcName}JqGrid.js' />"></script>
 </head>
 <body>
-	<table id="list2"></table>
+	<table id="list2"><tr><td></td></tr></table>
 	<div id="pager2"></div>
 </body>
 </html>
