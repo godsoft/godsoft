@@ -27,6 +27,7 @@ public class CodeGenPathname {
 	private String jsPathname;
 
 	private String jqGridPathname;
+	private String jqGridJsPathname;
 
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
@@ -60,6 +61,7 @@ public class CodeGenPathname {
 		this.setJsPathname();
 
 		this.setJqGridPathname();
+		this.setJqGridJsPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -291,6 +293,22 @@ public class CodeGenPathname {
 		this.jqGridPathname = sb.toString();
 	}
 
+	public void setJqGridJsPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/js/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("JqGrid.js");
+
+		this.jqGridJsPathname = sb.toString();
+	}
+
 	public DataModelContext getDataModelContext() {
 		return dataModelContext;
 	}
@@ -441,6 +459,14 @@ public class CodeGenPathname {
 
 	public void setJqGridPathname(String jqGridPathname) {
 		this.jqGridPathname = jqGridPathname;
+	}
+
+	public String getJqGridJsPathname() {
+		return jqGridJsPathname;
+	}
+
+	public void setJqGridJsPathname(String jqGridJsPathname) {
+		this.jqGridJsPathname = jqGridJsPathname;
 	}
 
 }
