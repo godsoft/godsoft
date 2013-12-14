@@ -24,29 +24,34 @@ div.godsoft-com-list div.pagination {
 	text-align: center;
 }
 
-div.godsoft-com-list ul.button {
+div.godsoft-com-list div.button {
 	background-color: green;
-	list-style: none;
 	text-align: right;
 }
 /* 목록 끝 */
 
 /* 등록 시작 */
 div.godsoft-com-regist {
-	/* 	background-color: red; */
-	
+	background-color: red;
 }
 
-div.godsoft-com-regist ul.button {
-	/* 	background-color: yellow; */
-	list-style: none;
-	/* 	width: 100%; */
-	/* 	text-align: right; */
+div.godsoft-com-regist table.regist {
+	background-color: orange;
+	width: 100%;
+	border-collapse: collapse;
 }
 
-div.godsoft-com-regist ul.button li {
-	float: left;
-	margin-left: 10px;
+div.godsoft-com-regist table,th,td {
+	border: 1px solid black;
+}
+
+div.godsoft-com-regist table tr th[scope="row"] {
+	width: 20%;
+}
+
+div.godsoft-com-regist div.button {
+	background-color: yellow;
+	text-align: right;
 }
 
 div.godsoft-com-regist input.txt {
