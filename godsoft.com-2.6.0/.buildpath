@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path=""/>
+	<buildpathentry external="true" kind="lib" path="E:/eGovFrameSvr/m2/repository/org/springframework/webflow/org.springframework.js/2.0.0.RELEASE/org.springframework.js-2.0.0.RELEASE.jar"/>
+	<buildpathentry external="true" kind="lib" path="E:/eGovFrameSvr/m2/repository/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.jar"/>
+	<buildpathentry external="true" kind="lib" path="E:/eGovFrameSvr/m2/repository/org/springmodules/spring-modules-validation/0.9/spring-modules-validation-0.9.jar"/>
+	<buildpathentry external="true" kind="lib" path="E:/eGovFrameSvr/m2/repository/net/sourceforge/ajaxtags/ajaxtags/1.5-beta-0.2/ajaxtags-1.5-beta-0.2.jar"/>
+</buildpath>
