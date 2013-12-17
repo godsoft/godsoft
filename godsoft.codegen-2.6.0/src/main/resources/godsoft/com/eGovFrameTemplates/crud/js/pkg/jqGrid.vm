@@ -80,31 +80,174 @@ ${createDate} ${author} 1.0 최초 생성
 2009.02.01 길동이 윤년 처리 추가
 ************************************************************************/
 function fn_egov_jqGrid() {
+	var url = '';
+	url += godsoft.com.cmm.path.webapp;
+	url += '$listPathJson';
+
 	jQuery("#list2").jqGrid({
-		url: godsoft.com.cmm.path.webapp + '$listPathJson',
-		datatype: "json",
-		colNames:[$colNames],
-		colModel:[
-			$colModel
+		url : url,
+		// height : 150,
+		page : 1,
+		rowNum : 2,
+		// rowTotal : null,
+		// records : 0,
+		pager : "#pager2",
+		// pgbuttons : true,
+		// pginput : true,
+		colModel : [
+#set( $i = 0)
+#foreach( $attribute in $model.attributes )
+#if( $i == 0 )
+			{name:'$attribute.ccName',index:'$attribute.lcName'}
+#else
+			, {name:'$attribute.ccName',index:'$attribute.lcName'}
+#end
+#set( $i = $i + 1 )
+#end
 		],
-		rowNum:10,
-		rowList:[10,20,30],
-		pager: '#pager2',
-		sortname: 'id',
-		viewrecords: true,
-		sortorder: "desc",
-		caption:"JSON Example",
+		rowList : [10, 20, 30],
+		colNames : [
+#set( $i = 0)
+#foreach( $attribute in $model.attributes )
+#if( $i == 0 )
+			'$attribute.columnComments'
+#else
+			, '$attribute.columnComments'
+#end
+#set( $i = $i + 1 )
+#end
+		],
+		sortorder : "desc",
+		sortname : "id",
+		datatype : "json",
+		// mtype : "GET",
+		// altRows : false,
+		// selarrrow : [],
+		// savedRow : [],
+		// shrinkToFit : true,
+		// xmlReader : {},
 		jsonReader : {
 			root: "items",
 			page: "paginationInfo.pageIndex",
-			total: "paginationInfo.totalRecordCount",
-			records: "items",
-//			repeatitems: true,
-//			cell: "cell",
-//			id: "id",
-//			userdata: "userdata",
-//			subgrid: {root:"rows", repeatitems: true, cell:"cell"}
-		}
+			total: "paginationInfo.totalPageCount",
+			records: "paginationInfo.totalRecordCount",
+			// repeatitems: true,
+			// cell: "cell",
+			// id: "id",
+			// userdata: "userdata",
+			// subgrid: {root:"rows", repeatitems: true, cell:"cell"}
+		},
+		// subGrid : false,
+		// subGridModel : [],
+		// reccount : 0,
+		// lastpage : 0,
+		// lastsort : 0,
+		// selrow : null,
+		// beforeSelectRow : null,
+		// onSelectRow : null,
+		// onSortCol : null,
+		// ondblClickRow : null,
+		// onRightClickRow : null,
+		// onPaging : null,
+		// onSelectAll : null,
+		// onInitGrid : null,
+		// loadComplete : null,
+		// gridComplete : null,
+		// loadError : null,
+		// loadBeforeSend : null,
+		// afterInsertRow : null,
+		// beforeRequest : null,
+		// beforeProcessing : null,
+		// onHeaderClick : null,
+		viewrecords : true,
+		// loadonce : false,
+		// multiselect : false,
+		// multikey : false,
+		// editurl : null,
+		// search : false,
+		caption : "$model.entity.tableComments 목록",
+		// hidegrid : true,
+		// hiddengrid : false,
+		// postData : {},
+		// userData : {},
+		// treeGrid : false,
+		// treeGridModel : 'nested',
+		// treeReader : {},
+		// treeANode : -1,
+		// ExpandColumn : null,
+		// tree_root_level : 0,
+		prmNames : {
+			page : "pageIndex",
+			rows : "pageSize",
+			sort : "sidx",
+			order : "sord",
+			search : "_search",
+			nd : "nd",
+			id : "id",
+			oper : "oper",
+			editoper : "edit",
+			addoper : "add",
+			deloper : "del",
+			subgridid : "id",
+			npage : null,
+			totalrows : "totalrows"
+		},
+		// forceFit : false,
+		// gridstate : "visible",
+		// cellEdit : false,
+		// cellsubmit : "remote",
+		// nv : 0,
+		// loadui : "enable",
+		// toolbar : [ false, "" ],
+		// scroll : false,
+		// multiboxonly : false,
+		// deselectAfterSort : true,
+		// scrollrows : false,
+		// autowidth : false,
+		// scrollOffset : 18,
+		// cellLayout : 5,
+		// subGridWidth : 20,
+		// multiselectWidth : 20,
+		// gridview : false,
+		// rownumWidth : 25,
+		// rownumbers : false,
+		// pagerpos : 'center',
+		// recordpos : 'right',
+		// footerrow : false,
+		// userDataOnFooter : false,
+		// hoverrows : true,
+		// altclass : 'ui-priority-secondary',
+		// viewsortcols : [ false, 'vertical', true ],
+		// resizeclass : '',
+		// autoencode : false,
+		// remapColumns : [],
+		// ajaxGridOptions : {},
+		// direction : "ltr",
+		// toppager : false,
+		// headertitles : false,
+		// scrollTimeout : 40,
+		// data : [],
+		// _index : {},
+		// grouping : false,
+		// groupingView : {
+			// groupField : [],
+			// groupOrder : [],
+			// groupText : [],
+			// groupColumnShow : [],
+			// groupSummary : [],
+			// showSummaryOnHide : false,
+			// sortitems : [],
+			// sortnames : [],
+			// summary : [],
+			// summaryval : [],
+			// plusicon : 'ui-icon-circlesmall-plus',
+			// minusicon : 'ui-icon-circlesmall-minus',
+			// displayField : []
+		// },
+		// ignoreCase : false,
+		// cmTemplate : {},
+		// idPrefix : "",
+		// multiSort : false,
 	});
 	
 	jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
