@@ -12,6 +12,7 @@
 ##
 #set($listPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.do")
 #set($listPathJson="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}List.json")
+#set( $listJqGridPathJson = "$prefixPath/${model.entity.packageName}/select${model.entity.pcName}ListJqGrid.json" )
 #set($addViewPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}View.do")
 #set($addPath="$prefixPath/${model.entity.packageName}/add${model.entity.pcName}.do")
 #set($selectPath="$prefixPath/${model.entity.packageName}/select${model.entity.pcName}.do")
@@ -80,7 +81,7 @@ ${createDate} ${author} 1.0 최초 생성
 function fn_egov_jqGrid() {
 	var url = '';
 	url += godsoft.com.cmm.path.webapp;
-	url += '$listPathJson';
+	url += '$listJqGridPathJson';
 
 	jQuery("#list2").jqGrid({
 		url : url,
@@ -131,17 +132,17 @@ function fn_egov_jqGrid() {
 		// savedRow : [],
 		// shrinkToFit : true,
 		// xmlReader : {},
-		jsonReader : {
-			root: "items",
-			page: "paginationInfo.pageIndex",
-			total: "paginationInfo.totalPageCount",
-			records: "paginationInfo.totalRecordCount",
+		// jsonReader : {
+			// root: "items",
+			// page: "paginationInfo.pageIndex",
+			// total: "paginationInfo.totalPageCount",
+			// records: "paginationInfo.totalRecordCount",
 			// repeatitems: true,
 			// cell: "cell",
 			// id: "id",
 			// userdata: "userdata",
 			// subgrid: {root:"rows", repeatitems: true, cell:"cell"}
-		},
+		// },
 		// subGrid : false,
 		// subGridModel : [],
 		// reccount : 0,
@@ -181,22 +182,22 @@ function fn_egov_jqGrid() {
 		// treeANode : -1,
 		// ExpandColumn : null,
 		// tree_root_level : 0,
-		prmNames : {
-			page : "pageIndex",
-			rows : "pageUnit",
-			sort : "sidx",
-			order : "sord",
-			search : "_search",
-			nd : "nd",
-			id : "id",
-			oper : "oper",
-			editoper : "edit",
-			addoper : "add",
-			deloper : "del",
-			subgridid : "id",
-			npage : null,
-			totalrows : "totalrows"
-		},
+		// prmNames : {
+			// page : "pageIndex",
+			// rows : "pageUnit",
+			// sort : "sidx",
+			// order : "sord",
+			// search : "_search",
+			// nd : "nd",
+			// id : "id",
+			// oper : "oper",
+			// editoper : "edit",
+			// addoper : "add",
+			// deloper : "del",
+			// subgridid : "id",
+			// npage : null,
+			// totalrows : "totalrows"
+		// },
 		// forceFit : false,
 		// gridstate : "visible",
 		// cellEdit : false,
