@@ -56,29 +56,27 @@
 	#set( $colModel = "$colModel, {name:'$attribute.ccName',index:'$attribute.lcName'}" )
 #end
 ##
-/********************************************************
+/*
 파일명 : /js$prefixPath/$model.entity.packageName/${model.entity.pcName}.js
 설 명 : $model.entity.tableComments JavaScript
 수정일 수정자 Version Function 명
 ------- -------- ---------- --------------
 ${createDate} ${author} 1.0 최초 생성
-*********************************************************/
+ */
 
-/* 목록(List) 시작 */
-/************************************************************************
-함수명 : fn_egov_check_period
-설 명 : 행정달력으로 받은 날짜값이 정상적인 허용범위에 속한
-값인지를 검사 검색시작일과 끝나는 일자의 크기 비교
-인 자 : sdt( 시작일 control명) edt( 시작일 control명)
-사용법 : checkPeriodBeforeSearch(input1, input2)
-텍스트 입력값은 반드시 10자리(2004-05-01)로 구성되어야 한다.
-상황에 따라 구분자(sep)는 '-'(2004-05-01) or '.'(2004.05.01)
-작성일 : 2009-02-01
-작성자 : 각팀명(예. 공통서비스 개발팀) 홍길동
-수정일 수정자 수정내용
------- ------ -------------------
-2009.02.01 길동이 윤년 처리 추가
-************************************************************************/
+/**
+ * <pre>
+ * 함수명 : fn_egov_jqGrid
+ * 설 명 : $model.entity.tableComments jqGrid 목록(List)
+ * 인 자 :
+ * 사용법 : fn_egov_jqGrid();
+ * 작성일 : ${createDate}
+ * 작성자 : ${author}
+ * 수정일 수정자 수정내용
+ * ------ ------ -------------------
+ * ${createDate} ${author} 최초 생성
+ * </pre>
+ */
 function fn_egov_jqGrid() {
 	var url = '';
 	url += godsoft.com.cmm.path.webapp;
@@ -88,24 +86,31 @@ function fn_egov_jqGrid() {
 		url : url,
 		// height : 150,
 		page : 1,
-		rowNum : 2,
+		rowNum : 1,
 		// rowTotal : null,
 		// records : 0,
 		pager : "#pager2",
 		// pgbuttons : true,
 		// pginput : true,
 		colModel : [
+
 #set( $i = 0)
 #foreach( $attribute in $model.attributes )
 #if( $i == 0 )
-			{name:'$attribute.ccName',index:'$attribute.lcName'}
+			{
+				name : '$attribute.ccName',
+				index : '$attribute.lcName'}
 #else
-			, {name:'$attribute.ccName',index:'$attribute.lcName'}
+			, {
+				name : '$attribute.ccName',
+				index : '$attribute.lcName'
+			}
 #end
 #set( $i = $i + 1 )
 #end
+
 		],
-		rowList : [10, 20, 30],
+		rowList : [1, 2, 3],
 		colNames : [
 #set( $i = 0)
 #foreach( $attribute in $model.attributes )
@@ -178,7 +183,7 @@ function fn_egov_jqGrid() {
 		// tree_root_level : 0,
 		prmNames : {
 			page : "pageIndex",
-			rows : "pageSize",
+			rows : "pageUnit",
 			sort : "sidx",
 			order : "sord",
 			search : "_search",
@@ -249,10 +254,54 @@ function fn_egov_jqGrid() {
 		// idPrefix : "",
 		// multiSort : false,
 	});
-	
-	jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+
+	jQuery("#list2").jqGrid('navGrid', '#pager2', {
+		edit : false,
+		add : false,
+		del : false
+	});
+
+	jQuery("#list2").jqGrid('setGroupHeaders', {
+		useColSpanStyle : false,
+		groupHeaders : [ {
+			startColumnName : 'name',
+			numberOfColumns : 2,
+			titleText : '<em>Price</em>'
+		}, {
+			startColumnName : 'useYn',
+			numberOfColumns : 2,
+			titleText : 'Shiping'
+		} ]
+	});
+
+	var content = '';
+	// content += '<tr class="ui-jqgrid-labels
+	// jqg-second-row-header" role="rowheader">';
+	content += '<tr class="ui-jqgrid-labels';
+	content += ' jqg-second-row-header"';
+	content += ' role="rowheader">';
+	// content += '<th colspan="5" style="height: 22px;
+	// border-top: 0px none;" class="ui-state-default
+	// ui-th-column-header ui-th-ltr"
+	// role="columnheader"><em>Price</em> Shiping</th>';
+	content += '<th colspan="5"';
+	content += ' style="height: 22px; border-top: 0px none;"';
+	// content += ' class="ui-state-default ui-th-column-header
+	// ui-th-ltr"';
+	content += ' class="';
+	content += 'ui-state-default';
+	content += ' ui-th-column-header';
+	content += ' ui-th-ltr';
+	content += '"';
+	content += ' role="columnheader">';
+	content += ' <em>Price</em>';
+	content += ' Shiping';
+	content += '</th>';
+	content += '</tr>';
+
+	$('#gview_list2 .jqg-first-row-header').after(content);
 }
 
-$( document ).ready(function() {
+$(document).ready(function() {
 	fn_egov_jqGrid();
 });
