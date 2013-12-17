@@ -6,7 +6,8 @@
 ##
 package $voPackage;
 
-import egovframework.com.cmm.ComDefaultVO;
+##import egovframework.com.cmm.ComDefaultVO;
+import godsoft.com.cmm.ComDefaultVO;
 
 /**
  * ${model.entity.tableComments}
