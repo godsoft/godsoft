@@ -87,7 +87,7 @@ function fn_egov_jqGrid() {
 		url : url,
 		// height : 150,
 		page : 1,
-		rowNum : 1,
+		rowNum : 3,
 		// rowTotal : null,
 		// records : 0,
 		pager : "#pager2",
@@ -100,11 +100,14 @@ function fn_egov_jqGrid() {
 #if( $i == 0 )
 			{
 				name : '$attribute.ccName',
-				index : '$attribute.lcName'}
+				index : '$attribute.lcName',
+				editable : true
+			}
 #else
 			, {
 				name : '$attribute.ccName',
-				index : '$attribute.lcName'
+				index : '$attribute.lcName',
+				editable : true
 			}
 #end
 #set( $i = $i + 1 )
@@ -167,7 +170,7 @@ function fn_egov_jqGrid() {
 		// onHeaderClick : null,
 		viewrecords : true,
 		// loadonce : false,
-		// multiselect : false,
+		multiselect : true,
 		// multikey : false,
 		// editurl : null,
 		// search : false,
@@ -257,9 +260,29 @@ function fn_egov_jqGrid() {
 	});
 
 	jQuery("#list2").jqGrid('navGrid', '#pager2', {
-		edit : false,
-		add : false,
-		del : false
+		edit : true,
+		editicon : "ui-icon-pencil",
+		add : true,
+		addicon : "ui-icon-plus",
+		del : true,
+		delicon : "ui-icon-trash",
+		search : true,
+		searchicon : "ui-icon-search",
+		refresh : true,
+		refreshicon : "ui-icon-refresh",
+		refreshstate : 'firstpage',
+		view : true,
+		viewicon : "ui-icon-document",
+		position : "left",
+		closeOnEscape : true,
+		beforeRefresh : null,
+		afterRefresh : null,
+		cloneToTop : false,
+		alertwidth : 200,
+		alertheight : 'auto',
+		alerttop : null,
+		alertleft : null,
+		alertzIndex : null
 	});
 
 	jQuery("#list2").jqGrid('setGroupHeaders', {
@@ -285,7 +308,7 @@ function fn_egov_jqGrid() {
 	// border-top: 0px none;" class="ui-state-default
 	// ui-th-column-header ui-th-ltr"
 	// role="columnheader"><em>Price</em> Shiping</th>';
-	content += '<th colspan="5"';
+	content += '<th colspan="6"';
 	content += ' style="height: 22px; border-top: 0px none;"';
 	// content += ' class="ui-state-default ui-th-column-header
 	// ui-th-ltr"';
@@ -301,6 +324,11 @@ function fn_egov_jqGrid() {
 	content += '</tr>';
 
 	$('#gview_list2 .jqg-first-row-header').after(content);
+	
+	// hideCol
+#foreach( $attribute in $model.attributes )
+	// jQuery("#list2").jqGrid('hideCol', '$attribute.ccName'); // $attribute.columnComments
+#end
 }
 
 $(document).ready(function() {
