@@ -104,11 +104,34 @@ function fn_egov_jqGrid() {
 				editable : true
 			}
 #else
+#if( $attribute.lcName == "description" )
+			, {
+				name : '$attribute.ccName',
+				index : '$attribute.lcName',
+				editable : true,
+				edittype : 'textarea',
+				editoptions : {
+					rows : '2',
+					cols : '10'
+				}
+			}
+#elseif( $attribute.lcName == "use_yn" )
+			, {
+				name : '$attribute.ccName',
+				index : '$attribute.lcName',
+				editable : true,
+				edittype : 'checkbox',
+				editoptions : {
+					value : 'Y:N'
+				}
+			}
+#else
 			, {
 				name : '$attribute.ccName',
 				index : '$attribute.lcName',
 				editable : true
 			}
+#end
 #end
 #set( $i = $i + 1 )
 #end
