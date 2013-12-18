@@ -174,13 +174,69 @@
 		<isEqual property="searchCondition" compareValue="1">
 			AND ${model.attributes.get(1).lcName} LIKE '%' || #searchKeyword# || '%'
 		</isEqual>
-#foreach($attribute in $model.attributes)
+#foreach( $attribute in $model.attributes )
 
 		<isNotEmpty property="${attribute.ccName}">
 			<![CDATA[
-				/* ${attribute.columnComments} */
-				AND ${attribute.lcName} = #${attribute.ccName}#
+				AND ${attribute.lcName} = #${attribute.ccName}# /* ${attribute.columnComments} */
 			]]>
+		</isNotEmpty>
+#end
+#foreach( $attribute in $model.attributes )
+
+		<isNotEmpty property="searchString">
+			<isEqual property="searchField" compareValue="${attribute.lcName}">
+				<isEqual property="searchOper" compareValue="eq">
+					<![CDATA[
+						AND ${attribute.lcName} = #searchString# /* ${attribute.columnComments} 같다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="ne">
+					<![CDATA[
+						AND ${attribute.lcName} <> #searchString# /* ${attribute.columnComments} 같지 않다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="bw">
+					<![CDATA[
+						AND ${attribute.lcName} LIKE #searchString# || '%' /* ${attribute.columnComments} 로 시작한다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="bn">
+					<![CDATA[
+						AND ${attribute.lcName} NOT LIKE #searchString# || '%' /* ${attribute.columnComments} 로 시작하지 않는다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="ew">
+					<![CDATA[
+						AND ${attribute.lcName} LIKE '%' || #searchString# /* ${attribute.columnComments} 로 끝난다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="en">
+					<![CDATA[
+						AND ${attribute.lcName} NOT LIKE '%' || #searchString# /* ${attribute.columnComments} 로 끝나지 않는다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="cn">
+					<![CDATA[
+						AND ${attribute.lcName} LIKE '%' || #searchString# || '%' /* ${attribute.columnComments} 내에 존재한다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="nc">
+					<![CDATA[
+						AND ${attribute.lcName} NOT LIKE '%' || #searchString# || '%' /* ${attribute.columnComments} 내에 존재하지 않는다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="in">
+					<![CDATA[
+						AND ${attribute.lcName} IN (#searchString#) /* ${attribute.columnComments} 내에 있다 */
+					]]>
+				</isEqual>
+				<isEqual property="searchOper" compareValue="ni">
+					<![CDATA[
+						AND ${attribute.lcName} NOT IN (#searchString#) /* ${attribute.columnComments} 내에 있지 않다 */
+					]]>
+				</isEqual>
+			</isEqual>
 		</isNotEmpty>
 #end
 	</sql>
@@ -239,19 +295,16 @@
 #end
 			FROM ${model.entity.tableName}
 		<include refid="${selectListQueryId}.where" />
-#if(!${model.primaryKeys} == [])
-                ${model.attributes.get(0).name} DESC
-#else					
-#set($i=0)				
-#foreach($attribute in $model.primaryKeys)
-#if($i == 0)
 			ORDER BY
+#foreach( $attribute in $model.attributes )
+		<isEqual property="sidx" compareValue="${attribute.lcName}">
+			<isEqual property="sord" compareValue="asc">
+				${attribute.lcName} ASC /* ${attribute.columnComments} */
+			</isEqual>
+			<isEqual property="sord" compareValue="desc">
 				${attribute.lcName} DESC /* ${attribute.columnComments} */
-#else
-				, ${attribute.lcName} DESC /* ${attribute.columnComments} */
-#end
-#set($i=$i+1)
-#end
+			</isEqual>
+		</isEqual>
 #end
 		) tb) WHERE rn BETWEEN #firstIndex# + 1 AND #firstIndex# + #recordCountPerPage#
 #elseif($vender == "MySql")
@@ -291,7 +344,7 @@
 #else
 
 #end			
-	</select>	
+	</select>
 
 ## ##################################################################################################	
 	<select id="${selectListTotCntQueryId}"
