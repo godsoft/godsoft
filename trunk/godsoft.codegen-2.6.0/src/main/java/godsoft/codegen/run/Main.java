@@ -84,6 +84,9 @@ public class Main {
 
 			this.css(dataModelContext);
 			this.js(dataModelContext);
+
+			this.jqGridJsp(dataModelContext);
+			this.jqGridJs(dataModelContext);
 		}
 	}
 
@@ -226,6 +229,28 @@ public class Main {
 		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/js.vm";
 
 		String pathname = dataModelContext.getCodeGenPathname().getJsPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void jqGridJsp(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/jsp/pkg/jqGrid.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getJqGridPathname();
+		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
+
+		System.out.println(pathname);
+
+		FileUtils.writeStringToFile(new File(pathname), data);
+	}
+
+	public void jqGridJs(DataModelContext dataModelContext) throws Exception {
+		String templateFile = "godsoft/com/eGovFrameTemplates/crud/js/pkg/jqGrid.vm";
+
+		String pathname = dataModelContext.getCodeGenPathname().getJqGridJsPathname();
 		String data = this.crudCodeGen.generate(dataModelContext, templateFile);
 
 		System.out.println(pathname);
