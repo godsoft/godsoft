@@ -20,6 +20,9 @@
 #set($updateViewPath="$prefixPath/${model.entity.packageName}/update${model.entity.pcName}View.do")
 #set($deletePath="$prefixPath/${model.entity.packageName}/delete${model.entity.pcName}.do")
 ##
+#set( $multiPath = "$prefixPath/$model.entity.packageName/multi${model.entity.pcName}.do")
+#set( $multiPathJson = "$prefixPath/$model.entity.packageName/multi${model.entity.pcName}.json")
+##
 #set($listPageName="${model.entity.pcName}List.jsp")
 ##
 #set($selectFunctionName="fncSelect${model.entity.pcName}")
@@ -83,6 +86,10 @@ function fn_egov_jqGrid() {
 	url += godsoft.com.cmm.path.webapp;
 	url += '$listJqGridPathJson';
 
+	var editurl = '';
+	editurl += godsoft.com.cmm.path.webapp;
+	editurl += '$multiPathJson';
+
 	jQuery("#list2").jqGrid({
 		url : url,
 		// height : 150,
@@ -111,8 +118,10 @@ function fn_egov_jqGrid() {
 				editable : true,
 				edittype : 'textarea',
 				editoptions : {
-					rows : '2',
-					cols : '10'
+					// rows : '2',
+					// cols : '10'
+					// style : 'width: 640px; height: 480px;'
+					style : 'width: 640px; height: 200px;'
 				}
 			}
 #elseif( $attribute.lcName == "use_yn" )
@@ -195,7 +204,7 @@ function fn_egov_jqGrid() {
 		// loadonce : false,
 		multiselect : true,
 		// multikey : false,
-		// editurl : null,
+		editurl : editurl,
 		// search : false,
 		caption : "$model.entity.tableComments 목록",
 		// hidegrid : true,
@@ -306,6 +315,53 @@ function fn_egov_jqGrid() {
 		alerttop : null,
 		alertleft : null,
 		alertzIndex : null
+	}, {
+		top : 0,
+		left : 0,
+		// width : $(window).width() - 100,
+		width : 'auto',
+		datawidth : 'auto',
+		height : 'auto',
+		dataheight : 'auto',
+		modal : false,
+		overlay : 30,
+		drag : true,
+		resize : true,
+		url : null,
+		mtype : "POST",
+		clearAfterAdd : true,
+		closeAfterEdit : false,
+		reloadAfterSubmit : true,
+		onInitializeForm : null,
+		beforeInitData : null,
+		beforeShowForm : null,
+		afterShowForm : null,
+		beforeSubmit : null,
+		afterSubmit : null,
+		onclickSubmit : null,
+		afterComplete : null,
+		onclickPgButtons : null,
+		afterclickPgButtons : null,
+		editData : {},
+		recreateForm : false,
+		jqModal : true,
+		closeOnEscape : false,
+		addedrow : "first",
+		topinfo : '',
+		bottominfo : '',
+		saveicon : [],
+		closeicon : [],
+		savekey : [ false, 13 ],
+		navkeys : [ false, 38, 40 ],
+		checkOnSubmit : false,
+		checkOnUpdate : false,
+		_savedData : {},
+		processing : false,
+		onClose : null,
+		ajaxEditOptions : {},
+		serializeEditData : null,
+		viewPagerButtons : true,
+		overlayClass : 'ui-widget-overlay'
 	});
 
 	jQuery("#list2").jqGrid('setGroupHeaders', {
