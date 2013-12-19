@@ -22,6 +22,7 @@
 #set($selectListTotCntMethodName="select${model.entity.pcName}ListTotCnt")
 ##
 #set( $jqGridMethodName = "jqGrid${model.entity.pcName}" )
+#set( $multiMethodName = "multi${model.entity.pcName}" )
 ##
 ##
 #set($updateViewMethodName="update${model.entity.pcName}View")
@@ -49,6 +50,8 @@
 ##
 #set( $jqGridPath = "$prefixPath/$model.entity.packageName/jqGrid${model.entity.pcName}.do")
 #set( $jqGridPathRest = "$prefixPath/$model.entity.packageName/jqGrid${model.entity.pcName}")
+#set( $multiPath = "$prefixPath/$model.entity.packageName/multi${model.entity.pcName}.do")
+#set( $multiPathRest = "$prefixPath/$model.entity.packageName/multi${model.entity.pcName}")
 ##
 #set( $prefixView = "$topLevelPath/$model.middleLevelPackage" )
 ##
@@ -215,6 +218,19 @@ public class ${controllerClassName} {
 	@RequestMapping(value = { "${jqGridPath}", "${jqGridPathRest}" })
 	public String $jqGridMethodName(${voClassName} ${voInstanceName}) throws Exception {
 		return "$jqGridView";
+	}
+
+	@RequestMapping(value = { "$multiPath", "$multiPathRest" })
+	public String $multiMethodName($voClassName $voInstanceName) throws Exception {
+		if ("edit".equals(${voInstanceName}.getOper())) {
+			${serviceInstanceName}.${updateMethodName}(${voInstanceName});
+		} else if ("add".equals(${voInstanceName}.getOper())) {
+			${serviceInstanceName}.${insertMethodName}(${voInstanceName});
+		} else if ("del".equals(${voInstanceName}.getOper())) {
+			${serviceInstanceName}.${deleteMethodName}(${voInstanceName});
+		}
+
+		return "redirect:${listPath}";
 	}
 
 }
