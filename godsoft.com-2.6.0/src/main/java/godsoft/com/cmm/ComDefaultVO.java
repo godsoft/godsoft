@@ -63,7 +63,7 @@ public class ComDefaultVO implements Serializable {
 	private String _search; // search
 	private String nd; // nd
 	private String id; // id
-	private String oper; // oper
+	private String oper; // oper(edit, add, del)
 	private String edit; // editoper
 	private String add; // addoper
 	private String del; // deloper
