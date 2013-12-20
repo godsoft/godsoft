@@ -362,6 +362,27 @@ function fn_egov_jqGrid() {
 		serializeEditData : null,
 		viewPagerButtons : true,
 		overlayClass : 'ui-widget-overlay'
+	}, {}, {}, {}, {
+		top : 0,
+		left : 0,
+		width : 640,
+		datawidth : 'auto',
+		height : 'auto',
+		dataheight : 'auto',
+		modal : false,
+		overlay : 30,
+		drag : true,
+		resize : true,
+		jqModal : true,
+		closeOnEscape : false,
+		labelswidth : '30%',
+		closeicon : [],
+		navkeys : [ false, 38, 40 ],
+		onClose : null,
+		beforeShowForm : null,
+		beforeInitData : null,
+		viewPagerButtons : true,
+		recreateForm : false
 	});
 
 	jQuery("#list2").jqGrid('setGroupHeaders', {
