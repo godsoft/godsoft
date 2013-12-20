@@ -295,17 +295,19 @@
 #end
 			FROM ${model.entity.tableName}
 		<include refid="${selectListQueryId}.where" />
+		<isNotEmpty property="sidx">
 			ORDER BY
 #foreach( $attribute in $model.attributes )
-		<isEqual property="sidx" compareValue="${attribute.lcName}">
-			<isEqual property="sord" compareValue="asc">
+			<isEqual property="sidx" compareValue="${attribute.lcName}">
+				<isEqual property="sord" compareValue="asc">
 				${attribute.lcName} ASC /* ${attribute.columnComments} */
-			</isEqual>
-			<isEqual property="sord" compareValue="desc">
+				</isEqual>
+				<isEqual property="sord" compareValue="desc">
 				${attribute.lcName} DESC /* ${attribute.columnComments} */
+				</isEqual>
 			</isEqual>
-		</isEqual>
 #end
+		</isNotEmpty>
 		) tb) WHERE rn BETWEEN #firstIndex# + 1 AND #firstIndex# + #recordCountPerPage#
 #elseif($vender == "MySql")
 			SELECT
