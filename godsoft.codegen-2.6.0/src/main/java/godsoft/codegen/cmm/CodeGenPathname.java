@@ -29,6 +29,9 @@ public class CodeGenPathname {
 	private String jqGridPathname;
 	private String jqGridJsPathname;
 
+	private String bootstrapListPathname;
+	private String bootstrapRegistPathname;
+
 	//    <sourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\java</sourceDirectory>
 	//    <scriptSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\main\scripts</scriptSourceDirectory>
 	//    <testSourceDirectory>E:\eGovFrameDev-2.6.0-FullVer\workspace\godsoft.codegen-2.6.0\src\test\java</testSourceDirectory>
@@ -62,6 +65,9 @@ public class CodeGenPathname {
 
 		this.setJqGridPathname();
 		this.setJqGridJsPathname();
+
+		this.setBootstrapListPathname();
+		this.setBootstrapRegistPathname();
 	}
 
 	public void setTopLevelPathname() {
@@ -309,6 +315,38 @@ public class CodeGenPathname {
 		this.jqGridJsPathname = sb.toString();
 	}
 
+	public void setBootstrapListPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/WEB-INF/jsp/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("ListBootstrap.jsp");
+
+		this.bootstrapListPathname = sb.toString();
+	}
+
+	public void setBootstrapRegistPathname() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(this.dataModelContext.getProjectLocation());
+		sb.append("/src/main/webapp/WEB-INF/jsp/");
+		sb.append(this.dataModelContext.getTopLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getMiddleLevelPackage().replaceAll("\\.", "/"));
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPackageName());
+		sb.append("/");
+		sb.append(this.dataModelContext.getEntity().getPcName());
+		sb.append("RegistBootstrap.jsp");
+
+		this.bootstrapRegistPathname = sb.toString();
+	}
+
 	public DataModelContext getDataModelContext() {
 		return dataModelContext;
 	}
@@ -467,6 +505,22 @@ public class CodeGenPathname {
 
 	public void setJqGridJsPathname(String jqGridJsPathname) {
 		this.jqGridJsPathname = jqGridJsPathname;
+	}
+
+	public String getBootstrapListPathname() {
+		return bootstrapListPathname;
+	}
+
+	public void setBootstrapListPathname(String bootstrapListPathname) {
+		this.bootstrapListPathname = bootstrapListPathname;
+	}
+
+	public String getBootstrapRegistPathname() {
+		return bootstrapRegistPathname;
+	}
+
+	public void setBootstrapRegistPathname(String bootstrapRegistPathname) {
+		this.bootstrapRegistPathname = bootstrapRegistPathname;
 	}
 
 }
