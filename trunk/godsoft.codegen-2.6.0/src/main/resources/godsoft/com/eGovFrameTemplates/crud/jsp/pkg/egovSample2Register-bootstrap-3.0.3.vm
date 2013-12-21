@@ -74,7 +74,7 @@
 
 <%@include file="/WEB-INF/jsp/godsoft/com/cmm/BootstrapCDN.jsp"%>
 
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
+##<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
 
 <!--For Commons Validator Client Side-->
 <!-- script type="text/javascript" src="<c:url value='/cmmn/validator.do'/>"></script -->

@@ -67,7 +67,7 @@
 
 <%@include file="/WEB-INF/jsp/godsoft/com/cmm/BootstrapCDN.jsp"%>
 
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
+##<link type="text/css" rel="stylesheet" href="<c:url value='/css/godsoft/com/cmm/com.css' />" />
 <script type="text/javascript" defer="defer">
 <!--
 #set($params="")
@@ -183,9 +183,9 @@ function fn_egov_link_page(pageNo) {
 		</div>
 
 ##		<ul class="${listClass}-button">
-		<ul class="button">
-			<li><a href="<c:url value='$addViewPath' />" onclick="fn_egov_addView(); return false;" class="btn btn-default">등록</a></li>
-		</ul>
+		<div class="button">
+			<a href="<c:url value='$addViewPath' />" onclick="fn_egov_addView(); return false;" class="btn btn-default">등록</a>
+		</div>
 
 		</form:form>
 	</div>
