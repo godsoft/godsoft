@@ -192,7 +192,7 @@ for ($j = 1; $j < 11; $j++) {
     <div class="board_button">
         <div style="float:left;">
         <? if ($list_href) { ?>
-        <a href="<?=$list_href?>"><img src="<?=$board_skin_path?>/img/btn_list.gif" align="absmiddle" border='0'></a>
+        <a href="<?=$list_href?>" style="display: none;"><img src="<?=$board_skin_path?>/img/btn_list.gif" align="absmiddle" border='0'></a>
         <? } ?>
         <? if ($is_checkbox) { ?>
         <a href="javascript:select_delete();"><img src="<?=$board_skin_path?>/img/btn_select_delete.gif" align="absmiddle" border='0'></a>
@@ -202,7 +202,7 @@ for ($j = 1; $j < 11; $j++) {
         </div>
 
         <div style="float:right;">
-        <? if ($write_href) { ?><a href="<?=$write_href?>"><img src="<?=$board_skin_path?>/img/btn_write.gif" border='0'></a><? } ?>
+        <? if ($write_href) { ?><a href="<?=$write_href?>" style="display: none;"><img src="<?=$board_skin_path?>/img/btn_write.gif" border='0'></a><? } ?>
         </div>
     </div>
 
