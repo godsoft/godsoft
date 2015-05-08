@@ -1,5 +1,21 @@
 <?php
 //var_dump($g4);
+
+function sale_total($wr_1) {
+    global $g4;
+
+    $sql = "
+    SELECT SUM(wr_3) AS sum
+    FROM {$g4['write_prefix']}sale
+    WHERE wr_1 = '{$wr_1}'
+    ";
+
+    $row = sql_fetch($sql);
+
+    return number_format($row['sum']);
+}
+
+//sale_total('0000000072');
 ?>
 
 <?php
@@ -115,6 +131,8 @@ if ($is_nogood) $colspan++;
         <? if ($is_good) { ?><th><?=subject_sort_link('wr_good', $qstr2, 1)?>추천</a></th><?}?>
         <? if ($is_nogood) { ?><th><?=subject_sort_link('wr_nogood', $qstr2, 1)?>비추천</a></th><?}?>
 
+        <th>총 판매 금액</th>
+
 <?php
 for ($i = 1; $i < 11; $i++) {
     if ($board['bo_' . $i . '_subj'] != '') {
@@ -179,6 +197,8 @@ for ($i = 1; $i < 11; $i++) {
         <td class="hit"><?=$list[$i][wr_hit]?></td>
         <? if ($is_good) { ?><td class="good"><?=$list[$i][wr_good]?></td><? } ?>
         <? if ($is_nogood) { ?><td class="nogood"><?=$list[$i][wr_nogood]?></td><? } ?>
+
+        <td style="text-align: right;"><?php echo sale_total(sprintf('%010d', $list[$i][wr_id])); ?></td>
 
 <?php
 for ($j = 1; $j < 11; $j++) {
