@@ -11,6 +11,8 @@ if ($is_nogood) $colspan++;
 
 // 제목이 두줄로 표시되는 경우 이 코드를 사용해 보세요.
 // <nobr style='display:block; overflow:hidden; width:000px;'>제목</nobr>
+
+$total = 0;
 ?>
 
 <?php if (false) { ?>
@@ -172,17 +174,35 @@ for ($i = 1; $i < 11; $i++) {
 <?php
 for ($j = 1; $j < 11; $j++) {
     if ($board['bo_' . $j . '_subj'] != '') {
+        if ($board['bo_' . $j . '_subj'] == '판매 금액') {
+            $total += $list[$i]['wr_' . $j];
 ?>
-
-        <td><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : $list[$i]['wr_' . $j]; ?></td>
-
+        <td style="text-align: right;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : number_format($list[$i]['wr_' . $j]); ?></td>
 <?php
+        } else {
+?>
+        <td><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : $list[$i]['wr_' . $j]; ?></td>
+<?php
+        }
     }
 }
 ?>
 
     </tr>
+
     <? } // end for ?>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="text-align: right;"><?php echo number_format($total); ?></td>
+        <td></td>
+    </tr>
 
     <? if (count($list) == 0) { echo "<tr><td colspan='$colspan' height=100 align=center>게시물이 없습니다.</td></tr>"; } ?>
 
