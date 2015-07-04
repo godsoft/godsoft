@@ -2,7 +2,7 @@
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // 선택옵션으로 인해 셀합치기가 가변적으로 변함
-$colspan = 5;
+$colspan = 5 + 6;
 
 //if ($is_category) $colspan++;
 if ($is_checkbox) $colspan++;
@@ -11,8 +11,6 @@ if ($is_nogood) $colspan++;
 
 // 제목이 두줄로 표시되는 경우 이 코드를 사용해 보세요.
 // <nobr style='display:block; overflow:hidden; width:000px;'>제목</nobr>
-
-$total = 0;
 ?>
 
 <?php if (false) { ?>
@@ -109,11 +107,15 @@ $total = 0;
 <?php
 for ($i = 1; $i < 11; $i++) {
     if ($board['bo_' . $i . '_subj'] != '') {
+		if ($board['bo_' . $i . '_subj'] == '중간상인 아이디') {
+			continue;
+		} else {
 ?>
 
         <th><?php echo $board['bo_' . $i . '_subj']; ?></th>
 
 <?php
+		}
     }
 }
 ?>
@@ -174,14 +176,15 @@ for ($i = 1; $i < 11; $i++) {
 <?php
 for ($j = 1; $j < 11; $j++) {
     if ($board['bo_' . $j . '_subj'] != '') {
-        if ($board['bo_' . $j . '_subj'] == '판매 금액') {
-            $total += $list[$i]['wr_' . $j];
+        if ($board['bo_' . $j . '_subj'] == '도매' || $board['bo_' . $j . '_subj'] == '소매' || $board['bo_' . $j . '_subj'] == '마진') {
 ?>
-        <td style="text-align: right;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : number_format($list[$i]['wr_' . $j]); ?></td>
+        <td style="text-align: center;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : number_format($list[$i]['wr_' . $j]); ?></td>
 <?php
+		} else if ($board['bo_' . $j . '_subj'] == '중간상인 아이디') {
+			continue;
         } else {
 ?>
-        <td><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : $list[$i]['wr_' . $j]; ?></td>
+        <td style="text-align: center;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : $list[$i]['wr_' . $j]; ?></td>
 <?php
         }
     }
@@ -192,18 +195,6 @@ for ($j = 1; $j < 11; $j++) {
 
     <? } // end for ?>
 
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td style="text-align: right;"><?php echo number_format($total); ?></td>
-        <td></td>
-    </tr>
-
     <? if (count($list) == 0) { echo "<tr><td colspan='$colspan' height=100 align=center>게시물이 없습니다.</td></tr>"; } ?>
 
     </table>
@@ -212,7 +203,7 @@ for ($j = 1; $j < 11; $j++) {
     <div class="board_button">
         <div style="float:left;">
         <? if ($list_href) { ?>
-        <a href="<?=$list_href?>" style="display: none;"><img src="<?=$board_skin_path?>/img/btn_list.gif" align="absmiddle" border='0'></a>
+        <a href="<?=$list_href?>"><img src="<?=$board_skin_path?>/img/btn_list.gif" align="absmiddle" border='0'></a>
         <? } ?>
         <? if ($is_checkbox) { ?>
         <a href="javascript:select_delete();"><img src="<?=$board_skin_path?>/img/btn_select_delete.gif" align="absmiddle" border='0'></a>

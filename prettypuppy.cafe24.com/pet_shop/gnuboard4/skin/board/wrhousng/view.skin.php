@@ -7,15 +7,7 @@ for ($i = 1; $i < 11; $i++) {
     if ($board['bo_' . $i . '_subj'] != '') {
         $write2['wr_' . $i] = $write['wr_' . $i];
 
-        if ($board['bo_' . $i . '_subj'] == '고객 아이디') {
-            $write2['wr_' . $i] = '<a href="board.php?bo_table=customer&wr_id=' . sprintf('%00d', $write2['wr_' . $i]) . '" target="_blank">' . $write2['wr_' . $i] . '</a>';
-        }
-
-        if ($board['bo_' . $i . '_subj'] == '애견 아이디') {
-            $write2['wr_' . $i] = '<a href="board.php?bo_table=pet&wr_id=' . sprintf('%00d', $write2['wr_' . $i]) . '" target="_blank">' . $write2['wr_' . $i] . '</a>';
-        }
-
-        if ($board['bo_' . $i . '_subj'] == '판매 금액') {
+        if ($board['bo_' . $i . '_subj'] == '도매' || $board['bo_' . $i . '_subj'] == '소매' || $board['bo_' . $i . '_subj'] == '마진') {
             $write2['wr_' . $i] = number_format($write2['wr_' . $i]);
         }
 ?>
@@ -26,59 +18,6 @@ for ($i = 1; $i < 11; $i++) {
     }
 }
 ?>
-
-<?php
-$sql = "
-SELECT *
-FROM {$g4['write_prefix']}customer
-WHERE wr_id = {$write['wr_1']}
-";
-
-$customer_row = sql_fetch($sql);
-?>
-
-<fieldset>
-  <legend>고객 정보</legend>
-
-  <dl>
-
-    <dt style="float: left; clear: left; width: 100px;">고객명:</dt>
-    <dd><?php echo $customer_row['wr_subject']; ?></dd>
-
-    <dt style="float: left; clear: left; width: 100px;">휴대 전화:</dt>
-    <dd><?php echo $customer_row['wr_1']; ?></dd>
-
-    <dt style="float: left; clear: left; width: 100px;">전화:</dt>
-    <dd><?php echo $customer_row['wr_2']; ?></dd>
-
-    <dt style="float: left; clear: left; width: 100px;">주소:</dt>
-    <dd><?php echo $customer_row['wr_3']; ?></dd>
-
-  </dl>
-
-</fieldset>
-
-<?php
-$sql = "
-SELECT *
-FROM {$g4['write_prefix']}pet
-WHERE wr_id = {$write['wr_2']}
-";
-
-$customer_row = sql_fetch($sql);
-?>
-
-<fieldset>
-  <legend>애견 정보</legend>
-
-  <dl>
-
-    <dt style="float: left; clear: left; width: 100px;">애견명:</dt>
-    <dd><?php echo $customer_row['wr_subject']; ?></dd>
-
-  </dl>
-
-</fieldset>
 
 <div style="height:12px; line-height:1px; font-size:1px;">&nbsp;</div>
 
