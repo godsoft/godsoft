@@ -2,7 +2,7 @@
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 // 선택옵션으로 인해 셀합치기가 가변적으로 변함
-$colspan = 5;
+$colspan = 5 + 1;
 
 //if ($is_category) $colspan++;
 if ($is_checkbox) $colspan++;
@@ -11,13 +11,7 @@ if ($is_nogood) $colspan++;
 
 // 제목이 두줄로 표시되는 경우 이 코드를 사용해 보세요.
 // <nobr style='display:block; overflow:hidden; width:000px;'>제목</nobr>
-
-$total = 0;
 ?>
-
-<?php if (false) { ?>
-<a href="<?php echo $board_skin_path; ?>/calendar.php" target="_blank">판매 달력</a>
-<?php } ?>
 
 <style>
 .board_top { clear:both; }
@@ -175,13 +169,12 @@ for ($i = 1; $i < 11; $i++) {
 for ($j = 1; $j < 11; $j++) {
     if ($board['bo_' . $j . '_subj'] != '') {
         if ($board['bo_' . $j . '_subj'] == '판매 금액') {
-            $total += $list[$i]['wr_' . $j];
 ?>
-        <td style="text-align: right;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : number_format($list[$i]['wr_' . $j]); ?></td>
+        <td style="text-align: center;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : number_format($list[$i]['wr_' . $j]); ?></td>
 <?php
         } else {
 ?>
-        <td><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : $list[$i]['wr_' . $j]; ?></td>
+        <td style="text-align: center;"><?php echo (empty($list[$i]['wr_' . $j]) == true) ? '&nbsp;' : $list[$i]['wr_' . $j]; ?></td>
 <?php
         }
     }
@@ -191,18 +184,6 @@ for ($j = 1; $j < 11; $j++) {
     </tr>
 
     <? } // end for ?>
-
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td style="text-align: right;"><?php echo number_format($total); ?></td>
-        <td></td>
-    </tr>
 
     <? if (count($list) == 0) { echo "<tr><td colspan='$colspan' height=100 align=center>게시물이 없습니다.</td></tr>"; } ?>
 
@@ -222,7 +203,7 @@ for ($j = 1; $j < 11; $j++) {
         </div>
 
         <div style="float:right;">
-        <? if ($write_href) { ?><a href="<?=$write_href?>" style="display: none;"><img src="<?=$board_skin_path?>/img/btn_write.gif" border='0'></a><? } ?>
+        <? if ($write_href) { ?><a href="<?=$write_href?>"><img src="<?=$board_skin_path?>/img/btn_write.gif" border='0'></a><? } ?>
         </div>
     </div>
 

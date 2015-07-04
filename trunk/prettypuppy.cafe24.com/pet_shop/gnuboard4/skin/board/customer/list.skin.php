@@ -80,6 +80,10 @@ if ($is_nogood) $colspan++;
 .board_search .stx { height:21px; border:1px solid #9A9A9A; border-right:1px solid #D8D8D8; border-bottom:1px solid #D8D8D8; }
 </style>
 
+<h1>
+<a href="<?php echo $g4['path']; ?>/bbs/board.php?bo_table=broke" target="_blank">용품</a>
+</h1>
+
 <!-- 게시판 목록 시작 -->
 <table width="<?=$width?>" align="center" cellpadding="0" cellspacing="0"><tr><td>
 

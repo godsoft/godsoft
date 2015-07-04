@@ -34,45 +34,6 @@ var char_max = parseInt(<?=$write_max?>); // 최대
 <input type=hidden name=sod      value="<?=$sod?>">
 <input type=hidden name=page     value="<?=$page?>">
 
-<?php
-for ($i = 1; $i < 11; $i++) {
-    if ($board['bo_' . $i . '_subj'] != '') {
-        //var_dump($write['wr_' . $i]);
-        //var_dump(is_null($write['wr_' . $i]));
-        //var_dump(${'wr_' . $i});
-
-        if (is_null($write['wr_' . $i]) == true) {
-            $write['wr_' . $i] = ${'wr_' . $i};
-        }
-
-        //var_dump($board['bo_' . $i . '_subj']);
-
-        if ($board['bo_' . $i . '_subj'] == '판매 날짜') {
-            //var_dump($board['bo_' . $i . '_subj']);
-            //var_dump($write['wr_' . $i]);
-
-            if (is_null($write['wr_' . $i]) == true) {
-                //$write['wr_' . $i] = date('Y-m-d H:i:s');
-                $write['wr_' . $i] = date('Y-m-d');
-            }
-        }
-        
-        $display = '';
-        
-        if ($i <= 2) {
-            $display = 'none';
-        } else {
-            $display = 'block';
-        }
-?>
-
-<p style="display: <?php echo $display; ?>;"><label for="wr_<?php echo $i; ?>"><?php echo $board['bo_' . $i . '_subj']; ?></label>: <input type="text" name="wr_<?php echo $i; ?>" id="wr_<?php echo $i; ?>" value="<?php echo $write['wr_' . $i]; ?>" style="width: 80%;" /></p>
-
-<?php
-    }
-}
-?>
-
 <table width="<?=$width?>" align=center cellpadding=0 cellspacing=0><tr><td>
 
 
@@ -164,6 +125,25 @@ if ($option) {
     <td class=write_head>제 목</td>
     <td><input class='ed' style="width:100%;" name=wr_subject id="wr_subject" itemname="제목" required value="<?=$subject?>"></td></tr>
 <tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
+
+<?php
+for ($i = 1; $i < 11; $i++) {
+    if ($board['bo_' . $i . '_subj'] != '') {
+        if (is_null($write['wr_' . $i]) == true) {
+            $write['wr_' . $i] = ${'wr_' . $i};
+        }
+?>
+
+<tr>
+    <td class=write_head><label for="wr_<?php echo $i; ?>"><?php echo $board['bo_' . $i . '_subj']; ?></label></td>
+    <td><input type="text" name="wr_<?php echo $i; ?>" id="wr_<?php echo $i; ?>" value="<?php echo $write['wr_' . $i]; ?>" style="width: 100%;"></td></tr>
+<tr><td colspan=2 height=1 bgcolor=#e7e7e7></td></tr>
+
+<?php
+    }
+}
+?>
+
 <tr>
     <td class='write_head' style='padding:5 0 5 10;' colspan='2'>
         <? if ($is_dhtml_editor) { ?>
